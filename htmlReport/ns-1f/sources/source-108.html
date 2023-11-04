@@ -1,0 +1,349 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOptionalNonOptional</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOptionalNonOptional (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOptionalNonOptional$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.nio.file.Path;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OptionalNonOptional}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOptionalNonOptional.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OptionalNonOptional&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableOptionalNonOptional extends OptionalNonOptional {
+&nbsp;  private final Optional&lt;Path&gt; stubBinaryPath;
+&nbsp;  private final com.google.common.base.Optional&lt;? extends Path&gt; stubBinaryPath2;
+&nbsp;  private final @Nullable Optional&lt;Path&gt; stubBinaryPath3;
+&nbsp;
+&nbsp;  private ImmutableOptionalNonOptional(ImmutableOptionalNonOptional.Builder builder) {
+&nbsp;    this.stubBinaryPath2 = builder.stubBinaryPath2;
+&nbsp;    this.stubBinaryPath3 = builder.stubBinaryPath3;
+&nbsp;    this.stubBinaryPath = builder.stubBinaryPath != null
+&nbsp;        ? builder.stubBinaryPath
+&nbsp;        : Objects.requireNonNull(super.getStubBinaryPath(), &quot;stubBinaryPath&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableOptionalNonOptional(
+&nbsp;      Optional&lt;Path&gt; stubBinaryPath,
+&nbsp;      com.google.common.base.Optional&lt;? extends Path&gt; stubBinaryPath2,
+&nbsp;      @Nullable Optional&lt;Path&gt; stubBinaryPath3) {
+&nbsp;    this.stubBinaryPath = stubBinaryPath;
+&nbsp;    this.stubBinaryPath2 = stubBinaryPath2;
+&nbsp;    this.stubBinaryPath3 = stubBinaryPath3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code stubBinaryPath} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Path&gt; getStubBinaryPath() {
+&nbsp;    return stubBinaryPath;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code stubBinaryPath2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public com.google.common.base.Optional&lt;? extends Path&gt; stubBinaryPath2() {
+&nbsp;    return stubBinaryPath2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code stubBinaryPath3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Optional&lt;Path&gt; stubBinaryPath3() {
+&nbsp;    return stubBinaryPath3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OptionalNonOptional#getStubBinaryPath() stubBinaryPath} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for stubBinaryPath
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalNonOptional withStubBinaryPath(Optional&lt;Path&gt; value) {
+&nbsp;    Optional&lt;Path&gt; newValue = Objects.requireNonNull(value, &quot;stubBinaryPath&quot;);
+&nbsp;    if (this.stubBinaryPath.equals(newValue)) return this;
+&nbsp;    return new ImmutableOptionalNonOptional(newValue, this.stubBinaryPath2, this.stubBinaryPath3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OptionalNonOptional#stubBinaryPath2() stubBinaryPath2} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for stubBinaryPath2
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalNonOptional withStubBinaryPath2(com.google.common.base.Optional&lt;? extends Path&gt; value) {
+&nbsp;    com.google.common.base.Optional&lt;? extends Path&gt; newValue = Objects.requireNonNull(value, &quot;stubBinaryPath2&quot;);
+&nbsp;    if (this.stubBinaryPath2.equals(newValue)) return this;
+&nbsp;    return new ImmutableOptionalNonOptional(this.stubBinaryPath, newValue, this.stubBinaryPath3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OptionalNonOptional#stubBinaryPath3() stubBinaryPath3} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for stubBinaryPath3 (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalNonOptional withStubBinaryPath3(@Nullable Optional&lt;Path&gt; value) {
+&nbsp;    if (Objects.equals(this.stubBinaryPath3, value)) return this;
+&nbsp;    return new ImmutableOptionalNonOptional(this.stubBinaryPath, this.stubBinaryPath2, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOptionalNonOptional} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOptionalNonOptional
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOptionalNonOptional) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOptionalNonOptional another) {
+&nbsp;    return stubBinaryPath.equals(another.stubBinaryPath)
+&nbsp;        &amp;&amp; stubBinaryPath2.equals(another.stubBinaryPath2)
+&nbsp;        &amp;&amp; Objects.equals(stubBinaryPath3, another.stubBinaryPath3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code stubBinaryPath}, {@code stubBinaryPath2}, {@code stubBinaryPath3}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + stubBinaryPath.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + stubBinaryPath2.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(stubBinaryPath3);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OptionalNonOptional} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OptionalNonOptional&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;stubBinaryPath&quot;, stubBinaryPath)
+&nbsp;        .add(&quot;stubBinaryPath2&quot;, stubBinaryPath2)
+&nbsp;        .add(&quot;stubBinaryPath3&quot;, stubBinaryPath3)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OptionalNonOptional} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OptionalNonOptional instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalNonOptional copyOf(OptionalNonOptional instance) {
+&nbsp;    if (instance instanceof ImmutableOptionalNonOptional) {
+&nbsp;      return (ImmutableOptionalNonOptional) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOptionalNonOptional.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOptionalNonOptional ImmutableOptionalNonOptional}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOptionalNonOptional.builder()
+&nbsp;   *    .stubBinaryPath(Optional&amp;amp;lt;java.nio.file.Path&amp;amp;gt;) // optional {@link OptionalNonOptional#getStubBinaryPath() stubBinaryPath}
+&nbsp;   *    .stubBinaryPath2(com.google.common.base.Optional&amp;amp;lt;? extends java.nio.file.Path&amp;amp;gt;) // required {@link OptionalNonOptional#stubBinaryPath2() stubBinaryPath2}
+&nbsp;   *    .stubBinaryPath3(Optional&amp;amp;lt;java.nio.file.Path&amp;amp;gt; | null) // nullable {@link OptionalNonOptional#stubBinaryPath3() stubBinaryPath3}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableOptionalNonOptional builder
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalNonOptional.Builder builder() {
+&nbsp;    return new ImmutableOptionalNonOptional.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOptionalNonOptional ImmutableOptionalNonOptional}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OptionalNonOptional&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_STUB_BINARY_PATH2 = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable Optional&lt;Path&gt; stubBinaryPath;
+&nbsp;    private @Nullable com.google.common.base.Optional&lt;? extends Path&gt; stubBinaryPath2;
+&nbsp;    private @Nullable Optional&lt;Path&gt; stubBinaryPath3;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code OptionalNonOptional} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(OptionalNonOptional instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      stubBinaryPath(instance.getStubBinaryPath());
+&nbsp;      stubBinaryPath2(instance.stubBinaryPath2());
+&nbsp;      @Nullable Optional&lt;Path&gt; stubBinaryPath3Value = instance.stubBinaryPath3();
+&nbsp;      if (stubBinaryPath3Value != null) {
+&nbsp;        stubBinaryPath3(stubBinaryPath3Value);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OptionalNonOptional#getStubBinaryPath() stubBinaryPath} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link OptionalNonOptional#getStubBinaryPath() stubBinaryPath}.&lt;/em&gt;
+&nbsp;     * @param stubBinaryPath The value for stubBinaryPath 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder stubBinaryPath(Optional&lt;Path&gt; stubBinaryPath) {
+&nbsp;      this.stubBinaryPath = Objects.requireNonNull(stubBinaryPath, &quot;stubBinaryPath&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OptionalNonOptional#stubBinaryPath2() stubBinaryPath2} attribute.
+&nbsp;     * @param stubBinaryPath2 The value for stubBinaryPath2 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder stubBinaryPath2(com.google.common.base.Optional&lt;? extends Path&gt; stubBinaryPath2) {
+&nbsp;      this.stubBinaryPath2 = Objects.requireNonNull(stubBinaryPath2, &quot;stubBinaryPath2&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_STUB_BINARY_PATH2;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OptionalNonOptional#stubBinaryPath3() stubBinaryPath3} attribute.
+&nbsp;     * @param stubBinaryPath3 The value for stubBinaryPath3 (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder stubBinaryPath3(@Nullable Optional&lt;Path&gt; stubBinaryPath3) {
+&nbsp;      this.stubBinaryPath3 = stubBinaryPath3;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOptionalNonOptional ImmutableOptionalNonOptional}.
+&nbsp;     * @return An immutable instance of OptionalNonOptional
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOptionalNonOptional build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableOptionalNonOptional(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_STUB_BINARY_PATH2) != 0) attributes.add(&quot;stubBinaryPath2&quot;);
+&nbsp;      return &quot;Cannot build OptionalNonOptional, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

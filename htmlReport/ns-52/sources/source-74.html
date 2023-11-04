@@ -1,0 +1,646 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableValueImmutableInfo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableValueImmutableInfo (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableValueImmutableInfo$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableValueImmutableInfo$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableValueImmutableInfo$InternProxy</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.Interner;
+&nbsp;import com.google.common.collect.Interners;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ValueImmutableInfo}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableValueImmutableInfo.theBuilder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableValueImmutableInfo.theOf()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ValueImmutableInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@javax.annotation.concurrent.Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableValueImmutableInfo extends ValueImmutableInfo {
+&nbsp;  private final boolean isDefault;
+&nbsp;  private final boolean builder;
+&nbsp;  private final boolean copy;
+&nbsp;  private final boolean intern;
+&nbsp;  private final boolean prehash;
+&nbsp;  private final boolean lazyhash;
+&nbsp;  private final boolean singleton;
+&nbsp;
+&nbsp;  private ImmutableValueImmutableInfo(boolean builder, boolean copy, boolean intern, boolean prehash, boolean lazyhash, boolean singleton) {
+&nbsp;    this.builder = builder;
+&nbsp;    this.copy = copy;
+&nbsp;    this.intern = intern;
+&nbsp;    this.prehash = prehash;
+&nbsp;    this.lazyhash = lazyhash;
+&nbsp;    this.singleton = singleton;
+&nbsp;    this.isDefault = super.isDefault();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableValueImmutableInfo(ImmutableValueImmutableInfo.Builder builder) {
+&nbsp;    this.builder = builder.builder;
+&nbsp;    this.copy = builder.copy;
+&nbsp;    this.intern = builder.intern;
+&nbsp;    this.prehash = builder.prehash;
+&nbsp;    this.lazyhash = builder.lazyhash;
+&nbsp;    this.singleton = builder.singleton;
+&nbsp;    this.isDefault = builder.isDefaultIsSet()
+&nbsp;        ? builder.isDefault
+&nbsp;        : super.isDefault();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableValueImmutableInfo(
+&nbsp;      boolean isDefault,
+&nbsp;      boolean builder,
+&nbsp;      boolean copy,
+&nbsp;      boolean intern,
+&nbsp;      boolean prehash,
+&nbsp;      boolean lazyhash,
+&nbsp;      boolean singleton) {
+&nbsp;    this.isDefault = isDefault;
+&nbsp;    this.builder = builder;
+&nbsp;    this.copy = copy;
+&nbsp;    this.intern = intern;
+&nbsp;    this.prehash = prehash;
+&nbsp;    this.lazyhash = lazyhash;
+&nbsp;    this.singleton = singleton;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code isDefault} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean isDefault() {
+&nbsp;    return isDefault;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code builder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean builder() {
+&nbsp;    return builder;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code copy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean copy() {
+&nbsp;    return copy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code intern} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean intern() {
+&nbsp;    return intern;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code prehash} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean prehash() {
+&nbsp;    return prehash;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code lazyhash} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean lazyhash() {
+&nbsp;    return lazyhash;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code singleton} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean singleton() {
+&nbsp;    return singleton;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#isDefault() isDefault} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for isDefault
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withIsDefault(boolean value) {
+&nbsp;    if (this.isDefault == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(value, this.builder, this.copy, this.intern, this.prehash, this.lazyhash, this.singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#builder() builder} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for builder
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withBuilder(boolean value) {
+&nbsp;    if (this.builder == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(this.isDefault, value, this.copy, this.intern, this.prehash, this.lazyhash, this.singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#copy() copy} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for copy
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withCopy(boolean value) {
+&nbsp;    if (this.copy == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(this.isDefault, this.builder, value, this.intern, this.prehash, this.lazyhash, this.singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#intern() intern} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for intern
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withIntern(boolean value) {
+&nbsp;    if (this.intern == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(this.isDefault, this.builder, this.copy, value, this.prehash, this.lazyhash, this.singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#prehash() prehash} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for prehash
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withPrehash(boolean value) {
+&nbsp;    if (this.prehash == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(this.isDefault, this.builder, this.copy, this.intern, value, this.lazyhash, this.singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#lazyhash() lazyhash} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for lazyhash
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withLazyhash(boolean value) {
+&nbsp;    if (this.lazyhash == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(this.isDefault, this.builder, this.copy, this.intern, this.prehash, value, this.singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ValueImmutableInfo#singleton() singleton} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for singleton
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableValueImmutableInfo withSingleton(boolean value) {
+&nbsp;    if (this.singleton == value) return this;
+&nbsp;    return validate(new ImmutableValueImmutableInfo(this.isDefault, this.builder, this.copy, this.intern, this.prehash, this.lazyhash, value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableValueImmutableInfo} that have equal attribute values.
+&nbsp;   * As instances of the {@code ImmutableValueImmutableInfo} class are interned, the {@code equals} method is implemented
+&nbsp;   * as an efficient reference equality check.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    return this == another;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableValueImmutableInfo another) {
+&nbsp;    return isDefault == another.isDefault
+&nbsp;        &amp;&amp; builder == another.builder
+&nbsp;        &amp;&amp; copy == another.copy
+&nbsp;        &amp;&amp; intern == another.intern
+&nbsp;        &amp;&amp; prehash == another.prehash
+&nbsp;        &amp;&amp; lazyhash == another.lazyhash
+&nbsp;        &amp;&amp; singleton == another.singleton;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code isDefault}, {@code builder}, {@code copy}, {@code intern}, {@code prehash}, {@code lazyhash}, {@code singleton}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isDefault);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(builder);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(copy);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(intern);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(prehash);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(lazyhash);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(singleton);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ValueImmutableInfo} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ValueImmutableInfo&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;isDefault&quot;, isDefault)
+&nbsp;        .add(&quot;builder&quot;, builder)
+&nbsp;        .add(&quot;copy&quot;, copy)
+&nbsp;        .add(&quot;intern&quot;, intern)
+&nbsp;        .add(&quot;prehash&quot;, prehash)
+&nbsp;        .add(&quot;lazyhash&quot;, lazyhash)
+&nbsp;        .add(&quot;singleton&quot;, singleton)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;ValueImmutableInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class InternProxy {
+&nbsp;    final ImmutableValueImmutableInfo instance;
+&nbsp;
+&nbsp;    InternProxy(ImmutableValueImmutableInfo instance) {
+&nbsp;      this.instance = instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      return another != null &amp;&amp; instance.equalTo(((InternProxy) another).instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return instance.hashCode();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final Interner&lt;InternProxy&gt; INTERNER = Interners.newStrongInterner();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code ValueImmutableInfo} instance.
+&nbsp;   * @param builder The value for the {@code builder} attribute
+&nbsp;   * @param copy The value for the {@code copy} attribute
+&nbsp;   * @param intern The value for the {@code intern} attribute
+&nbsp;   * @param prehash The value for the {@code prehash} attribute
+&nbsp;   * @param lazyhash The value for the {@code lazyhash} attribute
+&nbsp;   * @param singleton The value for the {@code singleton} attribute
+&nbsp;   * @return An immutable ValueImmutableInfo instance
+&nbsp;   */
+&nbsp;  public static ImmutableValueImmutableInfo theOf(boolean builder, boolean copy, boolean intern, boolean prehash, boolean lazyhash, boolean singleton) {
+&nbsp;    return validate(new ImmutableValueImmutableInfo(builder, copy, intern, prehash, lazyhash, singleton));
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableValueImmutableInfo validate(ImmutableValueImmutableInfo instance) {
+&nbsp;    return INTERNER.intern(new InternProxy(instance)).instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ValueImmutableInfo} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ValueImmutableInfo instance
+&nbsp;   */
+&nbsp;  public static ImmutableValueImmutableInfo theCopyOf(ValueImmutableInfo instance) {
+&nbsp;    if (instance instanceof ImmutableValueImmutableInfo) {
+&nbsp;      return (ImmutableValueImmutableInfo) instance;
+&nbsp;    }
+&nbsp;    return ImmutableValueImmutableInfo.theBuilder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableValueImmutableInfo ImmutableValueImmutableInfo}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableValueImmutableInfo.theBuilder()
+&nbsp;   *    .isDefault(boolean) // optional {@link ValueImmutableInfo#isDefault() isDefault}
+&nbsp;   *    .builder(boolean) // required {@link ValueImmutableInfo#builder() builder}
+&nbsp;   *    .copy(boolean) // required {@link ValueImmutableInfo#copy() copy}
+&nbsp;   *    .intern(boolean) // required {@link ValueImmutableInfo#intern() intern}
+&nbsp;   *    .prehash(boolean) // required {@link ValueImmutableInfo#prehash() prehash}
+&nbsp;   *    .lazyhash(boolean) // required {@link ValueImmutableInfo#lazyhash() lazyhash}
+&nbsp;   *    .singleton(boolean) // required {@link ValueImmutableInfo#singleton() singleton}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableValueImmutableInfo builder
+&nbsp;   */
+&nbsp;  public static ImmutableValueImmutableInfo.Builder theBuilder() {
+&nbsp;    return new ImmutableValueImmutableInfo.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableValueImmutableInfo ImmutableValueImmutableInfo}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ValueImmutableInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_BUILDER = 0x1L;
+&nbsp;    private static final long INIT_BIT_COPY = 0x2L;
+&nbsp;    private static final long INIT_BIT_INTERN = 0x4L;
+&nbsp;    private static final long INIT_BIT_PREHASH = 0x8L;
+&nbsp;    private static final long INIT_BIT_LAZYHASH = 0x10L;
+&nbsp;    private static final long INIT_BIT_SINGLETON = 0x20L;
+&nbsp;    private static final long OPT_BIT_IS_DEFAULT = 0x1L;
+&nbsp;    private long initBits = 0x3fL;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private boolean isDefault;
+&nbsp;    private boolean builder;
+&nbsp;    private boolean copy;
+&nbsp;    private boolean intern;
+&nbsp;    private boolean prehash;
+&nbsp;    private boolean lazyhash;
+&nbsp;    private boolean singleton;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.value.processor.meta.ValueImmutableInfo} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ValueImmutableInfo instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.value.processor.meta.ValueMirrors.Immutable} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ValueMirrors.Immutable instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(Object object) {
+&nbsp;      @Var long bits = 0;
+&nbsp;      if (object instanceof ValueImmutableInfo) {
+&nbsp;        ValueImmutableInfo instance = (ValueImmutableInfo) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          singleton(instance.singleton());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;        isDefault(instance.isDefault());
+&nbsp;        if ((bits &amp; 0x2L) == 0) {
+&nbsp;          intern(instance.intern());
+&nbsp;          bits |= 0x2L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x4L) == 0) {
+&nbsp;          prehash(instance.prehash());
+&nbsp;          bits |= 0x4L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x8L) == 0) {
+&nbsp;          lazyhash(instance.lazyhash());
+&nbsp;          bits |= 0x8L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x10L) == 0) {
+&nbsp;          builder(instance.builder());
+&nbsp;          bits |= 0x10L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x20L) == 0) {
+&nbsp;          copy(instance.copy());
+&nbsp;          bits |= 0x20L;
+&nbsp;        }
+&nbsp;      }
+&nbsp;      if (object instanceof ValueMirrors.Immutable) {
+&nbsp;        ValueMirrors.Immutable instance = (ValueMirrors.Immutable) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          singleton(instance.singleton());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x10L) == 0) {
+&nbsp;          builder(instance.builder());
+&nbsp;          bits |= 0x10L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x2L) == 0) {
+&nbsp;          intern(instance.intern());
+&nbsp;          bits |= 0x2L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x4L) == 0) {
+&nbsp;          prehash(instance.prehash());
+&nbsp;          bits |= 0x4L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x20L) == 0) {
+&nbsp;          copy(instance.copy());
+&nbsp;          bits |= 0x20L;
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x8L) == 0) {
+&nbsp;          lazyhash(instance.lazyhash());
+&nbsp;          bits |= 0x8L;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#isDefault() isDefault} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ValueImmutableInfo#isDefault() isDefault}.&lt;/em&gt;
+&nbsp;     * @param isDefault The value for isDefault 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder isDefault(boolean isDefault) {
+&nbsp;      this.isDefault = isDefault;
+&nbsp;      optBits |= OPT_BIT_IS_DEFAULT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#builder() builder} attribute.
+&nbsp;     * @param builder The value for builder 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder builder(boolean builder) {
+&nbsp;      this.builder = builder;
+&nbsp;      initBits &amp;= ~INIT_BIT_BUILDER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#copy() copy} attribute.
+&nbsp;     * @param copy The value for copy 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder copy(boolean copy) {
+&nbsp;      this.copy = copy;
+&nbsp;      initBits &amp;= ~INIT_BIT_COPY;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#intern() intern} attribute.
+&nbsp;     * @param intern The value for intern 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder intern(boolean intern) {
+&nbsp;      this.intern = intern;
+&nbsp;      initBits &amp;= ~INIT_BIT_INTERN;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#prehash() prehash} attribute.
+&nbsp;     * @param prehash The value for prehash 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder prehash(boolean prehash) {
+&nbsp;      this.prehash = prehash;
+&nbsp;      initBits &amp;= ~INIT_BIT_PREHASH;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#lazyhash() lazyhash} attribute.
+&nbsp;     * @param lazyhash The value for lazyhash 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder lazyhash(boolean lazyhash) {
+&nbsp;      this.lazyhash = lazyhash;
+&nbsp;      initBits &amp;= ~INIT_BIT_LAZYHASH;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ValueImmutableInfo#singleton() singleton} attribute.
+&nbsp;     * @param singleton The value for singleton 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder singleton(boolean singleton) {
+&nbsp;      this.singleton = singleton;
+&nbsp;      initBits &amp;= ~INIT_BIT_SINGLETON;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableValueImmutableInfo ImmutableValueImmutableInfo}.
+&nbsp;     * @return An immutable instance of ValueImmutableInfo
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableValueImmutableInfo build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return ImmutableValueImmutableInfo.validate(new ImmutableValueImmutableInfo(this));
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean isDefaultIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_IS_DEFAULT) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_BUILDER) != 0) attributes.add(&quot;builder&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_COPY) != 0) attributes.add(&quot;copy&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_INTERN) != 0) attributes.add(&quot;intern&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_PREHASH) != 0) attributes.add(&quot;prehash&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_LAZYHASH) != 0) attributes.add(&quot;lazyhash&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_SINGLETON) != 0) attributes.add(&quot;singleton&quot;);
+&nbsp;      return &quot;Cannot build ValueImmutableInfo, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

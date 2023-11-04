@@ -1,0 +1,813 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableMirror</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableMirror (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ImmutableMirror</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/94)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/192)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ImmutableMirror$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMirror$BuilderExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMirror$CopyExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMirror$InternExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMirror$LazyhashExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMirror$PrehashExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMirror$SingletonExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/52)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/94)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/240)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.base.Verify;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import javax.lang.model.element.*;
+&nbsp;import javax.lang.model.type.*;
+&nbsp;import javax.lang.model.util.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * ImmutableMirror used to parse data of AnnotationMirror for original annotation {@code org.immutables.value.Value.Immutable}
+&nbsp; * during annotation processing. Interface is being described using {@link org.immutables.value.processor.meta.ValueMirrors.Immutable} annotation,
+&nbsp; * which should be structurally compatible to the annotation being modelled.
+&nbsp; * @see #find(Iterable)
+&nbsp; * @see #from(AnnotationMirror)
+&nbsp; */
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;public class ImmutableMirror implements ValueMirrors.Immutable {
+&nbsp;  public static final String QUALIFIED_NAME = &quot;org.immutables.value.Value.Immutable&quot;;
+&nbsp;  public static final String MIRROR_QUALIFIED_NAME = &quot;org.immutables.value.processor.meta.ValueMirrors.Immutable&quot;;
+&nbsp;
+&nbsp;  public static String mirrorQualifiedName() {
+<b class="nc">&nbsp;    return QUALIFIED_NAME;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static String qualifiedName() {
+<b class="nc">&nbsp;    return QUALIFIED_NAME;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static String simpleName() {
+<b class="nc">&nbsp;    return &quot;Immutable&quot;;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static boolean isPresent(Element annotatedElement) {
+<b class="nc">&nbsp;    for (AnnotationMirror mirror : annotatedElement.getAnnotationMirrors()) {</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) mirror.getAnnotationType().asElement();</b>
+<b class="nc">&nbsp;      if (element.getQualifiedName().contentEquals(QUALIFIED_NAME)) {</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds first annotation of this type on the element.
+&nbsp;   * @param element annotated element
+&nbsp;   * @return optional {@code ImmutableMirror}, present if this annotation found
+&nbsp;   */
+&nbsp;  public static Optional&lt;ImmutableMirror&gt; find(Element element) {
+<b class="nc">&nbsp;    return find(element.getAnnotationMirrors());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds first annotation of this type in an iterable of annotation mirrors.
+&nbsp;   * @param mirrors annotation mirrors
+&nbsp;   * @return optional {@code ImmutableMirror}, present if this annotation found
+&nbsp;   */
+&nbsp;  public static Optional&lt;ImmutableMirror&gt; find(Iterable&lt;? extends AnnotationMirror&gt; mirrors) {
+<b class="nc">&nbsp;    for (AnnotationMirror mirror : mirrors) {</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) mirror.getAnnotationType().asElement();</b>
+<b class="nc">&nbsp;      if (element.getQualifiedName().contentEquals(QUALIFIED_NAME)) {</b>
+<b class="nc">&nbsp;        return Optional.of(new ImmutableMirror(mirror));</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return Optional.absent();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts iterable of annotation mirrors where all annotation are of this type. Otherwise it fails
+&nbsp;   * @param mirrors of this annotation type.
+&nbsp;   * @return list of converted {@code ImmutableMirror}s
+&nbsp;   */
+&nbsp;  public static ImmutableList&lt;ImmutableMirror&gt; fromAll(Iterable&lt;? extends AnnotationMirror&gt; mirrors) {
+<b class="nc">&nbsp;    ImmutableList.Builder&lt;ImmutableMirror&gt; builder = ImmutableList.builder();</b>
+<b class="nc">&nbsp;    for (AnnotationMirror mirror : mirrors) {</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) mirror.getAnnotationType().asElement();</b>
+<b class="nc">&nbsp;      Preconditions.checkState(element.getQualifiedName().contentEquals(QUALIFIED_NAME),</b>
+&nbsp;          &quot;Supplied mirrors should all be of this annotation type&quot;);
+<b class="nc">&nbsp;      builder.add(new ImmutableMirror(mirror));</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return builder.build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates mirror with default values using annotation element (i.e. declaration, not usage).
+&nbsp;   * @param element annotation type element
+&nbsp;   * @return {@code ImmutableMirror}
+&nbsp;   */
+&nbsp;  public static ImmutableMirror from(TypeElement element) {
+<b class="nc">&nbsp;    return new ImmutableMirror(element);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Tries to convert annotation mirror to this annotation type.
+&nbsp;   * @param mirror annotation mirror
+&nbsp;   * @return optional {@code ImmutableMirror}, present if mirror matched this annotation type
+&nbsp;   */
+&nbsp;  public static Optional&lt;ImmutableMirror&gt; from(AnnotationMirror mirror) {
+<b class="nc">&nbsp;    return find(Collections.singleton(mirror));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private final AnnotationMirror annotationMirror;
+&nbsp;  private final boolean singleton;
+&nbsp;  private final boolean intern;
+&nbsp;  private final boolean copy;
+&nbsp;  private final boolean prehash;
+&nbsp;  private final boolean lazyhash;
+&nbsp;  private final boolean builder;
+&nbsp;
+<b class="nc">&nbsp;  private ImmutableMirror(TypeElement defaultAnnotationElement) {</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(defaultAnnotationElement.getQualifiedName().contentEquals(QUALIFIED_NAME)</b>
+<b class="nc">&nbsp;        || defaultAnnotationElement.getQualifiedName().contentEquals(MIRROR_QUALIFIED_NAME));</b>
+<b class="nc">&nbsp;    this.annotationMirror = null;</b>
+&nbsp;
+&nbsp;    // TBD TODO BIG
+&nbsp;
+<b class="nc">&nbsp;    boolean singleton = false;</b>
+<b class="nc">&nbsp;    boolean intern = false;</b>
+<b class="nc">&nbsp;    boolean copy = false;</b>
+<b class="nc">&nbsp;    boolean prehash = false;</b>
+<b class="nc">&nbsp;    boolean lazyhash = false;</b>
+<b class="nc">&nbsp;    boolean builder = false;</b>
+&nbsp;
+&nbsp;    for (ExecutableElement attributeElement$
+<b class="nc">&nbsp;        : ElementFilter.methodsIn(defaultAnnotationElement.getEnclosedElements())) {</b>
+<b class="nc">&nbsp;      String name$ = attributeElement$.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      if (&quot;singleton&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SingletonExtractor singletonExtractor$ = new SingletonExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(singletonExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        singleton = singletonExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;intern&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        InternExtractor internExtractor$ = new InternExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(internExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        intern = internExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;copy&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        CopyExtractor copyExtractor$ = new CopyExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(copyExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        copy = copyExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;prehash&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        PrehashExtractor prehashExtractor$ = new PrehashExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(prehashExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        prehash = prehashExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;lazyhash&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        LazyhashExtractor lazyhashExtractor$ = new LazyhashExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(lazyhashExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        lazyhash = lazyhashExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;builder&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        BuilderExtractor builderExtractor$ = new BuilderExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(builderExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        builder = builderExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    this.singleton = singleton;</b>
+<b class="nc">&nbsp;    this.intern = intern;</b>
+<b class="nc">&nbsp;    this.copy = copy;</b>
+<b class="nc">&nbsp;    this.prehash = prehash;</b>
+<b class="nc">&nbsp;    this.lazyhash = lazyhash;</b>
+<b class="nc">&nbsp;    this.builder = builder;</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private ImmutableMirror(AnnotationMirror annotationMirror) {</b>
+<b class="nc">&nbsp;    this.annotationMirror = annotationMirror;</b>
+&nbsp;
+<b class="nc">&nbsp;    boolean singleton = false;</b>
+<b class="nc">&nbsp;    boolean intern = false;</b>
+<b class="nc">&nbsp;    boolean copy = false;</b>
+<b class="nc">&nbsp;    boolean prehash = false;</b>
+<b class="nc">&nbsp;    boolean lazyhash = false;</b>
+<b class="nc">&nbsp;    boolean builder = false;</b>
+&nbsp;
+<b class="nc">&nbsp;    Map&lt;? extends ExecutableElement, ? extends AnnotationValue&gt; attributeValues$ = annotationMirror.getElementValues();</b>
+&nbsp;    for (ExecutableElement attributeElement$
+<b class="nc">&nbsp;        : ElementFilter.methodsIn(annotationMirror.getAnnotationType().asElement().getEnclosedElements())) {</b>
+<b class="nc">&nbsp;      String name$ = attributeElement$.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      if (&quot;singleton&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;singleton&#39; attribute of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        SingletonExtractor singletonExtractor$ = new SingletonExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(singletonExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        singleton = singletonExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;intern&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;intern&#39; attribute of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        InternExtractor internExtractor$ = new InternExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(internExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        intern = internExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;copy&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;copy&#39; attribute of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        CopyExtractor copyExtractor$ = new CopyExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(copyExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        copy = copyExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;prehash&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;prehash&#39; attribute of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        PrehashExtractor prehashExtractor$ = new PrehashExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(prehashExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        prehash = prehashExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;lazyhash&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;lazyhash&#39; attribute of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        LazyhashExtractor lazyhashExtractor$ = new LazyhashExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(lazyhashExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        lazyhash = lazyhashExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;builder&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;builder&#39; attribute of @Immutable&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        BuilderExtractor builderExtractor$ = new BuilderExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(builderExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        builder = builderExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    this.singleton = singleton;</b>
+<b class="nc">&nbsp;    this.intern = intern;</b>
+<b class="nc">&nbsp;    this.copy = copy;</b>
+<b class="nc">&nbsp;    this.prehash = prehash;</b>
+<b class="nc">&nbsp;    this.lazyhash = lazyhash;</b>
+<b class="nc">&nbsp;    this.builder = builder;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code singleton}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean singleton() {
+<b class="nc">&nbsp;    return singleton;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code intern}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean intern() {
+<b class="nc">&nbsp;    return intern;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code copy}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean copy() {
+<b class="nc">&nbsp;    return copy;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code prehash}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean prehash() {
+<b class="nc">&nbsp;    return prehash;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code lazyhash}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean lazyhash() {
+<b class="nc">&nbsp;    return lazyhash;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code builder}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean builder() {
+<b class="nc">&nbsp;    return builder;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return underlying annotation mirror
+&nbsp;   */
+&nbsp;  public AnnotationMirror getAnnotationMirror() {
+<b class="nc">&nbsp;    Preconditions.checkState(annotationMirror != null, &quot;this is default mirror without originating AnnotationMirror&quot;);</b>
+<b class="nc">&nbsp;    return annotationMirror;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return {@code Immutable.class}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt; annotationType() {
+<b class="nc">&nbsp;    return ValueMirrors.Immutable.class;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    int h = 0;</b>
+<b class="nc">&nbsp;    h += 127 * &quot;singleton&quot;.hashCode() ^ Booleans.hashCode(singleton);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;intern&quot;.hashCode() ^ Booleans.hashCode(intern);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;copy&quot;.hashCode() ^ Booleans.hashCode(copy);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;prehash&quot;.hashCode() ^ Booleans.hashCode(prehash);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;lazyhash&quot;.hashCode() ^ Booleans.hashCode(lazyhash);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;builder&quot;.hashCode() ^ Booleans.hashCode(builder);</b>
+<b class="nc">&nbsp;    return h;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean equals(Object other) {
+<b class="nc">&nbsp;    if (other instanceof ImmutableMirror) {</b>
+<b class="nc">&nbsp;      ImmutableMirror otherMirror = (ImmutableMirror) other;</b>
+<b class="nc">&nbsp;      return singleton == otherMirror.singleton</b>
+&nbsp;          &amp;&amp; intern == otherMirror.intern
+&nbsp;          &amp;&amp; copy == otherMirror.copy
+&nbsp;          &amp;&amp; prehash == otherMirror.prehash
+&nbsp;          &amp;&amp; lazyhash == otherMirror.lazyhash
+&nbsp;          &amp;&amp; builder == otherMirror.builder;
+&nbsp;    }
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return &quot;ImmutableMirror:&quot; + annotationMirror;</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class SingletonExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;singleton&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class InternExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;intern&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class CopyExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;copy&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class PrehashExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;prehash&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class LazyhashExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;lazyhash&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class BuilderExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;builder&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

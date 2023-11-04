@@ -1,0 +1,733 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSecondie</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.generics</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSecondie (org.immutables.fixture.generics)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSecondie$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableSecondie$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.generics;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMultimap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Secondie}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSecondie.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSecondie.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Secondie&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSecondie&lt;T, V&gt; implements Secondie&lt;T, V&gt; {
+&nbsp;  private final @Nullable V integer;
+&nbsp;  private final @Nullable ImmutableList&lt;T&gt; list;
+&nbsp;  private final @Nullable ImmutableSet&lt;V&gt; set;
+&nbsp;  private final ImmutableMultimap&lt;T, V&gt; coll;
+&nbsp;  private transient final @Nullable List&lt;V&gt; lst;
+&nbsp;
+&nbsp;  private ImmutableSecondie(@Nullable V integer, @Nullable Iterable&lt;? extends T&gt; list) {
+&nbsp;    this.integer = integer;
+&nbsp;    this.list = list == null ? null : ImmutableList.copyOf(list);
+&nbsp;    this.coll = ImmutableMultimap.of();
+&nbsp;    this.set = initShim.set();
+&nbsp;    this.lst = initShim.lst();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSecondie(ImmutableSecondie.Builder&lt;T, V&gt; builder) {
+&nbsp;    this.integer = builder.integer;
+&nbsp;    this.list = builder.list == null ? null : builder.list.build();
+&nbsp;    this.coll = builder.coll.build();
+&nbsp;    if (builder.setIsSet()) {
+&nbsp;      initShim.set(builder.set == null ? null : builder.set.build());
+&nbsp;    }
+&nbsp;    this.set = initShim.set();
+&nbsp;    this.lst = initShim.lst();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSecondie(
+&nbsp;      @Nullable V integer,
+&nbsp;      @Nullable ImmutableList&lt;T&gt; list,
+&nbsp;      @Nullable ImmutableSet&lt;V&gt; set,
+&nbsp;      ImmutableMultimap&lt;T, V&gt; coll) {
+&nbsp;    this.integer = integer;
+&nbsp;    this.list = list;
+&nbsp;    initShim.set(set);
+&nbsp;    this.coll = coll;
+&nbsp;    this.set = initShim.set();
+&nbsp;    this.lst = initShim.lst();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;Secondie&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte setBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSet&lt;V&gt; set;
+&nbsp;
+&nbsp;    ImmutableSet&lt;V&gt; set() {
+&nbsp;      if (setBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (setBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        setBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.set = setInitialize() == null ? null : ImmutableSet.copyOf(setInitialize());
+&nbsp;        setBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.set;
+&nbsp;    }
+&nbsp;
+&nbsp;    void set(ImmutableSet&lt;V&gt; set) {
+&nbsp;      this.set = set;
+&nbsp;      setBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte lstBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private List&lt;V&gt; lst;
+&nbsp;
+&nbsp;    List&lt;V&gt; lst() {
+&nbsp;      if (lstBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (lstBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        lstBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.lst = lstInitialize();
+&nbsp;        lstBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.lst;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (setBuildStage == STAGE_INITIALIZING) attributes.add(&quot;set&quot;);
+&nbsp;      if (lstBuildStage == STAGE_INITIALIZING) attributes.add(&quot;lst&quot;);
+&nbsp;      return &quot;Cannot build Secondie, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable Set&lt;V&gt; setInitialize() {
+&nbsp;    return Secondie.super.set();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable List&lt;V&gt; lstInitialize() {
+&nbsp;    return Secondie.super.lst();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code integer} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable V integer() {
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;T&gt; list() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableSet&lt;V&gt; set() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.set()
+&nbsp;        : this.set;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code coll} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultimap&lt;T, V&gt; coll() {
+&nbsp;    return coll;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code lst} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable List&lt;V&gt; lst() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.lst()
+&nbsp;        : this.lst;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Secondie#integer() integer} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for integer (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; withInteger(@Nullable V value) {
+&nbsp;    if (this.integer == value) return this;
+&nbsp;    return new ImmutableSecondie&lt;&gt;(value, this.list, this.set, this.coll);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Secondie#list() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; withList(@Nullable T... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableSecondie&lt;&gt;(this.integer, null, this.set, this.coll);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;T&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSecondie&lt;&gt;(this.integer, newValue, this.set, this.coll);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Secondie#list() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; withList(@Nullable Iterable&lt;? extends T&gt; elements) {
+&nbsp;    if (this.list == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;T&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSecondie&lt;&gt;(this.integer, newValue, this.set, this.coll);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Secondie#set() set}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; withSet(@Nullable V... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableSecondie&lt;&gt;(this.integer, this.list, null, this.coll);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableSet&lt;V&gt; newValue = elements == null ? null : ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableSecondie&lt;&gt;(this.integer, this.list, newValue, this.coll);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Secondie#set() set}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; withSet(@Nullable Iterable&lt;? extends V&gt; elements) {
+&nbsp;    if (this.set == elements) return this;
+&nbsp;    @Nullable ImmutableSet&lt;V&gt; newValue = elements == null ? null : ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableSecondie&lt;&gt;(this.integer, this.list, newValue, this.coll);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Secondie#coll() coll} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the coll map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; withColl(Multimap&lt;? extends T, ? extends V&gt; entries) {
+&nbsp;    if (this.coll == entries) return this;
+&nbsp;    ImmutableMultimap&lt;T, V&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;    return new ImmutableSecondie&lt;&gt;(this.integer, this.list, this.set, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSecondie} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSecondie&lt;?, ?&gt;
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSecondie&lt;?, ?&gt;) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSecondie&lt;?, ?&gt; another) {
+&nbsp;    return Objects.equals(integer, another.integer)
+&nbsp;        &amp;&amp; Objects.equals(list, another.list)
+&nbsp;        &amp;&amp; Objects.equals(set, another.set)
+&nbsp;        &amp;&amp; coll.equals(another.coll)
+&nbsp;        &amp;&amp; Objects.equals(lst, another.lst);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code list}, {@code set}, {@code coll}, {@code lst}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(integer);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(list);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(set);
+&nbsp;    h += (h &lt;&lt; 5) + coll.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(lst);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Secondie} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Secondie&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;integer&quot;, integer)
+&nbsp;        .add(&quot;list&quot;, list)
+&nbsp;        .add(&quot;set&quot;, set)
+&nbsp;        .add(&quot;coll&quot;, coll)
+&nbsp;        .add(&quot;lst&quot;, lst)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Secondie} instance.
+&nbsp; * @param &lt;T&gt; generic parameter T
+&nbsp; * @param &lt;V&gt; generic parameter V
+&nbsp;   * @param integer The value for the {@code integer} attribute
+&nbsp;   * @param list The value for the {@code list} attribute
+&nbsp;   * @return An immutable Secondie instance
+&nbsp;   */
+&nbsp;  public static &lt;T, V&gt; ImmutableSecondie&lt;T, V&gt; of(@Nullable V integer, @Nullable List&lt;T&gt; list) {
+&nbsp;    return of(integer, (Iterable&lt;? extends T&gt;) list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Secondie} instance.
+&nbsp; * @param &lt;T&gt; generic parameter T
+&nbsp; * @param &lt;V&gt; generic parameter V
+&nbsp;   * @param integer The value for the {@code integer} attribute
+&nbsp;   * @param list The value for the {@code list} attribute
+&nbsp;   * @return An immutable Secondie instance
+&nbsp;   */
+&nbsp;  public static &lt;T, V&gt; ImmutableSecondie&lt;T, V&gt; of(@Nullable V integer, @Nullable Iterable&lt;? extends T&gt; list) {
+&nbsp;    return new ImmutableSecondie&lt;&gt;(integer, list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Secondie} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param &lt;V&gt; generic parameter V
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Secondie instance
+&nbsp;   */
+&nbsp;  public static &lt;T, V&gt; ImmutableSecondie&lt;T, V&gt; copyOf(Secondie&lt;T, V&gt; instance) {
+&nbsp;    if (instance instanceof ImmutableSecondie&lt;?, ?&gt;) {
+&nbsp;      return (ImmutableSecondie&lt;T, V&gt;) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSecondie.&lt;T, V&gt;builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSecondie ImmutableSecondie}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSecondie.&amp;amp;lt;T, V&amp;amp;gt;builder()
+&nbsp;   *    .integer(V | null) // nullable {@link Secondie#integer() integer}
+&nbsp;   *    .list(List&amp;amp;lt;T&amp;amp;gt; | null) // nullable {@link Secondie#list() list}
+&nbsp;   *    .set(Set&amp;amp;lt;V&amp;amp;gt; | null) // nullable {@link Secondie#set() set}
+&nbsp;   *    .putColl|putAllColl(T =&amp;gt; V) // {@link Secondie#coll() coll} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param &lt;V&gt; generic parameter V
+&nbsp;   * @return A new ImmutableSecondie builder
+&nbsp;   */
+&nbsp;  public static &lt;T, V&gt; ImmutableSecondie.Builder&lt;T, V&gt; builder() {
+&nbsp;    return new ImmutableSecondie.Builder&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSecondie ImmutableSecondie}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Secondie&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder&lt;T, V&gt; {
+&nbsp;    private static final long OPT_BIT_SET = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable V integer;
+&nbsp;    private ImmutableList.Builder&lt;T&gt; list = null;
+&nbsp;    private ImmutableSet.Builder&lt;V&gt; set = null;
+&nbsp;    private ImmutableMultimap.Builder&lt;T, V&gt; coll = ImmutableMultimap.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableSecondie} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; from(ModifiableSecondie&lt;T, V&gt; instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable V integerValue = instance.integer();
+&nbsp;      if (integerValue != null) {
+&nbsp;        integer(integerValue);
+&nbsp;      }
+&nbsp;      @Nullable List&lt;T&gt; listValue = instance.list();
+&nbsp;      if (listValue != null) {
+&nbsp;        addAllList(listValue);
+&nbsp;      }
+&nbsp;      @Nullable Set&lt;V&gt; setValue = instance.set();
+&nbsp;      if (setValue != null) {
+&nbsp;        addAllSet(setValue);
+&nbsp;      }
+&nbsp;      putAllColl(instance.coll());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Secondie} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; from(Secondie&lt;T, V&gt; instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableSecondie&lt;?, ?&gt;) {
+&nbsp;        return from((ModifiableSecondie&lt;T, V&gt;) instance);
+&nbsp;      }
+&nbsp;      @Nullable V integerValue = instance.integer();
+&nbsp;      if (integerValue != null) {
+&nbsp;        integer(integerValue);
+&nbsp;      }
+&nbsp;      @Nullable List&lt;T&gt; listValue = instance.list();
+&nbsp;      if (listValue != null) {
+&nbsp;        addAllList(listValue);
+&nbsp;      }
+&nbsp;      @Nullable Set&lt;V&gt; setValue = instance.set();
+&nbsp;      if (setValue != null) {
+&nbsp;        addAllSet(setValue);
+&nbsp;      }
+&nbsp;      putAllColl(instance.coll());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Secondie#integer() integer} attribute.
+&nbsp;     * @param integer The value for integer (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; integer(@Nullable V integer) {
+&nbsp;      this.integer = integer;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Secondie#list() list} list.
+&nbsp;     * @param element A list element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; addList(T element) {
+&nbsp;      if (this.list == null) {
+&nbsp;        this.list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.list.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Secondie#list() list} list.
+&nbsp;     * @param elements An array of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;    public final Builder&lt;T, V&gt; addList(T... elements) {
+&nbsp;      if (this.list == null) {
+&nbsp;        this.list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.list.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Secondie#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; list(@Nullable Iterable&lt;? extends T&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.list = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.list = ImmutableList.builder();
+&nbsp;      return addAllList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Secondie#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; addAllList(Iterable&lt;? extends T&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;list element&quot;);
+&nbsp;      if (this.list == null) {
+&nbsp;        this.list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.list.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Secondie#set() set} set.
+&nbsp;     * @param element A set element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; addSet(V element) {
+&nbsp;      if (this.set == null) {
+&nbsp;        this.set = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.set.add(element);
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Secondie#set() set} set.
+&nbsp;     * @param elements An array of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;    public final Builder&lt;T, V&gt; addSet(V... elements) {
+&nbsp;      if (this.set == null) {
+&nbsp;        this.set = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.set.add(elements);
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Secondie#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; set(@Nullable Iterable&lt;? extends V&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.set = null;
+&nbsp;        optBits |= OPT_BIT_SET;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.set = ImmutableSet.builder();
+&nbsp;      return addAllSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Secondie#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; addAllSet(Iterable&lt;? extends V&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;set element&quot;);
+&nbsp;      if (this.set == null) {
+&nbsp;        this.set = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.set.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link Secondie#coll() coll} true. Nulls are not permitted
+&nbsp;     * @param key The key for coll
+&nbsp;     * @param values The values for coll
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;    public final Builder&lt;T, V&gt; putColl(T key, V... values) {
+&nbsp;      this.coll.putAll(key, Arrays.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link Secondie#coll() coll} true. Nulls are not permitted
+&nbsp;     * @param key The key for coll
+&nbsp;     * @param values The values for coll
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; putAllColl(T key, Iterable&lt;V&gt; values) {
+&nbsp;      this.coll.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Secondie#coll() coll} map.
+&nbsp;     * @param key The key in the coll map
+&nbsp;     * @param value The associated value in the coll map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; putColl(T key, V value) {
+&nbsp;      this.coll.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Secondie#coll() coll} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; putColl(Map.Entry&lt;? extends T, ? extends V&gt; entry) {
+&nbsp;      this.coll.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Secondie#coll() coll} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the coll map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; coll(Multimap&lt;? extends T, ? extends V&gt; entries) {
+&nbsp;      this.coll = ImmutableMultimap.builder();
+&nbsp;      return putAllColl(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Secondie#coll() coll} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the coll map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T, V&gt; putAllColl(Multimap&lt;? extends T, ? extends V&gt; entries) {
+&nbsp;      this.coll.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSecondie ImmutableSecondie}.
+&nbsp;     * @return An immutable instance of Secondie
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSecondie&lt;T, V&gt; build() {
+&nbsp;      return new ImmutableSecondie&lt;T, V&gt;(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean setIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_SET) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

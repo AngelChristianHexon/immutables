@@ -1,0 +1,581 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > JdkMapsBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: JdkMapsBuilder (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">JdkMapsBuilder$ImmutableJdkMaps</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.EnumMap;
+&nbsp;import java.util.Iterator;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.NavigableMap;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.SortedMap;
+&nbsp;import java.util.TreeMap;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Builds instances of type {@link JdkMaps JdkMaps}.
+&nbsp; * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp; * immutable instance.
+&nbsp; * &lt;p&gt;&lt;em&gt;{@code JdkMapsBuilder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp; * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkMaps&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@NotThreadSafe
+&nbsp;public final class JdkMapsBuilder {
+&nbsp;  private Map&lt;Long, Integer&gt; just = new LinkedHashMap&lt;Long, Integer&gt;();
+&nbsp;  private Map&lt;Integer, String&gt; ords = new LinkedHashMap&lt;Integer, String&gt;();
+&nbsp;  private EnumMap&lt;RetentionPolicy, Integer&gt; pols = new EnumMap&lt;RetentionPolicy, Integer&gt;(RetentionPolicy.class);
+&nbsp;  private Map&lt;String, Integer&gt; navs = new LinkedHashMap&lt;String, Integer&gt;();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link JdkMaps JdkMaps} instances.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * new JdkMapsBuilder()
+&nbsp;   *    .putJust|putAllJust(long =&amp;gt; int) // {@link JdkMaps#just() just} mappings
+&nbsp;   *    .putOrds|putAllOrds(int =&amp;gt; String) // {@link JdkMaps#ords() ords} mappings
+&nbsp;   *    .putPols|putAllPols(annotation.RetentionPolicy =&amp;gt; int) // {@link JdkMaps#pols() pols} mappings
+&nbsp;   *    .putNavs|putAllNavs(String =&amp;gt; int) // {@link JdkMaps#navs() navs} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  public JdkMapsBuilder() {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill a builder with attribute values from the provided {@code JdkMaps} instance.
+&nbsp;   * Regular attribute values will be replaced with those from the given instance.
+&nbsp;   * Absent optional values will not replace present values.
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder from(JdkMaps instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    putAllJust(instance.just());
+&nbsp;    putAllOrds(instance.ords());
+&nbsp;    putAllPols(instance.pols());
+&nbsp;    putAllNavs(instance.navs());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#just() just} map.
+&nbsp;   * @param key The key in the just map
+&nbsp;   * @param value The associated value in the just map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putJust(long key, int value) {
+&nbsp;    this.just.put(
+&nbsp;        Objects.requireNonNull(key, &quot;just key&quot;),
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#just() just} map. Nulls are not permitted
+&nbsp;   * @param entry The key and value entry
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putJust(Map.Entry&lt;Long, ? extends Integer&gt; entry) {
+&nbsp;    Long k = entry.getKey();
+&nbsp;    Integer v = entry.getValue();
+&nbsp;    this.just.put(
+&nbsp;        Objects.requireNonNull(k, &quot;just key&quot;),
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;just value for key: &quot; + k : null));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link JdkMaps#just() just} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the just map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder just(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;    this.just.clear();
+&nbsp;    return putAllJust(entries);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to {@link JdkMaps#just() just} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the just map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putAllJust(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Long, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      Long k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.just.put(
+&nbsp;          Objects.requireNonNull(k, &quot;just key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;just value for key: &quot; + k : null));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#ords() ords} map.
+&nbsp;   * @param key The key in the ords map
+&nbsp;   * @param value The associated value in the ords map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putOrds(int key, String value) {
+&nbsp;    this.ords.put(
+&nbsp;        Objects.requireNonNull(key, &quot;ords key&quot;),
+&nbsp;        Objects.requireNonNull(value, value == null ? &quot;ords value for key: &quot; + key : null));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#ords() ords} map. Nulls are not permitted
+&nbsp;   * @param entry The key and value entry
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putOrds(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;    Integer k = entry.getKey();
+&nbsp;    String v = entry.getValue();
+&nbsp;    this.ords.put(
+&nbsp;        Objects.requireNonNull(k, &quot;ords key&quot;),
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;ords value for key: &quot; + k : null));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link JdkMaps#ords() ords} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the ords map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder ords(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    this.ords.clear();
+&nbsp;    return putAllOrds(entries);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to {@link JdkMaps#ords() ords} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the ords map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putAllOrds(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.ords.put(
+&nbsp;          Objects.requireNonNull(k, &quot;ords key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;ords value for key: &quot; + k : null));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#pols() pols} map.
+&nbsp;   * @param key The key in the pols map
+&nbsp;   * @param value The associated value in the pols map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putPols(RetentionPolicy key, int value) {
+&nbsp;    this.pols.put(
+&nbsp;        Objects.requireNonNull(key, &quot;pols key&quot;),
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#pols() pols} map. Nulls are not permitted
+&nbsp;   * @param entry The key and value entry
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putPols(Map.Entry&lt;RetentionPolicy, ? extends Integer&gt; entry) {
+&nbsp;    RetentionPolicy k = entry.getKey();
+&nbsp;    Integer v = entry.getValue();
+&nbsp;    this.pols.put(
+&nbsp;        Objects.requireNonNull(k, &quot;pols key&quot;),
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;pols value for key: &quot; + k : null));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link JdkMaps#pols() pols} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the pols map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder pols(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    this.pols.clear();
+&nbsp;    return putAllPols(entries);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to {@link JdkMaps#pols() pols} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the pols map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putAllPols(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;RetentionPolicy, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      RetentionPolicy k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.pols.put(
+&nbsp;          Objects.requireNonNull(k, &quot;pols key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;pols value for key: &quot; + k : null));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#navs() navs} map.
+&nbsp;   * @param key The key in the navs map
+&nbsp;   * @param value The associated value in the navs map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putNavs(String key, int value) {
+&nbsp;    this.navs.put(
+&nbsp;        Objects.requireNonNull(key, &quot;navs key&quot;),
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link JdkMaps#navs() navs} map. Nulls are not permitted
+&nbsp;   * @param entry The key and value entry
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putNavs(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;    String k = entry.getKey();
+&nbsp;    Integer v = entry.getValue();
+&nbsp;    this.navs.put(
+&nbsp;        Objects.requireNonNull(k, &quot;navs key&quot;),
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;navs value for key: &quot; + k : null));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link JdkMaps#navs() navs} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the navs map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder navs(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    this.navs.clear();
+&nbsp;    return putAllNavs(entries);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to {@link JdkMaps#navs() navs} map. Nulls are not permitted
+&nbsp;   * @param entries The entries that will be added to the navs map
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final JdkMapsBuilder putAllNavs(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.navs.put(
+&nbsp;          Objects.requireNonNull(k, &quot;navs key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;navs value for key: &quot; + k : null));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds a new {@link JdkMaps JdkMaps}.
+&nbsp;   * @return An immutable instance of JdkMaps
+&nbsp;   * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;   */
+&nbsp;  public JdkMaps build() {
+&nbsp;    return JdkMapsBuilder.ImmutableJdkMaps.validate(new JdkMapsBuilder.ImmutableJdkMaps(this));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link JdkMaps}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code new JdkMapsBuilder()}.
+&nbsp;   * Use the static factory method to get the default singleton instance:
+&nbsp;   * {@code JdkMapsBuilder.ImmutableJdkMaps.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JdkMaps&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  private static final class ImmutableJdkMaps implements JdkMaps {
+&nbsp;    private final Map&lt;Long, Integer&gt; just;
+&nbsp;    private final SortedMap&lt;Integer, String&gt; ords;
+&nbsp;    private final Map&lt;RetentionPolicy, Integer&gt; pols;
+&nbsp;    private final NavigableMap&lt;String, Integer&gt; navs;
+&nbsp;
+&nbsp;    private ImmutableJdkMaps() {
+&nbsp;      this.just = Collections.emptyMap();
+&nbsp;      this.ords = createUnmodifiableSortedMap(false, false, false, Collections.&lt;Integer, String&gt;emptyMap());
+&nbsp;      this.pols = Collections.emptyMap();
+&nbsp;      this.navs = createUnmodifiableSortedMap(true, false, false, Collections.&lt;String, Integer&gt;emptyMap());
+&nbsp;    }
+&nbsp;
+&nbsp;    private ImmutableJdkMaps(JdkMapsBuilder builder) {
+&nbsp;      this.just = createUnmodifiableMap(false, false, builder.just);
+&nbsp;      this.ords = createUnmodifiableSortedMap(false, false, false, builder.ords);
+&nbsp;      this.pols = createUnmodifiableEnumMap(false, false, builder.pols);
+&nbsp;      this.navs = createUnmodifiableSortedMap(true, false, false, builder.navs);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code just} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public Map&lt;Long, Integer&gt; just() {
+&nbsp;      return just;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code ords} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public SortedMap&lt;Integer, String&gt; ords() {
+&nbsp;      return ords;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code pols} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public Map&lt;RetentionPolicy, Integer&gt; pols() {
+&nbsp;      return pols;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code navs} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public NavigableMap&lt;String, Integer&gt; navs() {
+&nbsp;      return navs;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ImmutableJdkMaps} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof JdkMapsBuilder.ImmutableJdkMaps
+&nbsp;          &amp;&amp; equalTo(0, (JdkMapsBuilder.ImmutableJdkMaps) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, JdkMapsBuilder.ImmutableJdkMaps another) {
+&nbsp;      return just.equals(another.just)
+&nbsp;          &amp;&amp; ords.equals(another.ords)
+&nbsp;          &amp;&amp; pols.equals(another.pols)
+&nbsp;          &amp;&amp; navs.equals(another.navs);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code just}, {@code ords}, {@code pols}, {@code navs}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + just.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + ords.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + pols.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + navs.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code JdkMaps} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;JdkMaps{&quot;
+&nbsp;          + &quot;just=&quot; + just
+&nbsp;          + &quot;, ords=&quot; + ords
+&nbsp;          + &quot;, pols=&quot; + pols
+&nbsp;          + &quot;, navs=&quot; + navs
+&nbsp;          + &quot;}&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static final JdkMapsBuilder.ImmutableJdkMaps INSTANCE = validate(new JdkMapsBuilder.ImmutableJdkMaps());
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the default immutable singleton value of {@code JdkMaps}
+&nbsp;     * @return An immutable instance of JdkMaps
+&nbsp;     */
+&nbsp;    public static JdkMaps of() {
+&nbsp;      return INSTANCE;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static JdkMapsBuilder.ImmutableJdkMaps validate(JdkMapsBuilder.ImmutableJdkMaps instance) {
+&nbsp;      return INSTANCE != null &amp;&amp; INSTANCE.equalTo(0, instance) ? INSTANCE : instance;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K extends Enum&lt;K&gt;, V&gt; Map&lt;K, V&gt; createUnmodifiableEnumMap(boolean checkNulls, boolean skipNulls, Map&lt;K, ? extends V&gt; map) {
+&nbsp;    if (map.isEmpty()) return Collections.emptyMap();
+&nbsp;    EnumMap&lt;K, V&gt; enumMap = new EnumMap&lt;&gt;(map);
+&nbsp;    if (checkNulls || skipNulls) {
+&nbsp;      Iterator&lt;? extends V&gt; it = map.values().iterator();
+&nbsp;      while(it.hasNext()) {
+&nbsp;        V v = it.next();
+&nbsp;        if (checkNulls) {
+&nbsp;          Objects.requireNonNull(v, &quot;value&quot;);
+&nbsp;        } else if (skipNulls) {
+&nbsp;          if (v == null) it.remove();
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return Collections.unmodifiableMap(enumMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K extends Comparable&lt;K&gt;, V&gt; NavigableMap&lt;K, V&gt; createUnmodifiableSortedMap(boolean reverse, boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    TreeMap&lt;K, V&gt; sortedMap = reverse
+&nbsp;        ? new TreeMap&lt;K, V&gt;(Collections.&lt;K&gt;reverseOrder())
+&nbsp;        : new TreeMap&lt;K, V&gt;();
+&nbsp;
+&nbsp;    if (checkNulls || skipNulls) {
+&nbsp;      for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;        K k = e.getKey();
+&nbsp;        V v = e.getValue();
+&nbsp;        if (skipNulls) {
+&nbsp;          if (k == null || v == null) continue;
+&nbsp;        } else if (checkNulls) {
+&nbsp;          Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;        }
+&nbsp;        sortedMap.put(k, v);
+&nbsp;      }
+&nbsp;    } else {
+&nbsp;      sortedMap.putAll(map);
+&nbsp;    }
+&nbsp;    return Collections.unmodifiableNavigableMap(sortedMap);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

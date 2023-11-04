@@ -1,0 +1,504 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJdkOptionalsSer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJdkOptionalsSer (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJdkOptionalsSer$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link JdkOptionalsSer}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableJdkOptionalsSer.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableJdkOptionalsSer.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkOptionalsSer&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableJdkOptionalsSer implements JdkOptionalsSer {
+&nbsp;  private final @Nullable String v2;
+&nbsp;  private final @Nullable Integer i1;
+&nbsp;  private final @Nullable Long l1;
+&nbsp;  private final @Nullable Double d1;
+&nbsp;
+&nbsp;  private ImmutableJdkOptionalsSer() {
+&nbsp;    this.v2 = null;
+&nbsp;    this.i1 = null;
+&nbsp;    this.l1 = null;
+&nbsp;    this.d1 = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableJdkOptionalsSer(
+&nbsp;      Optional&lt;String&gt; v2,
+&nbsp;      OptionalInt i1,
+&nbsp;      OptionalLong l1,
+&nbsp;      OptionalDouble d1) {
+&nbsp;    this.v2 = v2.orElse(null);
+&nbsp;    this.i1 = i1.isPresent() ? i1.getAsInt() : null;
+&nbsp;    this.l1 = l1.isPresent() ? l1.getAsLong() : null;
+&nbsp;    this.d1 = d1.isPresent() ? d1.getAsDouble() : null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableJdkOptionalsSer(
+&nbsp;      ImmutableJdkOptionalsSer original,
+&nbsp;      @Nullable String v2,
+&nbsp;      @Nullable Integer i1,
+&nbsp;      @Nullable Long l1,
+&nbsp;      @Nullable Double d1) {
+&nbsp;    this.v2 = v2;
+&nbsp;    this.i1 = i1;
+&nbsp;    this.l1 = l1;
+&nbsp;    this.d1 = d1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; v2() {
+&nbsp;    return Optional.ofNullable(v2);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt i1() {
+&nbsp;    return i1 != null
+&nbsp;        ? OptionalInt.of(i1)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalLong l1() {
+&nbsp;    return l1 != null
+&nbsp;        ? OptionalLong.of(l1)
+&nbsp;        : OptionalLong.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalDouble d1() {
+&nbsp;    return d1 != null
+&nbsp;        ? OptionalDouble.of(d1)
+&nbsp;        : OptionalDouble.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionalsSer#v2() v2} attribute.
+&nbsp;   * @param value The value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withV2(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;v2&quot;);
+&nbsp;    if (Objects.equals(this.v2, newValue)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, newValue, this.i1, this.l1, this.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionalsSer#v2() v2} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withV2(Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.v2, value)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, value, this.i1, this.l1, this.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionalsSer#i1() i1} attribute.
+&nbsp;   * @param value The value for i1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withI1(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.i1, newValue)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, this.v2, newValue, this.l1, this.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionalsSer#i1() i1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for i1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withI1(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.i1, value)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, this.v2, value, this.l1, this.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionalsSer#l1() l1} attribute.
+&nbsp;   * @param value The value for l1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withL1(long value) {
+&nbsp;    @Nullable Long newValue = value;
+&nbsp;    if (Objects.equals(this.l1, newValue)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, this.v2, this.i1, newValue, this.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionalsSer#l1() l1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for l1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withL1(OptionalLong optional) {
+&nbsp;    @Nullable Long value = optional.isPresent() ? optional.getAsLong() : null;
+&nbsp;    if (Objects.equals(this.l1, value)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, this.v2, this.i1, value, this.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionalsSer#d1() d1} attribute.
+&nbsp;   * @param value The value for d1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withD1(double value) {
+&nbsp;    @Nullable Double newValue = value;
+&nbsp;    if (Objects.equals(this.d1, newValue)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, this.v2, this.i1, this.l1, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionalsSer#d1() d1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for d1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionalsSer withD1(OptionalDouble optional) {
+&nbsp;    @Nullable Double value = optional.isPresent() ? optional.getAsDouble() : null;
+&nbsp;    if (Objects.equals(this.d1, value)) return this;
+&nbsp;    return new ImmutableJdkOptionalsSer(this, this.v2, this.i1, this.l1, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJdkOptionalsSer} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableJdkOptionalsSer
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableJdkOptionalsSer) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJdkOptionalsSer another) {
+&nbsp;    return Objects.equals(v2, another.v2)
+&nbsp;        &amp;&amp; Objects.equals(i1, another.i1)
+&nbsp;        &amp;&amp; Objects.equals(l1, another.l1)
+&nbsp;        &amp;&amp; Objects.equals(d1, another.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code v2}, {@code i1}, {@code l1}, {@code d1}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v2);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(i1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(l1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(d1);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code JdkOptionalsSer} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;JdkOptionalsSer&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;v2&quot;, v2)
+&nbsp;        .add(&quot;i1&quot;, i1)
+&nbsp;        .add(&quot;l1&quot;, l1)
+&nbsp;        .add(&quot;d1&quot;, d1)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code JdkOptionalsSer} instance.
+&nbsp;   * @param v2 The value for the {@code v2} attribute
+&nbsp;   * @param i1 The value for the {@code i1} attribute
+&nbsp;   * @param l1 The value for the {@code l1} attribute
+&nbsp;   * @param d1 The value for the {@code d1} attribute
+&nbsp;   * @return An immutable JdkOptionalsSer instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdkOptionalsSer of(Optional&lt;String&gt; v2, OptionalInt i1, OptionalLong l1, OptionalDouble d1) {
+&nbsp;    return new ImmutableJdkOptionalsSer(v2, i1, l1, d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link JdkOptionalsSer} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable JdkOptionalsSer instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdkOptionalsSer copyOf(JdkOptionalsSer instance) {
+&nbsp;    if (instance instanceof ImmutableJdkOptionalsSer) {
+&nbsp;      return (ImmutableJdkOptionalsSer) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJdkOptionalsSer.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableJdkOptionalsSer ImmutableJdkOptionalsSer}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableJdkOptionalsSer.builder()
+&nbsp;   *    .v2(String) // optional {@link JdkOptionalsSer#v2() v2}
+&nbsp;   *    .i1(int) // optional {@link JdkOptionalsSer#i1() i1}
+&nbsp;   *    .l1(long) // optional {@link JdkOptionalsSer#l1() l1}
+&nbsp;   *    .d1(double) // optional {@link JdkOptionalsSer#d1() d1}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableJdkOptionalsSer builder
+&nbsp;   */
+&nbsp;  public static ImmutableJdkOptionalsSer.Builder builder() {
+&nbsp;    return new ImmutableJdkOptionalsSer.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableJdkOptionalsSer ImmutableJdkOptionalsSer}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JdkOptionalsSer&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @Nullable String v2;
+&nbsp;    private @Nullable Integer i1;
+&nbsp;    private @Nullable Long l1;
+&nbsp;    private @Nullable Double d1;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code JdkOptionalsSer} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(JdkOptionalsSer instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      Optional&lt;String&gt; v2Optional = instance.v2();
+&nbsp;      if (v2Optional.isPresent()) {
+&nbsp;        v2(v2Optional);
+&nbsp;      }
+&nbsp;      OptionalInt i1Optional = instance.i1();
+&nbsp;      if (i1Optional.isPresent()) {
+&nbsp;        i1(i1Optional);
+&nbsp;      }
+&nbsp;      OptionalLong l1Optional = instance.l1();
+&nbsp;      if (l1Optional.isPresent()) {
+&nbsp;        l1(l1Optional);
+&nbsp;      }
+&nbsp;      OptionalDouble d1Optional = instance.d1();
+&nbsp;      if (d1Optional.isPresent()) {
+&nbsp;        d1(d1Optional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#v2() v2} to v2.
+&nbsp;     * @param v2 The value for v2
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v2(String v2) {
+&nbsp;      this.v2 = Objects.requireNonNull(v2, &quot;v2&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#v2() v2} to v2.
+&nbsp;     * @param v2 The value for v2
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v2(Optional&lt;String&gt; v2) {
+&nbsp;      this.v2 = v2.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#i1() i1} to i1.
+&nbsp;     * @param i1 The value for i1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i1(int i1) {
+&nbsp;      this.i1 = i1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#i1() i1} to i1.
+&nbsp;     * @param i1 The value for i1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i1(OptionalInt i1) {
+&nbsp;      this.i1 = i1.isPresent() ? i1.getAsInt() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#l1() l1} to l1.
+&nbsp;     * @param l1 The value for l1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l1(long l1) {
+&nbsp;      this.l1 = l1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#l1() l1} to l1.
+&nbsp;     * @param l1 The value for l1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l1(OptionalLong l1) {
+&nbsp;      this.l1 = l1.isPresent() ? l1.getAsLong() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#d1() d1} to d1.
+&nbsp;     * @param d1 The value for d1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d1(double d1) {
+&nbsp;      this.d1 = d1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link JdkOptionalsSer#d1() d1} to d1.
+&nbsp;     * @param d1 The value for d1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d1(OptionalDouble d1) {
+&nbsp;      this.d1 = d1.isPresent() ? d1.getAsDouble() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableJdkOptionalsSer ImmutableJdkOptionalsSer}.
+&nbsp;     * @return An immutable instance of JdkOptionalsSer
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableJdkOptionalsSer build() {
+&nbsp;      return new ImmutableJdkOptionalsSer(null, v2, i1, l1, d1);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

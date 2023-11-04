@@ -1,0 +1,518 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > FindVisitor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.mongo</a>
+</div>
+
+<h1>Coverage Summary for Class: FindVisitor (org.immutables.criteria.mongo)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FindVisitor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/110)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/107)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FindVisitor$1</td>
+  </tr>
+  <tr>
+    <td class="name">FindVisitor$MongoExpr</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/45)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/134)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/152)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.mongo;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.mongodb.client.model.Filters;
+&nbsp;import org.bson.BsonArray;
+&nbsp;import org.bson.BsonDocument;
+&nbsp;import org.bson.BsonNull;
+&nbsp;import org.bson.BsonString;
+&nbsp;import org.bson.BsonValue;
+&nbsp;import org.bson.Document;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.bson.conversions.Bson;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.expression.AbstractExpressionVisitor;
+&nbsp;import org.immutables.criteria.expression.Call;
+&nbsp;import org.immutables.criteria.expression.ComparableOperators;
+&nbsp;import org.immutables.criteria.expression.Constant;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Expressions;
+&nbsp;import org.immutables.criteria.expression.IterableOperators;
+&nbsp;import org.immutables.criteria.expression.Operator;
+&nbsp;import org.immutables.criteria.expression.Operators;
+&nbsp;import org.immutables.criteria.expression.OptionalOperators;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.StringOperators;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Converts find expression to Mongo BSON format
+&nbsp; * @see &lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/query-documents/&quot;&gt;Query Documents&lt;/a&gt;
+&nbsp; */
+&nbsp;class FindVisitor extends AbstractExpressionVisitor&lt;Bson&gt; {
+&nbsp;
+&nbsp;  private final PathNaming naming;
+&nbsp;  private final CodecRegistry codecRegistry;
+&nbsp;
+&nbsp;  FindVisitor(PathNaming pathNaming, CodecRegistry codecRegistry) {
+<b class="nc">&nbsp;    super(e -&gt; { throw new UnsupportedOperationException(); });</b>
+<b class="nc">&nbsp;    this.naming = Objects.requireNonNull(pathNaming, &quot;pathNaming&quot;);</b>
+<b class="nc">&nbsp;    this.codecRegistry = Objects.requireNonNull(codecRegistry, &quot;codecRegistry&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Bson visit(Call call) {
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    final List&lt;Expression&gt; args = call.arguments();</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    if (op == OptionalOperators.IS_ABSENT || op == OptionalOperators.IS_PRESENT) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(args.size() == 1, &quot;Size should be 1 for %s but was %s&quot;, op, args.size());</b>
+<b class="nc">&nbsp;      final String field = naming.name(Visitors.toPath(args.get(0)));</b>
+&nbsp;      Bson filter;
+<b class="nc">&nbsp;      if (op == OptionalOperators.IS_PRESENT) {</b>
+<b class="nc">&nbsp;        filter = Filters.and(Filters.exists(field), Filters.ne(field, null));</b>
+&nbsp;      } else {
+&nbsp;        // absent fields means null or missing
+<b class="nc">&nbsp;        filter = Filters.or(Filters.exists(field, false), Filters.eq(field, null));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return filter;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.AND || op == Operators.OR) {</b>
+<b class="nc">&nbsp;      final List&lt;Bson&gt; list = call.arguments().stream()</b>
+<b class="nc">&nbsp;              .map(a -&gt; a.accept(this))</b>
+<b class="nc">&nbsp;              .collect(Collectors.toList());</b>
+&nbsp;
+<b class="nc">&nbsp;      return op == Operators.AND ? Filters.and(list) : Filters.or(list);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.NOT) {</b>
+<b class="nc">&nbsp;      return negate(args.get(0));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == IterableOperators.IS_EMPTY || op == IterableOperators.NOT_EMPTY) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(args.size() == 1, &quot;Size should be 1 for %s but was %s&quot;, op, args.size());</b>
+<b class="nc">&nbsp;      final String field = naming.name(Visitors.toPath(args.get(0)));</b>
+<b class="nc">&nbsp;      return op == IterableOperators.IS_EMPTY ? Filters.eq(field, Collections.emptyList())</b>
+<b class="nc">&nbsp;              : Filters.and(Filters.exists(field), Filters.ne(field, null), Filters.ne(field, Collections.emptyList()));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op.arity() == Operator.Arity.BINARY) {</b>
+<b class="nc">&nbsp;      return binaryCall(call);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(String.format(&quot;Not yet supported (%s): %s&quot;, call.operator(), call));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Bson binaryCall(Call call) {
+<b class="nc">&nbsp;    Preconditions.checkArgument(call.operator().arity() == Operator.Arity.BINARY, &quot;%s is not binary&quot;, call.operator());</b>
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    Expression left = call.arguments().get(0);</b>
+<b class="nc">&nbsp;    Expression right = call.arguments().get(1);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (!(left instanceof Path &amp;&amp; right instanceof Constant)) {</b>
+&nbsp;      // special case when $expr has to be used
+<b class="nc">&nbsp;      return call.accept(new MongoExpr(naming, codecRegistry)).asDocument();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    final String field = naming.name(Visitors.toPath(left));</b>
+<b class="nc">&nbsp;    final Object value = Visitors.toConstant(right).value();</b>
+<b class="nc">&nbsp;    if (op == Operators.EQUAL || op == Operators.NOT_EQUAL) {</b>
+<b class="nc">&nbsp;      if (&quot;&quot;.equals(value) &amp;&amp; op == Operators.NOT_EQUAL) {</b>
+&nbsp;        // special case for empty string. string != &quot;&quot; should not return missing strings
+<b class="nc">&nbsp;        return Filters.and(Filters.nin(field, value, null), Filters.exists(field));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return op == Operators.EQUAL ? Filters.eq(field, value) : Filters.ne(field, value);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (ComparableOperators.isComparable(op)) {</b>
+<b class="nc">&nbsp;      if (op == ComparableOperators.GREATER_THAN) {</b>
+<b class="nc">&nbsp;        return Filters.gt(field, value);</b>
+<b class="nc">&nbsp;      } else if (op == ComparableOperators.GREATER_THAN_OR_EQUAL) {</b>
+<b class="nc">&nbsp;        return Filters.gte(field, value);</b>
+<b class="nc">&nbsp;      } else if (op == ComparableOperators.LESS_THAN) {</b>
+<b class="nc">&nbsp;        return Filters.lt(field, value);</b>
+<b class="nc">&nbsp;      } else if (op == ComparableOperators.LESS_THAN_OR_EQUAL) {</b>
+<b class="nc">&nbsp;        return Filters.lte(field, value);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      throw new UnsupportedOperationException(&quot;Unknown comparison &quot; + call);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.IN || op == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;      final Collection&lt;Object&gt; values = ImmutableSet.copyOf(Visitors.toConstant(right).values());</b>
+<b class="nc">&nbsp;      Preconditions.checkNotNull(values, &quot;not expected to be null for %s&quot;, op);</b>
+<b class="nc">&nbsp;      if (values.size() == 1) {</b>
+&nbsp;        // optimization: convert IN, NIN (where argument is a list with single element) into EQ / NE
+<b class="nc">&nbsp;        Operators newOperator = op == Operators.IN ? Operators.EQUAL : Operators.NOT_EQUAL;</b>
+<b class="nc">&nbsp;        Call newCall = Expressions.binaryCall(newOperator, left, Expressions.constant(values.iterator().next()));</b>
+<b class="nc">&nbsp;        return binaryCall(newCall);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return op == Operators.IN ? Filters.in(field, values) : Filters.nin(field, values);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == StringOperators.MATCHES || op == StringOperators.CONTAINS) {</b>
+<b class="nc">&nbsp;      Object newValue = value;</b>
+<b class="nc">&nbsp;      if (op == StringOperators.CONTAINS) {</b>
+&nbsp;        // handle special case for string contains with regexp
+<b class="nc">&nbsp;        newValue = Pattern.compile(&quot;.*&quot; + Pattern.quote(value.toString()) + &quot;.*&quot;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      Preconditions.checkArgument(newValue instanceof Pattern, &quot;%s is not regex pattern&quot;, value);</b>
+<b class="nc">&nbsp;      return Filters.regex(field, (Pattern) newValue);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == IterableOperators.HAS_SIZE) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(value instanceof Number, &quot;%s is not a number&quot;, value);</b>
+<b class="nc">&nbsp;      int size = ((Number) value).intValue();</b>
+<b class="nc">&nbsp;      return Filters.size(field, size);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == IterableOperators.CONTAINS) {</b>
+<b class="nc">&nbsp;      return Filters.eq(field, value);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == StringOperators.HAS_LENGTH) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(value instanceof Number, &quot;%s is not a number&quot;, value);</b>
+<b class="nc">&nbsp;      final int length = ((Number) value).intValue();</b>
+&nbsp;      // use strLenCP function
+&nbsp;      // https://docs.mongodb.com/manual/reference/operator/aggregation/strLenCP/#exp._S_strLenCP
+<b class="nc">&nbsp;      final Bson lengthExpr  = Document.parse(String.format(&quot;{$expr:{$eq:[{$strLenCP: \&quot;$%s\&quot;}, %d]}}}&quot;, field, length));</b>
+&nbsp;      // field should exists and not be null
+<b class="nc">&nbsp;      return Filters.and(Filters.exists(field), Filters.ne(field, null), lengthExpr);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == StringOperators.STARTS_WITH || op == StringOperators.ENDS_WITH) {</b>
+&nbsp;      // regular expression
+<b class="nc">&nbsp;      final String pattern = String.format(&quot;%s%s%s&quot;,</b>
+<b class="nc">&nbsp;              op == StringOperators.STARTS_WITH ? &quot;^&quot;: &quot;&quot;,</b>
+<b class="nc">&nbsp;              Pattern.quote(value.toString()),</b>
+<b class="nc">&nbsp;              op == StringOperators.ENDS_WITH ? &quot;$&quot; : &quot;&quot;);</b>
+<b class="nc">&nbsp;      return Filters.regex(field, Pattern.compile(pattern));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(String.format(&quot;Unsupported binary call %s&quot;, call));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * see https://docs.mongodb.com/manual/reference/operator/query/not/
+&nbsp;   * NOT operator is mongo is a little specific and can&#39;t be applied on all levels
+&nbsp;   * $not: { $or ... } will not work and should be transformed to $nor
+&nbsp;   */
+&nbsp;  private Bson negate(Expression expression) {
+<b class="nc">&nbsp;    if (!(expression instanceof Call)) {</b>
+<b class="nc">&nbsp;      return Filters.not(expression.accept(this));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Call notCall = (Call) expression;</b>
+<b class="nc">&nbsp;    Operator notOperator = notCall.operator();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (notOperator == Operators.NOT) {</b>
+&nbsp;      // NOT NOT a == a
+<b class="nc">&nbsp;      return notCall.arguments().get(0).accept(this);</b>
+<b class="nc">&nbsp;    } else if (notOperator == Operators.EQUAL) {</b>
+<b class="nc">&nbsp;      return newCall(notCall, Operators.NOT_EQUAL);</b>
+<b class="nc">&nbsp;    } else if (notOperator == Operators.NOT_EQUAL) {</b>
+<b class="nc">&nbsp;      return newCall(notCall, Operators.EQUAL);</b>
+<b class="nc">&nbsp;    } else if (notOperator == Operators.IN) {</b>
+<b class="nc">&nbsp;      return newCall(notCall, Operators.NOT_IN);</b>
+<b class="nc">&nbsp;    } else if (notOperator == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;      return newCall(notCall, Operators.IN);</b>
+<b class="nc">&nbsp;    } else if (notOperator == Operators.OR) {</b>
+<b class="nc">&nbsp;      return Filters.nor(notCall.arguments().stream().map(a -&gt; a.accept(this)).collect(Collectors.toList()));</b>
+<b class="nc">&nbsp;    } else if (notOperator == Operators.AND) {</b>
+&nbsp;      // NOT A and B == (NOT A) or (NOT B)
+<b class="nc">&nbsp;      return Filters.or(notCall.arguments().stream().map(this::negate).collect(Collectors.toList()));</b>
+<b class="nc">&nbsp;    } else if (notOperator == OptionalOperators.IS_ABSENT || notOperator == OptionalOperators.IS_PRESENT) {</b>
+<b class="nc">&nbsp;      Operator newOp = notOperator == OptionalOperators.IS_ABSENT ? OptionalOperators.IS_PRESENT : OptionalOperators.IS_ABSENT;</b>
+<b class="nc">&nbsp;      return newCall(notCall, newOp);</b>
+<b class="nc">&nbsp;    } else if (notOperator == IterableOperators.IS_EMPTY || notOperator == IterableOperators.NOT_EMPTY) {</b>
+<b class="nc">&nbsp;      Operator newOp = notOperator == IterableOperators.IS_EMPTY ? IterableOperators.NOT_EMPTY : IterableOperators.IS_EMPTY;</b>
+<b class="nc">&nbsp;      return newCall(notCall, newOp);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // don&#39;t really know how to negate here
+<b class="nc">&nbsp;    return Filters.not(notCall.accept(this));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Bson newCall(Call existing, Operator newOperator) {
+<b class="nc">&nbsp;    return visit(Expressions.call(newOperator, existing.arguments()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Visitor used when special {@code $expr} needs to be generated like {@code field1 == field2}
+&nbsp;   * in mongo it would look like:
+&nbsp;   *
+&nbsp;   * &lt;pre&gt;
+&nbsp;   *   {@code
+&nbsp;   *     $expr: {
+&nbsp;   *     $eq: [
+&nbsp;   *       &quot;$field1&quot;,
+&nbsp;   *       &quot;$field2&quot;
+&nbsp;   *     ]
+&nbsp;   *   }
+&nbsp;   *   }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @see &lt;a href=&quot;https://docs.mongodb.com/manual/reference/operator/query/expr/&quot;&gt;$expr&lt;/a&gt;
+&nbsp;   */
+<b class="nc">&nbsp;  private static class MongoExpr extends AbstractExpressionVisitor&lt;BsonValue&gt; {</b>
+&nbsp;    private final PathNaming pathNaming;
+&nbsp;    private final CodecRegistry codecRegistry;
+&nbsp;
+&nbsp;    private MongoExpr(PathNaming pathNaming, CodecRegistry codecRegistry) {
+<b class="nc">&nbsp;      super(e -&gt; { throw new UnsupportedOperationException(); });</b>
+<b class="nc">&nbsp;      this.pathNaming = pathNaming;</b>
+<b class="nc">&nbsp;      this.codecRegistry = codecRegistry;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public BsonValue visit(Call call) {
+<b class="nc">&nbsp;      Operator op = call.operator();</b>
+<b class="nc">&nbsp;      if (op.arity() == Operator.Arity.BINARY) {</b>
+<b class="nc">&nbsp;        return visitBinary(call, call.arguments().get(0), call.arguments().get(1));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (op.arity() == Operator.Arity.UNARY) {</b>
+<b class="nc">&nbsp;        return visitUnary(call, call.arguments().get(0));</b>
+&nbsp;      }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;      throw new UnsupportedOperationException(&quot;Don&#39;t know how to handle &quot; + call);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private BsonValue visitBinary(Call call, Expression left, Expression right) {
+<b class="nc">&nbsp;      Operator op = call.operator();</b>
+&nbsp;
+&nbsp;      String mongoOp;
+<b class="nc">&nbsp;      if (op == Operators.EQUAL) {</b>
+<b class="nc">&nbsp;        mongoOp = &quot;$eq&quot;;</b>
+<b class="nc">&nbsp;      } else if (op == Operators.NOT_EQUAL) {</b>
+<b class="nc">&nbsp;        mongoOp = &quot;$ne&quot;;</b>
+<b class="nc">&nbsp;      } else if (op == Operators.IN) {</b>
+<b class="nc">&nbsp;        mongoOp = &quot;$in&quot;;</b>
+<b class="nc">&nbsp;      } else if (op == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;        mongoOp = &quot;$in&quot;; // will be wrapped in $not: {$not: {$in: ... }}</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        throw new UnsupportedOperationException(String.format(&quot;Unknown operator %s for call %s&quot;, op, call));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      BsonArray args = new BsonArray();</b>
+<b class="nc">&nbsp;      args.add(left.accept(this));</b>
+<b class="nc">&nbsp;      args.add(right.accept(this));</b>
+&nbsp;
+<b class="nc">&nbsp;      BsonDocument expr = new BsonDocument(mongoOp, args);</b>
+<b class="nc">&nbsp;      if (op == Operators.NOT_IN) {</b>
+&nbsp;        // for aggregations $nin does not work
+&nbsp;        // use {$not: {$in: ... }} instead
+<b class="nc">&nbsp;        expr = new BsonDocument(&quot;$not&quot;, expr);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return Filters.expr(expr).toBsonDocument(BsonDocument.class, codecRegistry);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private BsonValue visitUnary(Call call, Expression arg) {
+<b class="nc">&nbsp;      Operator op = call.operator();</b>
+&nbsp;
+<b class="nc">&nbsp;      if (op == StringOperators.TO_LOWER_CASE || op == StringOperators.TO_UPPER_CASE) {</b>
+<b class="nc">&nbsp;        String key = op == StringOperators.TO_LOWER_CASE ? &quot;$toLower&quot; : &quot;$toUpper&quot;;</b>
+<b class="nc">&nbsp;        BsonValue value = arg.accept(this);</b>
+<b class="nc">&nbsp;        return new BsonDocument(key, value);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      throw new UnsupportedOperationException(&quot;Unknown unary call &quot; + call);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public BsonValue visit(Path path) {
+&nbsp;      // in mongo expressions fields are referenced as $field
+<b class="nc">&nbsp;      return new BsonString(&#39;$&#39; + pathNaming.name(path));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public BsonValue visit(Constant constant) {
+<b class="nc">&nbsp;      Object value = constant.value();</b>
+<b class="nc">&nbsp;      if (value == null) {</b>
+<b class="nc">&nbsp;        return BsonNull.VALUE;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (value instanceof Iterable) {</b>
+<b class="nc">&nbsp;        return Filters.in(&quot;ignore&quot;, (Iterable&lt;?&gt;) value)</b>
+<b class="nc">&nbsp;                .toBsonDocument(BsonDocument.class, codecRegistry)</b>
+<b class="nc">&nbsp;                .get(&quot;ignore&quot;).asDocument()</b>
+<b class="nc">&nbsp;                .get(&quot;$in&quot;).asArray();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return Filters.eq(&quot;ignore&quot;, value)</b>
+<b class="nc">&nbsp;              .toBsonDocument(BsonDocument.class, codecRegistry)</b>
+<b class="nc">&nbsp;              .get(&quot;ignore&quot;);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

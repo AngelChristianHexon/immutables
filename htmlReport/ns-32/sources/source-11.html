@@ -1,0 +1,386 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableAAA</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nested</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableAAA (org.immutables.fixture.nested)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableAAA</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nested;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link BaseFromComplicated.AAA AAA} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableAAA is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableAAA
+&nbsp; */
+&nbsp;@Generated(from = &quot;BaseFromComplicated.AAA&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;BaseFromComplicated.AAA&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableAAA implements BaseFromComplicated.AAA {
+&nbsp;  private static final long INIT_BIT_A = 0x1L;
+&nbsp;  private long initBits = 0x1L;
+&nbsp;
+&nbsp;  private int a;
+&nbsp;  private final ArrayList&lt;String&gt; b = new ArrayList&lt;String&gt;();
+&nbsp;
+&nbsp;  private ModifiableAAA() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code AAA}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableAAA create() {
+&nbsp;    return new ModifiableAAA();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int a() {
+&nbsp;    if (!aIsSet()) checkRequiredAttributes();
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code b}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;String&gt; b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA clear() {
+&nbsp;    initBits = 0x1L;
+&nbsp;    a = 0;
+&nbsp;    b.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.nested.BaseFromComplicated.AA} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA from(BaseFromComplicated.AA instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.nested.BaseFromComplicated.AAA} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA from(BaseFromComplicated.AAA instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.nested.BaseFromComplicated.A} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA from(BaseFromComplicated.A instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link BaseFromComplicated.AAA} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableAAA from(ModifiableAAA instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void from(Object object) {
+&nbsp;    if (object instanceof ModifiableAAA) {
+&nbsp;      ModifiableAAA instance = (ModifiableAAA) object;
+&nbsp;      if (instance.aIsSet()) {
+&nbsp;        setA(instance.a());
+&nbsp;      }
+&nbsp;      addAllB(instance.b());
+&nbsp;      return;
+&nbsp;    }
+&nbsp;    long bits = 0;
+&nbsp;    if (object instanceof BaseFromComplicated.AA) {
+&nbsp;      BaseFromComplicated.AA instance = (BaseFromComplicated.AA) object;
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setA(instance.a());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;    if (object instanceof BaseFromComplicated.AAA) {
+&nbsp;      BaseFromComplicated.AAA instance = (BaseFromComplicated.AAA) object;
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setA(instance.a());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x2L) == 0) {
+&nbsp;        addAllB(instance.b());
+&nbsp;        bits |= 0x2L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;    if (object instanceof BaseFromComplicated.A) {
+&nbsp;      BaseFromComplicated.A instance = (BaseFromComplicated.A) object;
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setA(instance.a());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x2L) == 0) {
+&nbsp;        addAllB(instance.b());
+&nbsp;        bits |= 0x2L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BaseFromComplicated.AAA#a() a} attribute.
+&nbsp;   * @param a The value for a
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA setA(int a) {
+&nbsp;    this.a = a;
+&nbsp;    initBits &amp;= ~INIT_BIT_A;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link BaseFromComplicated.AAA#b() b} list.
+&nbsp;   * @param element The b element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA addB(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;b element&quot;);
+&nbsp;    this.b.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link BaseFromComplicated.AAA#b() b} list.
+&nbsp;   * @param elements An array of b elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableAAA addB(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addB(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link BaseFromComplicated.AAA#b() b} list.
+&nbsp;   * @param elements An iterable of b elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA setB(Iterable&lt;String&gt; elements) {
+&nbsp;    this.b.clear();
+&nbsp;    addAllB(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link BaseFromComplicated.AAA#b() b} list.
+&nbsp;   * @param elements An iterable of b elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableAAA addAllB(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addB(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link BaseFromComplicated.AAA#a() a} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean aIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_A) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableAAA unsetA() {
+&nbsp;    initBits |= INIT_BIT_A;
+&nbsp;    a = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!aIsSet()) attributes.add(&quot;a&quot;);
+&nbsp;    return &quot;AAA is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableAAA ImmutableAAA}.
+&nbsp;   * @return An immutable instance of AAA
+&nbsp;   */
+&nbsp;  public final ImmutableAAA toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableAAA.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableAAA} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableAAA)) return false;
+&nbsp;    ModifiableAAA other = (ModifiableAAA) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableAAA another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; b.equals(another.b);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code AAA}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableAAA&quot;)
+&nbsp;        .add(&quot;a&quot;, aIsSet() ? a() : &quot;?&quot;)
+&nbsp;        .add(&quot;b&quot;, b())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

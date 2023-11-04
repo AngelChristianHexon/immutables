@@ -1,0 +1,440 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableWithModifiable</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableWithModifiable (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableWithModifiable$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.validation.ConstraintViolation;
+&nbsp;import javax.validation.ConstraintViolationException;
+&nbsp;import javax.validation.Validation;
+&nbsp;import javax.validation.Validator;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link AbstractImmutableWithModifiable}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableWithModifiable.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;AbstractImmutableWithModifiable&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableWithModifiable
+&nbsp;    implements AbstractImmutableWithModifiable {
+&nbsp;  private final int id;
+&nbsp;  private final String description;
+&nbsp;  private final List&lt;String&gt; names;
+&nbsp;
+&nbsp;  private ImmutableWithModifiable(int id, String description, List&lt;String&gt; names) {
+&nbsp;    this.id = id;
+&nbsp;    this.description = description;
+&nbsp;    this.names = names;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int getId() {
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code description} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getDescription() {
+&nbsp;    return description;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code names} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; getNames() {
+&nbsp;    return names;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AbstractImmutableWithModifiable#getId() id} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for id
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithModifiable withId(int value) {
+&nbsp;    if (this.id == value) return this;
+&nbsp;    return validate(new ImmutableWithModifiable(value, this.description, this.names));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AbstractImmutableWithModifiable#getDescription() description} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for description (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithModifiable withDescription(String value) {
+&nbsp;    if (Objects.equals(this.description, value)) return this;
+&nbsp;    return validate(new ImmutableWithModifiable(this.id, value, this.names));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link AbstractImmutableWithModifiable#getNames() names}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithModifiable withNames(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
+&nbsp;    return validate(new ImmutableWithModifiable(this.id, this.description, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link AbstractImmutableWithModifiable#getNames() names}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of names elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithModifiable withNames(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.names == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
+&nbsp;    return validate(new ImmutableWithModifiable(this.id, this.description, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableWithModifiable} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableWithModifiable
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableWithModifiable) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableWithModifiable another) {
+&nbsp;    return id == another.id
+&nbsp;        &amp;&amp; Objects.equals(description, another.description)
+&nbsp;        &amp;&amp; names.equals(another.names);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code id}, {@code description}, {@code names}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + id;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(description);
+&nbsp;    h += (h &lt;&lt; 5) + names.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ImmutableWithModifiable} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;ImmutableWithModifiable{&quot;
+&nbsp;        + &quot;id=&quot; + id
+&nbsp;        + &quot;, description=&quot; + description
+&nbsp;        + &quot;, names=&quot; + names
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+&nbsp;
+&nbsp;  private static ImmutableWithModifiable validate(ImmutableWithModifiable instance) {
+&nbsp;    Set&lt;ConstraintViolation&lt;ImmutableWithModifiable&gt;&gt; constraintViolations = validator.validate(instance);
+&nbsp;    if (!constraintViolations.isEmpty()) {
+&nbsp;      throw new ConstraintViolationException(constraintViolations);
+&nbsp;    }
+&nbsp;    return instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link AbstractImmutableWithModifiable} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ImmutableWithModifiable instance
+&nbsp;   */
+&nbsp;  public static ImmutableWithModifiable copyOf(AbstractImmutableWithModifiable instance) {
+&nbsp;    if (instance instanceof ImmutableWithModifiable) {
+&nbsp;      return (ImmutableWithModifiable) instance;
+&nbsp;    }
+&nbsp;    return ImmutableWithModifiable.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableWithModifiable ImmutableWithModifiable}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableWithModifiable.builder()
+&nbsp;   *    .setId(int) // optional {@link AbstractImmutableWithModifiable#getId() id}
+&nbsp;   *    .setDescription(String | null) // nullable {@link AbstractImmutableWithModifiable#getDescription() description}
+&nbsp;   *    .addNames|addAllNames(String) // {@link AbstractImmutableWithModifiable#getNames() names} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableWithModifiable builder
+&nbsp;   */
+&nbsp;  public static ImmutableWithModifiable.Builder builder() {
+&nbsp;    return new ImmutableWithModifiable.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableWithModifiable ImmutableWithModifiable}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AbstractImmutableWithModifiable&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private int id;
+&nbsp;    private @Nullable String description;
+&nbsp;    private List&lt;String&gt; names = new ArrayList&lt;String&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableImmutableWithModifiable} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableImmutableWithModifiable instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      setId(instance.getId());
+&nbsp;      String descriptionValue = instance.getDescription();
+&nbsp;      if (descriptionValue != null) {
+&nbsp;        setDescription(descriptionValue);
+&nbsp;      }
+&nbsp;      addAllNames(instance.getNames());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code AbstractImmutableWithModifiable} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(AbstractImmutableWithModifiable instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableImmutableWithModifiable) {
+&nbsp;        return from((ModifiableImmutableWithModifiable) instance);
+&nbsp;      }
+&nbsp;      setId(instance.getId());
+&nbsp;      String descriptionValue = instance.getDescription();
+&nbsp;      if (descriptionValue != null) {
+&nbsp;        setDescription(descriptionValue);
+&nbsp;      }
+&nbsp;      addAllNames(instance.getNames());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AbstractImmutableWithModifiable#getId() id} attribute.
+&nbsp;     * @param id The value for id 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder setId(int id) {
+&nbsp;      this.id = id;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AbstractImmutableWithModifiable#getDescription() description} attribute.
+&nbsp;     * @param description The value for description (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder setDescription(String description) {
+&nbsp;      this.description = description;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;     * @param element A names element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNames(String element) {
+&nbsp;      this.names.add(Objects.requireNonNull(element, &quot;names element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;     * @param elements An array of names elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNames(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.names.add(Objects.requireNonNull(element, &quot;names element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;     * @param elements An iterable of names elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder setNames(Iterable&lt;String&gt; elements) {
+&nbsp;      this.names.clear();
+&nbsp;      return addAllNames(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;     * @param elements An iterable of names elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNames(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.names.add(Objects.requireNonNull(element, &quot;names element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableWithModifiable ImmutableWithModifiable}.
+&nbsp;     * @return An immutable instance of ImmutableWithModifiable
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableWithModifiable build() {
+&nbsp;      return ImmutableWithModifiable.validate(new ImmutableWithModifiable(id, description, createUnmodifiableList(true, names)));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

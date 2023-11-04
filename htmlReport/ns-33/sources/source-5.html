@@ -1,0 +1,267 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersNonnullConstruction</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersNonnullConstruction (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersNonnullConstruction$NonnullConstructionTypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code NonnullConstruction}.
+&nbsp; * @see ImmutableNonnullConstruction
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;org.immutables.fixture.nullable&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersNonnullConstruction implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (NonnullConstructionTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new NonnullConstructionTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersNonnullConstruction(NonnullConstruction)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;NonnullConstruction&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class NonnullConstructionTypeAdapter extends TypeAdapter&lt;NonnullConstruction&gt; {
+&nbsp;
+&nbsp;    NonnullConstructionTypeAdapter(Gson gson) {
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return NonnullConstruction.class == type.getRawType()
+&nbsp;          || ImmutableNonnullConstruction.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, NonnullConstruction value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writeNonnullConstruction(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public NonnullConstruction read(JsonReader in) throws IOException {
+&nbsp;      return readNonnullConstruction(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writeNonnullConstruction(JsonWriter out, NonnullConstruction instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      String[] arrElements = instance.arr();
+&nbsp;      out.name(&quot;arr&quot;);
+&nbsp;      out.beginArray();
+&nbsp;      for (String e : arrElements) {
+&nbsp;        out.value(e);
+&nbsp;      }
+&nbsp;      out.endArray();
+&nbsp;      @Nullable String[] brrElements = instance.brr();
+&nbsp;      if (brrElements != null) {
+&nbsp;        out.name(&quot;brr&quot;);
+&nbsp;        out.beginArray();
+&nbsp;        for (String e : brrElements) {
+&nbsp;          out.value(e);
+&nbsp;        }
+&nbsp;        out.endArray();
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;brr&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      List&lt;String&gt; axElements = instance.ax();
+&nbsp;      out.name(&quot;ax&quot;);
+&nbsp;      out.beginArray();
+&nbsp;      for (String e : axElements) {
+&nbsp;        out.value(e);
+&nbsp;      }
+&nbsp;      out.endArray();
+&nbsp;      out.name(&quot;a&quot;);
+&nbsp;      out.value(instance.a());
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  NonnullConstruction readNonnullConstruction(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutableNonnullConstruction.Builder builder = ImmutableNonnullConstruction.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutableNonnullConstruction.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;a&#39;:
+&nbsp;        if (&quot;arr&quot;.equals(attributeName)) {
+&nbsp;          readInArr(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        if (&quot;ax&quot;.equals(attributeName)) {
+&nbsp;          readInAx(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;b&#39;:
+&nbsp;        if (&quot;brr&quot;.equals(attributeName)) {
+&nbsp;          readInBrr(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInArr(JsonReader in, ImmutableNonnullConstruction.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      List&lt;String&gt; elements = new ArrayList&lt;String&gt;();
+&nbsp;      if (in.peek() == JsonToken.BEGIN_ARRAY) {
+&nbsp;        in.beginArray();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          elements.add(in.nextString());
+&nbsp;        }
+&nbsp;        in.endArray();
+&nbsp;      } else if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        elements.add(in.nextString());
+&nbsp;      }
+&nbsp;      builder.arr(elements.toArray(new String[elements.size()]));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInBrr(JsonReader in, ImmutableNonnullConstruction.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        List&lt;String&gt; elements = new ArrayList&lt;String&gt;();
+&nbsp;        if (in.peek() == JsonToken.BEGIN_ARRAY) {
+&nbsp;          in.beginArray();
+&nbsp;          while(in.hasNext()) {
+&nbsp;            elements.add(in.nextString());
+&nbsp;          }
+&nbsp;          in.endArray();
+&nbsp;        } else if (in.peek() == JsonToken.NULL) {
+&nbsp;          in.nextNull();
+&nbsp;        } else {
+&nbsp;          elements.add(in.nextString());
+&nbsp;        }
+&nbsp;        builder.brr(elements.toArray(new String[elements.size()]));
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInAx(JsonReader in, ImmutableNonnullConstruction.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      boolean empty = true;
+&nbsp;      if (in.peek() == JsonToken.BEGIN_ARRAY) {
+&nbsp;        in.beginArray();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          builder.addAx(in.nextString());
+&nbsp;          empty = false;
+&nbsp;        }
+&nbsp;        in.endArray();
+&nbsp;      } else if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.addAx(in.nextString());
+&nbsp;        empty = false;
+&nbsp;      }
+&nbsp;      if (empty) {
+&nbsp;        builder.addAllAx(Collections.&lt;String&gt;emptyList());
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

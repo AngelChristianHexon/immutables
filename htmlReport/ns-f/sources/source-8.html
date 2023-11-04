@@ -1,0 +1,249 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableInMemorySetup</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.inmemory</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableInMemorySetup (org.immutables.criteria.inmemory)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableInMemorySetup$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInMemorySetup$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.inmemory;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link InMemorySetup}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new InMemorySetup.Builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;InMemorySetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableInMemorySetup implements InMemorySetup {
+&nbsp;  private final KeyExtractor.Factory keyExtractorFactory;
+&nbsp;
+&nbsp;  private ImmutableInMemorySetup(ImmutableInMemorySetup.Builder builder) {
+&nbsp;    this.keyExtractorFactory = builder.keyExtractorFactory != null
+&nbsp;        ? builder.keyExtractorFactory
+&nbsp;        : Objects.requireNonNull(InMemorySetup.super.keyExtractorFactory(), &quot;keyExtractorFactory&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableInMemorySetup(KeyExtractor.Factory keyExtractorFactory) {
+&nbsp;    this.keyExtractorFactory = keyExtractorFactory;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code keyExtractorFactory} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public KeyExtractor.Factory keyExtractorFactory() {
+&nbsp;    return keyExtractorFactory;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link InMemorySetup#keyExtractorFactory() keyExtractorFactory} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for keyExtractorFactory
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInMemorySetup withKeyExtractorFactory(KeyExtractor.Factory value) {
+&nbsp;    if (this.keyExtractorFactory == value) return this;
+&nbsp;    KeyExtractor.Factory newValue = Objects.requireNonNull(value, &quot;keyExtractorFactory&quot;);
+&nbsp;    return new ImmutableInMemorySetup(newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableInMemorySetup} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableInMemorySetup
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableInMemorySetup) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableInMemorySetup another) {
+&nbsp;    return keyExtractorFactory.equals(another.keyExtractorFactory);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code keyExtractorFactory}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + keyExtractorFactory.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code InMemorySetup} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;InMemorySetup&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;keyExtractorFactory&quot;, keyExtractorFactory)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link InMemorySetup} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable InMemorySetup instance
+&nbsp;   */
+&nbsp;  public static ImmutableInMemorySetup copyOf(InMemorySetup instance) {
+&nbsp;    if (instance instanceof ImmutableInMemorySetup) {
+&nbsp;      return (ImmutableInMemorySetup) instance;
+&nbsp;    }
+&nbsp;    return new InMemorySetup.Builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableInMemorySetup ImmutableInMemorySetup}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;InMemorySetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private @Nullable KeyExtractor.Factory keyExtractorFactory;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableInMemorySetup ImmutableInMemorySetup} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new InMemorySetup.Builder()
+&nbsp;     *    .keyExtractorFactory(org.immutables.criteria.backend.KeyExtractor.Factory) // optional {@link InMemorySetup#keyExtractorFactory() keyExtractorFactory}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof InMemorySetup.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new InMemorySetup.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code InMemorySetup} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final InMemorySetup.Builder from(InMemorySetup instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      keyExtractorFactory(instance.keyExtractorFactory());
+&nbsp;      return (InMemorySetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link InMemorySetup#keyExtractorFactory() keyExtractorFactory} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link InMemorySetup#keyExtractorFactory() keyExtractorFactory}.&lt;/em&gt;
+&nbsp;     * @param keyExtractorFactory The value for keyExtractorFactory 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final InMemorySetup.Builder keyExtractorFactory(KeyExtractor.Factory keyExtractorFactory) {
+&nbsp;      this.keyExtractorFactory = Objects.requireNonNull(keyExtractorFactory, &quot;keyExtractorFactory&quot;);
+&nbsp;      return (InMemorySetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableInMemorySetup ImmutableInMemorySetup}.
+&nbsp;     * @return An immutable instance of InMemorySetup
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableInMemorySetup build() {
+&nbsp;      return new ImmutableInMemorySetup(this);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,458 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJdkUtil</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJdkUtil (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJdkUtil$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link JdkUtil}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableJdkUtil.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkUtil&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableJdkUtil implements JdkUtil {
+&nbsp;  private final boolean a;
+&nbsp;  private final double d;
+&nbsp;  private final float f;
+&nbsp;  private final long l;
+&nbsp;  private final char c;
+&nbsp;  private final Object o;
+&nbsp;
+&nbsp;  private ImmutableJdkUtil(boolean a, double d, float f, long l, char c, Object o) {
+&nbsp;    this.a = a;
+&nbsp;    this.d = d;
+&nbsp;    this.f = f;
+&nbsp;    this.l = l;
+&nbsp;    this.c = c;
+&nbsp;    this.o = o;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public double d() {
+&nbsp;    return d;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code f} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public float f() {
+&nbsp;    return f;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public long l() {
+&nbsp;    return l;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public char c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code o} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Object o() {
+&nbsp;    return o;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JdkUtil#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkUtil withA(boolean value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    return new ImmutableJdkUtil(value, this.d, this.f, this.l, this.c, this.o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JdkUtil#d() d} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for d
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkUtil withD(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.d) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableJdkUtil(this.a, value, this.f, this.l, this.c, this.o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JdkUtil#f() f} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for f
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkUtil withF(float value) {
+&nbsp;    if (Float.floatToIntBits(this.f) == Float.floatToIntBits(value)) return this;
+&nbsp;    return new ImmutableJdkUtil(this.a, this.d, value, this.l, this.c, this.o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JdkUtil#l() l} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for l
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkUtil withL(long value) {
+&nbsp;    if (this.l == value) return this;
+&nbsp;    return new ImmutableJdkUtil(this.a, this.d, this.f, value, this.c, this.o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JdkUtil#c() c} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkUtil withC(char value) {
+&nbsp;    if (this.c == value) return this;
+&nbsp;    return new ImmutableJdkUtil(this.a, this.d, this.f, this.l, value, this.o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JdkUtil#o() o} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for o
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkUtil withO(Object value) {
+&nbsp;    if (this.o == value) return this;
+&nbsp;    Object newValue = Objects.requireNonNull(value, &quot;o&quot;);
+&nbsp;    return new ImmutableJdkUtil(this.a, this.d, this.f, this.l, this.c, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJdkUtil} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableJdkUtil
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableJdkUtil) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJdkUtil another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; Double.doubleToLongBits(d) == Double.doubleToLongBits(another.d)
+&nbsp;        &amp;&amp; Float.floatToIntBits(f) == Float.floatToIntBits(another.f)
+&nbsp;        &amp;&amp; l == another.l
+&nbsp;        &amp;&amp; c == another.c
+&nbsp;        &amp;&amp; o.equals(another.o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code d}, {@code f}, {@code l}, {@code c}, {@code o}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Boolean.hashCode(a);
+&nbsp;    h += (h &lt;&lt; 5) + Double.hashCode(d);
+&nbsp;    h += (h &lt;&lt; 5) + Float.hashCode(f);
+&nbsp;    h += (h &lt;&lt; 5) + Long.hashCode(l);
+&nbsp;    h += (h &lt;&lt; 5) + Character.hashCode(c);
+&nbsp;    h += (h &lt;&lt; 5) + o.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code JdkUtil} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;JdkUtil{&quot;
+&nbsp;        + &quot;a=&quot; + a
+&nbsp;        + &quot;, d=&quot; + d
+&nbsp;        + &quot;, f=&quot; + f
+&nbsp;        + &quot;, l=&quot; + l
+&nbsp;        + &quot;, c=&quot; + c
+&nbsp;        + &quot;, o=&quot; + o
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link JdkUtil} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable JdkUtil instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdkUtil copyOf(JdkUtil instance) {
+&nbsp;    if (instance instanceof ImmutableJdkUtil) {
+&nbsp;      return (ImmutableJdkUtil) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJdkUtil.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableJdkUtil ImmutableJdkUtil}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableJdkUtil.builder()
+&nbsp;   *    .a(boolean) // required {@link JdkUtil#a() a}
+&nbsp;   *    .d(double) // required {@link JdkUtil#d() d}
+&nbsp;   *    .f(float) // required {@link JdkUtil#f() f}
+&nbsp;   *    .l(long) // required {@link JdkUtil#l() l}
+&nbsp;   *    .c(char) // required {@link JdkUtil#c() c}
+&nbsp;   *    .o(Object) // required {@link JdkUtil#o() o}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableJdkUtil builder
+&nbsp;   */
+&nbsp;  public static ImmutableJdkUtil.Builder builder() {
+&nbsp;    return new ImmutableJdkUtil.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableJdkUtil ImmutableJdkUtil}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JdkUtil&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_D = 0x2L;
+&nbsp;    private static final long INIT_BIT_F = 0x4L;
+&nbsp;    private static final long INIT_BIT_L = 0x8L;
+&nbsp;    private static final long INIT_BIT_C = 0x10L;
+&nbsp;    private static final long INIT_BIT_O = 0x20L;
+&nbsp;    private long initBits = 0x3fL;
+&nbsp;
+&nbsp;    private boolean a;
+&nbsp;    private double d;
+&nbsp;    private float f;
+&nbsp;    private long l;
+&nbsp;    private char c;
+&nbsp;    private @Nullable Object o;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code JdkUtil} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(JdkUtil instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      a(instance.a());
+&nbsp;      d(instance.d());
+&nbsp;      f(instance.f());
+&nbsp;      l(instance.l());
+&nbsp;      c(instance.c());
+&nbsp;      o(instance.o());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JdkUtil#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(boolean a) {
+&nbsp;      this.a = a;
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JdkUtil#d() d} attribute.
+&nbsp;     * @param d The value for d 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(double d) {
+&nbsp;      this.d = d;
+&nbsp;      initBits &amp;= ~INIT_BIT_D;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JdkUtil#f() f} attribute.
+&nbsp;     * @param f The value for f 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder f(float f) {
+&nbsp;      this.f = f;
+&nbsp;      initBits &amp;= ~INIT_BIT_F;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JdkUtil#l() l} attribute.
+&nbsp;     * @param l The value for l 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l(long l) {
+&nbsp;      this.l = l;
+&nbsp;      initBits &amp;= ~INIT_BIT_L;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JdkUtil#c() c} attribute.
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(char c) {
+&nbsp;      this.c = c;
+&nbsp;      initBits &amp;= ~INIT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JdkUtil#o() o} attribute.
+&nbsp;     * @param o The value for o 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder o(Object o) {
+&nbsp;      this.o = Objects.requireNonNull(o, &quot;o&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_O;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableJdkUtil ImmutableJdkUtil}.
+&nbsp;     * @return An immutable instance of JdkUtil
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableJdkUtil build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableJdkUtil(a, d, f, l, c, o);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_D) != 0) attributes.add(&quot;d&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_F) != 0) attributes.add(&quot;f&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_L) != 0) attributes.add(&quot;l&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_C) != 0) attributes.add(&quot;c&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_O) != 0) attributes.add(&quot;o&quot;);
+&nbsp;      return &quot;Cannot build JdkUtil, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

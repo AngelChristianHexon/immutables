@@ -1,0 +1,103 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Data</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.data</a>
+</div>
+
+<h1>Coverage Summary for Class: Data (org.immutables.data)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Data$Ignore</td>
+  </tr>
+  <tr>
+    <td class="name">Data$Inline</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.data;
+&nbsp;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;
+&nbsp;@Retention(RetentionPolicy.RUNTIME)
+&nbsp;@Target(ElementType.TYPE)
+&nbsp;public @interface Data {
+&nbsp;  /**
+&nbsp;   * This data element should be ignored during reading and writing the data. It is usually a mistake
+&nbsp;   * to make required attribute having no defaults as ignorable.
+&nbsp;   */
+&nbsp;  @Retention(RetentionPolicy.RUNTIME)
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  public @interface Ignore {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Marks that the type is strongly typed alias (newtype) for the other type it wraps.
+&nbsp;   * For now it requires either single parameter to be inlined or otherwise multiple will be
+&nbsp;   * &quot;inlined&quot; as heterogeneous array/tuple in their data representation/serialization, in positional
+&nbsp;   * order, for example. However, in our Datatypes metadata framework we only mark those as such on
+&nbsp;   * a model level, we leave it up to further codecs/serialization to implement it.
+&nbsp;   */
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  @Retention(RetentionPolicy.RUNTIME)
+&nbsp;  public @interface Inline {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

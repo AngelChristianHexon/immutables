@@ -1,0 +1,263 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > JacksonCodecRegistry</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.mongo.bson4jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: JacksonCodecRegistry (org.immutables.criteria.mongo.bson4jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JacksonCodecRegistry</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">JacksonCodecRegistry$JacksonCodec</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.mongo.bson4jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.core.io.ContentReference;
+&nbsp;import com.fasterxml.jackson.core.io.IOContext;
+&nbsp;import com.fasterxml.jackson.core.util.BufferRecycler;
+&nbsp;import com.fasterxml.jackson.databind.JavaType;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.fasterxml.jackson.databind.ObjectReader;
+&nbsp;import com.fasterxml.jackson.databind.ObjectWriter;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import org.bson.AbstractBsonReader;
+&nbsp;import org.bson.BsonReader;
+&nbsp;import org.bson.BsonWriter;
+&nbsp;import org.bson.codecs.Codec;
+&nbsp;import org.bson.codecs.DecoderContext;
+&nbsp;import org.bson.codecs.EncoderContext;
+&nbsp;import org.bson.codecs.configuration.CodecConfigurationException;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;
+&nbsp;import java.io.IOException;
+&nbsp;import java.io.UncheckedIOException;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;/**
+&nbsp; * Registry based on {@link ObjectMapper}
+&nbsp; */
+&nbsp;class JacksonCodecRegistry implements CodecRegistry {
+&nbsp;
+&nbsp;  private final ObjectMapper mapper;
+&nbsp;
+<b class="nc">&nbsp;  private JacksonCodecRegistry(ObjectMapper mapper) {</b>
+<b class="nc">&nbsp;    this.mapper = Objects.requireNonNull(mapper, &quot;mapper&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static JacksonCodecRegistry of(ObjectMapper mapper) {
+<b class="nc">&nbsp;    return new JacksonCodecRegistry(mapper);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; Codec&lt;T&gt; get(Class&lt;T&gt; clazz) {
+<b class="nc">&nbsp;    final JavaType javaType = mapper.getTypeFactory().constructType(clazz);</b>
+<b class="nc">&nbsp;    if (!(mapper.canSerialize(clazz) &amp;&amp; mapper.canDeserialize(javaType))) {</b>
+<b class="nc">&nbsp;      throw new CodecConfigurationException(String.format(&quot;%s (javaType: %s) not supported by Jackson Mapper&quot;, clazz, javaType));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return new JacksonCodec&lt;&gt;(clazz, mapper);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; Codec&lt;T&gt; get(Class&lt;T&gt; clazz, CodecRegistry codecRegistry) {
+<b class="nc">&nbsp;    return LegacyCodecAdapter.of(this).get(clazz, codecRegistry);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class JacksonCodec&lt;T&gt; implements Codec&lt;T&gt; {
+&nbsp;
+&nbsp;    private final Class&lt;T&gt; clazz;
+&nbsp;    private final ObjectReader reader;
+&nbsp;    private final ObjectWriter writer;
+&nbsp;    private final IOContext ioContext;
+&nbsp;
+<b class="nc">&nbsp;    JacksonCodec(Class&lt;T&gt; clazz, ObjectMapper mapper) {</b>
+<b class="nc">&nbsp;      this.clazz = Objects.requireNonNull(clazz, &quot;clazz&quot;);</b>
+<b class="nc">&nbsp;      Objects.requireNonNull(mapper, &quot;mapper&quot;);</b>
+<b class="nc">&nbsp;      this.reader = mapper.readerFor(clazz);</b>
+<b class="nc">&nbsp;      this.writer = mapper.writerFor(clazz);</b>
+<b class="nc">&nbsp;      this.ioContext =  new IOContext(new BufferRecycler(), ContentReference.unknown(), false);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public T decode(BsonReader reader, DecoderContext decoderContext) {
+<b class="nc">&nbsp;      Preconditions.checkArgument(reader instanceof AbstractBsonReader,</b>
+&nbsp;              &quot;Expected reader to be %s for %s but was %s&quot;,
+<b class="nc">&nbsp;              AbstractBsonReader.class.getName(), clazz, reader.getClass());</b>
+<b class="nc">&nbsp;      final BsonParser parser = new BsonParser(ioContext, 0, (AbstractBsonReader) reader);</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        return this.reader.readValue(parser);</b>
+<b class="nc">&nbsp;      } catch (IOException e) {</b>
+<b class="nc">&nbsp;        throw new UncheckedIOException(&quot;Error while decoding &quot; + clazz, e);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void encode(BsonWriter writer, T value, EncoderContext encoderContext) {
+<b class="nc">&nbsp;      final BsonGenerator generator = new BsonGenerator(0, writer);</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        this.writer.writeValue(generator, value);</b>
+<b class="nc">&nbsp;      } catch (IOException e) {</b>
+<b class="nc">&nbsp;        throw new UncheckedIOException(&quot;Couldn&#39;t serialize [&quot; + value + &quot;] as &quot; + getEncoderClass(), e);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;T&gt; getEncoderClass() {
+<b class="nc">&nbsp;      return clazz;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

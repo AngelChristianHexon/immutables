@@ -1,0 +1,216 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyMapTup</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyMapTup (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ImmutableSillyMapTup</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.Map;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyMapTup}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSillyMapTup.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyMapTup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyMapTup extends SillyMapTup {
+&nbsp;  private final ImmutableMap&lt;RetentionPolicy, Integer&gt; holder1;
+&nbsp;  private final int value;
+&nbsp;
+&nbsp;  private ImmutableSillyMapTup(Map&lt;RetentionPolicy, ? extends Integer&gt; holder1, int value) {
+&nbsp;    this.holder1 = Maps.immutableEnumMap(holder1);
+&nbsp;    this.value = value;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillyMapTup(
+&nbsp;      ImmutableSillyMapTup original,
+&nbsp;      ImmutableMap&lt;RetentionPolicy, Integer&gt; holder1,
+&nbsp;      int value) {
+&nbsp;    this.holder1 = holder1;
+&nbsp;    this.value = value;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code holder1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;RetentionPolicy, Integer&gt; holder1() {
+&nbsp;    return holder1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code value} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int value() {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SillyMapTup#holder1() holder1} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the holder1 map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapTup withHolder1(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    if (this.holder1 == entries) return this;
+&nbsp;    ImmutableMap&lt;RetentionPolicy, Integer&gt; newValue = Maps.immutableEnumMap(entries);
+&nbsp;    return new ImmutableSillyMapTup(this, newValue, this.value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyMapTup#value() value} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for value
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapTup withValue(int value) {
+&nbsp;    if (this.value == value) return this;
+&nbsp;    return new ImmutableSillyMapTup(this, this.holder1, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyMapTup} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyMapTup
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyMapTup) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyMapTup another) {
+&nbsp;    return holder1.equals(another.holder1)
+&nbsp;        &amp;&amp; value == another.value;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code holder1}, {@code value}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + holder1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + value;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyMapTup} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyMapTup&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;holder1&quot;, holder1)
+&nbsp;        .add(&quot;value&quot;, value)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyMapTup} instance.
+&nbsp;   * @param holder1 The value for the {@code holder1} attribute
+&nbsp;   * @param value The value for the {@code value} attribute
+&nbsp;   * @return An immutable SillyMapTup instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyMapTup of(Map&lt;RetentionPolicy, ? extends Integer&gt; holder1, int value) {
+&nbsp;    return new ImmutableSillyMapTup(holder1, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyMapTup} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyMapTup instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyMapTup copyOf(SillyMapTup instance) {
+&nbsp;    if (instance instanceof ImmutableSillyMapTup) {
+&nbsp;      return (ImmutableSillyMapTup) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyMapTup.of(instance.holder1(), instance.value());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

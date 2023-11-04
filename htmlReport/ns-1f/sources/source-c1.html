@@ -1,0 +1,330 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyLazy</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyLazy (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSillyLazy$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.concurrent.atomic.AtomicInteger;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyLazy}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSillyLazy.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSillyLazy.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyLazy&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyLazy extends SillyLazy {
+&nbsp;  private final AtomicInteger counter;
+&nbsp;
+&nbsp;  private ImmutableSillyLazy(AtomicInteger counter) {
+&nbsp;    this.counter = Objects.requireNonNull(counter, &quot;counter&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillyLazy(ImmutableSillyLazy original, AtomicInteger counter) {
+&nbsp;    this.counter = counter;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code counter} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public AtomicInteger counter() {
+&nbsp;    return counter;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyLazy#counter() counter} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for counter
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyLazy withCounter(AtomicInteger value) {
+&nbsp;    AtomicInteger newValue = Objects.requireNonNull(value, &quot;counter&quot;);
+&nbsp;    if (this.counter.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyLazy(this, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyLazy} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyLazy
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyLazy) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyLazy another) {
+&nbsp;    return counter.equals(another.counter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code counter}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + counter.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyLazy} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyLazy&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;counter&quot;, counter)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long VAL1_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient int val1;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link SillyLazy#val1() val1} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code val1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int val1() {
+&nbsp;    if ((lazyInitBitmap &amp; VAL1_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; VAL1_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.val1 = super.val1();
+&nbsp;          lazyInitBitmap |= VAL1_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return val1;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long VAL2_LAZY_INIT_BIT = 0x2L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient int val2;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link SillyLazy#val2() val2} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code val2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int val2() {
+&nbsp;    if ((lazyInitBitmap &amp; VAL2_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; VAL2_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.val2 = super.val2();
+&nbsp;          lazyInitBitmap |= VAL2_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return val2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyLazy} instance.
+&nbsp;   * @param counter The value for the {@code counter} attribute
+&nbsp;   * @return An immutable SillyLazy instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyLazy of(AtomicInteger counter) {
+&nbsp;    return new ImmutableSillyLazy(counter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyLazy} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyLazy instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyLazy copyOf(SillyLazy instance) {
+&nbsp;    if (instance instanceof ImmutableSillyLazy) {
+&nbsp;      return (ImmutableSillyLazy) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyLazy.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSillyLazy ImmutableSillyLazy}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSillyLazy.builder()
+&nbsp;   *    .counter(concurrent.atomic.AtomicInteger) // required {@link SillyLazy#counter() counter}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSillyLazy builder
+&nbsp;   */
+&nbsp;  public static ImmutableSillyLazy.Builder builder() {
+&nbsp;    return new ImmutableSillyLazy.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSillyLazy ImmutableSillyLazy}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyLazy&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_COUNTER = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable AtomicInteger counter;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SillyLazy} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SillyLazy instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      counter(instance.counter());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyLazy#counter() counter} attribute.
+&nbsp;     * @param counter The value for counter 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder counter(AtomicInteger counter) {
+&nbsp;      this.counter = Objects.requireNonNull(counter, &quot;counter&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_COUNTER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSillyLazy ImmutableSillyLazy}.
+&nbsp;     * @return An immutable instance of SillyLazy
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSillyLazy build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableSillyLazy(null, counter);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_COUNTER) != 0) attributes.add(&quot;counter&quot;);
+&nbsp;      return &quot;Cannot build SillyLazy, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

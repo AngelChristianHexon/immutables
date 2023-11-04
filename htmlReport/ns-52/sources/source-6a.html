@@ -1,0 +1,357 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNullabilityAnnotationInfo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNullabilityAnnotationInfo (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNullabilityAnnotationInfo$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNullabilityAnnotationInfo$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNullabilityAnnotationInfo$InternProxy</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.Interner;
+&nbsp;import com.google.common.collect.Interners;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NullabilityAnnotationInfo}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableNullabilityAnnotationInfo.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NullabilityAnnotationInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableNullabilityAnnotationInfo
+&nbsp;    extends NullabilityAnnotationInfo {
+&nbsp;  private final TypeElement element;
+&nbsp;  private transient final String qualifiedName;
+&nbsp;  private transient final String simpleName;
+&nbsp;
+&nbsp;  private ImmutableNullabilityAnnotationInfo(TypeElement element) {
+&nbsp;    this.element = Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;    this.qualifiedName = initShim.qualifiedName();
+&nbsp;    this.simpleName = initShim.simpleName();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNullabilityAnnotationInfo(ImmutableNullabilityAnnotationInfo original, TypeElement element) {
+&nbsp;    this.element = element;
+&nbsp;    this.qualifiedName = initShim.qualifiedName();
+&nbsp;    this.simpleName = initShim.simpleName();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;NullabilityAnnotationInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte qualifiedNameBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String qualifiedName;
+&nbsp;
+&nbsp;    String qualifiedName() {
+&nbsp;      if (qualifiedNameBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (qualifiedNameBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        qualifiedNameBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.qualifiedName = Objects.requireNonNull(ImmutableNullabilityAnnotationInfo.super.qualifiedName(), &quot;qualifiedName&quot;);
+&nbsp;        qualifiedNameBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.qualifiedName;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte simpleNameBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String simpleName;
+&nbsp;
+&nbsp;    String simpleName() {
+&nbsp;      if (simpleNameBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (simpleNameBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        simpleNameBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.simpleName = Objects.requireNonNull(ImmutableNullabilityAnnotationInfo.super.simpleName(), &quot;simpleName&quot;);
+&nbsp;        simpleNameBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.simpleName;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (qualifiedNameBuildStage == STAGE_INITIALIZING) attributes.add(&quot;qualifiedName&quot;);
+&nbsp;      if (simpleNameBuildStage == STAGE_INITIALIZING) attributes.add(&quot;simpleName&quot;);
+&nbsp;      return &quot;Cannot build NullabilityAnnotationInfo, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code element} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  TypeElement element() {
+&nbsp;    return element;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code qualifiedName} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String qualifiedName() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.qualifiedName()
+&nbsp;        : this.qualifiedName;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code simpleName} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String simpleName() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.simpleName()
+&nbsp;        : this.simpleName;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NullabilityAnnotationInfo#element() element} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for element
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullabilityAnnotationInfo withElement(TypeElement value) {
+&nbsp;    if (this.element == value) return this;
+&nbsp;    TypeElement newValue = Objects.requireNonNull(value, &quot;element&quot;);
+&nbsp;    return validate(new ImmutableNullabilityAnnotationInfo(this, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNullabilityAnnotationInfo} that have equal attribute values.
+&nbsp;   * As instances of the {@code ImmutableNullabilityAnnotationInfo} class are interned, the {@code equals} method is implemented
+&nbsp;   * as an efficient reference equality check.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    return this == another;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableNullabilityAnnotationInfo another) {
+&nbsp;    return qualifiedName.equals(another.qualifiedName)
+&nbsp;        &amp;&amp; simpleName.equals(another.simpleName);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code qualifiedName}, {@code simpleName}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + qualifiedName.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + simpleName.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NullabilityAnnotationInfo} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NullabilityAnnotationInfo&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;qualifiedName&quot;, qualifiedName)
+&nbsp;        .add(&quot;simpleName&quot;, simpleName)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long AS_PREFIX_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient String asPrefix;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link NullabilityAnnotationInfo#asPrefix() asPrefix} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code asPrefix} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String asPrefix() {
+&nbsp;    if ((lazyInitBitmap &amp; AS_PREFIX_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; AS_PREFIX_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.asPrefix = Objects.requireNonNull(super.asPrefix(), &quot;asPrefix&quot;);
+&nbsp;          lazyInitBitmap |= AS_PREFIX_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return asPrefix;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long AS_LOCAL_PREFIX_LAZY_INIT_BIT = 0x2L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient String asLocalPrefix;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link NullabilityAnnotationInfo#asLocalPrefix() asLocalPrefix} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code asLocalPrefix} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String asLocalPrefix() {
+&nbsp;    if ((lazyInitBitmap &amp; AS_LOCAL_PREFIX_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; AS_LOCAL_PREFIX_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.asLocalPrefix = Objects.requireNonNull(super.asLocalPrefix(), &quot;asLocalPrefix&quot;);
+&nbsp;          lazyInitBitmap |= AS_LOCAL_PREFIX_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return asLocalPrefix;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;NullabilityAnnotationInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class InternProxy {
+&nbsp;    final ImmutableNullabilityAnnotationInfo instance;
+&nbsp;
+&nbsp;    InternProxy(ImmutableNullabilityAnnotationInfo instance) {
+&nbsp;      this.instance = instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      return another != null &amp;&amp; instance.equalTo(((InternProxy) another).instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return instance.hashCode();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final Interner&lt;InternProxy&gt; INTERNER = Interners.newStrongInterner();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code NullabilityAnnotationInfo} instance.
+&nbsp;   * @param element The value for the {@code element} attribute
+&nbsp;   * @return An immutable NullabilityAnnotationInfo instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullabilityAnnotationInfo of(TypeElement element) {
+&nbsp;    return validate(new ImmutableNullabilityAnnotationInfo(element));
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableNullabilityAnnotationInfo validate(ImmutableNullabilityAnnotationInfo instance) {
+&nbsp;    return INTERNER.intern(new InternProxy(instance)).instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NullabilityAnnotationInfo} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NullabilityAnnotationInfo instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullabilityAnnotationInfo copyOf(NullabilityAnnotationInfo instance) {
+&nbsp;    if (instance instanceof ImmutableNullabilityAnnotationInfo) {
+&nbsp;      return (ImmutableNullabilityAnnotationInfo) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNullabilityAnnotationInfo.of(instance.element());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

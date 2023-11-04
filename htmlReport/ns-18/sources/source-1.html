@@ -1,0 +1,187 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ReactiveFetcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository.reactive</a>
+</div>
+
+<h1>Coverage Summary for Class: ReactiveFetcher (org.immutables.criteria.repository.reactive)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReactiveFetcher</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository.reactive;
+&nbsp;
+&nbsp;import org.immutables.criteria.backend.Backend;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.repository.Fetcher;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;
+&nbsp;/**
+&nbsp; * Reactive interface for fetcher
+&nbsp; */
+&nbsp;public interface ReactiveFetcher&lt;T&gt; extends Fetcher&lt;T&gt; {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fetch all results
+&nbsp;   */
+&nbsp;  Publisher&lt;T&gt; fetch();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that &lt;i&gt;exactly one&lt;/i&gt; element is matched by current query and return it.
+&nbsp;   * @return Publisher with single element, or Publisher that throws {@link org.immutables.criteria.backend.NonUniqueResultException}
+&nbsp;   */
+&nbsp;  Publisher&lt;T&gt; one();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that &lt;i&gt;at most one&lt;/i&gt; element is matched by current query and return it (if available).
+&nbsp;   * @return Publisher with zero or one element, or Publisher that throws {@link org.immutables.criteria.backend.NonUniqueResultException}
+&nbsp;   */
+&nbsp;  Publisher&lt;T&gt; oneOrNone();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that current query matches any elements.
+&nbsp;   * @return Publisher with single boolean ({@code true / false} if there is a match)
+&nbsp;   */
+&nbsp;  Publisher&lt;Boolean&gt; exists();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Count number of elements to be returned. Similar to {@code COUNT(*)} in SQL.
+&nbsp;   * @return Publisher with a single long value
+&nbsp;   */
+&nbsp;  Publisher&lt;Long&gt; count();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Applies a mapping function to each element emitted by current fetcher
+&nbsp;   */
+&nbsp;  &lt;X&gt; ReactiveFetcher&lt;X&gt; map(Function&lt;? super T, ? extends X&gt; mapFn);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Applies mapping function to change query for current fetcher. Used to add query
+&nbsp;   * flags like {@code DISTINCT}, {@code LIMIT}, {@code OFFSET} etc.
+&nbsp;   *
+&nbsp;   * @param mapFn mapping function
+&nbsp;   * @return new fetcher instance with changed query
+&nbsp;   * @throws NullPointerException if {@code mapFn} argument is null
+&nbsp;   */
+&nbsp;  ReactiveFetcher&lt;T&gt; changeQuery(UnaryOperator&lt;Query&gt; mapFn);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Factory method
+&nbsp;   */
+&nbsp;  static &lt;T&gt; ReactiveFetcher&lt;T&gt; of(Query query, Backend.Session session) {
+<b class="nc">&nbsp;    return ReactiveFetcherDelegate.of(query, session);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

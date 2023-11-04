@@ -1,0 +1,2116 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableConstitution</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableConstitution (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableConstitution$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$AppliedNameForms</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$AppliedNameForms$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$AppliedNameForms$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$NameForms</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$NameForms$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableConstitution$NameForms$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Constitution}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableConstitution.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Constitution&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableConstitution extends Constitution {
+&nbsp;  private final Proto.Protoclass protoclass;
+&nbsp;  private transient final Visibility implementationVisibility;
+&nbsp;  private transient final Visibility builderVisibility;
+&nbsp;  private transient final String implementationPackage;
+&nbsp;  private transient final Styles.UsingName.TypeNames names;
+&nbsp;  private transient final boolean hasImmutableInBuilder;
+&nbsp;
+&nbsp;  private ImmutableConstitution(Proto.Protoclass protoclass) {
+&nbsp;    this.protoclass = protoclass;
+&nbsp;    this.implementationVisibility = initShim.implementationVisibility();
+&nbsp;    this.builderVisibility = initShim.builderVisibility();
+&nbsp;    this.implementationPackage = initShim.implementationPackage();
+&nbsp;    this.names = initShim.names();
+&nbsp;    this.hasImmutableInBuilder = initShim.hasImmutableInBuilder();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;Constitution&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte implementationVisibilityBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private Visibility implementationVisibility;
+&nbsp;
+&nbsp;    Visibility implementationVisibility() {
+&nbsp;      if (implementationVisibilityBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (implementationVisibilityBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        implementationVisibilityBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.implementationVisibility = Objects.requireNonNull(ImmutableConstitution.super.implementationVisibility(), &quot;implementationVisibility&quot;);
+&nbsp;        implementationVisibilityBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.implementationVisibility;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte builderVisibilityBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private Visibility builderVisibility;
+&nbsp;
+&nbsp;    Visibility builderVisibility() {
+&nbsp;      if (builderVisibilityBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (builderVisibilityBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        builderVisibilityBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.builderVisibility = Objects.requireNonNull(ImmutableConstitution.super.builderVisibility(), &quot;builderVisibility&quot;);
+&nbsp;        builderVisibilityBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.builderVisibility;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte implementationPackageBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String implementationPackage;
+&nbsp;
+&nbsp;    String implementationPackage() {
+&nbsp;      if (implementationPackageBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (implementationPackageBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        implementationPackageBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.implementationPackage = Objects.requireNonNull(ImmutableConstitution.super.implementationPackage(), &quot;implementationPackage&quot;);
+&nbsp;        implementationPackageBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.implementationPackage;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte namesBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private Styles.UsingName.TypeNames names;
+&nbsp;
+&nbsp;    Styles.UsingName.TypeNames names() {
+&nbsp;      if (namesBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (namesBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        namesBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.names = Objects.requireNonNull(ImmutableConstitution.super.names(), &quot;names&quot;);
+&nbsp;        namesBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.names;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte hasImmutableInBuilderBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean hasImmutableInBuilder;
+&nbsp;
+&nbsp;    boolean hasImmutableInBuilder() {
+&nbsp;      if (hasImmutableInBuilderBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (hasImmutableInBuilderBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        hasImmutableInBuilderBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.hasImmutableInBuilder = ImmutableConstitution.super.hasImmutableInBuilder();
+&nbsp;        hasImmutableInBuilderBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.hasImmutableInBuilder;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (implementationVisibilityBuildStage == STAGE_INITIALIZING) attributes.add(&quot;implementationVisibility&quot;);
+&nbsp;      if (builderVisibilityBuildStage == STAGE_INITIALIZING) attributes.add(&quot;builderVisibility&quot;);
+&nbsp;      if (implementationPackageBuildStage == STAGE_INITIALIZING) attributes.add(&quot;implementationPackage&quot;);
+&nbsp;      if (namesBuildStage == STAGE_INITIALIZING) attributes.add(&quot;names&quot;);
+&nbsp;      if (hasImmutableInBuilderBuildStage == STAGE_INITIALIZING) attributes.add(&quot;hasImmutableInBuilder&quot;);
+&nbsp;      return &quot;Cannot build Constitution, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code protoclass} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Proto.Protoclass protoclass() {
+&nbsp;    return protoclass;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code implementationVisibility} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Visibility implementationVisibility() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.implementationVisibility()
+&nbsp;        : this.implementationVisibility;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code builderVisibility} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Visibility builderVisibility() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.builderVisibility()
+&nbsp;        : this.builderVisibility;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code implementationPackage} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String implementationPackage() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.implementationPackage()
+&nbsp;        : this.implementationPackage;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code names} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Styles.UsingName.TypeNames names() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.names()
+&nbsp;        : this.names;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code hasImmutableInBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean hasImmutableInBuilder() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.hasImmutableInBuilder()
+&nbsp;        : this.hasImmutableInBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Constitution#protoclass() protoclass} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for protoclass
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableConstitution withProtoclass(Proto.Protoclass value) {
+&nbsp;    if (this.protoclass == value) return this;
+&nbsp;    Proto.Protoclass newValue = Objects.requireNonNull(value, &quot;protoclass&quot;);
+&nbsp;    return new ImmutableConstitution(newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableConstitution} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableConstitution
+&nbsp;        &amp;&amp; equalTo((ImmutableConstitution) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableConstitution another) {
+&nbsp;    return protoclass.equals(another.protoclass)
+&nbsp;        &amp;&amp; implementationVisibility.equals(another.implementationVisibility)
+&nbsp;        &amp;&amp; builderVisibility.equals(another.builderVisibility)
+&nbsp;        &amp;&amp; implementationPackage.equals(another.implementationPackage)
+&nbsp;        &amp;&amp; names.equals(another.names)
+&nbsp;        &amp;&amp; hasImmutableInBuilder == another.hasImmutableInBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code protoclass}, {@code implementationVisibility}, {@code builderVisibility}, {@code implementationPackage}, {@code names}, {@code hasImmutableInBuilder}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + protoclass.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + implementationVisibility.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + builderVisibility.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + implementationPackage.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + names.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(hasImmutableInBuilder);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Constitution} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Constitution&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;protoclass&quot;, protoclass)
+&nbsp;        .add(&quot;implementationVisibility&quot;, implementationVisibility)
+&nbsp;        .add(&quot;builderVisibility&quot;, builderVisibility)
+&nbsp;        .add(&quot;implementationPackage&quot;, implementationPackage)
+&nbsp;        .add(&quot;names&quot;, names)
+&nbsp;        .add(&quot;hasImmutableInBuilder&quot;, hasImmutableInBuilder)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long GENERICS_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Generics generics;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#generics() generics} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code generics} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Generics generics() {
+&nbsp;    if ((lazyInitBitmap &amp; GENERICS_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; GENERICS_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.generics = Objects.requireNonNull(super.generics(), &quot;generics&quot;);
+&nbsp;          lazyInitBitmap |= GENERICS_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return generics;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_PREFERABLY_ABSTRACT_LAZY_INIT_BIT = 0x2L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typePreferablyAbstract;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typePreferablyAbstract() typePreferablyAbstract} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typePreferablyAbstract} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typePreferablyAbstract() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_PREFERABLY_ABSTRACT_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_PREFERABLY_ABSTRACT_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typePreferablyAbstract = Objects.requireNonNull(super.typePreferablyAbstract(), &quot;typePreferablyAbstract&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_PREFERABLY_ABSTRACT_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typePreferablyAbstract;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_DOCUMENT_LAZY_INIT_BIT = 0x4L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeDocument;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeDocument() typeDocument} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeDocument} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeDocument() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_DOCUMENT_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_DOCUMENT_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeDocument = Objects.requireNonNull(super.typeDocument(), &quot;typeDocument&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_DOCUMENT_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeDocument;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_MODIFIABLE_LAZY_INIT_BIT = 0x8L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeModifiable;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeModifiable() typeModifiable} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeModifiable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeModifiable() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_MODIFIABLE_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_MODIFIABLE_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeModifiable = Objects.requireNonNull(super.typeModifiable(), &quot;typeModifiable&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_MODIFIABLE_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeModifiable;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long FACTORY_CREATE_LAZY_INIT_BIT = 0x10L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.AppliedNameForms factoryCreate;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#factoryCreate() factoryCreate} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code factoryCreate} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.AppliedNameForms factoryCreate() {
+&nbsp;    if ((lazyInitBitmap &amp; FACTORY_CREATE_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; FACTORY_CREATE_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.factoryCreate = Objects.requireNonNull(super.factoryCreate(), &quot;factoryCreate&quot;);
+&nbsp;          lazyInitBitmap |= FACTORY_CREATE_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return factoryCreate;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_VALUE_LAZY_INIT_BIT = 0x20L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeValue;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeValue() typeValue} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeValue} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeValue() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_VALUE_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_VALUE_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeValue = Objects.requireNonNull(super.typeValue(), &quot;typeValue&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_VALUE_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeValue;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_ABSTRACT_LAZY_INIT_BIT = 0x40L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeAbstract;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeAbstract() typeAbstract} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeAbstract} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeAbstract() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_ABSTRACT_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_ABSTRACT_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeAbstract = Objects.requireNonNull(super.typeAbstract(), &quot;typeAbstract&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_ABSTRACT_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeAbstract;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_IMMUTABLE_LAZY_INIT_BIT = 0x80L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeImmutable;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeImmutable() typeImmutable} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeImmutable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeImmutable() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_IMMUTABLE_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_IMMUTABLE_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeImmutable = Objects.requireNonNull(super.typeImmutable(), &quot;typeImmutable&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_IMMUTABLE_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeImmutable;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_IMMUTABLE_ENCLOSING_SIMPLE_NAME_LAZY_INIT_BIT = 0x100L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient String typeImmutableEnclosingSimpleName;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeImmutableEnclosingSimpleName() typeImmutableEnclosingSimpleName} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeImmutableEnclosingSimpleName} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String typeImmutableEnclosingSimpleName() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_IMMUTABLE_ENCLOSING_SIMPLE_NAME_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_IMMUTABLE_ENCLOSING_SIMPLE_NAME_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeImmutableEnclosingSimpleName = Objects.requireNonNull(super.typeImmutableEnclosingSimpleName(), &quot;typeImmutableEnclosingSimpleName&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_IMMUTABLE_ENCLOSING_SIMPLE_NAME_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeImmutableEnclosingSimpleName;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long FACTORY_BUILDER_LAZY_INIT_BIT = 0x200L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.AppliedNameForms factoryBuilder;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#factoryBuilder() factoryBuilder} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code factoryBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.AppliedNameForms factoryBuilder() {
+&nbsp;    if ((lazyInitBitmap &amp; FACTORY_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; FACTORY_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.factoryBuilder = Objects.requireNonNull(super.factoryBuilder(), &quot;factoryBuilder&quot;);
+&nbsp;          lazyInitBitmap |= FACTORY_BUILDER_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return factoryBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long FACTORY_OF_LAZY_INIT_BIT = 0x400L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.AppliedNameForms factoryOf;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#factoryOf() factoryOf} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code factoryOf} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.AppliedNameForms factoryOf() {
+&nbsp;    if ((lazyInitBitmap &amp; FACTORY_OF_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; FACTORY_OF_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.factoryOf = Objects.requireNonNull(super.factoryOf(), &quot;factoryOf&quot;);
+&nbsp;          lazyInitBitmap |= FACTORY_OF_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return factoryOf;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long FACTORY_INSTANCE_LAZY_INIT_BIT = 0x800L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.AppliedNameForms factoryInstance;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#factoryInstance() factoryInstance} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code factoryInstance} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.AppliedNameForms factoryInstance() {
+&nbsp;    if ((lazyInitBitmap &amp; FACTORY_INSTANCE_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; FACTORY_INSTANCE_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.factoryInstance = Objects.requireNonNull(super.factoryInstance(), &quot;factoryInstance&quot;);
+&nbsp;          lazyInitBitmap |= FACTORY_INSTANCE_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return factoryInstance;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long FACTORY_COPY_OF_LAZY_INIT_BIT = 0x1000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.AppliedNameForms factoryCopyOf;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#factoryCopyOf() factoryCopyOf} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code factoryCopyOf} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.AppliedNameForms factoryCopyOf() {
+&nbsp;    if ((lazyInitBitmap &amp; FACTORY_COPY_OF_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; FACTORY_COPY_OF_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.factoryCopyOf = Objects.requireNonNull(super.factoryCopyOf(), &quot;factoryCopyOf&quot;);
+&nbsp;          lazyInitBitmap |= FACTORY_COPY_OF_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return factoryCopyOf;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_ENCLOSING_FACTORY_LAZY_INIT_BIT = 0x2000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeEnclosingFactory;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeEnclosingFactory() typeEnclosingFactory} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeEnclosingFactory} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeEnclosingFactory() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_ENCLOSING_FACTORY_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_ENCLOSING_FACTORY_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeEnclosingFactory = Objects.requireNonNull(super.typeEnclosingFactory(), &quot;typeEnclosingFactory&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_ENCLOSING_FACTORY_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeEnclosingFactory;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_ENCLOSING_LAZY_INIT_BIT = 0x4000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeEnclosing;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeEnclosing() typeEnclosing} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeEnclosing} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeEnclosing() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_ENCLOSING_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_ENCLOSING_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeEnclosing = Objects.requireNonNull(super.typeEnclosing(), &quot;typeEnclosing&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_ENCLOSING_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeEnclosing;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_WITH_LAZY_INIT_BIT = 0x8000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeWith;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeWith() typeWith} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeWith} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeWith() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_WITH_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_WITH_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeWith = Objects.requireNonNull(super.typeWith(), &quot;typeWith&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_WITH_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeWith;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_BUILDER_LAZY_INIT_BIT = 0x10000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeBuilder;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeBuilder() typeBuilder} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeBuilder() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeBuilder = Objects.requireNonNull(super.typeBuilder(), &quot;typeBuilder&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_BUILDER_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long TYPE_IMPLEMENTATION_BUILDER_LAZY_INIT_BIT = 0x20000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.NameForms typeImplementationBuilder;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#typeImplementationBuilder() typeImplementationBuilder} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code typeImplementationBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.NameForms typeImplementationBuilder() {
+&nbsp;    if ((lazyInitBitmap &amp; TYPE_IMPLEMENTATION_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; TYPE_IMPLEMENTATION_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.typeImplementationBuilder = Objects.requireNonNull(super.typeImplementationBuilder(), &quot;typeImplementationBuilder&quot;);
+&nbsp;          lazyInitBitmap |= TYPE_IMPLEMENTATION_BUILDER_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return typeImplementationBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long INNER_BUILDER_LAZY_INIT_BIT = 0x40000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.InnerBuilderDefinition innerBuilder;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#innerBuilder() innerBuilder} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code innerBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.InnerBuilderDefinition innerBuilder() {
+&nbsp;    if ((lazyInitBitmap &amp; INNER_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; INNER_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.innerBuilder = Objects.requireNonNull(super.innerBuilder(), &quot;innerBuilder&quot;);
+&nbsp;          lazyInitBitmap |= INNER_BUILDER_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return innerBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long INNER_MODIFIABLE_LAZY_INIT_BIT = 0x80000L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Constitution.InnerModifiableDefinition innerModifiable;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Constitution#innerModifiable() innerModifiable} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code innerModifiable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Constitution.InnerModifiableDefinition innerModifiable() {
+&nbsp;    if ((lazyInitBitmap &amp; INNER_MODIFIABLE_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; INNER_MODIFIABLE_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.innerModifiable = Objects.requireNonNull(super.innerModifiable(), &quot;innerModifiable&quot;);
+&nbsp;          lazyInitBitmap |= INNER_MODIFIABLE_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return innerModifiable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Constitution} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Constitution instance
+&nbsp;   */
+&nbsp;  public static ImmutableConstitution copyOf(Constitution instance) {
+&nbsp;    if (instance instanceof ImmutableConstitution) {
+&nbsp;      return (ImmutableConstitution) instance;
+&nbsp;    }
+&nbsp;    return ImmutableConstitution.builder()
+&nbsp;        .protoclass(instance.protoclass())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableConstitution ImmutableConstitution}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableConstitution.builder()
+&nbsp;   *    .protoclass(org.immutables.value.processor.meta.Proto.Protoclass) // required {@link Constitution#protoclass() protoclass}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableConstitution builder
+&nbsp;   */
+&nbsp;  public static ImmutableConstitution.Builder builder() {
+&nbsp;    return new ImmutableConstitution.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableConstitution ImmutableConstitution}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Constitution&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_PROTOCLASS = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable Proto.Protoclass protoclass;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Constitution#protoclass() protoclass} attribute.
+&nbsp;     * @param protoclass The value for protoclass 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder protoclass(Proto.Protoclass protoclass) {
+&nbsp;      checkNotIsSet(protoclassIsSet(), &quot;protoclass&quot;);
+&nbsp;      this.protoclass = Objects.requireNonNull(protoclass, &quot;protoclass&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PROTOCLASS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableConstitution ImmutableConstitution}.
+&nbsp;     * @return An immutable instance of Constitution
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableConstitution build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableConstitution(protoclass);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean protoclassIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_PROTOCLASS) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of Constitution is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!protoclassIsSet()) attributes.add(&quot;protoclass&quot;);
+&nbsp;      return &quot;Cannot build Constitution, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link Constitution.AppliedNameForms}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableConstitution.AppliedNameForms.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Constitution.AppliedNameForms&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class AppliedNameForms
+&nbsp;      extends Constitution.AppliedNameForms {
+&nbsp;    private final String absolute;
+&nbsp;    private final String absoluteRaw;
+&nbsp;    private final Constitution.NameForms forms;
+&nbsp;    private final String applied;
+&nbsp;    private transient final String simple;
+&nbsp;    private transient final boolean isNew;
+&nbsp;
+&nbsp;    private AppliedNameForms(ImmutableConstitution.AppliedNameForms.Builder builder) {
+&nbsp;      this.forms = builder.forms;
+&nbsp;      this.applied = builder.applied;
+&nbsp;      if (builder.absoluteIsSet()) {
+&nbsp;        initShim.absolute(builder.absolute);
+&nbsp;      }
+&nbsp;      if (builder.absoluteRawIsSet()) {
+&nbsp;        initShim.absoluteRaw(builder.absoluteRaw);
+&nbsp;      }
+&nbsp;      this.absolute = initShim.absolute();
+&nbsp;      this.absoluteRaw = initShim.absoluteRaw();
+&nbsp;      this.simple = initShim.simple();
+&nbsp;      this.isNew = initShim.isNew();
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private AppliedNameForms(
+&nbsp;        String absolute,
+&nbsp;        String absoluteRaw,
+&nbsp;        Constitution.NameForms forms,
+&nbsp;        String applied) {
+&nbsp;      initShim.absolute(absolute);
+&nbsp;      initShim.absoluteRaw(absoluteRaw);
+&nbsp;      this.forms = forms;
+&nbsp;      this.applied = applied;
+&nbsp;      this.absolute = initShim.absolute();
+&nbsp;      this.absoluteRaw = initShim.absoluteRaw();
+&nbsp;      this.simple = initShim.simple();
+&nbsp;      this.isNew = initShim.isNew();
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static final byte STAGE_INITIALIZING = -1;
+&nbsp;    private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;    private static final byte STAGE_INITIALIZED = 1;
+&nbsp;    @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;    private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;    @Generated(from = &quot;Constitution.AppliedNameForms&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    private final class InitShim {
+&nbsp;      private byte absoluteBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private String absolute;
+&nbsp;
+&nbsp;      String absolute() {
+&nbsp;        if (absoluteBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (absoluteBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          absoluteBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.absolute = Objects.requireNonNull(AppliedNameForms.super.absolute(), &quot;absolute&quot;);
+&nbsp;          absoluteBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.absolute;
+&nbsp;      }
+&nbsp;
+&nbsp;      void absolute(String absolute) {
+&nbsp;        this.absolute = absolute;
+&nbsp;        absoluteBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte absoluteRawBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private String absoluteRaw;
+&nbsp;
+&nbsp;      String absoluteRaw() {
+&nbsp;        if (absoluteRawBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (absoluteRawBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          absoluteRawBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.absoluteRaw = Objects.requireNonNull(AppliedNameForms.super.absoluteRaw(), &quot;absoluteRaw&quot;);
+&nbsp;          absoluteRawBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.absoluteRaw;
+&nbsp;      }
+&nbsp;
+&nbsp;      void absoluteRaw(String absoluteRaw) {
+&nbsp;        this.absoluteRaw = absoluteRaw;
+&nbsp;        absoluteRawBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte simpleBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private String simple;
+&nbsp;
+&nbsp;      String simple() {
+&nbsp;        if (simpleBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (simpleBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          simpleBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.simple = Objects.requireNonNull(AppliedNameForms.super.simple(), &quot;simple&quot;);
+&nbsp;          simpleBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.simple;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte isNewBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private boolean isNew;
+&nbsp;
+&nbsp;      boolean isNew() {
+&nbsp;        if (isNewBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (isNewBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          isNewBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.isNew = AppliedNameForms.super.isNew();
+&nbsp;          isNewBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.isNew;
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatInitCycleMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (absoluteBuildStage == STAGE_INITIALIZING) attributes.add(&quot;absolute&quot;);
+&nbsp;        if (absoluteRawBuildStage == STAGE_INITIALIZING) attributes.add(&quot;absoluteRaw&quot;);
+&nbsp;        if (simpleBuildStage == STAGE_INITIALIZING) attributes.add(&quot;simple&quot;);
+&nbsp;        if (isNewBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isNew&quot;);
+&nbsp;        return &quot;Cannot build AppliedNameForms, attribute initializers form cycle &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code absolute} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String absolute() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.absolute()
+&nbsp;          : this.absolute;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code absoluteRaw} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String absoluteRaw() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.absoluteRaw()
+&nbsp;          : this.absoluteRaw;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code forms} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public Constitution.NameForms forms() {
+&nbsp;      return forms;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code applied} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String applied() {
+&nbsp;      return applied;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The computed-at-construction value of the {@code simple} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String simple() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.simple()
+&nbsp;          : this.simple;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The computed-at-construction value of the {@code isNew} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean isNew() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.isNew()
+&nbsp;          : this.isNew;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.AppliedNameForms#absolute() absolute} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for absolute
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.AppliedNameForms withAbsolute(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;absolute&quot;);
+&nbsp;      if (this.absolute.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.AppliedNameForms(newValue, this.absoluteRaw, this.forms, this.applied);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.AppliedNameForms#absoluteRaw() absoluteRaw} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for absoluteRaw
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.AppliedNameForms withAbsoluteRaw(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;absoluteRaw&quot;);
+&nbsp;      if (this.absoluteRaw.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.AppliedNameForms(this.absolute, newValue, this.forms, this.applied);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.AppliedNameForms#forms() forms} attribute.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for forms
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.AppliedNameForms withForms(Constitution.NameForms value) {
+&nbsp;      if (this.forms == value) return this;
+&nbsp;      Constitution.NameForms newValue = Objects.requireNonNull(value, &quot;forms&quot;);
+&nbsp;      return new ImmutableConstitution.AppliedNameForms(this.absolute, this.absoluteRaw, newValue, this.applied);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.AppliedNameForms#applied() applied} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for applied
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.AppliedNameForms withApplied(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;applied&quot;);
+&nbsp;      if (this.applied.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.AppliedNameForms(this.absolute, this.absoluteRaw, this.forms, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code AppliedNameForms} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableConstitution.AppliedNameForms
+&nbsp;          &amp;&amp; equalTo((ImmutableConstitution.AppliedNameForms) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(ImmutableConstitution.AppliedNameForms another) {
+&nbsp;      return absolute.equals(another.absolute)
+&nbsp;          &amp;&amp; absoluteRaw.equals(another.absoluteRaw)
+&nbsp;          &amp;&amp; forms.equals(another.forms)
+&nbsp;          &amp;&amp; applied.equals(another.applied)
+&nbsp;          &amp;&amp; simple.equals(another.simple)
+&nbsp;          &amp;&amp; isNew == another.isNew;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code absolute}, {@code absoluteRaw}, {@code forms}, {@code applied}, {@code simple}, {@code isNew}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + absolute.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + absoluteRaw.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + forms.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + applied.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + simple.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + Booleans.hashCode(isNew);
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link Constitution.AppliedNameForms} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable AppliedNameForms instance
+&nbsp;     */
+&nbsp;    public static ImmutableConstitution.AppliedNameForms copyOf(Constitution.AppliedNameForms instance) {
+&nbsp;      if (instance instanceof ImmutableConstitution.AppliedNameForms) {
+&nbsp;        return (ImmutableConstitution.AppliedNameForms) instance;
+&nbsp;      }
+&nbsp;      return ImmutableConstitution.AppliedNameForms.builder()
+&nbsp;          .absolute(instance.absolute())
+&nbsp;          .absoluteRaw(instance.absoluteRaw())
+&nbsp;          .forms(instance.forms())
+&nbsp;          .applied(instance.applied())
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableConstitution.AppliedNameForms AppliedNameForms}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableConstitution.AppliedNameForms.builder()
+&nbsp;     *    .absolute(String) // optional {@link Constitution.AppliedNameForms#absolute() absolute}
+&nbsp;     *    .absoluteRaw(String) // optional {@link Constitution.AppliedNameForms#absoluteRaw() absoluteRaw}
+&nbsp;     *    .forms(org.immutables.value.processor.meta.Constitution.NameForms) // required {@link Constitution.AppliedNameForms#forms() forms}
+&nbsp;     *    .applied(String) // required {@link Constitution.AppliedNameForms#applied() applied}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new AppliedNameForms builder
+&nbsp;     */
+&nbsp;    public static ImmutableConstitution.AppliedNameForms.Builder builder() {
+&nbsp;      return new ImmutableConstitution.AppliedNameForms.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableConstitution.AppliedNameForms AppliedNameForms}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;Constitution.AppliedNameForms&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_FORMS = 0x1L;
+&nbsp;      private static final long INIT_BIT_APPLIED = 0x2L;
+&nbsp;      private static final long OPT_BIT_ABSOLUTE = 0x1L;
+&nbsp;      private static final long OPT_BIT_ABSOLUTE_RAW = 0x2L;
+&nbsp;      private long initBits = 0x3L;
+&nbsp;      private long optBits;
+&nbsp;
+&nbsp;      private @Nullable String absolute;
+&nbsp;      private @Nullable String absoluteRaw;
+&nbsp;      private @Nullable Constitution.NameForms forms;
+&nbsp;      private @Nullable String applied;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.AppliedNameForms#absolute() absolute} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Constitution.AppliedNameForms#absolute() absolute}.&lt;/em&gt;
+&nbsp;       * @param absolute The value for absolute 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder absolute(String absolute) {
+&nbsp;        checkNotIsSet(absoluteIsSet(), &quot;absolute&quot;);
+&nbsp;        this.absolute = Objects.requireNonNull(absolute, &quot;absolute&quot;);
+&nbsp;        optBits |= OPT_BIT_ABSOLUTE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.AppliedNameForms#absoluteRaw() absoluteRaw} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Constitution.AppliedNameForms#absoluteRaw() absoluteRaw}.&lt;/em&gt;
+&nbsp;       * @param absoluteRaw The value for absoluteRaw 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder absoluteRaw(String absoluteRaw) {
+&nbsp;        checkNotIsSet(absoluteRawIsSet(), &quot;absoluteRaw&quot;);
+&nbsp;        this.absoluteRaw = Objects.requireNonNull(absoluteRaw, &quot;absoluteRaw&quot;);
+&nbsp;        optBits |= OPT_BIT_ABSOLUTE_RAW;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.AppliedNameForms#forms() forms} attribute.
+&nbsp;       * @param forms The value for forms 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder forms(Constitution.NameForms forms) {
+&nbsp;        checkNotIsSet(formsIsSet(), &quot;forms&quot;);
+&nbsp;        this.forms = Objects.requireNonNull(forms, &quot;forms&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_FORMS;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.AppliedNameForms#applied() applied} attribute.
+&nbsp;       * @param applied The value for applied 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder applied(String applied) {
+&nbsp;        checkNotIsSet(appliedIsSet(), &quot;applied&quot;);
+&nbsp;        this.applied = Objects.requireNonNull(applied, &quot;applied&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_APPLIED;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableConstitution.AppliedNameForms AppliedNameForms}.
+&nbsp;       * @return An immutable instance of AppliedNameForms
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableConstitution.AppliedNameForms build() {
+&nbsp;        checkRequiredAttributes();
+&nbsp;        return new ImmutableConstitution.AppliedNameForms(this);
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean absoluteIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_ABSOLUTE) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean absoluteRawIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_ABSOLUTE_RAW) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean formsIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_FORMS) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean appliedIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_APPLIED) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;        if (isSet) throw new IllegalStateException(&quot;Builder of AppliedNameForms is strict, attribute is already set: &quot;.concat(name));
+&nbsp;      }
+&nbsp;
+&nbsp;      private void checkRequiredAttributes() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (!formsIsSet()) attributes.add(&quot;forms&quot;);
+&nbsp;        if (!appliedIsSet()) attributes.add(&quot;applied&quot;);
+&nbsp;        return &quot;Cannot build AppliedNameForms, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link Constitution.NameForms}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableConstitution.NameForms.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Constitution.NameForms&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class NameForms extends Constitution.NameForms {
+&nbsp;    private final String simple;
+&nbsp;    private final String relativeRaw;
+&nbsp;    private final String packageOf;
+&nbsp;    private final Visibility visibility;
+&nbsp;    private final String absolute;
+&nbsp;    private final String absoluteRaw;
+&nbsp;    private final String genericArgs;
+&nbsp;    private final boolean relativeAlreadyQualified;
+&nbsp;
+&nbsp;    private NameForms(ImmutableConstitution.NameForms.Builder builder) {
+&nbsp;      this.simple = builder.simple;
+&nbsp;      this.relativeRaw = builder.relativeRaw;
+&nbsp;      this.packageOf = builder.packageOf;
+&nbsp;      this.visibility = builder.visibility;
+&nbsp;      if (builder.absoluteIsSet()) {
+&nbsp;        initShim.absolute(builder.absolute);
+&nbsp;      }
+&nbsp;      if (builder.absoluteRawIsSet()) {
+&nbsp;        initShim.absoluteRaw(builder.absoluteRaw);
+&nbsp;      }
+&nbsp;      if (builder.genericArgsIsSet()) {
+&nbsp;        initShim.genericArgs(builder.genericArgs);
+&nbsp;      }
+&nbsp;      if (builder.relativeAlreadyQualifiedIsSet()) {
+&nbsp;        initShim.relativeAlreadyQualified(builder.relativeAlreadyQualified);
+&nbsp;      }
+&nbsp;      this.absolute = initShim.absolute();
+&nbsp;      this.absoluteRaw = initShim.absoluteRaw();
+&nbsp;      this.genericArgs = initShim.genericArgs();
+&nbsp;      this.relativeAlreadyQualified = initShim.relativeAlreadyQualified();
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private NameForms(
+&nbsp;        String simple,
+&nbsp;        String relativeRaw,
+&nbsp;        String packageOf,
+&nbsp;        Visibility visibility,
+&nbsp;        String absolute,
+&nbsp;        String absoluteRaw,
+&nbsp;        String genericArgs,
+&nbsp;        boolean relativeAlreadyQualified) {
+&nbsp;      this.simple = simple;
+&nbsp;      this.relativeRaw = relativeRaw;
+&nbsp;      this.packageOf = packageOf;
+&nbsp;      this.visibility = visibility;
+&nbsp;      this.absolute = absolute;
+&nbsp;      this.absoluteRaw = absoluteRaw;
+&nbsp;      this.genericArgs = genericArgs;
+&nbsp;      this.relativeAlreadyQualified = relativeAlreadyQualified;
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static final byte STAGE_INITIALIZING = -1;
+&nbsp;    private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;    private static final byte STAGE_INITIALIZED = 1;
+&nbsp;    @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;    private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;    @Generated(from = &quot;Constitution.NameForms&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    private final class InitShim {
+&nbsp;      private byte absoluteBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private String absolute;
+&nbsp;
+&nbsp;      String absolute() {
+&nbsp;        if (absoluteBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (absoluteBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          absoluteBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.absolute = Objects.requireNonNull(NameForms.super.absolute(), &quot;absolute&quot;);
+&nbsp;          absoluteBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.absolute;
+&nbsp;      }
+&nbsp;
+&nbsp;      void absolute(String absolute) {
+&nbsp;        this.absolute = absolute;
+&nbsp;        absoluteBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte absoluteRawBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private String absoluteRaw;
+&nbsp;
+&nbsp;      String absoluteRaw() {
+&nbsp;        if (absoluteRawBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (absoluteRawBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          absoluteRawBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.absoluteRaw = Objects.requireNonNull(NameForms.super.absoluteRaw(), &quot;absoluteRaw&quot;);
+&nbsp;          absoluteRawBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.absoluteRaw;
+&nbsp;      }
+&nbsp;
+&nbsp;      void absoluteRaw(String absoluteRaw) {
+&nbsp;        this.absoluteRaw = absoluteRaw;
+&nbsp;        absoluteRawBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte genericArgsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private String genericArgs;
+&nbsp;
+&nbsp;      String genericArgs() {
+&nbsp;        if (genericArgsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (genericArgsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          genericArgsBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.genericArgs = Objects.requireNonNull(NameForms.super.genericArgs(), &quot;genericArgs&quot;);
+&nbsp;          genericArgsBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.genericArgs;
+&nbsp;      }
+&nbsp;
+&nbsp;      void genericArgs(String genericArgs) {
+&nbsp;        this.genericArgs = genericArgs;
+&nbsp;        genericArgsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte relativeAlreadyQualifiedBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private boolean relativeAlreadyQualified;
+&nbsp;
+&nbsp;      boolean relativeAlreadyQualified() {
+&nbsp;        if (relativeAlreadyQualifiedBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (relativeAlreadyQualifiedBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          relativeAlreadyQualifiedBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.relativeAlreadyQualified = NameForms.super.relativeAlreadyQualified();
+&nbsp;          relativeAlreadyQualifiedBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.relativeAlreadyQualified;
+&nbsp;      }
+&nbsp;
+&nbsp;      void relativeAlreadyQualified(boolean relativeAlreadyQualified) {
+&nbsp;        this.relativeAlreadyQualified = relativeAlreadyQualified;
+&nbsp;        relativeAlreadyQualifiedBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatInitCycleMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (absoluteBuildStage == STAGE_INITIALIZING) attributes.add(&quot;absolute&quot;);
+&nbsp;        if (absoluteRawBuildStage == STAGE_INITIALIZING) attributes.add(&quot;absoluteRaw&quot;);
+&nbsp;        if (genericArgsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;genericArgs&quot;);
+&nbsp;        if (relativeAlreadyQualifiedBuildStage == STAGE_INITIALIZING) attributes.add(&quot;relativeAlreadyQualified&quot;);
+&nbsp;        return &quot;Cannot build NameForms, attribute initializers form cycle &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code simple} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String simple() {
+&nbsp;      return simple;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code relativeRaw} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String relativeRaw() {
+&nbsp;      return relativeRaw;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code packageOf} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String packageOf() {
+&nbsp;      return packageOf;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code visibility} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public Visibility visibility() {
+&nbsp;      return visibility;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code absolute} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String absolute() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.absolute()
+&nbsp;          : this.absolute;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code absoluteRaw} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String absoluteRaw() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.absoluteRaw()
+&nbsp;          : this.absoluteRaw;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code genericArgs} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String genericArgs() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.genericArgs()
+&nbsp;          : this.genericArgs;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code relativeAlreadyQualified} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean relativeAlreadyQualified() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.relativeAlreadyQualified()
+&nbsp;          : this.relativeAlreadyQualified;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#simple() simple} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for simple
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withSimple(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;simple&quot;);
+&nbsp;      if (this.simple.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          newValue,
+&nbsp;          this.relativeRaw,
+&nbsp;          this.packageOf,
+&nbsp;          this.visibility,
+&nbsp;          this.absolute,
+&nbsp;          this.absoluteRaw,
+&nbsp;          this.genericArgs,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#relativeRaw() relativeRaw} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for relativeRaw
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withRelativeRaw(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;relativeRaw&quot;);
+&nbsp;      if (this.relativeRaw.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          newValue,
+&nbsp;          this.packageOf,
+&nbsp;          this.visibility,
+&nbsp;          this.absolute,
+&nbsp;          this.absoluteRaw,
+&nbsp;          this.genericArgs,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#packageOf() packageOf} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for packageOf
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withPackageOf(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;packageOf&quot;);
+&nbsp;      if (this.packageOf.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          this.relativeRaw,
+&nbsp;          newValue,
+&nbsp;          this.visibility,
+&nbsp;          this.absolute,
+&nbsp;          this.absoluteRaw,
+&nbsp;          this.genericArgs,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#visibility() visibility} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for visibility
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withVisibility(Visibility value) {
+&nbsp;      if (this.visibility == value) return this;
+&nbsp;      Visibility newValue = Objects.requireNonNull(value, &quot;visibility&quot;);
+&nbsp;      if (this.visibility.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          this.relativeRaw,
+&nbsp;          this.packageOf,
+&nbsp;          newValue,
+&nbsp;          this.absolute,
+&nbsp;          this.absoluteRaw,
+&nbsp;          this.genericArgs,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#absolute() absolute} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for absolute
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withAbsolute(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;absolute&quot;);
+&nbsp;      if (this.absolute.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          this.relativeRaw,
+&nbsp;          this.packageOf,
+&nbsp;          this.visibility,
+&nbsp;          newValue,
+&nbsp;          this.absoluteRaw,
+&nbsp;          this.genericArgs,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#absoluteRaw() absoluteRaw} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for absoluteRaw
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withAbsoluteRaw(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;absoluteRaw&quot;);
+&nbsp;      if (this.absoluteRaw.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          this.relativeRaw,
+&nbsp;          this.packageOf,
+&nbsp;          this.visibility,
+&nbsp;          this.absolute,
+&nbsp;          newValue,
+&nbsp;          this.genericArgs,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#genericArgs() genericArgs} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for genericArgs
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withGenericArgs(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;genericArgs&quot;);
+&nbsp;      if (this.genericArgs.equals(newValue)) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          this.relativeRaw,
+&nbsp;          this.packageOf,
+&nbsp;          this.visibility,
+&nbsp;          this.absolute,
+&nbsp;          this.absoluteRaw,
+&nbsp;          newValue,
+&nbsp;          this.relativeAlreadyQualified);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Constitution.NameForms#relativeAlreadyQualified() relativeAlreadyQualified} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for relativeAlreadyQualified
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableConstitution.NameForms withRelativeAlreadyQualified(boolean value) {
+&nbsp;      if (this.relativeAlreadyQualified == value) return this;
+&nbsp;      return new ImmutableConstitution.NameForms(
+&nbsp;          this.simple,
+&nbsp;          this.relativeRaw,
+&nbsp;          this.packageOf,
+&nbsp;          this.visibility,
+&nbsp;          this.absolute,
+&nbsp;          this.absoluteRaw,
+&nbsp;          this.genericArgs,
+&nbsp;          value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code NameForms} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableConstitution.NameForms
+&nbsp;          &amp;&amp; equalTo((ImmutableConstitution.NameForms) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(ImmutableConstitution.NameForms another) {
+&nbsp;      return simple.equals(another.simple)
+&nbsp;          &amp;&amp; relativeRaw.equals(another.relativeRaw)
+&nbsp;          &amp;&amp; packageOf.equals(another.packageOf)
+&nbsp;          &amp;&amp; visibility.equals(another.visibility)
+&nbsp;          &amp;&amp; absolute.equals(another.absolute)
+&nbsp;          &amp;&amp; absoluteRaw.equals(another.absoluteRaw)
+&nbsp;          &amp;&amp; genericArgs.equals(another.genericArgs)
+&nbsp;          &amp;&amp; relativeAlreadyQualified == another.relativeAlreadyQualified;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code simple}, {@code relativeRaw}, {@code packageOf}, {@code visibility}, {@code absolute}, {@code absoluteRaw}, {@code genericArgs}, {@code relativeAlreadyQualified}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + simple.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + relativeRaw.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + packageOf.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + visibility.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + absolute.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + absoluteRaw.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + genericArgs.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + Booleans.hashCode(relativeAlreadyQualified);
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link Constitution.NameForms} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable NameForms instance
+&nbsp;     */
+&nbsp;    public static ImmutableConstitution.NameForms copyOf(Constitution.NameForms instance) {
+&nbsp;      if (instance instanceof ImmutableConstitution.NameForms) {
+&nbsp;        return (ImmutableConstitution.NameForms) instance;
+&nbsp;      }
+&nbsp;      return ImmutableConstitution.NameForms.builder()
+&nbsp;          .simple(instance.simple())
+&nbsp;          .relativeRaw(instance.relativeRaw())
+&nbsp;          .packageOf(instance.packageOf())
+&nbsp;          .visibility(instance.visibility())
+&nbsp;          .absolute(instance.absolute())
+&nbsp;          .absoluteRaw(instance.absoluteRaw())
+&nbsp;          .genericArgs(instance.genericArgs())
+&nbsp;          .relativeAlreadyQualified(instance.relativeAlreadyQualified())
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableConstitution.NameForms NameForms}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableConstitution.NameForms.builder()
+&nbsp;     *    .simple(String) // required {@link Constitution.NameForms#simple() simple}
+&nbsp;     *    .relativeRaw(String) // required {@link Constitution.NameForms#relativeRaw() relativeRaw}
+&nbsp;     *    .packageOf(String) // required {@link Constitution.NameForms#packageOf() packageOf}
+&nbsp;     *    .visibility(org.immutables.value.processor.meta.Visibility) // required {@link Constitution.NameForms#visibility() visibility}
+&nbsp;     *    .absolute(String) // optional {@link Constitution.NameForms#absolute() absolute}
+&nbsp;     *    .absoluteRaw(String) // optional {@link Constitution.NameForms#absoluteRaw() absoluteRaw}
+&nbsp;     *    .genericArgs(String) // optional {@link Constitution.NameForms#genericArgs() genericArgs}
+&nbsp;     *    .relativeAlreadyQualified(boolean) // optional {@link Constitution.NameForms#relativeAlreadyQualified() relativeAlreadyQualified}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new NameForms builder
+&nbsp;     */
+&nbsp;    public static ImmutableConstitution.NameForms.Builder builder() {
+&nbsp;      return new ImmutableConstitution.NameForms.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableConstitution.NameForms NameForms}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;Constitution.NameForms&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_SIMPLE = 0x1L;
+&nbsp;      private static final long INIT_BIT_RELATIVE_RAW = 0x2L;
+&nbsp;      private static final long INIT_BIT_PACKAGE_OF = 0x4L;
+&nbsp;      private static final long INIT_BIT_VISIBILITY = 0x8L;
+&nbsp;      private static final long OPT_BIT_ABSOLUTE = 0x1L;
+&nbsp;      private static final long OPT_BIT_ABSOLUTE_RAW = 0x2L;
+&nbsp;      private static final long OPT_BIT_GENERIC_ARGS = 0x4L;
+&nbsp;      private static final long OPT_BIT_RELATIVE_ALREADY_QUALIFIED = 0x8L;
+&nbsp;      private long initBits = 0xfL;
+&nbsp;      private long optBits;
+&nbsp;
+&nbsp;      private @Nullable String simple;
+&nbsp;      private @Nullable String relativeRaw;
+&nbsp;      private @Nullable String packageOf;
+&nbsp;      private @Nullable Visibility visibility;
+&nbsp;      private @Nullable String absolute;
+&nbsp;      private @Nullable String absoluteRaw;
+&nbsp;      private @Nullable String genericArgs;
+&nbsp;      private boolean relativeAlreadyQualified;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#simple() simple} attribute.
+&nbsp;       * @param simple The value for simple 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder simple(String simple) {
+&nbsp;        checkNotIsSet(simpleIsSet(), &quot;simple&quot;);
+&nbsp;        this.simple = Objects.requireNonNull(simple, &quot;simple&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_SIMPLE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#relativeRaw() relativeRaw} attribute.
+&nbsp;       * @param relativeRaw The value for relativeRaw 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder relativeRaw(String relativeRaw) {
+&nbsp;        checkNotIsSet(relativeRawIsSet(), &quot;relativeRaw&quot;);
+&nbsp;        this.relativeRaw = Objects.requireNonNull(relativeRaw, &quot;relativeRaw&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_RELATIVE_RAW;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#packageOf() packageOf} attribute.
+&nbsp;       * @param packageOf The value for packageOf 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder packageOf(String packageOf) {
+&nbsp;        checkNotIsSet(packageOfIsSet(), &quot;packageOf&quot;);
+&nbsp;        this.packageOf = Objects.requireNonNull(packageOf, &quot;packageOf&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_PACKAGE_OF;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#visibility() visibility} attribute.
+&nbsp;       * @param visibility The value for visibility 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder visibility(Visibility visibility) {
+&nbsp;        checkNotIsSet(visibilityIsSet(), &quot;visibility&quot;);
+&nbsp;        this.visibility = Objects.requireNonNull(visibility, &quot;visibility&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_VISIBILITY;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#absolute() absolute} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Constitution.NameForms#absolute() absolute}.&lt;/em&gt;
+&nbsp;       * @param absolute The value for absolute 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder absolute(String absolute) {
+&nbsp;        checkNotIsSet(absoluteIsSet(), &quot;absolute&quot;);
+&nbsp;        this.absolute = Objects.requireNonNull(absolute, &quot;absolute&quot;);
+&nbsp;        optBits |= OPT_BIT_ABSOLUTE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#absoluteRaw() absoluteRaw} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Constitution.NameForms#absoluteRaw() absoluteRaw}.&lt;/em&gt;
+&nbsp;       * @param absoluteRaw The value for absoluteRaw 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder absoluteRaw(String absoluteRaw) {
+&nbsp;        checkNotIsSet(absoluteRawIsSet(), &quot;absoluteRaw&quot;);
+&nbsp;        this.absoluteRaw = Objects.requireNonNull(absoluteRaw, &quot;absoluteRaw&quot;);
+&nbsp;        optBits |= OPT_BIT_ABSOLUTE_RAW;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#genericArgs() genericArgs} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Constitution.NameForms#genericArgs() genericArgs}.&lt;/em&gt;
+&nbsp;       * @param genericArgs The value for genericArgs 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder genericArgs(String genericArgs) {
+&nbsp;        checkNotIsSet(genericArgsIsSet(), &quot;genericArgs&quot;);
+&nbsp;        this.genericArgs = Objects.requireNonNull(genericArgs, &quot;genericArgs&quot;);
+&nbsp;        optBits |= OPT_BIT_GENERIC_ARGS;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Constitution.NameForms#relativeAlreadyQualified() relativeAlreadyQualified} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Constitution.NameForms#relativeAlreadyQualified() relativeAlreadyQualified}.&lt;/em&gt;
+&nbsp;       * @param relativeAlreadyQualified The value for relativeAlreadyQualified 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder relativeAlreadyQualified(boolean relativeAlreadyQualified) {
+&nbsp;        checkNotIsSet(relativeAlreadyQualifiedIsSet(), &quot;relativeAlreadyQualified&quot;);
+&nbsp;        this.relativeAlreadyQualified = relativeAlreadyQualified;
+&nbsp;        optBits |= OPT_BIT_RELATIVE_ALREADY_QUALIFIED;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableConstitution.NameForms NameForms}.
+&nbsp;       * @return An immutable instance of NameForms
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableConstitution.NameForms build() {
+&nbsp;        checkRequiredAttributes();
+&nbsp;        return new ImmutableConstitution.NameForms(this);
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean absoluteIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_ABSOLUTE) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean absoluteRawIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_ABSOLUTE_RAW) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean genericArgsIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_GENERIC_ARGS) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean relativeAlreadyQualifiedIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_RELATIVE_ALREADY_QUALIFIED) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean simpleIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_SIMPLE) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean relativeRawIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_RELATIVE_RAW) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean packageOfIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_PACKAGE_OF) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean visibilityIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_VISIBILITY) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;        if (isSet) throw new IllegalStateException(&quot;Builder of NameForms is strict, attribute is already set: &quot;.concat(name));
+&nbsp;      }
+&nbsp;
+&nbsp;      private void checkRequiredAttributes() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (!simpleIsSet()) attributes.add(&quot;simple&quot;);
+&nbsp;        if (!relativeRawIsSet()) attributes.add(&quot;relativeRaw&quot;);
+&nbsp;        if (!packageOfIsSet()) attributes.add(&quot;packageOf&quot;);
+&nbsp;        if (!visibilityIsSet()) attributes.add(&quot;visibility&quot;);
+&nbsp;        return &quot;Cannot build NameForms, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

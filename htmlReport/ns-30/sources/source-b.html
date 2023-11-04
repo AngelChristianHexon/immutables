@@ -1,0 +1,183 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ApplBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ApplBuilder (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ApplBuilder</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code ApplBuilder} collects parameters and invokes the static factory method:
+&nbsp; * {@code org.immutables.fixture.jdkonly.JdkOptionalBuilderFactory.appl(..)}.
+&nbsp; * Call the {@link #build()} method to get a result of type {@code int}.
+&nbsp; * &lt;p&gt;&lt;em&gt;{@code ApplBuilder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp; * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkOptionalBuilderFactory.appl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@NotThreadSafe
+&nbsp;public final class ApplBuilder {
+&nbsp;  private Optional&lt;Integer&gt; a = Optional.absent();
+&nbsp;  private java.util.Optional&lt;String&gt; b = java.util.Optional.empty();
+&nbsp;  private OptionalInt c = OptionalInt.empty();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a {@code ApplBuilder} factory builder.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * new ApplBuilder()
+&nbsp;   *    .a(Integer) // optional {@code a}
+&nbsp;   *    .b(String) // optional {@code b}
+&nbsp;   *    .c(int) // optional {@code c}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  public ApplBuilder() {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code a} to a.
+&nbsp;   * @param a The value for a
+&nbsp;   * @return {@code this} builder for chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final ApplBuilder a(int a) {
+&nbsp;    this.a = Optional.of(a);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code a} to a.
+&nbsp;   * @param a The value for a
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final ApplBuilder a(Optional&lt;Integer&gt; a) {
+&nbsp;    this.a = a;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code b} to b.
+&nbsp;   * @param b The value for b
+&nbsp;   * @return {@code this} builder for chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final ApplBuilder b(String b) {
+&nbsp;    this.b = java.util.Optional.of(b);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code b} to b.
+&nbsp;   * @param b The value for b
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final ApplBuilder b(java.util.Optional&lt;String&gt; b) {
+&nbsp;    this.b = (java.util.Optional&lt;String&gt;) Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code c} to c.
+&nbsp;   * @param c The value for c
+&nbsp;   * @return {@code this} builder for chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final ApplBuilder c(int c) {
+&nbsp;    this.c = OptionalInt.of(c);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code c} to c.
+&nbsp;   * @param c The value for c
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final ApplBuilder c(OptionalInt c) {
+&nbsp;    this.c = (OptionalInt) Objects.requireNonNull(c, &quot;c&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Invokes {@code org.immutables.fixture.jdkonly.JdkOptionalBuilderFactory.appl(..)} using the collected parameters and returns the result of the invocation
+&nbsp;   * @return A result of type {@code int}
+&nbsp;   * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;   */
+&nbsp;  public int build() {
+&nbsp;    return JdkOptionalBuilderFactory.appl(a, b, c);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

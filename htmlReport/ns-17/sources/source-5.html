@@ -1,0 +1,234 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AsyncUpdaterDelegate</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository.async</a>
+</div>
+
+<h1>Coverage Summary for Class: AsyncUpdaterDelegate (org.immutables.criteria.repository.async)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AsyncUpdaterDelegate</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AsyncUpdaterDelegate$1</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncUpdaterDelegate$AsyncExecutor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncUpdaterDelegate$AsyncSetter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository.async;
+&nbsp;
+&nbsp;import org.immutables.criteria.backend.WriteResult;
+&nbsp;import org.immutables.criteria.matcher.Projection;
+&nbsp;import org.immutables.criteria.repository.Publishers;
+&nbsp;import org.immutables.criteria.repository.Updater;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveUpdater;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.concurrent.CompletionStage;
+&nbsp;
+&nbsp;class AsyncUpdaterDelegate&lt;T&gt; implements Updater&lt;T, CompletionStage&lt;WriteResult&gt;&gt;  {
+&nbsp;
+&nbsp;  private final ReactiveUpdater&lt;T&gt; delegate;
+&nbsp;
+<b class="nc">&nbsp;  AsyncUpdaterDelegate(ReactiveUpdater&lt;T&gt; delegate) {</b>
+<b class="nc">&nbsp;    this.delegate = Objects.requireNonNull(delegate, &quot;delegate&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public &lt;T1&gt; AsyncSetter set(Projection&lt;T1&gt; projection, T1 value) {
+<b class="nc">&nbsp;    return new AsyncSetter(delegate.set(projection, value));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public WriteExecutor&lt;CompletionStage&lt;WriteResult&gt;&gt; replace(T newValue) {
+<b class="nc">&nbsp;    return new AsyncExecutor(delegate.replace(newValue));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;  private static class AsyncExecutor implements WriteExecutor&lt;CompletionStage&lt;WriteResult&gt;&gt; {</b>
+&nbsp;    private final WriteExecutor&lt;Publisher&lt;WriteResult&gt;&gt; delegate;
+&nbsp;
+<b class="nc">&nbsp;    private AsyncExecutor(WriteExecutor&lt;Publisher&lt;WriteResult&gt;&gt; delegate) {</b>
+<b class="nc">&nbsp;      this.delegate = delegate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;WriteResult&gt; execute() {
+<b class="nc">&nbsp;      return Publishers.toFuture(delegate.execute());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+<b class="nc">&nbsp;  private static class AsyncSetter implements Updater.Setter&lt;CompletionStage&lt;WriteResult&gt;&gt; {</b>
+&nbsp;
+&nbsp;    private final ReactiveUpdater.ReactiveSetter delegate;
+&nbsp;
+<b class="nc">&nbsp;    private AsyncSetter(ReactiveUpdater.ReactiveSetter delegate) {</b>
+<b class="nc">&nbsp;      this.delegate = delegate;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;T&gt; AsyncSetter set(Projection&lt;T&gt; projection, T value) {
+<b class="nc">&nbsp;      return new AsyncSetter(delegate.set(projection, value));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;WriteResult&gt; execute() {
+&nbsp;
+<b class="nc">&nbsp;      Publisher&lt;WriteResult&gt; execute = delegate.execute();</b>
+<b class="nc">&nbsp;      return Publishers.toFuture(execute);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

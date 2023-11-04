@@ -1,0 +1,321 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableRedactedMaskJdkOnlyOpt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableRedactedMaskJdkOnlyOpt (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableRedactedMaskJdkOnlyOpt$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Redacted.RedactedMaskJdkOnlyOpt}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableRedactedMaskJdkOnlyOpt.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Redacted.RedactedMaskJdkOnlyOpt&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableRedactedMaskJdkOnlyOpt
+&nbsp;    implements Redacted.RedactedMaskJdkOnlyOpt {
+&nbsp;  private final int code;
+&nbsp;  private final @Nullable String opt;
+&nbsp;
+&nbsp;  private ImmutableRedactedMaskJdkOnlyOpt(int code, @Nullable String opt) {
+&nbsp;    this.code = code;
+&nbsp;    this.opt = opt;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code code} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int code() {
+&nbsp;    return code;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code opt} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; opt() {
+&nbsp;    return Optional.ofNullable(opt);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Redacted.RedactedMaskJdkOnlyOpt#code() code} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for code
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRedactedMaskJdkOnlyOpt withCode(int value) {
+&nbsp;    if (this.code == value) return this;
+&nbsp;    return new ImmutableRedactedMaskJdkOnlyOpt(value, this.opt);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Redacted.RedactedMaskJdkOnlyOpt#opt() opt} attribute.
+&nbsp;   * @param value The value for opt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRedactedMaskJdkOnlyOpt withOpt(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;opt&quot;);
+&nbsp;    if (Objects.equals(this.opt, newValue)) return this;
+&nbsp;    return new ImmutableRedactedMaskJdkOnlyOpt(this.code, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Redacted.RedactedMaskJdkOnlyOpt#opt() opt} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for opt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRedactedMaskJdkOnlyOpt withOpt(Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.opt, value)) return this;
+&nbsp;    return new ImmutableRedactedMaskJdkOnlyOpt(this.code, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableRedactedMaskJdkOnlyOpt} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableRedactedMaskJdkOnlyOpt
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableRedactedMaskJdkOnlyOpt) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableRedactedMaskJdkOnlyOpt another) {
+&nbsp;    return code == another.code
+&nbsp;        &amp;&amp; Objects.equals(opt, another.opt);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code code}, {@code opt}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + code;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(opt);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code RedactedMaskJdkOnlyOpt} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    StringBuilder builder = new StringBuilder(&quot;RedactedMaskJdkOnlyOpt{&quot;);
+&nbsp;    builder.append(&quot;code=&quot;).append(&quot;????&quot;);
+&nbsp;    if (opt != null) {
+&nbsp;      builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;opt=&quot;).append(opt);
+&nbsp;    }
+&nbsp;    return builder.append(&quot;}&quot;).toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Redacted.RedactedMaskJdkOnlyOpt} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable RedactedMaskJdkOnlyOpt instance
+&nbsp;   */
+&nbsp;  public static ImmutableRedactedMaskJdkOnlyOpt copyOf(Redacted.RedactedMaskJdkOnlyOpt instance) {
+&nbsp;    if (instance instanceof ImmutableRedactedMaskJdkOnlyOpt) {
+&nbsp;      return (ImmutableRedactedMaskJdkOnlyOpt) instance;
+&nbsp;    }
+&nbsp;    return ImmutableRedactedMaskJdkOnlyOpt.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableRedactedMaskJdkOnlyOpt ImmutableRedactedMaskJdkOnlyOpt}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableRedactedMaskJdkOnlyOpt.builder()
+&nbsp;   *    .code(int) // required {@link Redacted.RedactedMaskJdkOnlyOpt#code() code}
+&nbsp;   *    .opt(String) // optional {@link Redacted.RedactedMaskJdkOnlyOpt#opt() opt}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableRedactedMaskJdkOnlyOpt builder
+&nbsp;   */
+&nbsp;  public static ImmutableRedactedMaskJdkOnlyOpt.Builder builder() {
+&nbsp;    return new ImmutableRedactedMaskJdkOnlyOpt.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableRedactedMaskJdkOnlyOpt ImmutableRedactedMaskJdkOnlyOpt}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Redacted.RedactedMaskJdkOnlyOpt&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_CODE = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private int code;
+&nbsp;    private @Nullable String opt;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code RedactedMaskJdkOnlyOpt} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Redacted.RedactedMaskJdkOnlyOpt instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      code(instance.code());
+&nbsp;      Optional&lt;String&gt; optOptional = instance.opt();
+&nbsp;      if (optOptional.isPresent()) {
+&nbsp;        opt(optOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Redacted.RedactedMaskJdkOnlyOpt#code() code} attribute.
+&nbsp;     * @param code The value for code 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder code(int code) {
+&nbsp;      this.code = code;
+&nbsp;      initBits &amp;= ~INIT_BIT_CODE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Redacted.RedactedMaskJdkOnlyOpt#opt() opt} to opt.
+&nbsp;     * @param opt The value for opt
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt(String opt) {
+&nbsp;      this.opt = Objects.requireNonNull(opt, &quot;opt&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Redacted.RedactedMaskJdkOnlyOpt#opt() opt} to opt.
+&nbsp;     * @param opt The value for opt
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt(Optional&lt;String&gt; opt) {
+&nbsp;      this.opt = opt.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableRedactedMaskJdkOnlyOpt ImmutableRedactedMaskJdkOnlyOpt}.
+&nbsp;     * @return An immutable instance of RedactedMaskJdkOnlyOpt
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableRedactedMaskJdkOnlyOpt build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableRedactedMaskJdkOnlyOpt(code, opt);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_CODE) != 0) attributes.add(&quot;code&quot;);
+&nbsp;      return &quot;Cannot build RedactedMaskJdkOnlyOpt, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

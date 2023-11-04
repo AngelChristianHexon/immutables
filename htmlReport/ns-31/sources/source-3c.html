@@ -1,0 +1,402 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableNullableListMap</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableNullableListMap (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableNullableListMap</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link NullableListMap NullableListMap} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableNullableListMap is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableNullableListMap
+&nbsp; */
+&nbsp;@Generated(from = &quot;NullableListMap&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;NullableListMap&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableNullableListMap implements NullableListMap {
+&nbsp;  private @Nullable Object object;
+&nbsp;  private @Nullable ArrayList&lt;Object&gt; objects = null;
+&nbsp;  private @Nullable Map&lt;String, String&gt; map = null;
+&nbsp;
+&nbsp;  private ModifiableNullableListMap() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code NullableListMap}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableNullableListMap create() {
+&nbsp;    return new ModifiableNullableListMap();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code object} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable Object getObject() {
+&nbsp;    return object;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code objects}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable List&lt;Object&gt; getObjects() {
+&nbsp;    return objects;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code map} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable Map&lt;String, String&gt; getMap() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap clear() {
+&nbsp;    object = null;
+&nbsp;    objects = null;
+&nbsp;    map = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link NullableListMap} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableNullableListMap from(NullableListMap instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableNullableListMap) {
+&nbsp;      from((ModifiableNullableListMap) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    @Nullable Object objectValue = instance.getObject();
+&nbsp;    if (objectValue != null) {
+&nbsp;      setObject(objectValue);
+&nbsp;    }
+&nbsp;    @Nullable List&lt;Object&gt; objectsValue = instance.getObjects();
+&nbsp;    if (objectsValue != null) {
+&nbsp;      addAllObjects(objectsValue);
+&nbsp;    }
+&nbsp;    @Nullable Map&lt;String, String&gt; mapValue = instance.getMap();
+&nbsp;    if (mapValue != null) {
+&nbsp;      putAllMap(mapValue);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link NullableListMap} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableNullableListMap from(ModifiableNullableListMap instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    @Nullable Object objectValue = instance.getObject();
+&nbsp;    if (objectValue != null) {
+&nbsp;      setObject(objectValue);
+&nbsp;    }
+&nbsp;    @Nullable List&lt;Object&gt; objectsValue = instance.getObjects();
+&nbsp;    if (objectsValue != null) {
+&nbsp;      addAllObjects(objectsValue);
+&nbsp;    }
+&nbsp;    @Nullable Map&lt;String, String&gt; mapValue = instance.getMap();
+&nbsp;    if (mapValue != null) {
+&nbsp;      putAllMap(mapValue);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link NullableListMap#getObject() object} attribute.
+&nbsp;   * @param object The value for object, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap setObject(@Nullable Object object) {
+&nbsp;    this.object = object;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link NullableListMap#getObjects() objects} list.
+&nbsp;   * @param element The objects element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap addObjects(Object element) {
+&nbsp;    if (this.objects == null) {
+&nbsp;      this.objects = new ArrayList&lt;Object&gt;();
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;objects element&quot;);
+&nbsp;    this.objects.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link NullableListMap#getObjects() objects} list.
+&nbsp;   * @param elements An array of objects elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableListMap addObjects(Object... elements) {
+&nbsp;    for (Object e : elements) {
+&nbsp;      addObjects(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link NullableListMap#getObjects() objects} list.
+&nbsp;   * @param elements An iterable of objects elements, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap setObjects(@Nullable Iterable&lt;? extends Object&gt; elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      this.objects = null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.objects == null) {
+&nbsp;      this.objects = new ArrayList&lt;Object&gt;();
+&nbsp;    } else {
+&nbsp;      this.objects.clear();
+&nbsp;    }
+&nbsp;    addAllObjects(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link NullableListMap#getObjects() objects} list.
+&nbsp;   * @param elements An iterable of objects elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap addAllObjects(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.objects == null) {
+&nbsp;      this.objects = new ArrayList&lt;Object&gt;();
+&nbsp;    }
+&nbsp;    for (Object e : elements) {
+&nbsp;      addObjects(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link NullableListMap#getMap() map} map.
+&nbsp;   * @param key The key in map map
+&nbsp;   * @param value The associated value in the map map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap putMap(String key, String value) {
+&nbsp;    if (this.map == null) {
+&nbsp;      this.map = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    }
+&nbsp;    this.map.put(
+&nbsp;        Objects.requireNonNull(key, &quot;map key&quot;),
+&nbsp;        Objects.requireNonNull(value, &quot;map value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link NullableListMap#getMap() map} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the map map, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap setMap(@Nullable Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (entries == null) {
+&nbsp;      this.map = null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.map == null) {
+&nbsp;      this.map = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    } else {
+&nbsp;      this.map.clear();
+&nbsp;    }
+&nbsp;    for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.map.put(
+&nbsp;          Objects.requireNonNull(k, &quot;map key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;map value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link NullableListMap#getMap() map} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to map map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableListMap putAllMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.map == null) {
+&nbsp;      this.map = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    }
+&nbsp;    for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.map.put(
+&nbsp;          Objects.requireNonNull(k, &quot;map key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;map value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableNullableListMap ImmutableNullableListMap}.
+&nbsp;   * @return An immutable instance of NullableListMap
+&nbsp;   */
+&nbsp;  public final ImmutableNullableListMap toImmutable() {
+&nbsp;    return ImmutableNullableListMap.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableNullableListMap} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableNullableListMap)) return false;
+&nbsp;    ModifiableNullableListMap other = (ModifiableNullableListMap) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableNullableListMap another) {
+&nbsp;    return Objects.equals(object, another.object)
+&nbsp;        &amp;&amp; Objects.equals(objects, another.objects)
+&nbsp;        &amp;&amp; Objects.equals(map, another.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code object}, {@code objects}, {@code map}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(object);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(objects);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(map);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code NullableListMap}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableNullableListMap&quot;)
+&nbsp;        .add(&quot;object&quot;, getObject())
+&nbsp;        .add(&quot;objects&quot;, getObjects())
+&nbsp;        .add(&quot;map&quot;, getMap())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

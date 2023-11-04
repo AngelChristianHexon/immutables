@@ -1,0 +1,496 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableMutableImmutableCollection</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableMutableImmutableCollection (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableMutableImmutableCollection</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ArrayListMultimap;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableMultimap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link MutableImmutableCollection MutableImmutableCollection} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableMutableImmutableCollection is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableMutableImmutableCollection
+&nbsp; */
+&nbsp;@Generated(from = &quot;MutableImmutableCollection&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;MutableImmutableCollection&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableMutableImmutableCollection
+&nbsp;    extends MutableImmutableCollection {
+&nbsp;  private final ArrayList&lt;String&gt; a = new ArrayList&lt;String&gt;();
+&nbsp;  private final LinkedHashSet&lt;String&gt; b = new LinkedHashSet&lt;String&gt;();
+&nbsp;  private final ArrayListMultimap&lt;String, Integer&gt; c = ArrayListMultimap.create();
+&nbsp;  private final Map&lt;Void, Void&gt; d = new LinkedHashMap&lt;Void, Void&gt;();
+&nbsp;
+&nbsp;  private ModifiableMutableImmutableCollection() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code MutableImmutableCollection}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableMutableImmutableCollection create() {
+&nbsp;    return new ModifiableMutableImmutableCollection();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code a}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  final ImmutableList&lt;String&gt; a() {
+&nbsp;    return ImmutableList.copyOf(a);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable set {@code b}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  final ImmutableSet&lt;String&gt; b() {
+&nbsp;    return ImmutableSet.copyOf(b);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  final ImmutableMultimap&lt;String, Integer&gt; c() {
+&nbsp;    return ImmutableMultimap.copyOf(c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  final ImmutableMap&lt;Void, Void&gt; d() {
+&nbsp;    return ImmutableMap.copyOf(d);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection clear() {
+&nbsp;    a.clear();
+&nbsp;    b.clear();
+&nbsp;    c.clear();
+&nbsp;    d.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link MutableImmutableCollection} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableMutableImmutableCollection from(MutableImmutableCollection instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableMutableImmutableCollection) {
+&nbsp;      from((ModifiableMutableImmutableCollection) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    addAllA(instance.a());
+&nbsp;    addAllB(instance.b());
+&nbsp;    putAllC(instance.c());
+&nbsp;    putAllD(instance.d());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link MutableImmutableCollection} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableMutableImmutableCollection from(ModifiableMutableImmutableCollection instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    addAllA(instance.a());
+&nbsp;    addAllB(instance.b());
+&nbsp;    putAllC(instance.c());
+&nbsp;    putAllD(instance.d());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link MutableImmutableCollection#a() a} list.
+&nbsp;   * @param element The a element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection addA(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;a element&quot;);
+&nbsp;    this.a.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link MutableImmutableCollection#a() a} list.
+&nbsp;   * @param elements An array of a elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableMutableImmutableCollection addA(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addA(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link MutableImmutableCollection#a() a} list.
+&nbsp;   * @param elements An iterable of a elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection setA(Iterable&lt;String&gt; elements) {
+&nbsp;    this.a.clear();
+&nbsp;    addAllA(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link MutableImmutableCollection#a() a} list.
+&nbsp;   * @param elements An iterable of a elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection addAllA(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addA(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link MutableImmutableCollection#b() b} set.
+&nbsp;   * @param element The b element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection addB(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;b element&quot;);
+&nbsp;    this.b.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link MutableImmutableCollection#b() b} set.
+&nbsp;   * @param elements An array of b elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableMutableImmutableCollection addB(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addB(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link MutableImmutableCollection#b() b} set.
+&nbsp;   * @param elements An iterable of b elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection setB(Iterable&lt;String&gt; elements) {
+&nbsp;    this.b.clear();
+&nbsp;    addAllB(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link MutableImmutableCollection#b() b} set.
+&nbsp;   * @param elements An iterable of b elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection addAllB(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addB(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@link MutableImmutableCollection#c() c} true. Nulls are not permitted
+&nbsp;   * @param key The key for c
+&nbsp;   * @param values The values for c
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableMutableImmutableCollection putC(String key, int... values) {
+&nbsp;    putAllC(key, Ints.asList(values));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@link MutableImmutableCollection#c() c} true. Nulls are not permitted
+&nbsp;   * @param key The key for c
+&nbsp;   * @param values The values for c
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection putAllC(String key, Iterable&lt;Integer&gt; values) {
+&nbsp;    for (Integer v : values) {
+&nbsp;      this.c.put(
+&nbsp;          Objects.requireNonNull(key, &quot;c key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;c value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link MutableImmutableCollection#c() c} map.
+&nbsp;   * @param key The key in c map
+&nbsp;   * @param value The associated value in the c map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection putC(String key, int value) {
+&nbsp;    this.c.put(
+&nbsp;        Objects.requireNonNull(key, &quot;c key&quot;),
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link MutableImmutableCollection#c() c} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the c map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection setC(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    this.c.clear();
+&nbsp;    for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entries()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.c.put(
+&nbsp;          Objects.requireNonNull(k, &quot;c key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;c value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link MutableImmutableCollection#c() c} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to c map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection putAllC(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entries()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.c.put(
+&nbsp;          Objects.requireNonNull(k, &quot;c key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;c value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link MutableImmutableCollection#d() d} map.
+&nbsp;   * @param key The key in d map
+&nbsp;   * @param value The associated value in the d map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection putD(Void key, Void value) {
+&nbsp;    this.d.put(
+&nbsp;        Objects.requireNonNull(key, &quot;d key&quot;),
+&nbsp;        Objects.requireNonNull(value, &quot;d value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link MutableImmutableCollection#d() d} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the d map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection setD(Map&lt;? extends Void, ? extends Void&gt; entries) {
+&nbsp;    this.d.clear();
+&nbsp;    for (Map.Entry&lt;? extends Void, ? extends Void&gt; e : entries.entrySet()) {
+&nbsp;      Void k = e.getKey();
+&nbsp;      Void v = e.getValue();
+&nbsp;      this.d.put(
+&nbsp;          Objects.requireNonNull(k, &quot;d key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;d value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link MutableImmutableCollection#d() d} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to d map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableMutableImmutableCollection putAllD(Map&lt;? extends Void, ? extends Void&gt; entries) {
+&nbsp;    for (Map.Entry&lt;? extends Void, ? extends Void&gt; e : entries.entrySet()) {
+&nbsp;      Void k = e.getKey();
+&nbsp;      Void v = e.getValue();
+&nbsp;      this.d.put(
+&nbsp;          Objects.requireNonNull(k, &quot;d key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;d value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableMutableImmutableCollection ImmutableMutableImmutableCollection}.
+&nbsp;   * @return An immutable instance of MutableImmutableCollection
+&nbsp;   */
+&nbsp;  public final ImmutableMutableImmutableCollection toImmutable() {
+&nbsp;    return ImmutableMutableImmutableCollection.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableMutableImmutableCollection} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableMutableImmutableCollection)) return false;
+&nbsp;    ModifiableMutableImmutableCollection other = (ModifiableMutableImmutableCollection) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableMutableImmutableCollection another) {
+&nbsp;    return a.equals(another.a)
+&nbsp;        &amp;&amp; b.equals(another.b)
+&nbsp;        &amp;&amp; c.equals(another.c)
+&nbsp;        &amp;&amp; d.equals(another.d);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code c}, {@code d}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + c.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + d.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code MutableImmutableCollection}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableMutableImmutableCollection&quot;)
+&nbsp;        .add(&quot;a&quot;, a())
+&nbsp;        .add(&quot;b&quot;, b())
+&nbsp;        .add(&quot;c&quot;, c())
+&nbsp;        .add(&quot;d&quot;, d())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

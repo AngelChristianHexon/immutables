@@ -1,0 +1,264 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Primitive</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: Primitive (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Primitive</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/35)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Primitive$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;
+<b class="nc">&nbsp;enum Primitive {</b>
+<b class="nc">&nbsp;  BOOLEAN(Boolean.TYPE, Boolean.class),</b>
+<b class="nc">&nbsp;  BYTE(Byte.TYPE, Byte.class),</b>
+<b class="nc">&nbsp;  CHAR(Character.TYPE, Character.class),</b>
+<b class="nc">&nbsp;  SHORT(Short.TYPE, Short.class),</b>
+<b class="nc">&nbsp;  INT(Integer.TYPE, Integer.class),</b>
+<b class="nc">&nbsp;  LONG(Long.TYPE, Long.class),</b>
+<b class="nc">&nbsp;  FLOAT(Float.TYPE, Float.class),</b>
+<b class="nc">&nbsp;  DOUBLE(Double.TYPE, Double.class),</b>
+<b class="nc">&nbsp;  VOID(Void.TYPE, Void.class),</b>
+<b class="nc">&nbsp;  OTHER(null, null);</b>
+&nbsp;
+&nbsp;  public final Class primitiveClass;
+&nbsp;  public final Class boxClass;
+&nbsp;
+<b class="nc">&nbsp;  private static final Map&lt;Class, Primitive&gt; PRIMITIVE_MAP = new HashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;  private static final Map&lt;Class, Primitive&gt; BOX_MAP = new HashMap&lt;&gt;();</b>
+&nbsp;
+&nbsp;  static {
+<b class="nc">&nbsp;    Primitive[] values = Primitive.values();</b>
+<b class="nc">&nbsp;    for (Primitive value : values) {</b>
+<b class="nc">&nbsp;      if (value.primitiveClass != null) {</b>
+<b class="nc">&nbsp;        PRIMITIVE_MAP.put(value.primitiveClass, value);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (value.boxClass != null) {</b>
+<b class="nc">&nbsp;        BOX_MAP.put(value.boxClass, value);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  Primitive(Class primitiveClass, Class boxClass) {</b>
+<b class="nc">&nbsp;    this.primitiveClass = primitiveClass;</b>
+<b class="nc">&nbsp;    this.boxClass = boxClass;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the Primitive object for a given primitive class.
+&nbsp;   *
+&nbsp;   * &lt;p&gt;For example, &lt;code&gt;of(long.class)&lt;/code&gt; returns {@link #LONG}.
+&nbsp;   * Returns {@code null} when applied to a boxing or other class; for example
+&nbsp;   * &lt;code&gt;of(Long.class)&lt;/code&gt; and &lt;code&gt;of(String.class)&lt;/code&gt; return
+&nbsp;   * {@code null}.
+&nbsp;   */
+&nbsp;  private static Primitive of(Type type) {
+<b class="nc">&nbsp;    return PRIMITIVE_MAP.get(type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the Primitive object for a given boxing class.
+&nbsp;   *
+&nbsp;   * &lt;p&gt;For example, &lt;code&gt;ofBox(java.util.Long.class)&lt;/code&gt;
+&nbsp;   * returns {@link #LONG}.
+&nbsp;   */
+&nbsp;  private static Primitive ofBox(Type type) {
+&nbsp;    //noinspection SuspiciousMethodCalls
+<b class="nc">&nbsp;    return BOX_MAP.get(type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Primitive ofAny(Type type) {
+<b class="nc">&nbsp;    Primitive found = of(type);</b>
+<b class="nc">&nbsp;    return found != null ? found : ofBox(type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns whether a given type is primitive.
+&nbsp;   */
+&nbsp;  public static boolean is(Type type) {
+&nbsp;    //noinspection SuspiciousMethodCalls
+<b class="nc">&nbsp;    return PRIMITIVE_MAP.containsKey(type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  public Number cast(Number value) {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;      case BYTE:
+<b class="nc">&nbsp;        return Byte.valueOf(value.byteValue());</b>
+&nbsp;      case DOUBLE:
+<b class="nc">&nbsp;        return Double.valueOf(value.doubleValue());</b>
+&nbsp;      case FLOAT:
+<b class="nc">&nbsp;        return Float.valueOf(value.floatValue());</b>
+&nbsp;      case INT:
+<b class="nc">&nbsp;        return Integer.valueOf(value.intValue());</b>
+&nbsp;      case LONG:
+<b class="nc">&nbsp;        return Long.valueOf(value.longValue());</b>
+&nbsp;      case SHORT:
+<b class="nc">&nbsp;        return Short.valueOf(value.shortValue());</b>
+&nbsp;      default:
+<b class="nc">&nbsp;        throw new AssertionError(this + &quot;: &quot; + value);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

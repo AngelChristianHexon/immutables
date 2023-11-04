@@ -1,0 +1,162 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Generator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator</a>
+</div>
+
+<h1>Coverage Summary for Class: Generator (org.immutables.generator)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Generator$Import</td>
+  </tr>
+  <tr>
+    <td class="name">Generator$SupportedAnnotations</td>
+  </tr>
+  <tr>
+    <td class="name">Generator$Template</td>
+  </tr>
+  <tr>
+    <td class="name">Generator$Typedef</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator;
+&nbsp;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.lang.annotation.Documented;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Inherited;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;import javax.annotation.processing.SupportedAnnotationTypes;
+&nbsp;
+&nbsp;/**
+&nbsp; * Namespasing annotation used to group nested Generator - related annotations.
+&nbsp; */
+&nbsp;@Retention(RetentionPolicy.SOURCE)
+&nbsp;public @interface Generator {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates &quot;generator&quot; subclass of annotated template definition.
+&nbsp;   * It is recommended in most cases that annotated class also extend {@link AbstractTemplate} so
+&nbsp;   * default templating language capabilities will be accessible.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  public @interface Template {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Imports classes as simple name aliases to be available to template language.
+&nbsp;   * Special kind of annotation inheritance works. All imports combined together from
+&nbsp;   * {@link Generator.Import} annotations of template classes and enclosing packages, as well as
+&nbsp;   * from superclasses and their respective packages. Where the formerd declaration override the
+&nbsp;   * latter ones.
+&nbsp;   */
+&nbsp;  @Inherited
+&nbsp;  @Target({ ElementType.TYPE, ElementType.PACKAGE })
+&nbsp;  public @interface Import {
+&nbsp;    Class&lt;?&gt;[] value();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used to introduce complex types as simple type names available to template language.
+&nbsp;   * Annotate fields with this annotations to introduce such typedef. Fields should be named
+&nbsp;   * starting with uppercase, so template will recognize it as type identifier.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * {@literal @}Generator.Typedef
+&nbsp;   * java.util.Map.Entry&amp;lt;String, String&amp;gt; Pair;
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * 
+&nbsp;   * In the example above, new type Pair will be introduced in template and will serve as alias to
+&nbsp;   * declared generic Map.Entry type of the fields.
+&nbsp;   * Field&#39;s value doesn&#39;t matter and can be left uninitialized).
+&nbsp;   */
+&nbsp;  @Target(ElementType.FIELD)
+&nbsp;  public @interface Typedef {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Applies to the annotation processor extending {@link AbstractGenerator} to supply annotation
+&nbsp;   * names that processor will handle. Could be used instead of {@link SupportedAnnotationTypes},
+&nbsp;   * which is also supported.
+&nbsp;   */
+&nbsp;  @Target({ ElementType.TYPE, ElementType.PACKAGE })
+&nbsp;  @Retention(RetentionPolicy.RUNTIME)
+&nbsp;  public @interface SupportedAnnotations {
+&nbsp;    Class&lt;? extends Annotation&gt;[] value();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

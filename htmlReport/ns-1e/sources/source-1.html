@@ -1,0 +1,363 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Encoding</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: Encoding (org.immutables.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">Encoding$Build</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Copy</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Expose</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Impl</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Init</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$IsInit</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Naming</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$Of</td>
+  </tr>
+  <tr>
+    <td class="name">Encoding$StandardNaming</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.encode;
+&nbsp;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;
+&nbsp;/**
+&nbsp; * Encoding defines set of template methods and fields which describes how attributes of specific
+&nbsp; * types are implemented in generated value class. {@code Encoding} annotation is processed by the
+&nbsp; * annotation processor (the same as used for value objects) and generates annotation named
+&nbsp; * {@code *Enabled} in the same package, inserting encoding simple class name in placeholder.
+&nbsp; * Encoding class consists of special fields methods, builder inner static class with it&#39;s own
+&nbsp; * fields and methods.
+&nbsp; * &lt;p&gt;
+&nbsp; * When programming the encoding class, remember that code analyser is not akin full-fledged java
+&nbsp; * compiler, but a set of simplified routines which cannot possibly
+&nbsp; */
+&nbsp;@Target(ElementType.TYPE)
+&nbsp;@Retention(RetentionPolicy.SOURCE)
+&nbsp;public @interface Encoding {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Implementation field must be annotated, it also must be private.
+&nbsp;   */
+&nbsp;  @Target(ElementType.FIELD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Impl {
+&nbsp;    boolean virtual() default false;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Expose describes how type matches to the encoding via return type.
+&nbsp;   * It also provides implementation to the accessor. There can zero or more
+&nbsp;   * expose templates. If none provided, it will be automatically derived as returning
+&nbsp;   * implementation field. Couple of expose methods might be usefull when you.
+&nbsp;   * Remember, only one such method can be activated by encoding matching.
+&nbsp;   * It also should should match the init and builder init-copy types.
+&nbsp;   */
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Expose {}
+&nbsp;
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Of {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builder init method template. Can be as simple as {@code .setValue(1)} to {@code .addVal},
+&nbsp;   * {@code .addAll}, {@code .putAddAllWhatever} variations. Many such initializers may be
+&nbsp;   * specified, so they will appear for each attribute handled by encoding.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Can be annotated with {@link Copy} annotation to specify that it is capable of accepting full
+&nbsp;   * value returned by getter of the same attribute.
+&nbsp;   */
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Init {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * With copy method template. Return type should be the type of implementation field. It can have
+&nbsp;   * arbitrary parameters so you can describe update-copy to
+&nbsp;   * persistent(structural-sharing-copy) collections. The return value of this method will be then
+&nbsp;   * compared (in generated code) to the current field value using {@code ==} comparison and if
+&nbsp;   * found equals (in terms of {@code ==}), then {@code this} will be returned from generated copy
+&nbsp;   * routine to short circuit copyings of the whole object if modification would yield equivalent
+&nbsp;   * object. This method would preferably be inlined if one-liner and is not reused in
+&nbsp;   * other methods. Naming could be supplied.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * The second use of this annotation is to have it along {@link Init} annotation on a builder
+&nbsp;   * initializer method to stress that this initialized can copy the value as we can get from
+&nbsp;   * exposed assessor. In other words, this builder setter annotated {@code @Init @Copy} can be used
+&nbsp;   * to accept the value returned from getter.
+&nbsp;   */
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Copy {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Attribute&#39;s builder template. It should be nested static class with the same type parameters as
+&nbsp;   * enclosing encoding
+&nbsp;   */
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Builder {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Template method which describes how attribute should be built so it would can be assigned to.
+&nbsp;   * No argumentet method with return type the same as implementation field&#39;s one ({@link Impl})
+&nbsp;   * implementation field. This method would preferably be inlined if one-liner and is not reused in
+&nbsp;   * other methods. No naming is appropriate as this method is always inlined or private helper
+&nbsp;   * method
+&nbsp;   */
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Build {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Template method for internal purposes that describes how to ask builder if an attribute was
+&nbsp;   * initialized. This must be a boolean-returning no-arg accessor method on a builder.
+&nbsp;   * Implementation will always be private regardless if provided method is defined as private or
+&nbsp;   * not. If builder encoding is not defined (i.e. no {@code Encoding.Builder}), the generator will
+&nbsp;   * infer this as a a null check, but if builder encoding is defined with no such {@code IsInit}
+&nbsp;   * provided, then encoding will be unable to generate
+&nbsp;   * code for instantiations of {@code Value.Default} or {@code Value.Derived} attributes.
+&nbsp;   */
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface IsInit {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Many elements (but not all) supports customized naming patterns.
+&nbsp;   * Use single asterisk symbol in a name to denote a placeholder where attribute name would be
+&nbsp;   * insterted.
+&nbsp;   * We call namings of form {@code &quot;*&quot;} as identity naming, and the ones which have no placeholder,
+&nbsp;   * as in {@code &quot;set&quot;} - constant namings.
+&nbsp;   * Like &quot;with*Added&quot; for copy with addition method.
+&nbsp;   * Elements that can have customized naming:
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;Copy/With methods&lt;/li&gt;
+&nbsp;   * &lt;li&gt;Helper fields and methods&lt;/li&gt;
+&nbsp;   * &lt;li&gt;Builder attribute initializer&lt;/li&gt;
+&nbsp;   * &lt;li&gt;Helper fields and methods on builder&lt;/li&gt;
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * As an alternative to specifying a pattern, you may want to reuse {@link #standard()} naming.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;
+&nbsp;   * Please note, that with customized naming it is possible (but in general, not recommended) to
+&nbsp;   * put
+&nbsp;   * constant naming (without {@code &quot;*&quot;} placeholder) on elements. But when you do this it can
+&nbsp;   * result
+&nbsp;   * in name clashes in generated code.
+&nbsp;   * &lt;/em&gt;
+&nbsp;   * @see #depluralize()
+&nbsp;   * @see #standard()
+&nbsp;   */
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Naming {
+&nbsp;    /**
+&nbsp;     * Naming pattern for element.
+&nbsp;     * @return naming pattern
+&nbsp;     */
+&nbsp;    String value() default &quot;*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set to {@code true} if depluralizer needs to kick in and
+&nbsp;     * try to convert attribute name to a singular form before applying pattern ({@link #value()}).
+&nbsp;     * Some standard namings imply depluralization ({@link StandardNaming#ADD},
+&nbsp;     * {@link StandardNaming#PUT}).
+&nbsp;     * @return if depluralized attribute name
+&nbsp;     */
+&nbsp;    boolean depluralize() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Standard namings can be used to reuse standard styles, like the ones defined in
+&nbsp;     * {@code Value.Immutable.Style} for the custom-defined elements in encoding. If
+&nbsp;     * {@link StandardNaming} is used with the generator other than Immutables which do not have
+&nbsp;     * notion of namings/styles, then, typical default values will be used.
+&nbsp;     */
+&nbsp;    StandardNaming standard() default StandardNaming.NONE;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Standard namings can be used to reuse standard styles, like the ones defined in
+&nbsp;   * {@code Value.Immutable.Style} for the custom-defined elements in encoding. If
+&nbsp;   * {@link StandardNaming} is used with the generator other than Immutables which do not have
+&nbsp;   * notion of namings/styles, then, typical default values will be used.
+&nbsp;   */
+<b class="nc">&nbsp;  public enum StandardNaming {</b>
+&nbsp;    /** no standard naming is used. */
+<b class="nc">&nbsp;    NONE(&quot;&quot;),</b>
+&nbsp;    /**
+&nbsp;     * naming of the accessor method. as accessors are detected, this naming would signalize the
+&nbsp;     * need to copy current detected accessors naming to some other element.
+&nbsp;     */
+<b class="nc">&nbsp;    GET(&quot;*&quot;),</b>
+&nbsp;
+&nbsp;    /** builder init method. */
+<b class="nc">&nbsp;    INIT(&quot;*&quot;),</b>
+&nbsp;
+&nbsp;    /** with copy method. */
+<b class="nc">&nbsp;    WITH(&quot;with*&quot;),</b>
+&nbsp;
+&nbsp;    /** builder add method, depluralized. */
+<b class="nc">&nbsp;    ADD(&quot;add*&quot;, true),</b>
+&nbsp;
+&nbsp;    /** builder add all method. */
+<b class="nc">&nbsp;    ADD_ALL(&quot;addAll*&quot;),</b>
+&nbsp;
+&nbsp;    /** builder put method, depluralized. */
+<b class="nc">&nbsp;    PUT(&quot;put*&quot;, true),</b>
+&nbsp;
+&nbsp;    /** builder put all method. */
+<b class="nc">&nbsp;    PUT_ALL(&quot;putAll*&quot;);</b>
+&nbsp;
+&nbsp;    public final String pattern;
+&nbsp;    public final boolean depluralize;
+&nbsp;
+&nbsp;    StandardNaming(String pattern) {
+<b class="nc">&nbsp;      this(pattern, false);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    StandardNaming(String pattern, boolean depluralize) {</b>
+<b class="nc">&nbsp;      this.pattern = pattern;</b>
+<b class="nc">&nbsp;      this.depluralize = depluralize;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

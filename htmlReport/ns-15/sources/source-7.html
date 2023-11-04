@@ -1,0 +1,685 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.reflect</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableBuilder (org.immutables.criteria.reflect)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableBuilder$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableBuilder$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableBuilder$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.reflect;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ClassScanner.Builder}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableBuilder.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableBuilder.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ClassScanner.Builder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableBuilder implements ClassScanner.Builder {
+&nbsp;  private final Class&lt;?&gt; type;
+&nbsp;  private final boolean fields;
+&nbsp;  private final boolean methods;
+&nbsp;  private final boolean constructors;
+&nbsp;  private final boolean superclass;
+&nbsp;  private final boolean interfaces;
+&nbsp;
+&nbsp;  private ImmutableBuilder(Class&lt;?&gt; type) {
+&nbsp;    this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;    this.fields = initShim.fields();
+&nbsp;    this.methods = initShim.methods();
+&nbsp;    this.constructors = initShim.constructors();
+&nbsp;    this.superclass = initShim.superclass();
+&nbsp;    this.interfaces = initShim.interfaces();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableBuilder(ImmutableBuilder.Builder builder) {
+&nbsp;    this.type = builder.type;
+&nbsp;    if (builder.fieldsIsSet()) {
+&nbsp;      initShim.fields(builder.fields);
+&nbsp;    }
+&nbsp;    if (builder.methodsIsSet()) {
+&nbsp;      initShim.methods(builder.methods);
+&nbsp;    }
+&nbsp;    if (builder.constructorsIsSet()) {
+&nbsp;      initShim.constructors(builder.constructors);
+&nbsp;    }
+&nbsp;    if (builder.superclassIsSet()) {
+&nbsp;      initShim.superclass(builder.superclass);
+&nbsp;    }
+&nbsp;    if (builder.interfacesIsSet()) {
+&nbsp;      initShim.interfaces(builder.interfaces);
+&nbsp;    }
+&nbsp;    this.fields = initShim.fields();
+&nbsp;    this.methods = initShim.methods();
+&nbsp;    this.constructors = initShim.constructors();
+&nbsp;    this.superclass = initShim.superclass();
+&nbsp;    this.interfaces = initShim.interfaces();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableBuilder(
+&nbsp;      Class&lt;?&gt; type,
+&nbsp;      boolean fields,
+&nbsp;      boolean methods,
+&nbsp;      boolean constructors,
+&nbsp;      boolean superclass,
+&nbsp;      boolean interfaces) {
+&nbsp;    this.type = type;
+&nbsp;    this.fields = fields;
+&nbsp;    this.methods = methods;
+&nbsp;    this.constructors = constructors;
+&nbsp;    this.superclass = superclass;
+&nbsp;    this.interfaces = interfaces;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;ClassScanner.Builder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte fieldsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean fields;
+&nbsp;
+&nbsp;    boolean fields() {
+&nbsp;      if (fieldsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (fieldsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        fieldsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.fields = fieldsInitialize();
+&nbsp;        fieldsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.fields;
+&nbsp;    }
+&nbsp;
+&nbsp;    void fields(boolean fields) {
+&nbsp;      this.fields = fields;
+&nbsp;      fieldsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte methodsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean methods;
+&nbsp;
+&nbsp;    boolean methods() {
+&nbsp;      if (methodsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (methodsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        methodsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.methods = methodsInitialize();
+&nbsp;        methodsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.methods;
+&nbsp;    }
+&nbsp;
+&nbsp;    void methods(boolean methods) {
+&nbsp;      this.methods = methods;
+&nbsp;      methodsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte constructorsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean constructors;
+&nbsp;
+&nbsp;    boolean constructors() {
+&nbsp;      if (constructorsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (constructorsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        constructorsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.constructors = constructorsInitialize();
+&nbsp;        constructorsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.constructors;
+&nbsp;    }
+&nbsp;
+&nbsp;    void constructors(boolean constructors) {
+&nbsp;      this.constructors = constructors;
+&nbsp;      constructorsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte superclassBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean superclass;
+&nbsp;
+&nbsp;    boolean superclass() {
+&nbsp;      if (superclassBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (superclassBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        superclassBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.superclass = superclassInitialize();
+&nbsp;        superclassBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.superclass;
+&nbsp;    }
+&nbsp;
+&nbsp;    void superclass(boolean superclass) {
+&nbsp;      this.superclass = superclass;
+&nbsp;      superclassBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte interfacesBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean interfaces;
+&nbsp;
+&nbsp;    boolean interfaces() {
+&nbsp;      if (interfacesBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (interfacesBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        interfacesBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.interfaces = interfacesInitialize();
+&nbsp;        interfacesBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.interfaces;
+&nbsp;    }
+&nbsp;
+&nbsp;    void interfaces(boolean interfaces) {
+&nbsp;      this.interfaces = interfaces;
+&nbsp;      interfacesBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (fieldsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;fields&quot;);
+&nbsp;      if (methodsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;methods&quot;);
+&nbsp;      if (constructorsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;constructors&quot;);
+&nbsp;      if (superclassBuildStage == STAGE_INITIALIZING) attributes.add(&quot;superclass&quot;);
+&nbsp;      if (interfacesBuildStage == STAGE_INITIALIZING) attributes.add(&quot;interfaces&quot;);
+&nbsp;      return &quot;Cannot build Builder, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean fieldsInitialize() {
+&nbsp;    return ClassScanner.Builder.super.fields();
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean methodsInitialize() {
+&nbsp;    return ClassScanner.Builder.super.methods();
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean constructorsInitialize() {
+&nbsp;    return ClassScanner.Builder.super.constructors();
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean superclassInitialize() {
+&nbsp;    return ClassScanner.Builder.super.superclass();
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean interfacesInitialize() {
+&nbsp;    return ClassScanner.Builder.super.interfaces();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code type} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Class&lt;?&gt; type() {
+&nbsp;    return type;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Include fields
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean fields() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.fields()
+&nbsp;        : this.fields;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Include methods
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean methods() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.methods()
+&nbsp;        : this.methods;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Include constructors
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean constructors() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.constructors()
+&nbsp;        : this.constructors;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Scan superclass hierarchy
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean superclass() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.superclass()
+&nbsp;        : this.superclass;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code interfaces} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean interfaces() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.interfaces()
+&nbsp;        : this.interfaces;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClassScanner.Builder#type() type} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for type
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBuilder withType(Class&lt;?&gt; value) {
+&nbsp;    if (this.type == value) return this;
+&nbsp;    Class&lt;?&gt; newValue = Objects.requireNonNull(value, &quot;type&quot;);
+&nbsp;    return new ImmutableBuilder(newValue, this.fields, this.methods, this.constructors, this.superclass, this.interfaces);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClassScanner.Builder#fields() fields} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for fields
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBuilder withFields(boolean value) {
+&nbsp;    if (this.fields == value) return this;
+&nbsp;    return new ImmutableBuilder(this.type, value, this.methods, this.constructors, this.superclass, this.interfaces);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClassScanner.Builder#methods() methods} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for methods
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBuilder withMethods(boolean value) {
+&nbsp;    if (this.methods == value) return this;
+&nbsp;    return new ImmutableBuilder(this.type, this.fields, value, this.constructors, this.superclass, this.interfaces);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClassScanner.Builder#constructors() constructors} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for constructors
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBuilder withConstructors(boolean value) {
+&nbsp;    if (this.constructors == value) return this;
+&nbsp;    return new ImmutableBuilder(this.type, this.fields, this.methods, value, this.superclass, this.interfaces);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClassScanner.Builder#superclass() superclass} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for superclass
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBuilder withSuperclass(boolean value) {
+&nbsp;    if (this.superclass == value) return this;
+&nbsp;    return new ImmutableBuilder(this.type, this.fields, this.methods, this.constructors, value, this.interfaces);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClassScanner.Builder#interfaces() interfaces} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for interfaces
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBuilder withInterfaces(boolean value) {
+&nbsp;    if (this.interfaces == value) return this;
+&nbsp;    return new ImmutableBuilder(this.type, this.fields, this.methods, this.constructors, this.superclass, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableBuilder} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableBuilder
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableBuilder) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableBuilder another) {
+&nbsp;    return type.equals(another.type)
+&nbsp;        &amp;&amp; fields == another.fields
+&nbsp;        &amp;&amp; methods == another.methods
+&nbsp;        &amp;&amp; constructors == another.constructors
+&nbsp;        &amp;&amp; superclass == another.superclass
+&nbsp;        &amp;&amp; interfaces == another.interfaces;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code type}, {@code fields}, {@code methods}, {@code constructors}, {@code superclass}, {@code interfaces}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + type.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(fields);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(methods);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(constructors);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(superclass);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(interfaces);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Builder} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Builder&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;type&quot;, type)
+&nbsp;        .add(&quot;fields&quot;, fields)
+&nbsp;        .add(&quot;methods&quot;, methods)
+&nbsp;        .add(&quot;constructors&quot;, constructors)
+&nbsp;        .add(&quot;superclass&quot;, superclass)
+&nbsp;        .add(&quot;interfaces&quot;, interfaces)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Builder} instance.
+&nbsp;   * @param type The value for the {@code type} attribute
+&nbsp;   * @return An immutable Builder instance
+&nbsp;   */
+&nbsp;  public static ImmutableBuilder of(Class&lt;?&gt; type) {
+&nbsp;    return new ImmutableBuilder(type);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ClassScanner.Builder} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Builder instance
+&nbsp;   */
+&nbsp;  public static ImmutableBuilder copyOf(ClassScanner.Builder instance) {
+&nbsp;    if (instance instanceof ImmutableBuilder) {
+&nbsp;      return (ImmutableBuilder) instance;
+&nbsp;    }
+&nbsp;    return ImmutableBuilder.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableBuilder ImmutableBuilder}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableBuilder.builder()
+&nbsp;   *    .type(Class&amp;amp;lt;?&amp;amp;gt;) // required {@link ClassScanner.Builder#type() type}
+&nbsp;   *    .fields(boolean) // optional {@link ClassScanner.Builder#fields() fields}
+&nbsp;   *    .methods(boolean) // optional {@link ClassScanner.Builder#methods() methods}
+&nbsp;   *    .constructors(boolean) // optional {@link ClassScanner.Builder#constructors() constructors}
+&nbsp;   *    .superclass(boolean) // optional {@link ClassScanner.Builder#superclass() superclass}
+&nbsp;   *    .interfaces(boolean) // optional {@link ClassScanner.Builder#interfaces() interfaces}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableBuilder builder
+&nbsp;   */
+&nbsp;  public static ImmutableBuilder.Builder builder() {
+&nbsp;    return new ImmutableBuilder.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableBuilder ImmutableBuilder}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ClassScanner.Builder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_TYPE = 0x1L;
+&nbsp;    private static final long OPT_BIT_FIELDS = 0x1L;
+&nbsp;    private static final long OPT_BIT_METHODS = 0x2L;
+&nbsp;    private static final long OPT_BIT_CONSTRUCTORS = 0x4L;
+&nbsp;    private static final long OPT_BIT_SUPERCLASS = 0x8L;
+&nbsp;    private static final long OPT_BIT_INTERFACES = 0x10L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable Class&lt;?&gt; type;
+&nbsp;    private boolean fields;
+&nbsp;    private boolean methods;
+&nbsp;    private boolean constructors;
+&nbsp;    private boolean superclass;
+&nbsp;    private boolean interfaces;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Builder} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ClassScanner.Builder instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      type(instance.type());
+&nbsp;      fields(instance.fields());
+&nbsp;      methods(instance.methods());
+&nbsp;      constructors(instance.constructors());
+&nbsp;      superclass(instance.superclass());
+&nbsp;      interfaces(instance.interfaces());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClassScanner.Builder#type() type} attribute.
+&nbsp;     * @param type The value for type 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder type(Class&lt;?&gt; type) {
+&nbsp;      this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClassScanner.Builder#fields() fields} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ClassScanner.Builder#fields() fields}.&lt;/em&gt;
+&nbsp;     * @param fields The value for fields 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder fields(boolean fields) {
+&nbsp;      this.fields = fields;
+&nbsp;      optBits |= OPT_BIT_FIELDS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClassScanner.Builder#methods() methods} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ClassScanner.Builder#methods() methods}.&lt;/em&gt;
+&nbsp;     * @param methods The value for methods 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder methods(boolean methods) {
+&nbsp;      this.methods = methods;
+&nbsp;      optBits |= OPT_BIT_METHODS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClassScanner.Builder#constructors() constructors} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ClassScanner.Builder#constructors() constructors}.&lt;/em&gt;
+&nbsp;     * @param constructors The value for constructors 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder constructors(boolean constructors) {
+&nbsp;      this.constructors = constructors;
+&nbsp;      optBits |= OPT_BIT_CONSTRUCTORS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClassScanner.Builder#superclass() superclass} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ClassScanner.Builder#superclass() superclass}.&lt;/em&gt;
+&nbsp;     * @param superclass The value for superclass 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder superclass(boolean superclass) {
+&nbsp;      this.superclass = superclass;
+&nbsp;      optBits |= OPT_BIT_SUPERCLASS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClassScanner.Builder#interfaces() interfaces} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ClassScanner.Builder#interfaces() interfaces}.&lt;/em&gt;
+&nbsp;     * @param interfaces The value for interfaces 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder interfaces(boolean interfaces) {
+&nbsp;      this.interfaces = interfaces;
+&nbsp;      optBits |= OPT_BIT_INTERFACES;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableBuilder ImmutableBuilder}.
+&nbsp;     * @return An immutable instance of Builder
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableBuilder build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableBuilder(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean fieldsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_FIELDS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean methodsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_METHODS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean constructorsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_CONSTRUCTORS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean superclassIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_SUPERCLASS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean interfacesIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_INTERFACES) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_TYPE) != 0) attributes.add(&quot;type&quot;);
+&nbsp;      return &quot;Cannot build Builder, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

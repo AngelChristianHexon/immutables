@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNoBuiltinContainers</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNoBuiltinContainers (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNoBuiltinContainers$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NoBuiltinContainers}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNoBuiltinContainers.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NoBuiltinContainers&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNoBuiltinContainers implements NoBuiltinContainers {
+&nbsp;  private final Map&lt;Integer, Double&gt; a;
+&nbsp;  private final List&lt;String&gt; b;
+&nbsp;  private final Optional&lt;String&gt; c;
+&nbsp;
+&nbsp;  private ImmutableNoBuiltinContainers(
+&nbsp;      Map&lt;Integer, Double&gt; a,
+&nbsp;      List&lt;String&gt; b,
+&nbsp;      Optional&lt;String&gt; c) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;    this.c = c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;Integer, Double&gt; a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoBuiltinContainers#a() a} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoBuiltinContainers withA(Map&lt;Integer, Double&gt; value) {
+&nbsp;    Map&lt;Integer, Double&gt; newValue = Objects.requireNonNull(value, &quot;a&quot;);
+&nbsp;    if (this.a.equals(newValue)) return this;
+&nbsp;    return new ImmutableNoBuiltinContainers(newValue, this.b, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoBuiltinContainers#b() b} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoBuiltinContainers withB(List&lt;String&gt; value) {
+&nbsp;    if (this.b == value) return this;
+&nbsp;    List&lt;String&gt; newValue = Objects.requireNonNull(value, &quot;b&quot;);
+&nbsp;    return new ImmutableNoBuiltinContainers(this.a, newValue, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoBuiltinContainers#c() c} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoBuiltinContainers withC(Optional&lt;String&gt; value) {
+&nbsp;    Optional&lt;String&gt; newValue = Objects.requireNonNull(value, &quot;c&quot;);
+&nbsp;    if (this.c.equals(newValue)) return this;
+&nbsp;    return new ImmutableNoBuiltinContainers(this.a, this.b, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNoBuiltinContainers} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNoBuiltinContainers
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNoBuiltinContainers) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNoBuiltinContainers another) {
+&nbsp;    return a.equals(another.a)
+&nbsp;        &amp;&amp; b.equals(another.b)
+&nbsp;        &amp;&amp; c.equals(another.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code c}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + c.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NoBuiltinContainers} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NoBuiltinContainers&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .add(&quot;c&quot;, c)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NoBuiltinContainers} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NoBuiltinContainers instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoBuiltinContainers copyOf(NoBuiltinContainers instance) {
+&nbsp;    if (instance instanceof ImmutableNoBuiltinContainers) {
+&nbsp;      return (ImmutableNoBuiltinContainers) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNoBuiltinContainers.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNoBuiltinContainers ImmutableNoBuiltinContainers}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNoBuiltinContainers.builder()
+&nbsp;   *    .a(Map&amp;amp;lt;Integer, Double&amp;amp;gt;) // required {@link NoBuiltinContainers#a() a}
+&nbsp;   *    .b(List&amp;amp;lt;String&amp;amp;gt;) // required {@link NoBuiltinContainers#b() b}
+&nbsp;   *    .c(Optional&amp;amp;lt;String&amp;amp;gt;) // required {@link NoBuiltinContainers#c() c}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNoBuiltinContainers builder
+&nbsp;   */
+&nbsp;  public static ImmutableNoBuiltinContainers.Builder builder() {
+&nbsp;    return new ImmutableNoBuiltinContainers.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNoBuiltinContainers ImmutableNoBuiltinContainers}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NoBuiltinContainers&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private static final long INIT_BIT_C = 0x4L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;
+&nbsp;    private @Nullable Map&lt;Integer, Double&gt; a;
+&nbsp;    private @Nullable List&lt;String&gt; b;
+&nbsp;    private @Nullable Optional&lt;String&gt; c;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NoBuiltinContainers} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NoBuiltinContainers instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      a(instance.a());
+&nbsp;      b(instance.b());
+&nbsp;      c(instance.c());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoBuiltinContainers#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(Map&lt;Integer, Double&gt; a) {
+&nbsp;      this.a = Objects.requireNonNull(a, &quot;a&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoBuiltinContainers#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(List&lt;String&gt; b) {
+&nbsp;      this.b = Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoBuiltinContainers#c() c} attribute.
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(Optional&lt;String&gt; c) {
+&nbsp;      this.c = Objects.requireNonNull(c, &quot;c&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNoBuiltinContainers ImmutableNoBuiltinContainers}.
+&nbsp;     * @return An immutable instance of NoBuiltinContainers
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNoBuiltinContainers build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableNoBuiltinContainers(a, b, c);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_C) != 0) attributes.add(&quot;c&quot;);
+&nbsp;      return &quot;Cannot build NoBuiltinContainers, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

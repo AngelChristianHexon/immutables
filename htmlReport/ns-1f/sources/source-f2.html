@@ -1,0 +1,260 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOptionalOfOptionalRegular</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOptionalOfOptionalRegular (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOptionalOfOptionalRegular$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OptionalOfOptionalRegular}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOptionalOfOptionalRegular.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OptionalOfOptionalRegular&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableOptionalOfOptionalRegular&lt;T&gt;
+&nbsp;    implements OptionalOfOptionalRegular&lt;T&gt; {
+&nbsp;  private final Option&lt;Optional&lt;T&gt;&gt; optionalOfOptional;
+&nbsp;
+&nbsp;  private ImmutableOptionalOfOptionalRegular(Option&lt;Optional&lt;T&gt;&gt; optionalOfOptional) {
+&nbsp;    this.optionalOfOptional = optionalOfOptional;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code optionalOfOptional} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Option&lt;Optional&lt;T&gt;&gt; optionalOfOptional() {
+&nbsp;    return optionalOfOptional;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OptionalOfOptionalRegular#optionalOfOptional() optionalOfOptional} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for optionalOfOptional
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalOfOptionalRegular&lt;T&gt; withOptionalOfOptional(Option&lt;Optional&lt;T&gt;&gt; value) {
+&nbsp;    Option&lt;Optional&lt;T&gt;&gt; newValue = Objects.requireNonNull(value, &quot;optionalOfOptional&quot;);
+&nbsp;    if (this.optionalOfOptional.equals(newValue)) return this;
+&nbsp;    return new ImmutableOptionalOfOptionalRegular&lt;&gt;(newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOptionalOfOptionalRegular} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOptionalOfOptionalRegular&lt;?&gt;
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOptionalOfOptionalRegular&lt;?&gt;) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOptionalOfOptionalRegular&lt;?&gt; another) {
+&nbsp;    return optionalOfOptional.equals(another.optionalOfOptional);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code optionalOfOptional}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + optionalOfOptional.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OptionalOfOptionalRegular} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OptionalOfOptionalRegular&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;optionalOfOptional&quot;, optionalOfOptional)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OptionalOfOptionalRegular} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OptionalOfOptionalRegular instance
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; ImmutableOptionalOfOptionalRegular&lt;T&gt; copyOf(OptionalOfOptionalRegular&lt;T&gt; instance) {
+&nbsp;    if (instance instanceof ImmutableOptionalOfOptionalRegular&lt;?&gt;) {
+&nbsp;      return (ImmutableOptionalOfOptionalRegular&lt;T&gt;) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOptionalOfOptionalRegular.&lt;T&gt;builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOptionalOfOptionalRegular ImmutableOptionalOfOptionalRegular}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOptionalOfOptionalRegular.&amp;amp;lt;T&amp;amp;gt;builder()
+&nbsp;   *    .optionalOfOptional(io.atlassian.fugue.Option&amp;amp;lt;com.google.common.base.Optional&amp;amp;lt;T&amp;amp;gt;&amp;amp;gt;) // required {@link OptionalOfOptionalRegular#optionalOfOptional() optionalOfOptional}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @return A new ImmutableOptionalOfOptionalRegular builder
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; ImmutableOptionalOfOptionalRegular.Builder&lt;T&gt; builder() {
+&nbsp;    return new ImmutableOptionalOfOptionalRegular.Builder&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOptionalOfOptionalRegular ImmutableOptionalOfOptionalRegular}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OptionalOfOptionalRegular&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder&lt;T&gt; {
+&nbsp;    private static final long INIT_BIT_OPTIONAL_OF_OPTIONAL = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable Option&lt;Optional&lt;T&gt;&gt; optionalOfOptional;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code OptionalOfOptionalRegular} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T&gt; from(OptionalOfOptionalRegular&lt;T&gt; instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      optionalOfOptional(instance.optionalOfOptional());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OptionalOfOptionalRegular#optionalOfOptional() optionalOfOptional} attribute.
+&nbsp;     * @param optionalOfOptional The value for optionalOfOptional 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T&gt; optionalOfOptional(Option&lt;Optional&lt;T&gt;&gt; optionalOfOptional) {
+&nbsp;      this.optionalOfOptional = Objects.requireNonNull(optionalOfOptional, &quot;optionalOfOptional&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_OPTIONAL_OF_OPTIONAL;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOptionalOfOptionalRegular ImmutableOptionalOfOptionalRegular}.
+&nbsp;     * @return An immutable instance of OptionalOfOptionalRegular
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOptionalOfOptionalRegular&lt;T&gt; build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableOptionalOfOptionalRegular&lt;&gt;(optionalOfOptional);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_OPTIONAL_OF_OPTIONAL) != 0) attributes.add(&quot;optionalOfOptional&quot;);
+&nbsp;      return &quot;Cannot build OptionalOfOptionalRegular, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

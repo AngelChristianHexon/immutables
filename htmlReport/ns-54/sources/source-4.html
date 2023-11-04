@@ -1,0 +1,130 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AttributeBuilderBuilderI</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.builder.functional</a>
+</div>
+
+<h1>Coverage Summary for Class: AttributeBuilderBuilderI (org.immutables.fixture.builder.functional)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">AttributeBuilderBuilderI</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.builder.functional;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.FirstPartyImmutable;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.FirstPartyImmutableWithDifferentStyle;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyImmutable;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyImmutable.Builder;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyImmutableWithDifferentStyle;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutable;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithPrimitive;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;rawtypes&quot;)
+&nbsp;public interface AttributeBuilderBuilderI&lt;ValueT&gt; {
+&nbsp;  AttributeBuilderBuilderI firstPartyImmutable(FirstPartyImmutable firstPartyImmutable);
+&nbsp;
+&nbsp;  ImmutableFirstPartyImmutable.Builder firstPartyImmutableBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI firstPartyImmutableBuilder(ImmutableFirstPartyImmutable.Builder firstPartyImmutableBuilder);
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI firstPartyImmutableWithDifferentStyle(
+&nbsp;      FirstPartyImmutableWithDifferentStyle firstPartyImmutableWithDifferentStyle);
+&nbsp;
+&nbsp;  ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon firstPartyImmutableWithDifferentStyleBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI thirdPartyImmutable(ThirdPartyImmutable thirdPartyImmutable);
+&nbsp;
+&nbsp;  ThirdPartyImmutable.Builder thirdPartyImmutableBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI thirdPartyImmutableWithPrimitive(ThirdPartyImmutableWithPrimitive thirdPartyImmutableWithPrimitive);
+&nbsp;
+&nbsp;  ThirdPartyImmutableWithPrimitive.Builder thirdPartyImmutableWithPrimitiveBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI addFirstPartyImmutable(FirstPartyImmutable firstPartyImmutable);
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI addAllFirstPartyImmutableBuilders(ImmutableFirstPartyImmutable.Builder... elements);
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI addAllFirstPartyImmutableBuilders(Iterable&lt;ImmutableFirstPartyImmutable.Builder&gt; elements);
+&nbsp;
+&nbsp;  List&lt;Builder&gt; firstPartyImmutableBuilders();
+&nbsp;
+&nbsp;  ImmutableFirstPartyImmutable.Builder addFirstPartyImmutableBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI addThirdPartyImmutable(ThirdPartyImmutable thirdPartyImmutable);
+&nbsp;
+&nbsp;  ThirdPartyImmutable.Builder addThirdPartyImmutableBuilder();
+&nbsp;
+&nbsp;  ImmutableFirstPartyImmutable.Builder optionalFirstPartyImmutableBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI optionalFirstPartyImmutableBuilder(ImmutableFirstPartyImmutable.Builder firstPartyImmutable);
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI optionalFirstPartyImmutable(FirstPartyImmutable firstPartyImmutable);
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI optionalFirstPartyImmutable(Optional&lt;? extends FirstPartyImmutable&gt; optionalFirstPartyImmutable);
+&nbsp;
+&nbsp;  ImmutableFirstPartyImmutable.Builder nullableFirstPartyImmutableBuilder();
+&nbsp;
+&nbsp;  AttributeBuilderBuilderI nullableFirstPartyImmutable(FirstPartyImmutable firstPartyImmutable);
+&nbsp;
+&nbsp;  ValueT build();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

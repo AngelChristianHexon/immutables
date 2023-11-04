@@ -1,0 +1,876 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableInheritEnclosing</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nested</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableInheritEnclosing (org.immutables.fixture.nested)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl2</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl2$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl3</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl3$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl4</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableInheritEnclosing$Impl4$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nested;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code ImmutableInheritEnclosing} contains immutable implementation classes generated from
+&nbsp; * abstract value types defined as nested inside {@link InheritEnclosing}.
+&nbsp; * @see ImmutableInheritEnclosing.Impl
+&nbsp; * @see ImmutableInheritEnclosing.Impl2
+&nbsp; * @see ImmutableInheritEnclosing.Impl3
+&nbsp; * @see ImmutableInheritEnclosing.Impl4
+&nbsp; */
+&nbsp;@Generated(from = &quot;InheritEnclosing&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;public final class ImmutableInheritEnclosing {
+&nbsp;  private ImmutableInheritEnclosing() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link InheritEnclosing.Impl}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;InheritEnclosing.Impl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Impl implements InheritEnclosing.Impl {
+&nbsp;    private final int value;
+&nbsp;
+&nbsp;    private Impl(int value) {
+&nbsp;      this.value = value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code value} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int value() {
+&nbsp;      return value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link InheritEnclosing.Impl#value() value} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for value
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableInheritEnclosing.Impl withValue(int value) {
+&nbsp;      if (this.value == value) return this;
+&nbsp;      return new ImmutableInheritEnclosing.Impl(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Impl} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableInheritEnclosing.Impl
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableInheritEnclosing.Impl) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableInheritEnclosing.Impl another) {
+&nbsp;      return value == another.value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code value}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + value;
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Impl} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;Impl&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;value&quot;, value)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link InheritEnclosing.Impl} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Impl instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl copyOf(InheritEnclosing.Impl instance) {
+&nbsp;      if (instance instanceof ImmutableInheritEnclosing.Impl) {
+&nbsp;        return (ImmutableInheritEnclosing.Impl) instance;
+&nbsp;      }
+&nbsp;      return ImmutableInheritEnclosing.Impl.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableInheritEnclosing.Impl Impl}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableInheritEnclosing.Impl.builder()
+&nbsp;     *    .value(int) // required {@link InheritEnclosing.Impl#value() value}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Impl builder
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl.Builder builder() {
+&nbsp;      return new ImmutableInheritEnclosing.Impl.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableInheritEnclosing.Impl Impl}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;InheritEnclosing.Impl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_VALUE = 0x1L;
+&nbsp;      private long initBits = 0x1L;
+&nbsp;
+&nbsp;      private int value;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Impl} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(InheritEnclosing.Impl instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        value(instance.value());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link InheritEnclosing.Impl#value() value} attribute.
+&nbsp;       * @param value The value for value 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder value(int value) {
+&nbsp;        this.value = value;
+&nbsp;        initBits &amp;= ~INIT_BIT_VALUE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableInheritEnclosing.Impl Impl}.
+&nbsp;       * @return An immutable instance of Impl
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableInheritEnclosing.Impl build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableInheritEnclosing.Impl(value);
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_VALUE) != 0) attributes.add(&quot;value&quot;);
+&nbsp;        return &quot;Cannot build Impl, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link InheritEnclosing.Impl2}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl2.builder()}.
+&nbsp;   * Use the static factory method to create immutable instances:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl2.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;InheritEnclosing.Impl2&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Impl2 implements InheritEnclosing.Impl2 {
+&nbsp;    private final int value;
+&nbsp;
+&nbsp;    private Impl2(int value) {
+&nbsp;      this.value = value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code value} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int value() {
+&nbsp;      return value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link InheritEnclosing.Impl2#value() value} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for value
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableInheritEnclosing.Impl2 withValue(int value) {
+&nbsp;      if (this.value == value) return this;
+&nbsp;      return new ImmutableInheritEnclosing.Impl2(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Impl2} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableInheritEnclosing.Impl2
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableInheritEnclosing.Impl2) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableInheritEnclosing.Impl2 another) {
+&nbsp;      return value == another.value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code value}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + value;
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Impl2} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;Impl2&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;value&quot;, value)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Impl2} instance.
+&nbsp;     * @param value The value for the {@code value} attribute
+&nbsp;     * @return An immutable Impl2 instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl2 of(int value) {
+&nbsp;      return new ImmutableInheritEnclosing.Impl2(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link InheritEnclosing.Impl2} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Impl2 instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl2 copyOf(InheritEnclosing.Impl2 instance) {
+&nbsp;      if (instance instanceof ImmutableInheritEnclosing.Impl2) {
+&nbsp;        return (ImmutableInheritEnclosing.Impl2) instance;
+&nbsp;      }
+&nbsp;      return ImmutableInheritEnclosing.Impl2.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableInheritEnclosing.Impl2 Impl2}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableInheritEnclosing.Impl2.builder()
+&nbsp;     *    .value(int) // required {@link InheritEnclosing.Impl2#value() value}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Impl2 builder
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl2.Builder builder() {
+&nbsp;      return new ImmutableInheritEnclosing.Impl2.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableInheritEnclosing.Impl2 Impl2}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;InheritEnclosing.Impl2&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_VALUE = 0x1L;
+&nbsp;      private long initBits = 0x1L;
+&nbsp;
+&nbsp;      private int value;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Impl2} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(InheritEnclosing.Impl2 instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        value(instance.value());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link InheritEnclosing.Impl2#value() value} attribute.
+&nbsp;       * @param value The value for value 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder value(int value) {
+&nbsp;        this.value = value;
+&nbsp;        initBits &amp;= ~INIT_BIT_VALUE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableInheritEnclosing.Impl2 Impl2}.
+&nbsp;       * @return An immutable instance of Impl2
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableInheritEnclosing.Impl2 build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableInheritEnclosing.Impl2(value);
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_VALUE) != 0) attributes.add(&quot;value&quot;);
+&nbsp;        return &quot;Cannot build Impl2, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link InheritEnclosing.Impl3}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl3.builder()}.
+&nbsp;   * Use the static factory method to create immutable instances:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl3.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;InheritEnclosing.Impl3&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Impl3 implements InheritEnclosing.Impl3 {
+&nbsp;    private final int value;
+&nbsp;    private final ImmutableList&lt;Boolean&gt; bools;
+&nbsp;
+&nbsp;    private Impl3(int value, Iterable&lt;Boolean&gt; bools) {
+&nbsp;      this.value = value;
+&nbsp;      this.bools = ImmutableList.copyOf(bools);
+&nbsp;    }
+&nbsp;
+&nbsp;    private Impl3(
+&nbsp;        ImmutableInheritEnclosing.Impl3 original,
+&nbsp;        int value,
+&nbsp;        ImmutableList&lt;Boolean&gt; bools) {
+&nbsp;      this.value = value;
+&nbsp;      this.bools = bools;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code value} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int value() {
+&nbsp;      return value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code bools} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public ImmutableList&lt;Boolean&gt; bools() {
+&nbsp;      return bools;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link InheritEnclosing.Impl3#value() value} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for value
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableInheritEnclosing.Impl3 withValue(int value) {
+&nbsp;      if (this.value == value) return this;
+&nbsp;      return new ImmutableInheritEnclosing.Impl3(this, value, this.bools);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link InheritEnclosing.Impl3#bools() bools}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableInheritEnclosing.Impl3 withBools(boolean... elements) {
+&nbsp;      ImmutableList&lt;Boolean&gt; newValue = ImmutableList.copyOf(Booleans.asList(elements));
+&nbsp;      return new ImmutableInheritEnclosing.Impl3(this, this.value, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link InheritEnclosing.Impl3#bools() bools}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of bools elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableInheritEnclosing.Impl3 withBools(Iterable&lt;Boolean&gt; elements) {
+&nbsp;      if (this.bools == elements) return this;
+&nbsp;      ImmutableList&lt;Boolean&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableInheritEnclosing.Impl3(this, this.value, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Impl3} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableInheritEnclosing.Impl3
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableInheritEnclosing.Impl3) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableInheritEnclosing.Impl3 another) {
+&nbsp;      return value == another.value
+&nbsp;          &amp;&amp; bools.equals(another.bools);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code value}, {@code bools}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + value;
+&nbsp;      h += (h &lt;&lt; 5) + bools.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Impl3} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;Impl3&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;value&quot;, value)
+&nbsp;          .add(&quot;bools&quot;, bools)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Impl3} instance.
+&nbsp;     * @param value The value for the {@code value} attribute
+&nbsp;     * @param bools The value for the {@code bools} attribute
+&nbsp;     * @return An immutable Impl3 instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl3 of(int value, List&lt;Boolean&gt; bools) {
+&nbsp;      return of(value, (Iterable&lt;Boolean&gt;) bools);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Impl3} instance.
+&nbsp;     * @param value The value for the {@code value} attribute
+&nbsp;     * @param bools The value for the {@code bools} attribute
+&nbsp;     * @return An immutable Impl3 instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl3 of(int value, Iterable&lt;Boolean&gt; bools) {
+&nbsp;      return new ImmutableInheritEnclosing.Impl3(value, bools);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link InheritEnclosing.Impl3} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Impl3 instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl3 copyOf(InheritEnclosing.Impl3 instance) {
+&nbsp;      if (instance instanceof ImmutableInheritEnclosing.Impl3) {
+&nbsp;        return (ImmutableInheritEnclosing.Impl3) instance;
+&nbsp;      }
+&nbsp;      return ImmutableInheritEnclosing.Impl3.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableInheritEnclosing.Impl3 Impl3}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableInheritEnclosing.Impl3.builder()
+&nbsp;     *    .value(int) // required {@link InheritEnclosing.Impl3#value() value}
+&nbsp;     *    .addBools|addAllBools(boolean) // {@link InheritEnclosing.Impl3#bools() bools} elements
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Impl3 builder
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl3.Builder builder() {
+&nbsp;      return new ImmutableInheritEnclosing.Impl3.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableInheritEnclosing.Impl3 Impl3}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;InheritEnclosing.Impl3&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_VALUE = 0x1L;
+&nbsp;      private long initBits = 0x1L;
+&nbsp;
+&nbsp;      private int value;
+&nbsp;      private ImmutableList.Builder&lt;Boolean&gt; bools = ImmutableList.builder();
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Impl3} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * Collection elements and entries will be added, not replaced.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(InheritEnclosing.Impl3 instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        value(instance.value());
+&nbsp;        addAllBools(instance.bools());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link InheritEnclosing.Impl3#value() value} attribute.
+&nbsp;       * @param value The value for value 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder value(int value) {
+&nbsp;        this.value = value;
+&nbsp;        initBits &amp;= ~INIT_BIT_VALUE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link InheritEnclosing.Impl3#bools() bools} list.
+&nbsp;       * @param element A bools element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder addBools(boolean element) {
+&nbsp;        this.bools.add(element);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link InheritEnclosing.Impl3#bools() bools} list.
+&nbsp;       * @param elements An array of bools elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder addBools(boolean... elements) {
+&nbsp;        this.bools.addAll(Booleans.asList(elements));
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Sets or replaces all elements for {@link InheritEnclosing.Impl3#bools() bools} list.
+&nbsp;       * @param elements An iterable of bools elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder bools(Iterable&lt;Boolean&gt; elements) {
+&nbsp;        this.bools = ImmutableList.builder();
+&nbsp;        return addAllBools(elements);
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link InheritEnclosing.Impl3#bools() bools} list.
+&nbsp;       * @param elements An iterable of bools elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder addAllBools(Iterable&lt;Boolean&gt; elements) {
+&nbsp;        this.bools.addAll(elements);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableInheritEnclosing.Impl3 Impl3}.
+&nbsp;       * @return An immutable instance of Impl3
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableInheritEnclosing.Impl3 build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableInheritEnclosing.Impl3(null, value, bools.build());
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_VALUE) != 0) attributes.add(&quot;value&quot;);
+&nbsp;        return &quot;Cannot build Impl3, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link InheritEnclosing.Impl4}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl4.builder()}.
+&nbsp;   * Use the static factory method to get the default singleton instance:
+&nbsp;   * {@code ImmutableInheritEnclosing.Impl4.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;InheritEnclosing.Impl4&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Impl4 implements InheritEnclosing.Impl4 {
+&nbsp;
+&nbsp;    private Impl4() {}
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Impl4} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableInheritEnclosing.Impl4
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableInheritEnclosing.Impl4) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;MethodCanBeStatic&quot;)
+&nbsp;    private boolean equalTo(int synthetic, ImmutableInheritEnclosing.Impl4 another) {
+&nbsp;      return true;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a constant hash code value.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return 597453237;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Impl4}.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;Impl4{}&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static final ImmutableInheritEnclosing.Impl4 INSTANCE = validate(new ImmutableInheritEnclosing.Impl4());
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns the default immutable singleton value of {@code Impl4}
+&nbsp;     * @return An immutable instance of Impl4
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl4 of() {
+&nbsp;      return INSTANCE;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static ImmutableInheritEnclosing.Impl4 validate(ImmutableInheritEnclosing.Impl4 instance) {
+&nbsp;      return INSTANCE != null &amp;&amp; INSTANCE.equalTo(0, instance) ? INSTANCE : instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link InheritEnclosing.Impl4} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Impl4 instance
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl4 copyOf(InheritEnclosing.Impl4 instance) {
+&nbsp;      if (instance instanceof ImmutableInheritEnclosing.Impl4) {
+&nbsp;        return (ImmutableInheritEnclosing.Impl4) instance;
+&nbsp;      }
+&nbsp;      return ImmutableInheritEnclosing.Impl4.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableInheritEnclosing.Impl4 Impl4}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableInheritEnclosing.Impl4.builder()
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Impl4 builder
+&nbsp;     */
+&nbsp;    public static ImmutableInheritEnclosing.Impl4.Builder builder() {
+&nbsp;      return new ImmutableInheritEnclosing.Impl4.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableInheritEnclosing.Impl4 Impl4}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;InheritEnclosing.Impl4&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Impl4} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(InheritEnclosing.Impl4 instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableInheritEnclosing.Impl4 Impl4}.
+&nbsp;       * @return An immutable instance of Impl4
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableInheritEnclosing.Impl4 build() {
+&nbsp;        return ImmutableInheritEnclosing.Impl4.of();
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

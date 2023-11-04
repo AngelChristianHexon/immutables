@@ -1,0 +1,1052 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableCompanion</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableCompanion (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableCompanion</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.EnumMap;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.NavigableMap;
+&nbsp;import java.util.NavigableSet;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.SortedMap;
+&nbsp;import java.util.SortedSet;
+&nbsp;import java.util.TreeMap;
+&nbsp;import java.util.TreeSet;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Companion Companion} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableCompanion is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableCompanion
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Companion&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableCompanion implements Companion {
+&nbsp;  private static final long INIT_BIT_INTEGER = 0x1L;
+&nbsp;  private static final long INIT_BIT_STRING = 0x2L;
+&nbsp;  private static final long INIT_BIT_ARRAY_INTS = 0x4L;
+&nbsp;  private static final long INIT_BIT_ARRAY_STRINGS = 0x8L;
+&nbsp;  private long initBits = 0xfL;
+&nbsp;
+&nbsp;  private int integer;
+&nbsp;  private String string;
+&nbsp;  private @Nullable Boolean bools;
+&nbsp;  private final ArrayList&lt;String&gt; str = new ArrayList&lt;String&gt;();
+&nbsp;  private final LinkedHashSet&lt;Integer&gt; ints = new LinkedHashSet&lt;Integer&gt;();
+&nbsp;  private int[] arrayInts;
+&nbsp;  private String[] arrayStrings;
+&nbsp;  private final TreeSet&lt;Integer&gt; ords = new TreeSet&lt;Integer&gt;();
+&nbsp;  private final EnumSet&lt;RetentionPolicy&gt; pols = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;  private final TreeSet&lt;Integer&gt; navs = new TreeSet&lt;Integer&gt;(Collections.&lt;Integer&gt;reverseOrder());
+&nbsp;  private final Map&lt;Long, Integer&gt; just = new LinkedHashMap&lt;Long, Integer&gt;();
+&nbsp;  private final TreeMap&lt;Integer, String&gt; ordsmap = new TreeMap&lt;Integer, String&gt;();
+&nbsp;  private final EnumMap&lt;RetentionPolicy, Integer&gt; polsmap = new EnumMap&lt;RetentionPolicy, Integer&gt;(RetentionPolicy.class);
+&nbsp;  private final TreeMap&lt;String, Integer&gt; navsmap = new TreeMap&lt;String, Integer&gt;(Collections.&lt;String&gt;reverseOrder());
+&nbsp;
+&nbsp;  private ModifiableCompanion() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Companion}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableCompanion create() {
+&nbsp;    return new ModifiableCompanion();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code integer} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int integer() {
+&nbsp;    if (!integerIsSet()) checkRequiredAttributes();
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code string} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String string() {
+&nbsp;    if (!stringIsSet()) checkRequiredAttributes();
+&nbsp;    return string;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code bools} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable Boolean bools() {
+&nbsp;    return bools;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code str}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;String&gt; str() {
+&nbsp;    return str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable set {@code ints}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Set&lt;Integer&gt; ints() {
+&nbsp;    return ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned modifiable {@code arrayInts} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int[] arrayInts() {
+&nbsp;    if (!arrayIntsIsSet()) checkRequiredAttributes();
+&nbsp;    return arrayInts;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned modifiable {@code arrayStrings} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String[] arrayStrings() {
+&nbsp;    if (!arrayStringsIsSet()) checkRequiredAttributes();
+&nbsp;    return arrayStrings;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable sortedSet {@code ords}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final SortedSet&lt;Integer&gt; ords() {
+&nbsp;    return ords;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable set {@code pols}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Set&lt;RetentionPolicy&gt; pols() {
+&nbsp;    return pols;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable sortedSet {@code navs}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final NavigableSet&lt;Integer&gt; navs() {
+&nbsp;    return navs;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code just} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Map&lt;Long, Integer&gt; just() {
+&nbsp;    return just;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code ordsmap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final SortedMap&lt;Integer, String&gt; ordsmap() {
+&nbsp;    return ordsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code polsmap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Map&lt;RetentionPolicy, Integer&gt; polsmap() {
+&nbsp;    return polsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code navsmap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final NavigableMap&lt;String, Integer&gt; navsmap() {
+&nbsp;    return navsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion clear() {
+&nbsp;    initBits = 0xfL;
+&nbsp;    integer = 0;
+&nbsp;    string = null;
+&nbsp;    bools = null;
+&nbsp;    str.clear();
+&nbsp;    ints.clear();
+&nbsp;    arrayInts = null;
+&nbsp;    arrayStrings = null;
+&nbsp;    ords.clear();
+&nbsp;    pols.clear();
+&nbsp;    navs.clear();
+&nbsp;    just.clear();
+&nbsp;    ordsmap.clear();
+&nbsp;    polsmap.clear();
+&nbsp;    navsmap.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableCompanion from(Companion instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableCompanion) {
+&nbsp;      from((ModifiableCompanion) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setInteger(instance.integer());
+&nbsp;    setString(instance.string());
+&nbsp;    @Nullable Boolean boolsValue = instance.bools();
+&nbsp;    if (boolsValue != null) {
+&nbsp;      setBools(boolsValue);
+&nbsp;    }
+&nbsp;    addAllStr(instance.str());
+&nbsp;    addAllInts(instance.ints());
+&nbsp;    setArrayInts(instance.arrayInts());
+&nbsp;    setArrayStrings(instance.arrayStrings());
+&nbsp;    addAllOrds(instance.ords());
+&nbsp;    addAllPols(instance.pols());
+&nbsp;    addAllNavs(instance.navs());
+&nbsp;    putAllJust(instance.just());
+&nbsp;    putAllOrdsmap(instance.ordsmap());
+&nbsp;    putAllPolsmap(instance.polsmap());
+&nbsp;    putAllNavsmap(instance.navsmap());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableCompanion from(ModifiableCompanion instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.integerIsSet()) {
+&nbsp;      setInteger(instance.integer());
+&nbsp;    }
+&nbsp;    if (instance.stringIsSet()) {
+&nbsp;      setString(instance.string());
+&nbsp;    }
+&nbsp;    @Nullable Boolean boolsValue = instance.bools();
+&nbsp;    if (boolsValue != null) {
+&nbsp;      setBools(boolsValue);
+&nbsp;    }
+&nbsp;    addAllStr(instance.str());
+&nbsp;    addAllInts(instance.ints());
+&nbsp;    if (instance.arrayIntsIsSet()) {
+&nbsp;      setArrayInts(instance.arrayInts());
+&nbsp;    }
+&nbsp;    if (instance.arrayStringsIsSet()) {
+&nbsp;      setArrayStrings(instance.arrayStrings());
+&nbsp;    }
+&nbsp;    addAllOrds(instance.ords());
+&nbsp;    addAllPols(instance.pols());
+&nbsp;    addAllNavs(instance.navs());
+&nbsp;    putAllJust(instance.just());
+&nbsp;    putAllOrdsmap(instance.ordsmap());
+&nbsp;    putAllPolsmap(instance.polsmap());
+&nbsp;    putAllNavsmap(instance.navsmap());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion#integer() integer} attribute.
+&nbsp;   * @param integer The value for integer
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setInteger(int integer) {
+&nbsp;    this.integer = integer;
+&nbsp;    initBits &amp;= ~INIT_BIT_INTEGER;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion#string() string} attribute.
+&nbsp;   * @param string The value for string
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setString(String string) {
+&nbsp;    this.string = Objects.requireNonNull(string, &quot;string&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_STRING;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion#bools() bools} attribute.
+&nbsp;   * @param bools The value for bools, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setBools(@Nullable Boolean bools) {
+&nbsp;    this.bools = bools;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion#str() str} list.
+&nbsp;   * @param element The str element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addStr(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;str element&quot;);
+&nbsp;    this.str.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#str() str} list.
+&nbsp;   * @param elements An array of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion addStr(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addStr(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion#str() str} list.
+&nbsp;   * @param elements An iterable of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setStr(Iterable&lt;String&gt; elements) {
+&nbsp;    this.str.clear();
+&nbsp;    addAllStr(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#str() str} list.
+&nbsp;   * @param elements An iterable of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addAllStr(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addStr(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion#ints() ints} set.
+&nbsp;   * @param element The ints element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addInts(int element) {
+&nbsp;    this.ints.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#ints() ints} set.
+&nbsp;   * @param elements An array of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion addInts(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addInts(Objects.requireNonNull(e, &quot;ints element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion#ints() ints} set.
+&nbsp;   * @param elements An iterable of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    this.ints.clear();
+&nbsp;    addAllInts(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#ints() ints} set.
+&nbsp;   * @param elements An iterable of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addInts(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion#arrayInts() arrayInts} attribute.
+&nbsp;   * @param elements The elements for arrayInts
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion setArrayInts(int... elements) {
+&nbsp;    this.arrayInts = elements.clone();
+&nbsp;    initBits &amp;= ~INIT_BIT_ARRAY_INTS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion#arrayStrings() arrayStrings} attribute.
+&nbsp;   * @param elements The elements for arrayStrings
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion setArrayStrings(String... elements) {
+&nbsp;    this.arrayStrings = elements.clone();
+&nbsp;    initBits &amp;= ~INIT_BIT_ARRAY_STRINGS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion#ords() ords} sortedSet.
+&nbsp;   * @param element The ords element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addOrds(int element) {
+&nbsp;    this.ords.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#ords() ords} sortedSet.
+&nbsp;   * @param elements An array of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion addOrds(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addOrds(Objects.requireNonNull(e, &quot;ords element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion#ords() ords} sortedSet.
+&nbsp;   * @param elements An iterable of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    this.ords.clear();
+&nbsp;    addAllOrds(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#ords() ords} sortedSet.
+&nbsp;   * @param elements An iterable of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addAllOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addOrds(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion#pols() pols} set.
+&nbsp;   * @param element The pols element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addPols(RetentionPolicy element) {
+&nbsp;    Objects.requireNonNull(element, &quot;pols element&quot;);
+&nbsp;    this.pols.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#pols() pols} set.
+&nbsp;   * @param elements An array of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion addPols(RetentionPolicy... elements) {
+&nbsp;    for (RetentionPolicy e : elements) {
+&nbsp;      addPols(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion#pols() pols} set.
+&nbsp;   * @param elements An iterable of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    this.pols.clear();
+&nbsp;    addAllPols(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#pols() pols} set.
+&nbsp;   * @param elements An iterable of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addAllPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    for (RetentionPolicy e : elements) {
+&nbsp;      addPols(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion#navs() navs} sortedSet.
+&nbsp;   * @param element The navs element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addNavs(int element) {
+&nbsp;    this.navs.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#navs() navs} sortedSet.
+&nbsp;   * @param elements An array of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion addNavs(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addNavs(Objects.requireNonNull(e, &quot;navs element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion#navs() navs} sortedSet.
+&nbsp;   * @param elements An iterable of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    this.navs.clear();
+&nbsp;    addAllNavs(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion#navs() navs} sortedSet.
+&nbsp;   * @param elements An iterable of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion addAllNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addNavs(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link Companion#just() just} map.
+&nbsp;   * @param key The key in just map
+&nbsp;   * @param value The associated value in the just map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putJust(long key, int value) {
+&nbsp;    this.just.put(
+&nbsp;        key,
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link Companion#just() just} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the just map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setJust(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;    this.just.clear();
+&nbsp;    for (Map.Entry&lt;Long, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      Long k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.just.put(
+&nbsp;          Objects.requireNonNull(k, &quot;just key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;just value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link Companion#just() just} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to just map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putAllJust(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Long, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      Long k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.just.put(
+&nbsp;          Objects.requireNonNull(k, &quot;just key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;just value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link Companion#ordsmap() ordsmap} map.
+&nbsp;   * @param key The key in ordsmap map
+&nbsp;   * @param value The associated value in the ordsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putOrdsmap(int key, String value) {
+&nbsp;    this.ordsmap.put(
+&nbsp;        key,
+&nbsp;        Objects.requireNonNull(value, &quot;ordsmap value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link Companion#ordsmap() ordsmap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the ordsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setOrdsmap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    this.ordsmap.clear();
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.ordsmap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;ordsmap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;ordsmap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link Companion#ordsmap() ordsmap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to ordsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putAllOrdsmap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.ordsmap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;ordsmap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;ordsmap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link Companion#polsmap() polsmap} map.
+&nbsp;   * @param key The key in polsmap map
+&nbsp;   * @param value The associated value in the polsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putPolsmap(RetentionPolicy key, int value) {
+&nbsp;    this.polsmap.put(
+&nbsp;        Objects.requireNonNull(key, &quot;polsmap key&quot;),
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link Companion#polsmap() polsmap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the polsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setPolsmap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    this.polsmap.clear();
+&nbsp;    for (Map.Entry&lt;RetentionPolicy, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      RetentionPolicy k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.polsmap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;polsmap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;polsmap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link Companion#polsmap() polsmap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to polsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putAllPolsmap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;RetentionPolicy, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      RetentionPolicy k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.polsmap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;polsmap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;polsmap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link Companion#navsmap() navsmap} map.
+&nbsp;   * @param key The key in navsmap map
+&nbsp;   * @param value The associated value in the navsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putNavsmap(String key, int value) {
+&nbsp;    this.navsmap.put(
+&nbsp;        Objects.requireNonNull(key, &quot;navsmap key&quot;),
+&nbsp;        value);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link Companion#navsmap() navsmap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the navsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion setNavsmap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    this.navsmap.clear();
+&nbsp;    for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.navsmap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;navsmap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;navsmap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link Companion#navsmap() navsmap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to navsmap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCompanion putAllNavsmap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      Integer v = e.getValue();
+&nbsp;      this.navsmap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;navsmap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;navsmap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion#integer() integer} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean integerIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_INTEGER) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion#string() string} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean stringIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_STRING) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion#arrayInts() arrayInts} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean arrayIntsIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_ARRAY_INTS) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion#arrayStrings() arrayStrings} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean arrayStringsIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_ARRAY_STRINGS) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion unsetInteger() {
+&nbsp;    initBits |= INIT_BIT_INTEGER;
+&nbsp;    integer = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion unsetString() {
+&nbsp;    initBits |= INIT_BIT_STRING;
+&nbsp;    string = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion unsetArrayInts() {
+&nbsp;    initBits |= INIT_BIT_ARRAY_INTS;
+&nbsp;    arrayInts = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableCompanion unsetArrayStrings() {
+&nbsp;    initBits |= INIT_BIT_ARRAY_STRINGS;
+&nbsp;    arrayStrings = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!integerIsSet()) attributes.add(&quot;integer&quot;);
+&nbsp;    if (!stringIsSet()) attributes.add(&quot;string&quot;);
+&nbsp;    if (!arrayIntsIsSet()) attributes.add(&quot;arrayInts&quot;);
+&nbsp;    if (!arrayStringsIsSet()) attributes.add(&quot;arrayStrings&quot;);
+&nbsp;    return &quot;Companion is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableCompanion ImmutableCompanion}.
+&nbsp;   * @return An immutable instance of Companion
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableCompanion.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableCompanion} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableCompanion)) return false;
+&nbsp;    ModifiableCompanion other = (ModifiableCompanion) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableCompanion another) {
+&nbsp;    return integer == another.integer
+&nbsp;        &amp;&amp; string.equals(another.string)
+&nbsp;        &amp;&amp; Objects.equals(bools, another.bools)
+&nbsp;        &amp;&amp; str.equals(another.str)
+&nbsp;        &amp;&amp; ints.equals(another.ints)
+&nbsp;        &amp;&amp; Arrays.equals(arrayInts, another.arrayInts)
+&nbsp;        &amp;&amp; Arrays.equals(arrayStrings, another.arrayStrings)
+&nbsp;        &amp;&amp; ords.equals(another.ords)
+&nbsp;        &amp;&amp; pols.equals(another.pols)
+&nbsp;        &amp;&amp; navs.equals(another.navs)
+&nbsp;        &amp;&amp; just.equals(another.just)
+&nbsp;        &amp;&amp; ordsmap.equals(another.ordsmap)
+&nbsp;        &amp;&amp; polsmap.equals(another.polsmap)
+&nbsp;        &amp;&amp; navsmap.equals(another.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code string}, {@code bools}, {@code str}, {@code ints}, {@code arrayInts}, {@code arrayStrings}, {@code ords}, {@code pols}, {@code navs}, {@code just}, {@code ordsmap}, {@code polsmap}, {@code navsmap}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + integer;
+&nbsp;    h += (h &lt;&lt; 5) + string.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(bools);
+&nbsp;    h += (h &lt;&lt; 5) + str.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayInts);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayStrings);
+&nbsp;    h += (h &lt;&lt; 5) + ords.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + pols.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navs.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + just.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ordsmap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + polsmap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navsmap.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Companion}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableCompanion&quot;)
+&nbsp;        .add(&quot;integer&quot;, integerIsSet() ? integer() : &quot;?&quot;)
+&nbsp;        .add(&quot;string&quot;, stringIsSet() ? string() : &quot;?&quot;)
+&nbsp;        .add(&quot;bools&quot;, bools())
+&nbsp;        .add(&quot;str&quot;, str())
+&nbsp;        .add(&quot;ints&quot;, ints())
+&nbsp;        .add(&quot;arrayInts&quot;, arrayIntsIsSet() ? Arrays.toString(arrayInts()) : &quot;?&quot;)
+&nbsp;        .add(&quot;arrayStrings&quot;, arrayStringsIsSet() ? Arrays.toString(arrayStrings()) : &quot;?&quot;)
+&nbsp;        .add(&quot;ords&quot;, ords())
+&nbsp;        .add(&quot;pols&quot;, pols())
+&nbsp;        .add(&quot;navs&quot;, navs())
+&nbsp;        .add(&quot;just&quot;, just())
+&nbsp;        .add(&quot;ordsmap&quot;, ordsmap())
+&nbsp;        .add(&quot;polsmap&quot;, polsmap())
+&nbsp;        .add(&quot;navsmap&quot;, navsmap())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

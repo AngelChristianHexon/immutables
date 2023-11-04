@@ -1,0 +1,300 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersSillyMapHolder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersSillyMapHolder (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersSillyMapHolder$SillyMapHolderTypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import java.io.IOException;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code SillyMapHolder}.
+&nbsp; * @see ImmutableSillyMapHolder
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;org.immutables.fixture&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersSillyMapHolder implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (SillyMapHolderTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new SillyMapHolderTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersSillyMapHolder(SillyMapHolder)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;SillyMapHolder&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class SillyMapHolderTypeAdapter extends TypeAdapter&lt;SillyMapHolder&gt; {
+&nbsp;    public final SillyValue holder1TypeSample = null;
+&nbsp;    public final Integer holder1SecondaryTypeSample = null;
+&nbsp;    public final Integer holder2TypeSample = null;
+&nbsp;    public final SillyMapTup holder3SecondaryTypeSample = null;
+&nbsp;    public final RetentionPolicy zzTypeSample = null;
+&nbsp;    private final TypeAdapter&lt;SillyValue&gt; holder1TypeAdapter;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; holder1SecondaryTypeAdapter;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; holder2TypeAdapter;
+&nbsp;    private final TypeAdapter&lt;SillyMapTup&gt; holder3SecondaryTypeAdapter;
+&nbsp;    private final TypeAdapter&lt;RetentionPolicy&gt; zzTypeAdapter;
+&nbsp;
+&nbsp;    SillyMapHolderTypeAdapter(Gson gson) {
+&nbsp;      this.holder1TypeAdapter = gson.getAdapter( SillyValue.class);
+&nbsp;      this.holder1SecondaryTypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;      this.holder2TypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;      this.holder3SecondaryTypeAdapter = gson.getAdapter( SillyMapTup.class);
+&nbsp;      this.zzTypeAdapter = gson.getAdapter( RetentionPolicy.class);
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return SillyMapHolder.class == type.getRawType()
+&nbsp;          || ImmutableSillyMapHolder.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, SillyMapHolder value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writeSillyMapHolder(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SillyMapHolder read(JsonReader in) throws IOException {
+&nbsp;      return readSillyMapHolder(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writeSillyMapHolder(JsonWriter out, SillyMapHolder instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      Map&lt;SillyValue, Integer&gt; holder1Mapping = instance.holder1();
+&nbsp;      out.name(&quot;holder1&quot;);
+&nbsp;      out.beginObject();
+&nbsp;      for (Map.Entry&lt;SillyValue, Integer&gt; e : holder1Mapping.entrySet()) {
+&nbsp;        String key = holder1TypeAdapter.toJsonTree(e.getKey()).getAsString();
+&nbsp;        out.name(key);
+&nbsp;        int value = e.getValue();
+&nbsp;        holder1SecondaryTypeAdapter.write(out, value);
+&nbsp;      }
+&nbsp;      out.endObject();
+&nbsp;      Map&lt;Integer, String&gt; holder2Mapping = instance.holder2();
+&nbsp;      out.name(&quot;holder2&quot;);
+&nbsp;      out.beginObject();
+&nbsp;      for (Map.Entry&lt;Integer, String&gt; e : holder2Mapping.entrySet()) {
+&nbsp;        String key = String.valueOf(e.getKey());
+&nbsp;        out.name(key);
+&nbsp;        String value = e.getValue();
+&nbsp;        out.value(value);
+&nbsp;      }
+&nbsp;      out.endObject();
+&nbsp;      Map&lt;String, SillyMapTup&gt; holder3Mapping = instance.holder3();
+&nbsp;      out.name(&quot;holder3&quot;);
+&nbsp;      out.beginObject();
+&nbsp;      for (Map.Entry&lt;String, SillyMapTup&gt; e : holder3Mapping.entrySet()) {
+&nbsp;        String key = e.getKey();
+&nbsp;        out.name(key);
+&nbsp;        SillyMapTup value = e.getValue();
+&nbsp;        holder3SecondaryTypeAdapter.write(out, value);
+&nbsp;      }
+&nbsp;      out.endObject();
+&nbsp;      Set&lt;RetentionPolicy&gt; zzElements = instance.zz();
+&nbsp;      out.name(&quot;zz&quot;);
+&nbsp;      out.beginArray();
+&nbsp;      for (RetentionPolicy e : zzElements) {
+&nbsp;        zzTypeAdapter.write(out, e);
+&nbsp;      }
+&nbsp;      out.endArray();
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  SillyMapHolder readSillyMapHolder(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutableSillyMapHolder.Builder builder = ImmutableSillyMapHolder.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutableSillyMapHolder.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;h&#39;:
+&nbsp;        if (&quot;holder1&quot;.equals(attributeName)) {
+&nbsp;          readInHolder1(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        if (&quot;holder2&quot;.equals(attributeName)) {
+&nbsp;          readInHolder2(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        if (&quot;holder3&quot;.equals(attributeName)) {
+&nbsp;          readInHolder3(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;z&#39;:
+&nbsp;        if (&quot;zz&quot;.equals(attributeName)) {
+&nbsp;          readInZz(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInHolder1(JsonReader in, ImmutableSillyMapHolder.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        in.beginObject();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          String rawKey = in.nextName();
+&nbsp;          SillyValue key = holder1TypeAdapter.fromJsonTree(new JsonPrimitive(rawKey));
+&nbsp;          Integer value = holder1SecondaryTypeAdapter.read(in);
+&nbsp;          builder.putHolder1(key, value);
+&nbsp;        }
+&nbsp;        in.endObject();
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInHolder2(JsonReader in, ImmutableSillyMapHolder.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        in.beginObject();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          String rawKey = in.nextName();
+&nbsp;          int key = Integer.parseInt(rawKey);
+&nbsp;          String value = in.nextString();
+&nbsp;          builder.putHolder2(key, value);
+&nbsp;        }
+&nbsp;        in.endObject();
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInHolder3(JsonReader in, ImmutableSillyMapHolder.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        in.beginObject();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          String rawKey = in.nextName();
+&nbsp;          String key = rawKey;
+&nbsp;          SillyMapTup value = holder3SecondaryTypeAdapter.read(in);
+&nbsp;          builder.putHolder3(key, value);
+&nbsp;        }
+&nbsp;        in.endObject();
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInZz(JsonReader in, ImmutableSillyMapHolder.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.BEGIN_ARRAY) {
+&nbsp;        in.beginArray();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          RetentionPolicy value = zzTypeAdapter.read(in);
+&nbsp;          builder.addZz(value);
+&nbsp;        }
+&nbsp;        in.endArray();
+&nbsp;      } else if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        RetentionPolicy value = zzTypeAdapter.read(in);
+&nbsp;        builder.addZz(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

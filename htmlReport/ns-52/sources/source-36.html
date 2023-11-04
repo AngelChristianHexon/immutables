@@ -1,0 +1,362 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > LongBits</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: LongBits (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">LongBits</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">LongBits$BitPosition</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">LongBits$LongPositions</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">LongBits$LongPositions$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">LongBits$LongSet</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">LongBits$ToLongIndex</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/34)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import com.google.common.collect.Multimaps;
+&nbsp;import com.google.common.primitives.Longs;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.IdentityHashMap;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import static com.google.common.base.Preconditions.checkArgument;
+&nbsp;
+&nbsp;/**
+&nbsp; * Structure to calculate bit packing
+&nbsp; */
+<b class="nc">&nbsp;public final class LongBits implements Function&lt;Iterable&lt;? extends Object&gt;, LongBits.LongPositions&gt; {</b>
+&nbsp;  private static final int BITS_IN_LONG = Longs.BYTES * Byte.SIZE;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public LongPositions apply(Iterable&lt;? extends Object&gt; input) {
+<b class="nc">&nbsp;    return forIterable(input, BITS_IN_LONG);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public LongPositions forIterable(Iterable&lt;? extends Object&gt; input, int bitPerLong) {
+<b class="nc">&nbsp;    return new LongPositions(input, bitPerLong);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static final class LongPositions implements Function&lt;Object, BitPosition&gt; {
+<b class="nc">&nbsp;    private final IdentityHashMap&lt;Object, BitPosition&gt; positions = Maps.newIdentityHashMap();</b>
+&nbsp;    private final ImmutableList&lt;Object&gt; elements;
+&nbsp;    private final ImmutableMap&lt;Integer, LongSet&gt; longPositions;
+&nbsp;
+<b class="nc">&nbsp;    LongPositions(Iterable&lt;? extends Object&gt; elements, final int bitPerLong) {</b>
+<b class="nc">&nbsp;      this.elements = ImmutableList.copyOf(elements);</b>
+<b class="nc">&nbsp;      checkArgument(bitPerLong &lt;= BITS_IN_LONG, bitPerLong);</b>
+&nbsp;
+<b class="nc">&nbsp;      for (int i = 0; i &lt; this.elements.size(); i++) {</b>
+<b class="nc">&nbsp;        positions.put(</b>
+<b class="nc">&nbsp;            this.elements.get(i),</b>
+&nbsp;            new BitPosition(
+&nbsp;                i / bitPerLong,
+&nbsp;                i % bitPerLong));
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.longPositions = ImmutableSortedMap.copyOf(</b>
+<b class="nc">&nbsp;          Maps.transformEntries(</b>
+<b class="nc">&nbsp;              Multimaps.index(positions.values(), ToLongIndex.FUNCTION).asMap(),</b>
+<b class="nc">&nbsp;              new Maps.EntryTransformer&lt;Integer, Collection&lt;BitPosition&gt;, LongSet&gt;() {</b>
+&nbsp;                @Override
+&nbsp;                public LongSet transformEntry(Integer key, Collection&lt;BitPosition&gt; position) {
+<b class="nc">&nbsp;                  return new LongSet(key, position);</b>
+&nbsp;                }
+&nbsp;              }));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;Integer&gt; longsIndeces() {
+<b class="nc">&nbsp;      return longPositions.keySet();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Collection&lt;LongSet&gt; longs() {
+<b class="nc">&nbsp;      return longPositions.values();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    @Override
+&nbsp;    public BitPosition apply(Object input) {
+<b class="nc">&nbsp;      return positions.get(input);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public static final class LongSet {
+&nbsp;    public final int index;
+&nbsp;    public final long occupation;
+&nbsp;    public final Iterable&lt;BitPosition&gt; positions;
+&nbsp;
+<b class="nc">&nbsp;    LongSet(int index, Iterable&lt;BitPosition&gt; positions) {</b>
+<b class="nc">&nbsp;      this.index = index;</b>
+<b class="nc">&nbsp;      this.positions = ImmutableList.copyOf(positions);</b>
+<b class="nc">&nbsp;      this.occupation = computeOccupation();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private long computeOccupation() {
+<b class="nc">&nbsp;      long occupation = 0;</b>
+<b class="nc">&nbsp;      for (BitPosition position : this.positions) {</b>
+<b class="nc">&nbsp;        occupation |= position.mask;</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return occupation;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  enum ToLongIndex implements Function&lt;BitPosition, Integer&gt; {</b>
+<b class="nc">&nbsp;    FUNCTION;</b>
+&nbsp;    @Override
+&nbsp;    public Integer apply(BitPosition input) {
+<b class="nc">&nbsp;      return input.index;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public static final class BitPosition {
+&nbsp;    public final int index;
+&nbsp;    public final int bit;
+&nbsp;    public final long mask;
+&nbsp;
+<b class="nc">&nbsp;    BitPosition(int index, int bit) {</b>
+<b class="nc">&nbsp;      this.index = index;</b>
+<b class="nc">&nbsp;      this.bit = bit;</b>
+<b class="nc">&nbsp;      this.mask = 1L &lt;&lt; bit;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

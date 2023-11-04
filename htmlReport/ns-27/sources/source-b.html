@@ -1,0 +1,399 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableCustomCollection</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.custann</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableCustomCollection (org.immutables.fixture.custann)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableCustomCollection$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.custann;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import nonimmutables.CustColl;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link CustomCollection}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new CustomCollection.Builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableCustomCollection.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;CustomCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableCustomCollection&lt;E&gt; implements CustomCollection&lt;E&gt; {
+&nbsp;  private final CustColl&lt;E&gt; col;
+&nbsp;  private final CustColl&lt;Integer&gt; cint;
+&nbsp;
+&nbsp;  private ImmutableCustomCollection(Iterable&lt;? extends E&gt; col) {
+&nbsp;    this.col = CustColl.from(col);
+&nbsp;    this.cint = CustColl.of();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableCustomCollection(CustColl&lt;E&gt; col, CustColl&lt;Integer&gt; cint) {
+&nbsp;    this.col = col;
+&nbsp;    this.cint = cint;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code col} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public CustColl&lt;E&gt; col() {
+&nbsp;    return col;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code cint} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public CustColl&lt;Integer&gt; cint() {
+&nbsp;    return cint;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link CustomCollection#col() col}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;  public final ImmutableCustomCollection&lt;E&gt; withCol(E... elements) {
+&nbsp;    CustColl&lt;E&gt; newValue = CustColl.from(Arrays.asList(elements));
+&nbsp;    return new ImmutableCustomCollection&lt;&gt;(newValue, this.cint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link CustomCollection#col() col}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of col elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCustomCollection&lt;E&gt; withCol(Iterable&lt;? extends E&gt; elements) {
+&nbsp;    if (this.col == elements) return this;
+&nbsp;    CustColl&lt;E&gt; newValue = CustColl.from(elements);
+&nbsp;    return new ImmutableCustomCollection&lt;&gt;(newValue, this.cint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link CustomCollection#cint() cint}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCustomCollection&lt;E&gt; withCint(int... elements) {
+&nbsp;    CustColl&lt;Integer&gt; newValue = CustColl.from(Ints.asList(elements));
+&nbsp;    return new ImmutableCustomCollection&lt;&gt;(this.col, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link CustomCollection#cint() cint}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of cint elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCustomCollection&lt;E&gt; withCint(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.cint == elements) return this;
+&nbsp;    CustColl&lt;Integer&gt; newValue = CustColl.from(elements);
+&nbsp;    return new ImmutableCustomCollection&lt;&gt;(this.col, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableCustomCollection} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableCustomCollection&lt;?&gt;
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableCustomCollection&lt;?&gt;) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableCustomCollection&lt;?&gt; another) {
+&nbsp;    return col.equals(another.col)
+&nbsp;        &amp;&amp; cint.equals(another.cint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code col}, {@code cint}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + col.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + cint.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code CustomCollection} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;CustomCollection&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;col&quot;, col)
+&nbsp;        .add(&quot;cint&quot;, cint)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code CustomCollection} instance.
+&nbsp; * @param &lt;E&gt; generic parameter E
+&nbsp;   * @param col The value for the {@code col} attribute
+&nbsp;   * @return An immutable CustomCollection instance
+&nbsp;   */
+&nbsp;  public static &lt;E&gt; ImmutableCustomCollection&lt;E&gt; of(CustColl&lt;E&gt; col) {
+&nbsp;    return of((Iterable&lt;? extends E&gt;) col);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code CustomCollection} instance.
+&nbsp; * @param &lt;E&gt; generic parameter E
+&nbsp;   * @param col The value for the {@code col} attribute
+&nbsp;   * @return An immutable CustomCollection instance
+&nbsp;   */
+&nbsp;  public static &lt;E&gt; ImmutableCustomCollection&lt;E&gt; of(Iterable&lt;? extends E&gt; col) {
+&nbsp;    return new ImmutableCustomCollection&lt;&gt;(col);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link CustomCollection} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param &lt;E&gt; generic parameter E
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable CustomCollection instance
+&nbsp;   */
+&nbsp;  public static &lt;E&gt; ImmutableCustomCollection&lt;E&gt; copyOf(CustomCollection&lt;E&gt; instance) {
+&nbsp;    if (instance instanceof ImmutableCustomCollection&lt;?&gt;) {
+&nbsp;      return (ImmutableCustomCollection&lt;E&gt;) instance;
+&nbsp;    }
+&nbsp;    return new CustomCollection.Builder&lt;E&gt;()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableCustomCollection ImmutableCustomCollection}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;CustomCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder&lt;E&gt; {
+&nbsp;    private CustColl.Builder&lt;E&gt; col = CustColl.builder();
+&nbsp;    private CustColl.Builder&lt;Integer&gt; cint = CustColl.builder();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableCustomCollection ImmutableCustomCollection} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new CustomCollection.Builder&amp;amp;lt;E&amp;amp;gt;()
+&nbsp;     *    .addCol|addAllCol(E) // {@link CustomCollection#col() col} elements
+&nbsp;     *    .addCint|addAllCint(int) // {@link CustomCollection#cint() cint} elements
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof CustomCollection.Builder&lt;?&gt;)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new CustomCollection.Builder&lt;E&gt;()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code CustomCollection} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; from(CustomCollection&lt;E&gt; instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllCol(instance.col());
+&nbsp;      addAllCint(instance.cint());
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link CustomCollection#col() col} custColl.
+&nbsp;     * @param element A col element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; addCol(E element) {
+&nbsp;      this.col.add(element);
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link CustomCollection#col() col} custColl.
+&nbsp;     * @param elements An array of col elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; addCol(E... elements) {
+&nbsp;      this.col.addAll(Arrays.asList(elements));
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link CustomCollection#col() col} custColl.
+&nbsp;     * @param elements An iterable of col elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; col(Iterable&lt;? extends E&gt; elements) {
+&nbsp;      this.col = CustColl.builder();
+&nbsp;      return addAllCol(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link CustomCollection#col() col} custColl.
+&nbsp;     * @param elements An iterable of col elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; addAllCol(Iterable&lt;? extends E&gt; elements) {
+&nbsp;      this.col.addAll(elements);
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link CustomCollection#cint() cint} custColl.
+&nbsp;     * @param element A cint element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; addCint(int element) {
+&nbsp;      this.cint.add(element);
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link CustomCollection#cint() cint} custColl.
+&nbsp;     * @param elements An array of cint elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; addCint(int... elements) {
+&nbsp;      this.cint.addAll(Ints.asList(elements));
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link CustomCollection#cint() cint} custColl.
+&nbsp;     * @param elements An iterable of cint elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; cint(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.cint = CustColl.builder();
+&nbsp;      return addAllCint(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link CustomCollection#cint() cint} custColl.
+&nbsp;     * @param elements An iterable of cint elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final CustomCollection.Builder&lt;E&gt; addAllCint(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.cint.addAll(elements);
+&nbsp;      return (CustomCollection.Builder&lt;E&gt;) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableCustomCollection ImmutableCustomCollection}.
+&nbsp;     * @return An immutable instance of CustomCollection
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableCustomCollection&lt;E&gt; build() {
+&nbsp;      return new ImmutableCustomCollection&lt;&gt;(col.build(), cint.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

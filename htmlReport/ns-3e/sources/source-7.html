@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > WithCopied</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.with</a>
+</div>
+
+<h1>Coverage Summary for Class: WithCopied (org.immutables.fixture.with)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">WithCopied</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.with;
+&nbsp;
+&nbsp;import java.util.Map;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;@Generated(from = &quot;Copied&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;interface WithCopied {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Copied#attr() attr} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for attr
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  Copied withAttr(int value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Copied#voids() voids} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for voids (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  Copied withVoids(@Nullable Void value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Copied#arr() arr}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for arr
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  Copied withArr(String... elements);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Copied#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  Copied withMap(Map&lt;String, ? extends Integer&gt; entries);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Copied#list() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  Copied withList(boolean... elements);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Copied#list() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  Copied withList(Iterable&lt;Boolean&gt; elements);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

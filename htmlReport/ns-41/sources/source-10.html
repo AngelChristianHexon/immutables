@@ -1,0 +1,1777 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TreesTransformer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: TreesTransformer (org.immutables.generator.processor)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">TreesTransformer</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.generator.processor;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.List;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;Trees&quot;, generator = &quot;Transformers&quot;)
+&nbsp;public abstract class TreesTransformer {
+&nbsp;  protected TreesTransformer() {}
+&nbsp;
+&nbsp;  public ImmutableTrees.Identifier toIdentifier(ImmutableTrees.Identifier value) {
+&nbsp;    return value
+&nbsp;        .withValue(asIdentifierValue(value, value.value()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected String asIdentifierValue(ImmutableTrees.Identifier value, String attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TypeIdentifier toTypeIdentifier(ImmutableTrees.TypeIdentifier value) {
+&nbsp;    return value
+&nbsp;        .withValue(asTypeIdentifierValue(value, value.value()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected String asTypeIdentifierValue(ImmutableTrees.TypeIdentifier value, String attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TypeDeclaration toTypeDeclaration(ImmutableTrees.TypeDeclaration value) {
+&nbsp;    return value
+&nbsp;        .withType(asTypeDeclarationType(value, value.type()))
+&nbsp;        .withKind(asTypeDeclarationKind(value, value.kind()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeIdentifier asTypeDeclarationType(ImmutableTrees.TypeDeclaration value, Trees.TypeIdentifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.TypeIdentifier) {
+&nbsp;      return asTypeIdentifier((ImmutableTrees.TypeIdentifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeDeclaration.Kind asTypeDeclarationKind(ImmutableTrees.TypeDeclaration value, Trees.TypeDeclaration.Kind attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ResolvedType toResolvedType(ImmutableTrees.ResolvedType value) {
+&nbsp;    return value
+&nbsp;        .withType(asResolvedTypeType(value, value.type()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Object asResolvedTypeType(ImmutableTrees.ResolvedType value, Object attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.BoundAccessExpression toBoundAccessExpression(ImmutableTrees.BoundAccessExpression value) {
+&nbsp;    return value
+&nbsp;        .withPath(asBoundAccessExpressionPathElements(value, value.path()))
+&nbsp;        .withAccessor(asBoundAccessExpressionAccessorElements(value, value.accessor()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.Identifier&gt; asBoundAccessExpressionPathElements(ImmutableTrees.BoundAccessExpression value, List&lt;Trees.Identifier&gt; elements) {
+&nbsp;    Collection&lt;Trees.Identifier&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.Identifier original : elements) {
+&nbsp;      Trees.Identifier changed = asBoundAccessExpressionPath(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asBoundAccessExpressionPath(ImmutableTrees.BoundAccessExpression value, Trees.Identifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Identifier) {
+&nbsp;      return asIdentifier((ImmutableTrees.Identifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Object&gt; asBoundAccessExpressionAccessorElements(ImmutableTrees.BoundAccessExpression value, List&lt;Object&gt; elements) {
+&nbsp;    Collection&lt;Object&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Object original : elements) {
+&nbsp;      Object changed = asBoundAccessExpressionAccessor(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Object asBoundAccessExpressionAccessor(ImmutableTrees.BoundAccessExpression value, Object attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.InvokableDeclaration toInvokableDeclaration(ImmutableTrees.InvokableDeclaration value) {
+&nbsp;    return value
+&nbsp;        .withName(asInvokableDeclarationName(value, value.name()))
+&nbsp;        .withParameters(asInvokableDeclarationParametersElements(value, value.parameters()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asInvokableDeclarationName(ImmutableTrees.InvokableDeclaration value, Trees.Identifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Identifier) {
+&nbsp;      return asIdentifier((ImmutableTrees.Identifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.Parameter&gt; asInvokableDeclarationParametersElements(ImmutableTrees.InvokableDeclaration value, List&lt;Trees.Parameter&gt; elements) {
+&nbsp;    Collection&lt;Trees.Parameter&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.Parameter original : elements) {
+&nbsp;      Trees.Parameter changed = asInvokableDeclarationParameters(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Parameter asInvokableDeclarationParameters(ImmutableTrees.InvokableDeclaration value, Trees.Parameter attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Parameter) {
+&nbsp;      return asParameter((ImmutableTrees.Parameter) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ValueDeclaration toValueDeclaration(ImmutableTrees.ValueDeclaration value) {
+&nbsp;    return value
+&nbsp;        .withName(asValueDeclarationName(value, value.name()))
+&nbsp;        .withType(asValueDeclarationTypeOptional(value, value.type()))
+&nbsp;        .withContainedType(asValueDeclarationContainedTypeOptional(value, value.containedType()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asValueDeclarationName(ImmutableTrees.ValueDeclaration value, Trees.Identifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Identifier) {
+&nbsp;      return asIdentifier((ImmutableTrees.Identifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Optional&lt;Trees.TypeReference&gt; asValueDeclarationTypeOptional(ImmutableTrees.ValueDeclaration value, Optional&lt;Trees.TypeReference&gt; optional) {
+&nbsp;    if (optional.isPresent()) {
+&nbsp;      Trees.TypeReference original = optional.get();
+&nbsp;      Trees.TypeReference changed = asValueDeclarationType(value, original);
+&nbsp;      return changed != original ? Optional.of(changed) : optional;
+&nbsp;    }
+&nbsp;    return Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeReference asValueDeclarationType(ImmutableTrees.ValueDeclaration value, Trees.TypeReference attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.TypeDeclaration) {
+&nbsp;      return asTypeReference((ImmutableTrees.TypeDeclaration) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ResolvedType) {
+&nbsp;      return asTypeReference((ImmutableTrees.ResolvedType) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Optional&lt;Trees.TypeReference&gt; asValueDeclarationContainedTypeOptional(ImmutableTrees.ValueDeclaration value, Optional&lt;Trees.TypeReference&gt; optional) {
+&nbsp;    if (optional.isPresent()) {
+&nbsp;      Trees.TypeReference original = optional.get();
+&nbsp;      Trees.TypeReference changed = asValueDeclarationContainedType(value, original);
+&nbsp;      return changed != original ? Optional.of(changed) : optional;
+&nbsp;    }
+&nbsp;    return Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeReference asValueDeclarationContainedType(ImmutableTrees.ValueDeclaration value, Trees.TypeReference attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.TypeDeclaration) {
+&nbsp;      return asTypeReference((ImmutableTrees.TypeDeclaration) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ResolvedType) {
+&nbsp;      return asTypeReference((ImmutableTrees.ResolvedType) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Parameter toParameter(ImmutableTrees.Parameter value) {
+&nbsp;    return value
+&nbsp;        .withName(asParameterName(value, value.name()))
+&nbsp;        .withType(asParameterType(value, value.type()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asParameterName(ImmutableTrees.Parameter value, Trees.Identifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Identifier) {
+&nbsp;      return asIdentifier((ImmutableTrees.Identifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeReference asParameterType(ImmutableTrees.Parameter value, Trees.TypeReference attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.TypeDeclaration) {
+&nbsp;      return asTypeReference((ImmutableTrees.TypeDeclaration) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ResolvedType) {
+&nbsp;      return asTypeReference((ImmutableTrees.ResolvedType) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.SimpleBlock toSimpleBlock(ImmutableTrees.SimpleBlock value) {
+&nbsp;    return value
+&nbsp;        .withParts(asSimpleBlockPartsElements(value, value.parts()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TemplatePart&gt; asSimpleBlockPartsElements(ImmutableTrees.SimpleBlock value, List&lt;Trees.TemplatePart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TemplatePart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TemplatePart original : elements) {
+&nbsp;      Trees.TemplatePart changed = asSimpleBlockParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asSimpleBlockParts(ImmutableTrees.SimpleBlock value, Trees.TemplatePart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeString) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeString) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Invoke) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Invoke) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Let) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Let) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.For) {
+&nbsp;      return asTemplatePart((ImmutableTrees.For) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.If) {
+&nbsp;      return asTemplatePart((ImmutableTrees.If) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ElseIf) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ElseIf) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Else) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Else) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TemplateEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TemplateEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextLine) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextLine) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Comment toComment(ImmutableTrees.Comment value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ConditionalBlock toConditionalBlock(ImmutableTrees.ConditionalBlock value) {
+&nbsp;    return value
+&nbsp;        .withCondition(asConditionalBlockCondition(value, value.condition()))
+&nbsp;        .withParts(asConditionalBlockPartsElements(value, value.parts()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asConditionalBlockCondition(ImmutableTrees.ConditionalBlock value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TemplatePart&gt; asConditionalBlockPartsElements(ImmutableTrees.ConditionalBlock value, List&lt;Trees.TemplatePart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TemplatePart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TemplatePart original : elements) {
+&nbsp;      Trees.TemplatePart changed = asConditionalBlockParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asConditionalBlockParts(ImmutableTrees.ConditionalBlock value, Trees.TemplatePart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeString) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeString) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Invoke) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Invoke) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Let) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Let) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.For) {
+&nbsp;      return asTemplatePart((ImmutableTrees.For) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.If) {
+&nbsp;      return asTemplatePart((ImmutableTrees.If) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ElseIf) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ElseIf) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Else) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Else) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TemplateEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TemplateEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextLine) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextLine) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.IfStatement toIfStatement(ImmutableTrees.IfStatement value) {
+&nbsp;    return value
+&nbsp;        .withThen(asIfStatementThen(value, value.then()))
+&nbsp;        .withOtherwiseIf(asIfStatementOtherwiseIfElements(value, value.otherwiseIf()))
+&nbsp;        .withOtherwise(asIfStatementOtherwiseOptional(value, value.otherwise()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ConditionalBlock asIfStatementThen(ImmutableTrees.IfStatement value, Trees.ConditionalBlock attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asConditionalBlock((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.ConditionalBlock&gt; asIfStatementOtherwiseIfElements(ImmutableTrees.IfStatement value, List&lt;Trees.ConditionalBlock&gt; elements) {
+&nbsp;    Collection&lt;Trees.ConditionalBlock&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.ConditionalBlock original : elements) {
+&nbsp;      Trees.ConditionalBlock changed = asIfStatementOtherwiseIf(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ConditionalBlock asIfStatementOtherwiseIf(ImmutableTrees.IfStatement value, Trees.ConditionalBlock attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asConditionalBlock((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Optional&lt;Trees.Block&gt; asIfStatementOtherwiseOptional(ImmutableTrees.IfStatement value, Optional&lt;Trees.Block&gt; optional) {
+&nbsp;    if (optional.isPresent()) {
+&nbsp;      Trees.Block original = optional.get();
+&nbsp;      Trees.Block changed = asIfStatementOtherwise(value, original);
+&nbsp;      return changed != original ? Optional.of(changed) : optional;
+&nbsp;    }
+&nbsp;    return Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asIfStatementOtherwise(ImmutableTrees.IfStatement value, Trees.Block attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asBlock((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asBlock((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asBlock((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asBlock((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asBlock((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asBlock((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ForStatement toForStatement(ImmutableTrees.ForStatement value) {
+&nbsp;    return value
+&nbsp;        .withParts(asForStatementPartsElements(value, value.parts()))
+&nbsp;        .withUseForAccess(asForStatementUseForAccess(value, value.useForAccess()))
+&nbsp;        .withUseDelimit(asForStatementUseDelimit(value, value.useDelimit()))
+&nbsp;        .withDeclaration(asForStatementDeclarationElements(value, value.declaration()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TemplatePart&gt; asForStatementPartsElements(ImmutableTrees.ForStatement value, List&lt;Trees.TemplatePart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TemplatePart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TemplatePart original : elements) {
+&nbsp;      Trees.TemplatePart changed = asForStatementParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asForStatementParts(ImmutableTrees.ForStatement value, Trees.TemplatePart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeString) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeString) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Invoke) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Invoke) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Let) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Let) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.For) {
+&nbsp;      return asTemplatePart((ImmutableTrees.For) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.If) {
+&nbsp;      return asTemplatePart((ImmutableTrees.If) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ElseIf) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ElseIf) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Else) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Else) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TemplateEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TemplateEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextLine) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextLine) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected boolean asForStatementUseForAccess(ImmutableTrees.ForStatement value, boolean attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected boolean asForStatementUseDelimit(ImmutableTrees.ForStatement value, boolean attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.GeneratorDeclaration&gt; asForStatementDeclarationElements(ImmutableTrees.ForStatement value, List&lt;Trees.GeneratorDeclaration&gt; elements) {
+&nbsp;    Collection&lt;Trees.GeneratorDeclaration&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.GeneratorDeclaration original : elements) {
+&nbsp;      Trees.GeneratorDeclaration changed = asForStatementDeclaration(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.GeneratorDeclaration asForStatementDeclaration(ImmutableTrees.ForStatement value, Trees.GeneratorDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.AssignGenerator) {
+&nbsp;      return asGeneratorDeclaration((ImmutableTrees.AssignGenerator) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IterationGenerator) {
+&nbsp;      return asGeneratorDeclaration((ImmutableTrees.IterationGenerator) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TransformGenerator) {
+&nbsp;      return asGeneratorDeclaration((ImmutableTrees.TransformGenerator) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ForIterationAccessExpression toForIterationAccessExpression(ImmutableTrees.ForIterationAccessExpression value) {
+&nbsp;    return value
+&nbsp;        .withPath(asForIterationAccessExpressionPathElements(value, value.path()))
+&nbsp;        .withAccess(asForIterationAccessExpressionAccess(value, value.access()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.Identifier&gt; asForIterationAccessExpressionPathElements(ImmutableTrees.ForIterationAccessExpression value, List&lt;Trees.Identifier&gt; elements) {
+&nbsp;    Collection&lt;Trees.Identifier&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.Identifier original : elements) {
+&nbsp;      Trees.Identifier changed = asForIterationAccessExpressionPath(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asForIterationAccessExpressionPath(ImmutableTrees.ForIterationAccessExpression value, Trees.Identifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Identifier) {
+&nbsp;      return asIdentifier((ImmutableTrees.Identifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.AccessExpression asForIterationAccessExpressionAccess(ImmutableTrees.ForIterationAccessExpression value, Trees.AccessExpression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.LetStatement toLetStatement(ImmutableTrees.LetStatement value) {
+&nbsp;    return value
+&nbsp;        .withParts(asLetStatementPartsElements(value, value.parts()))
+&nbsp;        .withDeclaration(asLetStatementDeclaration(value, value.declaration()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TemplatePart&gt; asLetStatementPartsElements(ImmutableTrees.LetStatement value, List&lt;Trees.TemplatePart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TemplatePart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TemplatePart original : elements) {
+&nbsp;      Trees.TemplatePart changed = asLetStatementParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asLetStatementParts(ImmutableTrees.LetStatement value, Trees.TemplatePart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeString) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeString) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Invoke) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Invoke) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Let) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Let) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.For) {
+&nbsp;      return asTemplatePart((ImmutableTrees.For) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.If) {
+&nbsp;      return asTemplatePart((ImmutableTrees.If) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ElseIf) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ElseIf) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Else) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Else) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TemplateEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TemplateEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextLine) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextLine) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.InvokableDeclaration asLetStatementDeclaration(ImmutableTrees.LetStatement value, Trees.InvokableDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokableDeclaration) {
+&nbsp;      return asInvokableDeclaration((ImmutableTrees.InvokableDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.InvokeStatement toInvokeStatement(ImmutableTrees.InvokeStatement value) {
+&nbsp;    return value
+&nbsp;        .withParts(asInvokeStatementPartsElements(value, value.parts()))
+&nbsp;        .withAccess(asInvokeStatementAccess(value, value.access()))
+&nbsp;        .withParams(asInvokeStatementParamsElements(value, value.params()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TemplatePart&gt; asInvokeStatementPartsElements(ImmutableTrees.InvokeStatement value, List&lt;Trees.TemplatePart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TemplatePart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TemplatePart original : elements) {
+&nbsp;      Trees.TemplatePart changed = asInvokeStatementParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asInvokeStatementParts(ImmutableTrees.InvokeStatement value, Trees.TemplatePart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeString) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeString) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Invoke) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Invoke) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Let) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Let) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.For) {
+&nbsp;      return asTemplatePart((ImmutableTrees.For) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.If) {
+&nbsp;      return asTemplatePart((ImmutableTrees.If) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ElseIf) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ElseIf) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Else) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Else) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TemplateEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TemplateEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextLine) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextLine) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asInvokeStatementAccess(ImmutableTrees.InvokeStatement value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.Expression&gt; asInvokeStatementParamsElements(ImmutableTrees.InvokeStatement value, List&lt;Trees.Expression&gt; elements) {
+&nbsp;    Collection&lt;Trees.Expression&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.Expression original : elements) {
+&nbsp;      Trees.Expression changed = asInvokeStatementParams(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asInvokeStatementParams(ImmutableTrees.InvokeStatement value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.LetEnd toLetEnd(ImmutableTrees.LetEnd value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ForEnd toForEnd(ImmutableTrees.ForEnd value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.IfEnd toIfEnd(ImmutableTrees.IfEnd value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.InvokeEnd toInvokeEnd(ImmutableTrees.InvokeEnd value) {
+&nbsp;    return value
+&nbsp;        .withAccess(asInvokeEndAccess(value, value.access()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.AccessExpression asInvokeEndAccess(ImmutableTrees.InvokeEnd value, Trees.AccessExpression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.InvokeString toInvokeString(ImmutableTrees.InvokeString value) {
+&nbsp;    return value
+&nbsp;        .withLiteral(asInvokeStringLiteral(value, value.literal()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.StringLiteral asInvokeStringLiteral(ImmutableTrees.InvokeString value, Trees.StringLiteral attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asStringLiteral((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Invoke toInvoke(ImmutableTrees.Invoke value) {
+&nbsp;    return value
+&nbsp;        .withAccess(asInvokeAccess(value, value.access()))
+&nbsp;        .withInvoke(asInvokeInvokeOptional(value, value.invoke()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.AccessExpression asInvokeAccess(ImmutableTrees.Invoke value, Trees.AccessExpression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asAccessExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Optional&lt;Trees.ApplyExpression&gt; asInvokeInvokeOptional(ImmutableTrees.Invoke value, Optional&lt;Trees.ApplyExpression&gt; optional) {
+&nbsp;    if (optional.isPresent()) {
+&nbsp;      Trees.ApplyExpression original = optional.get();
+&nbsp;      Trees.ApplyExpression changed = asInvokeInvoke(value, original);
+&nbsp;      return changed != original ? Optional.of(changed) : optional;
+&nbsp;    }
+&nbsp;    return Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ApplyExpression asInvokeInvoke(ImmutableTrees.Invoke value, Trees.ApplyExpression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asApplyExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Let toLet(ImmutableTrees.Let value) {
+&nbsp;    return value
+&nbsp;        .withDeclaration(asLetDeclaration(value, value.declaration()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.InvokableDeclaration asLetDeclaration(ImmutableTrees.Let value, Trees.InvokableDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokableDeclaration) {
+&nbsp;      return asInvokableDeclaration((ImmutableTrees.InvokableDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Unit toUnit(ImmutableTrees.Unit value) {
+&nbsp;    return value
+&nbsp;        .withParts(asUnitPartsElements(value, value.parts()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.UnitPart&gt; asUnitPartsElements(ImmutableTrees.Unit value, List&lt;Trees.UnitPart&gt; elements) {
+&nbsp;    Collection&lt;Trees.UnitPart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.UnitPart original : elements) {
+&nbsp;      Trees.UnitPart changed = asUnitParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.UnitPart asUnitParts(ImmutableTrees.Unit value, Trees.UnitPart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asUnitPart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asUnitPart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Template toTemplate(ImmutableTrees.Template value) {
+&nbsp;    return value
+&nbsp;        .withParts(asTemplatePartsElements(value, value.parts()))
+&nbsp;        .withDeclaration(asTemplateDeclaration(value, value.declaration()))
+&nbsp;        .withIsPublic(asTemplateIsPublic(value, value.isPublic()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TemplatePart&gt; asTemplatePartsElements(ImmutableTrees.Template value, List&lt;Trees.TemplatePart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TemplatePart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TemplatePart original : elements) {
+&nbsp;      Trees.TemplatePart changed = asTemplateParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplateParts(ImmutableTrees.Template value, Trees.TemplatePart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.SimpleBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Comment) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Comment) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ConditionalBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ConditionalBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeStatement) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeStatement) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.LetEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.LetEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ForEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IfEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.IfEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokeString) {
+&nbsp;      return asTemplatePart((ImmutableTrees.InvokeString) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Invoke) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Invoke) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Let) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Let) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Template) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Template) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.For) {
+&nbsp;      return asTemplatePart((ImmutableTrees.For) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.If) {
+&nbsp;      return asTemplatePart((ImmutableTrees.If) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ElseIf) {
+&nbsp;      return asTemplatePart((ImmutableTrees.ElseIf) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.Else) {
+&nbsp;      return asTemplatePart((ImmutableTrees.Else) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TemplateEnd) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TemplateEnd) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextBlock) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextBlock) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextLine) {
+&nbsp;      return asTemplatePart((ImmutableTrees.TextLine) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.InvokableDeclaration asTemplateDeclaration(ImmutableTrees.Template value, Trees.InvokableDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.InvokableDeclaration) {
+&nbsp;      return asInvokableDeclaration((ImmutableTrees.InvokableDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected boolean asTemplateIsPublic(ImmutableTrees.Template value, boolean attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.SimpleAccessExpression toSimpleAccessExpression(ImmutableTrees.SimpleAccessExpression value) {
+&nbsp;    return value
+&nbsp;        .withPath(asSimpleAccessExpressionPathElements(value, value.path()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.Identifier&gt; asSimpleAccessExpressionPathElements(ImmutableTrees.SimpleAccessExpression value, List&lt;Trees.Identifier&gt; elements) {
+&nbsp;    Collection&lt;Trees.Identifier&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.Identifier original : elements) {
+&nbsp;      Trees.Identifier changed = asSimpleAccessExpressionPath(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asSimpleAccessExpressionPath(ImmutableTrees.SimpleAccessExpression value, Trees.Identifier attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Identifier) {
+&nbsp;      return asIdentifier((ImmutableTrees.Identifier) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ApplyExpression toApplyExpression(ImmutableTrees.ApplyExpression value) {
+&nbsp;    return value
+&nbsp;        .withParams(asApplyExpressionParamsElements(value, value.params()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.Expression&gt; asApplyExpressionParamsElements(ImmutableTrees.ApplyExpression value, List&lt;Trees.Expression&gt; elements) {
+&nbsp;    Collection&lt;Trees.Expression&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.Expression original : elements) {
+&nbsp;      Trees.Expression changed = asApplyExpressionParams(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asApplyExpressionParams(ImmutableTrees.ApplyExpression value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.AssignGenerator toAssignGenerator(ImmutableTrees.AssignGenerator value) {
+&nbsp;    return value
+&nbsp;        .withDeclaration(asAssignGeneratorDeclaration(value, value.declaration()))
+&nbsp;        .withFrom(asAssignGeneratorFrom(value, value.from()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ValueDeclaration asAssignGeneratorDeclaration(ImmutableTrees.AssignGenerator value, Trees.ValueDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ValueDeclaration) {
+&nbsp;      return asValueDeclaration((ImmutableTrees.ValueDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asAssignGeneratorFrom(ImmutableTrees.AssignGenerator value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.IterationGenerator toIterationGenerator(ImmutableTrees.IterationGenerator value) {
+&nbsp;    return value
+&nbsp;        .withDeclaration(asIterationGeneratorDeclaration(value, value.declaration()))
+&nbsp;        .withFrom(asIterationGeneratorFrom(value, value.from()))
+&nbsp;        .withCondition(asIterationGeneratorConditionOptional(value, value.condition()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ValueDeclaration asIterationGeneratorDeclaration(ImmutableTrees.IterationGenerator value, Trees.ValueDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ValueDeclaration) {
+&nbsp;      return asValueDeclaration((ImmutableTrees.ValueDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asIterationGeneratorFrom(ImmutableTrees.IterationGenerator value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Optional&lt;Trees.Expression&gt; asIterationGeneratorConditionOptional(ImmutableTrees.IterationGenerator value, Optional&lt;Trees.Expression&gt; optional) {
+&nbsp;    if (optional.isPresent()) {
+&nbsp;      Trees.Expression original = optional.get();
+&nbsp;      Trees.Expression changed = asIterationGeneratorCondition(value, original);
+&nbsp;      return changed != original ? Optional.of(changed) : optional;
+&nbsp;    }
+&nbsp;    return Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asIterationGeneratorCondition(ImmutableTrees.IterationGenerator value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TransformGenerator toTransformGenerator(ImmutableTrees.TransformGenerator value) {
+&nbsp;    return value
+&nbsp;        .withDeclaration(asTransformGeneratorDeclaration(value, value.declaration()))
+&nbsp;        .withFrom(asTransformGeneratorFrom(value, value.from()))
+&nbsp;        .withTransform(asTransformGeneratorTransform(value, value.transform()))
+&nbsp;        .withVarDeclaration(asTransformGeneratorVarDeclaration(value, value.varDeclaration()))
+&nbsp;        .withCondition(asTransformGeneratorConditionOptional(value, value.condition()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ValueDeclaration asTransformGeneratorDeclaration(ImmutableTrees.TransformGenerator value, Trees.ValueDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ValueDeclaration) {
+&nbsp;      return asValueDeclaration((ImmutableTrees.ValueDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asTransformGeneratorFrom(ImmutableTrees.TransformGenerator value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asTransformGeneratorTransform(ImmutableTrees.TransformGenerator value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ValueDeclaration asTransformGeneratorVarDeclaration(ImmutableTrees.TransformGenerator value, Trees.ValueDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.ValueDeclaration) {
+&nbsp;      return asValueDeclaration((ImmutableTrees.ValueDeclaration) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Optional&lt;Trees.Expression&gt; asTransformGeneratorConditionOptional(ImmutableTrees.TransformGenerator value, Optional&lt;Trees.Expression&gt; optional) {
+&nbsp;    if (optional.isPresent()) {
+&nbsp;      Trees.Expression original = optional.get();
+&nbsp;      Trees.Expression changed = asTransformGeneratorCondition(value, original);
+&nbsp;      return changed != original ? Optional.of(changed) : optional;
+&nbsp;    }
+&nbsp;    return Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asTransformGeneratorCondition(ImmutableTrees.TransformGenerator value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.For toFor(ImmutableTrees.For value) {
+&nbsp;    return value
+&nbsp;        .withDeclaration(asForDeclarationElements(value, value.declaration()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.GeneratorDeclaration&gt; asForDeclarationElements(ImmutableTrees.For value, List&lt;Trees.GeneratorDeclaration&gt; elements) {
+&nbsp;    Collection&lt;Trees.GeneratorDeclaration&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.GeneratorDeclaration original : elements) {
+&nbsp;      Trees.GeneratorDeclaration changed = asForDeclaration(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.GeneratorDeclaration asForDeclaration(ImmutableTrees.For value, Trees.GeneratorDeclaration attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.AssignGenerator) {
+&nbsp;      return asGeneratorDeclaration((ImmutableTrees.AssignGenerator) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.IterationGenerator) {
+&nbsp;      return asGeneratorDeclaration((ImmutableTrees.IterationGenerator) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TransformGenerator) {
+&nbsp;      return asGeneratorDeclaration((ImmutableTrees.TransformGenerator) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.If toIf(ImmutableTrees.If value) {
+&nbsp;    return value
+&nbsp;        .withCondition(asIfCondition(value, value.condition()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asIfCondition(ImmutableTrees.If value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.ElseIf toElseIf(ImmutableTrees.ElseIf value) {
+&nbsp;    return value
+&nbsp;        .withCondition(asElseIfCondition(value, value.condition()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asElseIfCondition(ImmutableTrees.ElseIf value, Trees.Expression attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.BoundAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.BoundAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ForIterationAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ForIterationAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.SimpleAccessExpression) {
+&nbsp;      return asExpression((ImmutableTrees.SimpleAccessExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.ApplyExpression) {
+&nbsp;      return asExpression((ImmutableTrees.ApplyExpression) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.StringLiteral) {
+&nbsp;      return asExpression((ImmutableTrees.StringLiteral) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Else toElse(ImmutableTrees.Else value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TemplateEnd toTemplateEnd(ImmutableTrees.TemplateEnd value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.StringLiteral toStringLiteral(ImmutableTrees.StringLiteral value) {
+&nbsp;    return value
+&nbsp;        .withValue(asStringLiteralValue(value, value.value()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected String asStringLiteralValue(ImmutableTrees.StringLiteral value, String attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.Newline toNewline(ImmutableTrees.Newline value) {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TextFragment toTextFragment(ImmutableTrees.TextFragment value) {
+&nbsp;    return value
+&nbsp;        .withValue(asTextFragmentValue(value, value.value()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected String asTextFragmentValue(ImmutableTrees.TextFragment value, String attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TextBlock toTextBlock(ImmutableTrees.TextBlock value) {
+&nbsp;    return value
+&nbsp;        .withParts(asTextBlockPartsElements(value, value.parts()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Iterable&lt;Trees.TextPart&gt; asTextBlockPartsElements(ImmutableTrees.TextBlock value, List&lt;Trees.TextPart&gt; elements) {
+&nbsp;    Collection&lt;Trees.TextPart&gt; changedElements = new ArrayList&lt;&gt;(elements.size());
+&nbsp;    boolean haveChanged = false;
+&nbsp;    for (Trees.TextPart original : elements) {
+&nbsp;      Trees.TextPart changed = asTextBlockParts(value, original);
+&nbsp;      if (changed != original) {
+&nbsp;        haveChanged = true;
+&nbsp;      }
+&nbsp;      changedElements.add(changed);
+&nbsp;    }
+&nbsp;    return haveChanged ? changedElements : elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TextPart asTextBlockParts(ImmutableTrees.TextBlock value, Trees.TextPart attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.Newline) {
+&nbsp;      return asTextPart((ImmutableTrees.Newline) attribute);
+&nbsp;    }
+&nbsp;    if (attribute instanceof ImmutableTrees.TextFragment) {
+&nbsp;      return asTextPart((ImmutableTrees.TextFragment) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableTrees.TextLine toTextLine(ImmutableTrees.TextLine value) {
+&nbsp;    return value
+&nbsp;        .withFragment(asTextLineFragment(value, value.fragment()))
+&nbsp;        .withNewline(asTextLineNewline(value, value.newline()));
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TextFragment asTextLineFragment(ImmutableTrees.TextLine value, Trees.TextFragment attribute) {
+&nbsp;    if (attribute instanceof ImmutableTrees.TextFragment) {
+&nbsp;      return asTextFragment((ImmutableTrees.TextFragment) attribute);
+&nbsp;    }
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected boolean asTextLineNewline(ImmutableTrees.TextLine value, boolean attribute) {
+&nbsp;    return attribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeIdentifier asTypeIdentifier(ImmutableTrees.TypeIdentifier value) {
+&nbsp;    return toTypeIdentifier(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.StringLiteral asStringLiteral(ImmutableTrees.StringLiteral value) {
+&nbsp;    return toStringLiteral(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TextPart asTextPart(ImmutableTrees.Newline value) {
+&nbsp;    return toNewline(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TextPart asTextPart(ImmutableTrees.TextFragment value) {
+&nbsp;    return toTextFragment(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ApplyExpression asApplyExpression(ImmutableTrees.ApplyExpression value) {
+&nbsp;    return toApplyExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Identifier asIdentifier(ImmutableTrees.Identifier value) {
+&nbsp;    return toIdentifier(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asExpression(ImmutableTrees.BoundAccessExpression value) {
+&nbsp;    return toBoundAccessExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asExpression(ImmutableTrees.StringLiteral value) {
+&nbsp;    return toStringLiteral(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asExpression(ImmutableTrees.SimpleAccessExpression value) {
+&nbsp;    return toSimpleAccessExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asExpression(ImmutableTrees.ApplyExpression value) {
+&nbsp;    return toApplyExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Expression asExpression(ImmutableTrees.ForIterationAccessExpression value) {
+&nbsp;    return toForIterationAccessExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ConditionalBlock asConditionalBlock(ImmutableTrees.ConditionalBlock value) {
+&nbsp;    return toConditionalBlock(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.ForEnd value) {
+&nbsp;    return toForEnd(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.TextBlock value) {
+&nbsp;    return toTextBlock(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.LetEnd value) {
+&nbsp;    return toLetEnd(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.TemplateEnd value) {
+&nbsp;    return toTemplateEnd(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.Else value) {
+&nbsp;    return toElse(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.SimpleBlock value) {
+&nbsp;    return toSimpleBlock(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.InvokeString value) {
+&nbsp;    return toInvokeString(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.ConditionalBlock value) {
+&nbsp;    return toConditionalBlock(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.IfEnd value) {
+&nbsp;    return toIfEnd(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.Template value) {
+&nbsp;    return toTemplate(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.ElseIf value) {
+&nbsp;    return toElseIf(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.InvokeStatement value) {
+&nbsp;    return toInvokeStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.Invoke value) {
+&nbsp;    return toInvoke(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.Comment value) {
+&nbsp;    return toComment(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.ForStatement value) {
+&nbsp;    return toForStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.If value) {
+&nbsp;    return toIf(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.IfStatement value) {
+&nbsp;    return toIfStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.Let value) {
+&nbsp;    return toLet(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.For value) {
+&nbsp;    return toFor(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.TextLine value) {
+&nbsp;    return toTextLine(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.InvokeEnd value) {
+&nbsp;    return toInvokeEnd(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TemplatePart asTemplatePart(ImmutableTrees.LetStatement value) {
+&nbsp;    return toLetStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.GeneratorDeclaration asGeneratorDeclaration(ImmutableTrees.TransformGenerator value) {
+&nbsp;    return toTransformGenerator(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.GeneratorDeclaration asGeneratorDeclaration(ImmutableTrees.AssignGenerator value) {
+&nbsp;    return toAssignGenerator(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.GeneratorDeclaration asGeneratorDeclaration(ImmutableTrees.IterationGenerator value) {
+&nbsp;    return toIterationGenerator(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TextFragment asTextFragment(ImmutableTrees.TextFragment value) {
+&nbsp;    return toTextFragment(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.ValueDeclaration asValueDeclaration(ImmutableTrees.ValueDeclaration value) {
+&nbsp;    return toValueDeclaration(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Parameter asParameter(ImmutableTrees.Parameter value) {
+&nbsp;    return toParameter(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeReference asTypeReference(ImmutableTrees.ResolvedType value) {
+&nbsp;    return toResolvedType(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.TypeReference asTypeReference(ImmutableTrees.TypeDeclaration value) {
+&nbsp;    return toTypeDeclaration(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.UnitPart asUnitPart(ImmutableTrees.Template value) {
+&nbsp;    return toTemplate(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.UnitPart asUnitPart(ImmutableTrees.Comment value) {
+&nbsp;    return toComment(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.InvokableDeclaration asInvokableDeclaration(ImmutableTrees.InvokableDeclaration value) {
+&nbsp;    return toInvokableDeclaration(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asBlock(ImmutableTrees.ConditionalBlock value) {
+&nbsp;    return toConditionalBlock(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asBlock(ImmutableTrees.InvokeStatement value) {
+&nbsp;    return toInvokeStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asBlock(ImmutableTrees.ForStatement value) {
+&nbsp;    return toForStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asBlock(ImmutableTrees.Template value) {
+&nbsp;    return toTemplate(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asBlock(ImmutableTrees.SimpleBlock value) {
+&nbsp;    return toSimpleBlock(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.Block asBlock(ImmutableTrees.LetStatement value) {
+&nbsp;    return toLetStatement(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.AccessExpression asAccessExpression(ImmutableTrees.BoundAccessExpression value) {
+&nbsp;    return toBoundAccessExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.AccessExpression asAccessExpression(ImmutableTrees.SimpleAccessExpression value) {
+&nbsp;    return toSimpleAccessExpression(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  protected Trees.AccessExpression asAccessExpression(ImmutableTrees.ForIterationAccessExpression value) {
+&nbsp;    return toForIterationAccessExpression(value);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

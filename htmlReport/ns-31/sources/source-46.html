@@ -1,0 +1,354 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableImmutableWithModifiable</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableImmutableWithModifiable (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableImmutableWithModifiable</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link AbstractImmutableWithModifiable AbstractImmutableWithModifiable} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableImmutableWithModifiable is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableWithModifiable
+&nbsp; */
+&nbsp;@Generated(from = &quot;AbstractImmutableWithModifiable&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;AbstractImmutableWithModifiable&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableImmutableWithModifiable
+&nbsp;    implements AbstractImmutableWithModifiable {
+&nbsp;  private int id;
+&nbsp;  private String description;
+&nbsp;  private final ArrayList&lt;String&gt; names = new ArrayList&lt;String&gt;();
+&nbsp;
+&nbsp;  private ModifiableImmutableWithModifiable() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code AbstractImmutableWithModifiable}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableImmutableWithModifiable create() {
+&nbsp;    return new ModifiableImmutableWithModifiable();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int getId() {
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code description} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String getDescription() {
+&nbsp;    return description;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code names}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;String&gt; getNames() {
+&nbsp;    return names;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableImmutableWithModifiable clear() {
+&nbsp;    id = 0;
+&nbsp;    description = null;
+&nbsp;    names.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link AbstractImmutableWithModifiable} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableImmutableWithModifiable from(AbstractImmutableWithModifiable instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableImmutableWithModifiable) {
+&nbsp;      from((ModifiableImmutableWithModifiable) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setId(instance.getId());
+&nbsp;    String descriptionValue = instance.getDescription();
+&nbsp;    if (descriptionValue != null) {
+&nbsp;      setDescription(descriptionValue);
+&nbsp;    }
+&nbsp;    addAllNames(instance.getNames());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link AbstractImmutableWithModifiable} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableImmutableWithModifiable from(ModifiableImmutableWithModifiable instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    setId(instance.getId());
+&nbsp;    String descriptionValue = instance.getDescription();
+&nbsp;    if (descriptionValue != null) {
+&nbsp;      setDescription(descriptionValue);
+&nbsp;    }
+&nbsp;    addAllNames(instance.getNames());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link AbstractImmutableWithModifiable#getId() id} attribute.
+&nbsp;   * @param id The value for id
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableImmutableWithModifiable setId(int id) {
+&nbsp;    this.id = id;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link AbstractImmutableWithModifiable#getDescription() description} attribute.
+&nbsp;   * @param description The value for description, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableImmutableWithModifiable setDescription(String description) {
+&nbsp;    this.description = description;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;   * @param element The names element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableImmutableWithModifiable addNames(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;names element&quot;);
+&nbsp;    this.names.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;   * @param elements An array of names elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableImmutableWithModifiable addNames(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addNames(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;   * @param elements An iterable of names elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableImmutableWithModifiable setNames(Iterable&lt;String&gt; elements) {
+&nbsp;    this.names.clear();
+&nbsp;    addAllNames(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link AbstractImmutableWithModifiable#getNames() names} list.
+&nbsp;   * @param elements An iterable of names elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableImmutableWithModifiable addAllNames(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addNames(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableWithModifiable ImmutableWithModifiable}.
+&nbsp;   * @return An immutable instance of ImmutableWithModifiable
+&nbsp;   */
+&nbsp;  public final ImmutableWithModifiable toImmutable() {
+&nbsp;    return ImmutableWithModifiable.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableImmutableWithModifiable} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableImmutableWithModifiable)) return false;
+&nbsp;    ModifiableImmutableWithModifiable other = (ModifiableImmutableWithModifiable) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableImmutableWithModifiable another) {
+&nbsp;    return id == another.id
+&nbsp;        &amp;&amp; Objects.equals(description, another.description)
+&nbsp;        &amp;&amp; names.equals(another.names);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code id}, {@code description}, {@code names}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + id;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(description);
+&nbsp;    h += (h &lt;&lt; 5) + names.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code AbstractImmutableWithModifiable}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;ModifiableImmutableWithModifiable{&quot;
+&nbsp;        + &quot;id=&quot; + getId()
+&nbsp;        + &quot;, description=&quot; + getDescription()
+&nbsp;        + &quot;, names=&quot; + getNames()
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

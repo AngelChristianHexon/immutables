@@ -1,0 +1,213 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersSillyPolyHost2</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersSillyPolyHost2 (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersSillyPolyHost2$SillyPolyHost2TypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import java.io.IOException;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;import org.immutables.gson.adapter.ExpectedSubtypesAdapter;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code SillyPolyHost2}.
+&nbsp; * @see ImmutableSillyPolyHost2
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;org.immutables.fixture&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersSillyPolyHost2 implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (SillyPolyHost2TypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new SillyPolyHost2TypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersSillyPolyHost2(SillyPolyHost2)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;SillyPolyHost2&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class SillyPolyHost2TypeAdapter extends TypeAdapter&lt;SillyPolyHost2&gt; {
+&nbsp;    public final SillyAbstract sTypeSample = null;
+&nbsp;    public final SillyAbstract oTypeSample = null;
+&nbsp;    private final TypeAdapter&lt;SillyAbstract&gt; sTypeAdapter;
+&nbsp;    private final TypeAdapter&lt;SillyAbstract&gt; oTypeAdapter;
+&nbsp;
+&nbsp;    SillyPolyHost2TypeAdapter(Gson gson) {
+&nbsp;      this.sTypeAdapter = ExpectedSubtypesAdapter.create(gson,
+&nbsp;          SillyAbstract.class,
+&nbsp;          TypeToken.get(SillySub2.class),
+&nbsp;          TypeToken.get(SillySub3.class));
+&nbsp;      this.oTypeAdapter = ExpectedSubtypesAdapter.create(gson,
+&nbsp;          SillyAbstract.class,
+&nbsp;          TypeToken.get(SillySub2.class),
+&nbsp;          TypeToken.get(SillySub3.class));
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return SillyPolyHost2.class == type.getRawType()
+&nbsp;          || ImmutableSillyPolyHost2.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, SillyPolyHost2 value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writeSillyPolyHost2(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SillyPolyHost2 read(JsonReader in) throws IOException {
+&nbsp;      return readSillyPolyHost2(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writeSillyPolyHost2(JsonWriter out, SillyPolyHost2 instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      out.name(&quot;s&quot;);
+&nbsp;      sTypeAdapter.write(out, instance.s());
+&nbsp;      Optional&lt;SillyAbstract&gt; oOptional = instance.o();
+&nbsp;      if (oOptional.isPresent()) {
+&nbsp;        out.name(&quot;o&quot;);
+&nbsp;        SillyAbstract oValue = oOptional.get();
+&nbsp;        oTypeAdapter.write(out, oValue);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;o&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  SillyPolyHost2 readSillyPolyHost2(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutableSillyPolyHost2.Builder builder = ImmutableSillyPolyHost2.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutableSillyPolyHost2.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;s&#39;:
+&nbsp;        if (&quot;s&quot;.equals(attributeName)) {
+&nbsp;          readInS(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;o&#39;:
+&nbsp;        if (&quot;o&quot;.equals(attributeName)) {
+&nbsp;          readInO(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInS(JsonReader in, ImmutableSillyPolyHost2.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      SillyAbstract value = sTypeAdapter.read(in);
+&nbsp;      builder.s(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInO(JsonReader in, ImmutableSillyPolyHost2.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        SillyAbstract value = oTypeAdapter.read(in);
+&nbsp;        builder.o(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,729 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOrdinalSet</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.ordinal</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOrdinalSet (org.immutables.ordinal)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ImmutableOrdinalSet</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ImmutableOrdinalSet$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableOrdinalSet$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableOrdinalSet$EmptyImmutableOrdinalSet</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableOrdinalSet$RegularImmutableOrdinalSet</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/60)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/86)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableOrdinalSet$SingletonImmutableOrdinalSet</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/46)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/72)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/141)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.ordinal;
+&nbsp;
+&nbsp;import com.google.common.collect.ForwardingSet;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import com.google.common.primitives.Longs;
+&nbsp;import java.util.BitSet;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import static com.google.common.base.Preconditions.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable set that take advantage of elements being an {@link OrdinalValue}s to provide
+&nbsp; * compact storage and efficient {@link Set#contains(Object)} and
+&nbsp; * {@link Set#containsAll(Collection)} operations.
+&nbsp; * @see OrdinalValue
+&nbsp; * @see OrdinalDomain
+&nbsp; * @see BitSet BitSet for similar internal implementation
+&nbsp; * @param &lt;E&gt; element type
+&nbsp; */
+&nbsp;public abstract class ImmutableOrdinalSet&lt;E extends OrdinalValue&lt;E&gt;&gt;
+&nbsp;    extends ForwardingSet&lt;E&gt; {
+&nbsp;
+<b class="nc">&nbsp;  ImmutableOrdinalSet() {}</b>
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;rawtypes&quot;)
+<b class="nc">&nbsp;  private static final ImmutableOrdinalSet&lt;?&gt; EMPTY_SET = new EmptyImmutableOrdinalSet();</b>
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns singleton empty immutable ordinal set
+&nbsp;   * @param &lt;E&gt; element type
+&nbsp;   * @return empty set
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  public static &lt;E extends OrdinalValue&lt;E&gt;&gt; ImmutableOrdinalSet&lt;E&gt; of() {
+&nbsp;    // safe unchecked: will contain no elements
+<b class="nc">&nbsp;    return (ImmutableOrdinalSet&lt;E&gt;) EMPTY_SET;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates immutable ordinal set from 1 or more elements.
+&nbsp;   * All elements expected to have same {@link OrdinalValue#domain()} as the first element,
+&nbsp;   * otherwise exception will be thrown.
+&nbsp;   * @param &lt;E&gt; element type
+&nbsp;   * @param first first element
+&nbsp;   * @param rest the rest of elements
+&nbsp;   * @return empty set
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  public static &lt;E extends OrdinalValue&lt;E&gt;&gt; ImmutableOrdinalSet&lt;E&gt; of(
+&nbsp;      E first, E... rest) {
+<b class="nc">&nbsp;    OrdinalDomain&lt;E&gt; domain = first.domain();</b>
+<b class="nc">&nbsp;    if (rest.length == 0) {</b>
+<b class="nc">&nbsp;      return new SingletonImmutableOrdinalSet&lt;&gt;(first);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    OrdinalValue&lt;?&gt;[] array = new OrdinalValue&lt;?&gt;[1 + rest.length];</b>
+<b class="nc">&nbsp;    array[0] = first;</b>
+<b class="nc">&nbsp;    System.arraycopy(rest, 0, array, 1, rest.length);</b>
+<b class="nc">&nbsp;    return new RegularImmutableOrdinalSet&lt;&gt;(domain, array);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates immutable ordinal set from iterable of elements.
+&nbsp;   * All elements expected to have same {@link OrdinalValue#domain()} as the first element,
+&nbsp;   * otherwise exception will be thrown.
+&nbsp;   * @param &lt;E&gt; the element type
+&nbsp;   * @param elements the elements, no nulls allowed
+&nbsp;   * @return the immutable ordinal set
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  // Safe unchecked, elements are defined to be of E or subtypes of E
+&nbsp;  // which is allowed for immutable collection
+&nbsp;  public static &lt;E extends OrdinalValue&lt;E&gt;&gt; ImmutableOrdinalSet&lt;E&gt; copyOf(Iterable&lt;? extends E&gt; elements) {
+<b class="nc">&nbsp;    if (elements instanceof ImmutableOrdinalSet) {</b>
+<b class="nc">&nbsp;      return (ImmutableOrdinalSet&lt;E&gt;) elements;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return constructFromArray(Iterables.toArray(elements, OrdinalValue.class));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates immutable ordinal set from array of elements.
+&nbsp;   * All elements expected to have same {@link OrdinalValue#domain()} as the first element,
+&nbsp;   * otherwise exception will be thrown.
+&nbsp;   * @param &lt;E&gt; the element type
+&nbsp;   * @param elements the elements, no nulls allowed
+&nbsp;   * @return the immutable ordinal set
+&nbsp;   */
+&nbsp;  public static &lt;E extends OrdinalValue&lt;E&gt;&gt; ImmutableOrdinalSet&lt;E&gt; copyOf(E[] elements) {
+<b class="nc">&nbsp;    return constructFromArray(elements);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  // Safe unchecked as element is known to be of type E
+&nbsp;  private static &lt;E extends OrdinalValue&lt;E&gt;&gt; ImmutableOrdinalSet&lt;E&gt; constructFromArray(OrdinalValue&lt;?&gt;[] array) {
+<b class="nc">&nbsp;    switch (array.length) {</b>
+&nbsp;    case 0:
+<b class="nc">&nbsp;      return of();</b>
+&nbsp;    case 1:
+&nbsp;      // Safe unchecked as element is known to be of type E
+<b class="nc">&nbsp;      return new SingletonImmutableOrdinalSet&lt;&gt;((E) array[0]);</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return new RegularImmutableOrdinalSet&lt;&gt;(((E) array[0]).domain(), array);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Will throw an exception and leave the collection unmodified.
+&nbsp;   * @throws UnsupportedOperationException always
+&nbsp;   * @deprecated Modification operation are not supported.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public final boolean add(E e) {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Will throw an exception and leave the collection unmodified.
+&nbsp;   * @throws UnsupportedOperationException always
+&nbsp;   * @deprecated Modification operation are not supported.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public final boolean remove(Object object) {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Will throw an exception and leave the collection unmodified.
+&nbsp;   * @throws UnsupportedOperationException always
+&nbsp;   * @deprecated Modification operation are not supported.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public final boolean addAll(Collection&lt;? extends E&gt; newElements) {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Will throw an exception and leave the collection unmodified.
+&nbsp;   * @throws UnsupportedOperationException always
+&nbsp;   * @deprecated Modification operation are not supported.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public final boolean removeAll(Collection&lt;?&gt; oldElements) {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Will throw an exception and leave the collection unmodified.
+&nbsp;   * @throws UnsupportedOperationException always
+&nbsp;   * @deprecated Modification operation are not supported.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public final boolean retainAll(Collection&lt;?&gt; elementsToKeep) {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Will throw an exception and leave the collection unmodified.
+&nbsp;   * @throws UnsupportedOperationException always
+&nbsp;   * @deprecated Modification operation are not supported.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public final void clear() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class EmptyImmutableOrdinalSet&lt;E extends OrdinalValue&lt;E&gt;&gt;</b>
+&nbsp;      extends ImmutableOrdinalSet&lt;E&gt; {
+&nbsp;    @Override
+&nbsp;    protected Set&lt;E&gt; delegate() {
+<b class="nc">&nbsp;      return ImmutableSet.of();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean isEmpty() {
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int size() {
+<b class="nc">&nbsp;      return 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean containsAll(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;      return collection.isEmpty();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean containsAny(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+<b class="nc">&nbsp;    public void incrementCounters(int[] countersByOrdinal) {}</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class SingletonImmutableOrdinalSet&lt;E extends OrdinalValue&lt;E&gt;&gt;
+&nbsp;      extends ImmutableOrdinalSet&lt;E&gt; {
+&nbsp;    private final E element;
+&nbsp;
+<b class="nc">&nbsp;    SingletonImmutableOrdinalSet(E element) {</b>
+<b class="nc">&nbsp;      this.element = checkNotNull(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean contains(Object object) {
+<b class="nc">&nbsp;      return element.equals(object);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean containsAll(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;      if (collection instanceof SingletonImmutableOrdinalSet) {</b>
+<b class="nc">&nbsp;        return element.equals(((SingletonImmutableOrdinalSet&lt;?&gt;) collection).element);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return super.containsAll(collection);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean containsAny(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;      return collection.contains(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Set&lt;E&gt; delegate() {
+<b class="nc">&nbsp;      return ImmutableSet.of(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int size() {
+<b class="nc">&nbsp;      return 1;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean isEmpty() {
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void incrementCounters(int[] counters) {
+<b class="nc">&nbsp;      counters[element.ordinal()]++;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class RegularImmutableOrdinalSet&lt;E extends OrdinalValue&lt;E&gt;&gt; extends ImmutableOrdinalSet&lt;E&gt; {
+&nbsp;    private static final int BITS_PER_WORD = Longs.BYTES * Byte.SIZE;
+&nbsp;    private static final int POWER_OF_TWO_WORD_BITS = 6;
+&nbsp;
+&nbsp;    private final OrdinalDomain&lt;E&gt; domain;
+&nbsp;    private final long[] vector;
+&nbsp;    private final int size;
+&nbsp;
+<b class="nc">&nbsp;    RegularImmutableOrdinalSet(OrdinalDomain&lt;E&gt; domain, OrdinalValue&lt;?&gt;[] elements) {</b>
+<b class="nc">&nbsp;      int maxOrdinal = 0;</b>
+<b class="nc">&nbsp;      int count = 0;</b>
+<b class="nc">&nbsp;      for (OrdinalValue&lt;?&gt; e : elements) {</b>
+<b class="nc">&nbsp;        checkArgument(e.domain().equals(domain), &quot;Element has different domain %s&quot;, e);</b>
+<b class="nc">&nbsp;        maxOrdinal = Math.max(maxOrdinal, e.ordinal());</b>
+<b class="nc">&nbsp;        count++;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      this.domain = domain;</b>
+<b class="nc">&nbsp;      this.size = count;</b>
+<b class="nc">&nbsp;      this.vector = new long[(maxOrdinal &gt;&gt;&gt; POWER_OF_TWO_WORD_BITS) + 1];</b>
+<b class="nc">&nbsp;      fillVector(elements);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void fillVector(OrdinalValue&lt;?&gt;[] elements) {
+<b class="nc">&nbsp;      for (OrdinalValue&lt;?&gt; e : elements) {</b>
+<b class="nc">&nbsp;        int ordinal = e.ordinal();</b>
+<b class="nc">&nbsp;        int wordIndex = ordinal &gt;&gt;&gt; POWER_OF_TWO_WORD_BITS;</b>
+<b class="nc">&nbsp;        int bitIndex = ordinal - (wordIndex &lt;&lt; POWER_OF_TWO_WORD_BITS);</b>
+<b class="nc">&nbsp;        long word = vector[wordIndex];</b>
+<b class="nc">&nbsp;        if (((word &gt;&gt;&gt; bitIndex) &amp; 1) != 0) {</b>
+<b class="nc">&nbsp;          checkArgument(false, &quot;Duplicate element %s&quot;, e);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        vector[wordIndex] = word | (1L &lt;&lt; bitIndex);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Set&lt;E&gt; delegate() {
+<b class="nc">&nbsp;      ImmutableSet.Builder&lt;E&gt; builder = ImmutableSet.builder();</b>
+&nbsp;
+<b class="nc">&nbsp;      for (int i = 0; i &lt; vector.length; i++) {</b>
+<b class="nc">&nbsp;        long word = vector[i];</b>
+<b class="nc">&nbsp;        int wordOrdinal = i * BITS_PER_WORD;</b>
+<b class="nc">&nbsp;        for (int bitIndex = 0; bitIndex &lt; BITS_PER_WORD; bitIndex++) {</b>
+<b class="nc">&nbsp;          if (((word &gt;&gt;&gt; bitIndex) &amp; 1) != 0) {</b>
+<b class="nc">&nbsp;            builder.add(domain.get(wordOrdinal + bitIndex));</b>
+&nbsp;          }
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return builder.build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean contains(Object object) {
+<b class="nc">&nbsp;      if (object instanceof OrdinalValue&lt;?&gt;) {</b>
+<b class="nc">&nbsp;        OrdinalValue&lt;?&gt; value = (OrdinalValue&lt;?&gt;) object;</b>
+<b class="nc">&nbsp;        if (value.domain().equals(domain)) {</b>
+<b class="nc">&nbsp;          return containsOrdinal(value.ordinal());</b>
+&nbsp;        }
+&nbsp;      }
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean containsOrdinal(int ordinal) {
+<b class="nc">&nbsp;      int wordIndex = ordinal &gt;&gt;&gt; POWER_OF_TWO_WORD_BITS;</b>
+<b class="nc">&nbsp;      int bitIndex = ordinal - (wordIndex &lt;&lt; POWER_OF_TWO_WORD_BITS);</b>
+<b class="nc">&nbsp;      return (wordIndex &lt; vector.length) &amp;&amp; ((vector[wordIndex] &gt;&gt;&gt; bitIndex) &amp; 1) != 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean containsAllOrdinals(RegularImmutableOrdinalSet&lt;?&gt; ordinalSet) {
+<b class="nc">&nbsp;      long[] otherVector = ordinalSet.vector;</b>
+<b class="nc">&nbsp;      long[] vector = this.vector;</b>
+&nbsp;
+<b class="nc">&nbsp;      if (vector.length &lt; otherVector.length) {</b>
+&nbsp;        // If other set contains more words - then it contains higher ordinals that this
+&nbsp;        // just don&#39;t possess, so containsAll will be false
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      for (int i = 0; i &lt; otherVector.length; i++) {</b>
+<b class="nc">&nbsp;        long v = vector[i];</b>
+<b class="nc">&nbsp;        long ov = otherVector[i];</b>
+<b class="nc">&nbsp;        if ((v &amp; ov) != ov) {</b>
+<b class="nc">&nbsp;          return false;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean containsAnyOrdinal(RegularImmutableOrdinalSet&lt;?&gt; ordinalSet) {
+<b class="nc">&nbsp;      long[] otherVector = ordinalSet.vector;</b>
+<b class="nc">&nbsp;      long[] vector = this.vector;</b>
+&nbsp;
+<b class="nc">&nbsp;      for (int i = 0; i &lt; otherVector.length &amp;&amp; i &lt; vector.length; i++) {</b>
+<b class="nc">&nbsp;        long v = vector[i];</b>
+<b class="nc">&nbsp;        long ov = otherVector[i];</b>
+<b class="nc">&nbsp;        if ((v &amp; ov) &gt; 0) {</b>
+<b class="nc">&nbsp;          return true;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean containsAny(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;      int size = collection.size();</b>
+<b class="nc">&nbsp;      if (size == 0) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (size == 1) {</b>
+<b class="nc">&nbsp;        return contains(Iterables.get(collection, 0));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (collection instanceof RegularImmutableOrdinalSet&lt;?&gt;) {</b>
+<b class="nc">&nbsp;        RegularImmutableOrdinalSet&lt;?&gt; otherSet = (RegularImmutableOrdinalSet&lt;?&gt;) collection;</b>
+<b class="nc">&nbsp;        return otherSet.domain.equals(domain) &amp;&amp; containsAnyOrdinal(otherSet);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return super.containsAny(collection);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean containsAll(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;      int size = collection.size();</b>
+<b class="nc">&nbsp;      if (size == 0) {</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (size == 1) {</b>
+<b class="nc">&nbsp;        return contains(Iterables.get(collection, 0));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (collection instanceof RegularImmutableOrdinalSet&lt;?&gt;) {</b>
+<b class="nc">&nbsp;        RegularImmutableOrdinalSet&lt;?&gt; otherSet = (RegularImmutableOrdinalSet&lt;?&gt;) collection;</b>
+<b class="nc">&nbsp;        return otherSet.domain.equals(domain) &amp;&amp; containsAllOrdinals(otherSet);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return super.containsAll(collection);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean isEmpty() {
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int size() {
+<b class="nc">&nbsp;      return size;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void incrementCounters(int[] counters) {
+<b class="nc">&nbsp;      long[] vector = this.vector;</b>
+&nbsp;
+<b class="nc">&nbsp;      for (int i = 0; i &lt; vector.length; i++) {</b>
+<b class="nc">&nbsp;        long v = vector[i];</b>
+<b class="nc">&nbsp;        for (int ordinal = i &lt;&lt; POWER_OF_TWO_WORD_BITS; v != 0;) {</b>
+<b class="nc">&nbsp;          int zeroes = Long.numberOfTrailingZeros(v);</b>
+<b class="nc">&nbsp;          if (zeroes == BITS_PER_WORD) {</b>
+<b class="nc">&nbsp;            break;</b>
+&nbsp;          }
+<b class="nc">&nbsp;          if (zeroes == BITS_PER_WORD - 1) {</b>
+<b class="nc">&nbsp;            v = 0;</b>
+&nbsp;          } else {
+<b class="nc">&nbsp;            v &gt;&gt;&gt;= zeroes + 1;</b>
+&nbsp;          }
+<b class="nc">&nbsp;          ordinal += zeroes;</b>
+<b class="nc">&nbsp;          counters[ordinal++]++;</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Coarse grained method to effectively collect containment information without
+&nbsp;   * re-packing internal structures to temporary collections.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * For any contained element, corresponding value in array by ordinal index will be incremented.
+&nbsp;   * @param counters array of counters where indexes corresponds to ordinal values
+&nbsp;   * @exception RuntimeException if counters array length do not correspond to ordinal indexes of
+&nbsp;   *              contained values
+&nbsp;   */
+&nbsp;  public abstract void incrementCounters(int[] counters);
+&nbsp;
+&nbsp;  public boolean containsAny(Collection&lt;?&gt; collection) {
+<b class="nc">&nbsp;    for (Object object : collection) {</b>
+<b class="nc">&nbsp;      if (contains(object)) {</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Build instances of {@link ImmutableOrdinalSet}.
+&nbsp;   * @param &lt;E&gt; element type
+&nbsp;   * @return builder
+&nbsp;   */
+&nbsp;  public static &lt;E extends OrdinalValue&lt;E&gt;&gt; Builder&lt;E&gt; builder() {
+<b class="nc">&nbsp;    return new Builder&lt;&gt;();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Build instances of {@link ImmutableOrdinalSet}.
+&nbsp;   * @param &lt;E&gt; element type
+&nbsp;   */
+&nbsp;  public static final class Builder&lt;E extends OrdinalValue&lt;E&gt;&gt; {
+<b class="nc">&nbsp;    private final List&lt;E&gt; builder = Lists.newArrayListWithExpectedSize(4);</b>
+&nbsp;
+<b class="nc">&nbsp;    Builder() {}</b>
+&nbsp;    
+&nbsp;    /**
+&nbsp;     * Adds add elements from the iterable.
+&nbsp;     * @param elements the elements
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    public Builder&lt;E&gt; addAll(Iterable&lt;E&gt; elements) {
+<b class="nc">&nbsp;      Iterables.addAll(builder, checkNotNull(elements));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds element.
+&nbsp;     * @param element the element
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    public Builder&lt;E&gt; add(E element) {
+<b class="nc">&nbsp;      builder.add(checkNotNull(element));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of {@link ImmutableOrdinalSet} using all added elements.
+&nbsp;     * @return immutable ordinal set
+&nbsp;     */
+&nbsp;    public ImmutableOrdinalSet&lt;E&gt; build() {
+<b class="nc">&nbsp;      return ImmutableOrdinalSet.copyOf(builder);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

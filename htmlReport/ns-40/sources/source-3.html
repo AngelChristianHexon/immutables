@@ -1,0 +1,197 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Generator_Whitespacer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: Generator_Whitespacer (org.immutables.generator.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Generator_Whitespacer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Generator_Whitespacer$FragmentDispatch</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.generator.fixture;
+&nbsp;
+&nbsp;import static org.immutables.generator.Intrinsics.*;
+&nbsp;
+&nbsp;@java.lang.SuppressWarnings(&quot;all&quot;)
+<b class="nc">&nbsp;public class Generator_Whitespacer extends org.immutables.generator.fixture.Whitespacer {</b>
+<b class="nc">&nbsp;public org.immutables.generator.Templates.Invokable entry() { return entry; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable entry = new FragmentDispatch(0, 0);</b>
+&nbsp;void _t0__entry(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, innerIndented2);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable innerIndented() { return innerIndented; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable innerIndented = new FragmentDispatch(0, 1);</b>
+&nbsp;void _t1__innerIndented(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;//&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable innerIndented2() { return innerIndented2; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable innerIndented2 = new FragmentDispatch(0, 2);</b>
+&nbsp;void _t2__innerIndented2(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  $(__, innerIndented);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;private class FragmentDispatch extends org.immutables.generator.Templates.Fragment{
+&nbsp;private final int index;
+<b class="nc">&nbsp;FragmentDispatch(int arity, int index){</b>
+<b class="nc">&nbsp;super(arity);</b>
+<b class="nc">&nbsp;this.index = index;</b>
+&nbsp;}
+&nbsp;@Override public void run(org.immutables.generator.Templates.Invokation invokation){
+<b class="nc">&nbsp;  switch (index){</b>
+<b class="nc">&nbsp;  case 0: _t0__entry(invokation); break;</b>
+<b class="nc">&nbsp;  case 1: _t1__innerIndented(invokation); break;</b>
+<b class="nc">&nbsp;  case 2: _t2__innerIndented2(invokation); break;</b>
+&nbsp;  default: break;
+&nbsp;}}}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

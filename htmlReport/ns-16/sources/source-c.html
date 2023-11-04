@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Updater</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: Updater (org.immutables.criteria.repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Updater$OrInsert</td>
+  </tr>
+  <tr>
+    <td class="name">Updater$Setter</td>
+  </tr>
+  <tr>
+    <td class="name">Updater$WriteExecutor</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository;
+&nbsp;
+&nbsp;import org.immutables.criteria.matcher.Projection;
+&nbsp;
+&nbsp;/**
+&nbsp; * Update DSL.
+&nbsp; *
+&nbsp; * Responsible for updates matching a filter (aka update by query). Attributes can be individually set or whole record
+&nbsp; * replaced.
+&nbsp; *
+&nbsp; * @param &lt;T&gt; type of the entity
+&nbsp; * @param &lt;R&gt; write result type usually sync/async wrapper of {@link org.immutables.criteria.backend.WriteResult}
+&nbsp; */
+&nbsp;public interface Updater&lt;T, R&gt; {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Set particular attribute to a value
+&nbsp;   */
+&nbsp;  &lt;T&gt; Setter&lt;R&gt; set(Projection&lt;T&gt; projection, T value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Replace matching element(s) with a new value
+&nbsp;   */
+&nbsp;  WriteExecutor&lt;R&gt; replace(T newValue);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Allows chaining setters on different attributes.
+&nbsp;   *
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * {@code
+&nbsp;   *    repository.update(person.age.is(22))
+&nbsp;   *              .set(person.name, &quot;John&quot;)
+&nbsp;   *              .set(person.age, 23)
+&nbsp;   *              .execute();
+&nbsp;   * }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @param &lt;R&gt; write result type usually sync/async wrapper of {@link org.immutables.criteria.backend.WriteResult}
+&nbsp;   */
+&nbsp;  interface Setter&lt;R&gt; extends WriteExecutor&lt;R&gt; {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Set particular attribute to a value
+&nbsp;     */
+&nbsp;    &lt;T&gt; Setter&lt;R&gt; set(Projection&lt;T&gt; projection, T value);
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  interface OrInsert&lt;T&gt; {
+&nbsp;    T orInsert();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Part of repository DSL used as a &lt;i&gt;terminator&lt;/i&gt; (last) command before returning
+&nbsp;   * the result.
+&nbsp;   *
+&nbsp;   * @param &lt;R&gt;
+&nbsp;   */
+&nbsp;  interface WriteExecutor&lt;R&gt; {
+&nbsp;    /**
+&nbsp;     * Execute previously defined operation
+&nbsp;     */
+&nbsp;    R execute();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

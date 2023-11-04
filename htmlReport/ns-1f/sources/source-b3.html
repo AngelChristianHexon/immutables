@@ -1,0 +1,476 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSampleValue</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSampleValue (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSampleValue$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SampleValue}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSampleValue.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SampleValue&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSampleValue implements SampleValue {
+&nbsp;  private final int a;
+&nbsp;  private final ImmutableList&lt;Integer&gt; c;
+&nbsp;  private final @Nullable Integer oi;
+&nbsp;  private final Optional&lt;String&gt; os;
+&nbsp;
+&nbsp;  private ImmutableSampleValue(
+&nbsp;      int a,
+&nbsp;      ImmutableList&lt;Integer&gt; c,
+&nbsp;      @Nullable Integer oi,
+&nbsp;      Optional&lt;String&gt; os) {
+&nbsp;    this.a = a;
+&nbsp;    this.c = c;
+&nbsp;    this.oi = oi;
+&nbsp;    this.os = os;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Integer&gt; c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code oi} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt oi() {
+&nbsp;    return oi != null
+&nbsp;        ? OptionalInt.of(oi)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code os} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; os() {
+&nbsp;    return os;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SampleValue#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withA(int value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    return new ImmutableSampleValue(value, this.c, this.oi, this.os);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SampleValue#c() c}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withC(int... elements) {
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableSampleValue(this.a, newValue, this.oi, this.os);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SampleValue#c() c}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of c elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withC(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.c == elements) return this;
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSampleValue(this.a, newValue, this.oi, this.os);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SampleValue#oi() oi} attribute.
+&nbsp;   * @param value The value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withOi(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.oi, newValue)) return this;
+&nbsp;    return new ImmutableSampleValue(this.a, this.c, newValue, this.os);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SampleValue#oi() oi} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withOi(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.oi, value)) return this;
+&nbsp;    return new ImmutableSampleValue(this.a, this.c, value, this.os);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SampleValue#os() os} attribute.
+&nbsp;   * @param value The value for os
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withOs(String value) {
+&nbsp;    Optional&lt;String&gt; newValue = Optional.of(value);
+&nbsp;    if (this.os.equals(newValue)) return this;
+&nbsp;    return new ImmutableSampleValue(this.a, this.c, this.oi, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SampleValue#os() os} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for os
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSampleValue withOs(Optional&lt;String&gt; optional) {
+&nbsp;    Optional&lt;String&gt; value = optional;
+&nbsp;    if (this.os.equals(value)) return this;
+&nbsp;    return new ImmutableSampleValue(this.a, this.c, this.oi, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSampleValue} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSampleValue
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSampleValue) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSampleValue another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; c.equals(another.c)
+&nbsp;        &amp;&amp; Objects.equals(oi, another.oi)
+&nbsp;        &amp;&amp; os.equals(another.os);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code c}, {@code oi}, {@code os}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + c.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(oi);
+&nbsp;    h += (h &lt;&lt; 5) + os.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SampleValue} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SampleValue&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;c&quot;, c)
+&nbsp;        .add(&quot;oi&quot;, oi)
+&nbsp;        .add(&quot;os&quot;, os.orNull())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SampleValue} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SampleValue instance
+&nbsp;   */
+&nbsp;  public static ImmutableSampleValue copyOf(SampleValue instance) {
+&nbsp;    if (instance instanceof ImmutableSampleValue) {
+&nbsp;      return (ImmutableSampleValue) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSampleValue.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSampleValue ImmutableSampleValue}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSampleValue.builder()
+&nbsp;   *    .a(int) // required {@link SampleValue#a() a}
+&nbsp;   *    .addC|addAllC(int) // {@link SampleValue#c() c} elements
+&nbsp;   *    .oi(int) // optional {@link SampleValue#oi() oi}
+&nbsp;   *    .os(String) // optional {@link SampleValue#os() os}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSampleValue builder
+&nbsp;   */
+&nbsp;  public static ImmutableSampleValue.Builder builder() {
+&nbsp;    return new ImmutableSampleValue.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSampleValue ImmutableSampleValue}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SampleValue&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private int a;
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; c = ImmutableList.builder();
+&nbsp;    private @Nullable Integer oi;
+&nbsp;    private Optional&lt;String&gt; os = Optional.absent();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SampleValue} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SampleValue instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      a(instance.a());
+&nbsp;      addAllC(instance.c());
+&nbsp;      OptionalInt oiOptional = instance.oi();
+&nbsp;      if (oiOptional.isPresent()) {
+&nbsp;        oi(oiOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;String&gt; osOptional = instance.os();
+&nbsp;      if (osOptional.isPresent()) {
+&nbsp;        os(osOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SampleValue#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(int a) {
+&nbsp;      this.a = a;
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SampleValue#c() c} list.
+&nbsp;     * @param element A c element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addC(int element) {
+&nbsp;      this.c.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SampleValue#c() c} list.
+&nbsp;     * @param elements An array of c elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addC(int... elements) {
+&nbsp;      this.c.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SampleValue#c() c} list.
+&nbsp;     * @param elements An iterable of c elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.c = ImmutableList.builder();
+&nbsp;      return addAllC(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SampleValue#c() c} list.
+&nbsp;     * @param elements An iterable of c elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllC(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.c.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SampleValue#oi() oi} to oi.
+&nbsp;     * @param oi The value for oi
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder oi(int oi) {
+&nbsp;      this.oi = oi;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SampleValue#oi() oi} to oi.
+&nbsp;     * @param oi The value for oi
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder oi(OptionalInt oi) {
+&nbsp;      this.oi = oi.isPresent() ? oi.getAsInt() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SampleValue#os() os} to os.
+&nbsp;     * @param os The value for os
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder os(String os) {
+&nbsp;      this.os = Optional.of(os);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SampleValue#os() os} to os.
+&nbsp;     * @param os The value for os
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder os(Optional&lt;String&gt; os) {
+&nbsp;      this.os = os;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSampleValue ImmutableSampleValue}.
+&nbsp;     * @return An immutable instance of SampleValue
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSampleValue build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableSampleValue(a, c.build(), oi, os);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      return &quot;Cannot build SampleValue, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

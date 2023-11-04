@@ -1,0 +1,339 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersUsingAllOptionals</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersUsingAllOptionals (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersUsingAllOptionals$UsingAllOptionalsTypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code UsingAllOptionals}.
+&nbsp; * @see ImmutableUsingAllOptionals
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;org.immutables.fixture.jdkonly&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersUsingAllOptionals implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (UsingAllOptionalsTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new UsingAllOptionalsTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersUsingAllOptionals(UsingAllOptionals)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;UsingAllOptionals&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class UsingAllOptionalsTypeAdapter extends TypeAdapter&lt;UsingAllOptionals&gt; {
+&nbsp;    public final Integer v1TypeSample = null;
+&nbsp;    public final Integer v2TypeSample = null;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; v1TypeAdapter;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; v2TypeAdapter;
+&nbsp;
+&nbsp;    UsingAllOptionalsTypeAdapter(Gson gson) {
+&nbsp;      this.v1TypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;      this.v2TypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return UsingAllOptionals.class == type.getRawType()
+&nbsp;          || ImmutableUsingAllOptionals.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, UsingAllOptionals value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writeUsingAllOptionals(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public UsingAllOptionals read(JsonReader in) throws IOException {
+&nbsp;      return readUsingAllOptionals(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writeUsingAllOptionals(JsonWriter out, UsingAllOptionals instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      Optional&lt;Integer&gt; v1Optional = instance.v1();
+&nbsp;      if (v1Optional.isPresent()) {
+&nbsp;        out.name(&quot;v1&quot;);
+&nbsp;        Integer v1Value = v1Optional.get();
+&nbsp;        v1TypeAdapter.write(out, v1Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;v1&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;Integer&gt; v2Optional = instance.v2();
+&nbsp;      if (v2Optional.isPresent()) {
+&nbsp;        out.name(&quot;v2&quot;);
+&nbsp;        Integer v2Value = v2Optional.get();
+&nbsp;        v2TypeAdapter.write(out, v2Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;v2&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      OptionalInt i1Optional = instance.i1();
+&nbsp;      if (i1Optional.isPresent()) {
+&nbsp;        out.name(&quot;i1&quot;);
+&nbsp;        int i1Value = i1Optional.getAsInt();
+&nbsp;        out.value(i1Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;i1&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      OptionalLong l1Optional = instance.l1();
+&nbsp;      if (l1Optional.isPresent()) {
+&nbsp;        out.name(&quot;l1&quot;);
+&nbsp;        long l1Value = l1Optional.getAsLong();
+&nbsp;        out.value(l1Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;l1&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      OptionalDouble d1Optional = instance.d1();
+&nbsp;      if (d1Optional.isPresent()) {
+&nbsp;        out.name(&quot;d1&quot;);
+&nbsp;        double d1Value = d1Optional.getAsDouble();
+&nbsp;        out.value(d1Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;d1&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      Option&lt;String&gt; fo3Optional = instance.fo3();
+&nbsp;      if (fo3Optional.isDefined()) {
+&nbsp;        out.name(&quot;fo3&quot;);
+&nbsp;        String fo3Value = fo3Optional.get();
+&nbsp;        out.value(fo3Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;fo3&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      javaslang.control.Option&lt;String&gt; jsoOptional = instance.jso();
+&nbsp;      if (jsoOptional.isDefined()) {
+&nbsp;        out.name(&quot;jso&quot;);
+&nbsp;        String jsoValue = jsoOptional.get();
+&nbsp;        out.value(jsoValue);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;jso&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  UsingAllOptionals readUsingAllOptionals(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutableUsingAllOptionals.Builder builder = ImmutableUsingAllOptionals.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;v&#39;:
+&nbsp;        if (&quot;v1&quot;.equals(attributeName)) {
+&nbsp;          readInV1(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        if (&quot;v2&quot;.equals(attributeName)) {
+&nbsp;          readInV2(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;i&#39;:
+&nbsp;        if (&quot;i1&quot;.equals(attributeName)) {
+&nbsp;          readInI1(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;l&#39;:
+&nbsp;        if (&quot;l1&quot;.equals(attributeName)) {
+&nbsp;          readInL1(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;d&#39;:
+&nbsp;        if (&quot;d1&quot;.equals(attributeName)) {
+&nbsp;          readInD1(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;f&#39;:
+&nbsp;        if (&quot;fo3&quot;.equals(attributeName)) {
+&nbsp;          readInFo3(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;j&#39;:
+&nbsp;        if (&quot;jso&quot;.equals(attributeName)) {
+&nbsp;          readInJso(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInV1(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        Integer value = v1TypeAdapter.read(in);
+&nbsp;        builder.v1(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInV2(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        Integer value = v2TypeAdapter.read(in);
+&nbsp;        builder.v2(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInI1(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.i1(in.nextInt());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInL1(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.l1(in.nextLong());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInD1(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.d1(in.nextDouble());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInFo3(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.fo3(in.nextString());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInJso(JsonReader in, ImmutableUsingAllOptionals.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.jso(in.nextString());
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

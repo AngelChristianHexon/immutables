@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Gson</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.gson</a>
+</div>
+
+<h1>Coverage Summary for Class: Gson (org.immutables.gson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Gson$ExpectedSubtypes</td>
+  </tr>
+  <tr>
+    <td class="name">Gson$Ignore</td>
+  </tr>
+  <tr>
+    <td class="name">Gson$Named</td>
+  </tr>
+  <tr>
+    <td class="name">Gson$Other</td>
+  </tr>
+  <tr>
+    <td class="name">Gson$TypeAdapters</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.gson;
+&nbsp;
+&nbsp;import com.google.gson.FieldNamingPolicy;
+&nbsp;import com.google.gson.FieldNamingStrategy;
+&nbsp;import com.google.gson.GsonBuilder;
+&nbsp;import com.google.gson.JsonObject;
+&nbsp;import com.google.gson.annotations.SerializedName;
+&nbsp;import java.lang.annotation.Documented;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.ServiceLoader;
+&nbsp;import org.immutables.gson.adapter.ExpectedSubtypesAdapter;
+&nbsp;
+&nbsp;/**
+&nbsp; * Gson umbrella annotation used to group nested Gson-related annotations.
+&nbsp; * This class named in a good hope it will not clash with the usages of {@link com.google.gson.Gson}
+&nbsp; * .
+&nbsp; * @see TypeAdapters
+&nbsp; * @see Named
+&nbsp; * @see Ignore
+&nbsp; * @see ExpectedSubtypes
+&nbsp; */
+&nbsp;@Retention(RetentionPolicy.SOURCE)
+&nbsp;public @interface Gson {
+&nbsp;  /**
+&nbsp;   * Use on a top level class to generate type adapted factory supporting directly annotated and all
+&nbsp;   * nested immutable types.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Type adapter factories are generated in the same package, named
+&nbsp;   * {@code GsonAdapters[name_of_annotated_type]} and registered statically as service providers in
+&nbsp;   * {@code META-INF/services/com.google.gson.TypeAdapterFactory}. The most easy way to register all
+&nbsp;   * such factories using {@link ServiceLoader}.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * com.google.gson.GsonBuilder gsonBuilder = new com.google.gson.GsonBuilder();
+&nbsp;   * for (TypeAdapterFactory factory : ServiceLoader.load(TypeAdapterFactory.class)) {
+&nbsp;   *   gsonBuilder.registerTypeAdapterFactory(factory);
+&nbsp;   * }
+&nbsp;   * 
+&nbsp;   * // Manual registration is also an option
+&nbsp;   * gsonBuilder.registerTypeAdapterFactory(new GsonAdaptersMyDocument());
+&nbsp;   * 
+&nbsp;   * com.google.gson.Gson gson = gsonBuilder.create();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Certain Gson options are supported for immutable objects in deliberate fashion:
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;{@link GsonBuilder#serializeNulls()} - When enabled, {@code null} fields and empty array
+&nbsp;   * fields will be included, otherwise omited&lt;/li&gt;
+&nbsp;   * &lt;li&gt;{@link GsonBuilder#setFieldNamingStrategy(FieldNamingStrategy)} - Naming strategy could be
+&nbsp;   * used if {@code @TypeAdapters(fieldNamingStrategy=true)}. See {@link #fieldNamingStrategy()} for
+&nbsp;   * more information.&lt;/li&gt;
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * @see #metainfService()
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.TYPE, ElementType.PACKAGE})
+&nbsp;  public @interface TypeAdapters {
+&nbsp;    /**
+&nbsp;     * When {@code namingStrategy=true}, somewhat more involved code is generated to apply naming
+&nbsp;     * strategies extracted from configured {@link com.google.gson.Gson} instance.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * @see FieldNamingStrategy
+&nbsp;     * @see FieldNamingPolicy
+&nbsp;     * @see GsonBuilder#setFieldNamingPolicy(FieldNamingPolicy)
+&nbsp;     * @return {@code true} if enabled, by default is {@code false}
+&nbsp;     */
+&nbsp;    boolean fieldNamingStrategy() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code emptyAsNulls=true}, empty arrays and objects will be omitted from output as
+&nbsp;     * if they where {@code null}, both field name and value will be omited.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Note that {@code null} skipping behaviour is controlled by
+&nbsp;     * {@link GsonBuilder#serializeNulls()}, which forces all nulls and empty arrays/objects to be
+&nbsp;     * serialized.
+&nbsp;     * @return {@code true} if enabled, by default is {@code false}
+&nbsp;     */
+&nbsp;    boolean emptyAsNulls() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Enables treating {@code null} value as a marker that value is absent and default value should
+&nbsp;     * be used for default attributes. This workds during reading/deserialization. If default value
+&nbsp;     * is also nullable, then {@code null} will be set regardless of a default value.
+&nbsp;     * @return {@code true} if enabled, by default is {@code false}
+&nbsp;     */
+&nbsp;    boolean nullAsDefault() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * You can set {@code metainfService = false} to disable generation of meta-inf services.
+&nbsp;     * @return {@code true} if metainf services are enabled, by default is {@code true}
+&nbsp;     */
+&nbsp;    boolean metainfService() default true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Expected subtypes for serialization could be specified on attribute level or an abstract
+&nbsp;   * supertype directly, however the former declaration site has precedence. It enables polymorphic
+&nbsp;   * marshaling by structure. Subtype that matches JSON value will be returned, for the details
+&nbsp;   * please see {@link ExpectedSubtypesAdapter}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Note: when this annotation is used with {@link Map} attribute, it refers to types of values,
+&nbsp;   * not keys.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;This functionality uses runtime support class and requires that this Gson integration
+&nbsp;   * module
+&nbsp;   * jar will be available at runtime.&lt;/em&gt;
+&nbsp;   * @see ExpectedSubtypesAdapter
+&nbsp;   * @see #value()
+&nbsp;   * @see Named
+&nbsp;   */
+&nbsp;  @Target({ElementType.METHOD, ElementType.TYPE})
+&nbsp;  public @interface ExpectedSubtypes {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specifies expected subclasses of an abstract type that is matched during parsing by
+&nbsp;     * structural compatibility of settable attributes.
+&nbsp;     * If all attributes of subclasses are the same, then it will result in error due to undecidable
+&nbsp;     * situation.
+&nbsp;     * @return subclasses of an abstract type
+&nbsp;     */
+&nbsp;    Class&lt;?&gt;[] value();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Specify attribute&#39;s custom name in JSON representation.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * This example used to define JSON attribute name as &quot;_id&quot; during marshaling and unmarshaling.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * &amp;#064;Gson.Named(&amp;quot;_id&amp;quot;)
+&nbsp;   * public abstract String id();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;If you use Gson versions 2.5.0 and higher it&#39;s better to use {@link SerializedName}
+&nbsp;   * instead.
+&nbsp;   * This annotation is analogous to {@code SerializedName} but was created when
+&nbsp;   * {@code SerializedName}
+&nbsp;   * was applicable only to fields in older versions of Gson. You can think of this
+&nbsp;   * {@code Gson.Named}
+&nbsp;   * annotation as deprecated now.
+&nbsp;   * &lt;/em&gt;
+&nbsp;   * @see SerializedName
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  public @interface Named {
+&nbsp;    /**
+&nbsp;     * @return custom name string.
+&nbsp;     */
+&nbsp;    String value();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Indicates if marshaler should skip this attribute during marshaling.
+&nbsp;   * Applies only to non-mandatory attributes.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  public @interface Ignore {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Can be put on accessor of type {@link JsonObject} as catch all collection of all other fields,
+&nbsp;   * not mapped to declared attributes (i.e. unknown).
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  public @interface Other {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

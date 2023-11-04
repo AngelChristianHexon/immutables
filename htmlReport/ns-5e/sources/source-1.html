@@ -1,0 +1,138 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Functional</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.func</a>
+</div>
+
+<h1>Coverage Summary for Class: Functional (org.immutables.func)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Functional$BindParameters</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.func;
+&nbsp;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;
+&nbsp;/**
+&nbsp; * Generates projection Function and predicates for attributes. Useful for pre-java 8
+&nbsp; */
+&nbsp;@Target({ElementType.TYPE, ElementType.METHOD})
+&nbsp;@Retention(RetentionPolicy.CLASS)
+&nbsp;public @interface Functional {
+&nbsp;  /**
+&nbsp;   * Place on non-accessor methods of abstract value type to
+&nbsp;   * generate function to which parameters can be bound.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * &amp;#064;Value.Immutable
+&nbsp;   * &amp;#064;Functional
+&nbsp;   * public abstract class Xyz {
+&nbsp;   *   &amp;#064;Value.Parameter
+&nbsp;   *   public abstract String getX();
+&nbsp;   * 
+&nbsp;   *   &amp;#064;Functional.BindParameters
+&nbsp;   *   public String computeZ(String y) {
+&nbsp;   *     return getX() + y;
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ...
+&nbsp;   * // Generated function
+&nbsp;   * public static Function&lt;Xyz, String&gt; computeZ(String y) {
+&nbsp;   *   return new Function&lt;Xyz, String&gt;() {
+&nbsp;   *     &amp;#064;Override
+&nbsp;   *     public String apply(Xyz input) {
+&nbsp;   *       return input.computeZ(y);
+&nbsp;   *     }
+&nbsp;   *     &amp;#064;Override
+&nbsp;   *     public String toString() {
+&nbsp;   *       return &quot;XyzFunctions.computeZ(y)&quot;;
+&nbsp;   *     }
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ...
+&nbsp;   * // Use as
+&nbsp;   * Function&lt;Xyz, String&gt; fn = XyzFunctions.computeZ(&quot;Y&quot;);
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  @Target({ElementType.METHOD})
+&nbsp;  @Retention(RetentionPolicy.CLASS)
+&nbsp;  public @interface BindParameters {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

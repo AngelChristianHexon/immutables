@@ -1,0 +1,476 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyEntity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyEntity (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSillyEntity$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.common.primitives.UnsignedInteger;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyEntity}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSillyEntity.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyEntity extends SillyEntity {
+&nbsp;  private final int id;
+&nbsp;  private final String val;
+&nbsp;  private final ImmutableMap&lt;String, Integer&gt; payload;
+&nbsp;  private final ImmutableList&lt;Integer&gt; ints;
+&nbsp;  private transient final UnsignedInteger der;
+&nbsp;
+&nbsp;  private ImmutableSillyEntity(
+&nbsp;      int id,
+&nbsp;      String val,
+&nbsp;      ImmutableMap&lt;String, Integer&gt; payload,
+&nbsp;      ImmutableList&lt;Integer&gt; ints) {
+&nbsp;    this.id = id;
+&nbsp;    this.val = val;
+&nbsp;    this.payload = payload;
+&nbsp;    this.ints = ints;
+&nbsp;    this.der = Objects.requireNonNull(super.der(), &quot;der&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int id() {
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code val} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String val() {
+&nbsp;    return val;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code payload} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Integer&gt; payload() {
+&nbsp;    return payload;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ints} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Integer&gt; ints() {
+&nbsp;    return ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code der} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public UnsignedInteger der() {
+&nbsp;    return der;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyEntity#id() id} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for id
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyEntity withId(int value) {
+&nbsp;    if (this.id == value) return this;
+&nbsp;    return new ImmutableSillyEntity(value, this.val, this.payload, this.ints);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyEntity#val() val} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for val
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyEntity withVal(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;val&quot;);
+&nbsp;    if (this.val.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyEntity(this.id, newValue, this.payload, this.ints);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SillyEntity#payload() payload} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the payload map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyEntity withPayload(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.payload == entries) return this;
+&nbsp;    ImmutableMap&lt;String, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableSillyEntity(this.id, this.val, newValue, this.ints);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyEntity#ints() ints}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyEntity withInts(int... elements) {
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableSillyEntity(this.id, this.val, this.payload, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyEntity#ints() ints}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ints elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyEntity withInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ints == elements) return this;
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSillyEntity(this.id, this.val, this.payload, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyEntity} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyEntity
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyEntity) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyEntity another) {
+&nbsp;    return id == another.id
+&nbsp;        &amp;&amp; val.equals(another.val)
+&nbsp;        &amp;&amp; payload.equals(another.payload)
+&nbsp;        &amp;&amp; ints.equals(another.ints)
+&nbsp;        &amp;&amp; der.equals(another.der);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code id}, {@code val}, {@code payload}, {@code ints}, {@code der}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + id;
+&nbsp;    h += (h &lt;&lt; 5) + val.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + payload.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + der.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyEntity} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyEntity&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;id&quot;, id)
+&nbsp;        .add(&quot;val&quot;, val)
+&nbsp;        .add(&quot;payload&quot;, payload)
+&nbsp;        .add(&quot;ints&quot;, ints)
+&nbsp;        .add(&quot;der&quot;, der)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyEntity} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyEntity instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyEntity copyOf(SillyEntity instance) {
+&nbsp;    if (instance instanceof ImmutableSillyEntity) {
+&nbsp;      return (ImmutableSillyEntity) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyEntity.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSillyEntity ImmutableSillyEntity}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSillyEntity.builder()
+&nbsp;   *    .id(int) // required {@link SillyEntity#id() id}
+&nbsp;   *    .val(String) // required {@link SillyEntity#val() val}
+&nbsp;   *    .putPayload|putAllPayload(String =&amp;gt; int) // {@link SillyEntity#payload() payload} mappings
+&nbsp;   *    .addInts|addAllInts(int) // {@link SillyEntity#ints() ints} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSillyEntity builder
+&nbsp;   */
+&nbsp;  public static ImmutableSillyEntity.Builder builder() {
+&nbsp;    return new ImmutableSillyEntity.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSillyEntity ImmutableSillyEntity}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ID = 0x1L;
+&nbsp;    private static final long INIT_BIT_VAL = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int id;
+&nbsp;    private @Nullable String val;
+&nbsp;    private ImmutableMap.Builder&lt;String, Integer&gt; payload = ImmutableMap.builder();
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; ints = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SillyEntity} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SillyEntity instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      id(instance.id());
+&nbsp;      val(instance.val());
+&nbsp;      putAllPayload(instance.payload());
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyEntity#id() id} attribute.
+&nbsp;     * @param id The value for id 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder id(int id) {
+&nbsp;      this.id = id;
+&nbsp;      initBits &amp;= ~INIT_BIT_ID;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyEntity#val() val} attribute.
+&nbsp;     * @param val The value for val 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder val(String val) {
+&nbsp;      this.val = Objects.requireNonNull(val, &quot;val&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_VAL;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyEntity#payload() payload} map.
+&nbsp;     * @param key The key in the payload map
+&nbsp;     * @param value The associated value in the payload map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPayload(String key, int value) {
+&nbsp;      this.payload.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyEntity#payload() payload} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPayload(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.payload.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link SillyEntity#payload() payload} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the payload map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder payload(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.payload = ImmutableMap.builder();
+&nbsp;      return putAllPayload(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link SillyEntity#payload() payload} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the payload map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllPayload(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.payload.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SillyEntity#ints() ints} list.
+&nbsp;     * @param element A ints element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int element) {
+&nbsp;      this.ints.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillyEntity#ints() ints} list.
+&nbsp;     * @param elements An array of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int... elements) {
+&nbsp;      this.ints.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SillyEntity#ints() ints} list.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ints(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints = ImmutableList.builder();
+&nbsp;      return addAllInts(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillyEntity#ints() ints} list.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSillyEntity ImmutableSillyEntity}.
+&nbsp;     * @return An immutable instance of SillyEntity
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSillyEntity build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableSillyEntity(id, val, payload.build(), ints.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ID) != 0) attributes.add(&quot;id&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_VAL) != 0) attributes.add(&quot;val&quot;);
+&nbsp;      return &quot;Cannot build SillyEntity, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

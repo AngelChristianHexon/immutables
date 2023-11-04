@@ -1,0 +1,376 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutablePacks</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">borg.immutables.fixture.packoutput.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutablePacks (borg.immutables.fixture.packoutput.impl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutablePacks$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutablePacks$Perk</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutablePacks$Perk$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package borg.immutables.fixture.packoutput.impl;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.fixture.packoutput.Packs;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link org.immutables.fixture.packoutput.Packs}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutablePacks.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutablePacks extends Packs {
+&nbsp;  private final Packs.Perk perk;
+&nbsp;
+&nbsp;  private ImmutablePacks(Packs.Perk perk) {
+&nbsp;    this.perk = perk;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code perk} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Packs.Perk perk() {
+&nbsp;    return perk;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link org.immutables.fixture.packoutput.Packs#perk() perk} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for perk
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePacks withPerk(Packs.Perk value) {
+&nbsp;    if (this.perk == value) return this;
+&nbsp;    Packs.Perk newValue = Objects.requireNonNull(value, &quot;perk&quot;);
+&nbsp;    return new ImmutablePacks(newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutablePacks} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutablePacks
+&nbsp;        &amp;&amp; equalTo(0, (ImmutablePacks) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutablePacks another) {
+&nbsp;    return perk.equals(another.perk);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code perk}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + perk.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Packs} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Packs&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;perk&quot;, perk)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link org.immutables.fixture.packoutput.Packs} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Packs instance
+&nbsp;   */
+&nbsp;  public static ImmutablePacks copyOf(Packs instance) {
+&nbsp;    if (instance instanceof ImmutablePacks) {
+&nbsp;      return (ImmutablePacks) instance;
+&nbsp;    }
+&nbsp;    return ImmutablePacks.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutablePacks ImmutablePacks}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutablePacks.builder()
+&nbsp;   *    .perk(org.immutables.fixture.packoutput.Packs.Perk) // required {@link org.immutables.fixture.packoutput.Packs#perk() perk}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutablePacks builder
+&nbsp;   */
+&nbsp;  public static ImmutablePacks.Builder builder() {
+&nbsp;    return new ImmutablePacks.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutablePacks ImmutablePacks}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_PERK = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable Packs.Perk perk;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Packs} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Packs instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      perk(instance.perk());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link org.immutables.fixture.packoutput.Packs#perk() perk} attribute.
+&nbsp;     * @param perk The value for perk 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder perk(Packs.Perk perk) {
+&nbsp;      this.perk = Objects.requireNonNull(perk, &quot;perk&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PERK;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutablePacks ImmutablePacks}.
+&nbsp;     * @return An immutable instance of Packs
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutablePacks build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutablePacks(perk);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_PERK) != 0) attributes.add(&quot;perk&quot;);
+&nbsp;      return &quot;Cannot build Packs, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link org.immutables.fixture.packoutput.Packs.Perk}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutablePacks.Perk.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs.Perk&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Perk implements Packs.Perk {
+&nbsp;
+&nbsp;    private Perk(ImmutablePacks.Perk.Builder builder) {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Perk} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutablePacks.Perk
+&nbsp;          &amp;&amp; equalTo(0, (ImmutablePacks.Perk) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;MethodCanBeStatic&quot;)
+&nbsp;    private boolean equalTo(int synthetic, ImmutablePacks.Perk another) {
+&nbsp;      return true;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a constant hash code value.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return 1646885117;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Perk}.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;Perk{}&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link org.immutables.fixture.packoutput.Packs.Perk} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Perk instance
+&nbsp;     */
+&nbsp;    public static ImmutablePacks.Perk copyOf(Packs.Perk instance) {
+&nbsp;      if (instance instanceof ImmutablePacks.Perk) {
+&nbsp;        return (ImmutablePacks.Perk) instance;
+&nbsp;      }
+&nbsp;      return ImmutablePacks.Perk.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutablePacks.Perk Perk}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutablePacks.Perk.builder()
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Perk builder
+&nbsp;     */
+&nbsp;    public static ImmutablePacks.Perk.Builder builder() {
+&nbsp;      return new ImmutablePacks.Perk.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutablePacks.Perk Perk}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;org.immutables.fixture.packoutput.Packs.Perk&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Perk} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(Packs.Perk instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutablePacks.Perk Perk}.
+&nbsp;       * @return An immutable instance of Perk
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutablePacks.Perk build() {
+&nbsp;        return new ImmutablePacks.Perk(this);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,565 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableSecondie</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.generics</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableSecondie (org.immutables.fixture.generics)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableSecondie</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.generics;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ArrayListMultimap;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Secondie Secondie} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableSecondie is not thread-safe&lt;/em&gt;
+&nbsp; * @param &lt;T&gt; generic parameter T
+&nbsp; * @param &lt;V&gt; generic parameter V
+&nbsp; * @see ImmutableSecondie
+&nbsp; */
+&nbsp;@Generated(from = &quot;Secondie&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Secondie&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableSecondie&lt;T, V&gt; implements Secondie&lt;T, V&gt; {
+&nbsp;  private static final long OPT_BIT_SET = 0x1L;
+&nbsp;  private long optBits;
+&nbsp;
+&nbsp;  private @Nullable V integer;
+&nbsp;  private @Nullable ArrayList&lt;T&gt; list = null;
+&nbsp;  private @Nullable LinkedHashSet&lt;V&gt; set = null;
+&nbsp;  private final ArrayListMultimap&lt;T, V&gt; coll = ArrayListMultimap.create();
+&nbsp;
+&nbsp;  private ModifiableSecondie() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Secondie}.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param &lt;V&gt; generic parameter V
+&nbsp;   * @param integer The value for the {@link Secondie#integer() integer} attribute (can be {@code null})
+&nbsp;   * @param list The value for the {@link Secondie#list() list} attribute (can be {@code null})
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static &lt;T, V&gt; ModifiableSecondie&lt;T, V&gt; create(@Nullable V integer, @Nullable Iterable&lt;? extends T&gt; list) {
+&nbsp;    return new ModifiableSecondie&lt;T, V&gt;()
+&nbsp;        .setInteger(integer)
+&nbsp;        .addAllList(list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Secondie}.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param &lt;V&gt; generic parameter V
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static &lt;T, V&gt; ModifiableSecondie&lt;T, V&gt; create() {
+&nbsp;    return new ModifiableSecondie&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code integer} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable V integer() {
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code list}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable List&lt;T&gt; list() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code set} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable Set&lt;V&gt; set() {
+&nbsp;    if (setIsSet()) {
+&nbsp;      return set;
+&nbsp;    } else {
+&nbsp;      return Secondie.super.set();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code coll} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Multimap&lt;T, V&gt; coll() {
+&nbsp;    return coll;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return newly computed, not cached value of {@code lst} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable List&lt;V&gt; lst() {
+&nbsp;    return Secondie.super.lst();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; clear() {
+&nbsp;    optBits = 0;
+&nbsp;    integer = null;
+&nbsp;    list = null;
+&nbsp;    set = null;
+&nbsp;    coll.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Secondie} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; from(Secondie&lt;T, V&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableSecondie&lt;?, ?&gt;) {
+&nbsp;      from((ModifiableSecondie&lt;T, V&gt;) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    @Nullable V integerValue = instance.integer();
+&nbsp;    if (integerValue != null) {
+&nbsp;      setInteger(integerValue);
+&nbsp;    }
+&nbsp;    @Nullable List&lt;T&gt; listValue = instance.list();
+&nbsp;    if (listValue != null) {
+&nbsp;      addAllList(listValue);
+&nbsp;    }
+&nbsp;    @Nullable Set&lt;V&gt; setValue = instance.set();
+&nbsp;    if (setValue != null) {
+&nbsp;      addAllSet(setValue);
+&nbsp;    }
+&nbsp;    putAllColl(instance.coll());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Secondie} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; from(ModifiableSecondie&lt;T, V&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    @Nullable V integerValue = instance.integer();
+&nbsp;    if (integerValue != null) {
+&nbsp;      setInteger(integerValue);
+&nbsp;    }
+&nbsp;    @Nullable List&lt;T&gt; listValue = instance.list();
+&nbsp;    if (listValue != null) {
+&nbsp;      addAllList(listValue);
+&nbsp;    }
+&nbsp;    @Nullable Set&lt;V&gt; setValue = instance.set();
+&nbsp;    if (setValue != null) {
+&nbsp;      addAllSet(setValue);
+&nbsp;    }
+&nbsp;    putAllColl(instance.coll());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Secondie#integer() integer} attribute.
+&nbsp;   * @param integer The value for integer, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; setInteger(@Nullable V integer) {
+&nbsp;    this.integer = integer;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Secondie#list() list} list.
+&nbsp;   * @param element The list element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; addList(T element) {
+&nbsp;    if (this.list == null) {
+&nbsp;      this.list = new ArrayList&lt;T&gt;();
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;list element&quot;);
+&nbsp;    this.list.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Secondie#list() list} list.
+&nbsp;   * @param elements An array of list elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableSecondie&lt;T, V&gt; addList(T... elements) {
+&nbsp;    for (T e : elements) {
+&nbsp;      addList(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Secondie#list() list} list.
+&nbsp;   * @param elements An iterable of list elements, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; setList(@Nullable Iterable&lt;? extends T&gt; elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      this.list = null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.list == null) {
+&nbsp;      this.list = new ArrayList&lt;T&gt;();
+&nbsp;    } else {
+&nbsp;      this.list.clear();
+&nbsp;    }
+&nbsp;    addAllList(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Secondie#list() list} list.
+&nbsp;   * @param elements An iterable of list elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; addAllList(Iterable&lt;? extends T&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.list == null) {
+&nbsp;      this.list = new ArrayList&lt;T&gt;();
+&nbsp;    }
+&nbsp;    for (T e : elements) {
+&nbsp;      addList(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Secondie#set() set} set.
+&nbsp;   * @param element The set element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; addSet(V element) {
+&nbsp;    if (this.set == null) {
+&nbsp;      this.set = new LinkedHashSet&lt;V&gt;();
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;set element&quot;);
+&nbsp;    this.set.add(element);
+&nbsp;    optBits |= OPT_BIT_SET;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Secondie#set() set} set.
+&nbsp;   * @param elements An array of set elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableSecondie&lt;T, V&gt; addSet(V... elements) {
+&nbsp;    for (V e : elements) {
+&nbsp;      addSet(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_SET;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Secondie#set() set} set.
+&nbsp;   * @param elements An iterable of set elements, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; setSet(@Nullable Iterable&lt;? extends V&gt; elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      this.set = null;
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.set == null) {
+&nbsp;      this.set = new LinkedHashSet&lt;V&gt;();
+&nbsp;    } else {
+&nbsp;      this.set.clear();
+&nbsp;    }
+&nbsp;    addAllSet(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Secondie#set() set} set.
+&nbsp;   * @param elements An iterable of set elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; addAllSet(Iterable&lt;? extends V&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.set == null) {
+&nbsp;      this.set = new LinkedHashSet&lt;V&gt;();
+&nbsp;    }
+&nbsp;    for (V e : elements) {
+&nbsp;      addSet(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_SET;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@link Secondie#coll() coll} true. Nulls are not permitted
+&nbsp;   * @param key The key for coll
+&nbsp;   * @param values The values for coll
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableSecondie&lt;T, V&gt; putColl(T key, V... values) {
+&nbsp;    putAllColl(key, Arrays.asList(values));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@link Secondie#coll() coll} true. Nulls are not permitted
+&nbsp;   * @param key The key for coll
+&nbsp;   * @param values The values for coll
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; putAllColl(T key, Iterable&lt;V&gt; values) {
+&nbsp;    for (V v : values) {
+&nbsp;      this.coll.put(
+&nbsp;          Objects.requireNonNull(key, &quot;coll key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;coll value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link Secondie#coll() coll} map.
+&nbsp;   * @param key The key in coll map
+&nbsp;   * @param value The associated value in the coll map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; putColl(T key, V value) {
+&nbsp;    this.coll.put(
+&nbsp;        Objects.requireNonNull(key, &quot;coll key&quot;),
+&nbsp;        Objects.requireNonNull(value, &quot;coll value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link Secondie#coll() coll} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the coll map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; setColl(Multimap&lt;? extends T, ? extends V&gt; entries) {
+&nbsp;    this.coll.clear();
+&nbsp;    for (Map.Entry&lt;? extends T, ? extends V&gt; e : entries.entries()) {
+&nbsp;      T k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      this.coll.put(
+&nbsp;          Objects.requireNonNull(k, &quot;coll key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;coll value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link Secondie#coll() coll} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to coll map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSecondie&lt;T, V&gt; putAllColl(Multimap&lt;? extends T, ? extends V&gt; entries) {
+&nbsp;    for (Map.Entry&lt;? extends T, ? extends V&gt; e : entries.entries()) {
+&nbsp;      T k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      this.coll.put(
+&nbsp;          Objects.requireNonNull(k, &quot;coll key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;coll value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Secondie#set() set} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean setIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_SET) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableSecondie&lt;T, V&gt; unsetSet() {
+&nbsp;    optBits |= 0;
+&nbsp;    set = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableSecondie ImmutableSecondie}.
+&nbsp;   * @return An immutable instance of Secondie
+&nbsp;   */
+&nbsp;  public final ImmutableSecondie&lt;T, V&gt; toImmutable() {
+&nbsp;    return ImmutableSecondie.&lt;T, V&gt;copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableSecondie&lt;?, ?&gt;} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableSecondie&lt;?, ?&gt;)) return false;
+&nbsp;    ModifiableSecondie&lt;?, ?&gt; other = (ModifiableSecondie&lt;?, ?&gt;) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableSecondie&lt;?, ?&gt; another) {
+&nbsp;    Set&lt;V&gt; set = set();
+&nbsp;    List&lt;V&gt; lst = lst();
+&nbsp;    return Objects.equals(integer, another.integer)
+&nbsp;        &amp;&amp; Objects.equals(list, another.list)
+&nbsp;        &amp;&amp; Objects.equals(set, another.set())
+&nbsp;        &amp;&amp; coll.equals(another.coll)
+&nbsp;        &amp;&amp; Objects.equals(lst, another.lst());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code list}, {@code set}, {@code coll}, {@code lst}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(integer);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(list);
+&nbsp;    Set&lt;V&gt; set = set();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(set);
+&nbsp;    h += (h &lt;&lt; 5) + coll.hashCode();
+&nbsp;    List&lt;V&gt; lst = lst();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(lst);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Secondie}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableSecondie&quot;)
+&nbsp;        .add(&quot;integer&quot;, integer())
+&nbsp;        .add(&quot;list&quot;, list())
+&nbsp;        .add(&quot;set&quot;, set())
+&nbsp;        .add(&quot;coll&quot;, coll())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > FluentFutures</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mongo.concurrent</a>
+</div>
+
+<h1>Coverage Summary for Class: FluentFutures (org.immutables.mongo.concurrent)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">FluentFutures</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">FluentFutures$1</td>
+  </tr>
+  <tr>
+    <td class="name">FluentFutures$LazyTransformedFluentFuture</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FluentFutures$WrapingFluentFuture</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FluentFutures$WrapingFluentFuture$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mongo.concurrent;
+&nbsp;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.util.concurrent.AsyncFunction;
+&nbsp;import com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture;
+&nbsp;import com.google.common.util.concurrent.FutureCallback;
+&nbsp;import com.google.common.util.concurrent.Futures;
+&nbsp;import com.google.common.util.concurrent.ListenableFuture;
+&nbsp;import com.google.common.util.concurrent.MoreExecutors;
+&nbsp;import java.util.concurrent.ExecutionException;
+&nbsp;import java.util.concurrent.Executor;
+&nbsp;import java.util.concurrent.TimeUnit;
+&nbsp;import java.util.concurrent.TimeoutException;
+&nbsp;import static com.google.common.base.Preconditions.checkNotNull;
+&nbsp;
+&nbsp;/**
+&nbsp; * Provides default wrapping implementation of {@link FluentFuture}
+&nbsp; */
+&nbsp;public final class FluentFutures {
+&nbsp;  private FluentFutures() {}
+&nbsp;
+<b class="nc">&nbsp;  private static class WrapingFluentFuture&lt;V&gt;</b>
+&nbsp;      extends SimpleForwardingListenableFuture&lt;V&gt;
+&nbsp;      implements FluentFuture&lt;V&gt; {
+&nbsp;
+&nbsp;    private final Executor executor;
+&nbsp;
+&nbsp;    private WrapingFluentFuture(ListenableFuture&lt;V&gt; future, Executor executor) {
+<b class="nc">&nbsp;      super(future);</b>
+<b class="nc">&nbsp;      this.executor = checkNotNull(executor);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public V getUnchecked() {
+<b class="nc">&nbsp;      return Futures.getUnchecked(this);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public FluentFuture&lt;V&gt; addCallback(FutureCallback&lt;V&gt; callback) {
+<b class="nc">&nbsp;      Futures.addCallback(this, callback, executor);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public FluentFuture&lt;V&gt; catching(Function&lt;Throwable, V&gt; fallback) {
+<b class="nc">&nbsp;      return from(Futures.catching(this, Throwable.class, fallback, executor));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public FluentFuture&lt;V&gt; withFallbackValue(final V value) {
+<b class="nc">&nbsp;      return catching(new Function&lt;Throwable, V&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public V apply(Throwable t) {
+<b class="nc">&nbsp;          return value;</b>
+&nbsp;        }
+&nbsp;      });
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;T&gt; FluentFuture&lt;T&gt; transform(Function&lt;? super V, ? extends T&gt; function) {
+<b class="nc">&nbsp;      return from(Futures.transform(this, function, executor));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;T&gt; FluentFuture&lt;T&gt; asyncTransform(AsyncFunction&lt;? super V, ? extends T&gt; function) {
+<b class="nc">&nbsp;      return from(Futures.transformAsync(this, function, executor));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public FluentFuture&lt;V&gt; withExecutor(Executor executor) {
+<b class="nc">&nbsp;      if (this.executor == executor) {</b>
+<b class="nc">&nbsp;        return this;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return new WrapingFluentFuture&lt;&gt;(delegate(), executor);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;T&gt; FluentFuture&lt;T&gt; lazyTransform(Function&lt;? super V, ? extends T&gt; function) {
+<b class="nc">&nbsp;      return new LazyTransformedFluentFuture&lt;&gt;(this, function, executor);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class LazyTransformedFluentFuture&lt;V, F&gt; extends WrapingFluentFuture&lt;V&gt; {
+&nbsp;    private final Function&lt;? super F, ? extends V&gt; function;
+&nbsp;    private final ListenableFuture&lt;F&gt; fromFuture;
+&nbsp;
+&nbsp;    // Any get operation will go through transform function
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;    LazyTransformedFluentFuture(
+&nbsp;        ListenableFuture&lt;F&gt; fromFuture,
+&nbsp;        Function&lt;? super F, ? extends V&gt; function,
+&nbsp;        Executor executor) {
+<b class="nc">&nbsp;      super((ListenableFuture&lt;V&gt;) fromFuture, executor);</b>
+<b class="nc">&nbsp;      this.fromFuture = fromFuture;</b>
+<b class="nc">&nbsp;      this.function = function;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public V get() throws InterruptedException, ExecutionException {
+<b class="nc">&nbsp;      return function.apply(fromFuture.get());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+<b class="nc">&nbsp;      return function.apply(fromFuture.get(timeout, unit));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Unnecessary conversion, already have a fluent future. This method exists solely to detect
+&nbsp;   * unnecessary conversion from a {@link FluentFuture}.
+&nbsp;   * @deprecated you don&#39;t need to convert to a fluent future, it is already is
+&nbsp;   * @param &lt;V&gt; value type
+&nbsp;   * @param future future
+&nbsp;   * @return same instance
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  public static &lt;V&gt; FluentFuture&lt;V&gt; from(FluentFuture&lt;V&gt; future) {
+<b class="nc">&nbsp;    return future;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Wraps listenable future with a fluent future.
+&nbsp;   * @param &lt;V&gt; value type
+&nbsp;   * @param future future
+&nbsp;   * @return fluent instance
+&nbsp;   */
+&nbsp;  public static &lt;V&gt; FluentFuture&lt;V&gt; from(ListenableFuture&lt;V&gt; future) {
+<b class="nc">&nbsp;    if (future instanceof FluentFuture&lt;?&gt;) {</b>
+<b class="nc">&nbsp;      return (FluentFuture&lt;V&gt;) future;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return new WrapingFluentFuture&lt;&gt;(future, MoreExecutors.directExecutor());</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

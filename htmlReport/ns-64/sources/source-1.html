@@ -1,0 +1,137 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Serial</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.serial</a>
+</div>
+
+<h1>Coverage Summary for Class: Serial (org.immutables.serial)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Serial$Structural</td>
+  </tr>
+  <tr>
+    <td class="name">Serial$Version</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.serial;
+&nbsp;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;
+&nbsp;/**
+&nbsp; * Use nested annotations to control serialization of value objects.
+&nbsp; * This serialization module currently is in experimental state.
+&nbsp; * &lt;p&gt;
+&nbsp; * This umbrella annotaion does nothing.
+&nbsp; * @see Version
+&nbsp; * @see Structural
+&nbsp; */
+&nbsp;@Target({})
+&nbsp;@Retention(RetentionPolicy.SOURCE)
+&nbsp;public @interface Serial {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Could be applied to types, enclosing types, enclosing packages and as meta-annotation.
+&nbsp;   * Specify serial version over enclosing types. It has an effect of also making them implement
+&nbsp;   * serializable if they don&#39;t already. May be used in combination with {@link Structural}, but it
+&nbsp;   * is not strictly needed if structural is present.
+&nbsp;   */
+&nbsp;  @Target({ElementType.TYPE, ElementType.PACKAGE, ElementType.ANNOTATION_TYPE})
+&nbsp;  public @interface Version {
+&nbsp;    long value();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Annotation to generate structural serialization. Could be applied to
+&nbsp;   * types, enclosing types, enclosing packages and as meta-annotation.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Structural serialization of value types use attribute names, collections, optional values and
+&nbsp;   * map into the representation, rather than exact internal fields used to store the data. The
+&nbsp;   * important aspect of this is that objects are being deserialized using their constructors and
+&nbsp;   * builders, and not the internal representation, thus all singletons, interning and other
+&nbsp;   * invariants will be preserved and data migration made possible (using either optional or
+&nbsp;   * nullable attributes) or changing types of collections, moving from scalar values to collections
+&nbsp;   * etc. Constuction using builder and constructor (if builder is disabled) is supported.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * If {@link Structural} serialization is used and no {@code serialVersionUID} is declared, i.e.
+&nbsp;   * {@link Version} annotation is missing, serialized form will have serial version 0L assigned.
+&nbsp;   */
+&nbsp;  @Target({ElementType.TYPE, ElementType.PACKAGE, ElementType.ANNOTATION_TYPE})
+&nbsp;  public @interface Structural {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

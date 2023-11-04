@@ -1,0 +1,397 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TypeHierarchyCollector</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator</a>
+</div>
+
+<h1>Coverage Summary for Class: TypeHierarchyCollector (org.immutables.generator)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TypeHierarchyCollector</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/48)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/98)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TypeHierarchyCollector$TypevarContext</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/56)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/109)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator;
+&nbsp;
+&nbsp;import com.google.common.base.Verify;
+&nbsp;import com.google.common.collect.*;
+&nbsp;import java.util.*;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.lang.model.element.*;
+&nbsp;import javax.lang.model.type.*;
+&nbsp;import static com.google.common.base.Verify.verify;
+&nbsp;
+&nbsp;@NotThreadSafe
+<b class="nc">&nbsp;public class TypeHierarchyCollector {</b>
+<b class="nc">&nbsp;  private final List&lt;TypeElement&gt; extendedClasses = Lists.newArrayList();</b>
+<b class="nc">&nbsp;  private final Set&lt;TypeElement&gt; implementedInterfaces = Sets.newLinkedHashSet();</b>
+<b class="nc">&nbsp;  private final Set&lt;String&gt; extendedClassNames = Sets.newLinkedHashSet();</b>
+<b class="nc">&nbsp;  private final Set&lt;String&gt; implementedInterfaceNames = Sets.newLinkedHashSet();</b>
+<b class="nc">&nbsp;  protected final Set&lt;String&gt; unresolvedYetArguments = Sets.newHashSet();</b>
+&nbsp;
+&nbsp;  /**
+&nbsp;   * overridable stringify.
+&nbsp;   * @param input the input
+&nbsp;   * @param context the context
+&nbsp;   * @return the string
+&nbsp;   */
+&nbsp;  protected String stringify(DeclaredType input, TypevarContext context) {
+<b class="nc">&nbsp;    return toTypeElement(input).getQualifiedName().toString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public final class TypevarContext {
+&nbsp;    public final List&lt;String&gt; parameters;
+&nbsp;    public final List&lt;String&gt; arguments;
+&nbsp;
+<b class="nc">&nbsp;    TypevarContext(TypeElement element, String renderedTypeString) {</b>
+<b class="nc">&nbsp;      List&lt;? extends TypeParameterElement&gt; typeParameters = element.getTypeParameters();</b>
+<b class="nc">&nbsp;      if (!typeParameters.isEmpty()) {</b>
+<b class="nc">&nbsp;        this.arguments = SourceTypes.extract(renderedTypeString).getValue();</b>
+&nbsp;
+<b class="nc">&nbsp;        this.parameters = Lists.newArrayList();</b>
+<b class="nc">&nbsp;        for (TypeParameterElement p : typeParameters) {</b>
+<b class="nc">&nbsp;          parameters.add(p.getSimpleName().toString());</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;        // we allow having no arguments in a string as raw type/unspecified argument scenario
+<b class="nc">&nbsp;        Verify.verify(arguments.isEmpty() || (parameters.size() == arguments.size()), parameters + &quot; =/&gt; &quot; + arguments + &quot;\n[\n&quot; + renderedTypeString + &quot;\n]&quot;);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        this.parameters = Collections.emptyList();</b>
+<b class="nc">&nbsp;        this.arguments = Collections.emptyList();</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public void collectFrom(TypeMirror typeMirror) {
+<b class="nc">&nbsp;    if (typeMirror.getKind() == TypeKind.DECLARED) {</b>
+<b class="nc">&nbsp;      collectHierarchyMirrors(typeMirror, stringify(typeMirror));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static String stringify(TypeMirror mirror) {
+<b class="nc">&nbsp;    String string = mirror.toString();</b>
+&nbsp;    // -1 + -1 both not found, special symbols for type annotations
+&nbsp;    // where @ is normal annotation sign, but : is synthetic insert in some
+&nbsp;    // javac versions, accompanying weird Java type_use annotations
+<b class="nc">&nbsp;    if (string.indexOf(&#39;@&#39;) + string.indexOf(&#39;:&#39;) == -2) {</b>
+<b class="nc">&nbsp;      return string;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    StringBuilder builder = new StringBuilder();</b>
+<b class="nc">&nbsp;    append(builder, mirror);</b>
+<b class="nc">&nbsp;    return builder.toString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static StringBuilder append(StringBuilder builder, TypeMirror mirror) {
+<b class="nc">&nbsp;    TypeKind kind = mirror.getKind();</b>
+<b class="nc">&nbsp;    if (kind.isPrimitive()) {</b>
+<b class="nc">&nbsp;      List&lt;? extends AnnotationMirror&gt; annotations = mirror.getAnnotationMirrors();</b>
+<b class="nc">&nbsp;      if (!annotations.isEmpty()) {</b>
+<b class="nc">&nbsp;        append(builder, annotations);</b>
+<b class="nc">&nbsp;        builder.append(&#39; &#39;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      builder.append(kind.name().toLowerCase());</b>
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (kind == TypeKind.DECLARED) {</b>
+<b class="nc">&nbsp;      DeclaredType declared = (DeclaredType) mirror;</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) declared.asElement();</b>
+<b class="nc">&nbsp;      List&lt;? extends AnnotationMirror&gt; annotations = declared.getAnnotationMirrors();</b>
+<b class="nc">&nbsp;      if (!annotations.isEmpty()) {</b>
+<b class="nc">&nbsp;        String qualifiedName = element.getQualifiedName().toString();</b>
+<b class="nc">&nbsp;        int qualifiedDotIndex = qualifiedName.lastIndexOf(&#39;.&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (qualifiedDotIndex &gt; 0) {</b>
+&nbsp;          // special syntax for qualified name and type annotations:
+&nbsp;          // org.package.name.@Annotation @Another SimpleName
+<b class="nc">&nbsp;          builder.append(qualifiedName, 0, qualifiedDotIndex + 1);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        append(builder, annotations);</b>
+&nbsp;        // finishing with the type name itself
+<b class="nc">&nbsp;        builder.append(&#39; &#39;);</b>
+<b class="nc">&nbsp;        if (qualifiedDotIndex &gt; 0) {</b>
+<b class="nc">&nbsp;          builder.append(qualifiedName, qualifiedDotIndex + 1, qualifiedName.length());</b>
+&nbsp;        } else {
+&nbsp;          // this can be the case for unnamed package (right?)
+<b class="nc">&nbsp;          builder.append(qualifiedName);</b>
+&nbsp;        }
+<b class="nc">&nbsp;      } else {</b>
+<b class="nc">&nbsp;        builder.append(element.getQualifiedName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      List&lt;? extends TypeMirror&gt; arguments = declared.getTypeArguments();</b>
+<b class="nc">&nbsp;      if (!arguments.isEmpty()) {</b>
+<b class="nc">&nbsp;        builder.append(&#39;&lt;&#39;);</b>
+<b class="nc">&nbsp;        int i = 0;</b>
+<b class="nc">&nbsp;        for (TypeMirror a : arguments) {</b>
+<b class="nc">&nbsp;          if (i++ &gt; 0) builder.append(&quot;, &quot;);</b>
+&nbsp;          // recursive call
+<b class="nc">&nbsp;          append(builder, a);</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        builder.append(&#39;&gt;&#39;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return builder.append(mirror);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static StringBuilder append(
+&nbsp;      StringBuilder builder,
+&nbsp;      List&lt;? extends AnnotationMirror&gt; annotations) {
+<b class="nc">&nbsp;    int i = 0;</b>
+<b class="nc">&nbsp;    for (AnnotationMirror annotation : annotations) {</b>
+<b class="nc">&nbsp;      if (i++ &gt; 0) {</b>
+&nbsp;        // not the first annotation, so inserting space to separate
+<b class="nc">&nbsp;        builder.append(&#39; &#39;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      AnnotationMirrors.append(builder, annotation);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return builder;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private DeclaredType toDeclaredType(TypeMirror typeMirror) {
+<b class="nc">&nbsp;    verify(typeMirror.getKind() == TypeKind.DECLARED || typeMirror.getKind() == TypeKind.ERROR);</b>
+<b class="nc">&nbsp;    return (DeclaredType) typeMirror;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableList&lt;TypeElement&gt; extendedClasses() {
+<b class="nc">&nbsp;    return ImmutableList.copyOf(extendedClasses);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableSet&lt;TypeElement&gt; implementedInterfaces() {
+<b class="nc">&nbsp;    return ImmutableSet.copyOf(implementedInterfaces);</b>
+&nbsp;  }
+&nbsp;  
+&nbsp;  public ImmutableSet&lt;String&gt; unresolvedYetArguments() {
+<b class="nc">&nbsp;    return ImmutableSet.copyOf(unresolvedYetArguments);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableSet&lt;String&gt; extendedClassNames() {
+<b class="nc">&nbsp;    return ImmutableSet.copyOf(extendedClassNames);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public ImmutableSet&lt;String&gt; implementedInterfaceNames() {
+<b class="nc">&nbsp;    return ImmutableSet.copyOf(implementedInterfaceNames);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void collectHierarchyMirrors(TypeMirror typeMirror, String stringRepresentation) {
+<b class="nc">&nbsp;    if (typeMirror.getKind() != TypeKind.DECLARED) return;</b>
+&nbsp;
+<b class="nc">&nbsp;    DeclaredType declaredType = toDeclaredType(typeMirror);</b>
+<b class="nc">&nbsp;    TypeElement e = toTypeElement(declaredType);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (e.getQualifiedName().contentEquals(Object.class.getName())) return;</b>
+&nbsp;
+<b class="nc">&nbsp;    TypevarContext context = new TypevarContext(e, stringRepresentation);</b>
+&nbsp;
+<b class="nc">&nbsp;    collectInterfacesMirrors(declaredType, context);</b>
+&nbsp;
+<b class="nc">&nbsp;    TypeMirror superclassMirror = e.getSuperclass();</b>
+<b class="nc">&nbsp;    if (superclassMirror.getKind() != TypeKind.NONE) {</b>
+<b class="nc">&nbsp;      DeclaredType superclass = toDeclaredType(superclassMirror);</b>
+<b class="nc">&nbsp;      String stringified = stringify(superclass, context);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (!stringified.equals(Object.class.getName())) {</b>
+<b class="nc">&nbsp;        extendedClasses.add(toTypeElement(superclass));</b>
+<b class="nc">&nbsp;        extendedClassNames.add(stringified);</b>
+<b class="nc">&nbsp;        collectHierarchyMirrors(superclass, stringified);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    for (TypeMirror m : e.getInterfaces()) {</b>
+<b class="nc">&nbsp;      collectUnresolvedInterface(m, context);</b>
+<b class="nc">&nbsp;      collectInterfacesMirrors(m, context);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void collectUnresolvedInterface(TypeMirror typeMirror, TypevarContext context) {
+<b class="nc">&nbsp;    if (typeMirror.getKind() == TypeKind.ERROR) {</b>
+<b class="nc">&nbsp;      DeclaredType declaredType = toDeclaredType(typeMirror);</b>
+<b class="nc">&nbsp;      String stringified = stringify(declaredType, context);</b>
+<b class="nc">&nbsp;      implementedInterfaceNames.add(stringified);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void collectInterfacesMirrors(TypeMirror typeMirror, TypevarContext context) {
+<b class="nc">&nbsp;    if (typeMirror.getKind() != TypeKind.DECLARED) {</b>
+&nbsp;      return;
+&nbsp;    }
+<b class="nc">&nbsp;    DeclaredType declaredType = toDeclaredType(typeMirror);</b>
+<b class="nc">&nbsp;    TypeElement e = toTypeElement(declaredType);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (e.getKind().isInterface()) {</b>
+<b class="nc">&nbsp;      implementedInterfaces.add(e);</b>
+<b class="nc">&nbsp;      String stringified = stringify(declaredType, context);</b>
+<b class="nc">&nbsp;      TypevarContext nestedContext = new TypevarContext(e, stringified);</b>
+<b class="nc">&nbsp;      implementedInterfaceNames.add(stringified);</b>
+<b class="nc">&nbsp;      for (TypeMirror m : e.getInterfaces()) {</b>
+<b class="nc">&nbsp;        collectInterfacesMirrors(m, nestedContext);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static TypeElement toTypeElement(DeclaredType input) {
+<b class="nc">&nbsp;    return (TypeElement) input.asElement();</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableThrowsClauses</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableThrowsClauses (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableThrowsClauses$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.concurrent.ExecutionException;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ThrowsClauses}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableThrowsClauses.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ThrowsClauses&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableThrowsClauses extends ThrowsClauses {
+&nbsp;  private final int a;
+&nbsp;  private final String b;
+&nbsp;
+&nbsp;  private ImmutableThrowsClauses(ImmutableThrowsClauses.Builder builder) {
+&nbsp;    this.a = builder.a;
+&nbsp;    this.b = builder.b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  int a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableThrowsClauses} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableThrowsClauses
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableThrowsClauses) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableThrowsClauses another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; b.equals(another.b);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ThrowsClauses} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ThrowsClauses&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long D_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient boolean d;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link ThrowsClauses#d() d} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code d} attribute
+&nbsp;   * @throws java.util.concurrent.ExecutionException if undelying {@code d()} will throw it.
+&nbsp;   * @throws java.io.IOException if undelying {@code d()} will throw it.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean d() throws ExecutionException, IOException {
+&nbsp;    if ((lazyInitBitmap &amp; D_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; D_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.d = super.d();
+&nbsp;          lazyInitBitmap |= D_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return d;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableThrowsClauses ImmutableThrowsClauses}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableThrowsClauses.builder()
+&nbsp;   *    .a(int) // required {@link ThrowsClauses#a() a}
+&nbsp;   *    .b(String) // required {@link ThrowsClauses#b() b}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableThrowsClauses builder
+&nbsp;   */
+&nbsp;  public static ImmutableThrowsClauses.Builder builder() {
+&nbsp;    return new ImmutableThrowsClauses.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableThrowsClauses ImmutableThrowsClauses}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ThrowsClauses&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int a;
+&nbsp;    private @Nullable String b;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ThrowsClauses#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(int a) {
+&nbsp;      checkNotIsSet(aIsSet(), &quot;a&quot;);
+&nbsp;      this.a = a;
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ThrowsClauses#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(String b) {
+&nbsp;      checkNotIsSet(bIsSet(), &quot;b&quot;);
+&nbsp;      this.b = Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableThrowsClauses ImmutableThrowsClauses}.
+&nbsp;     * @return An immutable instance of ThrowsClauses
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableThrowsClauses build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableThrowsClauses(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean aIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_A) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean bIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_B) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of ThrowsClauses is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!aIsSet()) attributes.add(&quot;a&quot;);
+&nbsp;      if (!bIsSet()) attributes.add(&quot;b&quot;);
+&nbsp;      return &quot;Cannot build ThrowsClauses, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

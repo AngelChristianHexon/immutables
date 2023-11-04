@@ -1,0 +1,487 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableIncludeNestedTypes</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableIncludeNestedTypes (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableIncludeNestedTypes$Retention</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableIncludeNestedTypes$Retention$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableIncludeNestedTypes$Target</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableIncludeNestedTypes$Target$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code ImmutableIncludeNestedTypes} contains immutable implementation classes generated from
+&nbsp; * abstract value types defined as nested inside {@link IncludeNestedTypes}.
+&nbsp; * @see ImmutableIncludeNestedTypes.Target
+&nbsp; * @see ImmutableIncludeNestedTypes.Retention
+&nbsp; */
+&nbsp;@Generated(from = &quot;IncludeNestedTypes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;public final class ImmutableIncludeNestedTypes {
+&nbsp;  private ImmutableIncludeNestedTypes() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link java.lang.annotation.Target}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableIncludeNestedTypes.Target.builder()}.
+&nbsp;   * Use the static factory method to create immutable instances:
+&nbsp;   * {@code ImmutableIncludeNestedTypes.Target.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;java.lang.annotation.Target&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Target implements java.lang.annotation.Target {
+&nbsp;    private final ElementType[] value;
+&nbsp;
+&nbsp;    private Target(ElementType[] value) {
+&nbsp;      this.value = value.clone();
+&nbsp;    }
+&nbsp;
+&nbsp;    private Target(ImmutableIncludeNestedTypes.Target original, ElementType[] value) {
+&nbsp;      this.value = value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /** {@inheritDoc} */
+&nbsp;    @Override
+&nbsp;    public Class&lt;? extends Annotation&gt; annotationType() {
+&nbsp;      return java.lang.annotation.Target.class;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return A cloned {@code value} array
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public ElementType[] value() {
+&nbsp;      return value.clone();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link java.lang.annotation.Target#value() value}.
+&nbsp;     * The array is cloned before being saved as attribute values.
+&nbsp;     * @param elements The non-null elements for value
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableIncludeNestedTypes.Target copyWithValue(ElementType... elements) {
+&nbsp;      ElementType[] newValue = elements.clone();
+&nbsp;      return new ImmutableIncludeNestedTypes.Target(this, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to any implementation of the {@link ImmutableIncludeNestedTypes.Target} type with equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof java.lang.annotation.Target
+&nbsp;          &amp;&amp; equalTo(0, (java.lang.annotation.Target) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, java.lang.annotation.Target another) {
+&nbsp;      return Arrays.equals(value, another.value());
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code value}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 0;
+&nbsp;      h += 127 * &quot;value&quot;.hashCode() ^ Arrays.hashCode(value);
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Target} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;@Target&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;value&quot;, Arrays.toString(value))
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Target} instance.
+&nbsp;     * @param value The value for the {@code value} attribute
+&nbsp;     * @return An immutable Target instance
+&nbsp;     */
+&nbsp;    public static ImmutableIncludeNestedTypes.Target of(ElementType[] value) {
+&nbsp;      return new ImmutableIncludeNestedTypes.Target(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link java.lang.annotation.Target} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Target instance
+&nbsp;     */
+&nbsp;    public static ImmutableIncludeNestedTypes.Target copyOf(java.lang.annotation.Target instance) {
+&nbsp;      if (instance instanceof ImmutableIncludeNestedTypes.Target) {
+&nbsp;        return (ImmutableIncludeNestedTypes.Target) instance;
+&nbsp;      }
+&nbsp;      return ImmutableIncludeNestedTypes.Target.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableIncludeNestedTypes.Target Target}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableIncludeNestedTypes.Target.builder()
+&nbsp;     *    .value(annotation.ElementType) // required {@link java.lang.annotation.Target#value() value}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Target builder
+&nbsp;     */
+&nbsp;    public static ImmutableIncludeNestedTypes.Target.Builder builder() {
+&nbsp;      return new ImmutableIncludeNestedTypes.Target.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableIncludeNestedTypes.Target Target}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;java.lang.annotation.Target&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_VALUE = 0x1L;
+&nbsp;      private long initBits = 0x1L;
+&nbsp;
+&nbsp;      private @Nullable ElementType[] value;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Target} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(java.lang.annotation.Target instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        value(instance.value());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link java.lang.annotation.Target#value() value} attribute.
+&nbsp;       * @param value The elements for value
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder value(ElementType... value) {
+&nbsp;        this.value = value.clone();
+&nbsp;        initBits &amp;= ~INIT_BIT_VALUE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableIncludeNestedTypes.Target Target}.
+&nbsp;       * @return An immutable instance of Target
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableIncludeNestedTypes.Target build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableIncludeNestedTypes.Target(null, value);
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_VALUE) != 0) attributes.add(&quot;value&quot;);
+&nbsp;        return &quot;Cannot build Target, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link java.lang.annotation.Retention}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableIncludeNestedTypes.Retention.builder()}.
+&nbsp;   * Use the static factory method to create immutable instances:
+&nbsp;   * {@code ImmutableIncludeNestedTypes.Retention.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;java.lang.annotation.Retention&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Retention implements java.lang.annotation.Retention {
+&nbsp;    private final RetentionPolicy value;
+&nbsp;
+&nbsp;    private Retention(RetentionPolicy value) {
+&nbsp;      this.value = Objects.requireNonNull(value, &quot;value&quot;);
+&nbsp;    }
+&nbsp;
+&nbsp;    private Retention(ImmutableIncludeNestedTypes.Retention original, RetentionPolicy value) {
+&nbsp;      this.value = value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /** {@inheritDoc} */
+&nbsp;    @Override
+&nbsp;    public Class&lt;? extends Annotation&gt; annotationType() {
+&nbsp;      return java.lang.annotation.Retention.class;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code value} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public RetentionPolicy value() {
+&nbsp;      return value;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link java.lang.annotation.Retention#value() value} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for value
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableIncludeNestedTypes.Retention copyWithValue(RetentionPolicy value) {
+&nbsp;      RetentionPolicy newValue = Objects.requireNonNull(value, &quot;value&quot;);
+&nbsp;      if (this.value == newValue) return this;
+&nbsp;      return new ImmutableIncludeNestedTypes.Retention(this, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to any implementation of the {@link ImmutableIncludeNestedTypes.Retention} type with equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof java.lang.annotation.Retention
+&nbsp;          &amp;&amp; equalTo(0, (java.lang.annotation.Retention) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, java.lang.annotation.Retention another) {
+&nbsp;      return value.equals(another.value());
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code value}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 0;
+&nbsp;      h += 127 * &quot;value&quot;.hashCode() ^ value.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Retention} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;@Retention&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;value&quot;, value)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Retention} instance.
+&nbsp;     * @param value The value for the {@code value} attribute
+&nbsp;     * @return An immutable Retention instance
+&nbsp;     */
+&nbsp;    public static ImmutableIncludeNestedTypes.Retention of(RetentionPolicy value) {
+&nbsp;      return new ImmutableIncludeNestedTypes.Retention(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link java.lang.annotation.Retention} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Retention instance
+&nbsp;     */
+&nbsp;    public static ImmutableIncludeNestedTypes.Retention copyOf(java.lang.annotation.Retention instance) {
+&nbsp;      if (instance instanceof ImmutableIncludeNestedTypes.Retention) {
+&nbsp;        return (ImmutableIncludeNestedTypes.Retention) instance;
+&nbsp;      }
+&nbsp;      return ImmutableIncludeNestedTypes.Retention.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableIncludeNestedTypes.Retention Retention}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableIncludeNestedTypes.Retention.builder()
+&nbsp;     *    .value(annotation.RetentionPolicy) // required {@link java.lang.annotation.Retention#value() value}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Retention builder
+&nbsp;     */
+&nbsp;    public static ImmutableIncludeNestedTypes.Retention.Builder builder() {
+&nbsp;      return new ImmutableIncludeNestedTypes.Retention.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableIncludeNestedTypes.Retention Retention}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;java.lang.annotation.Retention&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_VALUE = 0x1L;
+&nbsp;      private long initBits = 0x1L;
+&nbsp;
+&nbsp;      private @Nullable RetentionPolicy value;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Retention} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(java.lang.annotation.Retention instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        value(instance.value());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link java.lang.annotation.Retention#value() value} attribute.
+&nbsp;       * @param value The value for value 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder value(RetentionPolicy value) {
+&nbsp;        this.value = Objects.requireNonNull(value, &quot;value&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_VALUE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableIncludeNestedTypes.Retention Retention}.
+&nbsp;       * @return An immutable instance of Retention
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableIncludeNestedTypes.Retention build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableIncludeNestedTypes.Retention(null, value);
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_VALUE) != 0) attributes.add(&quot;value&quot;);
+&nbsp;        return &quot;Cannot build Retention, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

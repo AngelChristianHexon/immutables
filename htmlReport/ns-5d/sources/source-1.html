@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Metainf</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.metainf</a>
+</div>
+
+<h1>Coverage Summary for Class: Metainf (org.immutables.metainf)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Metainf$Service</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.metainf;
+&nbsp;
+&nbsp;import java.lang.annotation.Documented;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;
+&nbsp;/**
+&nbsp; * @see Metainf.Service
+&nbsp; */
+&nbsp;@Retention(RetentionPolicy.SOURCE)
+&nbsp;@Target({})
+&nbsp;public @interface Metainf {
+&nbsp;  /**
+&nbsp;   * {@code META-INF/services/&lt;interface.fully.qualified.name&gt;} entries in classpath will be
+&nbsp;   * generated with fully qualified name of annotated class as content line. Multiple meta-services
+&nbsp;   * by the same interface will end up on separate lines in the same meta-inf service file.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Most other such generators either allow only single service type to be specified or just do
+&nbsp;   * autodetection of all interfaces. This generator supports autodetection of implemented inter
+&nbsp;   * (the default) or to override with one or more specific interfaces or classes.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * package a;
+&nbsp;   * &amp;#064;Provider
+&nbsp;   * &amp;#064;Metainf.Service
+&nbsp;   * public class JaxrsMessageBodyProvider implements MessageBodyReader&amp;lt;Object&amp;gt;, MessageBodyWriter&amp;lt;Object&amp;gt; {
+&nbsp;   * ...
+&nbsp;   * }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * 
+&nbsp;   * Both {@code META-INF/services/javax.ws.rs.ext.MessageBodyReader} and
+&nbsp;   * {@code META-INF/services/javax.ws.rs.ext.MessageBodyWriter} will be generated and will contain
+&nbsp;   * line with fully qualified class name of {@code a.JaxrsMessageBodyProvider}.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * package b;
+&nbsp;   * &amp;#064;Provider
+&nbsp;   * &amp;#064;Metainf.Service(javax.ws.rs.ext.MessageBodyReader.class)
+&nbsp;   * public class JaxrsMessageBodyReader extends JaxrsMessageBodyProvider {
+&nbsp;   * ...
+&nbsp;   * }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * 
+&nbsp;   * Only {@code META-INF/services/javax.ws.rs.ext.MessageBodyReader} will be generated and will
+&nbsp;   * contain {@code b.JaxrsMessageBodyReader} line. If {@code JaxrsMessageBodyReader} and
+&nbsp;   * {@code JaxrsMessageBodyProvider} will be compiled together, then
+&nbsp;   * {@code META-INF/services/javax.ws.rs.ext.MessageBodyReader} file will have merged content, i.e.
+&nbsp;   * it will contain two lines:
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * a.JaxrsMessageBodyProvider
+&nbsp;   * b.JaxrsMessageBodyReader
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * @see #value()
+&nbsp;   * @see java.util.ServiceLoader
+&nbsp;   * @see java.util.ServiceLoader#load(Class)
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Retention(RetentionPolicy.SOURCE)
+&nbsp;  public @interface Service {
+&nbsp;    /**
+&nbsp;     * If {@link #value()} attribute is empty (as by default) all implemented interfaces will
+&nbsp;     * be taken into account, otherwise only specified implemented classes will be used.
+&nbsp;     * @return service interfaces or abstract classes.
+&nbsp;     */
+&nbsp;    Class&lt;?&gt;[] value() default {};
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

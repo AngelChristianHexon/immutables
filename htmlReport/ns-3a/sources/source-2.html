@@ -1,0 +1,729 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableInner</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style.depl</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableInner (org.immutables.fixture.style.depl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableInner$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style.depl;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableMultimap;
+&nbsp;import com.google.common.collect.ImmutableMultiset;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link DepluralizeMergeDictionary.Inner}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableInner.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;DepluralizeMergeDictionary.Inner&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableInner
+&nbsp;    implements DepluralizeMergeDictionary.Inner {
+&nbsp;  private final ImmutableList&lt;String&gt; feet;
+&nbsp;  private final ImmutableSet&lt;String&gt; boats;
+&nbsp;  private final ImmutableMap&lt;String, String&gt; people;
+&nbsp;  private final ImmutableMultimap&lt;String, String&gt; peopleRepublics;
+&nbsp;  private final ImmutableList&lt;Integer&gt; feetPeople;
+&nbsp;  private final ImmutableMultiset&lt;Boolean&gt; goods;
+&nbsp;
+&nbsp;  private ImmutableInner(
+&nbsp;      ImmutableList&lt;String&gt; feet,
+&nbsp;      ImmutableSet&lt;String&gt; boats,
+&nbsp;      ImmutableMap&lt;String, String&gt; people,
+&nbsp;      ImmutableMultimap&lt;String, String&gt; peopleRepublics,
+&nbsp;      ImmutableList&lt;Integer&gt; feetPeople,
+&nbsp;      ImmutableMultiset&lt;Boolean&gt; goods) {
+&nbsp;    this.feet = feet;
+&nbsp;    this.boats = boats;
+&nbsp;    this.people = people;
+&nbsp;    this.peopleRepublics = peopleRepublics;
+&nbsp;    this.feetPeople = feetPeople;
+&nbsp;    this.goods = goods;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code feet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; feet() {
+&nbsp;    return feet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code boats} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;String&gt; boats() {
+&nbsp;    return boats;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code people} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, String&gt; people() {
+&nbsp;    return people;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code peopleRepublics} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultimap&lt;String, String&gt; peopleRepublics() {
+&nbsp;    return peopleRepublics;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code feetPeople} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Integer&gt; feetPeople() {
+&nbsp;    return feetPeople;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code goods} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultiset&lt;Boolean&gt; goods() {
+&nbsp;    return goods;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#feet() feet}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withFeet(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableInner(newValue, this.boats, this.people, this.peopleRepublics, this.feetPeople, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#feet() feet}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of feet elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withFeet(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.feet == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableInner(newValue, this.boats, this.people, this.peopleRepublics, this.feetPeople, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#boats() boats}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withBoats(String... elements) {
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableInner(this.feet, newValue, this.people, this.peopleRepublics, this.feetPeople, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#boats() boats}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of boats elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withBoats(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.boats == elements) return this;
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableInner(this.feet, newValue, this.people, this.peopleRepublics, this.feetPeople, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link DepluralizeMergeDictionary.Inner#people() people} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the people map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withPeople(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.people == entries) return this;
+&nbsp;    ImmutableMap&lt;String, String&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableInner(this.feet, this.boats, newValue, this.peopleRepublics, this.feetPeople, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the peopleRepublics map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withPeopleRepublics(Multimap&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.peopleRepublics == entries) return this;
+&nbsp;    ImmutableMultimap&lt;String, String&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;    return new ImmutableInner(this.feet, this.boats, this.people, newValue, this.feetPeople, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withFeetPeople(int... elements) {
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableInner(this.feet, this.boats, this.people, this.peopleRepublics, newValue, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of feetPeople elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withFeetPeople(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.feetPeople == elements) return this;
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableInner(this.feet, this.boats, this.people, this.peopleRepublics, newValue, this.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#goods() goods}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withGoods(boolean... elements) {
+&nbsp;    ImmutableMultiset&lt;Boolean&gt; newValue = ImmutableMultiset.copyOf(Booleans.asList(elements));
+&nbsp;    return new ImmutableInner(this.feet, this.boats, this.people, this.peopleRepublics, this.feetPeople, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DepluralizeMergeDictionary.Inner#goods() goods}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of goods elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableInner withGoods(Iterable&lt;Boolean&gt; elements) {
+&nbsp;    if (this.goods == elements) return this;
+&nbsp;    ImmutableMultiset&lt;Boolean&gt; newValue = ImmutableMultiset.copyOf(elements);
+&nbsp;    return new ImmutableInner(this.feet, this.boats, this.people, this.peopleRepublics, this.feetPeople, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableInner} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableInner
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableInner) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableInner another) {
+&nbsp;    return feet.equals(another.feet)
+&nbsp;        &amp;&amp; boats.equals(another.boats)
+&nbsp;        &amp;&amp; people.equals(another.people)
+&nbsp;        &amp;&amp; peopleRepublics.equals(another.peopleRepublics)
+&nbsp;        &amp;&amp; feetPeople.equals(another.feetPeople)
+&nbsp;        &amp;&amp; goods.equals(another.goods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code feet}, {@code boats}, {@code people}, {@code peopleRepublics}, {@code feetPeople}, {@code goods}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + feet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + boats.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + people.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + peopleRepublics.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + feetPeople.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + goods.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Inner} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Inner&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;feet&quot;, feet)
+&nbsp;        .add(&quot;boats&quot;, boats)
+&nbsp;        .add(&quot;people&quot;, people)
+&nbsp;        .add(&quot;peopleRepublics&quot;, peopleRepublics)
+&nbsp;        .add(&quot;feetPeople&quot;, feetPeople)
+&nbsp;        .add(&quot;goods&quot;, goods)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link DepluralizeMergeDictionary.Inner} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Inner instance
+&nbsp;   */
+&nbsp;  public static ImmutableInner copyOf(DepluralizeMergeDictionary.Inner instance) {
+&nbsp;    if (instance instanceof ImmutableInner) {
+&nbsp;      return (ImmutableInner) instance;
+&nbsp;    }
+&nbsp;    return ImmutableInner.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableInner ImmutableInner}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableInner.builder()
+&nbsp;   *    .addFoot|addAllFeet(String) // {@link DepluralizeMergeDictionary.Inner#feet() feet} elements
+&nbsp;   *    .addBoat|addAllBoats(String) // {@link DepluralizeMergeDictionary.Inner#boats() boats} elements
+&nbsp;   *    .putPerson|putAllPeople(String =&amp;gt; String) // {@link DepluralizeMergeDictionary.Inner#people() people} mappings
+&nbsp;   *    .putPeopleRepublic|putAllPeopleRepublics(String =&amp;gt; String) // {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} mappings
+&nbsp;   *    .addFeetPerson|addAllFeetPeople(int) // {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople} elements
+&nbsp;   *    .addGoods|addAllGoods(boolean) // {@link DepluralizeMergeDictionary.Inner#goods() goods} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableInner builder
+&nbsp;   */
+&nbsp;  public static ImmutableInner.Builder builder() {
+&nbsp;    return new ImmutableInner.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableInner ImmutableInner}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;DepluralizeMergeDictionary.Inner&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableList.Builder&lt;String&gt; feet = ImmutableList.builder();
+&nbsp;    private ImmutableSet.Builder&lt;String&gt; boats = ImmutableSet.builder();
+&nbsp;    private ImmutableMap.Builder&lt;String, String&gt; people = ImmutableMap.builder();
+&nbsp;    private ImmutableMultimap.Builder&lt;String, String&gt; peopleRepublics = ImmutableMultimap.builder();
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; feetPeople = ImmutableList.builder();
+&nbsp;    private ImmutableMultiset.Builder&lt;Boolean&gt; goods = ImmutableMultiset.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Inner} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(DepluralizeMergeDictionary.Inner instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllFeet(instance.feet());
+&nbsp;      addAllBoats(instance.boats());
+&nbsp;      putAllPeople(instance.people());
+&nbsp;      putAllPeopleRepublics(instance.peopleRepublics());
+&nbsp;      addAllFeetPeople(instance.feetPeople());
+&nbsp;      addAllGoods(instance.goods());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DepluralizeMergeDictionary.Inner#feet() feet} list.
+&nbsp;     * @param element A feet element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addFoot(String element) {
+&nbsp;      this.feet.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#feet() feet} list.
+&nbsp;     * @param elements An array of feet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addFeet(String... elements) {
+&nbsp;      this.feet.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DepluralizeMergeDictionary.Inner#feet() feet} list.
+&nbsp;     * @param elements An iterable of feet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder feet(Iterable&lt;String&gt; elements) {
+&nbsp;      this.feet = ImmutableList.builder();
+&nbsp;      return addAllFeet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#feet() feet} list.
+&nbsp;     * @param elements An iterable of feet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllFeet(Iterable&lt;String&gt; elements) {
+&nbsp;      this.feet.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DepluralizeMergeDictionary.Inner#boats() boats} set.
+&nbsp;     * @param element A boats element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addBoat(String element) {
+&nbsp;      this.boats.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#boats() boats} set.
+&nbsp;     * @param elements An array of boats elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addBoats(String... elements) {
+&nbsp;      this.boats.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DepluralizeMergeDictionary.Inner#boats() boats} set.
+&nbsp;     * @param elements An iterable of boats elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder boats(Iterable&lt;String&gt; elements) {
+&nbsp;      this.boats = ImmutableSet.builder();
+&nbsp;      return addAllBoats(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#boats() boats} set.
+&nbsp;     * @param elements An iterable of boats elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllBoats(Iterable&lt;String&gt; elements) {
+&nbsp;      this.boats.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link DepluralizeMergeDictionary.Inner#people() people} map.
+&nbsp;     * @param key The key in the people map
+&nbsp;     * @param value The associated value in the people map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPerson(String key, String value) {
+&nbsp;      this.people.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link DepluralizeMergeDictionary.Inner#people() people} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPerson(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      this.people.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link DepluralizeMergeDictionary.Inner#people() people} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the people map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder people(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.people = ImmutableMap.builder();
+&nbsp;      return putAllPeople(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link DepluralizeMergeDictionary.Inner#people() people} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the people map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllPeople(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.people.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} true. Nulls are not permitted
+&nbsp;     * @param key The key for peopleRepublics
+&nbsp;     * @param values The values for peopleRepublics
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPeopleRepublics(String key, String... values) {
+&nbsp;      this.peopleRepublics.putAll(key, Arrays.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} true. Nulls are not permitted
+&nbsp;     * @param key The key for peopleRepublics
+&nbsp;     * @param values The values for peopleRepublics
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllPeopleRepublics(String key, Iterable&lt;String&gt; values) {
+&nbsp;      this.peopleRepublics.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} map.
+&nbsp;     * @param key The key in the peopleRepublics map
+&nbsp;     * @param value The associated value in the peopleRepublics map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPeopleRepublic(String key, String value) {
+&nbsp;      this.peopleRepublics.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPeopleRepublic(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      this.peopleRepublics.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the peopleRepublics map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder peopleRepublics(Multimap&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.peopleRepublics = ImmutableMultimap.builder();
+&nbsp;      return putAllPeopleRepublics(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link DepluralizeMergeDictionary.Inner#peopleRepublics() peopleRepublics} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the peopleRepublics map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllPeopleRepublics(Multimap&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.peopleRepublics.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople} list.
+&nbsp;     * @param element A feetPeople element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addFeetPerson(int element) {
+&nbsp;      this.feetPeople.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople} list.
+&nbsp;     * @param elements An array of feetPeople elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addFeetPeople(int... elements) {
+&nbsp;      this.feetPeople.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople} list.
+&nbsp;     * @param elements An iterable of feetPeople elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder feetPeople(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.feetPeople = ImmutableList.builder();
+&nbsp;      return addAllFeetPeople(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#feetPeople() feetPeople} list.
+&nbsp;     * @param elements An iterable of feetPeople elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllFeetPeople(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.feetPeople.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DepluralizeMergeDictionary.Inner#goods() goods} multiset.
+&nbsp;     * @param element A goods element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addGoods(boolean element) {
+&nbsp;      this.goods.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#goods() goods} multiset.
+&nbsp;     * @param elements An array of goods elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addGoods(boolean... elements) {
+&nbsp;      this.goods.addAll(Booleans.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DepluralizeMergeDictionary.Inner#goods() goods} multiset.
+&nbsp;     * @param elements An iterable of goods elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder goods(Iterable&lt;Boolean&gt; elements) {
+&nbsp;      this.goods = ImmutableMultiset.builder();
+&nbsp;      return addAllGoods(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DepluralizeMergeDictionary.Inner#goods() goods} multiset.
+&nbsp;     * @param elements An iterable of goods elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllGoods(Iterable&lt;Boolean&gt; elements) {
+&nbsp;      this.goods.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableInner ImmutableInner}.
+&nbsp;     * @return An immutable instance of Inner
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableInner build() {
+&nbsp;      return new ImmutableInner(
+&nbsp;          feet.build(),
+&nbsp;          boats.build(),
+&nbsp;          people.build(),
+&nbsp;          peopleRepublics.build(),
+&nbsp;          feetPeople.build(),
+&nbsp;          goods.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

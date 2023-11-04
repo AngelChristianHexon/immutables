@@ -1,0 +1,206 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ProjectedTuple</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: ProjectedTuple (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProjectedTuple</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;/**
+&nbsp; * Result of a projection as returned by the backend
+&nbsp; */
+&nbsp;public class ProjectedTuple {
+&nbsp;
+&nbsp;  private final List&lt;Expression&gt; expressions;
+&nbsp;  private final List&lt;?&gt; values; // values can be null
+&nbsp;  private final Map&lt;Expression, Object&gt; valuesAsMap;
+&nbsp;
+<b class="nc">&nbsp;  private ProjectedTuple(List&lt;Expression&gt; expressions, List&lt;?&gt; values) {</b>
+<b class="nc">&nbsp;    if (values.size() != expressions.size()) {</b>
+<b class="nc">&nbsp;      throw new IllegalArgumentException(String.format(&quot;Different sizes %d (values) vs %d (paths)&quot;, values.size(), expressions.size()));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    final Map&lt;Expression, Object&gt; valuesAsMap = Maps.newHashMapWithExpectedSize(values.size());</b>
+<b class="nc">&nbsp;    for (int i = 0; i &lt; values.size(); i++) {</b>
+<b class="nc">&nbsp;      valuesAsMap.put(expressions.get(i), values.get(i));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    this.valuesAsMap = valuesAsMap;</b>
+<b class="nc">&nbsp;    this.values = Collections.unmodifiableList(values);</b>
+<b class="nc">&nbsp;    this.expressions = expressions;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Object get(Expression expression) {
+<b class="nc">&nbsp;    Objects.requireNonNull(expression, &quot;expression&quot;);</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(valuesAsMap.containsKey(expression), &quot;expression %s not present in tuple&quot;, expression);</b>
+<b class="nc">&nbsp;    return valuesAsMap.get(expression);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public List&lt;Expression&gt; paths() {
+<b class="nc">&nbsp;    return expressions;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public List&lt;?&gt; values() {
+<b class="nc">&nbsp;    return this.values;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static ProjectedTuple of(Iterable&lt;Expression&gt; paths, Iterable&lt;?&gt; values) {
+&nbsp;    // values can be null
+<b class="nc">&nbsp;    return new ProjectedTuple(ImmutableList.copyOf(paths), Lists.newArrayList(values));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static ProjectedTuple ofSingle(Expression path, Object value) {
+<b class="nc">&nbsp;    return of(ImmutableList.of(path), Collections.singleton(value));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean equals(Object o) {
+<b class="nc">&nbsp;    if (this == o) return true;</b>
+<b class="nc">&nbsp;    if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="nc">&nbsp;    ProjectedTuple that = (ProjectedTuple) o;</b>
+<b class="nc">&nbsp;    return Objects.equals(expressions, that.expressions) &amp;&amp;</b>
+<b class="nc">&nbsp;            Objects.equals(values, that.values);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    return Objects.hash(expressions, values);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

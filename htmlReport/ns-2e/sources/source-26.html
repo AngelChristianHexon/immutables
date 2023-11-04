@@ -1,0 +1,315 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutablePackageNoBuilderHidden</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutablePackageNoBuilderHidden (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutablePackageNoBuilderHidden$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link PackageNoBuilderHidden}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to get the default singleton instance:
+&nbsp; * {@code ImmutablePackageNoBuilderHidden.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;PackageNoBuilderHidden&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutablePackageNoBuilderHidden
+&nbsp;    implements PackageNoBuilderHidden {
+&nbsp;  private final List&lt;String&gt; strings;
+&nbsp;  private final @Nullable Integer getInt;
+&nbsp;
+&nbsp;  private ImmutablePackageNoBuilderHidden() {
+&nbsp;    this.strings = Collections.emptyList();
+&nbsp;    this.getInt = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutablePackageNoBuilderHidden(List&lt;String&gt; strings, @Nullable Integer getInt) {
+&nbsp;    this.strings = strings;
+&nbsp;    this.getInt = getInt;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code strings} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;strings&quot;)
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; getStrings() {
+&nbsp;    return strings;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code getInt} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;int&quot;)
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; getInt() {
+&nbsp;    return Optional.ofNullable(getInt);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link PackageNoBuilderHidden#getStrings() strings}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePackageNoBuilderHidden withStrings(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
+&nbsp;    return validate(new ImmutablePackageNoBuilderHidden(newValue, this.getInt));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link PackageNoBuilderHidden#getStrings() strings}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of strings elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePackageNoBuilderHidden withStrings(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.strings == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
+&nbsp;    return validate(new ImmutablePackageNoBuilderHidden(newValue, this.getInt));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PackageNoBuilderHidden#getInt() int} attribute.
+&nbsp;   * @param value The value for getInt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePackageNoBuilderHidden withInt(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.getInt, newValue)) return this;
+&nbsp;    return validate(new ImmutablePackageNoBuilderHidden(this.strings, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PackageNoBuilderHidden#getInt() int} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for getInt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePackageNoBuilderHidden withInt(Optional&lt;Integer&gt; optional) {
+&nbsp;    @Nullable Integer value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.getInt, value)) return this;
+&nbsp;    return validate(new ImmutablePackageNoBuilderHidden(this.strings, value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutablePackageNoBuilderHidden} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutablePackageNoBuilderHidden
+&nbsp;        &amp;&amp; equalTo(0, (ImmutablePackageNoBuilderHidden) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutablePackageNoBuilderHidden another) {
+&nbsp;    return strings.equals(another.strings)
+&nbsp;        &amp;&amp; Objects.equals(getInt, another.getInt);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code strings}, {@code getInt}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + strings.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(getInt);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code PackageNoBuilderHidden} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    StringBuilder builder = new StringBuilder(&quot;PackageNoBuilderHidden{&quot;);
+&nbsp;    builder.append(&quot;strings=&quot;).append(strings);
+&nbsp;    if (getInt != null) {
+&nbsp;      builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;int=&quot;).append(getInt);
+&nbsp;    }
+&nbsp;    return builder.append(&quot;}&quot;).toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;PackageNoBuilderHidden&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements PackageNoBuilderHidden {
+&nbsp;    @Nullable List&lt;String&gt; strings = Collections.emptyList();
+&nbsp;    @Nullable Optional&lt;Integer&gt; getInt = Optional.empty();
+&nbsp;    @JsonProperty(&quot;strings&quot;)
+&nbsp;    public void setStrings(List&lt;String&gt; strings) {
+&nbsp;      this.strings = strings;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;int&quot;)
+&nbsp;    public void setInt(Optional&lt;Integer&gt; getInt) {
+&nbsp;      this.getInt = getInt;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public List&lt;String&gt; getStrings() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Optional&lt;Integer&gt; getInt() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutablePackageNoBuilderHidden fromJson(Json json) {
+&nbsp;    @Var ImmutablePackageNoBuilderHidden instance = (ImmutablePackageNoBuilderHidden) ImmutablePackageNoBuilderHidden.of();
+&nbsp;    if (json.strings != null) {
+&nbsp;      instance = instance.withStrings(json.strings);
+&nbsp;    }
+&nbsp;    if (json.getInt != null) {
+&nbsp;      instance = instance.withInt(json.getInt);
+&nbsp;    }
+&nbsp;    return instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final ImmutablePackageNoBuilderHidden INSTANCE = validate(new ImmutablePackageNoBuilderHidden());
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the default immutable singleton value of {@code PackageNoBuilderHidden}
+&nbsp;   * @return An immutable instance of PackageNoBuilderHidden
+&nbsp;   */
+&nbsp;  public static PackageNoBuilderHidden of() {
+&nbsp;    return INSTANCE;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutablePackageNoBuilderHidden validate(ImmutablePackageNoBuilderHidden instance) {
+&nbsp;    return instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

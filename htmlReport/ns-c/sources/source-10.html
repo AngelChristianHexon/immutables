@@ -1,0 +1,234 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ToTupleConverter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: ToTupleConverter (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ToTupleConverter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ToTupleConverter$1</td>
+  </tr>
+  <tr>
+    <td class="name">ToTupleConverter$ProjectedField</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.JavaType;
+&nbsp;import com.fasterxml.jackson.databind.JsonNode;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.fasterxml.jackson.databind.node.NullNode;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import org.immutables.criteria.backend.ProjectedTuple;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Parse result of a projection
+&nbsp; */
+&nbsp;class ToTupleConverter implements JsonConverter&lt;ProjectedTuple&gt;  {
+&nbsp;
+&nbsp;  private final Query query;
+&nbsp;  private final List&lt;ProjectedField&gt; fields;
+&nbsp;
+<b class="nc">&nbsp;  ToTupleConverter(Query query, ObjectMapper mapper) {</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(query.hasProjections(), &quot;no projections defined&quot;);</b>
+<b class="nc">&nbsp;    this.query = query;</b>
+<b class="nc">&nbsp;    this.fields = query.projections().stream().map(e -&gt; new ProjectedField(e, mapper)).collect(Collectors.toList());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public ProjectedTuple convert(JsonNode node) {
+<b class="nc">&nbsp;    List&lt;Object&gt; values = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    for (ProjectedField info: fields) {</b>
+<b class="nc">&nbsp;      JsonNode value = node.path(info.pathAsString);</b>
+<b class="nc">&nbsp;      if (value.isMissingNode()) {</b>
+<b class="nc">&nbsp;        value = NullNode.getInstance();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      values.add(info.convert(value));</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    return ProjectedTuple.of(query.projections(), values);</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class ProjectedField {</b>
+&nbsp;    private final Path path;
+&nbsp;    private final String pathAsString;
+&nbsp;    private final JavaType javaType;
+&nbsp;    private final ObjectMapper mapper;
+&nbsp;
+<b class="nc">&nbsp;    private ProjectedField(Expression expr, ObjectMapper mapper) {</b>
+<b class="nc">&nbsp;      Path path = (Path) expr;</b>
+<b class="nc">&nbsp;      this.path =  path;</b>
+<b class="nc">&nbsp;      this.mapper = mapper;</b>
+<b class="nc">&nbsp;      this.pathAsString = path.toStringPath();</b>
+<b class="nc">&nbsp;      this.javaType = mapper.getTypeFactory().constructType(path.returnType());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Object convert(JsonNode json) {
+<b class="nc">&nbsp;      return mapper.convertValue(json, javaType);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

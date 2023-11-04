@@ -1,0 +1,238 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > EnclosingHiddenImplementation</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: EnclosingHiddenImplementation (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EnclosingHiddenImplementation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">EnclosingHiddenImplementation$HiddenImplementation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">EnclosingHiddenImplementation$NonexposedImplementation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">EnclosingHiddenImplementation$VisibleImplementation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import org.immutables.value.Value;
+&nbsp;import org.immutables.value.Value.Style.ImplementationVisibility;
+&nbsp;
+&nbsp;@Value.Style(
+&nbsp;    typeImmutableEnclosing = &quot;EnclosingFactory&quot;,
+&nbsp;    instance = &quot;singletonInstance&quot;,
+&nbsp;    of = &quot;new*&quot;,
+&nbsp;    newBuilder = &quot;create&quot;,
+&nbsp;    visibility = ImplementationVisibility.PRIVATE,
+&nbsp;    defaults = @Value.Immutable(singleton = true))
+&nbsp;@interface Priv {}
+&nbsp;
+&nbsp;/**
+&nbsp; * Feature combination
+&nbsp; * &lt;ul&gt;
+&nbsp; * &lt;li&gt;Nested hidded implementation
+&nbsp; * &lt;li&gt;Defaults mechanism, implementation style override
+&nbsp; * &lt;li&gt;Style meta-annotation usage to create style
+&nbsp; * &lt;li&gt;Forwarding factory methods with names customization and auto-disambiguation
+&nbsp; * &lt;/ul&gt;
+&nbsp; */
+&nbsp;@Value.Enclosing
+&nbsp;@Priv
+<b class="nc">&nbsp;public abstract class EnclosingHiddenImplementation {</b>
+&nbsp;  @Value.Immutable
+<b class="nc">&nbsp;  public static class HiddenImplementation {}</b>
+&nbsp;
+&nbsp;  @Value.Immutable
+<b class="nc">&nbsp;  public static abstract class NonexposedImplementation {</b>
+&nbsp;    @Value.Parameter
+&nbsp;    public abstract Optional&lt;Integer&gt; cons();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Immutable(builder = false)
+<b class="nc">&nbsp;  public static abstract class VisibleImplementation {</b>
+&nbsp;    @Value.Parameter
+&nbsp;    public abstract Optional&lt;Integer&gt; cons();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;CheckReturnValue&quot;)
+&nbsp;  void use() {
+<b class="nc">&nbsp;    EnclosingFactory.HiddenImplementationBuilder.create().build();</b>
+&nbsp;
+&nbsp;    // Type name suffix was added to avoid name clashing
+<b class="nc">&nbsp;    EnclosingFactory.singletonInstanceHiddenImplementation();</b>
+<b class="nc">&nbsp;    EnclosingFactory.singletonInstanceNonexposedImplementation();</b>
+&nbsp;    // Strictly follows naming template
+<b class="nc">&nbsp;    EnclosingFactory.newNonexposedImplementation(Optional.of(11));</b>
+&nbsp;    // Implementation is visible
+<b class="nc">&nbsp;    EnclosingFactory.newVisibleImplementation(Optional.&lt;Integer&gt;absent());</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

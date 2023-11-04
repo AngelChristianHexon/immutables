@@ -1,0 +1,430 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > MongoSession</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.mongo</a>
+</div>
+
+<h1>Coverage Summary for Class: MongoSession (org.immutables.criteria.mongo)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MongoSession</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/66)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/128)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.mongo;
+&nbsp;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import com.mongodb.MongoException;
+&nbsp;import com.mongodb.bulk.BulkWriteResult;
+&nbsp;import com.mongodb.client.model.Projections;
+&nbsp;import com.mongodb.client.model.ReplaceOneModel;
+&nbsp;import com.mongodb.client.model.ReplaceOptions;
+&nbsp;import com.mongodb.client.model.Sorts;
+&nbsp;import com.mongodb.client.model.changestream.FullDocument;
+&nbsp;import com.mongodb.reactivestreams.client.ChangeStreamPublisher;
+&nbsp;import com.mongodb.reactivestreams.client.FindPublisher;
+&nbsp;import com.mongodb.reactivestreams.client.MongoCollection;
+&nbsp;import io.reactivex.Flowable;
+&nbsp;import io.reactivex.FlowableTransformer;
+&nbsp;import org.bson.BsonDocument;
+&nbsp;import org.bson.BsonDocumentWriter;
+&nbsp;import org.bson.BsonValue;
+&nbsp;import org.bson.Document;
+&nbsp;import org.bson.codecs.Codec;
+&nbsp;import org.bson.codecs.EncoderContext;
+&nbsp;import org.bson.codecs.configuration.CodecRegistries;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.bson.conversions.Bson;
+&nbsp;import org.immutables.criteria.backend.Backend;
+&nbsp;import org.immutables.criteria.backend.BackendException;
+&nbsp;import org.immutables.criteria.backend.DefaultResult;
+&nbsp;import org.immutables.criteria.backend.ExpressionNaming;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.backend.ProjectedTuple;
+&nbsp;import org.immutables.criteria.backend.StandardOperations;
+&nbsp;import org.immutables.criteria.backend.UniqueCachedNaming;
+&nbsp;import org.immutables.criteria.backend.WatchEvent;
+&nbsp;import org.immutables.criteria.backend.WriteResult;
+&nbsp;import org.immutables.criteria.expression.Collation;
+&nbsp;import org.immutables.criteria.expression.ExpressionConverter;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.logging.Level;
+&nbsp;import java.util.logging.Logger;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;class MongoSession implements Backend.Session {
+&nbsp;
+<b class="nc">&nbsp;  private static final Logger logger = Logger.getLogger(MongoSession.class.getName());</b>
+&nbsp;
+&nbsp;  private final ExpressionConverter&lt;Bson&gt; converter;
+&nbsp;  private final MongoCollection&lt;?&gt; collection;
+&nbsp;  private final PathNaming pathNaming;
+&nbsp;  private final KeyExtractor keyExtractor;
+&nbsp;
+<b class="nc">&nbsp;  MongoSession(MongoCollection&lt;?&gt; collection, KeyExtractor keyExtractor, PathNaming pathNaming) {</b>
+<b class="nc">&nbsp;    this.collection = Objects.requireNonNull(collection, &quot;collection&quot;);</b>
+<b class="nc">&nbsp;    this.keyExtractor = Objects.requireNonNull(keyExtractor, &quot;keyExtractor&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    KeyExtractor.KeyMetadata metadata = keyExtractor.metadata();</b>
+<b class="nc">&nbsp;    if (metadata.isKeyDefined() &amp;&amp; metadata.isExpression() &amp;&amp; metadata.keys().size() == 1) {</b>
+<b class="nc">&nbsp;      Path idProperty = Visitors.toPath(Iterables.getOnlyElement(metadata.keys()));</b>
+<b class="nc">&nbsp;      pathNaming = new MongoPathNaming(idProperty, pathNaming);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    this.pathNaming = pathNaming;</b>
+<b class="nc">&nbsp;    this.converter = Mongos.converter(this.pathNaming, collection.getCodecRegistry());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Bson toBsonFilter(Query query) {
+<b class="nc">&nbsp;    Bson bson = query.filter().map(converter::convert).orElseGet(BsonDocument::new);</b>
+<b class="nc">&nbsp;    if (logger.isLoggable(Level.FINE)) {</b>
+<b class="nc">&nbsp;      BsonDocument filter = bson.toBsonDocument(BsonDocument.class, collection.getCodecRegistry());</b>
+<b class="nc">&nbsp;      logger.log(Level.FINE, &quot;Using filter [{0}] to query {1}&quot;, new Object[] {filter, collection.getNamespace()});</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return bson;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Class&lt;?&gt; entityType() {
+<b class="nc">&nbsp;    return collection.getDocumentClass();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Backend.Result execute(Backend.Operation operation) {
+<b class="nc">&nbsp;    return DefaultResult.of(executeInternal(operation));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;?&gt; executeInternal(Backend.Operation operation) {
+&nbsp;    Publisher&lt;?&gt; publisher;
+<b class="nc">&nbsp;    if (operation instanceof StandardOperations.Select) {</b>
+<b class="nc">&nbsp;      publisher =  query((StandardOperations.Select) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.Insert) {</b>
+<b class="nc">&nbsp;      publisher = insert((StandardOperations.Insert) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.Delete) {</b>
+<b class="nc">&nbsp;      publisher = delete((StandardOperations.Delete) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.Watch) {</b>
+<b class="nc">&nbsp;      publisher = watch((StandardOperations.Watch) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.UpdateByQuery) {</b>
+<b class="nc">&nbsp;      publisher = updateByQuery((StandardOperations.UpdateByQuery) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.Update) {</b>
+<b class="nc">&nbsp;      publisher = update((StandardOperations.Update) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.GetByKey) {</b>
+<b class="nc">&nbsp;      publisher = getByKey((StandardOperations.GetByKey) operation);</b>
+<b class="nc">&nbsp;    } else if (operation instanceof StandardOperations.DeleteByKey) {</b>
+<b class="nc">&nbsp;      publisher = deleteByKey((StandardOperations.DeleteByKey) operation);</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      return Flowable.error(new UnsupportedOperationException(String.format(&quot;Operation %s not supported&quot;, operation)));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return Flowable.fromPublisher(publisher).compose(wrapMongoException());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;?&gt; query(StandardOperations.Select select) {
+<b class="nc">&nbsp;    final Query query = select.query();</b>
+&nbsp;
+<b class="nc">&nbsp;    final boolean hasProjections = query.hasProjections();</b>
+&nbsp;
+<b class="nc">&nbsp;    boolean useAggregationPipeline = query.hasAggregations() || query.distinct()</b>
+<b class="nc">&nbsp;            || query.count() &amp;&amp; query.limit().isPresent();</b>
+<b class="nc">&nbsp;    ExpressionNaming expressionNaming = useAggregationPipeline ? ExpressionNaming.from(UniqueCachedNaming.of(query.projections())) : expression -&gt; pathNaming.name((Path) expression);</b>
+&nbsp;
+<b class="nc">&nbsp;    MongoCollection&lt;?&gt; collection = this.collection;</b>
+<b class="nc">&nbsp;    if (hasProjections) {</b>
+&nbsp;      // add special TupleCodecProvider for projections
+<b class="nc">&nbsp;      CodecRegistry newRegistry = CodecRegistries.fromRegistries(this.collection.getCodecRegistry(),</b>
+<b class="nc">&nbsp;              CodecRegistries.fromProviders(new TupleCodecProvider(query, expressionNaming)));</b>
+&nbsp;
+<b class="nc">&nbsp;      collection = this.collection.withDocumentClass(ProjectedTuple.class)</b>
+<b class="nc">&nbsp;              .withCodecRegistry(newRegistry);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (useAggregationPipeline) {</b>
+&nbsp;      // aggregations
+<b class="nc">&nbsp;      AggregationQuery agg = new AggregationQuery(query, pathNaming);</b>
+<b class="nc">&nbsp;      if (query.count()) {</b>
+&nbsp;        // count will return single document like {count:1}
+&nbsp;        // also for empty result-set mongo does not return single(0) but empty publisher
+<b class="nc">&nbsp;        return Flowable.fromPublisher(collection.aggregate(agg.toPipeline(), BsonDocument.class))</b>
+<b class="nc">&nbsp;                .map(d -&gt; d.get(&quot;count&quot;).asNumber().longValue())</b>
+<b class="nc">&nbsp;                .defaultIfEmpty(0L); // return Single.just(0) for empty publisher</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return collection.aggregate(agg.toPipeline(), ProjectedTuple.class);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Bson filter = toBsonFilter(query);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (query.count()) {</b>
+&nbsp;      // simple form of count all (without distinct, aggregations etc.) : count(*)
+<b class="nc">&nbsp;      return Flowable.fromPublisher(collection.countDocuments(filter));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    final FindPublisher&lt;?&gt; find = collection.find(filter);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (!query.collations().isEmpty()) {</b>
+&nbsp;      // add sorting
+<b class="nc">&nbsp;      final Function&lt;Collation, Bson&gt; toSortFn = col -&gt; {</b>
+<b class="nc">&nbsp;        final String path = this.pathNaming.name(col.path());</b>
+<b class="nc">&nbsp;        return col.direction().isAscending() ? Sorts.ascending(path) : Sorts.descending(path);</b>
+&nbsp;
+&nbsp;      };
+<b class="nc">&nbsp;      final List&lt;Bson&gt; sorts = query.collations().stream()</b>
+<b class="nc">&nbsp;              .map(toSortFn).collect(Collectors.toList());</b>
+<b class="nc">&nbsp;      find.sort(Sorts.orderBy(sorts));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    query.limit().ifPresent(limit -&gt; find.limit((int) limit));</b>
+<b class="nc">&nbsp;    query.offset().ifPresent(offset -&gt; find.skip((int) offset));</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;    if (hasProjections) {</b>
+<b class="nc">&nbsp;      List&lt;String&gt; fields = query.projections()</b>
+<b class="nc">&nbsp;              .stream().map(p -&gt; pathNaming.name((Path) p))</b>
+<b class="nc">&nbsp;              .collect(Collectors.toList());</b>
+&nbsp;
+<b class="nc">&nbsp;      find.projection(Projections.include(fields));</b>
+<b class="nc">&nbsp;      return find;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // post-process result with projections
+<b class="nc">&nbsp;    return find;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; FlowableTransformer&lt;T, T&gt; wrapMongoException() {
+<b class="nc">&nbsp;    Function&lt;Throwable, Throwable&gt; mapFn = e -&gt; e instanceof MongoException ? new BackendException(&quot;failed to update&quot;, e) : e;</b>
+<b class="nc">&nbsp;    return flowable -&gt; flowable.onErrorResumeNext((Throwable e) -&gt; Flowable.error(mapFn.apply(e)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Convert generic object to a BsonValue
+&nbsp;   */
+&nbsp;  private BsonValue toBsonValue(Object value) {
+<b class="nc">&nbsp;    BsonDocumentWriter writer = new BsonDocumentWriter(new BsonDocument());</b>
+<b class="nc">&nbsp;    writer.writeStartDocument();</b>
+<b class="nc">&nbsp;    writer.writeName(&quot;value&quot;);</b>
+<b class="nc">&nbsp;    Codec&lt;Object&gt; codec = (Codec&lt;Object&gt;) collection.getCodecRegistry().get(value.getClass());</b>
+<b class="nc">&nbsp;    codec.encode(writer, value, EncoderContext.builder().build());</b>
+<b class="nc">&nbsp;    writer.writeEndDocument();</b>
+<b class="nc">&nbsp;    return writer.getDocument().get(&quot;value&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Uses &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.replaceOne/&quot;&gt;replaceOne&lt;/a&gt; operation
+&nbsp;   * with &lt;a href=&quot;https://docs.mongodb.com/manual/reference/method/db.collection.bulkWrite/&quot;&gt;bulkWrite&lt;/a&gt;. Right now has to convert
+&nbsp;   * object to BsonDocument to extract {@code _id} attribute.
+&nbsp;   */
+&nbsp;  private &lt;T&gt; Publisher&lt;WriteResult&gt; update(StandardOperations.Update operation) {
+<b class="nc">&nbsp;    ReplaceOptions options = new ReplaceOptions();</b>
+<b class="nc">&nbsp;    if (operation.upsert()) {</b>
+<b class="nc">&nbsp;      options.upsert(operation.upsert());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    List&lt;ReplaceOneModel&lt;Object&gt;&gt; docs =  operation.values().stream()</b>
+<b class="nc">&nbsp;            .map(value -&gt; new ReplaceOneModel&lt;&gt;(new BsonDocument(Mongos.ID_FIELD_NAME, toBsonValue(keyExtractor.extract(value))), value, options))</b>
+<b class="nc">&nbsp;            .collect(Collectors.toList());</b>
+&nbsp;
+<b class="nc">&nbsp;    Publisher&lt;BulkWriteResult&gt; publisher = ((MongoCollection&lt;Object&gt;) collection).bulkWrite(docs);</b>
+<b class="nc">&nbsp;    return Flowable.fromPublisher(publisher).map(x -&gt; WriteResult.empty()</b>
+<b class="nc">&nbsp;            .withUpdatedCount(x.getModifiedCount())</b>
+<b class="nc">&nbsp;            .withInsertedCount(operation.upsert() ? x.getUpserts().size() : x.getInsertedCount())</b>
+<b class="nc">&nbsp;            .withDeletedCount(x.getDeletedCount()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;WriteResult&gt; updateByQuery(StandardOperations.UpdateByQuery operation) {
+&nbsp;
+<b class="nc">&nbsp;    Optional&lt;Object&gt; replace = operation.replace();</b>
+<b class="nc">&nbsp;    if (replace.isPresent()) {</b>
+<b class="nc">&nbsp;      return Flowable.error(new UnsupportedOperationException(&quot;Replacing whole objects not yet supported by &quot; + MongoBackend.class.getSimpleName()));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Bson filter = toBsonFilter(operation.query());</b>
+<b class="nc">&nbsp;    Document set = new Document();</b>
+<b class="nc">&nbsp;    operation.values().forEach((path, value) -&gt; {</b>
+<b class="nc">&nbsp;      if (path.returnType() != Optional.class &amp;&amp; Optional.empty().equals(value)) {</b>
+<b class="nc">&nbsp;        value = null; // unwrap from Optional</b>
+&nbsp;      }
+<b class="nc">&nbsp;      set.put(Visitors.toPath(path).toStringPath(), value);</b>
+&nbsp;    });
+&nbsp;
+<b class="nc">&nbsp;    return Flowable.fromPublisher(collection.updateMany(filter, new Document(&quot;$set&quot;, set)))</b>
+<b class="nc">&nbsp;            .map(x -&gt; WriteResult.empty()</b>
+<b class="nc">&nbsp;                    .withUpdatedCount(x.getModifiedCount()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;WriteResult&gt; delete(StandardOperations.Delete delete) {
+<b class="nc">&nbsp;    final Bson filter = toBsonFilter(delete.query());</b>
+<b class="nc">&nbsp;    return Flowable.fromPublisher(collection.deleteMany(filter))</b>
+<b class="nc">&nbsp;            .map(r -&gt; WriteResult.empty().withDeletedCount(r.getDeletedCount()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;WriteResult&gt; deleteByKey(StandardOperations.DeleteByKey deleteByKey) {
+<b class="nc">&nbsp;    if (deleteByKey.keys().isEmpty()) {</b>
+<b class="nc">&nbsp;      return Flowable.just(WriteResult.empty());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Bson filter = Mongos.filterById(deleteByKey.keys());</b>
+<b class="nc">&nbsp;    return Flowable.fromPublisher(collection.deleteMany(filter))</b>
+<b class="nc">&nbsp;            .map(r -&gt; WriteResult.empty().withDeletedCount(r.getDeletedCount()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;WriteResult&gt; insert(StandardOperations.Insert insert) {
+<b class="nc">&nbsp;    final MongoCollection&lt;Object&gt; collection = (MongoCollection&lt;Object&gt;) this.collection;</b>
+<b class="nc">&nbsp;    final List&lt;Object&gt; values = insert.values();</b>
+<b class="nc">&nbsp;    return Flowable.fromPublisher(collection.insertMany(values)).map(r -&gt; WriteResult.empty().withInsertedCount(r.getInsertedIds().size()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Publisher&lt;?&gt; getByKey(StandardOperations.GetByKey getByKey) {
+<b class="nc">&nbsp;    Bson filter = Mongos.filterById(getByKey.keys());</b>
+<b class="nc">&nbsp;    return Flowable.fromPublisher(collection.find(filter));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private &lt;X&gt; Publisher&lt;WatchEvent&lt;X&gt;&gt; watch(StandardOperations.Watch operation) {
+<b class="nc">&nbsp;    final MongoCollection&lt;X&gt; collection = (MongoCollection&lt;X&gt;) this.collection;</b>
+&nbsp;
+<b class="nc">&nbsp;    if (operation.query().hasProjections()) {</b>
+<b class="nc">&nbsp;      return Flowable.error(new UnsupportedOperationException(&quot;Projections are not yet supported with watch operation&quot;));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    ChangeStreamPublisher&lt;X&gt; watch;
+<b class="nc">&nbsp;    if (!operation.query().filter().isPresent()) {</b>
+&nbsp;      // watch without filter
+<b class="nc">&nbsp;      watch = collection.watch(collection.getDocumentClass());</b>
+&nbsp;    } else {
+&nbsp;      // prefix all attributes with &#39;fullDocument.&#39;
+<b class="nc">&nbsp;      PathNaming naming = path -&gt; &quot;fullDocument.&quot; + this.pathNaming.name(path);</b>
+<b class="nc">&nbsp;      AggregationQuery agg = new AggregationQuery(operation.query(), naming); // reuse aggregation pipeline</b>
+<b class="nc">&nbsp;      watch = collection.watch(agg.toPipeline(), collection.getDocumentClass());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return Flowable.fromPublisher(watch.fullDocument(FullDocument.UPDATE_LOOKUP))</b>
+<b class="nc">&nbsp;            .map(MongoWatchEvent::fromChangeStream);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

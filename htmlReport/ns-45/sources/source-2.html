@@ -1,0 +1,420 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Mirrors</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mirror.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Mirrors (org.immutables.mirror.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Mirrors</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Mirrors$AttributeTypeKind</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$MirrorModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$MirrorModel$AttributeModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/56)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/71)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mirror.processor;
+&nbsp;
+&nbsp;import com.google.common.base.Splitter;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.Name;
+&nbsp;import javax.lang.model.element.PackageElement;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.type.ArrayType;
+&nbsp;import javax.lang.model.type.DeclaredType;
+&nbsp;import javax.lang.model.type.TypeKind;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import javax.lang.model.util.ElementFilter;
+&nbsp;import javax.tools.Diagnostic;
+&nbsp;import org.immutables.generator.AbstractTemplate;
+&nbsp;import org.immutables.generator.Generator;
+&nbsp;import org.immutables.mirror.Mirror;
+&nbsp;
+&nbsp;@Generator.Template
+&nbsp;@Generator.Import({Mirrors.MirrorModel.class, Mirrors.MirrorModel.AttributeModel.class})
+<b class="nc">&nbsp;class Mirrors extends AbstractTemplate {</b>
+&nbsp;
+&nbsp;  ImmutableList&lt;MirrorModel&gt; allMirrors() {
+<b class="nc">&nbsp;    ImmutableList.Builder&lt;MirrorModel&gt; builder = ImmutableList.builder();</b>
+&nbsp;
+<b class="nc">&nbsp;    for (Element element : round().getElementsAnnotatedWith(Mirror.Annotation.class)) {</b>
+<b class="nc">&nbsp;      @Nullable TypeElement typeElement = validated(element);</b>
+<b class="nc">&nbsp;      if (typeElement == null) {</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      builder.add(new MirrorModel(typeElement));</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    return builder.build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  class MirrorModel {
+&nbsp;    final TypeElement element;
+&nbsp;    final ImmutableList&lt;AttributeModel&gt; attributes;
+&nbsp;    final String name;
+&nbsp;    final String $$package;
+&nbsp;    final String qualifiedName;
+&nbsp;
+<b class="nc">&nbsp;    MirrorModel(TypeElement element) {</b>
+<b class="nc">&nbsp;      this.element = element;</b>
+&nbsp;
+<b class="nc">&nbsp;      ImmutableList.Builder&lt;AttributeModel&gt; builder = ImmutableList.builder();</b>
+<b class="nc">&nbsp;      for (ExecutableElement attribute : ElementFilter.methodsIn(element.getEnclosedElements())) {</b>
+<b class="nc">&nbsp;        builder.add(new AttributeModel(attribute));</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      this.attributes = builder.build();</b>
+<b class="nc">&nbsp;      this.name = element.getSimpleName().toString();</b>
+&nbsp;
+&nbsp;      PackageElement packageElement;
+<b class="nc">&nbsp;      for (Element e = element;; e = e.getEnclosingElement()) {</b>
+<b class="nc">&nbsp;        if (e.getKind() == ElementKind.PACKAGE) {</b>
+<b class="nc">&nbsp;          packageElement = (PackageElement) e;</b>
+<b class="nc">&nbsp;          break;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.$$package = packageElement.getQualifiedName().toString();</b>
+<b class="nc">&nbsp;      this.qualifiedName = element.getAnnotation(Mirror.Annotation.class).value();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    String simpleName() {
+<b class="nc">&nbsp;      return Iterables.getLast(Splitter.on(&#39;.&#39;).splitToList(qualifiedName));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    class AttributeModel {
+&nbsp;      final ExecutableElement element;
+&nbsp;      final String name;
+&nbsp;      final boolean isArray;
+&nbsp;      final TypeMirror type;
+&nbsp;      final AttributeTypeKind kind;
+&nbsp;      final String suffix;
+&nbsp;      @Nullable
+&nbsp;      final MirrorModel mirrorModel;
+&nbsp;
+<b class="nc">&nbsp;      AttributeModel(ExecutableElement element) {</b>
+<b class="nc">&nbsp;        this.element = element;</b>
+<b class="nc">&nbsp;        this.name = element.getSimpleName().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;        TypeMirror type = element.getReturnType();</b>
+&nbsp;
+<b class="nc">&nbsp;        this.isArray = type.getKind() == TypeKind.ARRAY;</b>
+<b class="nc">&nbsp;        this.type = this.isArray ? ((ArrayType) type).getComponentType() : type;</b>
+<b class="nc">&nbsp;        this.kind = AttributeTypeKind.from(this.type);</b>
+&nbsp;
+<b class="nc">&nbsp;        this.suffix = this.isArray ? &quot;[]&quot; : &quot;&quot;;</b>
+<b class="nc">&nbsp;        this.mirrorModel = getMirrorModelIfAnnotation();</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Nullable
+&nbsp;      private MirrorModel getMirrorModelIfAnnotation() {
+<b class="nc">&nbsp;        if (this.kind == AttributeTypeKind.ANNOTATION) {</b>
+<b class="nc">&nbsp;          TypeElement element = toElement(this.type);</b>
+<b class="nc">&nbsp;          if (element.getAnnotation(Mirror.Annotation.class) != null) {</b>
+<b class="nc">&nbsp;            return new MirrorModel(element);</b>
+&nbsp;          }
+&nbsp;        }
+<b class="nc">&nbsp;        return null;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      boolean isBoolean() {
+<b class="nc">&nbsp;        return type.getKind() == TypeKind.BOOLEAN;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      boolean isFloat() {
+<b class="nc">&nbsp;        return type.getKind() == TypeKind.FLOAT;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      boolean isDouble() {
+<b class="nc">&nbsp;        return type.getKind() == TypeKind.DOUBLE;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  enum AttributeTypeKind {</b>
+<b class="nc">&nbsp;    PRIMITIVE, STRING, ENUM, ANNOTATION, TYPE;</b>
+&nbsp;
+&nbsp;    boolean isPrimitive() {
+<b class="nc">&nbsp;      return this == PRIMITIVE;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean isString() {
+<b class="nc">&nbsp;      return this == STRING;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean isEnum() {
+<b class="nc">&nbsp;      return this == ENUM;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean isAnnotation() {
+<b class="nc">&nbsp;      return this == ANNOTATION;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean isType() {
+<b class="nc">&nbsp;      return this == TYPE;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static AttributeTypeKind from(TypeMirror type) {
+<b class="nc">&nbsp;      if (type.getKind() == TypeKind.DECLARED) {</b>
+<b class="nc">&nbsp;        TypeElement typeElement = toElement(type);</b>
+<b class="nc">&nbsp;        if (typeElement.getKind() == ElementKind.ENUM) {</b>
+<b class="nc">&nbsp;          return ENUM;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (typeElement.getKind() == ElementKind.ANNOTATION_TYPE) {</b>
+<b class="nc">&nbsp;          return ANNOTATION;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        Name qualifiedName = typeElement.getQualifiedName();</b>
+<b class="nc">&nbsp;        if (qualifiedName.contentEquals(Class.class.getName())) {</b>
+<b class="nc">&nbsp;          return TYPE;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (qualifiedName.contentEquals(String.class.getName())) {</b>
+<b class="nc">&nbsp;          return STRING;</b>
+&nbsp;        }
+<b class="nc">&nbsp;      } else if (type.getKind().isPrimitive()) {</b>
+<b class="nc">&nbsp;        return PRIMITIVE;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      throw new AssertionError();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static TypeElement toElement(TypeMirror type) {
+<b class="nc">&nbsp;    return (TypeElement) ((DeclaredType) type).asElement();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  private TypeElement validated(Element element) {
+<b class="nc">&nbsp;    Element enclosingElement = element.getEnclosingElement();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (element.getKind() == ElementKind.ANNOTATION_TYPE</b>
+<b class="nc">&nbsp;        &amp;&amp; element.getModifiers().contains(Modifier.PUBLIC)</b>
+&nbsp;        &amp;&amp; enclosingElement != null
+<b class="nc">&nbsp;        &amp;&amp; (enclosingElement.getKind() != ElementKind.PACKAGE</b>
+<b class="nc">&nbsp;        || !((PackageElement) enclosingElement).isUnnamed())) {</b>
+<b class="nc">&nbsp;      return (TypeElement) element;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    processing().getMessager().printMessage(</b>
+&nbsp;        Diagnostic.Kind.ERROR,
+&nbsp;        &quot;Element annotated with @Mirror.Annotation annotation should public annotation type in a package&quot;,
+&nbsp;        element);
+&nbsp;
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

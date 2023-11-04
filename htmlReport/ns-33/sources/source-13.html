@@ -1,0 +1,286 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNullableTypeUseJdtAccepted</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNullableTypeUseJdtAccepted (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNullableTypeUseJdtAccepted$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.eclipse.jdt.annotation.Nullable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NullableTypeUseJdtAccepted}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNullableTypeUseJdtAccepted.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NullableTypeUseJdtAccepted&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableNullableTypeUseJdtAccepted
+&nbsp;    implements NullableTypeUseJdtAccepted {
+&nbsp;  private final java.lang.@Nullable Integer i1;
+&nbsp;  private final java.lang.@Nullable Long l2;
+&nbsp;
+&nbsp;  private ImmutableNullableTypeUseJdtAccepted(
+&nbsp;      java.lang.@Nullable Integer i1,
+&nbsp;      java.lang.@Nullable Long l2) {
+&nbsp;    this.i1 = i1;
+&nbsp;    this.l2 = l2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.lang.@Nullable Integer i1() {
+&nbsp;    return i1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.lang.@Nullable Long l2() {
+&nbsp;    return l2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NullableTypeUseJdtAccepted#i1() i1} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for i1 (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableTypeUseJdtAccepted withI1(java.lang.@Nullable Integer value) {
+&nbsp;    if (Objects.equals(this.i1, value)) return this;
+&nbsp;    return new ImmutableNullableTypeUseJdtAccepted(value, this.l2);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NullableTypeUseJdtAccepted#l2() l2} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for l2 (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableTypeUseJdtAccepted withL2(java.lang.@Nullable Long value) {
+&nbsp;    if (Objects.equals(this.l2, value)) return this;
+&nbsp;    return new ImmutableNullableTypeUseJdtAccepted(this.i1, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNullableTypeUseJdtAccepted} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@javax.annotation.Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNullableTypeUseJdtAccepted
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNullableTypeUseJdtAccepted) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNullableTypeUseJdtAccepted another) {
+&nbsp;    return Objects.equals(i1, another.i1)
+&nbsp;        &amp;&amp; Objects.equals(l2, another.l2);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code i1}, {@code l2}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(i1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(l2);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NullableTypeUseJdtAccepted} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NullableTypeUseJdtAccepted&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;i1&quot;, i1)
+&nbsp;        .add(&quot;l2&quot;, l2)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NullableTypeUseJdtAccepted} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NullableTypeUseJdtAccepted instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullableTypeUseJdtAccepted copyOf(NullableTypeUseJdtAccepted instance) {
+&nbsp;    if (instance instanceof ImmutableNullableTypeUseJdtAccepted) {
+&nbsp;      return (ImmutableNullableTypeUseJdtAccepted) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNullableTypeUseJdtAccepted.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNullableTypeUseJdtAccepted ImmutableNullableTypeUseJdtAccepted}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNullableTypeUseJdtAccepted.builder()
+&nbsp;   *    .i1(@org.eclipse.jdt.annotation.Nullable Integer | null) // nullable {@link NullableTypeUseJdtAccepted#i1() i1}
+&nbsp;   *    .l2(@org.eclipse.jdt.annotation.Nullable Long | null) // nullable {@link NullableTypeUseJdtAccepted#l2() l2}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNullableTypeUseJdtAccepted builder
+&nbsp;   */
+&nbsp;  public static ImmutableNullableTypeUseJdtAccepted.Builder builder() {
+&nbsp;    return new ImmutableNullableTypeUseJdtAccepted.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNullableTypeUseJdtAccepted ImmutableNullableTypeUseJdtAccepted}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NullableTypeUseJdtAccepted&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @javax.annotation.Nullable java.lang.@Nullable Integer i1;
+&nbsp;    private @javax.annotation.Nullable java.lang.@Nullable Long l2;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NullableTypeUseJdtAccepted} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NullableTypeUseJdtAccepted instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      java.lang.@Nullable Integer i1Value = instance.i1();
+&nbsp;      if (i1Value != null) {
+&nbsp;        i1(i1Value);
+&nbsp;      }
+&nbsp;      java.lang.@Nullable Long l2Value = instance.l2();
+&nbsp;      if (l2Value != null) {
+&nbsp;        l2(l2Value);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableTypeUseJdtAccepted#i1() i1} attribute.
+&nbsp;     * @param i1 The value for i1 (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i1(java.lang.@Nullable Integer i1) {
+&nbsp;      this.i1 = i1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableTypeUseJdtAccepted#l2() l2} attribute.
+&nbsp;     * @param l2 The value for l2 (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l2(java.lang.@Nullable Long l2) {
+&nbsp;      this.l2 = l2;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNullableTypeUseJdtAccepted ImmutableNullableTypeUseJdtAccepted}.
+&nbsp;     * @return An immutable instance of NullableTypeUseJdtAccepted
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNullableTypeUseJdtAccepted build() {
+&nbsp;      return new ImmutableNullableTypeUseJdtAccepted(i1, l2);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

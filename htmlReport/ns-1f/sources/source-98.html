@@ -1,0 +1,745 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableExtraCollection</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableExtraCollection (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableExtraCollection$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.BiMap;
+&nbsp;import com.google.common.collect.ImmutableBiMap;
+&nbsp;import com.google.common.collect.ImmutableListMultimap;
+&nbsp;import com.google.common.collect.ImmutableMultimap;
+&nbsp;import com.google.common.collect.ImmutableMultiset;
+&nbsp;import com.google.common.collect.ImmutableSetMultimap;
+&nbsp;import com.google.common.collect.ListMultimap;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.common.collect.Multiset;
+&nbsp;import com.google.common.collect.SetMultimap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ExtraCollection}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableExtraCollection.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableExtraCollection.of()}.
+&nbsp; * Use the static factory method to get the default singleton instance:
+&nbsp; * {@code ImmutableExtraCollection.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ExtraCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableExtraCollection implements ExtraCollection {
+&nbsp;  private final ImmutableMultiset&lt;String&gt; bag;
+&nbsp;  private final ImmutableMultimap&lt;Integer, String&gt; index;
+&nbsp;  private final ImmutableListMultimap&lt;Integer, String&gt; indexList;
+&nbsp;  private final ImmutableSetMultimap&lt;Integer, String&gt; indexSet;
+&nbsp;  private final ImmutableBiMap&lt;Integer, String&gt; biMap;
+&nbsp;  private transient final int hashCode;
+&nbsp;
+&nbsp;  private ImmutableExtraCollection() {
+&nbsp;    this.bag = ImmutableMultiset.of();
+&nbsp;    this.index = ImmutableMultimap.of();
+&nbsp;    this.indexList = ImmutableListMultimap.of();
+&nbsp;    this.indexSet = ImmutableSetMultimap.of();
+&nbsp;    this.biMap = ImmutableBiMap.of();
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableExtraCollection(
+&nbsp;      Iterable&lt;String&gt; bag,
+&nbsp;      Multimap&lt;Integer, ? extends String&gt; index,
+&nbsp;      Multimap&lt;Integer, ? extends String&gt; indexList,
+&nbsp;      Multimap&lt;Integer, ? extends String&gt; indexSet,
+&nbsp;      Map&lt;Integer, ? extends String&gt; biMap) {
+&nbsp;    this.bag = ImmutableMultiset.copyOf(bag);
+&nbsp;    this.index = ImmutableMultimap.copyOf(index);
+&nbsp;    this.indexList = ImmutableListMultimap.copyOf(indexList);
+&nbsp;    this.indexSet = ImmutableSetMultimap.copyOf(indexSet);
+&nbsp;    this.biMap = ImmutableBiMap.copyOf(biMap);
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableExtraCollection(
+&nbsp;      ImmutableExtraCollection original,
+&nbsp;      ImmutableMultiset&lt;String&gt; bag,
+&nbsp;      ImmutableMultimap&lt;Integer, String&gt; index,
+&nbsp;      ImmutableListMultimap&lt;Integer, String&gt; indexList,
+&nbsp;      ImmutableSetMultimap&lt;Integer, String&gt; indexSet,
+&nbsp;      ImmutableBiMap&lt;Integer, String&gt; biMap) {
+&nbsp;    this.bag = bag;
+&nbsp;    this.index = index;
+&nbsp;    this.indexList = indexList;
+&nbsp;    this.indexSet = indexSet;
+&nbsp;    this.biMap = biMap;
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code bag} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultiset&lt;String&gt; bag() {
+&nbsp;    return bag;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code index} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultimap&lt;Integer, String&gt; index() {
+&nbsp;    return index;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code indexList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableListMultimap&lt;Integer, String&gt; indexList() {
+&nbsp;    return indexList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code indexSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSetMultimap&lt;Integer, String&gt; indexSet() {
+&nbsp;    return indexSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code biMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableBiMap&lt;Integer, String&gt; biMap() {
+&nbsp;    return biMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ExtraCollection#bag() bag}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableExtraCollection withBag(String... elements) {
+&nbsp;    ImmutableMultiset&lt;String&gt; newValue = ImmutableMultiset.copyOf(elements);
+&nbsp;    return validate(new ImmutableExtraCollection(this, newValue, this.index, this.indexList, this.indexSet, this.biMap));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ExtraCollection#bag() bag}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of bag elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableExtraCollection withBag(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.bag == elements) return this;
+&nbsp;    ImmutableMultiset&lt;String&gt; newValue = ImmutableMultiset.copyOf(elements);
+&nbsp;    return validate(new ImmutableExtraCollection(this, newValue, this.index, this.indexList, this.indexSet, this.biMap));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link ExtraCollection#index() index} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the index map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableExtraCollection withIndex(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.index == entries) return this;
+&nbsp;    ImmutableMultimap&lt;Integer, String&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;    return validate(new ImmutableExtraCollection(this, this.bag, newValue, this.indexList, this.indexSet, this.biMap));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link ExtraCollection#indexList() indexList} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the indexList map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableExtraCollection withIndexList(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.indexList == entries) return this;
+&nbsp;    ImmutableListMultimap&lt;Integer, String&gt; newValue = ImmutableListMultimap.copyOf(entries);
+&nbsp;    return validate(new ImmutableExtraCollection(this, this.bag, this.index, newValue, this.indexSet, this.biMap));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link ExtraCollection#indexSet() indexSet} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the indexSet map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableExtraCollection withIndexSet(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.indexSet == entries) return this;
+&nbsp;    ImmutableSetMultimap&lt;Integer, String&gt; newValue = ImmutableSetMultimap.copyOf(entries);
+&nbsp;    return validate(new ImmutableExtraCollection(this, this.bag, this.index, this.indexList, newValue, this.biMap));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link ExtraCollection#biMap() biMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the biMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableExtraCollection withBiMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.biMap == entries) return this;
+&nbsp;    ImmutableBiMap&lt;Integer, String&gt; newValue = ImmutableBiMap.copyOf(entries);
+&nbsp;    return validate(new ImmutableExtraCollection(this, this.bag, this.index, this.indexList, this.indexSet, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableExtraCollection} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableExtraCollection
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableExtraCollection) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableExtraCollection another) {
+&nbsp;    if (hashCode != another.hashCode) return false;
+&nbsp;    return bag.equals(another.bag)
+&nbsp;        &amp;&amp; index.equals(another.index)
+&nbsp;        &amp;&amp; indexList.equals(another.indexList)
+&nbsp;        &amp;&amp; indexSet.equals(another.indexSet)
+&nbsp;        &amp;&amp; biMap.equals(another.biMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns a precomputed-on-construction hash code from attributes: {@code bag}, {@code index}, {@code indexList}, {@code indexSet}, {@code biMap}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    return hashCode;
+&nbsp;  }
+&nbsp;
+&nbsp;  private int computeHashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + bag.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + index.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + indexList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + indexSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + biMap.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ExtraCollection} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ExtraCollection&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;bag&quot;, bag)
+&nbsp;        .add(&quot;index&quot;, index)
+&nbsp;        .add(&quot;indexList&quot;, indexList)
+&nbsp;        .add(&quot;indexSet&quot;, indexSet)
+&nbsp;        .add(&quot;biMap&quot;, biMap)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final ImmutableExtraCollection INSTANCE = validate(new ImmutableExtraCollection());
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the default immutable singleton value of {@code ExtraCollection}
+&nbsp;   * @return An immutable instance of ExtraCollection
+&nbsp;   */
+&nbsp;  public static ImmutableExtraCollection of() {
+&nbsp;    return INSTANCE;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code ExtraCollection} instance.
+&nbsp;   * @param bag The value for the {@code bag} attribute
+&nbsp;   * @param index The value for the {@code index} attribute
+&nbsp;   * @param indexList The value for the {@code indexList} attribute
+&nbsp;   * @param indexSet The value for the {@code indexSet} attribute
+&nbsp;   * @param biMap The value for the {@code biMap} attribute
+&nbsp;   * @return An immutable ExtraCollection instance
+&nbsp;   */
+&nbsp;  public static ImmutableExtraCollection of(Multiset&lt;String&gt; bag, Multimap&lt;Integer, String&gt; index, ListMultimap&lt;Integer, String&gt; indexList, SetMultimap&lt;Integer, String&gt; indexSet, BiMap&lt;Integer, String&gt; biMap) {
+&nbsp;    return of((Iterable&lt;String&gt;) bag, index, (Multimap&lt;Integer, ? extends String&gt;) indexList, (Multimap&lt;Integer, ? extends String&gt;) indexSet, (Map&lt;Integer, ? extends String&gt;) biMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code ExtraCollection} instance.
+&nbsp;   * @param bag The value for the {@code bag} attribute
+&nbsp;   * @param index The value for the {@code index} attribute
+&nbsp;   * @param indexList The value for the {@code indexList} attribute
+&nbsp;   * @param indexSet The value for the {@code indexSet} attribute
+&nbsp;   * @param biMap The value for the {@code biMap} attribute
+&nbsp;   * @return An immutable ExtraCollection instance
+&nbsp;   */
+&nbsp;  public static ImmutableExtraCollection of(Iterable&lt;String&gt; bag, Multimap&lt;Integer, ? extends String&gt; index, Multimap&lt;Integer, ? extends String&gt; indexList, Multimap&lt;Integer, ? extends String&gt; indexSet, Map&lt;Integer, ? extends String&gt; biMap) {
+&nbsp;    return validate(new ImmutableExtraCollection(bag, index, indexList, indexSet, biMap));
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableExtraCollection validate(ImmutableExtraCollection instance) {
+&nbsp;    return INSTANCE != null &amp;&amp; INSTANCE.equalTo(0, instance) ? INSTANCE : instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ExtraCollection} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ExtraCollection instance
+&nbsp;   */
+&nbsp;  public static ImmutableExtraCollection copyOf(ExtraCollection instance) {
+&nbsp;    if (instance instanceof ImmutableExtraCollection) {
+&nbsp;      return (ImmutableExtraCollection) instance;
+&nbsp;    }
+&nbsp;    return ImmutableExtraCollection.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableExtraCollection ImmutableExtraCollection}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableExtraCollection.builder()
+&nbsp;   *    .addBag|addAllBag(String) // {@link ExtraCollection#bag() bag} elements
+&nbsp;   *    .putIndex|putAllIndex(int =&amp;gt; String) // {@link ExtraCollection#index() index} mappings
+&nbsp;   *    .putIndexList|putAllIndexList(int =&amp;gt; String) // {@link ExtraCollection#indexList() indexList} mappings
+&nbsp;   *    .putIndexSet|putAllIndexSet(int =&amp;gt; String) // {@link ExtraCollection#indexSet() indexSet} mappings
+&nbsp;   *    .putBiMap|putAllBiMap(int =&amp;gt; String) // {@link ExtraCollection#biMap() biMap} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableExtraCollection builder
+&nbsp;   */
+&nbsp;  public static ImmutableExtraCollection.Builder builder() {
+&nbsp;    return new ImmutableExtraCollection.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableExtraCollection ImmutableExtraCollection}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ExtraCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableMultiset.Builder&lt;String&gt; bag = ImmutableMultiset.builder();
+&nbsp;    private ImmutableMultimap.Builder&lt;Integer, String&gt; index = ImmutableMultimap.builder();
+&nbsp;    private ImmutableListMultimap.Builder&lt;Integer, String&gt; indexList = ImmutableListMultimap.builder();
+&nbsp;    private ImmutableSetMultimap.Builder&lt;Integer, String&gt; indexSet = ImmutableSetMultimap.builder();
+&nbsp;    private ImmutableBiMap.Builder&lt;Integer, String&gt; biMap = ImmutableBiMap.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ExtraCollection} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ExtraCollection instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllBag(instance.bag());
+&nbsp;      putAllIndex(instance.index());
+&nbsp;      putAllIndexList(instance.indexList());
+&nbsp;      putAllIndexSet(instance.indexSet());
+&nbsp;      putAllBiMap(instance.biMap());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ExtraCollection#bag() bag} multiset.
+&nbsp;     * @param element A bag element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addBag(String element) {
+&nbsp;      this.bag.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ExtraCollection#bag() bag} multiset.
+&nbsp;     * @param elements An array of bag elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addBag(String... elements) {
+&nbsp;      this.bag.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ExtraCollection#bag() bag} multiset.
+&nbsp;     * @param elements An iterable of bag elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bag(Iterable&lt;String&gt; elements) {
+&nbsp;      this.bag = ImmutableMultiset.builder();
+&nbsp;      return addAllBag(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ExtraCollection#bag() bag} multiset.
+&nbsp;     * @param elements An iterable of bag elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllBag(Iterable&lt;String&gt; elements) {
+&nbsp;      this.bag.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link ExtraCollection#index() index} true. Nulls are not permitted
+&nbsp;     * @param key The key for index
+&nbsp;     * @param values The values for index
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndex(int key, String... values) {
+&nbsp;      this.index.putAll(key, Arrays.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link ExtraCollection#index() index} true. Nulls are not permitted
+&nbsp;     * @param key The key for index
+&nbsp;     * @param values The values for index
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllIndex(int key, Iterable&lt;String&gt; values) {
+&nbsp;      this.index.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#index() index} map.
+&nbsp;     * @param key The key in the index map
+&nbsp;     * @param value The associated value in the index map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndex(int key, String value) {
+&nbsp;      this.index.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#index() index} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndex(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.index.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link ExtraCollection#index() index} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the index map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder index(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.index = ImmutableMultimap.builder();
+&nbsp;      return putAllIndex(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link ExtraCollection#index() index} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the index map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllIndex(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.index.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link ExtraCollection#indexList() indexList} true. Nulls are not permitted
+&nbsp;     * @param key The key for indexList
+&nbsp;     * @param values The values for indexList
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndexList(int key, String... values) {
+&nbsp;      this.indexList.putAll(key, Arrays.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link ExtraCollection#indexList() indexList} true. Nulls are not permitted
+&nbsp;     * @param key The key for indexList
+&nbsp;     * @param values The values for indexList
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllIndexList(int key, Iterable&lt;String&gt; values) {
+&nbsp;      this.indexList.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#indexList() indexList} map.
+&nbsp;     * @param key The key in the indexList map
+&nbsp;     * @param value The associated value in the indexList map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndexList(int key, String value) {
+&nbsp;      this.indexList.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#indexList() indexList} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndexList(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.indexList.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link ExtraCollection#indexList() indexList} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the indexList map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder indexList(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.indexList = ImmutableListMultimap.builder();
+&nbsp;      return putAllIndexList(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link ExtraCollection#indexList() indexList} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the indexList map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllIndexList(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.indexList.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link ExtraCollection#indexSet() indexSet} true. Nulls are not permitted
+&nbsp;     * @param key The key for indexSet
+&nbsp;     * @param values The values for indexSet
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndexSet(int key, String... values) {
+&nbsp;      this.indexSet.putAll(key, Arrays.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link ExtraCollection#indexSet() indexSet} true. Nulls are not permitted
+&nbsp;     * @param key The key for indexSet
+&nbsp;     * @param values The values for indexSet
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllIndexSet(int key, Iterable&lt;String&gt; values) {
+&nbsp;      this.indexSet.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#indexSet() indexSet} map.
+&nbsp;     * @param key The key in the indexSet map
+&nbsp;     * @param value The associated value in the indexSet map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndexSet(int key, String value) {
+&nbsp;      this.indexSet.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#indexSet() indexSet} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putIndexSet(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.indexSet.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link ExtraCollection#indexSet() indexSet} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the indexSet map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder indexSet(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.indexSet = ImmutableSetMultimap.builder();
+&nbsp;      return putAllIndexSet(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link ExtraCollection#indexSet() indexSet} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the indexSet map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllIndexSet(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.indexSet.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#biMap() biMap} map.
+&nbsp;     * @param key The key in the biMap map
+&nbsp;     * @param value The associated value in the biMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putBiMap(int key, String value) {
+&nbsp;      this.biMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ExtraCollection#biMap() biMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putBiMap(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.biMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link ExtraCollection#biMap() biMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the biMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder biMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.biMap = ImmutableBiMap.builder();
+&nbsp;      return putAllBiMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link ExtraCollection#biMap() biMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the biMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllBiMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.biMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableExtraCollection ImmutableExtraCollection}.
+&nbsp;     * @return An immutable instance of ExtraCollection
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableExtraCollection build() {
+&nbsp;      return ImmutableExtraCollection.validate(new ImmutableExtraCollection(null, bag.build(), index.build(), indexList.build(), indexSet.build(), biMap.build()));
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

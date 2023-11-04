@@ -1,0 +1,331 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableDefaultMap</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableDefaultMap (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableDefaultMap</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link DefaultMap DefaultMap} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableDefaultMap is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableDefaultMap
+&nbsp; */
+&nbsp;@Generated(from = &quot;DefaultMap&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;DefaultMap&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableDefaultMap implements DefaultMap {
+&nbsp;  private static final long OPT_BIT_MAP = 0x1L;
+&nbsp;  private long optBits;
+&nbsp;
+&nbsp;  private final Map&lt;String, String&gt; map = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;
+&nbsp;  private ModifiableDefaultMap() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code DefaultMap}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableDefaultMap create() {
+&nbsp;    return new ModifiableDefaultMap();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Map&lt;String, String&gt; getMap() {
+&nbsp;    if (mapIsSet()) {
+&nbsp;      return map;
+&nbsp;    } else {
+&nbsp;      return DefaultMap.super.getMap();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableDefaultMap clear() {
+&nbsp;    optBits = 0;
+&nbsp;    map.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link DefaultMap} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableDefaultMap from(DefaultMap instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableDefaultMap) {
+&nbsp;      from((ModifiableDefaultMap) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    putAllMap(instance.getMap());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link DefaultMap} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableDefaultMap from(ModifiableDefaultMap instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    putAllMap(instance.getMap());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link DefaultMap#getMap() map} map.
+&nbsp;   * @param key The key in map map
+&nbsp;   * @param value The associated value in the map map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableDefaultMap putMap(String key, String value) {
+&nbsp;    this.map.put(
+&nbsp;        Objects.requireNonNull(key, &quot;map key&quot;),
+&nbsp;        Objects.requireNonNull(value, &quot;map value&quot;));
+&nbsp;    optBits |= OPT_BIT_MAP;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link DefaultMap#getMap() map} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the map map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableDefaultMap setMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    this.map.clear();
+&nbsp;    for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.map.put(
+&nbsp;          Objects.requireNonNull(k, &quot;map key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;map value&quot;));
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_MAP;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link DefaultMap#getMap() map} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to map map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableDefaultMap putAllMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.map.put(
+&nbsp;          Objects.requireNonNull(k, &quot;map key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;map value&quot;));
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_MAP;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link DefaultMap#getMap() map} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean mapIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_MAP) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableDefaultMap unsetMap() {
+&nbsp;    optBits |= 0;
+&nbsp;    map.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableDefaultMap ImmutableDefaultMap}.
+&nbsp;   * @return An immutable instance of DefaultMap
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultMap toImmutable() {
+&nbsp;    return ImmutableDefaultMap.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableDefaultMap} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableDefaultMap)) return false;
+&nbsp;    ModifiableDefaultMap other = (ModifiableDefaultMap) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableDefaultMap another) {
+&nbsp;    Map&lt;String, String&gt; map = getMap();
+&nbsp;    return map.equals(another.getMap());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code map}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    Map&lt;String, String&gt; map = getMap();
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code DefaultMap}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;ModifiableDefaultMap{&quot;
+&nbsp;        + &quot;map=&quot; + getMap()
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

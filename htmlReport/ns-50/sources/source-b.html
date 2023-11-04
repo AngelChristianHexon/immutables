@@ -1,0 +1,733 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Generator_Funcs</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Generator_Funcs (org.immutables.value.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Generator_Funcs</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/44)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/464)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Generator_Funcs$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_Funcs$FragmentDispatch</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/49)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/480)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor;
+&nbsp;
+&nbsp;import static org.immutables.generator.Intrinsics.*;
+&nbsp;
+&nbsp;@java.lang.SuppressWarnings(&quot;all&quot;)
+<b class="nc">&nbsp;public class Generator_Funcs extends org.immutables.value.processor.Funcs {</b>
+<b class="nc">&nbsp;public org.immutables.generator.Templates.Invokable generate() { return generate; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generate = new FragmentDispatch(0, 0);</b>
+&nbsp;void _t0__generate(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueType type : $in(values.values())) {</b>
+<b class="nc">&nbsp;  if ($if(type.kind().isValue())) {</b>
+<b class="nc">&nbsp;  final org.immutables.value.processor.meta.ValueType.FuncData func = $cast(type.getFunctionalData());</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if(func.is())) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      $(__, output.java, type.$$package(), $(type.name(), &quot;Functions&quot;), type.element, new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;      @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        $(__, type.sourceHeader());</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        $(__, generateFunctions, type, func);</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }});
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateFunctions() { return generateFunctions; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateFunctions = new FragmentDispatch(2, 1);</b>
+&nbsp;void _t1__generateFunctions(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final org.immutables.value.processor.meta.ValueType.FuncData func = $cast(__.param(1));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.$$package())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;package &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.$$package());</b>
+<b class="nc">&nbsp;    __.out(&quot;;&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Projection functions and predicates that corresponds to attributes of {@link &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeAbstract().relative());</b>
+<b class="nc">&nbsp;  __.out(&quot;}.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.generatedSuppressWarnings())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@SuppressWarnings({&quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final java.lang.String k : $in(type.generatedSuppressWarnings())) {</b>
+<b class="nc">&nbsp;    __.dl();__.dl();</b>
+<b class="nc">&nbsp;      if ($if($(not, _it1.first))) {</b>
+<b class="nc">&nbsp;        __.dl();__.out(&quot;, &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();$(__, literal, k);</b>
+<b class="nc">&nbsp;      __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;      _it1.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;})&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.ParametersAreNonnullByDefault&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.ParametersAreNonnullByDefault&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;javax.annotation.processing.Generated&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@javax.annotation.processing.Generated(\&quot;org.immutables.processor.ProxyProcessor\&quot;)&quot;).ln();</b>
+<b class="nc">&nbsp;    } else if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.Generated&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.Generated(\&quot;org.immutables.processor.ProxyProcessor\&quot;)&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;org.immutables.value.Generated&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@org.immutables.value.Generated(from = \&quot;&quot;);</b>
+<b class="nc">&nbsp;    $(__, type.typeAbstract().relativeRaw());</b>
+<b class="nc">&nbsp;    __.out(&quot;\&quot;, generator = \&quot;Funcs\&quot;)&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  $(__, type.typePreferablyAbstract().access());</b>
+<b class="nc">&nbsp;  __.out(&quot;final class &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Functions {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Functions() {}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, generateAttributes, type, func);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, generateBoundElements, type, func);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateAttributes() { return generateAttributes; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateAttributes = new FragmentDispatch(2, 2);</b>
+&nbsp;void _t2__generateAttributes(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final org.immutables.value.processor.meta.ValueType.FuncData func = $cast(__.param(1));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueAttribute h : $in(func.functionalAttributes)) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if(h.isBoolean())) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * Predicate on instance of &quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot; that tests attribute &quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueType t_sourceDocRef_257399049 = $cast(type);</b>
+<b class="nc">&nbsp;      final org.immutables.value.processor.meta.ValueAttribute a_sourceDocRef_257399049 = $cast(h);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(t_sourceDocRef_257399049.kind().isValue())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;{@link &quot;);</b>
+<b class="nc">&nbsp;          $(__, t_sourceDocRef_257399049.typeAbstract().relative());</b>
+<b class="nc">&nbsp;          __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_sourceDocRef_257399049.names.get);</b>
+<b class="nc">&nbsp;          __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;          $(__, a_sourceDocRef_257399049.names.raw);</b>
+<b class="nc">&nbsp;          __.out(&quot;}&quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;{@code &quot;);</b>
+<b class="nc">&nbsp;          $(__, a_sourceDocRef_257399049.names.raw);</b>
+<b class="nc">&nbsp;          __.out(&quot;}&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * @return {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} predicate instance&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;      $(__, h.getAccess());</b>
+<b class="nc">&nbsp;      __.out(&quot;static&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.generics().def());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, guava);</b>
+<b class="nc">&nbsp;      __.out(&quot;.base.Predicate&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.names.get);</b>
+<b class="nc">&nbsp;      __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(type.generics())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  return new &quot;);</b>
+<b class="nc">&nbsp;        $(__, guava);</b>
+<b class="nc">&nbsp;        __.out(&quot;.base.Predicate&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt;() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    public boolean apply(&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot; input) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      return input.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    public java.lang.String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      return \&quot;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Functions.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;()\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  };&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  return &quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, h.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Predicate.INSTANCE;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(not, type.generics()))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;private enum &quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, h.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Predicate implements &quot;);</b>
+<b class="nc">&nbsp;        $(__, guava);</b>
+<b class="nc">&nbsp;        __.out(&quot;.base.Predicate&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  INSTANCE;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public boolean apply(&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot; input) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return input.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public java.lang.String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return \&quot;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Functions.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;()\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+&nbsp;      
+&nbsp;    } else {
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * Projection function from instance of &quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot; to attribute &quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueType t_sourceDocRef_257399049 = $cast(type);</b>
+<b class="nc">&nbsp;      final org.immutables.value.processor.meta.ValueAttribute a_sourceDocRef_257399049 = $cast(h);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(t_sourceDocRef_257399049.kind().isValue())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;{@link &quot;);</b>
+<b class="nc">&nbsp;          $(__, t_sourceDocRef_257399049.typeAbstract().relative());</b>
+<b class="nc">&nbsp;          __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_sourceDocRef_257399049.names.get);</b>
+<b class="nc">&nbsp;          __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;          $(__, a_sourceDocRef_257399049.names.raw);</b>
+<b class="nc">&nbsp;          __.out(&quot;}&quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;{@code &quot;);</b>
+<b class="nc">&nbsp;          $(__, a_sourceDocRef_257399049.names.raw);</b>
+<b class="nc">&nbsp;          __.out(&quot;}&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * @return {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} function instance&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;      $(__, h.getAccess());</b>
+<b class="nc">&nbsp;      __.out(&quot;static&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.generics().def());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, guava);</b>
+<b class="nc">&nbsp;      __.out(&quot;.base.Function&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot;, &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.getWrapperType());</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.names.get);</b>
+<b class="nc">&nbsp;      __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(type.generics())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  return new &quot;);</b>
+<b class="nc">&nbsp;        $(__, guava);</b>
+<b class="nc">&nbsp;        __.out(&quot;.base.Function&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot;, &quot;);</b>
+<b class="nc">&nbsp;        $(__, h.getWrapperType());</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt;() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    public &quot;);</b>
+<b class="nc">&nbsp;        $(__, h.atNullability());</b>
+<b class="nc">&nbsp;        $(__, h.getWrapperType());</b>
+<b class="nc">&nbsp;        __.out(&quot; apply(&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot; input) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      return input.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    public java.lang.String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      return \&quot;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Functions.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;()\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  };&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  return &quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, h.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Function.INSTANCE;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(not, type.generics()))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;private enum &quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, h.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Function implements &quot;);</b>
+<b class="nc">&nbsp;        $(__, guava);</b>
+<b class="nc">&nbsp;        __.out(&quot;.base.Function&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot;, &quot;);</b>
+<b class="nc">&nbsp;        $(__, h.getWrapperType());</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  INSTANCE;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;        $(__, h.atNullability());</b>
+<b class="nc">&nbsp;        $(__, h.getWrapperType());</b>
+<b class="nc">&nbsp;        __.out(&quot; apply(&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;        __.out(&quot; input) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return input.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public java.lang.String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return \&quot;&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Functions.&quot;);</b>
+<b class="nc">&nbsp;        $(__, h.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;()\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateBoundElements() { return generateBoundElements; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateBoundElements = new FragmentDispatch(2, 3);</b>
+&nbsp;void _t3__generateBoundElements(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final org.immutables.value.processor.meta.ValueType.FuncData func = $cast(__.param(1));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueType.FuncData.BoundElement h : $in(func.boundElements)) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(h.type.toString(), eq, &quot;boolean&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * Predicate from instance of &quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot; to a bound call to {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.arguments);</b>
+<b class="nc">&nbsp;      __.out(&quot;}.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * @return {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      __.out(&quot;} predicate instance&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;      $(__, h.access);</b>
+<b class="nc">&nbsp;      __.out(&quot;static&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.generics().def());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, guava);</b>
+<b class="nc">&nbsp;      __.out(&quot;.base.Predicate&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.parameters);</b>
+<b class="nc">&nbsp;      __.out(&quot; {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  return new &quot;);</b>
+<b class="nc">&nbsp;      $(__, guava);</b>
+<b class="nc">&nbsp;      __.out(&quot;.base.Predicate&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt;() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    public boolean apply(&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot; input) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      return input.&quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.arguments);</b>
+<b class="nc">&nbsp;      __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    public java.lang.String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      return \&quot;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Functions.&quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.arguments);</b>
+<b class="nc">&nbsp;      __.out(&quot;\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  };&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;}&quot;).ln();</b>
+&nbsp;      
+&nbsp;    } else {
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * Function from instance of &quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot; to a bound call to {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      __.out(&quot;}.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; * @return {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      __.out(&quot;} function instance&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;      $(__, h.access);</b>
+<b class="nc">&nbsp;      __.out(&quot;static&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.generics().def());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, guava);</b>
+<b class="nc">&nbsp;      __.out(&quot;.base.Function&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot;, &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.type);</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.parameters);</b>
+<b class="nc">&nbsp;      __.out(&quot; {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  return new &quot;);</b>
+<b class="nc">&nbsp;      $(__, guava);</b>
+<b class="nc">&nbsp;      __.out(&quot;.base.Function&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot;, &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.type);</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt;() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    public &quot;);</b>
+<b class="nc">&nbsp;      $(__, h.type);</b>
+<b class="nc">&nbsp;      __.out(&quot; apply(&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.typePreferablyAbstract());</b>
+<b class="nc">&nbsp;      __.out(&quot; input) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      return input.&quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.arguments);</b>
+<b class="nc">&nbsp;      __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    @Override&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    public java.lang.String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      return \&quot;&quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Functions.&quot;);</b>
+<b class="nc">&nbsp;      $(__, h.name);</b>
+<b class="nc">&nbsp;      $(__, h.arguments);</b>
+<b class="nc">&nbsp;      __.out(&quot;\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  };&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;}&quot;).ln();</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable sourceDocRef() { return sourceDocRef; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable sourceDocRef = new FragmentDispatch(2, 4);</b>
+&nbsp;void _t4__sourceDocRef(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType t = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final org.immutables.value.processor.meta.ValueAttribute a = $cast(__.param(1));</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(t.kind().isValue())) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;{@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, t.typeAbstract().relative());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.raw);</b>
+<b class="nc">&nbsp;    __.out(&quot;}&quot;);</b>
+&nbsp;    
+&nbsp;  } else {
+<b class="nc">&nbsp;    __.dl();__.out(&quot;{@code &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.raw);</b>
+<b class="nc">&nbsp;    __.out(&quot;}&quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.dl();</b>
+&nbsp;};
+&nbsp;private class FragmentDispatch extends org.immutables.generator.Templates.Fragment{
+&nbsp;private final int index;
+<b class="nc">&nbsp;FragmentDispatch(int arity, int index){</b>
+<b class="nc">&nbsp;super(arity);</b>
+<b class="nc">&nbsp;this.index = index;</b>
+&nbsp;}
+&nbsp;@Override public void run(org.immutables.generator.Templates.Invokation invokation){
+<b class="nc">&nbsp;  switch (index){</b>
+<b class="nc">&nbsp;  case 0: _t0__generate(invokation); break;</b>
+<b class="nc">&nbsp;  case 1: _t1__generateFunctions(invokation); break;</b>
+<b class="nc">&nbsp;  case 2: _t2__generateAttributes(invokation); break;</b>
+<b class="nc">&nbsp;  case 3: _t3__generateBoundElements(invokation); break;</b>
+<b class="nc">&nbsp;  case 4: _t4__sourceDocRef(invokation); break;</b>
+&nbsp;  default: break;
+&nbsp;}}}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableHasUmlauts</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">nonimmutables</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableHasUmlauts (nonimmutables)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableHasUmlauts$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;
+&nbsp;package nonimmutables;
+&nbsp;
+&nbsp;import java.lang.Object;
+&nbsp;import java.lang.String;
+&nbsp;import java.lang.Float;
+&nbsp;import java.lang.Double;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link HasUmlauts}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableHasUmlauts.builder()}.
+&nbsp; */
+&nbsp;@org.immutables.value.Generated(from = &quot;HasUmlauts&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@javax.annotation.ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@javax.annotation.concurrent.Immutable
+&nbsp;@javax.annotation.CheckReturnValue
+&nbsp;public final class ImmutableHasUmlauts implements nonimmutables.HasUmlauts {
+&nbsp;  private final int zahlungsempfänger;
+&nbsp;
+&nbsp;  private ImmutableHasUmlauts(int zahlungsempfänger) {
+&nbsp;    this.zahlungsempfänger = zahlungsempfänger;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code zahlungsempfänger} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int getZahlungsempfänger() {
+&nbsp;    return zahlungsempfänger;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link HasUmlauts#getZahlungsempfänger() zahlungsempfänger} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for zahlungsempfänger
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableHasUmlauts withZahlungsempfänger(int value) {
+&nbsp;    if (this.zahlungsempfänger == value) return this;
+&nbsp;    return new ImmutableHasUmlauts(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableHasUmlauts} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@javax.annotation.Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableHasUmlauts
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableHasUmlauts) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableHasUmlauts another) {
+&nbsp;    return zahlungsempfänger == another.zahlungsempfänger;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code zahlungsempfänger}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @com.google.errorprone.annotations.Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + zahlungsempfänger;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code HasUmlauts} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return com.google.common.base.MoreObjects.toStringHelper(&quot;HasUmlauts&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;zahlungsempfänger&quot;, zahlungsempfänger)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link HasUmlauts} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable HasUmlauts instance
+&nbsp;   */
+&nbsp;  public static ImmutableHasUmlauts copyOf(HasUmlauts instance) {
+&nbsp;    if (instance instanceof ImmutableHasUmlauts) {
+&nbsp;      return (ImmutableHasUmlauts) instance;
+&nbsp;    }
+&nbsp;    return ImmutableHasUmlauts.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableHasUmlauts ImmutableHasUmlauts}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableHasUmlauts.builder()
+&nbsp;   *    .zahlungsempfänger(int) // required {@link HasUmlauts#getZahlungsempfänger() zahlungsempfänger}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableHasUmlauts builder
+&nbsp;   */
+&nbsp;  public static ImmutableHasUmlauts.Builder builder() {
+&nbsp;    return new ImmutableHasUmlauts.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableHasUmlauts ImmutableHasUmlauts}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @org.immutables.value.Generated(from = &quot;HasUmlauts&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @javax.annotation.concurrent.NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ZAHLUNGSEMPFäNGER = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private int zahlungsempfänger;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code HasUmlauts} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @com.google.errorprone.annotations.CanIgnoreReturnValue 
+&nbsp;    public final Builder from(HasUmlauts instance) {
+&nbsp;      java.util.Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      zahlungsempfänger(instance.getZahlungsempfänger());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link HasUmlauts#getZahlungsempfänger() zahlungsempfänger} attribute.
+&nbsp;     * @param zahlungsempfänger The value for zahlungsempfänger 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @com.google.errorprone.annotations.CanIgnoreReturnValue 
+&nbsp;    public final Builder zahlungsempfänger(int zahlungsempfänger) {
+&nbsp;      this.zahlungsempfänger = zahlungsempfänger;
+&nbsp;      initBits &amp;= ~INIT_BIT_ZAHLUNGSEMPFäNGER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableHasUmlauts ImmutableHasUmlauts}.
+&nbsp;     * @return An immutable instance of HasUmlauts
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableHasUmlauts build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new java.lang.IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableHasUmlauts(zahlungsempfänger);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      java.util.List&lt;String&gt; attributes = new java.util.ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ZAHLUNGSEMPFäNGER) != 0) attributes.add(&quot;zahlungsempfänger&quot;);
+&nbsp;      return &quot;Cannot build HasUmlauts, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

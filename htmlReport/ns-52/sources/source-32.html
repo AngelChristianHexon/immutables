@@ -1,0 +1,767 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > InjectAnnotationMirror</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: InjectAnnotationMirror (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">InjectAnnotationMirror</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/82)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/179)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">InjectAnnotationMirror$1</td>
+  </tr>
+  <tr>
+    <td class="name">InjectAnnotationMirror$CodeExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">InjectAnnotationMirror$DeduplicationKeyExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">InjectAnnotationMirror$IfPresentExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">InjectAnnotationMirror$TargetExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">InjectAnnotationMirror$TypeExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/49)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/84)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/223)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.base.Verify;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import javax.lang.model.element.*;
+&nbsp;import javax.lang.model.type.*;
+&nbsp;import javax.lang.model.util.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * InjectAnnotationMirror used to parse data of AnnotationMirror for original annotation {@code org.immutables.annotate.InjectAnnotation}
+&nbsp; * during annotation processing. Interface is being described using {@link org.immutables.value.processor.meta.AnnotationInjections.InjectAnnotation} annotation,
+&nbsp; * which should be structurally compatible to the annotation being modelled.
+&nbsp; * @see #find(Iterable)
+&nbsp; * @see #from(AnnotationMirror)
+&nbsp; */
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;public class InjectAnnotationMirror implements AnnotationInjections.InjectAnnotation {
+&nbsp;  public static final String QUALIFIED_NAME = &quot;org.immutables.annotate.InjectAnnotation&quot;;
+&nbsp;  public static final String MIRROR_QUALIFIED_NAME = &quot;org.immutables.value.processor.meta.AnnotationInjections.InjectAnnotation&quot;;
+&nbsp;
+&nbsp;  public static String mirrorQualifiedName() {
+<b class="nc">&nbsp;    return QUALIFIED_NAME;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static String qualifiedName() {
+<b class="nc">&nbsp;    return QUALIFIED_NAME;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static String simpleName() {
+<b class="nc">&nbsp;    return &quot;InjectAnnotation&quot;;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static boolean isPresent(Element annotatedElement) {
+<b class="nc">&nbsp;    for (AnnotationMirror mirror : annotatedElement.getAnnotationMirrors()) {</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) mirror.getAnnotationType().asElement();</b>
+<b class="nc">&nbsp;      if (element.getQualifiedName().contentEquals(QUALIFIED_NAME)) {</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds first annotation of this type on the element.
+&nbsp;   * @param element annotated element
+&nbsp;   * @return optional {@code InjectAnnotationMirror}, present if this annotation found
+&nbsp;   */
+&nbsp;  public static Optional&lt;InjectAnnotationMirror&gt; find(Element element) {
+<b class="nc">&nbsp;    return find(element.getAnnotationMirrors());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds first annotation of this type in an iterable of annotation mirrors.
+&nbsp;   * @param mirrors annotation mirrors
+&nbsp;   * @return optional {@code InjectAnnotationMirror}, present if this annotation found
+&nbsp;   */
+&nbsp;  public static Optional&lt;InjectAnnotationMirror&gt; find(Iterable&lt;? extends AnnotationMirror&gt; mirrors) {
+<b class="nc">&nbsp;    for (AnnotationMirror mirror : mirrors) {</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) mirror.getAnnotationType().asElement();</b>
+<b class="nc">&nbsp;      if (element.getQualifiedName().contentEquals(QUALIFIED_NAME)) {</b>
+<b class="nc">&nbsp;        return Optional.of(new InjectAnnotationMirror(mirror));</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return Optional.absent();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts iterable of annotation mirrors where all annotation are of this type. Otherwise it fails
+&nbsp;   * @param mirrors of this annotation type.
+&nbsp;   * @return list of converted {@code InjectAnnotationMirror}s
+&nbsp;   */
+&nbsp;  public static ImmutableList&lt;InjectAnnotationMirror&gt; fromAll(Iterable&lt;? extends AnnotationMirror&gt; mirrors) {
+<b class="nc">&nbsp;    ImmutableList.Builder&lt;InjectAnnotationMirror&gt; builder = ImmutableList.builder();</b>
+<b class="nc">&nbsp;    for (AnnotationMirror mirror : mirrors) {</b>
+<b class="nc">&nbsp;      TypeElement element = (TypeElement) mirror.getAnnotationType().asElement();</b>
+<b class="nc">&nbsp;      Preconditions.checkState(element.getQualifiedName().contentEquals(QUALIFIED_NAME),</b>
+&nbsp;          &quot;Supplied mirrors should all be of this annotation type&quot;);
+<b class="nc">&nbsp;      builder.add(new InjectAnnotationMirror(mirror));</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return builder.build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates mirror with default values using annotation element (i.e. declaration, not usage).
+&nbsp;   * @param element annotation type element
+&nbsp;   * @return {@code InjectAnnotationMirror}
+&nbsp;   */
+&nbsp;  public static InjectAnnotationMirror from(TypeElement element) {
+<b class="nc">&nbsp;    return new InjectAnnotationMirror(element);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Tries to convert annotation mirror to this annotation type.
+&nbsp;   * @param mirror annotation mirror
+&nbsp;   * @return optional {@code InjectAnnotationMirror}, present if mirror matched this annotation type
+&nbsp;   */
+&nbsp;  public static Optional&lt;InjectAnnotationMirror&gt; from(AnnotationMirror mirror) {
+<b class="nc">&nbsp;    return find(Collections.singleton(mirror));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private final AnnotationMirror annotationMirror;
+&nbsp;  private final String code;
+&nbsp;  private final TypeMirror type;
+&nbsp;  private final String typeName;
+&nbsp;  private final boolean ifPresent;
+&nbsp;  private final AnnotationInjections.InjectAnnotation.Where[] target;
+&nbsp;  private final String deduplicationKey;
+&nbsp;
+<b class="nc">&nbsp;  private InjectAnnotationMirror(TypeElement defaultAnnotationElement) {</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(defaultAnnotationElement.getQualifiedName().contentEquals(QUALIFIED_NAME)</b>
+<b class="nc">&nbsp;        || defaultAnnotationElement.getQualifiedName().contentEquals(MIRROR_QUALIFIED_NAME));</b>
+<b class="nc">&nbsp;    this.annotationMirror = null;</b>
+&nbsp;
+&nbsp;    // TBD TODO BIG
+&nbsp;
+<b class="nc">&nbsp;    String code = null;</b>
+<b class="nc">&nbsp;    TypeMirror type = null;</b>
+<b class="nc">&nbsp;    String typeName = null;</b>
+<b class="nc">&nbsp;    boolean ifPresent = false;</b>
+<b class="nc">&nbsp;    AnnotationInjections.InjectAnnotation.Where[] target = null;</b>
+<b class="nc">&nbsp;    String deduplicationKey = null;</b>
+&nbsp;
+&nbsp;    for (ExecutableElement attributeElement$
+<b class="nc">&nbsp;        : ElementFilter.methodsIn(defaultAnnotationElement.getEnclosedElements())) {</b>
+<b class="nc">&nbsp;      String name$ = attributeElement$.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      if (&quot;code&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        CodeExtractor codeExtractor$ = new CodeExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(codeExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        code = codeExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;type&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        TypeExtractor typeExtractor$ = new TypeExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(typeExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        type = typeExtractor$.get();</b>
+<b class="nc">&nbsp;        typeName = typeExtractor$.name();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;ifPresent&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        IfPresentExtractor ifPresentExtractor$ = new IfPresentExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(ifPresentExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        ifPresent = ifPresentExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;target&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        TargetExtractor targetExtractor$ = new TargetExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(targetExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        target = targetExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;deduplicationKey&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeElement$.getDefaultValue();</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;All annotation attributes should have default value to create mirror of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        DeduplicationKeyExtractor deduplicationKeyExtractor$ = new DeduplicationKeyExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(deduplicationKeyExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        deduplicationKey = deduplicationKeyExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    this.code = Preconditions.checkNotNull(code, &quot;default attribute &#39;code&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.type = Preconditions.checkNotNull(type, &quot;default attribute &#39;type&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.typeName = Preconditions.checkNotNull(typeName, &quot;default attribute &#39;type&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.ifPresent = ifPresent;</b>
+<b class="nc">&nbsp;    this.target = Preconditions.checkNotNull(target, &quot;default attribute &#39;target&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.deduplicationKey = Preconditions.checkNotNull(deduplicationKey, &quot;default attribute &#39;deduplicationKey&#39;&quot;);</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private InjectAnnotationMirror(AnnotationMirror annotationMirror) {</b>
+<b class="nc">&nbsp;    this.annotationMirror = annotationMirror;</b>
+&nbsp;
+<b class="nc">&nbsp;    String code = null;</b>
+<b class="nc">&nbsp;    TypeMirror type = null;</b>
+<b class="nc">&nbsp;    String typeName = null;</b>
+<b class="nc">&nbsp;    boolean ifPresent = false;</b>
+<b class="nc">&nbsp;    AnnotationInjections.InjectAnnotation.Where[] target = null;</b>
+<b class="nc">&nbsp;    String deduplicationKey = null;</b>
+&nbsp;
+<b class="nc">&nbsp;    Map&lt;? extends ExecutableElement, ? extends AnnotationValue&gt; attributeValues$ = annotationMirror.getElementValues();</b>
+&nbsp;    for (ExecutableElement attributeElement$
+<b class="nc">&nbsp;        : ElementFilter.methodsIn(annotationMirror.getAnnotationType().asElement().getEnclosedElements())) {</b>
+<b class="nc">&nbsp;      String name$ = attributeElement$.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      if (&quot;code&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;code&#39; attribute of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        CodeExtractor codeExtractor$ = new CodeExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(codeExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        code = codeExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;type&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;type&#39; attribute of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        TypeExtractor typeExtractor$ = new TypeExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(typeExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        type = typeExtractor$.get();</b>
+<b class="nc">&nbsp;        typeName = typeExtractor$.name();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;ifPresent&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;ifPresent&#39; attribute of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        IfPresentExtractor ifPresentExtractor$ = new IfPresentExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(ifPresentExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        ifPresent = ifPresentExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;target&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;target&#39; attribute of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        TargetExtractor targetExtractor$ = new TargetExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(targetExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        target = targetExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (&quot;deduplicationKey&quot;.equals(name$)) {</b>
+<b class="nc">&nbsp;        AnnotationValue annotationValue$ = attributeValues$.get(attributeElement$);</b>
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          annotationValue$ = attributeElement$.getDefaultValue();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (annotationValue$ == null) {</b>
+<b class="nc">&nbsp;          throw new IllegalStateException(&quot;Annotation mirror contains no value (neither default) for &#39;deduplicationKey&#39; attribute of @InjectAnnotation&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        DeduplicationKeyExtractor deduplicationKeyExtractor$ = new DeduplicationKeyExtractor();</b>
+<b class="nc">&nbsp;        annotationValue$.accept(deduplicationKeyExtractor$, null);</b>
+&nbsp;
+<b class="nc">&nbsp;        deduplicationKey = deduplicationKeyExtractor$.get();</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    this.code = Preconditions.checkNotNull(code, &quot;value for &#39;code&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.type = Preconditions.checkNotNull(type, &quot;value for &#39;type&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.typeName = Preconditions.checkNotNull(typeName, &quot;Value for &#39;type&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.ifPresent = ifPresent;</b>
+<b class="nc">&nbsp;    this.target = Preconditions.checkNotNull(target, &quot;value for &#39;target&#39;&quot;);</b>
+<b class="nc">&nbsp;    this.deduplicationKey = Preconditions.checkNotNull(deduplicationKey, &quot;value for &#39;deduplicationKey&#39;&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code code}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String code() {
+<b class="nc">&nbsp;    return code;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return type name for value of attribute {@code type}
+&nbsp;   */
+&nbsp;  public String typeName() {
+<b class="nc">&nbsp;    return typeName;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return type mirror for value of attribute {@code type}
+&nbsp;   */
+&nbsp;  public TypeMirror typeMirror() {
+<b class="nc">&nbsp;    return type;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @deprecated Always throws UnsupportedOperationException. Use {@link #typeMirror} or {@link typeName}.
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public java.lang.Class&lt;? extends Annotation&gt; type() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use &#39;typeMirror()&#39; or &#39;typeName()&#39;&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code ifPresent}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean ifPresent() {
+<b class="nc">&nbsp;    return ifPresent;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code target}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public AnnotationInjections.InjectAnnotation.Where[] target() {
+<b class="nc">&nbsp;    return target.clone();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of attribute {@code deduplicationKey}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String deduplicationKey() {
+<b class="nc">&nbsp;    return deduplicationKey;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return underlying annotation mirror
+&nbsp;   */
+&nbsp;  public AnnotationMirror getAnnotationMirror() {
+<b class="nc">&nbsp;    Preconditions.checkState(annotationMirror != null, &quot;this is default mirror without originating AnnotationMirror&quot;);</b>
+<b class="nc">&nbsp;    return annotationMirror;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return {@code InjectAnnotation.class}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt; annotationType() {
+<b class="nc">&nbsp;    return AnnotationInjections.InjectAnnotation.class;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    int h = 0;</b>
+<b class="nc">&nbsp;    h += 127 * &quot;code&quot;.hashCode() ^ code.hashCode();</b>
+<b class="nc">&nbsp;    h += 127 * &quot;type&quot;.hashCode() ^ typeName.hashCode();</b>
+<b class="nc">&nbsp;    h += 127 * &quot;ifPresent&quot;.hashCode() ^ Booleans.hashCode(ifPresent);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;target&quot;.hashCode() ^ Arrays.hashCode(target);</b>
+<b class="nc">&nbsp;    h += 127 * &quot;deduplicationKey&quot;.hashCode() ^ deduplicationKey.hashCode();</b>
+<b class="nc">&nbsp;    return h;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean equals(Object other) {
+<b class="nc">&nbsp;    if (other instanceof InjectAnnotationMirror) {</b>
+<b class="nc">&nbsp;      InjectAnnotationMirror otherMirror = (InjectAnnotationMirror) other;</b>
+<b class="nc">&nbsp;      return code.equals(otherMirror.code)</b>
+<b class="nc">&nbsp;          &amp;&amp; typeName.equals(otherMirror.typeName)</b>
+&nbsp;          &amp;&amp; ifPresent == otherMirror.ifPresent
+<b class="nc">&nbsp;          &amp;&amp; Arrays.equals(target, otherMirror.target)</b>
+<b class="nc">&nbsp;          &amp;&amp; deduplicationKey.equals(otherMirror.deduplicationKey);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return &quot;InjectAnnotationMirror:&quot; + annotationMirror;</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class CodeExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    String value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitString(String value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    String get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;code&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class TypeExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    TypeMirror value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitType(TypeMirror value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    TypeMirror get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String name() {
+<b class="nc">&nbsp;      return value.toString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;type&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class IfPresentExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    boolean value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitBoolean(boolean value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;ifPresent&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class TargetExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    AnnotationInjections.InjectAnnotation.Where[] values;
+&nbsp;    int position;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitEnumConstant(VariableElement value, Void p) {
+<b class="nc">&nbsp;      this.values[position++] = AnnotationInjections.InjectAnnotation.Where.valueOf(value.getSimpleName().toString());</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      this.values = new AnnotationInjections.InjectAnnotation.Where[array.size()];</b>
+<b class="nc">&nbsp;      Verify.verify(position == 0);</b>
+<b class="nc">&nbsp;      for (AnnotationValue value : array) {</b>
+<b class="nc">&nbsp;        value.accept(this, null);</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    AnnotationInjections.InjectAnnotation.Where[] get() {
+<b class="nc">&nbsp;      return values;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;target&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class DeduplicationKeyExtractor extends SimpleAnnotationValueVisitor7&lt;Void, Void&gt; {</b>
+&nbsp;    String value;
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitString(String value, Void p) {
+<b class="nc">&nbsp;      this.value = value;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Void visitArray(List&lt;? extends AnnotationValue&gt; array, Void p) {
+<b class="nc">&nbsp;      Preconditions.checkState(!array.isEmpty());</b>
+<b class="nc">&nbsp;      array.get(0).accept(this, null);</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    String get() {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Void defaultAction(Object o, Void p) {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Incompatible annotation content of attribute &#39;deduplicationKey&#39; in @&quot; + QUALIFIED_NAME);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

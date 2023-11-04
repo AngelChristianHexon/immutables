@@ -1,0 +1,327 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableB</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.generics</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableB (org.immutables.fixture.generics)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableB$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.generics;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link GenericSubType.B}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableB.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;GenericSubType.B&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableB&lt;T&gt; implements GenericSubType.B&lt;T&gt; {
+&nbsp;  private final int a;
+&nbsp;  private final T b;
+&nbsp;
+&nbsp;  private ImmutableB(int a, T b) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public T b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GenericSubType.B#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableB&lt;T&gt; withA(int value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    return new ImmutableB&lt;&gt;(value, this.b);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GenericSubType.B#b() b} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableB&lt;T&gt; withB(T value) {
+&nbsp;    if (this.b == value) return this;
+&nbsp;    T newValue = Objects.requireNonNull(value, &quot;b&quot;);
+&nbsp;    return new ImmutableB&lt;&gt;(this.a, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableB} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableB&lt;?&gt;
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableB&lt;?&gt;) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableB&lt;?&gt; another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; b.equals(another.b);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code B} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;B&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link GenericSubType.B} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable B instance
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; ImmutableB&lt;T&gt; copyOf(GenericSubType.B&lt;T&gt; instance) {
+&nbsp;    if (instance instanceof ImmutableB&lt;?&gt;) {
+&nbsp;      return (ImmutableB&lt;T&gt;) instance;
+&nbsp;    }
+&nbsp;    return ImmutableB.&lt;T&gt;builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableB ImmutableB}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableB.&amp;amp;lt;T&amp;amp;gt;builder()
+&nbsp;   *    .a(int) // required {@link GenericSubType.B#a() a}
+&nbsp;   *    .b(T) // required {@link GenericSubType.B#b() b}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @return A new ImmutableB builder
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; ImmutableB.Builder&lt;T&gt; builder() {
+&nbsp;    return new ImmutableB.Builder&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableB ImmutableB}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;GenericSubType.B&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder&lt;T&gt; {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int a;
+&nbsp;    private @Nullable T b;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.generics.GenericSubType.B} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T&gt; from(GenericSubType.B&lt;T&gt; instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.generics.GenericSubType.A} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T&gt; from(GenericSubType.A instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      @Var long bits = 0;
+&nbsp;      if (object instanceof GenericSubType.B&lt;?&gt;) {
+&nbsp;        GenericSubType.B&lt;T&gt; instance = (GenericSubType.B&lt;T&gt;) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          a(instance.a());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;        b(instance.b());
+&nbsp;      }
+&nbsp;      if (object instanceof GenericSubType.A) {
+&nbsp;        GenericSubType.A instance = (GenericSubType.A) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          a(instance.a());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GenericSubType.B#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T&gt; a(int a) {
+&nbsp;      this.a = a;
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GenericSubType.B#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder&lt;T&gt; b(T b) {
+&nbsp;      this.b = Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableB ImmutableB}.
+&nbsp;     * @return An immutable instance of B
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableB&lt;T&gt; build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableB&lt;&gt;(a, b);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      return &quot;Cannot build B, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > WithMatcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: WithMatcher (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WithMatcher</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;
+&nbsp;/**
+&nbsp; * Matcher to group / combine statements as single unit. Similar to {@code with} statement
+&nbsp; * in other languages, creates an implicit context.
+&nbsp; *
+&nbsp; * &lt;pre&gt;
+&nbsp; *   {@code
+&nbsp; *      a.b.c.with(c -&gt; c.isEqualTo(&quot;foo&quot;).or().isEqualTo(&quot;bar&quot;))
+&nbsp; *
+&nbsp; *      // equivalent to
+&nbsp; *      a.b.c.isEqualTo(&quot;foo&quot;)
+&nbsp; *      .or()
+&nbsp; *      a.b.c.isEqualTo(&quot;bar&quot;)
+&nbsp; *   }
+&nbsp; * &lt;/pre&gt;
+&nbsp; */
+&nbsp;public interface WithMatcher&lt;R, C&gt; extends Matcher {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Group expression expressed in {@code operator} as single unit.
+&nbsp;   * @param operator expression(s) to be grouped
+&nbsp;   * @return new root criteria with updated expression
+&nbsp;   */
+&nbsp;  default R with(UnaryOperator&lt;C&gt; operator) {
+<b class="nc">&nbsp;    final CriteriaContext context = Matchers.extract(this);</b>
+<b class="nc">&nbsp;    final UnaryOperator&lt;Expression&gt; expr = e -&gt; Matchers.toInnerExpression(context, operator).apply(e);</b>
+&nbsp;    // need to add AND combiner (not DNF)
+<b class="nc">&nbsp;    return context.applyAndCreateRoot(expr, Combiner.and());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

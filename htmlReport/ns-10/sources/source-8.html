@@ -1,0 +1,245 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ComparableMatcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: ComparableMatcher (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ComparableMatcher</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ComparableMatcher$1Local</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ComparableMatcher$AggregationTemplate</td>
+  </tr>
+  <tr>
+    <td class="name">ComparableMatcher$Self</td>
+  </tr>
+  <tr>
+    <td class="name">ComparableMatcher$Template</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;
+&nbsp;import org.immutables.criteria.expression.Call;
+&nbsp;import org.immutables.criteria.expression.ComparableOperators;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Expressions;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;
+&nbsp;/**
+&nbsp; * Criteria for comparables (like {@code &gt;, &lt;=, &gt;} and ranges).
+&nbsp; *
+&nbsp; * @param &lt;R&gt; root criteria type
+&nbsp; */
+&nbsp;public interface ComparableMatcher&lt;R, V extends Comparable&lt;? super V&gt;&gt; extends ObjectMatcher&lt;R, V&gt;, OrderMatcher {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks that attribute is less than (but not equal to) {@code upper} (equivalent to {@code $this &lt; upper}).
+&nbsp;   * &lt;p&gt;Use {@link #atMost(Comparable)} for less &lt;i&gt;or equal&lt;/i&gt; comparison&lt;/p&gt;
+&nbsp;   */
+&nbsp;  default R lessThan(V upper) {
+<b class="nc">&nbsp;    Objects.requireNonNull(upper, &quot;upper&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(ComparableOperators.LESS_THAN, e, Expressions.constant(upper)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks that attribute is greater than (but not equal to)  {@code lower} (equivalent to {@code $this &gt; lower}).
+&nbsp;   * &lt;p&gt;Use {@link #atLeast(Comparable)} for greater &lt;i&gt;or equal&lt;/i&gt; comparison&lt;/p&gt;
+&nbsp;   */
+&nbsp;  default R greaterThan(V lower) {
+<b class="nc">&nbsp;    Objects.requireNonNull(lower, &quot;lower&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(ComparableOperators.GREATER_THAN, e, Expressions.constant(lower)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks that attribute is less than or equal to {@code upperInclusive} (equivalent  to {@code $this &lt;= upperInclusive}).
+&nbsp;   */
+&nbsp;  default R atMost(V upperInclusive) {
+<b class="nc">&nbsp;    Objects.requireNonNull(upperInclusive, &quot;upperInclusive&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(ComparableOperators.LESS_THAN_OR_EQUAL, e, Expressions.constant(upperInclusive)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks that attribute is greater or equal to {@code lowerInclusive} (equivalent to {@code $this &gt;= lowerInclusive}).
+&nbsp;   */
+&nbsp;  default R atLeast(V lowerInclusive) {
+<b class="nc">&nbsp;    Objects.requireNonNull(lowerInclusive, &quot;lowerInclusive&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(ComparableOperators.GREATER_THAN_OR_EQUAL, e, Expressions.constant(lowerInclusive)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks that attribute is in {@code [lower, upper]} range (lower included, upper included).
+&nbsp;   * (equivalent to {@code lowerInclusive &lt;= $this &lt;= upperInclusive})
+&nbsp;   * @param lowerInclusive lower value (inclusive)
+&nbsp;   * @param upperInclusive upper value (inclusive)
+&nbsp;   */
+&nbsp;  default R between(V lowerInclusive, V upperInclusive) {
+<b class="nc">&nbsp;    Objects.requireNonNull(lowerInclusive, &quot;lowerInclusive&quot;);</b>
+<b class="nc">&nbsp;    Objects.requireNonNull(upperInclusive, &quot;upperInclusive&quot;);</b>
+<b class="nc">&nbsp;    final UnaryOperator&lt;Expression&gt; unary = expr -&gt; {</b>
+<b class="nc">&nbsp;      final Call lower = Expressions.binaryCall(ComparableOperators.GREATER_THAN_OR_EQUAL, expr, Expressions.constant(lowerInclusive));</b>
+<b class="nc">&nbsp;      final Call upper = Expressions.binaryCall(ComparableOperators.LESS_THAN_OR_EQUAL, expr, Expressions.constant(upperInclusive));</b>
+<b class="nc">&nbsp;      return Expressions.and(lower, upper);</b>
+&nbsp;    };
+&nbsp;
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(unary);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Self-type for this matcher
+&nbsp;   */
+&nbsp;  interface Self&lt;V extends Comparable&lt;? super V&gt;&gt; extends Template&lt;Self&lt;V&gt;, V&gt;, Disjunction&lt;Template&lt;Self&lt;V&gt;, V&gt;&gt; {}
+&nbsp;
+&nbsp;  interface Template&lt;R, V extends Comparable&lt;? super V&gt;&gt; extends ComparableMatcher&lt;R, V&gt;, WithMatcher&lt;R, Self&lt;V&gt;&gt;, NotMatcher&lt;R, Self&lt;V&gt;&gt;, Projection&lt;V&gt;, AggregationTemplate&lt;V&gt; {}
+&nbsp;
+&nbsp;  interface AggregationTemplate&lt;V&gt; extends Aggregation.Count, Aggregation.Max&lt;V&gt;, Aggregation.Min&lt;V&gt; {}
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  static &lt;R&gt; CriteriaCreator&lt;R&gt; creator() {
+&nbsp;    class Local extends AbstractContextHolder implements Self {
+&nbsp;      private Local(CriteriaContext context) {
+<b class="nc">&nbsp;        super(context);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return ctx -&gt; (R) new Local(ctx);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

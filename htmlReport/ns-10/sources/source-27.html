@@ -1,0 +1,326 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableClassAndPath</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableClassAndPath (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableClassAndPath$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableClassAndPath$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link MemberLookupCache.ClassAndPath}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableClassAndPath.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableClassAndPath.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;MemberLookupCache.ClassAndPath&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableClassAndPath
+&nbsp;    implements MemberLookupCache.ClassAndPath {
+&nbsp;  private final Class&lt;?&gt; type;
+&nbsp;  private final String path;
+&nbsp;  private transient final int hashCode;
+&nbsp;
+&nbsp;  private ImmutableClassAndPath(Class&lt;?&gt; type, String path) {
+&nbsp;    this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;    this.path = Objects.requireNonNull(path, &quot;path&quot;);
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableClassAndPath(ImmutableClassAndPath original, Class&lt;?&gt; type, String path) {
+&nbsp;    this.type = type;
+&nbsp;    this.path = path;
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code type} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Class&lt;?&gt; type() {
+&nbsp;    return type;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code path} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String path() {
+&nbsp;    return path;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link MemberLookupCache.ClassAndPath#type() type} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for type
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClassAndPath withType(Class&lt;?&gt; value) {
+&nbsp;    if (this.type == value) return this;
+&nbsp;    Class&lt;?&gt; newValue = Objects.requireNonNull(value, &quot;type&quot;);
+&nbsp;    return new ImmutableClassAndPath(this, newValue, this.path);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link MemberLookupCache.ClassAndPath#path() path} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for path
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClassAndPath withPath(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;path&quot;);
+&nbsp;    if (this.path.equals(newValue)) return this;
+&nbsp;    return new ImmutableClassAndPath(this, this.type, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableClassAndPath} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableClassAndPath
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableClassAndPath) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableClassAndPath another) {
+&nbsp;    if (hashCode != another.hashCode) return false;
+&nbsp;    return type.equals(another.type)
+&nbsp;        &amp;&amp; path.equals(another.path);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns a precomputed-on-construction hash code from attributes: {@code type}, {@code path}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    return hashCode;
+&nbsp;  }
+&nbsp;
+&nbsp;  private int computeHashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + type.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + path.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ClassAndPath} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ClassAndPath&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;type&quot;, type)
+&nbsp;        .add(&quot;path&quot;, path)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code ClassAndPath} instance.
+&nbsp;   * @param type The value for the {@code type} attribute
+&nbsp;   * @param path The value for the {@code path} attribute
+&nbsp;   * @return An immutable ClassAndPath instance
+&nbsp;   */
+&nbsp;  public static ImmutableClassAndPath of(Class&lt;?&gt; type, String path) {
+&nbsp;    return new ImmutableClassAndPath(type, path);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link MemberLookupCache.ClassAndPath} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ClassAndPath instance
+&nbsp;   */
+&nbsp;  public static ImmutableClassAndPath copyOf(MemberLookupCache.ClassAndPath instance) {
+&nbsp;    if (instance instanceof ImmutableClassAndPath) {
+&nbsp;      return (ImmutableClassAndPath) instance;
+&nbsp;    }
+&nbsp;    return ImmutableClassAndPath.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableClassAndPath ImmutableClassAndPath}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableClassAndPath.builder()
+&nbsp;   *    .type(Class&amp;amp;lt;?&amp;amp;gt;) // required {@link MemberLookupCache.ClassAndPath#type() type}
+&nbsp;   *    .path(String) // required {@link MemberLookupCache.ClassAndPath#path() path}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableClassAndPath builder
+&nbsp;   */
+&nbsp;  public static ImmutableClassAndPath.Builder builder() {
+&nbsp;    return new ImmutableClassAndPath.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableClassAndPath ImmutableClassAndPath}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;MemberLookupCache.ClassAndPath&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_TYPE = 0x1L;
+&nbsp;    private static final long INIT_BIT_PATH = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable Class&lt;?&gt; type;
+&nbsp;    private @Nullable String path;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ClassAndPath} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(MemberLookupCache.ClassAndPath instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      type(instance.type());
+&nbsp;      path(instance.path());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link MemberLookupCache.ClassAndPath#type() type} attribute.
+&nbsp;     * @param type The value for type 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder type(Class&lt;?&gt; type) {
+&nbsp;      this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link MemberLookupCache.ClassAndPath#path() path} attribute.
+&nbsp;     * @param path The value for path 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder path(String path) {
+&nbsp;      this.path = Objects.requireNonNull(path, &quot;path&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PATH;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableClassAndPath ImmutableClassAndPath}.
+&nbsp;     * @return An immutable instance of ClassAndPath
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableClassAndPath build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableClassAndPath(null, type, path);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_TYPE) != 0) attributes.add(&quot;type&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_PATH) != 0) attributes.add(&quot;path&quot;);
+&nbsp;      return &quot;Cannot build ClassAndPath, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

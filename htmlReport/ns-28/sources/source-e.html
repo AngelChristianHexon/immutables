@@ -1,0 +1,375 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableLine</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.deep</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableLine (org.immutables.fixture.deep)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableLine</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.deep;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Canvas.Line Line} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableLine is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableLine
+&nbsp; */
+&nbsp;@Generated(from = &quot;Canvas.Line&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Canvas.Line&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableLine implements Canvas.Line {
+&nbsp;  private static final long INIT_BIT_COLOR = 0x1L;
+&nbsp;  private long initBits = 0x1L;
+&nbsp;
+&nbsp;  private final ArrayList&lt;Canvas.Point&gt; points = new ArrayList&lt;Canvas.Point&gt;();
+&nbsp;  private ModifiableColor color;
+&nbsp;  private Optional&lt;Canvas.Color&gt; shadow = Optional.empty();
+&nbsp;
+&nbsp;  private ModifiableLine() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Line}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableLine create() {
+&nbsp;    return new ModifiableLine();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code points}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;Canvas.Point&gt; points() {
+&nbsp;    return points;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code color} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final ModifiableColor color() {
+&nbsp;    if (!colorIsSet()) checkRequiredAttributes();
+&nbsp;    return color;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code shadow} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Optional&lt;Canvas.Color&gt; shadow() {
+&nbsp;    return shadow;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine clear() {
+&nbsp;    initBits = 0x1L;
+&nbsp;    points.clear();
+&nbsp;    color = null;
+&nbsp;    shadow = Optional.empty();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Canvas.Line} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLine from(Canvas.Line instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableLine) {
+&nbsp;      from((ModifiableLine) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    addAllPoints(instance.points());
+&nbsp;    setColor(instance.color());
+&nbsp;    Optional&lt;Canvas.Color&gt; shadowOptional = instance.shadow();
+&nbsp;    if (shadowOptional.isPresent()) {
+&nbsp;      setShadow(shadowOptional);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Canvas.Line} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLine from(ModifiableLine instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    addAllPoints(instance.points());
+&nbsp;    if (instance.colorIsSet()) {
+&nbsp;      setColor(instance.color());
+&nbsp;    }
+&nbsp;    Optional&lt;Canvas.Color&gt; shadowOptional = instance.shadow();
+&nbsp;    if (shadowOptional.isPresent()) {
+&nbsp;      setShadow(shadowOptional);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Canvas.Line#points() points} list.
+&nbsp;   * @param element The points element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine addPoint(Canvas.Point element) {
+&nbsp;    Objects.requireNonNull(element, &quot;points element&quot;);
+&nbsp;    this.points.add(element instanceof ModifiablePoint ? element : ModifiablePoint.create().from(element));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Canvas.Line#points() points} list.
+&nbsp;   * @param elements An array of points elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableLine addPoints(Canvas.Point... elements) {
+&nbsp;    for (Canvas.Point e : elements) {
+&nbsp;      addPoint(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Canvas.Line#points() points} list.
+&nbsp;   * @param elements An iterable of points elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine setPoints(Iterable&lt;? extends Canvas.Point&gt; elements) {
+&nbsp;    this.points.clear();
+&nbsp;    addAllPoints(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Canvas.Line#points() points} list.
+&nbsp;   * @param elements An iterable of points elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine addAllPoints(Iterable&lt;? extends Canvas.Point&gt; elements) {
+&nbsp;    for (Canvas.Point e : elements) {
+&nbsp;      addPoint(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Canvas.Line#color() color} attribute.
+&nbsp;   * @param color The value for color
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine setColor(Canvas.Color color) {
+&nbsp;    this.color = (color instanceof ModifiableColor ? (ModifiableColor) color : ModifiableColor.create().from(color));
+&nbsp;    initBits &amp;= ~INIT_BIT_COLOR;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Canvas.Line#shadow() shadow} attribute.
+&nbsp;   * @param shadow A value for shadow
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine setShadow(Canvas.Color shadow) {
+&nbsp;    this.shadow = Optional.of(shadow);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@link Canvas.Line#shadow() shadow}.
+&nbsp;   * @param shadow A value for shadow
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableLine setShadow(Optional&lt;Canvas.Color&gt; shadow) {
+&nbsp;    this.shadow = Objects.requireNonNull(shadow, &quot;shadow&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Canvas.Line#color() color} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean colorIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_COLOR) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableLine unsetColor() {
+&nbsp;    initBits |= INIT_BIT_COLOR;
+&nbsp;    color = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!colorIsSet()) attributes.add(&quot;color&quot;);
+&nbsp;    return &quot;Line is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableLine ImmutableLine}.
+&nbsp;   * @return An immutable instance of Line
+&nbsp;   */
+&nbsp;  public final ImmutableLine toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableLine.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableLine} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableLine)) return false;
+&nbsp;    ModifiableLine other = (ModifiableLine) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableLine another) {
+&nbsp;    return points.equals(another.points)
+&nbsp;        &amp;&amp; color.equals(another.color)
+&nbsp;        &amp;&amp; Objects.equals(shadow, another.shadow);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code points}, {@code color}, {@code shadow}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + points.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + color.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + shadow.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Line}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableLine&quot;)
+&nbsp;        .add(&quot;points&quot;, points())
+&nbsp;        .add(&quot;color&quot;, colorIsSet() ? color() : &quot;?&quot;)
+&nbsp;        .add(&quot;shadow&quot;, shadow())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

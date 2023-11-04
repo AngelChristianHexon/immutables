@@ -1,0 +1,847 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNullableAttributes</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNullableAttributes (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNullableAttributes$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNullableAttributes$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNullableAttributes$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NullableAttributes}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNullableAttributes.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NullableAttributes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNullableAttributes implements NullableAttributes {
+&nbsp;  private final @Nullable Integer integer;
+&nbsp;  private final @Nullable ImmutableList&lt;String&gt; list;
+&nbsp;  private final @Nullable ImmutableSet&lt;Integer&gt; set;
+&nbsp;  private final @Nullable Integer[] array;
+&nbsp;  private final @Nullable Double[] defArray;
+&nbsp;  private final @Nullable ImmutableMap&lt;String, Object&gt; map;
+&nbsp;
+&nbsp;  private ImmutableNullableAttributes(ImmutableNullableAttributes.Builder builder) {
+&nbsp;    this.integer = builder.integer;
+&nbsp;    this.list = builder.list == null ? null : builder.list.build();
+&nbsp;    this.array = builder.array;
+&nbsp;    this.map = builder.map == null ? null : builder.map.build();
+&nbsp;    if (builder.setIsSet()) {
+&nbsp;      initShim.set(builder.set == null ? null : builder.set.build());
+&nbsp;    }
+&nbsp;    if (builder.defArrayIsSet()) {
+&nbsp;      initShim.defArray(builder.defArray);
+&nbsp;    }
+&nbsp;    this.set = initShim.set();
+&nbsp;    this.defArray = initShim.defArray();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNullableAttributes(
+&nbsp;      @Nullable Integer integer,
+&nbsp;      @Nullable ImmutableList&lt;String&gt; list,
+&nbsp;      @Nullable ImmutableSet&lt;Integer&gt; set,
+&nbsp;      @Nullable Integer[] array,
+&nbsp;      @Nullable Double[] defArray,
+&nbsp;      @Nullable ImmutableMap&lt;String, Object&gt; map) {
+&nbsp;    this.integer = integer;
+&nbsp;    this.list = list;
+&nbsp;    this.set = set;
+&nbsp;    this.array = array;
+&nbsp;    this.defArray = defArray;
+&nbsp;    this.map = map;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;NullableAttributes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte setBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSet&lt;Integer&gt; set;
+&nbsp;
+&nbsp;    ImmutableSet&lt;Integer&gt; set() {
+&nbsp;      if (setBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (setBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        setBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.set = setInitialize() == null ? null : ImmutableSet.copyOf(setInitialize());
+&nbsp;        setBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.set;
+&nbsp;    }
+&nbsp;
+&nbsp;    void set(ImmutableSet&lt;Integer&gt; set) {
+&nbsp;      this.set = set;
+&nbsp;      setBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte defArrayBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private Double[] defArray;
+&nbsp;
+&nbsp;    Double[] defArray() {
+&nbsp;      if (defArrayBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (defArrayBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        defArrayBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.defArray = defArrayInitialize();
+&nbsp;        defArrayBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.defArray;
+&nbsp;    }
+&nbsp;
+&nbsp;    void defArray(Double[] defArray) {
+&nbsp;      this.defArray = defArray;
+&nbsp;      defArrayBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (setBuildStage == STAGE_INITIALIZING) attributes.add(&quot;set&quot;);
+&nbsp;      if (defArrayBuildStage == STAGE_INITIALIZING) attributes.add(&quot;defArray&quot;);
+&nbsp;      return &quot;Cannot build NullableAttributes, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable Set&lt;Integer&gt; setInitialize() {
+&nbsp;    return NullableAttributes.super.set();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable Double[] defArrayInitialize() {
+&nbsp;    return NullableAttributes.super.defArray();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code integer} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;integer&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable Integer integer() {
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;list&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;String&gt; list() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;set&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableSet&lt;Integer&gt; set() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.set()
+&nbsp;        : this.set;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code array} array
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;array&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable Integer[] array() {
+&nbsp;    return array;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code defArray} array
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;defArray&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable Double[] defArray() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.defArray()
+&nbsp;        : this.defArray;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;map&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableMap&lt;String, Object&gt; map() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NullableAttributes#integer() integer} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for integer (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withInteger(@Nullable Integer value) {
+&nbsp;    if (Objects.equals(this.integer, value)) return this;
+&nbsp;    return new ImmutableNullableAttributes(value, this.list, this.set, this.array, this.defArray, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullableAttributes#list() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withList(@Nullable String... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableNullableAttributes(this.integer, null, this.set, this.array, this.defArray, this.map);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNullableAttributes(this.integer, newValue, this.set, this.array, this.defArray, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullableAttributes#list() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withList(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.list == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNullableAttributes(this.integer, newValue, this.set, this.array, this.defArray, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullableAttributes#set() set}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withSet(@Nullable int... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableNullableAttributes(this.integer, this.list, null, this.array, this.defArray, this.map);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableSet&lt;Integer&gt; newValue = Ints.asList(elements) == null ? null : ImmutableSet.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableNullableAttributes(this.integer, this.list, newValue, this.array, this.defArray, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullableAttributes#set() set}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withSet(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.set == elements) return this;
+&nbsp;    @Nullable ImmutableSet&lt;Integer&gt; newValue = elements == null ? null : ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableNullableAttributes(this.integer, this.list, newValue, this.array, this.defArray, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullableAttributes#array() array}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for array
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withArray(@Nullable Integer... elements) {
+&nbsp;    @Nullable Integer[] newValue = elements == null ? null : elements.clone();
+&nbsp;    return new ImmutableNullableAttributes(this.integer, this.list, this.set, newValue, this.defArray, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullableAttributes#defArray() defArray}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for defArray
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withDefArray(@Nullable Double... elements) {
+&nbsp;    @Nullable Double[] newValue = elements == null ? null : elements.clone();
+&nbsp;    return new ImmutableNullableAttributes(this.integer, this.list, this.set, this.array, newValue, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NullableAttributes#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAttributes withMap(@Nullable Map&lt;String, ? extends Object&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    @Nullable ImmutableMap&lt;String, Object&gt; newValue = entries == null ? null : ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableNullableAttributes(this.integer, this.list, this.set, this.array, this.defArray, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNullableAttributes} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNullableAttributes
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNullableAttributes) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNullableAttributes another) {
+&nbsp;    return Objects.equals(integer, another.integer)
+&nbsp;        &amp;&amp; Objects.equals(list, another.list)
+&nbsp;        &amp;&amp; Objects.equals(set, another.set)
+&nbsp;        &amp;&amp; Arrays.equals(array, another.array)
+&nbsp;        &amp;&amp; Arrays.equals(defArray, another.defArray)
+&nbsp;        &amp;&amp; Objects.equals(map, another.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code list}, {@code set}, {@code array}, {@code defArray}, {@code map}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(integer);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(list);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(set);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(array);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(defArray);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(map);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NullableAttributes} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NullableAttributes&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;integer&quot;, integer)
+&nbsp;        .add(&quot;list&quot;, list)
+&nbsp;        .add(&quot;set&quot;, set)
+&nbsp;        .add(&quot;array&quot;, Arrays.toString(array))
+&nbsp;        .add(&quot;defArray&quot;, Arrays.toString(defArray))
+&nbsp;        .add(&quot;map&quot;, map)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NullableAttributes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements NullableAttributes {
+&nbsp;    @Nullable Integer integer;
+&nbsp;    @Nullable List&lt;String&gt; list = null;
+&nbsp;    @Nullable Set&lt;Integer&gt; set = null;
+&nbsp;    boolean setIsSet;
+&nbsp;    @Nullable Integer[] array;
+&nbsp;    @Nullable Double[] defArray;
+&nbsp;    boolean defArrayIsSet;
+&nbsp;    @Nullable Map&lt;String, Object&gt; map = null;
+&nbsp;    @JsonProperty(&quot;integer&quot;)
+&nbsp;    public void setInteger(@Nullable Integer integer) {
+&nbsp;      this.integer = integer;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;list&quot;)
+&nbsp;    public void setList(@Nullable List&lt;String&gt; list) {
+&nbsp;      this.list = list;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;set&quot;)
+&nbsp;    public void setSet(@Nullable Set&lt;Integer&gt; set) {
+&nbsp;      this.set = set;
+&nbsp;      this.setIsSet = true;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;array&quot;)
+&nbsp;    public void setArray(@Nullable Integer[] array) {
+&nbsp;      this.array = array;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;defArray&quot;)
+&nbsp;    public void setDefArray(@Nullable Double[] defArray) {
+&nbsp;      this.defArray = defArray;
+&nbsp;      this.defArrayIsSet = true;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;map&quot;)
+&nbsp;    public void setMap(@Nullable Map&lt;String, Object&gt; map) {
+&nbsp;      this.map = map;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public Integer integer() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public List&lt;String&gt; list() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Set&lt;Integer&gt; set() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Integer[] array() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Double[] defArray() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Map&lt;String, Object&gt; map() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableNullableAttributes fromJson(Json json) {
+&nbsp;    ImmutableNullableAttributes.Builder builder = ImmutableNullableAttributes.builder();
+&nbsp;    if (json.integer != null) {
+&nbsp;      builder.integer(json.integer);
+&nbsp;    }
+&nbsp;    if (json.list != null) {
+&nbsp;      builder.addAllList(json.list);
+&nbsp;    }
+&nbsp;    if (json.setIsSet) {
+&nbsp;      builder.addAllSet(json.set);
+&nbsp;    }
+&nbsp;    if (json.array != null) {
+&nbsp;      builder.array(json.array);
+&nbsp;    }
+&nbsp;    if (json.defArrayIsSet) {
+&nbsp;      builder.defArray(json.defArray);
+&nbsp;    }
+&nbsp;    if (json.map != null) {
+&nbsp;      builder.putAllMap(json.map);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NullableAttributes} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NullableAttributes instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullableAttributes copyOf(NullableAttributes instance) {
+&nbsp;    if (instance instanceof ImmutableNullableAttributes) {
+&nbsp;      return (ImmutableNullableAttributes) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNullableAttributes.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNullableAttributes ImmutableNullableAttributes}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNullableAttributes.builder()
+&nbsp;   *    .integer(Integer | null) // nullable {@link NullableAttributes#integer() integer}
+&nbsp;   *    .list(List&amp;amp;lt;String&amp;amp;gt; | null) // nullable {@link NullableAttributes#list() list}
+&nbsp;   *    .set(Set&amp;amp;lt;Integer&amp;amp;gt; | null) // nullable {@link NullableAttributes#set() set}
+&nbsp;   *    .array(Integer[] | null) // nullable {@link NullableAttributes#array() array}
+&nbsp;   *    .defArray(Double[] | null) // nullable {@link NullableAttributes#defArray() defArray}
+&nbsp;   *    .map(Map&amp;amp;lt;String, Object&amp;amp;gt; | null) // nullable {@link NullableAttributes#map() map}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNullableAttributes builder
+&nbsp;   */
+&nbsp;  public static ImmutableNullableAttributes.Builder builder() {
+&nbsp;    return new ImmutableNullableAttributes.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNullableAttributes ImmutableNullableAttributes}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NullableAttributes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_SET = 0x1L;
+&nbsp;    private static final long OPT_BIT_DEF_ARRAY = 0x2L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable Integer integer;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; list = null;
+&nbsp;    private ImmutableSet.Builder&lt;Integer&gt; set = null;
+&nbsp;    private @Nullable Integer[] array;
+&nbsp;    private @Nullable Double[] defArray;
+&nbsp;    private ImmutableMap.Builder&lt;String, Object&gt; map = null;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NullableAttributes} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NullableAttributes instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable Integer integerValue = instance.integer();
+&nbsp;      if (integerValue != null) {
+&nbsp;        integer(integerValue);
+&nbsp;      }
+&nbsp;      @Nullable List&lt;String&gt; listValue = instance.list();
+&nbsp;      if (listValue != null) {
+&nbsp;        addAllList(listValue);
+&nbsp;      }
+&nbsp;      @Nullable Set&lt;Integer&gt; setValue = instance.set();
+&nbsp;      if (setValue != null) {
+&nbsp;        addAllSet(setValue);
+&nbsp;      }
+&nbsp;      @Nullable Integer[] arrayValue = instance.array();
+&nbsp;      if (arrayValue != null) {
+&nbsp;        array(arrayValue);
+&nbsp;      }
+&nbsp;      @Nullable Double[] defArrayValue = instance.defArray();
+&nbsp;      if (defArrayValue != null) {
+&nbsp;        defArray(defArrayValue);
+&nbsp;      }
+&nbsp;      @Nullable Map&lt;String, Object&gt; mapValue = instance.map();
+&nbsp;      if (mapValue != null) {
+&nbsp;        putAllMap(mapValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableAttributes#integer() integer} attribute.
+&nbsp;     * @param integer The value for integer (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;integer&quot;)
+&nbsp;    public final Builder integer(@Nullable Integer integer) {
+&nbsp;      this.integer = integer;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NullableAttributes#list() list} list.
+&nbsp;     * @param element A list element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(String element) {
+&nbsp;      if (this.list == null) {
+&nbsp;        this.list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.list.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullableAttributes#list() list} list.
+&nbsp;     * @param elements An array of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(String... elements) {
+&nbsp;      if (this.list == null) {
+&nbsp;        this.list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.list.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NullableAttributes#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;list&quot;)
+&nbsp;    public final Builder list(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.list = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.list = ImmutableList.builder();
+&nbsp;      return addAllList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullableAttributes#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllList(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;list element&quot;);
+&nbsp;      if (this.list == null) {
+&nbsp;        this.list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.list.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NullableAttributes#set() set} set.
+&nbsp;     * @param element A set element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(int element) {
+&nbsp;      if (this.set == null) {
+&nbsp;        this.set = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.set.add(element);
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullableAttributes#set() set} set.
+&nbsp;     * @param elements An array of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(int... elements) {
+&nbsp;      if (this.set == null) {
+&nbsp;        this.set = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.set.addAll(Ints.asList(elements));
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NullableAttributes#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;set&quot;)
+&nbsp;    public final Builder set(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.set = null;
+&nbsp;        optBits |= OPT_BIT_SET;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.set = ImmutableSet.builder();
+&nbsp;      return addAllSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullableAttributes#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSet(Iterable&lt;Integer&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;set element&quot;);
+&nbsp;      if (this.set == null) {
+&nbsp;        this.set = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.set.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableAttributes#array() array} attribute.
+&nbsp;     * @param array The elements for array
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;array&quot;)
+&nbsp;    public final Builder array(Integer... array) {
+&nbsp;      this.array = array;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableAttributes#defArray() defArray} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as defined by {@link NullableAttributes#defArray() defArray}.&lt;/em&gt;
+&nbsp;     * @param defArray The elements for defArray
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;defArray&quot;)
+&nbsp;    public final Builder defArray(Double... defArray) {
+&nbsp;      this.defArray = defArray;
+&nbsp;      optBits |= OPT_BIT_DEF_ARRAY;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NullableAttributes#map() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(String key, Object value) {
+&nbsp;      if (this.map == null) {
+&nbsp;        this.map = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NullableAttributes#map() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(Map.Entry&lt;String, ? extends Object&gt; entry) {
+&nbsp;      if (this.map == null) {
+&nbsp;        this.map = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.map.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NullableAttributes#map() map} map. Nulls are not permitted as keys or values, but parameter itself can be null
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;map&quot;)
+&nbsp;    public final Builder map(@Nullable Map&lt;String, ? extends Object&gt; entries) {
+&nbsp;      if (entries == null) {
+&nbsp;        this.map = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.map = ImmutableMap.builder();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NullableAttributes#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(Map&lt;String, ? extends Object&gt; entries) {
+&nbsp;      if (this.map == null) {
+&nbsp;        this.map = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.map.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNullableAttributes ImmutableNullableAttributes}.
+&nbsp;     * @return An immutable instance of NullableAttributes
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNullableAttributes build() {
+&nbsp;      return new ImmutableNullableAttributes(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean setIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_SET) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean defArrayIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_DEF_ARRAY) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

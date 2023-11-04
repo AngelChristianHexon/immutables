@@ -1,0 +1,567 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > RepositorySetup</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mongo.repository</a>
+</div>
+
+<h1>Coverage Summary for Class: RepositorySetup (org.immutables.mongo.repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RepositorySetup</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/29)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RepositorySetup$1</td>
+  </tr>
+  <tr>
+    <td class="name">RepositorySetup$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RepositorySetup$FieldNamingStrategy</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RepositorySetup$FieldNamingStrategy$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">RepositorySetup$GsonNamingStrategy</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/54)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mongo.repository;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.util.concurrent.ListeningExecutorService;
+&nbsp;import com.google.common.util.concurrent.MoreExecutors;
+&nbsp;import com.google.common.util.concurrent.ThreadFactoryBuilder;
+&nbsp;import com.google.gson.Gson;
+&nbsp;import com.google.gson.GsonBuilder;
+&nbsp;import com.google.gson.TypeAdapterFactory;
+&nbsp;import com.mongodb.DB;
+&nbsp;import com.mongodb.MongoClient;
+&nbsp;import com.mongodb.MongoClientURI;
+&nbsp;import com.mongodb.ReadPreference;
+&nbsp;import com.mongodb.WriteConcern;
+&nbsp;import com.mongodb.client.MongoDatabase;
+&nbsp;import org.bson.codecs.configuration.CodecRegistries;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.immutables.mongo.bson4gson.GsonCodecs;
+&nbsp;import org.immutables.mongo.repository.Repositories.Repository;
+&nbsp;import org.immutables.mongo.types.TypeAdapters;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.annotation.concurrent.ThreadSafe;
+&nbsp;import java.lang.reflect.Field;
+&nbsp;import java.lang.reflect.Member;
+&nbsp;import java.util.ServiceLoader;
+&nbsp;import java.util.concurrent.Executors;
+&nbsp;import java.util.concurrent.LinkedBlockingQueue;
+&nbsp;import java.util.concurrent.ThreadFactory;
+&nbsp;import java.util.concurrent.ThreadPoolExecutor;
+&nbsp;import java.util.concurrent.TimeUnit;
+&nbsp;
+&nbsp;import static com.google.common.base.Preconditions.checkArgument;
+&nbsp;import static com.google.common.base.Preconditions.checkNotNull;
+&nbsp;import static com.google.common.base.Preconditions.checkState;
+&nbsp;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@link RepositorySetup} combines driver&#39;s database, thread-pool and serialization configuration
+&nbsp; * ({@link CodecRegistry}) to configure repositories extended from {@link Repositories.Repository}. Setup can
+&nbsp; * and usually should be shared between repositories which accesses the same database and share
+&nbsp; * other resources.
+&nbsp; * @see Repository
+&nbsp; */
+&nbsp;@ThreadSafe
+<b class="nc">&nbsp;public final class RepositorySetup {</b>
+&nbsp;
+&nbsp;  final ListeningExecutorService executor;
+&nbsp;  final CodecRegistry codecRegistry;
+&nbsp;  final MongoDatabase database;
+&nbsp;  final FieldNamingStrategy fieldNamingStrategy;
+&nbsp;
+&nbsp;  private RepositorySetup(ListeningExecutorService executor, MongoDatabase database,
+&nbsp;                          CodecRegistry codecRegistry,
+<b class="nc">&nbsp;                          FieldNamingStrategy fieldNamingStrategy) {</b>
+<b class="nc">&nbsp;    this.executor = executor;</b>
+<b class="nc">&nbsp;    this.database = database;</b>
+<b class="nc">&nbsp;    this.codecRegistry = codecRegistry;</b>
+<b class="nc">&nbsp;    this.fieldNamingStrategy = Preconditions.checkNotNull(fieldNamingStrategy, &quot;fieldNamingStrategy&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * &lt;p&gt;Customize how fields are &lt;strong&gt;(re)&lt;/strong&gt;named in mongo queries.
+&nbsp;   *
+&nbsp;   * &lt;p&gt;When building criterias (eg. by using {@link org.immutables.mongo.repository.Repositories.Finder}) immutables
+&nbsp;   * doesn&#39;t have runtime information about final object format in the data-store
+&nbsp;   * (serialization is delegated to {@link CodecRegistry}). Therefore, it is important that fields in the
+&nbsp;   * query and mongo database match. This interface allows to hook codec logic into query construction so
+&nbsp;   * immutables is aware of correct naming.
+&nbsp;   *
+&nbsp;   * &lt;h3&gt;Example&lt;/h3&gt;
+&nbsp;   * &lt;p&gt;Below is an example for &lt;a href=&quot;https://github.com/google/gson&quot;&gt;gson&lt;/a&gt; which is
+&nbsp;   * using &lt;a href=&quot;https://google.github.io/gson/apidocs/com/google/gson/annotations/SerializedName.html&quot;&gt;@SerializedName&lt;/a&gt;
+&nbsp;   * to control member naming.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   *  final Gson gson = ...
+&nbsp;   *  FieldNamingStrategy gsonStrategy = new FieldNamingStrategy() {
+&nbsp;   *       @Override
+&nbsp;   *       public String translateName(Member member) {
+&nbsp;   *         return gson.fieldNamingStrategy().translateName((Field) member);
+&nbsp;   *       }
+&nbsp;   *  };
+&nbsp;   * }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   *
+&nbsp;   * &lt;p&gt;Don&#39;t forget to employ same codec(s) for POJO serialization and current naming strategy.
+&nbsp;   */
+&nbsp;  public interface FieldNamingStrategy {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Provide a name for this {@code member} when used in queries.
+&nbsp;     *
+&nbsp;     * @param member current property (can be field / method) which is being translated
+&nbsp;     * @return name of the property when serialized
+&nbsp;     */
+&nbsp;    String translateName(Member member);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Default implementation which uses same name of the property in queries.
+&nbsp;     */
+<b class="nc">&nbsp;    FieldNamingStrategy DEFAULT = new FieldNamingStrategy() {</b>
+&nbsp;      @Override
+&nbsp;      public String translateName(Member member) {
+<b class="nc">&nbsp;        return member.getName();</b>
+&nbsp;      }
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Uses {@link Gson#fieldNamingStrategy()} to translate names.
+&nbsp;   */
+&nbsp;  public static class GsonNamingStrategy implements FieldNamingStrategy {
+&nbsp;    private final Gson gson;
+&nbsp;
+<b class="nc">&nbsp;    public GsonNamingStrategy(Gson gson) {</b>
+<b class="nc">&nbsp;      this.gson = Preconditions.checkNotNull(gson, &quot;gson&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String translateName(Member member) {
+<b class="nc">&nbsp;      return gson.fieldNamingStrategy().translateName((Field) member);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builder for {@link RepositorySetup}.
+&nbsp;   * @see Builder#database(MongoDatabase)
+&nbsp;   * @see Builder#executor(ListeningExecutorService)
+&nbsp;   * @return new builder
+&nbsp;   */
+&nbsp;  public static Builder builder() {
+<b class="nc">&nbsp;    return new Builder();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Configures and builds unmodifiable instance of {@link RepositorySetup}.
+&nbsp;   */
+&nbsp;  @NotThreadSafe
+<b class="nc">&nbsp;  public static class Builder {</b>
+&nbsp;    @Nullable
+&nbsp;    private ListeningExecutorService executor;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private MongoDatabase database;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private CodecRegistry codecRegistry;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    private FieldNamingStrategy fieldNamingStrategy;
+&nbsp;
+<b class="nc">&nbsp;    private Builder() {}</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Configures repository to use specified executor for all operations.
+&nbsp;     * @param executor executor that will be used by repositories.
+&nbsp;     * @return {@code this}
+&nbsp;     * @see Executors
+&nbsp;     * @see MoreExecutors#listeningDecorator(java.util.concurrent.ExecutorService)
+&nbsp;     */
+&nbsp;    public Builder executor(ListeningExecutorService executor) {
+<b class="nc">&nbsp;      this.executor = checkNotNull(executor);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Configures repository to lookup {@link com.mongodb.client.MongoCollection collection} from the specified
+&nbsp;     * {@code database} handle. Repository will inherit {@link WriteConcern} and
+&nbsp;     * {@link ReadPreference} settings that was configured on supplied instance.
+&nbsp;     * @param database database handle.
+&nbsp;     * @return {@code this}
+&nbsp;     * @see MongoClient#getDB(String)
+&nbsp;     */
+&nbsp;    public Builder database(MongoDatabase database) {
+<b class="nc">&nbsp;      this.database = checkNotNull(database);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Configures current repository setup with {@link Gson} serialization.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;
+&nbsp;     * You could use service providers for {@link TypeAdapterFactory} interface to register type
+&nbsp;     * adapters. This mechanism, while optional, used a lot in immutables and allows for easy
+&nbsp;     * registration if launched in a simple flat classpath.
+&nbsp;     * 
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * GsonBuilder gsonBuilder = new GsonBuilder();
+&nbsp;     * gsonBuilder.registerTypeAdapterFactory(new TypeAdapters()); // BSON specific type adapters
+&nbsp;     * ...
+&nbsp;     * for (TypeAdapterFactory factory : ServiceLoader.load(TypeAdapterFactory)) {
+&nbsp;     *   gsonBuilder.registerTypeAdapterFactory(factory);
+&nbsp;     * }
+&nbsp;     * Gson gson = gsonBuilder.create();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * 
+&nbsp;     * The factory registration shown above is done by default when using
+&nbsp;     * {@link RepositorySetup#forUri(String)} to create setup.
+&nbsp;     * @param gson configured {@link Gson} instance
+&nbsp;     * @see #codecRegistry(CodecRegistry) for other serialization options
+&nbsp;     * @return {@code this}
+&nbsp;     */
+&nbsp;    public Builder gson(Gson gson) {
+<b class="nc">&nbsp;      checkNotNull(gson, &quot;gson&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;      Gson newGson = GsonCodecs.newGsonWithBsonSupport(gson);</b>
+&nbsp;
+&nbsp;      // expose new Gson as CodecRegistry. Using fromRegistries() for caching
+<b class="nc">&nbsp;      CodecRegistry codecRegistry = CodecRegistries.fromRegistries(GsonCodecs.codecRegistryFromGson(newGson));</b>
+&nbsp;
+<b class="nc">&nbsp;      return codecRegistry(codecRegistry, new GsonNamingStrategy(gson));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Register custom codec registry to serialize and deserialize entities using
+&nbsp;     *  &lt;a href=&quot;http://mongodb.github.io/mongo-java-driver/3.8/bson/codecs/&quot;&gt;BSON&lt;/a&gt;.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;Also allows user to register custom naming strategy if POJOs have different property names
+&nbsp;     * when serialized (important for correct querying).
+&nbsp;     *
+&nbsp;     * @param registry existing registry
+&nbsp;     * @param fieldNamingStrategy allows to customize property names in queries
+&nbsp;     * @return {@code this} same instance of the builder
+&nbsp;     * @throws NullPointerException if one of arguments is null
+&nbsp;     */
+&nbsp;    public Builder codecRegistry(CodecRegistry registry, FieldNamingStrategy fieldNamingStrategy) {
+<b class="nc">&nbsp;      this.codecRegistry = checkNotNull(registry, &quot;registry&quot;);</b>
+<b class="nc">&nbsp;      this.fieldNamingStrategy = checkNotNull(fieldNamingStrategy, &quot;fieldNamingStrategy&quot;);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Register custom codec registry to serialize and deserialize entities using
+&nbsp;     * &lt;a href=&quot;http://mongodb.github.io/mongo-java-driver/3.8/bson/codecs/&quot;&gt;BSON&lt;/a&gt;.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;Please note that if you employ custom property naming (eg {@code @PropertyName} for
+&nbsp;     * &lt;a href=&quot;https://github.com/FasterXML/jackson&quot;&gt;jackson&lt;/a&gt;
+&nbsp;     * or {@code @SerializedName} for &lt;a href=&quot;https://github.com/google/gson&quot;&gt;gson&lt;/a&gt;) you need
+&nbsp;     * to register {@link FieldNamingStrategy} otherwise mongo queries might not work correctly. Use
+&nbsp;     * {@link #codecRegistry(CodecRegistry, FieldNamingStrategy)} for that. For additional information
+&nbsp;     * consult documentation on {@link FieldNamingStrategy}.
+&nbsp;     *
+&nbsp;     * @param registry set of codecs to be used for serialization
+&nbsp;     * @return {@code this} same instance of the builder
+&nbsp;     * @throws NullPointerException if one of arguments is null
+&nbsp;     */
+&nbsp;    public Builder codecRegistry(CodecRegistry registry) {
+<b class="nc">&nbsp;      return codecRegistry(registry, FieldNamingStrategy.DEFAULT);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds unmodifiable instance of {@link RepositorySetup}.
+&nbsp;     * @return repository setup instance.
+&nbsp;     */
+&nbsp;    public RepositorySetup build() {
+<b class="nc">&nbsp;      checkState(executor != null, &quot;executor is not set&quot;);</b>
+<b class="nc">&nbsp;      checkState(database != null, &quot;database is not set&quot;);</b>
+<b class="nc">&nbsp;      checkState(codecRegistry != null, &quot;codecRegistry is not set&quot;);</b>
+<b class="nc">&nbsp;      checkState(fieldNamingStrategy != null, &quot;fieldNamingStrategy is not set&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;      return new RepositorySetup(executor, database, codecRegistry, fieldNamingStrategy);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Create setup using MongoDB client uri.
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;URI should contain database path segment&lt;/li&gt;
+&nbsp;   * &lt;li&gt;New internal {@link MongoClient} will be created&lt;/li&gt;
+&nbsp;   * &lt;li&gt;New internal executor will be created (with shutdown on jvm exit)&lt;/li&gt;
+&nbsp;   * &lt;li&gt;New {@link Gson} instance will be created configured with type adapter factory
+&nbsp;   * providers&lt;/li&gt;
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Setup created by this factory methods should be reused to configure collection repositories for
+&nbsp;   * the same MongoDB database.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * This constructor designed for ease of use in sample scenarious. For more flexibility consider
+&nbsp;   * using {@link #builder()} with custom constructed {@link ListeningExecutorService
+&nbsp;   * executor} and {@link DB database} handle.
+&nbsp;   * @param uri string that will be parsed as {@link MongoClientURI}.
+&nbsp;   * @see MongoClientURI
+&nbsp;   * @return repository setup instance.
+&nbsp;   */
+&nbsp;  public static RepositorySetup forUri(String uri) {
+<b class="nc">&nbsp;    MongoClientURI clientUri = new MongoClientURI(uri);</b>
+<b class="nc">&nbsp;    @Nullable String databaseName = clientUri.getDatabase();</b>
+<b class="nc">&nbsp;    checkArgument(databaseName != null, &quot;URI should contain database path segment&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    return builder()</b>
+<b class="nc">&nbsp;        .database(newMongoClient(clientUri).getDatabase(databaseName))</b>
+<b class="nc">&nbsp;        .executor(newExecutor())</b>
+<b class="nc">&nbsp;        .gson(createGson())</b>
+<b class="nc">&nbsp;        .build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static Gson createGson() {
+<b class="nc">&nbsp;    GsonBuilder gsonBuilder = new GsonBuilder();</b>
+&nbsp;    // there are no longer auto-registed from class-path, but from here or if added manually.
+<b class="nc">&nbsp;    gsonBuilder.registerTypeAdapterFactory(new TypeAdapters());</b>
+&nbsp;
+<b class="nc">&nbsp;    for (TypeAdapterFactory factory : ServiceLoader.load(TypeAdapterFactory.class)) {</b>
+<b class="nc">&nbsp;      gsonBuilder.registerTypeAdapterFactory(factory);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return gsonBuilder.create();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static MongoClient newMongoClient(MongoClientURI clientUri) {
+<b class="nc">&nbsp;      return new MongoClient(clientUri);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final int DEFAULT_THREAD_POOL_CORE_SIZE = 5;
+&nbsp;  private static final int DEFAULT_THREAD_POOL_MAXIMUM_SIZE = 15;
+<b class="nc">&nbsp;  private static final long DEFAULT_THREAD_POOL_KEEP_ALIVE_MILLIS = TimeUnit.MINUTES.toMillis(1);</b>
+&nbsp;
+<b class="nc">&nbsp;  private static final ThreadFactory DEFAULT_THREAD_FACTORY =</b>
+&nbsp;      new ThreadFactoryBuilder()
+<b class="nc">&nbsp;          .setNameFormat(RepositorySetup.class.getPackage().getName() + &quot;-%s&quot;)</b>
+<b class="nc">&nbsp;          .setDaemon(true)</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+&nbsp;  private static ListeningExecutorService newExecutor() {
+<b class="nc">&nbsp;    return MoreExecutors.listeningDecorator(</b>
+<b class="nc">&nbsp;        MoreExecutors.getExitingExecutorService(</b>
+&nbsp;            new ThreadPoolExecutor(
+&nbsp;                DEFAULT_THREAD_POOL_CORE_SIZE,
+&nbsp;                DEFAULT_THREAD_POOL_MAXIMUM_SIZE,
+&nbsp;                DEFAULT_THREAD_POOL_KEEP_ALIVE_MILLIS,
+&nbsp;                TimeUnit.MILLISECONDS,
+&nbsp;                new LinkedBlockingQueue&lt;Runnable&gt;(),
+&nbsp;                DEFAULT_THREAD_FACTORY)));
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

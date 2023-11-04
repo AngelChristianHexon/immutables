@@ -1,0 +1,498 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AsyncMappers</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository.async</a>
+</div>
+
+<h1>Coverage Summary for Class: AsyncMappers (org.immutables.criteria.repository.async)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">AsyncMappers$Mapper1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMappers$Mapper2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMappers$Mapper3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMappers$Mapper4</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMappers$Mapper5</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMappers$MapperTuple</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/41)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/62)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository.async;
+&nbsp;
+&nbsp;import org.immutables.criteria.backend.Backend;
+&nbsp;import org.immutables.criteria.expression.ImmutableQuery;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.repository.MapperFunction3;
+&nbsp;import org.immutables.criteria.repository.MapperFunction4;
+&nbsp;import org.immutables.criteria.repository.MapperFunction5;
+&nbsp;import org.immutables.criteria.repository.Tuple;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveMapper1;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveMapper2;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveMapper3;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveMapper4;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveMapper5;
+&nbsp;import org.immutables.criteria.repository.reactive.ReactiveMapperTuple;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.concurrent.CompletionStage;
+&nbsp;import java.util.function.BiFunction;
+&nbsp;import java.util.function.Function;
+&nbsp;
+&nbsp;/**
+&nbsp; * Default implementation for various asynchronous mappers and their utilities
+&nbsp; */
+&nbsp;final class AsyncMappers {
+&nbsp;
+&nbsp;  static class Mapper1&lt;T1&gt; implements AsyncMapper1&lt;T1&gt;, AsyncMapper1.DistinctLimitOffset&lt;T1&gt; {
+&nbsp;
+&nbsp;    private final ReactiveMapper1&lt;T1&gt; mapper;
+&nbsp;    private final AsyncFetcher.DistinctLimitOffset&lt;T1&gt; fetcher;
+&nbsp;
+&nbsp;    Mapper1(Query query, Backend.Session session) {
+<b class="nc">&nbsp;      this(new ReactiveMapper1&lt;&gt;(query, session));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Mapper1(ReactiveMapper1&lt;T1&gt; mapper) {
+<b class="nc">&nbsp;      this(mapper, AsyncFetcherDelegate.fromReactive(mapper));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    private Mapper1(ReactiveMapper1&lt;T1&gt; mapper, AsyncFetcher&lt;T1&gt; fetcher) {</b>
+<b class="nc">&nbsp;      this.mapper = mapper;</b>
+<b class="nc">&nbsp;      this.fetcher = (AsyncFetcher.DistinctLimitOffset&lt;T1&gt;) fetcher;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public DistinctLimitOffset&lt;Optional&lt;T1&gt;&gt; asOptional() {
+<b class="nc">&nbsp;      return new Mapper1&lt;&gt;(mapper.asOptional());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;List&lt;T1&gt;&gt; fetch() {
+<b class="nc">&nbsp;      return fetcher.fetch();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;T1&gt; one() {
+<b class="nc">&nbsp;      return fetcher.one();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;Optional&lt;T1&gt;&gt; oneOrNone() {
+<b class="nc">&nbsp;      return fetcher.oneOrNone();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;Boolean&gt; exists() {
+<b class="nc">&nbsp;      return fetcher.exists();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public CompletionStage&lt;Long&gt; count() {
+<b class="nc">&nbsp;      return fetcher.count();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LimitOffset&lt;T1&gt; distinct() {
+<b class="nc">&nbsp;      return new Mapper1&lt;&gt;(mapper, fetcher.distinct());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Offset&lt;T1&gt; limit(long limit) {
+<b class="nc">&nbsp;      return new Mapper1&lt;&gt;(mapper, fetcher.limit(limit));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AsyncMapper1&lt;T1&gt; offset(long offset) {
+<b class="nc">&nbsp;      return new Mapper1&lt;&gt;(mapper, fetcher.offset(offset));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static class Mapper2&lt;T1, T2&gt; implements AsyncMapper2&lt;T1, T2&gt;, AsyncMapper2.DistinctLimitOffset&lt;T1, T2&gt; {
+&nbsp;
+&nbsp;    private final ImmutableQuery query;
+&nbsp;    private final Backend.Session session;
+&nbsp;
+<b class="nc">&nbsp;    Mapper2(Query query, Backend.Session session) {</b>
+<b class="nc">&nbsp;      this.query = ImmutableQuery.copyOf(query);</b>
+<b class="nc">&nbsp;      this.session = session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(BiFunction&lt;T1, T2, R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper2&lt;T1, T2&gt; delegate = new ReactiveMapper2&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(Function&lt;? super Tuple, ? extends R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper2&lt;T1, T2&gt; delegate = new ReactiveMapper2&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LimitOffset&lt;T1, T2&gt; distinct() {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper2&lt;&gt;(query.withDistinct(true), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Offset&lt;T1, T2&gt; limit(long limit) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper2&lt;&gt;(query.withLimit(limit), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AsyncMapper2&lt;T1, T2&gt; offset(long offset) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper2&lt;&gt;(query.withOffset(offset), session);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static class Mapper3&lt;T1, T2, T3&gt; implements AsyncMapper3&lt;T1, T2, T3&gt;, AsyncMapper3.DistinctLimitOffset&lt;T1, T2, T3&gt; {
+&nbsp;
+&nbsp;    private final ImmutableQuery query;
+&nbsp;    private final Backend.Session session;
+&nbsp;
+<b class="nc">&nbsp;    Mapper3(Query query, Backend.Session session) {</b>
+<b class="nc">&nbsp;      this.query = ImmutableQuery.copyOf(query);</b>
+<b class="nc">&nbsp;      this.session = session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(MapperFunction3&lt;T1, T2, T3, R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper3&lt;T1, T2, T3&gt; delegate = new ReactiveMapper3&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(Function&lt;? super Tuple, ? extends R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper3&lt;T1, T2, T3&gt; delegate = new ReactiveMapper3&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LimitOffset&lt;T1, T2, T3&gt; distinct() {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper3&lt;&gt;(query.withDistinct(true), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Offset&lt;T1, T2, T3&gt; limit(long limit) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper3&lt;&gt;(query.withLimit(limit), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AsyncMapper3&lt;T1, T2, T3&gt; offset(long offset) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper3&lt;&gt;(query.withOffset(offset), session);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static class Mapper4&lt;T1, T2, T3, T4&gt; implements AsyncMapper4&lt;T1, T2, T3, T4&gt;, AsyncMapper4.DistinctLimitOffset&lt;T1, T2, T3, T4&gt; {
+&nbsp;
+&nbsp;    private final ImmutableQuery query;
+&nbsp;    private final Backend.Session session;
+&nbsp;
+<b class="nc">&nbsp;    Mapper4(Query query, Backend.Session session) {</b>
+<b class="nc">&nbsp;      this.query = ImmutableQuery.copyOf(query);</b>
+<b class="nc">&nbsp;      this.session = session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(MapperFunction4&lt;T1, T2, T3, T4, R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper4&lt;T1, T2, T3, T4&gt; delegate = new ReactiveMapper4&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(Function&lt;? super Tuple, ? extends R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper4&lt;T1, T2, T3, T4&gt; delegate = new ReactiveMapper4&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LimitOffset&lt;T1, T2, T3, T4&gt; distinct() {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper4&lt;&gt;(query.withDistinct(true), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Offset&lt;T1, T2, T3, T4&gt; limit(long limit) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper4&lt;&gt;(query.withLimit(limit), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AsyncMapper4&lt;T1, T2, T3, T4&gt; offset(long offset) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper4&lt;&gt;(query.withOffset(offset), session);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static class Mapper5&lt;T1, T2, T3, T4, T5&gt; implements AsyncMapper5&lt;T1, T2, T3, T4, T5&gt;, AsyncMapper5.DistinctLimitOffset&lt;T1, T2, T3, T4, T5&gt; {
+&nbsp;
+&nbsp;    private final ImmutableQuery query;
+&nbsp;    private final Backend.Session session;
+&nbsp;
+<b class="nc">&nbsp;    Mapper5(Query query, Backend.Session session) {</b>
+<b class="nc">&nbsp;      this.query = ImmutableQuery.copyOf(query);</b>
+<b class="nc">&nbsp;      this.session = session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(MapperFunction5&lt;T1, T2, T3, T4, T5, R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper5&lt;T1, T2, T3, T4, T5&gt; delegate = new ReactiveMapper5&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(Function&lt;? super Tuple, ? extends R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapper5&lt;T1, T2, T3, T4, T5&gt; delegate = new ReactiveMapper5&lt;&gt;(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(delegate.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LimitOffset&lt;T1, T2, T3, T4, T5&gt; distinct() {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper5&lt;&gt;(query.withDistinct(true), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Offset&lt;T1, T2, T3, T4, T5&gt; limit(long limit) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper5&lt;&gt;(query.withLimit(limit), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AsyncMapper5&lt;T1, T2, T3, T4, T5&gt; offset(long offset) {
+<b class="nc">&nbsp;      return new AsyncMappers.Mapper5&lt;&gt;(query.withOffset(offset), session);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static class MapperTuple implements AsyncMapperTuple, AsyncMapperTuple.DistinctLimitOffset {
+&nbsp;    private final ImmutableQuery query;
+&nbsp;    private final Backend.Session session;
+&nbsp;
+<b class="nc">&nbsp;    MapperTuple(Query query, Backend.Session session) {</b>
+<b class="nc">&nbsp;      this.query = ImmutableQuery.copyOf(query);</b>
+<b class="nc">&nbsp;      this.session = session;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;R&gt; AsyncFetcher&lt;R&gt; map(Function&lt;? super Tuple, ? extends R&gt; mapFn) {
+<b class="nc">&nbsp;      ReactiveMapperTuple mapper = new ReactiveMapperTuple(query, session);</b>
+<b class="nc">&nbsp;      return AsyncFetcherDelegate.fromReactive(mapper.map(mapFn));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public LimitOffset distinct() {
+<b class="nc">&nbsp;      return new AsyncMappers.MapperTuple(query.withDistinct(true), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Offset limit(long limit) {
+<b class="nc">&nbsp;      return new AsyncMappers.MapperTuple(query.withLimit(limit), session);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AsyncMapperTuple offset(long offset) {
+<b class="nc">&nbsp;      return new AsyncMappers.MapperTuple(query.withOffset(offset), session);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private AsyncMappers() {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

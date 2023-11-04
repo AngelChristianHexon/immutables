@@ -1,0 +1,382 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSomeSer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.serial</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSomeSer (org.immutables.fixture.serial)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSomeSer$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableSomeSer$InternerHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableSomeSer$InternProxy</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.serial;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.Interner;
+&nbsp;import com.google.common.collect.Interners;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.io.ObjectStreamException;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SomeSer}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSomeSer.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SomeSer&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSomeSer extends SomeSer {
+&nbsp;  private final int regular;
+&nbsp;
+&nbsp;  private ImmutableSomeSer(ImmutableSomeSer.Builder builder) {
+&nbsp;    this.regular = builder.regularIsSet()
+&nbsp;        ? builder.regular
+&nbsp;        : super.regular();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSomeSer(int regular) {
+&nbsp;    this.regular = regular;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code regular} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  int regular() {
+&nbsp;    return regular;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SomeSer#regular() regular} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for regular
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSomeSer withRegular(int value) {
+&nbsp;    if (this.regular == value) return this;
+&nbsp;    return validate(new ImmutableSomeSer(value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSomeSer} that have equal attribute values.
+&nbsp;   * As instances of the {@code ImmutableSomeSer} class are interned, the {@code equals} method is implemented
+&nbsp;   * as an efficient reference equality check.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    return this == another;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSomeSer another) {
+&nbsp;    return regular == another.regular;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code regular}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + regular;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SomeSer} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SomeSer&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;regular&quot;, regular)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long VERSION_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient int version;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link SomeSer#version() version} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code version} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  int version() {
+&nbsp;    if ((lazyInitBitmap &amp; VERSION_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; VERSION_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.version = super.version();
+&nbsp;          lazyInitBitmap |= VERSION_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return version;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SomeSer&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class InternProxy {
+&nbsp;    final ImmutableSomeSer instance;
+&nbsp;
+&nbsp;    InternProxy(ImmutableSomeSer instance) {
+&nbsp;      this.instance = instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      return another != null &amp;&amp; instance.equalTo(0, ((InternProxy) another).instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return instance.hashCode();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final class InternerHolder {
+<b class="nc">&nbsp;    static final Interner&lt;InternProxy&gt; INTERNER = Interners.newStrongInterner();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableSomeSer validate(ImmutableSomeSer instance) {
+&nbsp;    return InternerHolder.INTERNER.intern(new InternProxy(instance)).instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SomeSer} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SomeSer instance
+&nbsp;   */
+&nbsp;  public static ImmutableSomeSer copyOf(SomeSer instance) {
+&nbsp;    if (instance instanceof ImmutableSomeSer) {
+&nbsp;      return (ImmutableSomeSer) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSomeSer.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long serialVersionUID = 1L;
+&nbsp;
+&nbsp;  private Object readResolve() throws ObjectStreamException {
+&nbsp;    return validate(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSomeSer ImmutableSomeSer}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSomeSer.builder()
+&nbsp;   *    .regular(int) // optional {@link SomeSer#regular() regular}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSomeSer builder
+&nbsp;   */
+&nbsp;  public static ImmutableSomeSer.Builder builder() {
+&nbsp;    return new ImmutableSomeSer.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSomeSer ImmutableSomeSer}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SomeSer&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_REGULAR = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private int regular;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableSomeSer} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableSomeSer instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      regular(instance.regular());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SomeSer} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SomeSer instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableSomeSer) {
+&nbsp;        return from((ModifiableSomeSer) instance);
+&nbsp;      }
+&nbsp;      regular(instance.regular());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SomeSer#regular() regular} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link SomeSer#regular() regular}.&lt;/em&gt;
+&nbsp;     * @param regular The value for regular 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder regular(int regular) {
+&nbsp;      this.regular = regular;
+&nbsp;      optBits |= OPT_BIT_REGULAR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSomeSer ImmutableSomeSer}.
+&nbsp;     * @return An immutable instance of SomeSer
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSomeSer build() {
+&nbsp;      return ImmutableSomeSer.validate(new ImmutableSomeSer(this));
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean regularIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_REGULAR) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,439 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableCall</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.expression</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableCall (org.immutables.criteria.expression)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableCall$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableCall$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.expression;
+&nbsp;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Call}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableCall.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableCall.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Call&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableCall extends Call {
+&nbsp;  private final ImmutableList&lt;Expression&gt; arguments;
+&nbsp;  private final Operator operator;
+&nbsp;  private final Type returnType;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient int hashCode; // hashCode lazily computed
+&nbsp;
+&nbsp;  private ImmutableCall(
+&nbsp;      Iterable&lt;? extends Expression&gt; arguments,
+&nbsp;      Operator operator,
+&nbsp;      Type returnType) {
+&nbsp;    this.arguments = ImmutableList.copyOf(arguments);
+&nbsp;    this.operator = Objects.requireNonNull(operator, &quot;operator&quot;);
+&nbsp;    this.returnType = Objects.requireNonNull(returnType, &quot;returnType&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableCall(
+&nbsp;      ImmutableCall original,
+&nbsp;      ImmutableList&lt;Expression&gt; arguments,
+&nbsp;      Operator operator,
+&nbsp;      Type returnType) {
+&nbsp;    this.arguments = arguments;
+&nbsp;    this.operator = operator;
+&nbsp;    this.returnType = returnType;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code arguments} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Expression&gt; arguments() {
+&nbsp;    return arguments;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code operator} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Operator operator() {
+&nbsp;    return operator;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code returnType} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Type returnType() {
+&nbsp;    return returnType;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Call#arguments() arguments}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCall withArguments(Expression... elements) {
+&nbsp;    ImmutableList&lt;Expression&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableCall(this, newValue, this.operator, this.returnType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Call#arguments() arguments}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of arguments elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCall withArguments(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;    if (this.arguments == elements) return this;
+&nbsp;    ImmutableList&lt;Expression&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableCall(this, newValue, this.operator, this.returnType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Call#operator() operator} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for operator
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCall withOperator(Operator value) {
+&nbsp;    if (this.operator == value) return this;
+&nbsp;    Operator newValue = Objects.requireNonNull(value, &quot;operator&quot;);
+&nbsp;    return new ImmutableCall(this, this.arguments, newValue, this.returnType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Call#returnType() returnType} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for returnType
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCall withReturnType(Type value) {
+&nbsp;    if (this.returnType == value) return this;
+&nbsp;    Type newValue = Objects.requireNonNull(value, &quot;returnType&quot;);
+&nbsp;    return new ImmutableCall(this, this.arguments, this.operator, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableCall} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableCall
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableCall) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableCall another) {
+&nbsp;    if (hashCode != 0 &amp;&amp; another.hashCode != 0 &amp;&amp; hashCode != another.hashCode) return false;
+&nbsp;    return arguments.equals(another.arguments)
+&nbsp;        &amp;&amp; operator.equals(another.operator)
+&nbsp;        &amp;&amp; returnType.equals(another.returnType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns a lazily computed hash code from attributes: {@code arguments}, {@code operator}, {@code returnType}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = this.hashCode;
+&nbsp;    if (h == 0) {
+&nbsp;      h = computeHashCode();
+&nbsp;      this.hashCode = h;
+&nbsp;    }
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  private int computeHashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + arguments.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + operator.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + returnType.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Call} instance.
+&nbsp;   * @param arguments The value for the {@code arguments} attribute
+&nbsp;   * @param operator The value for the {@code operator} attribute
+&nbsp;   * @param returnType The value for the {@code returnType} attribute
+&nbsp;   * @return An immutable Call instance
+&nbsp;   */
+&nbsp;  public static ImmutableCall of(List&lt;Expression&gt; arguments, Operator operator, Type returnType) {
+&nbsp;    return of((Iterable&lt;? extends Expression&gt;) arguments, operator, returnType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Call} instance.
+&nbsp;   * @param arguments The value for the {@code arguments} attribute
+&nbsp;   * @param operator The value for the {@code operator} attribute
+&nbsp;   * @param returnType The value for the {@code returnType} attribute
+&nbsp;   * @return An immutable Call instance
+&nbsp;   */
+&nbsp;  public static ImmutableCall of(Iterable&lt;? extends Expression&gt; arguments, Operator operator, Type returnType) {
+&nbsp;    return new ImmutableCall(arguments, operator, returnType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Call} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Call instance
+&nbsp;   */
+&nbsp;  public static ImmutableCall copyOf(Call instance) {
+&nbsp;    if (instance instanceof ImmutableCall) {
+&nbsp;      return (ImmutableCall) instance;
+&nbsp;    }
+&nbsp;    return ImmutableCall.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableCall ImmutableCall}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableCall.builder()
+&nbsp;   *    .addArguments|addAllArguments(org.immutables.criteria.expression.Expression) // {@link Call#arguments() arguments} elements
+&nbsp;   *    .operator(org.immutables.criteria.expression.Operator) // required {@link Call#operator() operator}
+&nbsp;   *    .returnType(reflect.Type) // required {@link Call#returnType() returnType}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableCall builder
+&nbsp;   */
+&nbsp;  public static ImmutableCall.Builder builder() {
+&nbsp;    return new ImmutableCall.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableCall ImmutableCall}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Call&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_OPERATOR = 0x1L;
+&nbsp;    private static final long INIT_BIT_RETURN_TYPE = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private ImmutableList.Builder&lt;Expression&gt; arguments = ImmutableList.builder();
+&nbsp;    private @Nullable Operator operator;
+&nbsp;    private @Nullable Type returnType;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.criteria.expression.Expression} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Expression instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.criteria.expression.Call} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Call instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      if (object instanceof Expression) {
+&nbsp;        Expression instance = (Expression) object;
+&nbsp;        returnType(instance.returnType());
+&nbsp;      }
+&nbsp;      if (object instanceof Call) {
+&nbsp;        Call instance = (Call) object;
+&nbsp;        operator(instance.operator());
+&nbsp;        addAllArguments(instance.arguments());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Call#arguments() arguments} list.
+&nbsp;     * @param element A arguments element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addArguments(Expression element) {
+&nbsp;      this.arguments.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Call#arguments() arguments} list.
+&nbsp;     * @param elements An array of arguments elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addArguments(Expression... elements) {
+&nbsp;      this.arguments.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Call#arguments() arguments} list.
+&nbsp;     * @param elements An iterable of arguments elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder arguments(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;      this.arguments = ImmutableList.builder();
+&nbsp;      return addAllArguments(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Call#arguments() arguments} list.
+&nbsp;     * @param elements An iterable of arguments elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllArguments(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;      this.arguments.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Call#operator() operator} attribute.
+&nbsp;     * @param operator The value for operator 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder operator(Operator operator) {
+&nbsp;      this.operator = Objects.requireNonNull(operator, &quot;operator&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_OPERATOR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Call#returnType() returnType} attribute.
+&nbsp;     * @param returnType The value for returnType 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder returnType(Type returnType) {
+&nbsp;      this.returnType = Objects.requireNonNull(returnType, &quot;returnType&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_RETURN_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableCall ImmutableCall}.
+&nbsp;     * @return An immutable instance of Call
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableCall build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableCall(null, arguments.build(), operator, returnType);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_OPERATOR) != 0) attributes.add(&quot;operator&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_RETURN_TYPE) != 0) attributes.add(&quot;returnType&quot;);
+&nbsp;      return &quot;Cannot build Call, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

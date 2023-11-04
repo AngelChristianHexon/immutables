@@ -1,0 +1,461 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableAllowNullsObject</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableAllowNullsObject (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableAllowNullsObject$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link AllowNullsObject}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableAllowNullsObject.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;AllowNullsObject&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableAllowNullsObject implements AllowNullsObject {
+&nbsp;  private final Map&lt;String, String&gt; map;
+&nbsp;  private final List&lt;String&gt; list;
+&nbsp;
+&nbsp;  private ImmutableAllowNullsObject(Map&lt;String, String&gt; map, List&lt;String&gt; list) {
+&nbsp;    this.map = map;
+&nbsp;    this.list = list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; getMap() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; getList() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link AllowNullsObject#getMap() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAllowNullsObject withMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    Map&lt;String, String&gt; newValue = createUnmodifiableMap(false, false, entries);
+&nbsp;    return new ImmutableAllowNullsObject(newValue, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link AllowNullsObject#getList() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAllowNullsObject withList(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), false, false));
+&nbsp;    return new ImmutableAllowNullsObject(this.map, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link AllowNullsObject#getList() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAllowNullsObject withList(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.list == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, false, false));
+&nbsp;    return new ImmutableAllowNullsObject(this.map, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableAllowNullsObject} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableAllowNullsObject
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableAllowNullsObject) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableAllowNullsObject another) {
+&nbsp;    return map.equals(another.map)
+&nbsp;        &amp;&amp; list.equals(another.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code map}, {@code list}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + list.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code AllowNullsObject} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;AllowNullsObject{&quot;
+&nbsp;        + &quot;map=&quot; + map
+&nbsp;        + &quot;, list=&quot; + list
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link AllowNullsObject} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable AllowNullsObject instance
+&nbsp;   */
+&nbsp;  public static ImmutableAllowNullsObject copyOf(AllowNullsObject instance) {
+&nbsp;    if (instance instanceof ImmutableAllowNullsObject) {
+&nbsp;      return (ImmutableAllowNullsObject) instance;
+&nbsp;    }
+&nbsp;    return ImmutableAllowNullsObject.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableAllowNullsObject ImmutableAllowNullsObject}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableAllowNullsObject.builder()
+&nbsp;   *    .putMap|putAllMap(String =&amp;gt; String) // {@link AllowNullsObject#getMap() map} mappings
+&nbsp;   *    .addList|addAllList(String) // {@link AllowNullsObject#getList() list} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableAllowNullsObject builder
+&nbsp;   */
+&nbsp;  public static ImmutableAllowNullsObject.Builder builder() {
+&nbsp;    return new ImmutableAllowNullsObject.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableAllowNullsObject ImmutableAllowNullsObject}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AllowNullsObject&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private Map&lt;String, String&gt; map = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    private List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableAllowNullsObject} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableAllowNullsObject instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      putAllMap(instance.getMap());
+&nbsp;      addAllList(instance.getList());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code AllowNullsObject} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(AllowNullsObject instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableAllowNullsObject) {
+&nbsp;        return from((ModifiableAllowNullsObject) instance);
+&nbsp;      }
+&nbsp;      putAllMap(instance.getMap());
+&nbsp;      addAllList(instance.getList());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link AllowNullsObject#getMap() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(@Nullable String key, @Nullable String value) {
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link AllowNullsObject#getMap() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      String v = entry.getValue();
+&nbsp;      this.map.put(k, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link AllowNullsObject#getMap() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder map(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.map.clear();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link AllowNullsObject#getMap() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        String v = e.getValue();
+&nbsp;        this.map.put(k, v);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link AllowNullsObject#getList() list} list.
+&nbsp;     * @param element A list element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(@Nullable String element) {
+&nbsp;      this.list.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link AllowNullsObject#getList() list} list.
+&nbsp;     * @param elements An array of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.list.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link AllowNullsObject#getList() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder list(Iterable&lt;String&gt; elements) {
+&nbsp;      this.list.clear();
+&nbsp;      return addAllList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link AllowNullsObject#getList() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllList(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.list.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableAllowNullsObject ImmutableAllowNullsObject}.
+&nbsp;     * @return An immutable instance of AllowNullsObject
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableAllowNullsObject build() {
+&nbsp;      return new ImmutableAllowNullsObject(createUnmodifiableMap(false, false, map), createUnmodifiableList(true, list));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

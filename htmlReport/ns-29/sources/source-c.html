@@ -1,0 +1,250 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CompactOptionalIntEnabled</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.encoding.defs</a>
+</div>
+
+<h1>Coverage Summary for Class: CompactOptionalIntEnabled (org.immutables.fixture.encoding.defs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">CompactOptionalIntEnabled</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.encoding.defs;
+&nbsp;
+&nbsp;import org.immutables.encode.EncodingMetadata;
+&nbsp;
+&nbsp;@EncodingMetadata(
+&nbsp;  name = &quot;org.immutables.fixture.encoding.defs.CompactOptionalInt&quot;,
+&nbsp;  imports = {
+&nbsp;  },
+&nbsp;  typeParams = {},
+&nbsp;  elements = {
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;opt&quot;,
+&nbsp;      tags = {&quot;IMPL&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;VIRTUAL&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.OptionalInt&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;compactOptionalInt_from&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FROM&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_from&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.OptionalInt&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.OptionalInt&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @^value;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;toString&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;TO_STRING&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_toString&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @:get().toString();\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;hashCode&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;HASH_CODE&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_hashCode&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @:get().hashCode();\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;equals&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;EQUALS&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_equals&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;other: org.immutables.fixture.encoding.defs.CompactOptionalInt&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn this.@:get().equals(@^other.@:get())\n;}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;compactOptionalInt_build&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;BUILD&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_build&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.OptionalInt&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nif (@@compactOptionalInt_builder == null) throw new java.lang.IllegalStateException(\&quot;\&#39;&lt;*&gt;\&#39; is not initialized\&quot;);\nreturn @@compactOptionalInt_builder;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;compactOptionalInt_isSet&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;SYNTH&quot;, &quot;IS_INIT&quot;},
+&nbsp;      naming = &quot;*_isSet&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;boolean&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn this.@@compactOptionalInt_builder != null;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;value&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_value&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;@@opt.orElse(0)&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;present&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_present&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;boolean&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;@@opt.isPresent()&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;get&quot;,
+&nbsp;      tags = {&quot;EXPOSE&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.OptionalInt&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@present\r\n? java.util.OptionalInt.of(@@value)\r\n: java.util.OptionalInt.empty();\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;compactOptionalInt_copy&quot;,
+&nbsp;      tags = {&quot;COPY&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.OptionalInt&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.OptionalInt&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @^value;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;compactOptionalInt_builder&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;FIELD&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_builder&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.OptionalInt&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;compactOptionalInt_set&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;, &quot;COPY&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.OptionalInt&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nthis.@@compactOptionalInt_builder = @^value;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    )
+&nbsp;  }
+&nbsp;)
+&nbsp;public @interface CompactOptionalIntEnabled {}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

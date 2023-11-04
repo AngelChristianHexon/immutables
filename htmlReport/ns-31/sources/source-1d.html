@@ -1,0 +1,1045 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableStandalone</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableStandalone (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableStandalone</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Chars;
+&nbsp;import com.google.common.primitives.Doubles;
+&nbsp;import com.google.common.primitives.Floats;
+&nbsp;import com.google.common.primitives.Shorts;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Companion.Standalone Standalone} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableStandalone is not thread-safe&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion.Standalone&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Companion.Standalone&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableStandalone implements Companion.Standalone {
+&nbsp;  private static final long INIT_BIT_FIRST = 0x1L;
+&nbsp;  private static final long INIT_BIT_SECOND = 0x2L;
+&nbsp;  private static final long INIT_BIT_SH = 0x4L;
+&nbsp;  private static final long INIT_BIT_CH = 0x8L;
+&nbsp;  private static final long INIT_BIT_BOOL = 0x10L;
+&nbsp;  private static final long INIT_BIT_DOB = 0x20L;
+&nbsp;  private static final long INIT_BIT_FL = 0x40L;
+&nbsp;  private static final long OPT_BIT_DEF = 0x1L;
+&nbsp;  private long initBits = 0x7fL;
+&nbsp;  private long optBits;
+&nbsp;
+&nbsp;  private int first;
+&nbsp;  private String second;
+&nbsp;  private short sh;
+&nbsp;  private char ch;
+&nbsp;  private boolean bool;
+&nbsp;  private double dob;
+&nbsp;  private float fl;
+&nbsp;  private Optional&lt;Integer&gt; v1 = Optional.absent();
+&nbsp;  private java.util.Optional&lt;Integer&gt; v2 = java.util.Optional.empty();
+&nbsp;  private OptionalInt i1 = OptionalInt.empty();
+&nbsp;  private OptionalLong l1 = OptionalLong.empty();
+&nbsp;  private OptionalDouble d1 = OptionalDouble.empty();
+&nbsp;  private Option&lt;Integer&gt; fugue3 = Option.none();
+&nbsp;  private int def;
+&nbsp;  private String defs;
+&nbsp;  private @Nullable ArrayList&lt;Unit&gt; nullableUnit = null;
+&nbsp;
+&nbsp;  private ModifiableStandalone() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Standalone}.
+&nbsp;   * @param first The value for the {@code first} attribute 
+&nbsp;   * @param second The value for the {@code second} attribute 
+&nbsp;   * @param sh The value for the {@code sh} attribute 
+&nbsp;   * @param ch The value for the {@code ch} attribute 
+&nbsp;   * @param bool The value for the {@code bool} attribute 
+&nbsp;   * @param dob The value for the {@code dob} attribute 
+&nbsp;   * @param fl The value for the {@code fl} attribute 
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableStandalone create(int first, String second, short sh, char ch, boolean bool, double dob, float fl) {
+&nbsp;    return new ModifiableStandalone()
+&nbsp;        .setFirst(first)
+&nbsp;        .setSecond(second)
+&nbsp;        .setSh(sh)
+&nbsp;        .setCh(ch)
+&nbsp;        .setBool(bool)
+&nbsp;        .setDob(dob)
+&nbsp;        .setFl(fl);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Standalone}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableStandalone create() {
+&nbsp;    return new ModifiableStandalone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code first} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int first() {
+&nbsp;    if (!firstIsSet()) checkRequiredAttributes();
+&nbsp;    return first;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code second} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String second() {
+&nbsp;    if (!secondIsSet()) checkRequiredAttributes();
+&nbsp;    return second;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code sh} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final short sh() {
+&nbsp;    if (!shIsSet()) checkRequiredAttributes();
+&nbsp;    return sh;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code ch} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final char ch() {
+&nbsp;    if (!chIsSet()) checkRequiredAttributes();
+&nbsp;    return ch;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code bool} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final boolean bool() {
+&nbsp;    if (!boolIsSet()) checkRequiredAttributes();
+&nbsp;    return bool;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code dob} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final double dob() {
+&nbsp;    if (!dobIsSet()) checkRequiredAttributes();
+&nbsp;    return dob;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code fl} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final float fl() {
+&nbsp;    if (!flIsSet()) checkRequiredAttributes();
+&nbsp;    return fl;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code v1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Optional&lt;Integer&gt; v1() {
+&nbsp;    return v1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code v2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final java.util.Optional&lt;Integer&gt; v2() {
+&nbsp;    return v2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code i1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final OptionalInt i1() {
+&nbsp;    return i1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code l1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final OptionalLong l1() {
+&nbsp;    return l1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code d1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final OptionalDouble d1() {
+&nbsp;    return d1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code fugue3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Option&lt;Integer&gt; fugue3() {
+&nbsp;    return fugue3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code def} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int def() {
+&nbsp;    if (defIsSet()) {
+&nbsp;      return def;
+&nbsp;    } else {
+&nbsp;      return Companion.Standalone.super.def();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code defs} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String defs() {
+&nbsp;    if (defsIsSet()) {
+&nbsp;      return defs;
+&nbsp;    } else {
+&nbsp;      return Companion.Standalone.super.defs();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return newly computed, not cached value of {@code derived} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int derived() {
+&nbsp;    return Companion.Standalone.super.derived();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code nullableUnit}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable List&lt;Unit&gt; nullableUnit() {
+&nbsp;    return nullableUnit;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone clear() {
+&nbsp;    initBits = 0x7fL;
+&nbsp;    optBits = 0;
+&nbsp;    first = 0;
+&nbsp;    second = null;
+&nbsp;    sh = 0;
+&nbsp;    ch = 0;
+&nbsp;    bool = false;
+&nbsp;    dob = 0;
+&nbsp;    fl = 0;
+&nbsp;    v1 = Optional.absent();
+&nbsp;    v2 = java.util.Optional.empty();
+&nbsp;    i1 = OptionalInt.empty();
+&nbsp;    l1 = OptionalLong.empty();
+&nbsp;    d1 = OptionalDouble.empty();
+&nbsp;    fugue3 = Option.none();
+&nbsp;    def = 0;
+&nbsp;    defs = null;
+&nbsp;    nullableUnit = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.Standalone} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableStandalone from(Companion.Standalone instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableStandalone) {
+&nbsp;      from((ModifiableStandalone) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setFirst(instance.first());
+&nbsp;    setSecond(instance.second());
+&nbsp;    setSh(instance.sh());
+&nbsp;    setCh(instance.ch());
+&nbsp;    setBool(instance.bool());
+&nbsp;    setDob(instance.dob());
+&nbsp;    setFl(instance.fl());
+&nbsp;    Optional&lt;Integer&gt; v1Optional = instance.v1();
+&nbsp;    if (v1Optional.isPresent()) {
+&nbsp;      setV1(v1Optional);
+&nbsp;    }
+&nbsp;    java.util.Optional&lt;Integer&gt; v2Optional = instance.v2();
+&nbsp;    if (v2Optional.isPresent()) {
+&nbsp;      setV2(v2Optional);
+&nbsp;    }
+&nbsp;    OptionalInt i1Optional = instance.i1();
+&nbsp;    if (i1Optional.isPresent()) {
+&nbsp;      setI1(i1Optional);
+&nbsp;    }
+&nbsp;    OptionalLong l1Optional = instance.l1();
+&nbsp;    if (l1Optional.isPresent()) {
+&nbsp;      setL1(l1Optional);
+&nbsp;    }
+&nbsp;    OptionalDouble d1Optional = instance.d1();
+&nbsp;    if (d1Optional.isPresent()) {
+&nbsp;      setD1(d1Optional);
+&nbsp;    }
+&nbsp;    Option&lt;Integer&gt; fugue3Optional = instance.fugue3();
+&nbsp;    if (fugue3Optional.isDefined()) {
+&nbsp;      setFugue3(fugue3Optional);
+&nbsp;    }
+&nbsp;    setDef(instance.def());
+&nbsp;    setDefs(instance.defs());
+&nbsp;    @Nullable List&lt;Unit&gt; nullableUnitValue = instance.nullableUnit();
+&nbsp;    if (nullableUnitValue != null) {
+&nbsp;      addAllNullableUnit(nullableUnitValue);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.Standalone} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableStandalone from(ModifiableStandalone instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.firstIsSet()) {
+&nbsp;      setFirst(instance.first());
+&nbsp;    }
+&nbsp;    if (instance.secondIsSet()) {
+&nbsp;      setSecond(instance.second());
+&nbsp;    }
+&nbsp;    if (instance.shIsSet()) {
+&nbsp;      setSh(instance.sh());
+&nbsp;    }
+&nbsp;    if (instance.chIsSet()) {
+&nbsp;      setCh(instance.ch());
+&nbsp;    }
+&nbsp;    if (instance.boolIsSet()) {
+&nbsp;      setBool(instance.bool());
+&nbsp;    }
+&nbsp;    if (instance.dobIsSet()) {
+&nbsp;      setDob(instance.dob());
+&nbsp;    }
+&nbsp;    if (instance.flIsSet()) {
+&nbsp;      setFl(instance.fl());
+&nbsp;    }
+&nbsp;    Optional&lt;Integer&gt; v1Optional = instance.v1();
+&nbsp;    if (v1Optional.isPresent()) {
+&nbsp;      setV1(v1Optional);
+&nbsp;    }
+&nbsp;    java.util.Optional&lt;Integer&gt; v2Optional = instance.v2();
+&nbsp;    if (v2Optional.isPresent()) {
+&nbsp;      setV2(v2Optional);
+&nbsp;    }
+&nbsp;    OptionalInt i1Optional = instance.i1();
+&nbsp;    if (i1Optional.isPresent()) {
+&nbsp;      setI1(i1Optional);
+&nbsp;    }
+&nbsp;    OptionalLong l1Optional = instance.l1();
+&nbsp;    if (l1Optional.isPresent()) {
+&nbsp;      setL1(l1Optional);
+&nbsp;    }
+&nbsp;    OptionalDouble d1Optional = instance.d1();
+&nbsp;    if (d1Optional.isPresent()) {
+&nbsp;      setD1(d1Optional);
+&nbsp;    }
+&nbsp;    Option&lt;Integer&gt; fugue3Optional = instance.fugue3();
+&nbsp;    if (fugue3Optional.isDefined()) {
+&nbsp;      setFugue3(fugue3Optional);
+&nbsp;    }
+&nbsp;    setDef(instance.def());
+&nbsp;    setDefs(instance.defs());
+&nbsp;    @Nullable List&lt;Unit&gt; nullableUnitValue = instance.nullableUnit();
+&nbsp;    if (nullableUnitValue != null) {
+&nbsp;      addAllNullableUnit(nullableUnitValue);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code first} attribute.
+&nbsp;   * @param first The value for first
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setFirst(int first) {
+&nbsp;    this.first = first;
+&nbsp;    initBits &amp;= ~INIT_BIT_FIRST;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code second} attribute.
+&nbsp;   * @param second The value for second
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setSecond(String second) {
+&nbsp;    this.second = Objects.requireNonNull(second, &quot;second&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_SECOND;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code sh} attribute.
+&nbsp;   * @param sh The value for sh
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setSh(short sh) {
+&nbsp;    this.sh = sh;
+&nbsp;    initBits &amp;= ~INIT_BIT_SH;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code ch} attribute.
+&nbsp;   * @param ch The value for ch
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setCh(char ch) {
+&nbsp;    this.ch = ch;
+&nbsp;    initBits &amp;= ~INIT_BIT_CH;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code bool} attribute.
+&nbsp;   * @param bool The value for bool
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setBool(boolean bool) {
+&nbsp;    this.bool = bool;
+&nbsp;    initBits &amp;= ~INIT_BIT_BOOL;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code dob} attribute.
+&nbsp;   * @param dob The value for dob
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setDob(double dob) {
+&nbsp;    this.dob = dob;
+&nbsp;    initBits &amp;= ~INIT_BIT_DOB;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code fl} attribute.
+&nbsp;   * @param fl The value for fl
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setFl(float fl) {
+&nbsp;    this.fl = fl;
+&nbsp;    initBits &amp;= ~INIT_BIT_FL;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@code v1} attribute.
+&nbsp;   * @param v1 A value for v1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setV1(int v1) {
+&nbsp;    this.v1 = Optional.of(v1);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@code v1}.
+&nbsp;   * @param v1 A value for v1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setV1(Optional&lt;Integer&gt; v1) {
+&nbsp;    this.v1 = Objects.requireNonNull(v1, &quot;v1&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@code v2} attribute.
+&nbsp;   * @param v2 A value for v2
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setV2(int v2) {
+&nbsp;    this.v2 = java.util.Optional.of(v2);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@code v2}.
+&nbsp;   * @param v2 A value for v2
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setV2(java.util.Optional&lt;Integer&gt; v2) {
+&nbsp;    this.v2 = Objects.requireNonNull(v2, &quot;v2&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@code i1} attribute.
+&nbsp;   * @param i1 A value for i1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setI1(int i1) {
+&nbsp;    this.i1 = OptionalInt.of(i1);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@code i1}.
+&nbsp;   * @param i1 A value for i1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setI1(OptionalInt i1) {
+&nbsp;    this.i1 = Objects.requireNonNull(i1, &quot;i1&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@code l1} attribute.
+&nbsp;   * @param l1 A value for l1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setL1(long l1) {
+&nbsp;    this.l1 = OptionalLong.of(l1);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@code l1}.
+&nbsp;   * @param l1 A value for l1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setL1(OptionalLong l1) {
+&nbsp;    this.l1 = Objects.requireNonNull(l1, &quot;l1&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@code d1} attribute.
+&nbsp;   * @param d1 A value for d1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setD1(double d1) {
+&nbsp;    this.d1 = OptionalDouble.of(d1);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@code d1}.
+&nbsp;   * @param d1 A value for d1
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setD1(OptionalDouble d1) {
+&nbsp;    this.d1 = Objects.requireNonNull(d1, &quot;d1&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@code fugue3} attribute.
+&nbsp;   * @param fugue3 A value for fugue3
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setFugue3(int fugue3) {
+&nbsp;    this.fugue3 = Option.some(fugue3);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@code fugue3}.
+&nbsp;   * @param fugue3 A value for fugue3
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setFugue3(Option&lt;Integer&gt; fugue3) {
+&nbsp;    this.fugue3 = Objects.requireNonNull(fugue3, &quot;fugue3&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code def} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value returned by the initializer of {@code def}.&lt;/em&gt;
+&nbsp;   * @param def The value for def
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setDef(int def) {
+&nbsp;    this.def = def;
+&nbsp;    optBits |= OPT_BIT_DEF;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code defs} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value returned by the initializer of {@code defs}.&lt;/em&gt;
+&nbsp;   * @param defs The value for defs
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setDefs(String defs) {
+&nbsp;    this.defs = Objects.requireNonNull(defs, &quot;defs&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@code nullableUnit} list.
+&nbsp;   * @param element The nullableUnit element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone addNullableUnit(Unit element) {
+&nbsp;    if (this.nullableUnit == null) {
+&nbsp;      this.nullableUnit = new ArrayList&lt;Unit&gt;();
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;nullableUnit element&quot;);
+&nbsp;    this.nullableUnit.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@code nullableUnit} list.
+&nbsp;   * @param elements An array of nullableUnit elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone addNullableUnit(Unit... elements) {
+&nbsp;    for (Unit e : elements) {
+&nbsp;      addNullableUnit(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@code nullableUnit} list.
+&nbsp;   * @param elements An iterable of nullableUnit elements, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone setNullableUnit(@Nullable Iterable&lt;? extends Unit&gt; elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      this.nullableUnit = null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.nullableUnit == null) {
+&nbsp;      this.nullableUnit = new ArrayList&lt;Unit&gt;();
+&nbsp;    } else {
+&nbsp;      this.nullableUnit.clear();
+&nbsp;    }
+&nbsp;    addAllNullableUnit(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@code nullableUnit} list.
+&nbsp;   * @param elements An iterable of nullableUnit elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableStandalone addAllNullableUnit(Iterable&lt;? extends Unit&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.nullableUnit == null) {
+&nbsp;      this.nullableUnit = new ArrayList&lt;Unit&gt;();
+&nbsp;    }
+&nbsp;    for (Unit e : elements) {
+&nbsp;      addNullableUnit(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code first} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean firstIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_FIRST) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code second} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean secondIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_SECOND) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code sh} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean shIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_SH) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code ch} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean chIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_CH) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code bool} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean boolIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_BOOL) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code dob} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean dobIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_DOB) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code fl} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean flIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_FL) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@code def} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean defIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_DEF) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@code defs} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean defsIsSet() {
+&nbsp;    return defs != null;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetFirst() {
+&nbsp;    initBits |= INIT_BIT_FIRST;
+&nbsp;    first = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetSecond() {
+&nbsp;    initBits |= INIT_BIT_SECOND;
+&nbsp;    second = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetSh() {
+&nbsp;    initBits |= INIT_BIT_SH;
+&nbsp;    sh = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetCh() {
+&nbsp;    initBits |= INIT_BIT_CH;
+&nbsp;    ch = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetBool() {
+&nbsp;    initBits |= INIT_BIT_BOOL;
+&nbsp;    bool = false;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetDob() {
+&nbsp;    initBits |= INIT_BIT_DOB;
+&nbsp;    dob = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetFl() {
+&nbsp;    initBits |= INIT_BIT_FL;
+&nbsp;    fl = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableStandalone unsetDef() {
+&nbsp;    optBits |= 0;
+&nbsp;    def = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!firstIsSet()) attributes.add(&quot;first&quot;);
+&nbsp;    if (!secondIsSet()) attributes.add(&quot;second&quot;);
+&nbsp;    if (!shIsSet()) attributes.add(&quot;sh&quot;);
+&nbsp;    if (!chIsSet()) attributes.add(&quot;ch&quot;);
+&nbsp;    if (!boolIsSet()) attributes.add(&quot;bool&quot;);
+&nbsp;    if (!dobIsSet()) attributes.add(&quot;dob&quot;);
+&nbsp;    if (!flIsSet()) attributes.add(&quot;fl&quot;);
+&nbsp;    return &quot;Standalone is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableStandalone} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableStandalone)) return false;
+&nbsp;    ModifiableStandalone other = (ModifiableStandalone) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableStandalone another) {
+&nbsp;    int def = def();
+&nbsp;    String defs = defs();
+&nbsp;    int derived = derived();
+&nbsp;    return first == another.first
+&nbsp;        &amp;&amp; second.equals(another.second)
+&nbsp;        &amp;&amp; sh == another.sh
+&nbsp;        &amp;&amp; ch == another.ch
+&nbsp;        &amp;&amp; bool == another.bool
+&nbsp;        &amp;&amp; Double.doubleToLongBits(dob) == Double.doubleToLongBits(another.dob)
+&nbsp;        &amp;&amp; Float.floatToIntBits(fl) == Float.floatToIntBits(another.fl)
+&nbsp;        &amp;&amp; v1.equals(another.v1)
+&nbsp;        &amp;&amp; Objects.equals(v2, another.v2)
+&nbsp;        &amp;&amp; Objects.equals(i1, another.i1)
+&nbsp;        &amp;&amp; Objects.equals(l1, another.l1)
+&nbsp;        &amp;&amp; Objects.equals(d1, another.d1)
+&nbsp;        &amp;&amp; fugue3.equals(another.fugue3)
+&nbsp;        &amp;&amp; def == another.def()
+&nbsp;        &amp;&amp; defs.equals(another.defs())
+&nbsp;        &amp;&amp; derived == another.derived()
+&nbsp;        &amp;&amp; Objects.equals(nullableUnit, another.nullableUnit);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code first}, {@code second}, {@code sh}, {@code ch}, {@code bool}, {@code dob}, {@code fl}, {@code v1}, {@code v2}, {@code i1}, {@code l1}, {@code d1}, {@code fugue3}, {@code def}, {@code defs}, {@code derived}, {@code nullableUnit}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + first;
+&nbsp;    h += (h &lt;&lt; 5) + second.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Shorts.hashCode(sh);
+&nbsp;    h += (h &lt;&lt; 5) + Chars.hashCode(ch);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(bool);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(dob);
+&nbsp;    h += (h &lt;&lt; 5) + Floats.hashCode(fl);
+&nbsp;    h += (h &lt;&lt; 5) + v1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + v2.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + i1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + l1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + d1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + fugue3.hashCode();
+&nbsp;    int def = def();
+&nbsp;    h += (h &lt;&lt; 5) + def;
+&nbsp;    String defs = defs();
+&nbsp;    h += (h &lt;&lt; 5) + defs.hashCode();
+&nbsp;    int derived = derived();
+&nbsp;    h += (h &lt;&lt; 5) + derived;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(nullableUnit);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Standalone}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableStandalone&quot;)
+&nbsp;        .add(&quot;first&quot;, firstIsSet() ? first() : &quot;?&quot;)
+&nbsp;        .add(&quot;second&quot;, secondIsSet() ? second() : &quot;?&quot;)
+&nbsp;        .add(&quot;sh&quot;, shIsSet() ? sh() : &quot;?&quot;)
+&nbsp;        .add(&quot;ch&quot;, chIsSet() ? ch() : &quot;?&quot;)
+&nbsp;        .add(&quot;bool&quot;, boolIsSet() ? bool() : &quot;?&quot;)
+&nbsp;        .add(&quot;dob&quot;, dobIsSet() ? dob() : &quot;?&quot;)
+&nbsp;        .add(&quot;fl&quot;, flIsSet() ? fl() : &quot;?&quot;)
+&nbsp;        .add(&quot;v1&quot;, v1())
+&nbsp;        .add(&quot;v2&quot;, v2())
+&nbsp;        .add(&quot;i1&quot;, i1())
+&nbsp;        .add(&quot;l1&quot;, l1())
+&nbsp;        .add(&quot;d1&quot;, d1())
+&nbsp;        .add(&quot;fugue3&quot;, fugue3())
+&nbsp;        .add(&quot;def&quot;, def())
+&nbsp;        .add(&quot;defs&quot;, defs())
+&nbsp;        .add(&quot;nullableUnit&quot;, nullableUnit())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

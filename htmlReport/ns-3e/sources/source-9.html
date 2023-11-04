@@ -1,0 +1,1241 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableForEquals</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.with</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableForEquals (org.immutables.fixture.with)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableForEquals$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.with;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.math.BigDecimal;
+&nbsp;import java.math.RoundingMode;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ForEquals}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableForEquals.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ForEquals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableForEquals extends ForEquals {
+&nbsp;  private final int myInt;
+&nbsp;  private final @Nullable Integer myOptionalInt;
+&nbsp;  private final ImmutableList&lt;Integer&gt; myIntList;
+&nbsp;  private final BigDecimal myBigDecimal;
+&nbsp;  private final @Nullable BigDecimal myOptionalBigDecimal;
+&nbsp;  private final ImmutableList&lt;BigDecimal&gt; myBigDecimalList;
+&nbsp;  private final RoundingMode myRoundingMode;
+&nbsp;  private final @Nullable RoundingMode myOptionalRoundingMode;
+&nbsp;  private final ImmutableList&lt;RoundingMode&gt; myRoundingModeList;
+&nbsp;  private final Object myObject;
+&nbsp;  private final @Nullable Object myOptionalObject;
+&nbsp;  private final ImmutableList&lt;Object&gt; myObjectList;
+&nbsp;
+&nbsp;  private ImmutableForEquals(
+&nbsp;      int myInt,
+&nbsp;      @Nullable Integer myOptionalInt,
+&nbsp;      ImmutableList&lt;Integer&gt; myIntList,
+&nbsp;      BigDecimal myBigDecimal,
+&nbsp;      @Nullable BigDecimal myOptionalBigDecimal,
+&nbsp;      ImmutableList&lt;BigDecimal&gt; myBigDecimalList,
+&nbsp;      RoundingMode myRoundingMode,
+&nbsp;      @Nullable RoundingMode myOptionalRoundingMode,
+&nbsp;      ImmutableList&lt;RoundingMode&gt; myRoundingModeList,
+&nbsp;      Object myObject,
+&nbsp;      @Nullable Object myOptionalObject,
+&nbsp;      ImmutableList&lt;Object&gt; myObjectList) {
+&nbsp;    this.myInt = myInt;
+&nbsp;    this.myOptionalInt = myOptionalInt;
+&nbsp;    this.myIntList = myIntList;
+&nbsp;    this.myBigDecimal = myBigDecimal;
+&nbsp;    this.myOptionalBigDecimal = myOptionalBigDecimal;
+&nbsp;    this.myBigDecimalList = myBigDecimalList;
+&nbsp;    this.myRoundingMode = myRoundingMode;
+&nbsp;    this.myOptionalRoundingMode = myOptionalRoundingMode;
+&nbsp;    this.myRoundingModeList = myRoundingModeList;
+&nbsp;    this.myObject = myObject;
+&nbsp;    this.myOptionalObject = myOptionalObject;
+&nbsp;    this.myObjectList = myObjectList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myInt} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int myInt() {
+&nbsp;    return myInt;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myOptionalInt} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; myOptionalInt() {
+&nbsp;    return Optional.ofNullable(myOptionalInt);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myIntList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Integer&gt; myIntList() {
+&nbsp;    return myIntList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myBigDecimal} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public BigDecimal myBigDecimal() {
+&nbsp;    return myBigDecimal;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myOptionalBigDecimal} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;BigDecimal&gt; myOptionalBigDecimal() {
+&nbsp;    return Optional.ofNullable(myOptionalBigDecimal);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myBigDecimalList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;BigDecimal&gt; myBigDecimalList() {
+&nbsp;    return myBigDecimalList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myRoundingMode} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RoundingMode myRoundingMode() {
+&nbsp;    return myRoundingMode;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myOptionalRoundingMode} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;RoundingMode&gt; myOptionalRoundingMode() {
+&nbsp;    return Optional.ofNullable(myOptionalRoundingMode);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myRoundingModeList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;RoundingMode&gt; myRoundingModeList() {
+&nbsp;    return myRoundingModeList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myObject} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Object myObject() {
+&nbsp;    return myObject;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myOptionalObject} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Object&gt; myOptionalObject() {
+&nbsp;    return Optional.ofNullable(myOptionalObject);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code myObjectList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Object&gt; myObjectList() {
+&nbsp;    return myObjectList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForEquals#myInt() myInt} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for myInt
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyInt(int value) {
+&nbsp;    if (this.myInt == value) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        value,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ForEquals#myOptionalInt() myOptionalInt} attribute.
+&nbsp;   * @param value The value for myOptionalInt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyOptionalInt(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.myOptionalInt, newValue)) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        newValue,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ForEquals#myOptionalInt() myOptionalInt} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for myOptionalInt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyOptionalInt(Optional&lt;Integer&gt; optional) {
+&nbsp;    @Nullable Integer value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.myOptionalInt, value)) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        value,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myIntList() myIntList}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyIntList(int... elements) {
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        newValue,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myIntList() myIntList}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of myIntList elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyIntList(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.myIntList == elements) return this;
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        newValue,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForEquals#myBigDecimal() myBigDecimal} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for myBigDecimal
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyBigDecimal(BigDecimal value) {
+&nbsp;    BigDecimal newValue = Objects.requireNonNull(value, &quot;myBigDecimal&quot;);
+&nbsp;    if (this.myBigDecimal.equals(newValue)) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        newValue,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ForEquals#myOptionalBigDecimal() myOptionalBigDecimal} attribute.
+&nbsp;   * @param value The value for myOptionalBigDecimal
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyOptionalBigDecimal(BigDecimal value) {
+&nbsp;    BigDecimal newValue = Objects.requireNonNull(value, &quot;myOptionalBigDecimal&quot;);
+&nbsp;    if (Objects.equals(this.myOptionalBigDecimal, newValue)) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        newValue,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ForEquals#myOptionalBigDecimal() myOptionalBigDecimal} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for myOptionalBigDecimal
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableForEquals withMyOptionalBigDecimal(Optional&lt;? extends BigDecimal&gt; optional) {
+&nbsp;    @Nullable BigDecimal value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.myOptionalBigDecimal, value)) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        value,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myBigDecimalList() myBigDecimalList}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyBigDecimalList(BigDecimal... elements) {
+&nbsp;    ImmutableList&lt;BigDecimal&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        newValue,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myBigDecimalList() myBigDecimalList}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of myBigDecimalList elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyBigDecimalList(Iterable&lt;? extends BigDecimal&gt; elements) {
+&nbsp;    if (this.myBigDecimalList == elements) return this;
+&nbsp;    ImmutableList&lt;BigDecimal&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        newValue,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForEquals#myRoundingMode() myRoundingMode} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for myRoundingMode
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyRoundingMode(RoundingMode value) {
+&nbsp;    RoundingMode newValue = Objects.requireNonNull(value, &quot;myRoundingMode&quot;);
+&nbsp;    if (this.myRoundingMode == newValue) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        newValue,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ForEquals#myOptionalRoundingMode() myOptionalRoundingMode} attribute.
+&nbsp;   * @param value The value for myOptionalRoundingMode
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyOptionalRoundingMode(RoundingMode value) {
+&nbsp;    RoundingMode newValue = Objects.requireNonNull(value, &quot;myOptionalRoundingMode&quot;);
+&nbsp;    if (this.myOptionalRoundingMode == newValue) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        newValue,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ForEquals#myOptionalRoundingMode() myOptionalRoundingMode} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for myOptionalRoundingMode
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableForEquals withMyOptionalRoundingMode(Optional&lt;? extends RoundingMode&gt; optional) {
+&nbsp;    @Nullable RoundingMode value = optional.orElse(null);
+&nbsp;    if (this.myOptionalRoundingMode == value) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        value,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myRoundingModeList() myRoundingModeList}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyRoundingModeList(RoundingMode... elements) {
+&nbsp;    ImmutableList&lt;RoundingMode&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        newValue,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myRoundingModeList() myRoundingModeList}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of myRoundingModeList elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyRoundingModeList(Iterable&lt;? extends RoundingMode&gt; elements) {
+&nbsp;    if (this.myRoundingModeList == elements) return this;
+&nbsp;    ImmutableList&lt;RoundingMode&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        newValue,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForEquals#myObject() myObject} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for myObject
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyObject(Object value) {
+&nbsp;    if (this.myObject == value) return this;
+&nbsp;    Object newValue = Objects.requireNonNull(value, &quot;myObject&quot;);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        newValue,
+&nbsp;        this.myOptionalObject,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ForEquals#myOptionalObject() myOptionalObject} attribute.
+&nbsp;   * @param value The value for myOptionalObject
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyOptionalObject(Object value) {
+&nbsp;    Object newValue = Objects.requireNonNull(value, &quot;myOptionalObject&quot;);
+&nbsp;    if (this.myOptionalObject == newValue) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        newValue,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ForEquals#myOptionalObject() myOptionalObject} attribute.
+&nbsp;   * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for myOptionalObject
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableForEquals withMyOptionalObject(Optional&lt;? extends Object&gt; optional) {
+&nbsp;    @Nullable Object value = optional.orElse(null);
+&nbsp;    if (this.myOptionalObject == value) return this;
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        value,
+&nbsp;        this.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myObjectList() myObjectList}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyObjectList(Object... elements) {
+&nbsp;    ImmutableList&lt;Object&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForEquals#myObjectList() myObjectList}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of myObjectList elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForEquals withMyObjectList(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;    if (this.myObjectList == elements) return this;
+&nbsp;    ImmutableList&lt;Object&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForEquals(
+&nbsp;        this.myInt,
+&nbsp;        this.myOptionalInt,
+&nbsp;        this.myIntList,
+&nbsp;        this.myBigDecimal,
+&nbsp;        this.myOptionalBigDecimal,
+&nbsp;        this.myBigDecimalList,
+&nbsp;        this.myRoundingMode,
+&nbsp;        this.myOptionalRoundingMode,
+&nbsp;        this.myRoundingModeList,
+&nbsp;        this.myObject,
+&nbsp;        this.myOptionalObject,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableForEquals} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableForEquals
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableForEquals) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableForEquals another) {
+&nbsp;    return myInt == another.myInt
+&nbsp;        &amp;&amp; Objects.equals(myOptionalInt, another.myOptionalInt)
+&nbsp;        &amp;&amp; myIntList.equals(another.myIntList)
+&nbsp;        &amp;&amp; myBigDecimal.equals(another.myBigDecimal)
+&nbsp;        &amp;&amp; Objects.equals(myOptionalBigDecimal, another.myOptionalBigDecimal)
+&nbsp;        &amp;&amp; myBigDecimalList.equals(another.myBigDecimalList)
+&nbsp;        &amp;&amp; myRoundingMode.equals(another.myRoundingMode)
+&nbsp;        &amp;&amp; Objects.equals(myOptionalRoundingMode, another.myOptionalRoundingMode)
+&nbsp;        &amp;&amp; myRoundingModeList.equals(another.myRoundingModeList)
+&nbsp;        &amp;&amp; myObject.equals(another.myObject)
+&nbsp;        &amp;&amp; Objects.equals(myOptionalObject, another.myOptionalObject)
+&nbsp;        &amp;&amp; myObjectList.equals(another.myObjectList);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code myInt}, {@code myOptionalInt}, {@code myIntList}, {@code myBigDecimal}, {@code myOptionalBigDecimal}, {@code myBigDecimalList}, {@code myRoundingMode}, {@code myOptionalRoundingMode}, {@code myRoundingModeList}, {@code myObject}, {@code myOptionalObject}, {@code myObjectList}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + myInt;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(myOptionalInt);
+&nbsp;    h += (h &lt;&lt; 5) + myIntList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + myBigDecimal.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(myOptionalBigDecimal);
+&nbsp;    h += (h &lt;&lt; 5) + myBigDecimalList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + myRoundingMode.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(myOptionalRoundingMode);
+&nbsp;    h += (h &lt;&lt; 5) + myRoundingModeList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + myObject.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(myOptionalObject);
+&nbsp;    h += (h &lt;&lt; 5) + myObjectList.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ForEquals} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ForEquals&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;myInt&quot;, myInt)
+&nbsp;        .add(&quot;myOptionalInt&quot;, myOptionalInt)
+&nbsp;        .add(&quot;myIntList&quot;, myIntList)
+&nbsp;        .add(&quot;myBigDecimal&quot;, myBigDecimal)
+&nbsp;        .add(&quot;myOptionalBigDecimal&quot;, myOptionalBigDecimal)
+&nbsp;        .add(&quot;myBigDecimalList&quot;, myBigDecimalList)
+&nbsp;        .add(&quot;myRoundingMode&quot;, myRoundingMode)
+&nbsp;        .add(&quot;myOptionalRoundingMode&quot;, myOptionalRoundingMode)
+&nbsp;        .add(&quot;myRoundingModeList&quot;, myRoundingModeList)
+&nbsp;        .add(&quot;myObject&quot;, myObject)
+&nbsp;        .add(&quot;myOptionalObject&quot;, myOptionalObject)
+&nbsp;        .add(&quot;myObjectList&quot;, myObjectList)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ForEquals} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ForEquals instance
+&nbsp;   */
+&nbsp;  public static ImmutableForEquals copyOf(ForEquals instance) {
+&nbsp;    if (instance instanceof ImmutableForEquals) {
+&nbsp;      return (ImmutableForEquals) instance;
+&nbsp;    }
+&nbsp;    return ImmutableForEquals.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableForEquals ImmutableForEquals}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableForEquals.builder()
+&nbsp;   *    .myInt(int) // required {@link ForEquals#myInt() myInt}
+&nbsp;   *    .myOptionalInt(Integer) // optional {@link ForEquals#myOptionalInt() myOptionalInt}
+&nbsp;   *    .addMyIntList|addAllMyIntList(int) // {@link ForEquals#myIntList() myIntList} elements
+&nbsp;   *    .myBigDecimal(java.math.BigDecimal) // required {@link ForEquals#myBigDecimal() myBigDecimal}
+&nbsp;   *    .myOptionalBigDecimal(java.math.BigDecimal) // optional {@link ForEquals#myOptionalBigDecimal() myOptionalBigDecimal}
+&nbsp;   *    .addMyBigDecimalList|addAllMyBigDecimalList(java.math.BigDecimal) // {@link ForEquals#myBigDecimalList() myBigDecimalList} elements
+&nbsp;   *    .myRoundingMode(java.math.RoundingMode) // required {@link ForEquals#myRoundingMode() myRoundingMode}
+&nbsp;   *    .myOptionalRoundingMode(java.math.RoundingMode) // optional {@link ForEquals#myOptionalRoundingMode() myOptionalRoundingMode}
+&nbsp;   *    .addMyRoundingModeList|addAllMyRoundingModeList(java.math.RoundingMode) // {@link ForEquals#myRoundingModeList() myRoundingModeList} elements
+&nbsp;   *    .myObject(Object) // required {@link ForEquals#myObject() myObject}
+&nbsp;   *    .myOptionalObject(Object) // optional {@link ForEquals#myOptionalObject() myOptionalObject}
+&nbsp;   *    .addMyObjectList|addAllMyObjectList(Object) // {@link ForEquals#myObjectList() myObjectList} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableForEquals builder
+&nbsp;   */
+&nbsp;  public static ImmutableForEquals.Builder builder() {
+&nbsp;    return new ImmutableForEquals.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableForEquals ImmutableForEquals}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ForEquals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_MY_INT = 0x1L;
+&nbsp;    private static final long INIT_BIT_MY_BIG_DECIMAL = 0x2L;
+&nbsp;    private static final long INIT_BIT_MY_ROUNDING_MODE = 0x4L;
+&nbsp;    private static final long INIT_BIT_MY_OBJECT = 0x8L;
+&nbsp;    private long initBits = 0xfL;
+&nbsp;
+&nbsp;    private int myInt;
+&nbsp;    private @Nullable Integer myOptionalInt;
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; myIntList = ImmutableList.builder();
+&nbsp;    private @Nullable BigDecimal myBigDecimal;
+&nbsp;    private @Nullable BigDecimal myOptionalBigDecimal;
+&nbsp;    private ImmutableList.Builder&lt;BigDecimal&gt; myBigDecimalList = ImmutableList.builder();
+&nbsp;    private @Nullable RoundingMode myRoundingMode;
+&nbsp;    private @Nullable RoundingMode myOptionalRoundingMode;
+&nbsp;    private ImmutableList.Builder&lt;RoundingMode&gt; myRoundingModeList = ImmutableList.builder();
+&nbsp;    private @Nullable Object myObject;
+&nbsp;    private @Nullable Object myOptionalObject;
+&nbsp;    private ImmutableList.Builder&lt;Object&gt; myObjectList = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ForEquals} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ForEquals instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      myInt(instance.myInt());
+&nbsp;      Optional&lt;Integer&gt; myOptionalIntOptional = instance.myOptionalInt();
+&nbsp;      if (myOptionalIntOptional.isPresent()) {
+&nbsp;        myOptionalInt(myOptionalIntOptional);
+&nbsp;      }
+&nbsp;      addAllMyIntList(instance.myIntList());
+&nbsp;      myBigDecimal(instance.myBigDecimal());
+&nbsp;      Optional&lt;BigDecimal&gt; myOptionalBigDecimalOptional = instance.myOptionalBigDecimal();
+&nbsp;      if (myOptionalBigDecimalOptional.isPresent()) {
+&nbsp;        myOptionalBigDecimal(myOptionalBigDecimalOptional);
+&nbsp;      }
+&nbsp;      addAllMyBigDecimalList(instance.myBigDecimalList());
+&nbsp;      myRoundingMode(instance.myRoundingMode());
+&nbsp;      Optional&lt;RoundingMode&gt; myOptionalRoundingModeOptional = instance.myOptionalRoundingMode();
+&nbsp;      if (myOptionalRoundingModeOptional.isPresent()) {
+&nbsp;        myOptionalRoundingMode(myOptionalRoundingModeOptional);
+&nbsp;      }
+&nbsp;      addAllMyRoundingModeList(instance.myRoundingModeList());
+&nbsp;      myObject(instance.myObject());
+&nbsp;      Optional&lt;Object&gt; myOptionalObjectOptional = instance.myOptionalObject();
+&nbsp;      if (myOptionalObjectOptional.isPresent()) {
+&nbsp;        myOptionalObject(myOptionalObjectOptional);
+&nbsp;      }
+&nbsp;      addAllMyObjectList(instance.myObjectList());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForEquals#myInt() myInt} attribute.
+&nbsp;     * @param myInt The value for myInt 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myInt(int myInt) {
+&nbsp;      this.myInt = myInt;
+&nbsp;      initBits &amp;= ~INIT_BIT_MY_INT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalInt() myOptionalInt} to myOptionalInt.
+&nbsp;     * @param myOptionalInt The value for myOptionalInt
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalInt(int myOptionalInt) {
+&nbsp;      this.myOptionalInt = myOptionalInt;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalInt() myOptionalInt} to myOptionalInt.
+&nbsp;     * @param myOptionalInt The value for myOptionalInt
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalInt(Optional&lt;Integer&gt; myOptionalInt) {
+&nbsp;      this.myOptionalInt = myOptionalInt.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ForEquals#myIntList() myIntList} list.
+&nbsp;     * @param element A myIntList element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyIntList(int element) {
+&nbsp;      this.myIntList.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myIntList() myIntList} list.
+&nbsp;     * @param elements An array of myIntList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyIntList(int... elements) {
+&nbsp;      this.myIntList.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ForEquals#myIntList() myIntList} list.
+&nbsp;     * @param elements An iterable of myIntList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myIntList(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.myIntList = ImmutableList.builder();
+&nbsp;      return addAllMyIntList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myIntList() myIntList} list.
+&nbsp;     * @param elements An iterable of myIntList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllMyIntList(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.myIntList.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForEquals#myBigDecimal() myBigDecimal} attribute.
+&nbsp;     * @param myBigDecimal The value for myBigDecimal 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myBigDecimal(BigDecimal myBigDecimal) {
+&nbsp;      this.myBigDecimal = Objects.requireNonNull(myBigDecimal, &quot;myBigDecimal&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_MY_BIG_DECIMAL;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalBigDecimal() myOptionalBigDecimal} to myOptionalBigDecimal.
+&nbsp;     * @param myOptionalBigDecimal The value for myOptionalBigDecimal
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalBigDecimal(BigDecimal myOptionalBigDecimal) {
+&nbsp;      this.myOptionalBigDecimal = Objects.requireNonNull(myOptionalBigDecimal, &quot;myOptionalBigDecimal&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalBigDecimal() myOptionalBigDecimal} to myOptionalBigDecimal.
+&nbsp;     * @param myOptionalBigDecimal The value for myOptionalBigDecimal
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalBigDecimal(Optional&lt;? extends BigDecimal&gt; myOptionalBigDecimal) {
+&nbsp;      this.myOptionalBigDecimal = myOptionalBigDecimal.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ForEquals#myBigDecimalList() myBigDecimalList} list.
+&nbsp;     * @param element A myBigDecimalList element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyBigDecimalList(BigDecimal element) {
+&nbsp;      this.myBigDecimalList.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myBigDecimalList() myBigDecimalList} list.
+&nbsp;     * @param elements An array of myBigDecimalList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyBigDecimalList(BigDecimal... elements) {
+&nbsp;      this.myBigDecimalList.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ForEquals#myBigDecimalList() myBigDecimalList} list.
+&nbsp;     * @param elements An iterable of myBigDecimalList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myBigDecimalList(Iterable&lt;? extends BigDecimal&gt; elements) {
+&nbsp;      this.myBigDecimalList = ImmutableList.builder();
+&nbsp;      return addAllMyBigDecimalList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myBigDecimalList() myBigDecimalList} list.
+&nbsp;     * @param elements An iterable of myBigDecimalList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllMyBigDecimalList(Iterable&lt;? extends BigDecimal&gt; elements) {
+&nbsp;      this.myBigDecimalList.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForEquals#myRoundingMode() myRoundingMode} attribute.
+&nbsp;     * @param myRoundingMode The value for myRoundingMode 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myRoundingMode(RoundingMode myRoundingMode) {
+&nbsp;      this.myRoundingMode = Objects.requireNonNull(myRoundingMode, &quot;myRoundingMode&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_MY_ROUNDING_MODE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalRoundingMode() myOptionalRoundingMode} to myOptionalRoundingMode.
+&nbsp;     * @param myOptionalRoundingMode The value for myOptionalRoundingMode
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalRoundingMode(RoundingMode myOptionalRoundingMode) {
+&nbsp;      this.myOptionalRoundingMode = Objects.requireNonNull(myOptionalRoundingMode, &quot;myOptionalRoundingMode&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalRoundingMode() myOptionalRoundingMode} to myOptionalRoundingMode.
+&nbsp;     * @param myOptionalRoundingMode The value for myOptionalRoundingMode
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalRoundingMode(Optional&lt;? extends RoundingMode&gt; myOptionalRoundingMode) {
+&nbsp;      this.myOptionalRoundingMode = myOptionalRoundingMode.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ForEquals#myRoundingModeList() myRoundingModeList} list.
+&nbsp;     * @param element A myRoundingModeList element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyRoundingModeList(RoundingMode element) {
+&nbsp;      this.myRoundingModeList.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myRoundingModeList() myRoundingModeList} list.
+&nbsp;     * @param elements An array of myRoundingModeList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyRoundingModeList(RoundingMode... elements) {
+&nbsp;      this.myRoundingModeList.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ForEquals#myRoundingModeList() myRoundingModeList} list.
+&nbsp;     * @param elements An iterable of myRoundingModeList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myRoundingModeList(Iterable&lt;? extends RoundingMode&gt; elements) {
+&nbsp;      this.myRoundingModeList = ImmutableList.builder();
+&nbsp;      return addAllMyRoundingModeList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myRoundingModeList() myRoundingModeList} list.
+&nbsp;     * @param elements An iterable of myRoundingModeList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllMyRoundingModeList(Iterable&lt;? extends RoundingMode&gt; elements) {
+&nbsp;      this.myRoundingModeList.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForEquals#myObject() myObject} attribute.
+&nbsp;     * @param myObject The value for myObject 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myObject(Object myObject) {
+&nbsp;      this.myObject = Objects.requireNonNull(myObject, &quot;myObject&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_MY_OBJECT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalObject() myOptionalObject} to myOptionalObject.
+&nbsp;     * @param myOptionalObject The value for myOptionalObject
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalObject(Object myOptionalObject) {
+&nbsp;      this.myOptionalObject = Objects.requireNonNull(myOptionalObject, &quot;myOptionalObject&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForEquals#myOptionalObject() myOptionalObject} to myOptionalObject.
+&nbsp;     * @param myOptionalObject The value for myOptionalObject
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myOptionalObject(Optional&lt;? extends Object&gt; myOptionalObject) {
+&nbsp;      this.myOptionalObject = myOptionalObject.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ForEquals#myObjectList() myObjectList} list.
+&nbsp;     * @param element A myObjectList element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyObjectList(Object element) {
+&nbsp;      this.myObjectList.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myObjectList() myObjectList} list.
+&nbsp;     * @param elements An array of myObjectList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMyObjectList(Object... elements) {
+&nbsp;      this.myObjectList.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ForEquals#myObjectList() myObjectList} list.
+&nbsp;     * @param elements An iterable of myObjectList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder myObjectList(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;      this.myObjectList = ImmutableList.builder();
+&nbsp;      return addAllMyObjectList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForEquals#myObjectList() myObjectList} list.
+&nbsp;     * @param elements An iterable of myObjectList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllMyObjectList(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;      this.myObjectList.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableForEquals ImmutableForEquals}.
+&nbsp;     * @return An immutable instance of ForEquals
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableForEquals build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableForEquals(
+&nbsp;          myInt,
+&nbsp;          myOptionalInt,
+&nbsp;          myIntList.build(),
+&nbsp;          myBigDecimal,
+&nbsp;          myOptionalBigDecimal,
+&nbsp;          myBigDecimalList.build(),
+&nbsp;          myRoundingMode,
+&nbsp;          myOptionalRoundingMode,
+&nbsp;          myRoundingModeList.build(),
+&nbsp;          myObject,
+&nbsp;          myOptionalObject,
+&nbsp;          myObjectList.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_MY_INT) != 0) attributes.add(&quot;myInt&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_MY_BIG_DECIMAL) != 0) attributes.add(&quot;myBigDecimal&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_MY_ROUNDING_MODE) != 0) attributes.add(&quot;myRoundingMode&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_MY_OBJECT) != 0) attributes.add(&quot;myObject&quot;);
+&nbsp;      return &quot;Cannot build ForEquals, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

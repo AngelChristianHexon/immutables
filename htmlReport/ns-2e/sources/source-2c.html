@@ -1,0 +1,350 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableAnyGetterInBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableAnyGetterInBuilder (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableAnyGetterInBuilder$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAnyGetter;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAnySetter;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.JsonNode;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link AnyGetterInBuilder}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new AnyGetterInBuilder.Builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableAnyGetterInBuilder.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;AnyGetterInBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableAnyGetterInBuilder extends AnyGetterInBuilder {
+&nbsp;  private final Map&lt;String, JsonNode&gt; any;
+&nbsp;
+&nbsp;  private ImmutableAnyGetterInBuilder(Map&lt;String, ? extends JsonNode&gt; any) {
+&nbsp;    this.any = createUnmodifiableMap(true, false, any);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableAnyGetterInBuilder(
+&nbsp;      ImmutableAnyGetterInBuilder original,
+&nbsp;      Map&lt;String, JsonNode&gt; any) {
+&nbsp;    this.any = any;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code any} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;any&quot;)
+&nbsp;  @JsonAnyGetter
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, JsonNode&gt; any() {
+&nbsp;    return any;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link AnyGetterInBuilder#any() any} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the any map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAnyGetterInBuilder withAny(Map&lt;String, ? extends JsonNode&gt; entries) {
+&nbsp;    if (this.any == entries) return this;
+&nbsp;    Map&lt;String, JsonNode&gt; newValue = createUnmodifiableMap(true, false, entries);
+&nbsp;    return new ImmutableAnyGetterInBuilder(this, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableAnyGetterInBuilder} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableAnyGetterInBuilder
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableAnyGetterInBuilder) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableAnyGetterInBuilder another) {
+&nbsp;    return any.equals(another.any);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code any}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + any.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code AnyGetterInBuilder} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;AnyGetterInBuilder{&quot;
+&nbsp;        + &quot;any=&quot; + any
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code AnyGetterInBuilder} instance.
+&nbsp;   * @param any The value for the {@code any} attribute
+&nbsp;   * @return An immutable AnyGetterInBuilder instance
+&nbsp;   */
+&nbsp;  public static ImmutableAnyGetterInBuilder of(Map&lt;String, ? extends JsonNode&gt; any) {
+&nbsp;    return new ImmutableAnyGetterInBuilder(any);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link AnyGetterInBuilder} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable AnyGetterInBuilder instance
+&nbsp;   */
+&nbsp;  public static ImmutableAnyGetterInBuilder copyOf(AnyGetterInBuilder instance) {
+&nbsp;    if (instance instanceof ImmutableAnyGetterInBuilder) {
+&nbsp;      return (ImmutableAnyGetterInBuilder) instance;
+&nbsp;    }
+&nbsp;    return new AnyGetterInBuilder.Builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableAnyGetterInBuilder ImmutableAnyGetterInBuilder}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AnyGetterInBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private Map&lt;String, JsonNode&gt; any = new LinkedHashMap&lt;String, JsonNode&gt;();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableAnyGetterInBuilder ImmutableAnyGetterInBuilder} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new AnyGetterInBuilder.Builder()
+&nbsp;     *    .putAny|putAllAny(String =&amp;gt; com.fasterxml.jackson.databind.JsonNode) // {@link AnyGetterInBuilder#any() any} mappings
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof AnyGetterInBuilder.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new AnyGetterInBuilder.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code AnyGetterInBuilder} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final AnyGetterInBuilder.Builder from(AnyGetterInBuilder instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      putAllAny(instance.any());
+&nbsp;      return (AnyGetterInBuilder.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link AnyGetterInBuilder#any() any} map.
+&nbsp;     * @param key The key in the any map
+&nbsp;     * @param value The associated value in the any map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonAnySetter
+&nbsp;    public final AnyGetterInBuilder.Builder putAny(String key, JsonNode value) {
+&nbsp;      this.any.put(
+&nbsp;          Objects.requireNonNull(key, &quot;any key&quot;),
+&nbsp;          Objects.requireNonNull(value, value == null ? &quot;any value for key: &quot; + key : null));
+&nbsp;      return (AnyGetterInBuilder.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link AnyGetterInBuilder#any() any} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final AnyGetterInBuilder.Builder putAny(Map.Entry&lt;String, ? extends JsonNode&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      JsonNode v = entry.getValue();
+&nbsp;      this.any.put(
+&nbsp;          Objects.requireNonNull(k, &quot;any key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;any value for key: &quot; + k : null));
+&nbsp;      return (AnyGetterInBuilder.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link AnyGetterInBuilder#any() any} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the any map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;any&quot;)
+&nbsp;    public final AnyGetterInBuilder.Builder any(Map&lt;String, ? extends JsonNode&gt; entries) {
+&nbsp;      this.any.clear();
+&nbsp;      return putAllAny(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link AnyGetterInBuilder#any() any} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the any map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final AnyGetterInBuilder.Builder putAllAny(Map&lt;String, ? extends JsonNode&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends JsonNode&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        JsonNode v = e.getValue();
+&nbsp;        this.any.put(
+&nbsp;            Objects.requireNonNull(k, &quot;any key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;any value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return (AnyGetterInBuilder.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableAnyGetterInBuilder ImmutableAnyGetterInBuilder}.
+&nbsp;     * @return An immutable instance of AnyGetterInBuilder
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableAnyGetterInBuilder build() {
+&nbsp;      return new ImmutableAnyGetterInBuilder(null, createUnmodifiableMap(false, false, any));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

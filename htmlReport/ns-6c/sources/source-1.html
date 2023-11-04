@@ -1,0 +1,519 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > PacksRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">borg.immutables.fixture.packoutput.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: PacksRepository (borg.immutables.fixture.packoutput.impl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">PacksRepository$Criteria</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Finder</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Indexer</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Modifier</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Replacer</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Serialization</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Serialization$PacksNamingFields</td>
+  </tr>
+  <tr>
+    <td class="name">PacksRepository$Updater</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package borg.immutables.fixture.packoutput.impl;
+&nbsp;
+&nbsp;import com.google.common.annotations.Beta;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.mongodb.DBCollection;
+&nbsp;import com.mongodb.DBObject;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.annotation.concurrent.ThreadSafe;
+&nbsp;import org.bson.codecs.Encoder;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.bson.conversions.Bson;
+&nbsp;import org.immutables.fixture.packoutput.Packs;
+&nbsp;import org.immutables.mongo.concurrent.FluentFuture;
+&nbsp;import org.immutables.mongo.repository.Repositories;
+&nbsp;import org.immutables.mongo.repository.RepositorySetup;
+&nbsp;import org.immutables.mongo.repository.internal.Constraints;
+&nbsp;import org.immutables.mongo.repository.internal.Support;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code PacksRepository} provides type-safe access for storing and retrieving documents
+&nbsp; * from the MongoDB collection {@code &quot;packs&quot;}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@ThreadSafe
+&nbsp;public class PacksRepository extends Repositories.Repository&lt;Packs&gt; {
+&nbsp;  private static final String DOCUMENT_COLLECTION_NAME = &quot;packs&quot;;
+&nbsp;
+&nbsp;  private final Serialization serialization;
+&nbsp;  private final Criteria anyCriteria;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Constructs a {@link Packs} repository using {@link RepositorySetup configuration}.
+&nbsp;   * @param configuration The repository configuration
+&nbsp;   */
+&nbsp;  public PacksRepository(RepositorySetup configuration) {
+&nbsp;    super(configuration, DOCUMENT_COLLECTION_NAME, Packs.class);
+&nbsp;    this.serialization = new Serialization(codecRegistry(), fieldNamingStrategy());
+&nbsp;    this.anyCriteria = new Criteria(this.serialization, Constraints.nilConstraint());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Inserts a single document into the collection.
+&nbsp;   * @param document The packs to insert
+&nbsp;   * @return A future representing the number of inserted documents (1) if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; insert(Packs document) {
+&nbsp;    return super.doInsert(ImmutableList.of(document));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Insert documents into the collection.
+&nbsp;   * @param documents The documents to insert
+&nbsp;   * @return A future representing the number of inserted documents if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; insert(Iterable&lt;? extends Packs&gt; documents) {
+&nbsp;    return super.doInsert(ImmutableList.copyOf(documents));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds all documents. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch all} or other operations.
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder findAll() {
+&nbsp;    return find(criteria());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find documents by the criteria expressed as a JSON string. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch} or {@link Finder#fetchFirst() fetch} operations.
+&nbsp;   * @param jsonCriteria A JSON string for native criteria
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder find(String jsonCriteria) {
+&nbsp;    return new Finder(this, Support.jsonQuery(jsonCriteria));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find a document by the given {@link PacksRepository#criteria() criteria}. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch}  operations.
+&nbsp;   * You can also use {@link Finder#andModifyFirst() modify} or {@link Finder#deleteFirst() delete}
+&nbsp;   * operations to update / delete the document(s).
+&nbsp;   * @param criteria The search criteria
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder find(Criteria criteria) {
+&nbsp;    return new Finder(this, criteria.constraint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * The finder object used to proceed with find operations via the
+&nbsp;   * {@link Finder#fetchAll()}, {@link Finder#fetchFirst()}, {@link Finder#andModifyFirst()}, or {@link Finder#deleteFirst()} methods.
+&nbsp;   * Configure exclusion and sort ordering for results using the family of {@code exclude*()} and {@code orderBy*()} attribute-specific methods.
+&nbsp;   * @see PacksRepository#find(Criteria)
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Finder extends Repositories.FinderWithDelete&lt;Packs, Finder&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Finder(PacksRepository repository, Constraints.ConstraintHost criteria) {
+&nbsp;      super(repository);
+&nbsp;      this.criteria = criteria;
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link Packs#perk() perk} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link Packs#perk() perk} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByPerk() {
+&nbsp;      ordering = ordering.equal(serialization.perkName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link Packs#perk() perk} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link Packs#perk() perk} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByPerkDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.perkName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Turn a find operation into an atomic {@link DBCollection#findAndModify(DBObject, DBObject, DBObject, boolean, DBObject, boolean, boolean) findAndModify}
+&nbsp;     * operation. Use the family of {@code set*()}, {@code unset*()}, {@code add*()}, {@code remove*()}, {@code put*()}m and {@code init*()}
+&nbsp;     * (and other attribute-specific) methods to describe the modification.
+&nbsp;     * @return A modifier object to complete the {@code findAndModify} operation
+&nbsp;     */
+&nbsp;    @CheckReturnValue
+&nbsp;    public Modifier andModifyFirst() {
+&nbsp;      return new Modifier((PacksRepository) repository, criteria, ordering, exclusion);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Used to replace in-place existing version of the document
+&nbsp;     */
+&nbsp;    @CheckReturnValue
+&nbsp;    public Replacer andReplaceFirst(Packs document) {
+&nbsp;      return new Replacer((PacksRepository) repository, document, criteria, ordering);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Update the set of {@code &quot;packs&quot;} documents.
+&nbsp;   * @param criteria The search criteria for update
+&nbsp;   * @return An updater object that will be used to complete the update.
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Updater update(Criteria criteria) {
+&nbsp;    return new Updater(this, criteria);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@link #update(Criteria) Given} the criteria updater describes how to perform
+&nbsp;   * update operations on sets of documents.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Updater extends Repositories.Updater&lt;Packs&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Updater(PacksRepository repository, Criteria criteria) {
+&nbsp;      super(repository);
+&nbsp;      this.criteria = criteria.constraint;
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code perk} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code perk} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setPerk(Packs.Perk value) {
+&nbsp;      setFields = setFields.equal(serialization.perkName, false, Support.writable(serialization.perkEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code perk} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code perk} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initPerk(Packs.Perk value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.perkName, false, Support.writable(serialization.perkEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Modifier extends Repositories.Modifier&lt;Packs, Modifier&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Modifier(
+&nbsp;        PacksRepository repository,
+&nbsp;        Constraints.ConstraintHost criteria,
+&nbsp;        Constraints.Constraint ordering,
+&nbsp;        Constraints.Constraint exclusion) {
+&nbsp;      super(repository);
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;      this.criteria = criteria;
+&nbsp;      this.ordering = ordering;
+&nbsp;      this.exclusion = exclusion;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code perk} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code perk} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setPerk(Packs.Perk value) {
+&nbsp;      setFields = setFields.equal(serialization.perkName, false, Support.writable(serialization.perkEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code perk} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code perk} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initPerk(Packs.Perk value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.perkName, false, Support.writable(serialization.perkEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Replacer extends Repositories.Replacer&lt;Packs, Replacer&gt; {
+&nbsp;    protected Replacer(PacksRepository repository, Packs document, Constraints.ConstraintHost criteria, Constraints.Constraint ordering) {
+&nbsp;      super(repository, document, criteria, ordering);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@link DBCollection#createIndex(DBObject, DBObject) Ensure an index} on collection packs by one or
+&nbsp;   * more attributes using the family of {@code with*()} attribute-specific methods.
+&nbsp;   * While indexes will usually be maintained by special administration scripts, for simple cases it is convenient
+&nbsp;   * to ensure an index on application startup.
+&nbsp;   * @see Indexer#named(String)
+&nbsp;   * @see Indexer#unique()
+&nbsp;   * @return An indexer object to be completed with the {@link Indexer#ensure()} operation.
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Indexer index() {
+&nbsp;    return new Indexer(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * An indexer used to create an index on the {@code &quot;packs&quot;} collection if it does not exist by one or more attributes.
+&nbsp;   * @see DBCollection#createIndex(DBObject, DBObject)
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Indexer extends Repositories.Indexer&lt;Packs, Indexer&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Indexer(PacksRepository repository) {
+&nbsp;      super(repository);
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link Packs#perk() perk}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withPerk() {
+&nbsp;      fields = fields.equal(serialization.perkName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link Packs#perk() perk}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withPerkDesceding() {
+&nbsp;      fields = fields.equal(serialization.perkName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Search criteria.
+&nbsp;   * Returns an initial object to create criteria by invoking methods that describe attribute specific constraints.
+&nbsp;   * @return An empty immutable criteria
+&nbsp;   */
+&nbsp;  public Criteria criteria() {
+&nbsp;    return anyCriteria;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Beta
+&nbsp;  Bson toBson(Criteria criteria) {
+&nbsp;    return Support.convertToBson(criteria.constraint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@code PacksRepository.Criteria} is a Packs document search query.
+&nbsp;   * Call methods on the criteria to add constraints for search queries.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @Immutable
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  public static final class Criteria extends Repositories.Criteria {
+&nbsp;    private final Constraints.Constraint constraint;
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    Criteria(Serialization serialization, Constraints.Constraint constraint) {
+&nbsp;      this.constraint = constraint;
+&nbsp;      this.serialization = serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria perk(Packs.Perk value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.perkName, false, Support.writable(serialization.perkEncoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria perkNot(Packs.Perk value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.perkName, true, Support.writable(serialization.perkEncoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria perkIn(Iterable&lt;Packs.Perk&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (Packs.Perk value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.perkEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.perkName, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria perkIn(Packs.Perk first, Packs.Perk second, Packs.Perk... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.perkEncoder, first));
+&nbsp;      values.add(Support.writable(serialization.perkEncoder, second));
+&nbsp;      for (Packs.Perk value : rest) {
+&nbsp;        values.add(Support.writable(serialization.perkEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.perkName, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria perkNotIn(Iterable&lt;Packs.Perk&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (Packs.Perk value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.perkEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.perkName, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria perkNotIn(Packs.Perk first, Packs.Perk second, Packs.Perk... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.perkEncoder, first));
+&nbsp;      values.add(Support.writable(serialization.perkEncoder, second));
+&nbsp;      for (Packs.Perk value : rest) {
+&nbsp;        values.add(Support.writable(serialization.perkEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.perkName, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Criteria or() {
+&nbsp;      return new Criteria(serialization, constraint.disjunction());
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria with(Criteria criteria) {
+&nbsp;      return new Criteria(serialization, criteria.constraint.accept(constraint));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;PacksRepository.criteria(&quot; + Support.stringify(constraint) + &quot;)&quot;;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  private static class Serialization {
+&nbsp;    final Encoder&lt;Packs.Perk&gt; perkEncoder;
+&nbsp;    final CodecRegistry registry;
+&nbsp;    final String perkName;
+&nbsp;
+&nbsp;    Serialization(CodecRegistry registry, RepositorySetup.FieldNamingStrategy fieldNamingStrategy) {
+&nbsp;      this.registry = registry;
+&nbsp;      this.perkEncoder = this.registry.get(Packs.Perk.class);
+&nbsp;      this.perkName = translateName(fieldNamingStrategy, &quot;perk&quot;);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Repositories&quot;)
+&nbsp;    static final class PacksNamingFields {
+&nbsp;      public Packs.Perk perk;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static String translateName(RepositorySetup.FieldNamingStrategy fieldNamingStrategy, String fieldName) {
+&nbsp;      try {
+&nbsp;        return fieldNamingStrategy.translateName(
+&nbsp;            PacksNamingFields.class.getField(fieldName));
+&nbsp;      } catch (NoSuchFieldException noSuchField) {
+&nbsp;        throw new AssertionError(noSuchField);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

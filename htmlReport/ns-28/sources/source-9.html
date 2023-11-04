@@ -1,0 +1,472 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableLine</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.deep</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableLine (org.immutables.fixture.deep)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableLine$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.deep;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Canvas.Line}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableLine.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Canvas.Line&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableLine implements Canvas.Line {
+&nbsp;  private final ImmutableList&lt;Canvas.Point&gt; points;
+&nbsp;  private final ImmutableColor color;
+&nbsp;  private final @Nullable Canvas.Color shadow;
+&nbsp;
+&nbsp;  private ImmutableLine(
+&nbsp;      ImmutableList&lt;Canvas.Point&gt; points,
+&nbsp;      ImmutableColor color,
+&nbsp;      @Nullable Canvas.Color shadow) {
+&nbsp;    this.points = points;
+&nbsp;    this.color = color;
+&nbsp;    this.shadow = shadow;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code points} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Canvas.Point&gt; points() {
+&nbsp;    return points;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code color} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableColor color() {
+&nbsp;    return color;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code shadow} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Canvas.Color&gt; shadow() {
+&nbsp;    return Optional.ofNullable(shadow);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Canvas.Line#points() points}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableLine withPoints(Canvas.Point... elements) {
+&nbsp;    ImmutableList&lt;Canvas.Point&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableLine(newValue, this.color, this.shadow);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Canvas.Line#points() points}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of points elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableLine withPoints(Iterable&lt;? extends Canvas.Point&gt; elements) {
+&nbsp;    if (this.points == elements) return this;
+&nbsp;    ImmutableList&lt;Canvas.Point&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableLine(newValue, this.color, this.shadow);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Canvas.Line#color() color} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for color
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableLine withColor(Canvas.Color value) {
+&nbsp;    if (this.color == value) return this;
+&nbsp;    ImmutableColor newValue = ImmutableColor.copyOf(value);
+&nbsp;    return new ImmutableLine(this.points, newValue, this.shadow);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Canvas.Line#shadow() shadow} attribute.
+&nbsp;   * @param value The value for shadow
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableLine withShadow(Canvas.Color value) {
+&nbsp;    Canvas.Color newValue = Objects.requireNonNull(value, &quot;shadow&quot;);
+&nbsp;    if (this.shadow == newValue) return this;
+&nbsp;    return new ImmutableLine(this.points, this.color, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Canvas.Line#shadow() shadow} attribute.
+&nbsp;   * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for shadow
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableLine withShadow(Optional&lt;? extends Canvas.Color&gt; optional) {
+&nbsp;    @Nullable Canvas.Color value = optional.orElse(null);
+&nbsp;    if (this.shadow == value) return this;
+&nbsp;    return new ImmutableLine(this.points, this.color, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableLine} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableLine
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableLine) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableLine another) {
+&nbsp;    return points.equals(another.points)
+&nbsp;        &amp;&amp; color.equals(another.color)
+&nbsp;        &amp;&amp; Objects.equals(shadow, another.shadow);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code points}, {@code color}, {@code shadow}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + points.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + color.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(shadow);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Line} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Line&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;points&quot;, points)
+&nbsp;        .add(&quot;color&quot;, color)
+&nbsp;        .add(&quot;shadow&quot;, shadow)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Canvas.Line} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Line instance
+&nbsp;   */
+&nbsp;  public static ImmutableLine copyOf(Canvas.Line instance) {
+&nbsp;    if (instance instanceof ImmutableLine) {
+&nbsp;      return (ImmutableLine) instance;
+&nbsp;    }
+&nbsp;    return ImmutableLine.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableLine ImmutableLine}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableLine.builder()
+&nbsp;   *    .addPoint|addAllPoints(org.immutables.fixture.deep.Canvas.Point) // {@link Canvas.Line#points() points} elements
+&nbsp;   *    .color(org.immutables.fixture.deep.Canvas.Color) // required {@link Canvas.Line#color() color}
+&nbsp;   *    .shadow(org.immutables.fixture.deep.Canvas.Color) // optional {@link Canvas.Line#shadow() shadow}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableLine builder
+&nbsp;   */
+&nbsp;  public static ImmutableLine.Builder builder() {
+&nbsp;    return new ImmutableLine.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableLine ImmutableLine}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Canvas.Line&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_COLOR = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private ImmutableList.Builder&lt;Canvas.Point&gt; points = ImmutableList.builder();
+&nbsp;    private @Nullable Canvas.Color color;
+&nbsp;    private @Nullable Canvas.Color shadow;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableLine} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableLine instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllPoints(instance.points());
+&nbsp;      if (instance.colorIsSet()) {
+&nbsp;        color(instance.color());
+&nbsp;      }
+&nbsp;      Optional&lt;Canvas.Color&gt; shadowOptional = instance.shadow();
+&nbsp;      if (shadowOptional.isPresent()) {
+&nbsp;        shadow(shadowOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Line} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Canvas.Line instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableLine) {
+&nbsp;        return from((ModifiableLine) instance);
+&nbsp;      }
+&nbsp;      addAllPoints(instance.points());
+&nbsp;      color(instance.color());
+&nbsp;      Optional&lt;Canvas.Color&gt; shadowOptional = instance.shadow();
+&nbsp;      if (shadowOptional.isPresent()) {
+&nbsp;        shadow(shadowOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Canvas.Line#points() points} list.
+&nbsp;     * @param element A points element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPoint(Canvas.Point element) {
+&nbsp;      element = ImmutablePoint.copyOf(element);
+&nbsp;      this.points.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructs and adds an element for the {@link Canvas.Line#points() points} list.
+&nbsp;     * @param x The value for {@code points.x} 
+&nbsp;     * @param y The value for {@code points.y} 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder addPoint(int x, int y) {
+&nbsp;      return addPoint(ImmutablePoint.of(x, y));
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Canvas.Line#points() points} list.
+&nbsp;     * @param elements An array of points elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPoints(Canvas.Point... elements) {
+&nbsp;      for (Canvas.Point element : elements) {
+&nbsp;        element = ImmutablePoint.copyOf(element);
+&nbsp;        this.points.add(Objects.requireNonNull(element, &quot;points element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Canvas.Line#points() points} list.
+&nbsp;     * @param elements An iterable of points elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder points(Iterable&lt;? extends Canvas.Point&gt; elements) {
+&nbsp;      this.points = ImmutableList.builder();
+&nbsp;      return addAllPoints(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Canvas.Line#points() points} list.
+&nbsp;     * @param elements An iterable of points elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllPoints(Iterable&lt;? extends Canvas.Point&gt; elements) {
+&nbsp;      for (Canvas.Point element : elements) {
+&nbsp;        element = ImmutablePoint.copyOf(element);
+&nbsp;        this.points.add(Objects.requireNonNull(element, &quot;points element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructs and initializes the value for the {@link Canvas.Line#color() color} attribute.
+&nbsp;     * @param red The value for {@code color.red} 
+&nbsp;     * @param green The value for {@code color.green} 
+&nbsp;     * @param blue The value for {@code color.blue} 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder color(double red, double green, double blue) {
+&nbsp;      return color(ImmutableColor.of(red, green, blue));
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Canvas.Line#color() color} attribute.
+&nbsp;     * @param color The value for color 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder color(Canvas.Color color) {
+&nbsp;      this.color = ImmutableColor.copyOf(color);
+&nbsp;      initBits &amp;= ~INIT_BIT_COLOR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Canvas.Line#shadow() shadow} to shadow.
+&nbsp;     * @param shadow The value for shadow
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder shadow(Canvas.Color shadow) {
+&nbsp;      this.shadow = Objects.requireNonNull(shadow, &quot;shadow&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructs and initializes the optional value for the {@link Canvas.Line#shadow() shadow} attribute.
+&nbsp;     * @param red The value for {@code shadow.red} 
+&nbsp;     * @param green The value for {@code shadow.green} 
+&nbsp;     * @param blue The value for {@code shadow.blue} 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder shadow(double red, double green, double blue) {
+&nbsp;      return shadow(ImmutableColor.of(red, green, blue));
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Canvas.Line#shadow() shadow} to shadow.
+&nbsp;     * @param shadow The value for shadow
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder shadow(Optional&lt;? extends Canvas.Color&gt; shadow) {
+&nbsp;      this.shadow = shadow.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableLine ImmutableLine}.
+&nbsp;     * @return An immutable instance of Line
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableLine build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableLine(points.build(), ImmutableColor.copyOf(color), shadow);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_COLOR) != 0) attributes.add(&quot;color&quot;);
+&nbsp;      return &quot;Cannot build Line, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

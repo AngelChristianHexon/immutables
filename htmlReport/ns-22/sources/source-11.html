@@ -1,0 +1,887 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNeapolitanAttributeBuilderParent</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.builder</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNeapolitanAttributeBuilderParent (org.immutables.fixture.builder)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNeapolitanAttributeBuilderParent$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.builder;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.fixture.builder.attribute_builders.FirstPartyWithBuilderExtension;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NeapolitanAttributeBuilderParent}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNeapolitanAttributeBuilderParent.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NeapolitanAttributeBuilderParent&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNeapolitanAttributeBuilderParent
+&nbsp;    extends NeapolitanAttributeBuilderParent {
+&nbsp;  private final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod tpiWithValueInstanceCopyMethod;
+&nbsp;  private final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod tpiWithValueClassCopyMethod;
+&nbsp;  private final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod tpiWithBuilderInstanceCopyMethod;
+&nbsp;  private final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod tpiWithBuilderClassCopyMethod;
+&nbsp;  private final org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension fpWithBuilderExtension;
+&nbsp;  private final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder tpiWithNestedBuilder;
+&nbsp;
+&nbsp;  private ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;      org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod tpiWithValueInstanceCopyMethod,
+&nbsp;      org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod tpiWithValueClassCopyMethod,
+&nbsp;      org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod tpiWithBuilderInstanceCopyMethod,
+&nbsp;      org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod tpiWithBuilderClassCopyMethod,
+&nbsp;      org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension fpWithBuilderExtension,
+&nbsp;      org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder tpiWithNestedBuilder) {
+&nbsp;    this.tpiWithValueInstanceCopyMethod = tpiWithValueInstanceCopyMethod;
+&nbsp;    this.tpiWithValueClassCopyMethod = tpiWithValueClassCopyMethod;
+&nbsp;    this.tpiWithBuilderInstanceCopyMethod = tpiWithBuilderInstanceCopyMethod;
+&nbsp;    this.tpiWithBuilderClassCopyMethod = tpiWithBuilderClassCopyMethod;
+&nbsp;    this.fpWithBuilderExtension = fpWithBuilderExtension;
+&nbsp;    this.tpiWithNestedBuilder = tpiWithNestedBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tpiWithValueInstanceCopyMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod tpiWithValueInstanceCopyMethod() {
+&nbsp;    return tpiWithValueInstanceCopyMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tpiWithValueClassCopyMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod tpiWithValueClassCopyMethod() {
+&nbsp;    return tpiWithValueClassCopyMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tpiWithBuilderInstanceCopyMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod tpiWithBuilderInstanceCopyMethod() {
+&nbsp;    return tpiWithBuilderInstanceCopyMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tpiWithBuilderClassCopyMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod tpiWithBuilderClassCopyMethod() {
+&nbsp;    return tpiWithBuilderClassCopyMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code fpWithBuilderExtension} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension fpWithBuilderExtension() {
+&nbsp;    return fpWithBuilderExtension;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tpiWithNestedBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder tpiWithNestedBuilder() {
+&nbsp;    return tpiWithNestedBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NeapolitanAttributeBuilderParent#tpiWithValueInstanceCopyMethod() tpiWithValueInstanceCopyMethod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for tpiWithValueInstanceCopyMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNeapolitanAttributeBuilderParent withTpiWithValueInstanceCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod value) {
+&nbsp;    if (this.tpiWithValueInstanceCopyMethod == value) return this;
+&nbsp;    org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod newValue = Objects.requireNonNull(value, &quot;tpiWithValueInstanceCopyMethod&quot;);
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;        newValue,
+&nbsp;        this.tpiWithValueClassCopyMethod,
+&nbsp;        this.tpiWithBuilderInstanceCopyMethod,
+&nbsp;        this.tpiWithBuilderClassCopyMethod,
+&nbsp;        this.fpWithBuilderExtension,
+&nbsp;        this.tpiWithNestedBuilder);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NeapolitanAttributeBuilderParent#tpiWithValueClassCopyMethod() tpiWithValueClassCopyMethod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for tpiWithValueClassCopyMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNeapolitanAttributeBuilderParent withTpiWithValueClassCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod value) {
+&nbsp;    if (this.tpiWithValueClassCopyMethod == value) return this;
+&nbsp;    org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod newValue = Objects.requireNonNull(value, &quot;tpiWithValueClassCopyMethod&quot;);
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;        this.tpiWithValueInstanceCopyMethod,
+&nbsp;        newValue,
+&nbsp;        this.tpiWithBuilderInstanceCopyMethod,
+&nbsp;        this.tpiWithBuilderClassCopyMethod,
+&nbsp;        this.fpWithBuilderExtension,
+&nbsp;        this.tpiWithNestedBuilder);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NeapolitanAttributeBuilderParent#tpiWithBuilderInstanceCopyMethod() tpiWithBuilderInstanceCopyMethod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for tpiWithBuilderInstanceCopyMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNeapolitanAttributeBuilderParent withTpiWithBuilderInstanceCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod value) {
+&nbsp;    if (this.tpiWithBuilderInstanceCopyMethod == value) return this;
+&nbsp;    org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod newValue = Objects.requireNonNull(value, &quot;tpiWithBuilderInstanceCopyMethod&quot;);
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;        this.tpiWithValueInstanceCopyMethod,
+&nbsp;        this.tpiWithValueClassCopyMethod,
+&nbsp;        newValue,
+&nbsp;        this.tpiWithBuilderClassCopyMethod,
+&nbsp;        this.fpWithBuilderExtension,
+&nbsp;        this.tpiWithNestedBuilder);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NeapolitanAttributeBuilderParent#tpiWithBuilderClassCopyMethod() tpiWithBuilderClassCopyMethod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for tpiWithBuilderClassCopyMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNeapolitanAttributeBuilderParent withTpiWithBuilderClassCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod value) {
+&nbsp;    if (this.tpiWithBuilderClassCopyMethod == value) return this;
+&nbsp;    org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod newValue = Objects.requireNonNull(value, &quot;tpiWithBuilderClassCopyMethod&quot;);
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;        this.tpiWithValueInstanceCopyMethod,
+&nbsp;        this.tpiWithValueClassCopyMethod,
+&nbsp;        this.tpiWithBuilderInstanceCopyMethod,
+&nbsp;        newValue,
+&nbsp;        this.fpWithBuilderExtension,
+&nbsp;        this.tpiWithNestedBuilder);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NeapolitanAttributeBuilderParent#fpWithBuilderExtension() fpWithBuilderExtension} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for fpWithBuilderExtension
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNeapolitanAttributeBuilderParent withFpWithBuilderExtension(FirstPartyWithBuilderExtension value) {
+&nbsp;    if (this.fpWithBuilderExtension == value) return this;
+&nbsp;    org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension newValue = new FirstPartyWithBuilderExtension.Builder().from(value).build();
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;        this.tpiWithValueInstanceCopyMethod,
+&nbsp;        this.tpiWithValueClassCopyMethod,
+&nbsp;        this.tpiWithBuilderInstanceCopyMethod,
+&nbsp;        this.tpiWithBuilderClassCopyMethod,
+&nbsp;        newValue,
+&nbsp;        this.tpiWithNestedBuilder);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NeapolitanAttributeBuilderParent#tpiWithNestedBuilder() tpiWithNestedBuilder} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for tpiWithNestedBuilder
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNeapolitanAttributeBuilderParent withTpiWithNestedBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder value) {
+&nbsp;    if (this.tpiWithNestedBuilder == value) return this;
+&nbsp;    org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder newValue = Objects.requireNonNull(value, &quot;tpiWithNestedBuilder&quot;);
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;        this.tpiWithValueInstanceCopyMethod,
+&nbsp;        this.tpiWithValueClassCopyMethod,
+&nbsp;        this.tpiWithBuilderInstanceCopyMethod,
+&nbsp;        this.tpiWithBuilderClassCopyMethod,
+&nbsp;        this.fpWithBuilderExtension,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNeapolitanAttributeBuilderParent} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNeapolitanAttributeBuilderParent
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNeapolitanAttributeBuilderParent) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNeapolitanAttributeBuilderParent another) {
+&nbsp;    return tpiWithValueInstanceCopyMethod.equals(another.tpiWithValueInstanceCopyMethod)
+&nbsp;        &amp;&amp; tpiWithValueClassCopyMethod.equals(another.tpiWithValueClassCopyMethod)
+&nbsp;        &amp;&amp; tpiWithBuilderInstanceCopyMethod.equals(another.tpiWithBuilderInstanceCopyMethod)
+&nbsp;        &amp;&amp; tpiWithBuilderClassCopyMethod.equals(another.tpiWithBuilderClassCopyMethod)
+&nbsp;        &amp;&amp; fpWithBuilderExtension.equals(another.fpWithBuilderExtension)
+&nbsp;        &amp;&amp; tpiWithNestedBuilder.equals(another.tpiWithNestedBuilder);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code tpiWithValueInstanceCopyMethod}, {@code tpiWithValueClassCopyMethod}, {@code tpiWithBuilderInstanceCopyMethod}, {@code tpiWithBuilderClassCopyMethod}, {@code fpWithBuilderExtension}, {@code tpiWithNestedBuilder}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + tpiWithValueInstanceCopyMethod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + tpiWithValueClassCopyMethod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + tpiWithBuilderInstanceCopyMethod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + tpiWithBuilderClassCopyMethod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + fpWithBuilderExtension.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + tpiWithNestedBuilder.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NeapolitanAttributeBuilderParent} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NeapolitanAttributeBuilderParent&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;tpiWithValueInstanceCopyMethod&quot;, tpiWithValueInstanceCopyMethod)
+&nbsp;        .add(&quot;tpiWithValueClassCopyMethod&quot;, tpiWithValueClassCopyMethod)
+&nbsp;        .add(&quot;tpiWithBuilderInstanceCopyMethod&quot;, tpiWithBuilderInstanceCopyMethod)
+&nbsp;        .add(&quot;tpiWithBuilderClassCopyMethod&quot;, tpiWithBuilderClassCopyMethod)
+&nbsp;        .add(&quot;fpWithBuilderExtension&quot;, fpWithBuilderExtension)
+&nbsp;        .add(&quot;tpiWithNestedBuilder&quot;, tpiWithNestedBuilder)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NeapolitanAttributeBuilderParent} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NeapolitanAttributeBuilderParent instance
+&nbsp;   */
+&nbsp;  public static ImmutableNeapolitanAttributeBuilderParent copyOf(NeapolitanAttributeBuilderParent instance) {
+&nbsp;    if (instance instanceof ImmutableNeapolitanAttributeBuilderParent) {
+&nbsp;      return (ImmutableNeapolitanAttributeBuilderParent) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNeapolitanAttributeBuilderParent.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNeapolitanAttributeBuilderParent ImmutableNeapolitanAttributeBuilderParent}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNeapolitanAttributeBuilderParent.builder()
+&nbsp;   *    .tpiWithValueInstanceCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod) // required {@link NeapolitanAttributeBuilderParent#tpiWithValueInstanceCopyMethod() tpiWithValueInstanceCopyMethod}
+&nbsp;   *    .tpiWithValueClassCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod) // required {@link NeapolitanAttributeBuilderParent#tpiWithValueClassCopyMethod() tpiWithValueClassCopyMethod}
+&nbsp;   *    .tpiWithBuilderInstanceCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod) // required {@link NeapolitanAttributeBuilderParent#tpiWithBuilderInstanceCopyMethod() tpiWithBuilderInstanceCopyMethod}
+&nbsp;   *    .tpiWithBuilderClassCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod) // required {@link NeapolitanAttributeBuilderParent#tpiWithBuilderClassCopyMethod() tpiWithBuilderClassCopyMethod}
+&nbsp;   *    .fpWithBuilderExtension(org.immutables.fixture.builder.attribute_builders.FirstPartyWithBuilderExtension) // required {@link NeapolitanAttributeBuilderParent#fpWithBuilderExtension() fpWithBuilderExtension}
+&nbsp;   *    .tpiWithNestedBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder) // required {@link NeapolitanAttributeBuilderParent#tpiWithNestedBuilder() tpiWithNestedBuilder}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNeapolitanAttributeBuilderParent builder
+&nbsp;   */
+&nbsp;  public static ImmutableNeapolitanAttributeBuilderParent.Builder builder() {
+&nbsp;    return new ImmutableNeapolitanAttributeBuilderParent.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNeapolitanAttributeBuilderParent ImmutableNeapolitanAttributeBuilderParent}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NeapolitanAttributeBuilderParent&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_TPI_WITH_VALUE_INSTANCE_COPY_METHOD = 0x1L;
+&nbsp;    private static final long INIT_BIT_TPI_WITH_VALUE_CLASS_COPY_METHOD = 0x2L;
+&nbsp;    private static final long INIT_BIT_TPI_WITH_BUILDER_INSTANCE_COPY_METHOD = 0x4L;
+&nbsp;    private static final long INIT_BIT_TPI_WITH_BUILDER_CLASS_COPY_METHOD = 0x8L;
+&nbsp;    private static final long INIT_BIT_FP_WITH_BUILDER_EXTENSION = 0x10L;
+&nbsp;    private static final long INIT_BIT_TPI_WITH_NESTED_BUILDER = 0x20L;
+&nbsp;    private long initBits = 0x3fL;
+&nbsp;
+&nbsp;    private @Nullable org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder tpiWithValueInstanceCopyMethod;
+&nbsp;    private @Nullable org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder tpiWithValueClassCopyMethod;
+&nbsp;    private @Nullable org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder tpiWithBuilderInstanceCopyMethod;
+&nbsp;    private @Nullable org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder tpiWithBuilderClassCopyMethod;
+&nbsp;    private @Nullable org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder fpWithBuilderExtension;
+&nbsp;    private @Nullable org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder tpiWithNestedBuilder;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NeapolitanAttributeBuilderParent} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NeapolitanAttributeBuilderParent instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      tpiWithValueInstanceCopyMethod(instance.tpiWithValueInstanceCopyMethod());
+&nbsp;      tpiWithValueClassCopyMethod(instance.tpiWithValueClassCopyMethod());
+&nbsp;      tpiWithBuilderInstanceCopyMethod(instance.tpiWithBuilderInstanceCopyMethod());
+&nbsp;      tpiWithBuilderClassCopyMethod(instance.tpiWithBuilderClassCopyMethod());
+&nbsp;      fpWithBuilderExtension(instance.fpWithBuilderExtension());
+&nbsp;      tpiWithNestedBuilder(instance.tpiWithNestedBuilder());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NeapolitanAttributeBuilderParent#tpiWithValueInstanceCopyMethod() tpiWithValueInstanceCopyMethod} attribute.
+&nbsp;     * @param tpiWithValueInstanceCopyMethod The value for tpiWithValueInstanceCopyMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithValueInstanceCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod tpiWithValueInstanceCopyMethod) {
+&nbsp;      this.tpiWithValueInstanceCopyMethod = Objects.requireNonNull(tpiWithValueInstanceCopyMethod, &quot;tpiWithValueInstanceCopyMethod&quot;).toBuilder();
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_VALUE_INSTANCE_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link NeapolitanAttributeBuilderParent#tpiWithValueInstanceCopyMethod() tpiWithValueInstanceCopyMethod}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder tpiWithValueInstanceCopyMethodBuilder() {
+&nbsp;      if (this.tpiWithValueInstanceCopyMethod == null) {
+&nbsp;        this.tpiWithValueInstanceCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.generateNewBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_VALUE_INSTANCE_COPY_METHOD;
+&nbsp;
+&nbsp;      return this.tpiWithValueInstanceCopyMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link NeapolitanAttributeBuilderParent#tpiWithValueInstanceCopyMethod() tpiWithValueInstanceCopyMethod} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithValueInstanceCopyMethodBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder tpiWithValueInstanceCopyMethod) {
+&nbsp;      this.tpiWithValueInstanceCopyMethod = tpiWithValueInstanceCopyMethod;
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_VALUE_INSTANCE_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NeapolitanAttributeBuilderParent#tpiWithValueClassCopyMethod() tpiWithValueClassCopyMethod} attribute.
+&nbsp;     * @param tpiWithValueClassCopyMethod The value for tpiWithValueClassCopyMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithValueClassCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod tpiWithValueClassCopyMethod) {
+&nbsp;      this.tpiWithValueClassCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.generateNewBuilder(Objects.requireNonNull(tpiWithValueClassCopyMethod, &quot;tpiWithValueClassCopyMethod&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_VALUE_CLASS_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link NeapolitanAttributeBuilderParent#tpiWithValueClassCopyMethod() tpiWithValueClassCopyMethod}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder tpiWithValueClassCopyMethodBuilder() {
+&nbsp;      if (this.tpiWithValueClassCopyMethod == null) {
+&nbsp;        this.tpiWithValueClassCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.generateNewBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_VALUE_CLASS_COPY_METHOD;
+&nbsp;
+&nbsp;      return this.tpiWithValueClassCopyMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link NeapolitanAttributeBuilderParent#tpiWithValueClassCopyMethod() tpiWithValueClassCopyMethod} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithValueClassCopyMethodBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder tpiWithValueClassCopyMethod) {
+&nbsp;      this.tpiWithValueClassCopyMethod = tpiWithValueClassCopyMethod;
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_VALUE_CLASS_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NeapolitanAttributeBuilderParent#tpiWithBuilderInstanceCopyMethod() tpiWithBuilderInstanceCopyMethod} attribute.
+&nbsp;     * @param tpiWithBuilderInstanceCopyMethod The value for tpiWithBuilderInstanceCopyMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithBuilderInstanceCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod tpiWithBuilderInstanceCopyMethod) {
+&nbsp;      this.tpiWithBuilderInstanceCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.generateNewBuilder().from(Objects.requireNonNull(tpiWithBuilderInstanceCopyMethod, &quot;tpiWithBuilderInstanceCopyMethod&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_BUILDER_INSTANCE_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link NeapolitanAttributeBuilderParent#tpiWithBuilderInstanceCopyMethod() tpiWithBuilderInstanceCopyMethod}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder tpiWithBuilderInstanceCopyMethodBuilder() {
+&nbsp;      if (this.tpiWithBuilderInstanceCopyMethod == null) {
+&nbsp;        this.tpiWithBuilderInstanceCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.generateNewBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_BUILDER_INSTANCE_COPY_METHOD;
+&nbsp;
+&nbsp;      return this.tpiWithBuilderInstanceCopyMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link NeapolitanAttributeBuilderParent#tpiWithBuilderInstanceCopyMethod() tpiWithBuilderInstanceCopyMethod} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithBuilderInstanceCopyMethodBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder tpiWithBuilderInstanceCopyMethod) {
+&nbsp;      this.tpiWithBuilderInstanceCopyMethod = tpiWithBuilderInstanceCopyMethod;
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_BUILDER_INSTANCE_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NeapolitanAttributeBuilderParent#tpiWithBuilderClassCopyMethod() tpiWithBuilderClassCopyMethod} attribute.
+&nbsp;     * @param tpiWithBuilderClassCopyMethod The value for tpiWithBuilderClassCopyMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithBuilderClassCopyMethod(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod tpiWithBuilderClassCopyMethod) {
+&nbsp;      this.tpiWithBuilderClassCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder.from(Objects.requireNonNull(tpiWithBuilderClassCopyMethod, &quot;tpiWithBuilderClassCopyMethod&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_BUILDER_CLASS_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link NeapolitanAttributeBuilderParent#tpiWithBuilderClassCopyMethod() tpiWithBuilderClassCopyMethod}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder tpiWithBuilderClassCopyMethodBuilder() {
+&nbsp;      if (this.tpiWithBuilderClassCopyMethod == null) {
+&nbsp;        this.tpiWithBuilderClassCopyMethod = org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.generateNewBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_BUILDER_CLASS_COPY_METHOD;
+&nbsp;
+&nbsp;      return this.tpiWithBuilderClassCopyMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link NeapolitanAttributeBuilderParent#tpiWithBuilderClassCopyMethod() tpiWithBuilderClassCopyMethod} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithBuilderClassCopyMethodBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder tpiWithBuilderClassCopyMethod) {
+&nbsp;      this.tpiWithBuilderClassCopyMethod = tpiWithBuilderClassCopyMethod;
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_BUILDER_CLASS_COPY_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NeapolitanAttributeBuilderParent#fpWithBuilderExtension() fpWithBuilderExtension} attribute.
+&nbsp;     * @param fpWithBuilderExtension The value for fpWithBuilderExtension 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder fpWithBuilderExtension(FirstPartyWithBuilderExtension fpWithBuilderExtension) {
+&nbsp;      this.fpWithBuilderExtension = new FirstPartyWithBuilderExtension.Builder().from(convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(fpWithBuilderExtension));
+&nbsp;      initBits &amp;= ~INIT_BIT_FP_WITH_BUILDER_EXTENSION;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link NeapolitanAttributeBuilderParent#fpWithBuilderExtension() fpWithBuilderExtension}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder fpWithBuilderExtensionBuilder() {
+&nbsp;      if (this.fpWithBuilderExtension == null) {
+&nbsp;        this.fpWithBuilderExtension = new FirstPartyWithBuilderExtension.Builder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_FP_WITH_BUILDER_EXTENSION;
+&nbsp;
+&nbsp;      return this.fpWithBuilderExtension;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link NeapolitanAttributeBuilderParent#fpWithBuilderExtension() fpWithBuilderExtension} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder fpWithBuilderExtensionBuilder(org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder fpWithBuilderExtension) {
+&nbsp;      this.fpWithBuilderExtension = fpWithBuilderExtension;
+&nbsp;      initBits &amp;= ~INIT_BIT_FP_WITH_BUILDER_EXTENSION;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NeapolitanAttributeBuilderParent#tpiWithNestedBuilder() tpiWithNestedBuilder} attribute.
+&nbsp;     * @param tpiWithNestedBuilder The value for tpiWithNestedBuilder 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithNestedBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder tpiWithNestedBuilder) {
+&nbsp;      this.tpiWithNestedBuilder = new org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder(Objects.requireNonNull(tpiWithNestedBuilder, &quot;tpiWithNestedBuilder&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_NESTED_BUILDER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link NeapolitanAttributeBuilderParent#tpiWithNestedBuilder() tpiWithNestedBuilder}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder tpiWithNestedBuilderBuilder() {
+&nbsp;      if (this.tpiWithNestedBuilder == null) {
+&nbsp;        this.tpiWithNestedBuilder = new org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_NESTED_BUILDER;
+&nbsp;
+&nbsp;      return this.tpiWithNestedBuilder;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link NeapolitanAttributeBuilderParent#tpiWithNestedBuilder() tpiWithNestedBuilder} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tpiWithNestedBuilderBuilder(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder tpiWithNestedBuilder) {
+&nbsp;      this.tpiWithNestedBuilder = tpiWithNestedBuilder;
+&nbsp;      initBits &amp;= ~INIT_BIT_TPI_WITH_NESTED_BUILDER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNeapolitanAttributeBuilderParent ImmutableNeapolitanAttributeBuilderParent}.
+&nbsp;     * @return An immutable instance of NeapolitanAttributeBuilderParent
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNeapolitanAttributeBuilderParent build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableNeapolitanAttributeBuilderParent(
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(tpiWithValueInstanceCopyMethod),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(tpiWithValueClassCopyMethod),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(tpiWithBuilderInstanceCopyMethod),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(tpiWithBuilderClassCopyMethod),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(fpWithBuilderExtension),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(tpiWithNestedBuilder));
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_TPI_WITH_VALUE_INSTANCE_COPY_METHOD) != 0) attributes.add(&quot;tpiWithValueInstanceCopyMethod&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_TPI_WITH_VALUE_CLASS_COPY_METHOD) != 0) attributes.add(&quot;tpiWithValueClassCopyMethod&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_TPI_WITH_BUILDER_INSTANCE_COPY_METHOD) != 0) attributes.add(&quot;tpiWithBuilderInstanceCopyMethod&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_TPI_WITH_BUILDER_CLASS_COPY_METHOD) != 0) attributes.add(&quot;tpiWithBuilderClassCopyMethod&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_FP_WITH_BUILDER_EXTENSION) != 0) attributes.add(&quot;fpWithBuilderExtension&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_TPI_WITH_NESTED_BUILDER) != 0) attributes.add(&quot;tpiWithNestedBuilder&quot;);
+&nbsp;      return &quot;Cannot build NeapolitanAttributeBuilderParent, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return value.toBuilder().build();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return value.toBuilder();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.generateNewBuilder(value).doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.generateNewBuilder(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.generateNewBuilder().from(value).doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.generateNewBuilder().from(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder.from(value).doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder.from(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(@Nullable  org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static FirstPartyWithBuilderExtension convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(@Nullable  FirstPartyWithBuilderExtension value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return new FirstPartyWithBuilderExtension.Builder().from(value).build();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(@Nullable  FirstPartyWithBuilderExtension value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return new FirstPartyWithBuilderExtension.Builder().from(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return new org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder(value).doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return new org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder(value);
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return value.toBuilder().build();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueInstanceCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return value.toBuilder();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.generateNewBuilder(value).doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithValueClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithValueClassCopyMethod.generateNewBuilder(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.generateNewBuilder().from(value).doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderInstanceCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderInstanceCopyMethod.generateNewBuilder().from(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder.from(value).doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithBuilderClassCopyMethod(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithBuilderClassCopyMethod.Builder.from(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(@Nullable  org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static FirstPartyWithBuilderExtension convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(@Nullable  FirstPartyWithBuilderExtension value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return new FirstPartyWithBuilderExtension.Builder().from(value).build();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ImmutableFirstPartyWithBuilderExtension.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyWithBuilderExtension(@Nullable  FirstPartyWithBuilderExtension value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return new FirstPartyWithBuilderExtension.Builder().from(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return new org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder(value).doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithNestedBuilder(@Nullable  org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return new org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithNestedBuilder.Builder(value);
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

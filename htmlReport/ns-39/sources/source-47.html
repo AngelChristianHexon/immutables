@@ -1,0 +1,300 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutablePostData</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutablePostData (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutablePostData$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutablePostData$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link PostData}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutablePostData.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;PostData&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutablePostData implements PostData {
+&nbsp;  private final boolean loginAllowed;
+&nbsp;
+&nbsp;  private ImmutablePostData(boolean loginAllowed) {
+&nbsp;    this.loginAllowed = loginAllowed;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code loginAllowed} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;login_allowed&quot;)
+&nbsp;  @Override
+&nbsp;  public boolean isLoginAllowed() {
+&nbsp;    return loginAllowed;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PostData#isLoginAllowed() loginAllowed} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for loginAllowed
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePostData withLoginAllowed(boolean value) {
+&nbsp;    if (this.loginAllowed == value) return this;
+&nbsp;    return new ImmutablePostData(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutablePostData} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutablePostData
+&nbsp;        &amp;&amp; equalTo(0, (ImmutablePostData) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutablePostData another) {
+&nbsp;    return loginAllowed == another.loginAllowed;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code loginAllowed}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(loginAllowed);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code PostData} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;PostData&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;loginAllowed&quot;, loginAllowed)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;PostData&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements PostData {
+&nbsp;    boolean loginAllowed;
+&nbsp;    boolean loginAllowedIsSet;
+&nbsp;    @JsonProperty(&quot;login_allowed&quot;)
+&nbsp;    public void setLoginAllowed(boolean loginAllowed) {
+&nbsp;      this.loginAllowed = loginAllowed;
+&nbsp;      this.loginAllowedIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public boolean isLoginAllowed() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutablePostData fromJson(Json json) {
+&nbsp;    ImmutablePostData.Builder builder = ImmutablePostData.builder();
+&nbsp;    if (json.loginAllowedIsSet) {
+&nbsp;      builder.loginAllowed(json.loginAllowed);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link PostData} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable PostData instance
+&nbsp;   */
+&nbsp;  public static ImmutablePostData copyOf(PostData instance) {
+&nbsp;    if (instance instanceof ImmutablePostData) {
+&nbsp;      return (ImmutablePostData) instance;
+&nbsp;    }
+&nbsp;    return ImmutablePostData.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutablePostData ImmutablePostData}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutablePostData.builder()
+&nbsp;   *    .loginAllowed(boolean) // optional {@link PostData#isLoginAllowed() loginAllowed}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutablePostData builder
+&nbsp;   */
+&nbsp;  public static ImmutablePostData.Builder builder() {
+&nbsp;    return new ImmutablePostData.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutablePostData ImmutablePostData}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;PostData&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private boolean loginAllowed;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiablePostData} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiablePostData instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      loginAllowed(instance.isLoginAllowed());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code PostData} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(PostData instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiablePostData) {
+&nbsp;        return from((ModifiablePostData) instance);
+&nbsp;      }
+&nbsp;      loginAllowed(instance.isLoginAllowed());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PostData#isLoginAllowed() loginAllowed} attribute.
+&nbsp;     * @param loginAllowed The value for loginAllowed 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;login_allowed&quot;)
+&nbsp;    public final Builder loginAllowed(boolean loginAllowed) {
+&nbsp;      this.loginAllowed = loginAllowed;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutablePostData ImmutablePostData}.
+&nbsp;     * @return An immutable instance of PostData
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutablePostData build() {
+&nbsp;      return new ImmutablePostData(loginAllowed);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

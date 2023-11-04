@@ -1,0 +1,781 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSortedCollectionWrapper</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.ordered</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSortedCollectionWrapper (org.immutables.fixture.ordered)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSortedCollectionWrapper$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.ordered;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.ImmutableSortedMultiset;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import com.google.common.collect.Ordering;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SortedCollectionWrapper}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSortedCollectionWrapper.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SortedCollectionWrapper&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSortedCollectionWrapper
+&nbsp;    implements SortedCollectionWrapper {
+&nbsp;  private final ImmutableSortedSet&lt;SortedCollectionWrapper.Elem&gt; elemSet;
+&nbsp;  private final ImmutableSortedSet&lt;ImmutableElem&gt; immutableElemSet;
+&nbsp;  private final ImmutableSortedMultiset&lt;SortedCollectionWrapper.Elem&gt; elemMultiset;
+&nbsp;  private final ImmutableSortedMultiset&lt;ImmutableElem&gt; immutableElemMultiset;
+&nbsp;  private final ImmutableSortedMap&lt;SortedCollectionWrapper.Elem, Void&gt; elemMap;
+&nbsp;  private final ImmutableSortedMap&lt;ImmutableElem, Void&gt; immutableElemMap;
+&nbsp;
+&nbsp;  private ImmutableSortedCollectionWrapper(
+&nbsp;      ImmutableSortedSet&lt;SortedCollectionWrapper.Elem&gt; elemSet,
+&nbsp;      ImmutableSortedSet&lt;ImmutableElem&gt; immutableElemSet,
+&nbsp;      ImmutableSortedMultiset&lt;SortedCollectionWrapper.Elem&gt; elemMultiset,
+&nbsp;      ImmutableSortedMultiset&lt;ImmutableElem&gt; immutableElemMultiset,
+&nbsp;      ImmutableSortedMap&lt;SortedCollectionWrapper.Elem, Void&gt; elemMap,
+&nbsp;      ImmutableSortedMap&lt;ImmutableElem, Void&gt; immutableElemMap) {
+&nbsp;    this.elemSet = elemSet;
+&nbsp;    this.immutableElemSet = immutableElemSet;
+&nbsp;    this.elemMultiset = elemMultiset;
+&nbsp;    this.immutableElemMultiset = immutableElemMultiset;
+&nbsp;    this.elemMap = elemMap;
+&nbsp;    this.immutableElemMap = immutableElemMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code elemSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;SortedCollectionWrapper.Elem&gt; getElemSet() {
+&nbsp;    return elemSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableElemSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;ImmutableElem&gt; getImmutableElemSet() {
+&nbsp;    return immutableElemSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code elemMultiset} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMultiset&lt;SortedCollectionWrapper.Elem&gt; getElemMultiset() {
+&nbsp;    return elemMultiset;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableElemMultiset} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMultiset&lt;ImmutableElem&gt; getImmutableElemMultiset() {
+&nbsp;    return immutableElemMultiset;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code elemMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;SortedCollectionWrapper.Elem, Void&gt; getElemMap() {
+&nbsp;    return elemMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableElemMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;ImmutableElem, Void&gt; getImmutableElemMap() {
+&nbsp;    return immutableElemMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getElemSet() elemSet}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withElemSet(SortedCollectionWrapper.Elem... elements) {
+&nbsp;    ImmutableSortedSet&lt;SortedCollectionWrapper.Elem&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;SortedCollectionWrapper.Elem&gt;natural(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        newValue,
+&nbsp;        this.immutableElemSet,
+&nbsp;        this.elemMultiset,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getElemSet() elemSet}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of elemSet elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withElemSet(Iterable&lt;? extends SortedCollectionWrapper.Elem&gt; elements) {
+&nbsp;    if (this.elemSet == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;SortedCollectionWrapper.Elem&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;SortedCollectionWrapper.Elem&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        newValue,
+&nbsp;        this.immutableElemSet,
+&nbsp;        this.elemMultiset,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withImmutableElemSet(ImmutableElem... elements) {
+&nbsp;    ImmutableSortedSet&lt;ImmutableElem&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;ImmutableElem&gt;natural(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        newValue,
+&nbsp;        this.elemMultiset,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of immutableElemSet elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withImmutableElemSet(Iterable&lt;? extends ImmutableElem&gt; elements) {
+&nbsp;    if (this.immutableElemSet == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;ImmutableElem&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;ImmutableElem&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        newValue,
+&nbsp;        this.elemMultiset,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getElemMultiset() elemMultiset}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withElemMultiset(SortedCollectionWrapper.Elem... elements) {
+&nbsp;    ImmutableSortedMultiset&lt;SortedCollectionWrapper.Elem&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;SortedCollectionWrapper.Elem&gt;natural().reverse(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        this.immutableElemSet,
+&nbsp;        newValue,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getElemMultiset() elemMultiset}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of elemMultiset elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withElemMultiset(Iterable&lt;? extends SortedCollectionWrapper.Elem&gt; elements) {
+&nbsp;    if (this.elemMultiset == elements) return this;
+&nbsp;    ImmutableSortedMultiset&lt;SortedCollectionWrapper.Elem&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;SortedCollectionWrapper.Elem&gt;natural().reverse(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        this.immutableElemSet,
+&nbsp;        newValue,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withImmutableElemMultiset(ImmutableElem... elements) {
+&nbsp;    ImmutableSortedMultiset&lt;ImmutableElem&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;ImmutableElem&gt;natural().reverse(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        this.immutableElemSet,
+&nbsp;        this.elemMultiset,
+&nbsp;        newValue,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of immutableElemMultiset elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withImmutableElemMultiset(Iterable&lt;? extends ImmutableElem&gt; elements) {
+&nbsp;    if (this.immutableElemMultiset == elements) return this;
+&nbsp;    ImmutableSortedMultiset&lt;ImmutableElem&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;ImmutableElem&gt;natural().reverse(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        this.immutableElemSet,
+&nbsp;        this.elemMultiset,
+&nbsp;        newValue,
+&nbsp;        this.elemMap,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SortedCollectionWrapper#getElemMap() elemMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the elemMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withElemMap(Map&lt;? extends SortedCollectionWrapper.Elem, ? extends Void&gt; entries) {
+&nbsp;    if (this.elemMap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;SortedCollectionWrapper.Elem, Void&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;SortedCollectionWrapper.Elem&gt;natural()
+&nbsp;    );
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        this.immutableElemSet,
+&nbsp;        this.elemMultiset,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        newValue,
+&nbsp;        this.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SortedCollectionWrapper#getImmutableElemMap() immutableElemMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the immutableElemMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSortedCollectionWrapper withImmutableElemMap(Map&lt;? extends ImmutableElem, ? extends Void&gt; entries) {
+&nbsp;    if (this.immutableElemMap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;ImmutableElem, Void&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;ImmutableElem&gt;natural()
+&nbsp;    );
+&nbsp;    return new ImmutableSortedCollectionWrapper(
+&nbsp;        this.elemSet,
+&nbsp;        this.immutableElemSet,
+&nbsp;        this.elemMultiset,
+&nbsp;        this.immutableElemMultiset,
+&nbsp;        this.elemMap,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSortedCollectionWrapper} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSortedCollectionWrapper
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSortedCollectionWrapper) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSortedCollectionWrapper another) {
+&nbsp;    return elemSet.equals(another.elemSet)
+&nbsp;        &amp;&amp; immutableElemSet.equals(another.immutableElemSet)
+&nbsp;        &amp;&amp; elemMultiset.equals(another.elemMultiset)
+&nbsp;        &amp;&amp; immutableElemMultiset.equals(another.immutableElemMultiset)
+&nbsp;        &amp;&amp; elemMap.equals(another.elemMap)
+&nbsp;        &amp;&amp; immutableElemMap.equals(another.immutableElemMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code elemSet}, {@code immutableElemSet}, {@code elemMultiset}, {@code immutableElemMultiset}, {@code elemMap}, {@code immutableElemMap}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + elemSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableElemSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + elemMultiset.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableElemMultiset.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + elemMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableElemMap.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SortedCollectionWrapper} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SortedCollectionWrapper&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;elemSet&quot;, elemSet)
+&nbsp;        .add(&quot;immutableElemSet&quot;, immutableElemSet)
+&nbsp;        .add(&quot;elemMultiset&quot;, elemMultiset)
+&nbsp;        .add(&quot;immutableElemMultiset&quot;, immutableElemMultiset)
+&nbsp;        .add(&quot;elemMap&quot;, elemMap)
+&nbsp;        .add(&quot;immutableElemMap&quot;, immutableElemMap)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SortedCollectionWrapper} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SortedCollectionWrapper instance
+&nbsp;   */
+&nbsp;  public static ImmutableSortedCollectionWrapper copyOf(SortedCollectionWrapper instance) {
+&nbsp;    if (instance instanceof ImmutableSortedCollectionWrapper) {
+&nbsp;      return (ImmutableSortedCollectionWrapper) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSortedCollectionWrapper.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSortedCollectionWrapper ImmutableSortedCollectionWrapper}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSortedCollectionWrapper.builder()
+&nbsp;   *    .addElemSet|addAllElemSet(org.immutables.fixture.ordered.SortedCollectionWrapper.Elem) // {@link SortedCollectionWrapper#getElemSet() elemSet} elements
+&nbsp;   *    .addImmutableElemSet|addAllImmutableElemSet(ImmutableElem) // {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet} elements
+&nbsp;   *    .addElemMultiset|addAllElemMultiset(org.immutables.fixture.ordered.SortedCollectionWrapper.Elem) // {@link SortedCollectionWrapper#getElemMultiset() elemMultiset} elements
+&nbsp;   *    .addImmutableElemMultiset|addAllImmutableElemMultiset(ImmutableElem) // {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset} elements
+&nbsp;   *    .putElemMap|putAllElemMap(org.immutables.fixture.ordered.SortedCollectionWrapper.Elem =&amp;gt; Void) // {@link SortedCollectionWrapper#getElemMap() elemMap} mappings
+&nbsp;   *    .putImmutableElemMap|putAllImmutableElemMap(ImmutableElem =&amp;gt; Void) // {@link SortedCollectionWrapper#getImmutableElemMap() immutableElemMap} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSortedCollectionWrapper builder
+&nbsp;   */
+&nbsp;  public static ImmutableSortedCollectionWrapper.Builder builder() {
+&nbsp;    return new ImmutableSortedCollectionWrapper.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSortedCollectionWrapper ImmutableSortedCollectionWrapper}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SortedCollectionWrapper&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableSortedSet.Builder&lt;SortedCollectionWrapper.Elem&gt; elemSet = ImmutableSortedSet.naturalOrder();
+&nbsp;    private ImmutableSortedSet.Builder&lt;ImmutableElem&gt; immutableElemSet = ImmutableSortedSet.naturalOrder();
+&nbsp;    private ImmutableSortedMultiset.Builder&lt;SortedCollectionWrapper.Elem&gt; elemMultiset = ImmutableSortedMultiset.reverseOrder();
+&nbsp;    private ImmutableSortedMultiset.Builder&lt;ImmutableElem&gt; immutableElemMultiset = ImmutableSortedMultiset.reverseOrder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;SortedCollectionWrapper.Elem, Void&gt; elemMap = ImmutableSortedMap.naturalOrder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;ImmutableElem, Void&gt; immutableElemMap = ImmutableSortedMap.naturalOrder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SortedCollectionWrapper} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SortedCollectionWrapper instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllElemSet(instance.getElemSet());
+&nbsp;      addAllImmutableElemSet(instance.getImmutableElemSet());
+&nbsp;      addAllElemMultiset(instance.getElemMultiset());
+&nbsp;      addAllImmutableElemMultiset(instance.getImmutableElemMultiset());
+&nbsp;      putAllElemMap(instance.getElemMap());
+&nbsp;      putAllImmutableElemMap(instance.getImmutableElemMap());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SortedCollectionWrapper#getElemSet() elemSet} sortedSet.
+&nbsp;     * @param element A elemSet element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addElemSet(SortedCollectionWrapper.Elem element) {
+&nbsp;      this.elemSet.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getElemSet() elemSet} sortedSet.
+&nbsp;     * @param elements An array of elemSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addElemSet(SortedCollectionWrapper.Elem... elements) {
+&nbsp;      this.elemSet.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SortedCollectionWrapper#getElemSet() elemSet} sortedSet.
+&nbsp;     * @param elements An iterable of elemSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder elemSet(Iterable&lt;? extends SortedCollectionWrapper.Elem&gt; elements) {
+&nbsp;      this.elemSet = ImmutableSortedSet.naturalOrder();
+&nbsp;      return addAllElemSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getElemSet() elemSet} sortedSet.
+&nbsp;     * @param elements An iterable of elemSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllElemSet(Iterable&lt;? extends SortedCollectionWrapper.Elem&gt; elements) {
+&nbsp;      this.elemSet.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet} sortedSet.
+&nbsp;     * @param element A immutableElemSet element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addImmutableElemSet(ImmutableElem element) {
+&nbsp;      this.immutableElemSet.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet} sortedSet.
+&nbsp;     * @param elements An array of immutableElemSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addImmutableElemSet(ImmutableElem... elements) {
+&nbsp;      this.immutableElemSet.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet} sortedSet.
+&nbsp;     * @param elements An iterable of immutableElemSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder immutableElemSet(Iterable&lt;? extends ImmutableElem&gt; elements) {
+&nbsp;      this.immutableElemSet = ImmutableSortedSet.naturalOrder();
+&nbsp;      return addAllImmutableElemSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getImmutableElemSet() immutableElemSet} sortedSet.
+&nbsp;     * @param elements An iterable of immutableElemSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllImmutableElemSet(Iterable&lt;? extends ImmutableElem&gt; elements) {
+&nbsp;      this.immutableElemSet.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SortedCollectionWrapper#getElemMultiset() elemMultiset} sortedMultiset.
+&nbsp;     * @param element A elemMultiset element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addElemMultiset(SortedCollectionWrapper.Elem element) {
+&nbsp;      this.elemMultiset.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getElemMultiset() elemMultiset} sortedMultiset.
+&nbsp;     * @param elements An array of elemMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addElemMultiset(SortedCollectionWrapper.Elem... elements) {
+&nbsp;      this.elemMultiset.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SortedCollectionWrapper#getElemMultiset() elemMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of elemMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder elemMultiset(Iterable&lt;? extends SortedCollectionWrapper.Elem&gt; elements) {
+&nbsp;      this.elemMultiset = ImmutableSortedMultiset.reverseOrder();
+&nbsp;      return addAllElemMultiset(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getElemMultiset() elemMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of elemMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllElemMultiset(Iterable&lt;? extends SortedCollectionWrapper.Elem&gt; elements) {
+&nbsp;      this.elemMultiset.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset} sortedMultiset.
+&nbsp;     * @param element A immutableElemMultiset element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addImmutableElemMultiset(ImmutableElem element) {
+&nbsp;      this.immutableElemMultiset.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset} sortedMultiset.
+&nbsp;     * @param elements An array of immutableElemMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addImmutableElemMultiset(ImmutableElem... elements) {
+&nbsp;      this.immutableElemMultiset.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of immutableElemMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder immutableElemMultiset(Iterable&lt;? extends ImmutableElem&gt; elements) {
+&nbsp;      this.immutableElemMultiset = ImmutableSortedMultiset.reverseOrder();
+&nbsp;      return addAllImmutableElemMultiset(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SortedCollectionWrapper#getImmutableElemMultiset() immutableElemMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of immutableElemMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllImmutableElemMultiset(Iterable&lt;? extends ImmutableElem&gt; elements) {
+&nbsp;      this.immutableElemMultiset.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SortedCollectionWrapper#getElemMap() elemMap} map.
+&nbsp;     * @param key The key in the elemMap map
+&nbsp;     * @param value The associated value in the elemMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putElemMap(SortedCollectionWrapper.Elem key, Void value) {
+&nbsp;      this.elemMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SortedCollectionWrapper#getElemMap() elemMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putElemMap(Map.Entry&lt;? extends SortedCollectionWrapper.Elem, ? extends Void&gt; entry) {
+&nbsp;      this.elemMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link SortedCollectionWrapper#getElemMap() elemMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the elemMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder elemMap(Map&lt;? extends SortedCollectionWrapper.Elem, ? extends Void&gt; entries) {
+&nbsp;      this.elemMap = ImmutableSortedMap.naturalOrder();
+&nbsp;      return putAllElemMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link SortedCollectionWrapper#getElemMap() elemMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the elemMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllElemMap(Map&lt;? extends SortedCollectionWrapper.Elem, ? extends Void&gt; entries) {
+&nbsp;      this.elemMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SortedCollectionWrapper#getImmutableElemMap() immutableElemMap} map.
+&nbsp;     * @param key The key in the immutableElemMap map
+&nbsp;     * @param value The associated value in the immutableElemMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putImmutableElemMap(ImmutableElem key, Void value) {
+&nbsp;      this.immutableElemMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SortedCollectionWrapper#getImmutableElemMap() immutableElemMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putImmutableElemMap(Map.Entry&lt;? extends ImmutableElem, ? extends Void&gt; entry) {
+&nbsp;      this.immutableElemMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link SortedCollectionWrapper#getImmutableElemMap() immutableElemMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the immutableElemMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder immutableElemMap(Map&lt;? extends ImmutableElem, ? extends Void&gt; entries) {
+&nbsp;      this.immutableElemMap = ImmutableSortedMap.naturalOrder();
+&nbsp;      return putAllImmutableElemMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link SortedCollectionWrapper#getImmutableElemMap() immutableElemMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the immutableElemMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllImmutableElemMap(Map&lt;? extends ImmutableElem, ? extends Void&gt; entries) {
+&nbsp;      this.immutableElemMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSortedCollectionWrapper ImmutableSortedCollectionWrapper}.
+&nbsp;     * @return An immutable instance of SortedCollectionWrapper
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSortedCollectionWrapper build() {
+&nbsp;      return new ImmutableSortedCollectionWrapper(
+&nbsp;          elemSet.build(),
+&nbsp;          immutableElemSet.build(),
+&nbsp;          elemMultiset.build(),
+&nbsp;          immutableElemMultiset.build(),
+&nbsp;          elemMap.build(),
+&nbsp;          immutableElemMap.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

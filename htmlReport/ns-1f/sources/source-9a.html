@@ -1,0 +1,327 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableEntityWithMap</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableEntityWithMap (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableEntityWithMap$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link EntityWithMap}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableEntityWithMap.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;EntityWithMap&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableEntityWithMap implements EntityWithMap {
+&nbsp;  private final Map&lt;String, String&gt; properties;
+&nbsp;
+&nbsp;  private ImmutableEntityWithMap(Map&lt;String, String&gt; properties) {
+&nbsp;    this.properties = properties;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code properties} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; properties() {
+&nbsp;    return properties;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link EntityWithMap#properties() properties} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the properties map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEntityWithMap withProperties(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.properties == entries) return this;
+&nbsp;    Map&lt;String, String&gt; newValue = createUnmodifiableMap(true, false, entries);
+&nbsp;    return new ImmutableEntityWithMap(newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableEntityWithMap} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableEntityWithMap
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableEntityWithMap) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableEntityWithMap another) {
+&nbsp;    return properties.equals(another.properties);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code properties}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + properties.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code EntityWithMap} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;EntityWithMap{&quot;
+&nbsp;        + &quot;properties=&quot; + properties
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link EntityWithMap} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable EntityWithMap instance
+&nbsp;   */
+&nbsp;  public static ImmutableEntityWithMap copyOf(EntityWithMap instance) {
+&nbsp;    if (instance instanceof ImmutableEntityWithMap) {
+&nbsp;      return (ImmutableEntityWithMap) instance;
+&nbsp;    }
+&nbsp;    return ImmutableEntityWithMap.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableEntityWithMap ImmutableEntityWithMap}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableEntityWithMap.builder()
+&nbsp;   *    .putProperties|putAllProperties(String =&amp;gt; String) // {@link EntityWithMap#properties() properties} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableEntityWithMap builder
+&nbsp;   */
+&nbsp;  public static ImmutableEntityWithMap.Builder builder() {
+&nbsp;    return new ImmutableEntityWithMap.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableEntityWithMap ImmutableEntityWithMap}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;EntityWithMap&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private Map&lt;String, String&gt; properties = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code EntityWithMap} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(EntityWithMap instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      putAllProperties(instance.properties());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link EntityWithMap#properties() properties} map.
+&nbsp;     * @param key The key in the properties map
+&nbsp;     * @param value The associated value in the properties map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putProperties(String key, String value) {
+&nbsp;      this.properties.put(
+&nbsp;          Objects.requireNonNull(key, &quot;properties key&quot;),
+&nbsp;          Objects.requireNonNull(value, value == null ? &quot;properties value for key: &quot; + key : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link EntityWithMap#properties() properties} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putProperties(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      String v = entry.getValue();
+&nbsp;      this.properties.put(
+&nbsp;          Objects.requireNonNull(k, &quot;properties key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;properties value for key: &quot; + k : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link EntityWithMap#properties() properties} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the properties map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder properties(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.properties.clear();
+&nbsp;      return putAllProperties(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link EntityWithMap#properties() properties} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the properties map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllProperties(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        String v = e.getValue();
+&nbsp;        this.properties.put(
+&nbsp;            Objects.requireNonNull(k, &quot;properties key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;properties value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableEntityWithMap ImmutableEntityWithMap}.
+&nbsp;     * @return An immutable instance of EntityWithMap
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableEntityWithMap build() {
+&nbsp;      return new ImmutableEntityWithMap(createUnmodifiableMap(false, false, properties));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,458 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonCodecs</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mongo.bson4gson</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonCodecs (org.immutables.mongo.bson4gson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GsonCodecs</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GsonCodecs$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GsonCodecs$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GsonCodecs$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">GsonCodecs$TypeAdapterCodec</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/59)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mongo.bson4gson;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.gson.Gson;
+&nbsp;import com.google.gson.TypeAdapter;
+&nbsp;import com.google.gson.TypeAdapterFactory;
+&nbsp;import com.google.gson.internal.bind.ReflectiveTypeAdapterFactory;
+&nbsp;import com.google.gson.reflect.TypeToken;
+&nbsp;import com.google.gson.stream.JsonReader;
+&nbsp;import com.google.gson.stream.JsonWriter;
+&nbsp;import com.mongodb.MongoClientSettings;
+&nbsp;import org.bson.AbstractBsonReader;
+&nbsp;import org.bson.codecs.Codec;
+&nbsp;import org.bson.codecs.DecoderContext;
+&nbsp;import org.bson.codecs.EncoderContext;
+&nbsp;import org.bson.codecs.configuration.CodecConfigurationException;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;
+&nbsp;import java.io.IOException;
+&nbsp;
+&nbsp;/**
+&nbsp; * Set of utilities to bridge &lt;a href=&quot;http://bsonspec.org/&quot;&gt;BSON&lt;/a&gt; and
+&nbsp; * &lt;a href=&quot;https://github.com/google/gson&quot;&gt;Gson&lt;/a&gt; standard classes like
+&nbsp; * {@link TypeAdapter} / {@link Codec}(s).
+&nbsp; */
+&nbsp;public final class GsonCodecs {
+&nbsp;
+&nbsp;  private GsonCodecs() {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Build a TypeAdapter from {@link Codec} opposite of {@link #codecFromTypeAdapter(Class, TypeAdapter)}.
+&nbsp;   *
+&nbsp;   * @param codec existing codec
+&nbsp;   * @return type adapter which delegates calls to a codec.
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; TypeAdapter&lt;T&gt; typeAdapterFromCodec(final Codec&lt;T&gt; codec) {
+<b class="nc">&nbsp;    Preconditions.checkNotNull(codec, &quot;codec&quot;);</b>
+<b class="nc">&nbsp;    return new TypeAdapter&lt;T&gt;() {</b>
+&nbsp;      @Override
+&nbsp;      public void write(JsonWriter out, T value) throws IOException {
+<b class="nc">&nbsp;        BsonWriter writer = (BsonWriter) out;</b>
+<b class="nc">&nbsp;        org.bson.BsonWriter delegate = writer.unwrap();</b>
+<b class="nc">&nbsp;        codec.encode(delegate, value, EncoderContext.builder().build());</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public T read(JsonReader in) throws IOException {
+<b class="nc">&nbsp;        BsonReader reader = (BsonReader) in;</b>
+<b class="nc">&nbsp;        org.bson.BsonReader delegate = reader.unwrap();</b>
+<b class="nc">&nbsp;        return codec.decode(delegate, DecoderContext.builder().build());</b>
+&nbsp;      }
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Gson Factory which gives preference to existing adapters from {@code gson} instance. However,
+&nbsp;   * if type is not supported it will query {@link CodecRegistry} to create one (if possible).
+&nbsp;   *
+&nbsp;   * &lt;p&gt;This allows supporting Bson types by Gson natively (eg. for {@link org.bson.types.ObjectId}).
+&nbsp;   *
+&nbsp;   * @param registry existing registry which will be used if type is unknown to {@code gson}.
+&nbsp;   * @return factory which delegates to {@code registry} for unknown types.
+&nbsp;   */
+&nbsp;  public static TypeAdapterFactory delegatingTypeAdapterFactory(final CodecRegistry registry) {
+<b class="nc">&nbsp;    Preconditions.checkNotNull(registry, &quot;registry&quot;);</b>
+<b class="nc">&nbsp;    return new TypeAdapterFactory() {</b>
+&nbsp;      @Override
+&nbsp;      public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;        boolean hasAdapter;
+&nbsp;        try {
+<b class="nc">&nbsp;          TypeAdapter&lt;T&gt; adapter = gson.getDelegateAdapter(this, type);</b>
+<b class="nc">&nbsp;          hasAdapter = !isReflectiveTypeAdapter(adapter);</b>
+<b class="nc">&nbsp;        } catch (IllegalArgumentException e) {</b>
+<b class="nc">&nbsp;          hasAdapter = false;</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        if (hasAdapter) {</b>
+<b class="nc">&nbsp;          return null;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        try {
+&nbsp;          @SuppressWarnings(&quot;unchecked&quot;)
+<b class="nc">&nbsp;          Codec&lt;T&gt; codec = (Codec&lt;T&gt;) registry.get(type.getRawType());</b>
+<b class="nc">&nbsp;          return typeAdapterFromCodec(codec);</b>
+<b class="nc">&nbsp;        } catch (CodecConfigurationException e1) {</b>
+<b class="nc">&nbsp;          return null;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;      }
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Build a codec from {@link TypeAdapter}. Opposite of {@link #typeAdapterFromCodec(Codec)}.
+&nbsp;   *
+&nbsp;   * @param type type handled by this adapter
+&nbsp;   * @param adapter existing adapter
+&nbsp;   * @param &lt;T&gt; codec value type
+&nbsp;   * @throws CodecConfigurationException if adapter is not supported
+&nbsp;   * @return new instance of the codec which handles {@code type}.
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; Codec&lt;T&gt; codecFromTypeAdapter(Class&lt;T&gt; type, TypeAdapter&lt;T&gt; adapter) {
+<b class="nc">&nbsp;    if (isReflectiveTypeAdapter(adapter)) {</b>
+<b class="nc">&nbsp;      throw new CodecConfigurationException(String.format(&quot;%s can&#39;t be build from %s &quot; +</b>
+<b class="nc">&nbsp;                      &quot;(for type %s)&quot;, TypeAdapterCodec.class.getSimpleName(),</b>
+<b class="nc">&nbsp;              adapter.getClass().getName(), type.getName()));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return new TypeAdapterCodec&lt;&gt;(type, adapter);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Given existing {@code Gson} instance builds a {@link CodecRegistry}.
+&nbsp;   *
+&nbsp;   * @param gson preconfigured instance
+&nbsp;   * @return wrapper for {@code gson}.
+&nbsp;   */
+&nbsp;  public static CodecRegistry codecRegistryFromGson(final Gson gson) {
+<b class="nc">&nbsp;    Preconditions.checkNotNull(gson, &quot;gson&quot;);</b>
+<b class="nc">&nbsp;    return new CodecRegistry() {</b>
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public &lt;T&gt; Codec&lt;T&gt; get(Class&lt;T&gt; clazz, CodecRegistry registry) {
+&nbsp;        try {
+<b class="nc">&nbsp;          return get(clazz);</b>
+<b class="nc">&nbsp;        } catch (CodecConfigurationException e) {</b>
+<b class="nc">&nbsp;          return null;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public &lt;T&gt; Codec&lt;T&gt; get(Class&lt;T&gt; clazz) {
+<b class="nc">&nbsp;        return codecFromTypeAdapter(clazz, gson.getAdapter(clazz));</b>
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Appends a TypeAdapterFactory to allow Gson and Bson adapters to co-exist.
+&nbsp;   * Avoids registering the TypeAdapterFactory if Gson already has factories for BSON types.
+&nbsp;   *
+&nbsp;   * @param gson preconfigured instance
+&nbsp;   * @return {@code gson} configured with delegating type adapter factory.
+&nbsp;   */
+&nbsp;  public static Gson newGsonWithBsonSupport(Gson gson) {
+&nbsp;    // Will be used as a factory for BSON types (if Gson does not have one). By default, uses
+&nbsp;    // TypeAdapter(s) from Gson if they&#39;re explicitly defined (not a ReflectiveTypeAdapter).
+&nbsp;    // Otherwise delegate to BSON codec.
+<b class="nc">&nbsp;    TypeAdapterFactory bsonAdapterFactory = delegatingTypeAdapterFactory(</b>
+<b class="nc">&nbsp;        MongoClientSettings.getDefaultCodecRegistry()</b>
+&nbsp;    );
+&nbsp;
+&nbsp;    // Appending new TypeAdapterFactory to allow Gson and Bson adapters to co-exists.
+&nbsp;    // Depending on the type we may need to use one or another. For instance,
+&nbsp;    // Date should be serialized by Gson (even if Bson has codec for it).
+&nbsp;    // But ObjectId / Decimal128 by BSON (if Gson doesn&#39;t have a type adapter for it).
+&nbsp;    // Document or BsonDocument should only be handled by BSON (it&#39;s unlikely that users have direct dependency on them in POJOs).
+&nbsp;    // So newGson is a way to extend existing Gson instance with &quot;BSON TypeAdapter(s)&quot;
+<b class="nc">&nbsp;    return gson.newBuilder()</b>
+<b class="nc">&nbsp;        .registerTypeAdapterFactory(bsonAdapterFactory)</b>
+<b class="nc">&nbsp;        .create();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static &lt;A&gt; boolean isReflectiveTypeAdapter(TypeAdapter&lt;A&gt; adapter) {
+<b class="nc">&nbsp;    Preconditions.checkNotNull(adapter, &quot;adapter&quot;);</b>
+<b class="nc">&nbsp;    return adapter instanceof ReflectiveTypeAdapterFactory.Adapter;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Codec which delegates all calls to existing type adapter.
+&nbsp;   *
+&nbsp;   * @param &lt;T&gt; type handled by this codec
+&nbsp;   */
+<b class="nc">&nbsp;  private static class TypeAdapterCodec&lt;T&gt; implements Codec&lt;T&gt; {</b>
+&nbsp;    private final Class&lt;T&gt; clazz;
+&nbsp;    private final TypeAdapter&lt;T&gt; adapter;
+&nbsp;
+<b class="nc">&nbsp;    private TypeAdapterCodec(Class&lt;T&gt; type, TypeAdapter&lt;T&gt; adapter) {</b>
+<b class="nc">&nbsp;      this.clazz = Preconditions.checkNotNull(type, &quot;type&quot;);</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(!isReflectiveTypeAdapter(adapter),</b>
+&nbsp;              &quot;Type adapter %s for type &#39;%s&#39; is not supported.&quot;
+&nbsp;                      + &quot; This may happen when using default RepositorySetup.forUri and&quot;
+&nbsp;                      + &quot; META-INF/services/..TypeAdapterFactory files are not compiled or accessible.&quot;
+&nbsp;                      + &quot; Alternatively this may happen if creating custom RepositorySetup with Gson instance,&quot;
+<b class="nc">&nbsp;                      + &quot; which does not have type adapters registered.&quot;, adapter.getClass().getName(), type);</b>
+<b class="nc">&nbsp;      this.adapter = adapter;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public T decode(org.bson.BsonReader reader, DecoderContext decoderContext) {
+<b class="nc">&nbsp;      if (!(reader instanceof AbstractBsonReader)) {</b>
+<b class="nc">&nbsp;        throw new UnsupportedOperationException(String.format(&quot;Only readers of type %s supported. Yours is %s&quot;,</b>
+<b class="nc">&nbsp;                AbstractBsonReader.class.getName(), reader.getClass().getName()));</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      try {
+<b class="nc">&nbsp;        return adapter.read(new BsonReader((AbstractBsonReader) reader));</b>
+<b class="nc">&nbsp;      } catch (IOException e) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(String.format(&quot;Couldn&#39;t read %s&quot;, clazz), e);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void encode(org.bson.BsonWriter writer, T value, EncoderContext encoderContext) {
+&nbsp;      try {
+<b class="nc">&nbsp;        adapter.write(new BsonWriter(writer), value);</b>
+<b class="nc">&nbsp;      } catch (IOException e) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(String.format(&quot;Couldn&#39;t write value of class %s: %s&quot;, clazz.getName(), value), e);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;T&gt; getEncoderClass() {
+<b class="nc">&nbsp;      return clazz;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

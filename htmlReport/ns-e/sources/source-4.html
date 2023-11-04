@@ -1,0 +1,286 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GeodeBackend</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: GeodeBackend (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GeodeBackend</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GeodeBackend$1</td>
+  </tr>
+  <tr>
+    <td class="name">GeodeBackend$Session</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/47)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import io.reactivex.BackpressureStrategy;
+&nbsp;import io.reactivex.Flowable;
+&nbsp;import io.reactivex.FlowableEmitter;
+&nbsp;import org.apache.geode.cache.Region;
+&nbsp;import org.apache.geode.cache.query.CqAttributesFactory;
+&nbsp;import org.apache.geode.cache.query.CqQuery;
+&nbsp;import org.apache.geode.cache.query.QueryService;
+&nbsp;import org.immutables.criteria.backend.Backend;
+&nbsp;import org.immutables.criteria.backend.DefaultResult;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.backend.StandardOperations;
+&nbsp;import org.immutables.criteria.backend.WatchEvent;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.logging.Logger;
+&nbsp;
+&nbsp;/**
+&nbsp; * Backend for &lt;a href=&quot;https://geode.apache.org/&quot;&gt;Apache Geode&lt;/a&gt;
+&nbsp; */
+<b class="nc">&nbsp;public class GeodeBackend implements Backend {</b>
+&nbsp;
+<b class="nc">&nbsp;  static final Logger logger = Logger.getLogger(GeodeBackend.class.getName());</b>
+&nbsp;
+&nbsp;  private final GeodeSetup setup;
+&nbsp;  private final PathNaming pathNaming;
+&nbsp;
+<b class="nc">&nbsp;  public GeodeBackend(GeodeSetup setup) {</b>
+<b class="nc">&nbsp;    this.setup = Objects.requireNonNull(setup, &quot;setup&quot;);</b>
+<b class="nc">&nbsp;    this.pathNaming = ReservedWordNaming.of(PathNaming.defaultNaming());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Backend.Session open(Class&lt;?&gt; entityType) {
+<b class="nc">&nbsp;    Objects.requireNonNull(entityType, &quot;context&quot;);</b>
+<b class="nc">&nbsp;    return new Session(entityType, this);</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  static class Session implements Backend.Session {</b>
+&nbsp;
+&nbsp;    final Class&lt;?&gt; entityType;
+&nbsp;    final Region&lt;Object, Object&gt; region;
+&nbsp;    final KeyExtractor keyExtractor;
+&nbsp;    final QueryService queryService;
+&nbsp;    final PathNaming pathNaming;
+&nbsp;    final KeyLookupAnalyzer keyLookupAnalyzer;
+&nbsp;
+<b class="nc">&nbsp;    private Session(Class&lt;?&gt; entityType, GeodeBackend backend) {</b>
+<b class="nc">&nbsp;      this.entityType = Objects.requireNonNull(entityType, &quot;entityType&quot;);</b>
+<b class="nc">&nbsp;      GeodeSetup setup = backend.setup;</b>
+&nbsp;      @SuppressWarnings(&quot;unchecked&quot;)
+<b class="nc">&nbsp;      Region&lt;Object, Object&gt; region = (Region&lt;Object, Object&gt;) setup.regionResolver().resolve(entityType);</b>
+<b class="nc">&nbsp;      this.region = region;</b>
+&nbsp;
+<b class="nc">&nbsp;      KeyExtractor keyExtractor = setup.keyExtractorFactory().create(entityType);</b>
+<b class="nc">&nbsp;      if (!keyExtractor.metadata().isKeyDefined()) {</b>
+<b class="nc">&nbsp;        throw new IllegalArgumentException(String.format(&quot;Key on %s is required for %s&quot;, entityType, GeodeBackend.class.getSimpleName()));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.keyExtractor = keyExtractor;</b>
+<b class="nc">&nbsp;      this.queryService = setup.queryServiceResolver().resolve(region);</b>
+<b class="nc">&nbsp;      this.pathNaming = backend.pathNaming;</b>
+<b class="nc">&nbsp;      this.keyLookupAnalyzer = KeyLookupAnalyzer.fromExtractor(keyExtractor);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;?&gt; entityType() {
+<b class="nc">&nbsp;      return entityType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Result execute(Operation operation) {
+<b class="nc">&nbsp;      return DefaultResult.of(Flowable.defer(() -&gt; executeInternal(operation)));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Publisher&lt;?&gt; executeInternal(Operation operation) {
+<b class="nc">&nbsp;      if (operation instanceof StandardOperations.Select) {</b>
+<b class="nc">&nbsp;        return Flowable.fromCallable(new SyncSelect(this, (StandardOperations.Select) operation)).flatMapIterable(x -&gt; x);</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.Update) {</b>
+<b class="nc">&nbsp;        return Flowable.fromCallable(new SyncUpdate(this, (StandardOperations.Update) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.Insert) {</b>
+<b class="nc">&nbsp;        return Flowable.fromCallable(new SyncInsert(this, (StandardOperations.Insert) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.Delete) {</b>
+<b class="nc">&nbsp;        return Flowable.fromCallable(new SyncDelete(this, (StandardOperations.Delete) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.Watch) {</b>
+<b class="nc">&nbsp;        return watch((StandardOperations.Watch) operation);</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.DeleteByKey) {</b>
+<b class="nc">&nbsp;        return Flowable.fromCallable(new SyncDeleteByKey(this, (StandardOperations.DeleteByKey) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.GetByKey) {</b>
+<b class="nc">&nbsp;        return Flowable.fromCallable(new SyncGetByKey(this, (StandardOperations.GetByKey) operation)).flatMapIterable(x -&gt; x);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return Flowable.error(new UnsupportedOperationException(String.format(&quot;Operation %s not supported by %s&quot;,</b>
+<b class="nc">&nbsp;              operation, GeodeBackend.class.getSimpleName())));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private &lt;T&gt; Publisher&lt;WatchEvent&lt;T&gt;&gt; watch(StandardOperations.Watch operation) {
+<b class="nc">&nbsp;      return Flowable.create(e -&gt; {</b>
+<b class="nc">&nbsp;        final FlowableEmitter&lt;WatchEvent&lt;T&gt;&gt; emitter = e.serialize();</b>
+<b class="nc">&nbsp;        final String oql = oqlGenerator().withoutBindVariables().generate(operation.query()).oql();</b>
+<b class="nc">&nbsp;        final CqAttributesFactory factory = new CqAttributesFactory();</b>
+<b class="nc">&nbsp;        factory.addCqListener(new GeodeEventListener&lt;&gt;(oql, emitter));</b>
+<b class="nc">&nbsp;        final CqQuery cqQuery = queryService.newCq(oql, factory.create());</b>
+<b class="nc">&nbsp;        emitter.setDisposable(new CqDisposable(cqQuery));</b>
+<b class="nc">&nbsp;        cqQuery.execute();</b>
+&nbsp;      }, BackpressureStrategy.ERROR);
+&nbsp;    }
+&nbsp;
+&nbsp;    OqlGenerator oqlGenerator() {
+<b class="nc">&nbsp;      return OqlGenerator.of(region.getFullPath(), pathNaming);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

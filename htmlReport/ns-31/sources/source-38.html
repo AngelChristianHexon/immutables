@@ -1,0 +1,630 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableExtra</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableExtra (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableExtra</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ArrayListMultimap;
+&nbsp;import com.google.common.collect.BiMap;
+&nbsp;import com.google.common.collect.HashBiMap;
+&nbsp;import com.google.common.collect.HashMultimap;
+&nbsp;import com.google.common.collect.HashMultiset;
+&nbsp;import com.google.common.collect.ListMultimap;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.common.collect.Multiset;
+&nbsp;import com.google.common.collect.SetMultimap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Companion.Extra Extra} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableExtra is not thread-safe&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion.Extra&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Companion.Extra&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableExtra implements Companion.Extra {
+&nbsp;  private final HashMultiset&lt;String&gt; bag = HashMultiset.create();
+&nbsp;  private final ArrayListMultimap&lt;Integer, String&gt; index = ArrayListMultimap.create();
+&nbsp;  private final ArrayListMultimap&lt;Integer, String&gt; indexList = ArrayListMultimap.create();
+&nbsp;  private final HashMultimap&lt;Integer, String&gt; indexSet = HashMultimap.create();
+&nbsp;  private final HashBiMap&lt;Integer, String&gt; biMap = HashBiMap.create();
+&nbsp;
+&nbsp;  private ModifiableExtra() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Extra}.
+&nbsp;   * @param bag The value for the {@code bag} attribute 
+&nbsp;   * @param index The value for the {@code index} attribute 
+&nbsp;   * @param indexList The value for the {@code indexList} attribute 
+&nbsp;   * @param indexSet The value for the {@code indexSet} attribute 
+&nbsp;   * @param biMap The value for the {@code biMap} attribute 
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableExtra create(Iterable&lt;String&gt; bag,
+&nbsp;    Multimap&lt;Integer, ? extends String&gt; index,
+&nbsp;    Multimap&lt;Integer, ? extends String&gt; indexList,
+&nbsp;    Multimap&lt;Integer, ? extends String&gt; indexSet,
+&nbsp;    Map&lt;Integer, ? extends String&gt; biMap) {
+&nbsp;    return new ModifiableExtra()
+&nbsp;        .addAllBag(bag)
+&nbsp;        .putAllIndex(index)
+&nbsp;        .putAllIndexList(indexList)
+&nbsp;        .putAllIndexSet(indexSet)
+&nbsp;        .putAllBiMap(biMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Extra}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableExtra create() {
+&nbsp;    return new ModifiableExtra();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable multiset {@code bag}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Multiset&lt;String&gt; bag() {
+&nbsp;    return bag;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code index} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Multimap&lt;Integer, String&gt; index() {
+&nbsp;    return index;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code indexList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final ListMultimap&lt;Integer, String&gt; indexList() {
+&nbsp;    return indexList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code indexSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final SetMultimap&lt;Integer, String&gt; indexSet() {
+&nbsp;    return indexSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code biMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final BiMap&lt;Integer, String&gt; biMap() {
+&nbsp;    return biMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra clear() {
+&nbsp;    bag.clear();
+&nbsp;    index.clear();
+&nbsp;    indexList.clear();
+&nbsp;    indexSet.clear();
+&nbsp;    biMap.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.Extra} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableExtra from(Companion.Extra instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableExtra) {
+&nbsp;      from((ModifiableExtra) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    addAllBag(instance.bag());
+&nbsp;    putAllIndex(instance.index());
+&nbsp;    putAllIndexList(instance.indexList());
+&nbsp;    putAllIndexSet(instance.indexSet());
+&nbsp;    putAllBiMap(instance.biMap());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.Extra} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableExtra from(ModifiableExtra instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    addAllBag(instance.bag());
+&nbsp;    putAllIndex(instance.index());
+&nbsp;    putAllIndexList(instance.indexList());
+&nbsp;    putAllIndexSet(instance.indexSet());
+&nbsp;    putAllBiMap(instance.biMap());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@code bag} multiset.
+&nbsp;   * @param element The bag element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra addBag(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;bag element&quot;);
+&nbsp;    this.bag.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@code bag} multiset.
+&nbsp;   * @param elements An array of bag elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableExtra addBag(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addBag(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@code bag} multiset.
+&nbsp;   * @param elements An iterable of bag elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra setBag(Iterable&lt;String&gt; elements) {
+&nbsp;    this.bag.clear();
+&nbsp;    addAllBag(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@code bag} multiset.
+&nbsp;   * @param elements An iterable of bag elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra addAllBag(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addBag(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@code index} true. Nulls are not permitted
+&nbsp;   * @param key The key for index
+&nbsp;   * @param values The values for index
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableExtra putIndex(int key, String... values) {
+&nbsp;    putAllIndex(key, Arrays.asList(values));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@code index} true. Nulls are not permitted
+&nbsp;   * @param key The key for index
+&nbsp;   * @param values The values for index
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllIndex(int key, Iterable&lt;String&gt; values) {
+&nbsp;    for (String v : values) {
+&nbsp;      this.index.put(
+&nbsp;          Objects.requireNonNull(key, &quot;index key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;index value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@code index} map.
+&nbsp;   * @param key The key in index map
+&nbsp;   * @param value The associated value in the index map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putIndex(int key, String value) {
+&nbsp;    this.index.put(
+&nbsp;        key,
+&nbsp;        Objects.requireNonNull(value, &quot;index value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@code index} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the index map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra setIndex(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    this.index.clear();
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entries()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.index.put(
+&nbsp;          Objects.requireNonNull(k, &quot;index key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;index value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@code index} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to index map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllIndex(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entries()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.index.put(
+&nbsp;          Objects.requireNonNull(k, &quot;index key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;index value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@code indexList} true. Nulls are not permitted
+&nbsp;   * @param key The key for indexList
+&nbsp;   * @param values The values for indexList
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableExtra putIndexList(int key, String... values) {
+&nbsp;    putAllIndexList(key, Arrays.asList(values));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@code indexList} true. Nulls are not permitted
+&nbsp;   * @param key The key for indexList
+&nbsp;   * @param values The values for indexList
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllIndexList(int key, Iterable&lt;String&gt; values) {
+&nbsp;    for (String v : values) {
+&nbsp;      this.indexList.put(
+&nbsp;          Objects.requireNonNull(key, &quot;indexList key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;indexList value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@code indexList} map.
+&nbsp;   * @param key The key in indexList map
+&nbsp;   * @param value The associated value in the indexList map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putIndexList(int key, String value) {
+&nbsp;    this.indexList.put(
+&nbsp;        key,
+&nbsp;        Objects.requireNonNull(value, &quot;indexList value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@code indexList} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the indexList map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra setIndexList(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    this.indexList.clear();
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entries()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.indexList.put(
+&nbsp;          Objects.requireNonNull(k, &quot;indexList key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;indexList value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@code indexList} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to indexList map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllIndexList(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entries()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.indexList.put(
+&nbsp;          Objects.requireNonNull(k, &quot;indexList key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;indexList value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@code indexSet} true. Nulls are not permitted
+&nbsp;   * @param key The key for indexSet
+&nbsp;   * @param values The values for indexSet
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableExtra putIndexSet(int key, String... values) {
+&nbsp;    putAllIndexSet(key, Arrays.asList(values));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified key to values for {@code indexSet} true. Nulls are not permitted
+&nbsp;   * @param key The key for indexSet
+&nbsp;   * @param values The values for indexSet
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllIndexSet(int key, Iterable&lt;String&gt; values) {
+&nbsp;    for (String v : values) {
+&nbsp;      this.indexSet.put(
+&nbsp;          Objects.requireNonNull(key, &quot;indexSet key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;indexSet value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@code indexSet} map.
+&nbsp;   * @param key The key in indexSet map
+&nbsp;   * @param value The associated value in the indexSet map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putIndexSet(int key, String value) {
+&nbsp;    this.indexSet.put(
+&nbsp;        key,
+&nbsp;        Objects.requireNonNull(value, &quot;indexSet value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@code indexSet} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the indexSet map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra setIndexSet(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    this.indexSet.clear();
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entries()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.indexSet.put(
+&nbsp;          Objects.requireNonNull(k, &quot;indexSet key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;indexSet value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@code indexSet} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to indexSet map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllIndexSet(Multimap&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entries()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.indexSet.put(
+&nbsp;          Objects.requireNonNull(k, &quot;indexSet key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;indexSet value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@code biMap} map.
+&nbsp;   * @param key The key in biMap map
+&nbsp;   * @param value The associated value in the biMap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putBiMap(int key, String value) {
+&nbsp;    this.biMap.put(
+&nbsp;        key,
+&nbsp;        Objects.requireNonNull(value, &quot;biMap value&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@code biMap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the biMap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra setBiMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    this.biMap.clear();
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.biMap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;biMap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;biMap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@code biMap} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to biMap map
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableExtra putAllBiMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;Integer, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      Integer k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.biMap.put(
+&nbsp;          Objects.requireNonNull(k, &quot;biMap key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;biMap value&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableExtra} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableExtra)) return false;
+&nbsp;    ModifiableExtra other = (ModifiableExtra) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableExtra another) {
+&nbsp;    return bag.equals(another.bag)
+&nbsp;        &amp;&amp; index.equals(another.index)
+&nbsp;        &amp;&amp; indexList.equals(another.indexList)
+&nbsp;        &amp;&amp; indexSet.equals(another.indexSet)
+&nbsp;        &amp;&amp; biMap.equals(another.biMap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code bag}, {@code index}, {@code indexList}, {@code indexSet}, {@code biMap}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + bag.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + index.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + indexList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + indexSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + biMap.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Extra}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableExtra&quot;)
+&nbsp;        .add(&quot;bag&quot;, bag())
+&nbsp;        .add(&quot;index&quot;, index())
+&nbsp;        .add(&quot;indexList&quot;, indexList())
+&nbsp;        .add(&quot;indexSet&quot;, indexSet())
+&nbsp;        .add(&quot;biMap&quot;, biMap())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

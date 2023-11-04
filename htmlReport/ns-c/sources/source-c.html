@@ -1,0 +1,342 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Mapping</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: Mapping (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Mapping</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Mapping$1</td>
+  </tr>
+  <tr>
+    <td class="name">Mapping$Datatype</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/38)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/34)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; * Copyright 2016-2018 Apache Software Foundation (ASF)
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.JsonNode;
+&nbsp;import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import java.time.LocalDate;
+&nbsp;import java.time.ZoneOffset;
+&nbsp;import java.util.Locale;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import java.util.stream.Stream;
+&nbsp;
+&nbsp;/**
+&nbsp; * Stores Elasticsearch
+&nbsp; * &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html&quot;&gt;
+&nbsp; * mapping&lt;/a&gt; information for particular index. This information is
+&nbsp; * extracted from {@code /$index/_mapping} endpoint.
+&nbsp; *
+&nbsp; * &lt;p&gt;Instances of this class are immutable.
+&nbsp; *
+&nbsp; * &lt;p&gt;Some parts of this class have been copied from &lt;a href=&quot;https://calcite.apache.org/&quot;&gt;Apache Calcite&lt;/a&gt; project.
+&nbsp; */
+&nbsp;class Mapping {
+&nbsp;
+&nbsp;  private final Map&lt;String, Datatype&gt; mapping;
+&nbsp;
+<b class="nc">&nbsp;  private Mapping(final Map&lt;String, String&gt; mapping) {</b>
+<b class="nc">&nbsp;    Objects.requireNonNull(mapping, &quot;mapping&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    final Map&lt;String, Datatype&gt; transformed = mapping.entrySet().stream()</b>
+<b class="nc">&nbsp;            .collect(Collectors.toMap(Map.Entry::getKey, e -&gt; new Datatype(e.getValue())));</b>
+<b class="nc">&nbsp;    this.mapping = ImmutableMap.copyOf(transformed);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Create mapping from existing elastic mapping
+&nbsp;   */
+&nbsp;  static Mapping ofElastic(final Map&lt;String, String&gt; mapping) {
+<b class="nc">&nbsp;    return new Mapping(mapping);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns ES schema for each field. Mapping is represented as field name
+&nbsp;   * {@code foo.bar.qux} and type ({@code keyword}, {@code boolean},
+&nbsp;   * {@code long}).
+&nbsp;   *
+&nbsp;   * @return immutable mapping between field and ES type
+&nbsp;   *
+&nbsp;   * @see &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html&quot;&gt;Mapping Types&lt;/a&gt;
+&nbsp;   */
+&nbsp;  Map&lt;String, Datatype&gt; fields() {
+<b class="nc">&nbsp;    return this.mapping;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used as special aggregation key for missing values (documents that are
+&nbsp;   * missing a field).
+&nbsp;   *
+&nbsp;   * &lt;p&gt;Buckets with that value are then converted to {@code null}s in flat
+&nbsp;   * tabular format.
+&nbsp;   *
+&nbsp;   * @see &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-sum-aggregation.html&quot;&gt;Missing Value&lt;/a&gt;
+&nbsp;   */
+&nbsp;  Optional&lt;JsonNode&gt; missingValueFor(String fieldName) {
+<b class="nc">&nbsp;    if (!fields().containsKey(fieldName)) {</b>
+<b class="nc">&nbsp;      final String message = String.format(Locale.ROOT,</b>
+&nbsp;              &quot;Field %s not defined&quot;, fieldName);
+<b class="nc">&nbsp;      throw new IllegalArgumentException(message);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return fields().get(fieldName).missingValue();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Represents elastic data-type, like {@code long}, {@code keyword},
+&nbsp;   * {@code date} etc.
+&nbsp;   *
+&nbsp;   * @see &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html&quot;&gt;Mapping Types&lt;/a&gt;
+&nbsp;   */
+<b class="nc">&nbsp;  static class Datatype {</b>
+<b class="nc">&nbsp;    private static final JsonNodeFactory FACTORY = JsonNodeFactory.instance;</b>
+&nbsp;
+&nbsp;    // pre-cache missing values
+<b class="nc">&nbsp;    private static final Set&lt;JsonNode&gt; MISSING_VALUES =</b>
+<b class="nc">&nbsp;            Stream.of(&quot;string&quot;, // for ES2</b>
+&nbsp;                    &quot;text&quot;, &quot;keyword&quot;,
+&nbsp;                    &quot;date&quot;, &quot;long&quot;, &quot;integer&quot;, &quot;double&quot;, &quot;float&quot;)
+<b class="nc">&nbsp;                    .map(Datatype::missingValueForType)</b>
+<b class="nc">&nbsp;                    .collect(Collectors.toSet());</b>
+&nbsp;
+&nbsp;    private final String name;
+&nbsp;    private final JsonNode missingValue;
+&nbsp;
+<b class="nc">&nbsp;    private Datatype(final String name) {</b>
+<b class="nc">&nbsp;      this.name = Objects.requireNonNull(name, &quot;name&quot;);</b>
+<b class="nc">&nbsp;      this.missingValue = missingValueForType(name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Mapping between ES type and json value that represents
+&nbsp;     * {@code missing value} during aggregations. This value can&#39;t be
+&nbsp;     * {@code null} and should match type or the field (for ES long type it
+&nbsp;     * also has to be json integer, for date it has to match date format or be
+&nbsp;     * integer (millis epoch) etc.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;It is used for terms aggregations to represent SQL {@code null}.
+&nbsp;     *
+&nbsp;     * @param name name of the type ({@code long}, {@code keyword} ...)
+&nbsp;     *
+&nbsp;     * @return json that will be used in elastic search terms aggregation for
+&nbsp;     * missing value
+&nbsp;     *
+&nbsp;     * @see &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html#_missing_value_13&quot;&gt;Missing Value&lt;/a&gt;
+&nbsp;     */
+&nbsp;    private static @Nullable JsonNode missingValueForType(String name) {
+<b class="nc">&nbsp;      switch (name) {</b>
+&nbsp;        case &quot;string&quot;: // for ES2
+&nbsp;        case &quot;text&quot;:
+&nbsp;        case &quot;keyword&quot;:
+<b class="nc">&nbsp;          return FACTORY.textNode(&quot;__MISSING__&quot;);</b>
+&nbsp;        case &quot;long&quot;:
+<b class="nc">&nbsp;          return FACTORY.numberNode(Long.MIN_VALUE);</b>
+&nbsp;        case &quot;integer&quot;:
+<b class="nc">&nbsp;          return FACTORY.numberNode(Integer.MIN_VALUE);</b>
+&nbsp;        case &quot;short&quot;:
+<b class="nc">&nbsp;          return FACTORY.numberNode(Short.MIN_VALUE);</b>
+&nbsp;        case &quot;double&quot;:
+<b class="nc">&nbsp;          return FACTORY.numberNode(Double.MIN_VALUE);</b>
+&nbsp;        case &quot;float&quot;:
+<b class="nc">&nbsp;          return FACTORY.numberNode(Float.MIN_VALUE);</b>
+&nbsp;        case &quot;date&quot;:
+&nbsp;          // sentinel for missing dates: 9999-12-31
+<b class="nc">&nbsp;          final long millisEpoch = LocalDate.of(9999, 12, 31)</b>
+<b class="nc">&nbsp;                  .atStartOfDay().toInstant(ZoneOffset.UTC).toEpochMilli();</b>
+&nbsp;          // by default elastic returns dates as longs
+<b class="nc">&nbsp;          return FACTORY.numberNode(millisEpoch);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      // this is unknown type
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Name of the type: {@code text}, {@code integer}, {@code float} etc.
+&nbsp;     */
+&nbsp;    String name() {
+<b class="nc">&nbsp;      return this.name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Optional&lt;JsonNode&gt; missingValue() {
+<b class="nc">&nbsp;      return Optional.ofNullable(missingValue);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static boolean isMissingValue(JsonNode node) {
+<b class="nc">&nbsp;      return MISSING_VALUES.contains(node);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

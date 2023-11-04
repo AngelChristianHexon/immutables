@@ -1,0 +1,281 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Processor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Processor (org.immutables.generator.processor)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Processor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/59)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2023 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator.processor;
+&nbsp;
+&nbsp;import com.google.common.base.Throwables;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import com.google.common.io.CharStreams;
+&nbsp;import java.io.IOException;
+&nbsp;import java.io.Reader;
+&nbsp;import java.io.Writer;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.processing.AbstractProcessor;
+&nbsp;import javax.annotation.processing.Filer;
+&nbsp;import javax.annotation.processing.RoundEnvironment;
+&nbsp;import javax.annotation.processing.SupportedSourceVersion;
+&nbsp;import javax.lang.model.SourceVersion;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.PackageElement;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.util.ElementFilter;
+&nbsp;import javax.tools.Diagnostic;
+&nbsp;import javax.tools.FileObject;
+&nbsp;import javax.tools.JavaFileObject;
+&nbsp;import javax.tools.StandardLocation;
+&nbsp;import org.immutables.generator.Generator;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Unit;
+&nbsp;import org.immutables.metainf.Metainf;
+&nbsp;import org.parboiled.Parboiled;
+&nbsp;import org.parboiled.errors.ErrorUtils;
+&nbsp;import org.parboiled.parserunners.ReportingParseRunner;
+&nbsp;import org.parboiled.support.ParsingResult;
+&nbsp;
+&nbsp;@SupportedSourceVersion(SourceVersion.RELEASE_8)
+&nbsp;@Metainf.Service(javax.annotation.processing.Processor.class)
+<b class="nc">&nbsp;public final class Processor extends AbstractProcessor {</b>
+&nbsp;
+<b class="nc">&nbsp;  private final Parser parser = Parboiled.createParser(Parser.class);</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getSupportedAnnotationTypes() {
+<b class="nc">&nbsp;    return ImmutableSet.of(Generator.Template.class.getCanonicalName());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment round) {
+<b class="nc">&nbsp;    if (!round.processingOver() &amp;&amp; !round.errorRaised()) {</b>
+<b class="nc">&nbsp;      processTemplates(round.getElementsAnnotatedWith(Generator.Template.class));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return true;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void processTemplates(Set&lt;? extends Element&gt; templates) {
+<b class="nc">&nbsp;    for (TypeElement templateType : ElementFilter.typesIn(templates)) {</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        generateTemplateType(templateType);</b>
+<b class="nc">&nbsp;      } catch (Exception ex) {</b>
+<b class="nc">&nbsp;        processingEnv.getMessager()</b>
+<b class="nc">&nbsp;            .printMessage(Diagnostic.Kind.ERROR,</b>
+<b class="nc">&nbsp;                ex.getMessage() + &quot;\n\n&quot; + Throwables.getStackTraceAsString(ex),</b>
+&nbsp;                templateType);
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void generateTemplateType(TypeElement templateType) throws IOException, Exception {
+<b class="nc">&nbsp;    SwissArmyKnife knife = new SwissArmyKnife(processingEnv, templateType);</b>
+<b class="nc">&nbsp;    String string = readTemplateResource(templateType, knife);</b>
+&nbsp;
+<b class="nc">&nbsp;    Unit unit = parseUnit(string);</b>
+&nbsp;
+<b class="nc">&nbsp;    Unit resolved = transformUnit(knife, unit);</b>
+&nbsp;
+<b class="nc">&nbsp;    TemplateWriter writingTransformer =</b>
+<b class="nc">&nbsp;        new TemplateWriter(knife, templateType, GeneratedTypes.getSimpleName(templateType));</b>
+&nbsp;
+<b class="nc">&nbsp;    CharSequence template = writingTransformer.toCharSequence(resolved);</b>
+<b class="nc">&nbsp;    JavaFileObject implementationFile =</b>
+<b class="nc">&nbsp;        knife.environment.getFiler().createSourceFile(</b>
+<b class="nc">&nbsp;            GeneratedTypes.getQualifiedName(knife.elements, templateType),</b>
+&nbsp;            templateType);
+&nbsp;
+<b class="nc">&nbsp;    try (Writer writer = implementationFile.openWriter()) {</b>
+<b class="nc">&nbsp;      writer.append(template);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String readTemplateResource(TypeElement templateType, SwissArmyKnife knife) throws IOException {
+<b class="nc">&nbsp;    PackageElement packageElement = knife.elements.getPackageOf(templateType);</b>
+&nbsp;
+<b class="nc">&nbsp;    return getTemplateText(</b>
+<b class="nc">&nbsp;        knife.environment.getFiler(),</b>
+&nbsp;        templateType,
+&nbsp;        packageElement);
+&nbsp;  }
+&nbsp;
+&nbsp;  private String readCharContent(FileObject resource) throws IOException {
+<b class="nc">&nbsp;    try (Reader r = resource.openReader(true)) {</b>
+<b class="nc">&nbsp;      return CharStreams.toString(r);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getTemplateText(
+&nbsp;      Filer filer,
+&nbsp;      TypeElement templateType,
+&nbsp;      PackageElement packageElement) throws IOException {
+<b class="nc">&nbsp;    CharSequence relativeName = templateType.getSimpleName() + &quot;.generator&quot;;</b>
+<b class="nc">&nbsp;    CharSequence packageName = packageElement.getQualifiedName();</b>
+<b class="nc">&nbsp;    List&lt;Exception&gt; suppressed = Lists.newArrayList();</b>
+&nbsp;    try {
+<b class="nc">&nbsp;      return readCharContent(filer.getResource(StandardLocation.SOURCE_PATH, packageName, relativeName));</b>
+<b class="nc">&nbsp;    } catch (Exception cannotGetFromSourcePath) {</b>
+<b class="nc">&nbsp;      suppressed.add(cannotGetFromSourcePath);</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        return readCharContent(filer.getResource(StandardLocation.CLASS_OUTPUT, packageName, relativeName));</b>
+<b class="nc">&nbsp;      } catch (Exception cannotGetFromOutputPath) {</b>
+<b class="nc">&nbsp;        suppressed.add(cannotGetFromOutputPath);</b>
+&nbsp;        try {
+<b class="nc">&nbsp;          return readCharContent(filer.getResource(StandardLocation.CLASS_PATH,</b>
+&nbsp;              &quot;&quot;,
+<b class="nc">&nbsp;              packageName.toString().replace(&#39;.&#39;, &#39;/&#39;) + &#39;/&#39; + relativeName));</b>
+<b class="nc">&nbsp;        } catch (IOException cannotGetFromClasspath) {</b>
+<b class="nc">&nbsp;          for (Exception e : suppressed) {</b>
+<b class="nc">&nbsp;            cannotGetFromClasspath.addSuppressed(e);</b>
+<b class="nc">&nbsp;          }</b>
+<b class="nc">&nbsp;          throw cannotGetFromClasspath;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private Unit parseUnit(String templateText) throws Exception {
+<b class="nc">&nbsp;    ParsingResult&lt;Object&gt; result = new ReportingParseRunner&lt;&gt;(parser.Unit()).run(templateText);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (result.hasErrors()) {</b>
+<b class="nc">&nbsp;      String errors = ErrorUtils.printParseErrors(result.parseErrors);</b>
+<b class="nc">&nbsp;      throw new Exception(errors);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return (Unit) Iterables.getOnlyElement(result.valueStack);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Unit transformUnit(SwissArmyKnife knife, Unit unit) {
+<b class="nc">&nbsp;    Unit trimmed = Spacing.normalize(unit);</b>
+<b class="nc">&nbsp;    Unit balanced = Balancing.balance(trimmed);</b>
+<b class="nc">&nbsp;    Unit optimized = Inliner.optimize(balanced);</b>
+<b class="nc">&nbsp;    Unit resolved = new TypeResolver(knife).resolve(optimized);</b>
+<b class="nc">&nbsp;    return resolved;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

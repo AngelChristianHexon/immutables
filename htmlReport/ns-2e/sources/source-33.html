@@ -1,0 +1,487 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOptionIncludeNonEmpty</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOptionIncludeNonEmpty (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOptionIncludeNonEmpty$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableOptionIncludeNonEmpty$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonInclude;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OptionIncludeNonEmpty}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOptionIncludeNonEmpty.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OptionIncludeNonEmpty&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableOptionIncludeNonEmpty extends OptionIncludeNonEmpty {
+&nbsp;  private final @Nullable Integer integer;
+&nbsp;  private final Optional&lt;String&gt; relationships;
+&nbsp;  private final ImmutableMap&lt;String, Number&gt; map;
+&nbsp;
+&nbsp;  private ImmutableOptionIncludeNonEmpty(
+&nbsp;      @Nullable Integer integer,
+&nbsp;      Optional&lt;String&gt; relationships,
+&nbsp;      ImmutableMap&lt;String, Number&gt; map) {
+&nbsp;    this.integer = integer;
+&nbsp;    this.relationships = relationships;
+&nbsp;    this.map = map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code integer} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;integer&quot;)
+&nbsp;  @JsonInclude(JsonInclude.Include.NON_NULL)
+&nbsp;  @Override
+&nbsp;  public @Nullable Integer getInteger() {
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code relationships} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;relationships&quot;)
+&nbsp;  @JsonInclude(JsonInclude.Include.NON_EMPTY)
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; getRelationships() {
+&nbsp;    return relationships;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;map&quot;)
+&nbsp;  @JsonInclude(JsonInclude.Include.NON_EMPTY)
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Number&gt; getMap() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OptionIncludeNonEmpty#getInteger() integer} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for integer (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionIncludeNonEmpty withInteger(@Nullable Integer value) {
+&nbsp;    if (Objects.equals(this.integer, value)) return this;
+&nbsp;    return new ImmutableOptionIncludeNonEmpty(value, this.relationships, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionIncludeNonEmpty#getRelationships() relationships} attribute.
+&nbsp;   * @param value The value for relationships
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionIncludeNonEmpty withRelationships(String value) {
+&nbsp;    Optional&lt;String&gt; newValue = Optional.of(value);
+&nbsp;    if (this.relationships.equals(newValue)) return this;
+&nbsp;    return new ImmutableOptionIncludeNonEmpty(this.integer, newValue, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionIncludeNonEmpty#getRelationships() relationships} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for relationships
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionIncludeNonEmpty withRelationships(Optional&lt;String&gt; optional) {
+&nbsp;    Optional&lt;String&gt; value = optional;
+&nbsp;    if (this.relationships.equals(value)) return this;
+&nbsp;    return new ImmutableOptionIncludeNonEmpty(this.integer, value, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link OptionIncludeNonEmpty#getMap() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionIncludeNonEmpty withMap(Map&lt;String, ? extends Number&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    ImmutableMap&lt;String, Number&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableOptionIncludeNonEmpty(this.integer, this.relationships, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOptionIncludeNonEmpty} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOptionIncludeNonEmpty
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOptionIncludeNonEmpty) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOptionIncludeNonEmpty another) {
+&nbsp;    return Objects.equals(integer, another.integer)
+&nbsp;        &amp;&amp; relationships.equals(another.relationships)
+&nbsp;        &amp;&amp; map.equals(another.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code relationships}, {@code map}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(integer);
+&nbsp;    h += (h &lt;&lt; 5) + relationships.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OptionIncludeNonEmpty} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OptionIncludeNonEmpty&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;integer&quot;, integer)
+&nbsp;        .add(&quot;relationships&quot;, relationships.orNull())
+&nbsp;        .add(&quot;map&quot;, map)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OptionIncludeNonEmpty&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json extends OptionIncludeNonEmpty {
+&nbsp;    @Nullable Integer integer;
+&nbsp;    @Nullable Optional&lt;String&gt; relationships = Optional.absent();
+&nbsp;    @Nullable Map&lt;String, Number&gt; map = ImmutableMap.of();
+&nbsp;    @JsonProperty(&quot;integer&quot;)
+&nbsp;    @JsonInclude(JsonInclude.Include.NON_NULL)
+&nbsp;    public void setInteger(@Nullable Integer integer) {
+&nbsp;      this.integer = integer;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;relationships&quot;)
+&nbsp;    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+&nbsp;    public void setRelationships(Optional&lt;String&gt; relationships) {
+&nbsp;      this.relationships = relationships;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;map&quot;)
+&nbsp;    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+&nbsp;    public void setMap(Map&lt;String, Number&gt; map) {
+&nbsp;      this.map = map;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public OptionIncludeNonEmpty withRelationships(Optional&lt;String&gt; number) { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public OptionIncludeNonEmpty withMap(Map&lt;String, ? extends Number&gt; number) { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Integer getInteger() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Optional&lt;String&gt; getRelationships() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Map&lt;String, Number&gt; getMap() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableOptionIncludeNonEmpty fromJson(Json json) {
+&nbsp;    ImmutableOptionIncludeNonEmpty.Builder builder = ImmutableOptionIncludeNonEmpty.builder();
+&nbsp;    if (json.integer != null) {
+&nbsp;      builder.integer(json.integer);
+&nbsp;    }
+&nbsp;    if (json.relationships != null) {
+&nbsp;      builder.relationships(json.relationships);
+&nbsp;    }
+&nbsp;    if (json.map != null) {
+&nbsp;      builder.putAllMap(json.map);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OptionIncludeNonEmpty} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OptionIncludeNonEmpty instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionIncludeNonEmpty copyOf(OptionIncludeNonEmpty instance) {
+&nbsp;    if (instance instanceof ImmutableOptionIncludeNonEmpty) {
+&nbsp;      return (ImmutableOptionIncludeNonEmpty) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOptionIncludeNonEmpty.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOptionIncludeNonEmpty ImmutableOptionIncludeNonEmpty}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOptionIncludeNonEmpty.builder()
+&nbsp;   *    .integer(Integer | null) // nullable {@link OptionIncludeNonEmpty#getInteger() integer}
+&nbsp;   *    .relationships(String) // optional {@link OptionIncludeNonEmpty#getRelationships() relationships}
+&nbsp;   *    .putMap|putAllMap(String =&amp;gt; Number) // {@link OptionIncludeNonEmpty#getMap() map} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableOptionIncludeNonEmpty builder
+&nbsp;   */
+&nbsp;  public static ImmutableOptionIncludeNonEmpty.Builder builder() {
+&nbsp;    return new ImmutableOptionIncludeNonEmpty.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOptionIncludeNonEmpty ImmutableOptionIncludeNonEmpty}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OptionIncludeNonEmpty&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @Nullable Integer integer;
+&nbsp;    private Optional&lt;String&gt; relationships = Optional.absent();
+&nbsp;    private ImmutableMap.Builder&lt;String, Number&gt; map = ImmutableMap.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.jackson.OptionIncludeNonEmpty} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(OptionIncludeNonEmpty instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.jackson.Inherited} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Inherited instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      if (object instanceof OptionIncludeNonEmpty) {
+&nbsp;        OptionIncludeNonEmpty instance = (OptionIncludeNonEmpty) object;
+&nbsp;        Optional&lt;String&gt; relationshipsOptional = instance.getRelationships();
+&nbsp;        if (relationshipsOptional.isPresent()) {
+&nbsp;          relationships(relationshipsOptional);
+&nbsp;        }
+&nbsp;        putAllMap(instance.getMap());
+&nbsp;      }
+&nbsp;      if (object instanceof Inherited) {
+&nbsp;        Inherited instance = (Inherited) object;
+&nbsp;        @Nullable Integer integerValue = instance.getInteger();
+&nbsp;        if (integerValue != null) {
+&nbsp;          integer(integerValue);
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OptionIncludeNonEmpty#getInteger() integer} attribute.
+&nbsp;     * @param integer The value for integer (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;integer&quot;)
+&nbsp;    @JsonInclude(JsonInclude.Include.NON_NULL)
+&nbsp;    public final Builder integer(@Nullable Integer integer) {
+&nbsp;      this.integer = integer;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionIncludeNonEmpty#getRelationships() relationships} to relationships.
+&nbsp;     * @param relationships The value for relationships
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder relationships(String relationships) {
+&nbsp;      this.relationships = Optional.of(relationships);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionIncludeNonEmpty#getRelationships() relationships} to relationships.
+&nbsp;     * @param relationships The value for relationships
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;relationships&quot;)
+&nbsp;    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+&nbsp;    public final Builder relationships(Optional&lt;String&gt; relationships) {
+&nbsp;      this.relationships = relationships;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link OptionIncludeNonEmpty#getMap() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(String key, Number value) {
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link OptionIncludeNonEmpty#getMap() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(Map.Entry&lt;String, ? extends Number&gt; entry) {
+&nbsp;      this.map.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link OptionIncludeNonEmpty#getMap() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;map&quot;)
+&nbsp;    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+&nbsp;    public final Builder map(Map&lt;String, ? extends Number&gt; entries) {
+&nbsp;      this.map = ImmutableMap.builder();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link OptionIncludeNonEmpty#getMap() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(Map&lt;String, ? extends Number&gt; entries) {
+&nbsp;      this.map.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOptionIncludeNonEmpty ImmutableOptionIncludeNonEmpty}.
+&nbsp;     * @return An immutable instance of OptionIncludeNonEmpty
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOptionIncludeNonEmpty build() {
+&nbsp;      return new ImmutableOptionIncludeNonEmpty(integer, relationships, map.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

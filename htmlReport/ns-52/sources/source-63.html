@@ -1,0 +1,404 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ValueTypeComposer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ValueTypeComposer (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ValueTypeComposer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/114)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/146)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.CharMatcher;
+&nbsp;import com.google.common.base.Joiner;
+&nbsp;import com.google.common.collect.HashMultiset;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import com.google.common.collect.Multiset;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.List;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.element.VariableElement;
+&nbsp;import javax.lang.model.util.ElementFilter;
+&nbsp;import javax.lang.model.util.Elements;
+&nbsp;import org.immutables.value.processor.meta.Proto.Protoclass;
+&nbsp;import org.immutables.value.processor.meta.Reporter.About;
+&nbsp;
+&nbsp;/**
+&nbsp; * It may grow later in some better abstraction, but as it stands now, currently it is
+&nbsp; * just a glue between new &quot;protoclass&quot; model and old discovery routines.
+&nbsp; */
+<b class="nc">&nbsp;public final class ValueTypeComposer {</b>
+<b class="nc">&nbsp;  private static final CharMatcher ATTRIBUTE_NAME_CHARS =</b>
+<b class="nc">&nbsp;      CharMatcher.is(&#39;_&#39;)</b>
+<b class="nc">&nbsp;          .or(CharMatcher.inRange(&#39;a&#39;, &#39;z&#39;))</b>
+<b class="nc">&nbsp;          .or(CharMatcher.inRange(&#39;A&#39;, &#39;Z&#39;))</b>
+<b class="nc">&nbsp;          .or(CharMatcher.inRange(&#39;0&#39;, &#39;9&#39;))</b>
+<b class="nc">&nbsp;          .precomputed();</b>
+&nbsp;
+&nbsp;  void compose(ValueType type, Protoclass protoclass) {
+<b class="nc">&nbsp;    type.element = protoclass.sourceElement();</b>
+<b class="nc">&nbsp;    type.immutableFeatures = protoclass.features();</b>
+<b class="nc">&nbsp;    type.constitution = protoclass.constitution();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (protoclass.kind().isFactory()) {</b>
+<b class="nc">&nbsp;      new FactoryMethodAttributesCollector(protoclass, type).collect();</b>
+<b class="nc">&nbsp;    } else if (protoclass.kind().isJavaBean()) {</b>
+<b class="nc">&nbsp;      new JavaBeanAttributesCollector(protoclass, type).collect();</b>
+<b class="nc">&nbsp;    } else if (protoclass.kind().isValue() || protoclass.kind().isModifiable()) {</b>
+<b class="nc">&nbsp;      Collection&lt;String&gt; violations = Lists.newArrayList();</b>
+&nbsp;      // This check is legacy, most such checks should have been done on a higher level?
+<b class="nc">&nbsp;      if (checkAbstractValueType(type.element, violations)) {</b>
+&nbsp;
+<b class="nc">&nbsp;        if (protoclass.kind().isValue()) {</b>
+&nbsp;          // essentially skip checks if only kind().isModifiable() and not kind().isValue()
+<b class="nc">&nbsp;          checkForMutableFields(protoclass, (TypeElement) type.element);</b>
+<b class="nc">&nbsp;          checkForTypeHierarchy(protoclass, type);</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        new AccessorAttributesCollector(protoclass, type).collect();</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .error(&quot;Value type &#39;%s&#39; %s&quot;,</b>
+<b class="nc">&nbsp;                protoclass.sourceElement().getSimpleName(),</b>
+<b class="nc">&nbsp;                Joiner.on(&quot;, &quot;).join(violations));</b>
+&nbsp;        // Do nothing now. kind of way to less blow things up when it happens.
+&nbsp;      }
+<b class="nc">&nbsp;      if (!type.style().delegateToString().isEmpty()) {</b>
+<b class="nc">&nbsp;        type.isToStringDefined = true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      type.detectSerialization();</b>
+<b class="nc">&nbsp;      type.detectParcelableCreator();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    checkAttributeNamesIllegalCharacters(type);</b>
+<b class="nc">&nbsp;    checkAttributeNamesForDuplicates(type, protoclass);</b>
+<b class="nc">&nbsp;    checkConstructability(type);</b>
+<b class="nc">&nbsp;    checkStyleConflicts(type, protoclass);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkAttributeNamesIllegalCharacters(ValueType type) {
+<b class="nc">&nbsp;    for (ValueAttribute a : type.attributes) {</b>
+<b class="nc">&nbsp;      if (!ATTRIBUTE_NAME_CHARS.matchesAllOf(a.name())) {</b>
+<b class="nc">&nbsp;        a.report()</b>
+<b class="nc">&nbsp;            .warning(About.INCOMPAT,</b>
+&nbsp;                &quot;Name &#39;%s&#39; contains some unsupported characters (a-z,A-Z,0-9,_ are ok),&quot;
+&nbsp;                    + &quot; name formatting might not work as expected&quot;,
+<b class="nc">&nbsp;                a.name());</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkConstructability(ValueType type) {
+<b class="nc">&nbsp;    if (!type.isUseBuilder() || type.isUseConstructor()) {</b>
+<b class="nc">&nbsp;      for (ValueAttribute a : type.getConstructorExcluded()) {</b>
+<b class="nc">&nbsp;        if (a.isMandatory()) {</b>
+<b class="nc">&nbsp;          a.report()</b>
+<b class="nc">&nbsp;              .error(&quot;Attribute &#39;%s&#39; is mandatory and should be a constructor&quot;</b>
+&nbsp;                  + &quot; @Value.Parameter when builder is disabled or&quot;
+&nbsp;                  + &quot; there are other constructor parameters&quot;,
+<b class="nc">&nbsp;                  a.name());</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (!type.isUseBuilder() &amp;&amp; !type.isUseCopyMethods()) {</b>
+<b class="nc">&nbsp;      for (ValueAttribute a : type.getConstructorExcluded()) {</b>
+<b class="nc">&nbsp;        if (!a.isMandatory()) {</b>
+<b class="nc">&nbsp;          a.report()</b>
+<b class="nc">&nbsp;              .warning(About.INCOMPAT,</b>
+&nbsp;                  &quot;There is no way to initialize &#39;%s&#39; attribute to non-default value.&quot;
+&nbsp;                      + &quot; Enable builder=true or copy=true or add it as a constructor @Value.Parameter&quot;,
+<b class="nc">&nbsp;                  a.name());</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (type.isUseSingleton() &amp;&amp; !type.getMandatoryAttributes().isEmpty()) {</b>
+<b class="nc">&nbsp;      for (ValueAttribute a : type.getMandatoryAttributes()) {</b>
+<b class="nc">&nbsp;        a.report()</b>
+<b class="nc">&nbsp;            .error(&quot;Attribute &#39;%s&#39; is mandatory and cannot be used with singleton enabled.&quot;</b>
+&nbsp;                + &quot; Singleton instance require all attributes to have default value, otherwise&quot;
+&nbsp;                + &quot; default instance could not be created&quot;,
+<b class="nc">&nbsp;                a.name());</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkStyleConflicts(ValueType type, Protoclass protoclass) {
+<b class="nc">&nbsp;    if (protoclass.features().singleton() &amp;&amp; !protoclass.constitution().generics().isEmpty()) {</b>
+<b class="nc">&nbsp;      protoclass.report()</b>
+<b class="nc">&nbsp;          .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;          .warning(About.INCOMPAT,</b>
+&nbsp;              &quot;&#39;singleton&#39; feature contains potentially unsafe cast with generics %s.&quot;
+<b class="nc">&nbsp;              + &quot; Can be safe if immutable covariant conversion is possible&quot;, type.generics().def());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (protoclass.features().intern() &amp;&amp; !protoclass.constitution().generics().isEmpty()) {</b>
+<b class="nc">&nbsp;      protoclass.report()</b>
+<b class="nc">&nbsp;          .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;          .warning(About.INCOMPAT,</b>
+&nbsp;              &quot;&#39;intern&#39; feature is automatically turned off when a type have generic parameters&quot;);
+&nbsp;    }
+<b class="nc">&nbsp;    if (protoclass.features().prehash()) {</b>
+<b class="nc">&nbsp;      if (protoclass.styles().style().privateNoargConstructor()) {</b>
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(About.INCOMPAT,</b>
+&nbsp;                &quot;&#39;prehash&#39; feature is automatically disabled when &#39;privateNoargConstructor&#39; style is turned on&quot;);
+&nbsp;      }
+<b class="nc">&nbsp;      if (type.simpleSerializableWithoutCopy()) {</b>
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(About.INCOMPAT,</b>
+&nbsp;                &quot;&#39;prehash&#39; feature is automatically disabled when type is Serializable and copy constructor is off&quot;);
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    if (type.style().strictBuilder() &amp;&amp; !type.style().toBuilder().isEmpty()) {</b>
+<b class="nc">&nbsp;      protoclass.report()</b>
+<b class="nc">&nbsp;          .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;          .warning(About.INCOMPAT,</b>
+&nbsp;              &quot;&#39;toBuilder&#39; style is incompartible with `strictBuilder` enabled and is automatically disabled&quot;);
+&nbsp;    }
+<b class="nc">&nbsp;    if (type.isUseConstructor()</b>
+<b class="nc">&nbsp;        &amp;&amp; protoclass.constitution().factoryOf().isNew()) {</b>
+<b class="nc">&nbsp;      if (type.isUseValidation()) {</b>
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;            .error(</b>
+&nbsp;                &quot;Interning, singleton and validation will not work correctly with &#39;new&#39; constructor configured in style&quot;);
+<b class="nc">&nbsp;      } else if (type.constitution.isImplementationHidden()</b>
+<b class="nc">&nbsp;          &amp;&amp; (type.kind().isEnclosing() || type.kind().isNested())) {</b>
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .annotationNamed(ImmutableMirror.simpleName())</b>
+<b class="nc">&nbsp;            .error(&quot;Enclosing with hidden implementation do not mix with &#39;new&#39; constructor configured in style&quot;);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkForTypeHierarchy(Protoclass protoclass, ValueType type) {
+<b class="nc">&nbsp;    scanAndReportInvalidInheritance(protoclass, type.element, type.extendedClasses());</b>
+<b class="nc">&nbsp;    scanAndReportInvalidInheritance(protoclass, type.element, type.implementedInterfaces());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static void scanAndReportInvalidInheritance(
+&nbsp;      Protoclass protoclass,
+&nbsp;      Element element,
+&nbsp;      Iterable&lt;TypeElement&gt; supertypes) {
+<b class="nc">&nbsp;    for (TypeElement s : supertypes) {</b>
+<b class="nc">&nbsp;      if (!CachingElements.equals(element, s) &amp;&amp; ImmutableMirror.isPresent(s)) {</b>
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .warning(About.SUBTYPE,</b>
+&nbsp;                &quot;Should not inherit %s which is a value type itself.&quot;
+&nbsp;                    + &quot; Avoid extending from another abstract value type.&quot;
+&nbsp;                    + &quot; Better to share common abstract class or interface which&quot;
+&nbsp;                    + &quot; are not carrying @%s annotation. If still extending from immutable&quot;
+&nbsp;                    + &quot; abstract type be ready to face some incoherences in generated types.&quot;,
+&nbsp;                s,
+<b class="nc">&nbsp;                ImmutableMirror.simpleName());</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkForMutableFields(Protoclass protoclass, TypeElement element) {
+<b class="nc">&nbsp;    Elements elementUtils = protoclass.environment().processing().getElementUtils();</b>
+&nbsp;
+<b class="nc">&nbsp;    for (VariableElement field : ElementFilter.fieldsIn(</b>
+<b class="nc">&nbsp;        elementUtils.getAllMembers(CachingElements.getDelegate(element)))) {</b>
+<b class="nc">&nbsp;      if (!field.getModifiers().contains(Modifier.FINAL)) {</b>
+<b class="nc">&nbsp;        Reporter report = protoclass.report();</b>
+<b class="nc">&nbsp;        boolean ownField = CachingElements.equals(element, field.getEnclosingElement());</b>
+<b class="nc">&nbsp;        if (ownField) {</b>
+<b class="nc">&nbsp;          report.withElement(field)</b>
+<b class="nc">&nbsp;              .warning(About.INCOMPAT,</b>
+&nbsp;                  &quot;Avoid introduction of fields (except constants) in abstract value types&quot;);
+&nbsp;        } else {
+<b class="nc">&nbsp;          report.warning(About.INCOMPAT,</b>
+&nbsp;              &quot;Abstract value type inherits mutable fields&quot;);
+&nbsp;        }
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkAttributeNamesForDuplicates(ValueType type, Protoclass protoclass) {
+<b class="nc">&nbsp;    if (!type.attributes.isEmpty()) {</b>
+<b class="nc">&nbsp;      Multiset&lt;String&gt; attributeNames = HashMultiset.create(type.attributes.size());</b>
+<b class="nc">&nbsp;      for (ValueAttribute attribute : type.attributes) {</b>
+<b class="nc">&nbsp;        if (attribute.isGenerateLazy) {</b>
+<b class="nc">&nbsp;          attributeNames.add(attribute.name() + &quot;$lazy&quot;); // making lazy compare in it&#39;s own scope</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          attributeNames.add(attribute.name());</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      List&lt;String&gt; duplicates = Lists.newArrayList();</b>
+<b class="nc">&nbsp;      for (Multiset.Entry&lt;String&gt; entry : attributeNames.entrySet()) {</b>
+<b class="nc">&nbsp;        if (entry.getCount() &gt; 1) {</b>
+<b class="nc">&nbsp;          duplicates.add(entry.getElement().replace(&quot;$lazy&quot;, &quot;&quot;));</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      if (!duplicates.isEmpty()) {</b>
+<b class="nc">&nbsp;        protoclass.report()</b>
+<b class="nc">&nbsp;            .error(&quot;Duplicate attribute names %s. You should check if correct @Value.Style applied&quot;,</b>
+&nbsp;                duplicates);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static boolean checkAbstractValueType(Element element, Collection&lt;String&gt; violations) {
+<b class="nc">&nbsp;    boolean ofSupportedKind = false</b>
+<b class="nc">&nbsp;        || element.getKind() == ElementKind.INTERFACE</b>
+<b class="nc">&nbsp;        || element.getKind() == ElementKind.ANNOTATION_TYPE</b>
+<b class="nc">&nbsp;        || element.getKind() == ElementKind.CLASS;</b>
+&nbsp;
+<b class="nc">&nbsp;    boolean staticOrTopLevel = false</b>
+<b class="nc">&nbsp;        || element.getEnclosingElement().getKind() == ElementKind.PACKAGE</b>
+<b class="nc">&nbsp;        || element.getModifiers().contains(Modifier.STATIC);</b>
+&nbsp;
+<b class="nc">&nbsp;    boolean nonFinal = !element.getModifiers().contains(Modifier.FINAL);</b>
+&nbsp;
+<b class="nc">&nbsp;    boolean publicOrPackageVisible =</b>
+<b class="nc">&nbsp;        !element.getModifiers().contains(Modifier.PRIVATE)</b>
+<b class="nc">&nbsp;            &amp;&amp; !element.getModifiers().contains(Modifier.PROTECTED);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (!ofSupportedKind) {</b>
+<b class="nc">&nbsp;      violations.add(&quot;must be class or interface or annotation type&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (!nonFinal) {</b>
+<b class="nc">&nbsp;      violations.add(&quot;must be non-final&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (!publicOrPackageVisible) {</b>
+<b class="nc">&nbsp;      violations.add(&quot;should be public or package-visible&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (!staticOrTopLevel) {</b>
+<b class="nc">&nbsp;      violations.add(&quot;should be top-level or static inner class&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return violations.isEmpty();</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

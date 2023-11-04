@@ -1,0 +1,233 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OverrideColorTuple</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: OverrideColorTuple (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">OverrideColorTuple</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OverrideColor}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code OverrideColorTuple.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OverrideColor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class OverrideColorTuple implements OverrideColor {
+&nbsp;  private final int white;
+&nbsp;  private final int black;
+&nbsp;  private final int gray;
+&nbsp;
+&nbsp;  private OverrideColorTuple(int white, int black) {
+&nbsp;    this.white = white;
+&nbsp;    this.black = black;
+&nbsp;    this.gray = OverrideColor.super.gray();
+&nbsp;  }
+&nbsp;
+&nbsp;  private OverrideColorTuple(int white, int black, int gray) {
+&nbsp;    this.white = white;
+&nbsp;    this.black = black;
+&nbsp;    this.gray = gray;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code white} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int white() {
+&nbsp;    return white;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code black} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int black() {
+&nbsp;    return black;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code gray} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int gray() {
+&nbsp;    return gray;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OverrideColor#white() white} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for white
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final OverrideColorTuple withWhite(int value) {
+&nbsp;    if (this.white == value) return this;
+&nbsp;    return new OverrideColorTuple(value, this.black, this.gray);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OverrideColor#black() black} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for black
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final OverrideColorTuple withBlack(int value) {
+&nbsp;    if (this.black == value) return this;
+&nbsp;    return new OverrideColorTuple(this.white, value, this.gray);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OverrideColor#gray() gray} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for gray
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final OverrideColorTuple withGray(int value) {
+&nbsp;    if (this.gray == value) return this;
+&nbsp;    return new OverrideColorTuple(this.white, this.black, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code OverrideColorTuple} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof OverrideColorTuple
+&nbsp;        &amp;&amp; equalTo(0, (OverrideColorTuple) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, OverrideColorTuple another) {
+&nbsp;    return white == another.white
+&nbsp;        &amp;&amp; black == another.black
+&nbsp;        &amp;&amp; gray == another.gray;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code white}, {@code black}, {@code gray}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + white;
+&nbsp;    h += (h &lt;&lt; 5) + black;
+&nbsp;    h += (h &lt;&lt; 5) + gray;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OverrideColor} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OverrideColor&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;white&quot;, white)
+&nbsp;        .add(&quot;black&quot;, black)
+&nbsp;        .add(&quot;gray&quot;, gray)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code OverrideColor} instance.
+&nbsp;   * @param white The value for the {@code white} attribute
+&nbsp;   * @param black The value for the {@code black} attribute
+&nbsp;   * @return An immutable OverrideColor instance
+&nbsp;   */
+&nbsp;  public static OverrideColorTuple of(int white, int black) {
+&nbsp;    return new OverrideColorTuple(white, black);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OverrideColor} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OverrideColor instance
+&nbsp;   */
+&nbsp;  public static OverrideColorTuple copyOf(OverrideColor instance) {
+&nbsp;    if (instance instanceof OverrideColorTuple) {
+&nbsp;      return (OverrideColorTuple) instance;
+&nbsp;    }
+&nbsp;    return OverrideColorTuple.of(instance.white(), instance.black())
+&nbsp;        .withGray(instance.gray());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

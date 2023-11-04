@@ -1,0 +1,764 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableForceEqualsInWithers</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableForceEqualsInWithers (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableForceEqualsInWithers$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Chars;
+&nbsp;import com.google.common.primitives.Doubles;
+&nbsp;import com.google.common.primitives.Floats;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ForceEqualsInWithers}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableForceEqualsInWithers.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ForceEqualsInWithers&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableForceEqualsInWithers implements ForceEqualsInWithers {
+&nbsp;  private final float f;
+&nbsp;  private final double d;
+&nbsp;  private final String s;
+&nbsp;  private final boolean b;
+&nbsp;  private final char c;
+&nbsp;  private final @Nullable String o;
+&nbsp;  private final ImmutableList&lt;Integer&gt; l;
+&nbsp;  private final @Nullable ImmutableSet&lt;String&gt; st;
+&nbsp;  private final ImmutableMap&lt;String, Integer&gt; mp;
+&nbsp;
+&nbsp;  private ImmutableForceEqualsInWithers(
+&nbsp;      float f,
+&nbsp;      double d,
+&nbsp;      String s,
+&nbsp;      boolean b,
+&nbsp;      char c,
+&nbsp;      @Nullable String o,
+&nbsp;      ImmutableList&lt;Integer&gt; l,
+&nbsp;      @Nullable ImmutableSet&lt;String&gt; st,
+&nbsp;      ImmutableMap&lt;String, Integer&gt; mp) {
+&nbsp;    this.f = f;
+&nbsp;    this.d = d;
+&nbsp;    this.s = s;
+&nbsp;    this.b = b;
+&nbsp;    this.c = c;
+&nbsp;    this.o = o;
+&nbsp;    this.l = l;
+&nbsp;    this.st = st;
+&nbsp;    this.mp = mp;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code f} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public float f() {
+&nbsp;    return f;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public double d() {
+&nbsp;    return d;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code s} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String s() {
+&nbsp;    return s;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public char c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code o} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; o() {
+&nbsp;    return Optional.ofNullable(o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Integer&gt; l() {
+&nbsp;    return l;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code st} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableSet&lt;String&gt; st() {
+&nbsp;    return st;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code mp} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Integer&gt; mp() {
+&nbsp;    return mp;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForceEqualsInWithers#f() f} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for f
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withF(float value) {
+&nbsp;    if (Float.floatToIntBits(this.f) == Float.floatToIntBits(value)) return this;
+&nbsp;    return new ImmutableForceEqualsInWithers(value, this.d, this.s, this.b, this.c, this.o, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForceEqualsInWithers#d() d} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for d
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withD(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.d) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, value, this.s, this.b, this.c, this.o, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForceEqualsInWithers#s() s} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for s
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withS(String value) {
+&nbsp;    if (Objects.equals(this.s, value)) return this;
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;s&quot;);
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, newValue, this.b, this.c, this.o, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForceEqualsInWithers#b() b} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withB(boolean value) {
+&nbsp;    if (this.b == value) return this;
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, value, this.c, this.o, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ForceEqualsInWithers#c() c} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withC(char value) {
+&nbsp;    if (this.c == value) return this;
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, value, this.o, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ForceEqualsInWithers#o() o} attribute.
+&nbsp;   * @param value The value for o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withO(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;o&quot;);
+&nbsp;    if (Objects.equals(this.o, newValue)) return this;
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, newValue, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ForceEqualsInWithers#o() o} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withO(Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.o, value)) return this;
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, value, this.l, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForceEqualsInWithers#l() l}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withL(int... elements) {
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, this.o, newValue, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForceEqualsInWithers#l() l}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of l elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withL(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (Objects.equals(this.l, elements)) return this;
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, this.o, newValue, this.st, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForceEqualsInWithers#st() st}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withSt(@Nullable String... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, this.o, this.l, null, this.mp);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableSet&lt;String&gt; newValue = elements == null ? null : ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, this.o, this.l, newValue, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ForceEqualsInWithers#st() st}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of st elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withSt(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (Objects.equals(this.st, elements)) return this;
+&nbsp;    @Nullable ImmutableSet&lt;String&gt; newValue = elements == null ? null : ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, this.o, this.l, newValue, this.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link ForceEqualsInWithers#mp() mp} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the mp map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableForceEqualsInWithers withMp(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (Objects.equals(this.mp, entries)) return this;
+&nbsp;    ImmutableMap&lt;String, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableForceEqualsInWithers(this.f, this.d, this.s, this.b, this.c, this.o, this.l, this.st, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableForceEqualsInWithers} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableForceEqualsInWithers
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableForceEqualsInWithers) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableForceEqualsInWithers another) {
+&nbsp;    return Float.floatToIntBits(f) == Float.floatToIntBits(another.f)
+&nbsp;        &amp;&amp; Double.doubleToLongBits(d) == Double.doubleToLongBits(another.d)
+&nbsp;        &amp;&amp; s.equals(another.s)
+&nbsp;        &amp;&amp; b == another.b
+&nbsp;        &amp;&amp; c == another.c
+&nbsp;        &amp;&amp; Objects.equals(o, another.o)
+&nbsp;        &amp;&amp; l.equals(another.l)
+&nbsp;        &amp;&amp; Objects.equals(st, another.st)
+&nbsp;        &amp;&amp; mp.equals(another.mp);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code f}, {@code d}, {@code s}, {@code b}, {@code c}, {@code o}, {@code l}, {@code st}, {@code mp}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Floats.hashCode(f);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(d);
+&nbsp;    h += (h &lt;&lt; 5) + s.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(b);
+&nbsp;    h += (h &lt;&lt; 5) + Chars.hashCode(c);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(o);
+&nbsp;    h += (h &lt;&lt; 5) + l.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(st);
+&nbsp;    h += (h &lt;&lt; 5) + mp.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ForceEqualsInWithers} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ForceEqualsInWithers&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;f&quot;, f)
+&nbsp;        .add(&quot;d&quot;, d)
+&nbsp;        .add(&quot;s&quot;, s)
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .add(&quot;c&quot;, c)
+&nbsp;        .add(&quot;o&quot;, o)
+&nbsp;        .add(&quot;l&quot;, l)
+&nbsp;        .add(&quot;st&quot;, st)
+&nbsp;        .add(&quot;mp&quot;, mp)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ForceEqualsInWithers} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ForceEqualsInWithers instance
+&nbsp;   */
+&nbsp;  public static ImmutableForceEqualsInWithers copyOf(ForceEqualsInWithers instance) {
+&nbsp;    if (instance instanceof ImmutableForceEqualsInWithers) {
+&nbsp;      return (ImmutableForceEqualsInWithers) instance;
+&nbsp;    }
+&nbsp;    return ImmutableForceEqualsInWithers.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableForceEqualsInWithers ImmutableForceEqualsInWithers}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableForceEqualsInWithers.builder()
+&nbsp;   *    .f(float) // required {@link ForceEqualsInWithers#f() f}
+&nbsp;   *    .d(double) // required {@link ForceEqualsInWithers#d() d}
+&nbsp;   *    .s(String) // required {@link ForceEqualsInWithers#s() s}
+&nbsp;   *    .b(boolean) // required {@link ForceEqualsInWithers#b() b}
+&nbsp;   *    .c(char) // required {@link ForceEqualsInWithers#c() c}
+&nbsp;   *    .o(String) // optional {@link ForceEqualsInWithers#o() o}
+&nbsp;   *    .addL|addAllL(int) // {@link ForceEqualsInWithers#l() l} elements
+&nbsp;   *    .st(Set&amp;amp;lt;String&amp;amp;gt; | null) // nullable {@link ForceEqualsInWithers#st() st}
+&nbsp;   *    .putMp|putAllMp(String =&amp;gt; int) // {@link ForceEqualsInWithers#mp() mp} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableForceEqualsInWithers builder
+&nbsp;   */
+&nbsp;  public static ImmutableForceEqualsInWithers.Builder builder() {
+&nbsp;    return new ImmutableForceEqualsInWithers.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableForceEqualsInWithers ImmutableForceEqualsInWithers}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ForceEqualsInWithers&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_F = 0x1L;
+&nbsp;    private static final long INIT_BIT_D = 0x2L;
+&nbsp;    private static final long INIT_BIT_S = 0x4L;
+&nbsp;    private static final long INIT_BIT_B = 0x8L;
+&nbsp;    private static final long INIT_BIT_C = 0x10L;
+&nbsp;    private long initBits = 0x1fL;
+&nbsp;
+&nbsp;    private float f;
+&nbsp;    private double d;
+&nbsp;    private @Nullable String s;
+&nbsp;    private boolean b;
+&nbsp;    private char c;
+&nbsp;    private @Nullable String o;
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; l = ImmutableList.builder();
+&nbsp;    private ImmutableSet.Builder&lt;String&gt; st = null;
+&nbsp;    private ImmutableMap.Builder&lt;String, Integer&gt; mp = ImmutableMap.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ForceEqualsInWithers} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ForceEqualsInWithers instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      f(instance.f());
+&nbsp;      d(instance.d());
+&nbsp;      s(instance.s());
+&nbsp;      b(instance.b());
+&nbsp;      c(instance.c());
+&nbsp;      Optional&lt;String&gt; oOptional = instance.o();
+&nbsp;      if (oOptional.isPresent()) {
+&nbsp;        o(oOptional);
+&nbsp;      }
+&nbsp;      addAllL(instance.l());
+&nbsp;      @Nullable Set&lt;String&gt; stValue = instance.st();
+&nbsp;      if (stValue != null) {
+&nbsp;        addAllSt(stValue);
+&nbsp;      }
+&nbsp;      putAllMp(instance.mp());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForceEqualsInWithers#f() f} attribute.
+&nbsp;     * @param f The value for f 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder f(float f) {
+&nbsp;      this.f = f;
+&nbsp;      initBits &amp;= ~INIT_BIT_F;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForceEqualsInWithers#d() d} attribute.
+&nbsp;     * @param d The value for d 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(double d) {
+&nbsp;      this.d = d;
+&nbsp;      initBits &amp;= ~INIT_BIT_D;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForceEqualsInWithers#s() s} attribute.
+&nbsp;     * @param s The value for s 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder s(String s) {
+&nbsp;      this.s = Objects.requireNonNull(s, &quot;s&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_S;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForceEqualsInWithers#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(boolean b) {
+&nbsp;      this.b = b;
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ForceEqualsInWithers#c() c} attribute.
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(char c) {
+&nbsp;      this.c = c;
+&nbsp;      initBits &amp;= ~INIT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForceEqualsInWithers#o() o} to o.
+&nbsp;     * @param o The value for o
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder o(String o) {
+&nbsp;      this.o = Objects.requireNonNull(o, &quot;o&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ForceEqualsInWithers#o() o} to o.
+&nbsp;     * @param o The value for o
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder o(Optional&lt;String&gt; o) {
+&nbsp;      this.o = o.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ForceEqualsInWithers#l() l} list.
+&nbsp;     * @param element A l element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(int element) {
+&nbsp;      this.l.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForceEqualsInWithers#l() l} list.
+&nbsp;     * @param elements An array of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(int... elements) {
+&nbsp;      this.l.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ForceEqualsInWithers#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.l = ImmutableList.builder();
+&nbsp;      return addAllL(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForceEqualsInWithers#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllL(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.l.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ForceEqualsInWithers#st() st} set.
+&nbsp;     * @param element A st element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSt(String element) {
+&nbsp;      if (this.st == null) {
+&nbsp;        this.st = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.st.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForceEqualsInWithers#st() st} set.
+&nbsp;     * @param elements An array of st elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSt(String... elements) {
+&nbsp;      if (this.st == null) {
+&nbsp;        this.st = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.st.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ForceEqualsInWithers#st() st} set.
+&nbsp;     * @param elements An iterable of st elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder st(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.st = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.st = ImmutableSet.builder();
+&nbsp;      return addAllSt(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ForceEqualsInWithers#st() st} set.
+&nbsp;     * @param elements An iterable of st elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSt(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;st element&quot;);
+&nbsp;      if (this.st == null) {
+&nbsp;        this.st = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.st.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ForceEqualsInWithers#mp() mp} map.
+&nbsp;     * @param key The key in the mp map
+&nbsp;     * @param value The associated value in the mp map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMp(String key, int value) {
+&nbsp;      this.mp.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ForceEqualsInWithers#mp() mp} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMp(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.mp.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link ForceEqualsInWithers#mp() mp} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the mp map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder mp(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.mp = ImmutableMap.builder();
+&nbsp;      return putAllMp(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link ForceEqualsInWithers#mp() mp} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the mp map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMp(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.mp.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableForceEqualsInWithers ImmutableForceEqualsInWithers}.
+&nbsp;     * @return An immutable instance of ForceEqualsInWithers
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableForceEqualsInWithers build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableForceEqualsInWithers(f, d, s, b, c, o, l.build(), st == null ? null : st.build(), mp.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_F) != 0) attributes.add(&quot;f&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_D) != 0) attributes.add(&quot;d&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_S) != 0) attributes.add(&quot;s&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_C) != 0) attributes.add(&quot;c&quot;);
+&nbsp;      return &quot;Cannot build ForceEqualsInWithers, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

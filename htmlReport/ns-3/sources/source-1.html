@@ -1,0 +1,1094 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Parcel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">android.os</a>
+</div>
+
+<h1>Coverage Summary for Class: Parcel (android.os)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Parcel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Parcel$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright (C) 2006 The Android Open Source Project
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;//THIS IS STUB!!!!
+&nbsp;package android.os;
+&nbsp;
+&nbsp;import java.io.FileDescriptor;
+&nbsp;import java.io.Serializable;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;
+&nbsp;/**
+&nbsp; * Container for a message (data and object references) that can
+&nbsp; * be sent through an IBinder. A Parcel can contain both flattened data
+&nbsp; * that will be unflattened on the other side of the IPC (using the various
+&nbsp; * methods here for writing specific types, or the general {@link Parcelable} interface), and
+&nbsp; * references to live {@link IBinder} objects that will result in the other side receiving a proxy
+&nbsp; * IBinder
+&nbsp; * connected with the original IBinder in the Parcel.
+&nbsp; * &lt;p class=&quot;note&quot;&gt;
+&nbsp; * Parcel is &lt;strong&gt;not&lt;/strong&gt; a general-purpose serialization mechanism. This class (and the
+&nbsp; * corresponding {@link Parcelable} API for placing arbitrary objects into a Parcel) is designed as
+&nbsp; * a high-performance IPC transport. As such, it is not appropriate to place any Parcel data in to
+&nbsp; * persistent storage: changes in the underlying implementation of any of the data in the Parcel can
+&nbsp; * render older data unreadable.
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * The bulk of the Parcel API revolves around reading and writing data of various types. There are
+&nbsp; * six major classes of such functions available.
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;h3&gt;Primitives&lt;/h3&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * The most basic data functions are for writing and reading primitive data types:
+&nbsp; * {@link #writeByte}, {@link #readByte}, {@link #writeDouble}, {@link #readDouble},
+&nbsp; * {@link #writeFloat}, {@link #readFloat}, {@link #writeInt}, {@link #readInt}, {@link #writeLong},
+&nbsp; * {@link #readLong}, {@link #writeString}, {@link #readString}. Most other data operations are
+&nbsp; * built on top of these. The given data is written and read using the endianess of the host CPU.
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;h3&gt;Primitive Arrays&lt;/h3&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * There are a variety of methods for reading and writing raw arrays of primitive objects, which
+&nbsp; * generally result in writing a 4-byte length followed by the primitive data items. The methods for
+&nbsp; * reading can either read the data into an existing array, or create and return a new array. These
+&nbsp; * available types are:
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;ul&gt;
+&nbsp; * &lt;li&gt; {@link #writeBooleanArray(boolean[])}, {@link #readBooleanArray(boolean[])},
+&nbsp; * {@link #createBooleanArray()}
+&nbsp; * &lt;li&gt; {@link #writeByteArray(byte[])}, {@link #writeByteArray(byte[], int, int)},
+&nbsp; * {@link #readByteArray(byte[])}, {@link #createByteArray()}
+&nbsp; * &lt;li&gt; {@link #writeCharArray(char[])}, {@link #readCharArray(char[])}, {@link #createCharArray()}
+&nbsp; * &lt;li&gt; {@link #writeDoubleArray(double[])}, {@link #readDoubleArray(double[])},
+&nbsp; * {@link #createDoubleArray()}
+&nbsp; * &lt;li&gt; {@link #writeFloatArray(float[])}, {@link #readFloatArray(float[])},
+&nbsp; * {@link #createFloatArray()}
+&nbsp; * &lt;li&gt; {@link #writeIntArray(int[])}, {@link #readIntArray(int[])}, {@link #createIntArray()}
+&nbsp; * &lt;li&gt; {@link #writeLongArray(long[])}, {@link #readLongArray(long[])}, {@link #createLongArray()}
+&nbsp; * &lt;li&gt; {@link #writeStringArray(String[])}, {@link #readStringArray(String[])},
+&nbsp; * {@link #createStringArray()}.
+&nbsp; * &lt;li&gt; {@link #writeSparseBooleanArray(SparseBooleanArray)}, {@link #readSparseBooleanArray()}.
+&nbsp; * &lt;/ul&gt;
+&nbsp; * &lt;h3&gt;Parcelables&lt;/h3&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * The {@link Parcelable} protocol provides an extremely efficient (but low-level) protocol for
+&nbsp; * objects to write and read themselves from Parcels. You can use the direct methods
+&nbsp; * {@link #writeParcelable(Parcelable, int)} and {@link #readParcelable(ClassLoader)} or
+&nbsp; * {@link #writeParcelableArray} and {@link #readParcelableArray(ClassLoader)} to write or read.
+&nbsp; * These methods write both the class type and its data to the Parcel, allowing that class to be
+&nbsp; * reconstructed from the appropriate class loader when later reading.
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * There are also some methods that provide a more efficient way to work with Parcelables:
+&nbsp; * {@link #writeTypedArray}, {@link #writeTypedList(List)}, {@link #readTypedArray} and
+&nbsp; * {@link #readTypedList}. These methods do not write the class information of the original object:
+&nbsp; * instead, the caller of the read function must know what type to expect and pass in the
+&nbsp; * appropriate {@link Parcelable.Creator Parcelable.Creator} instead to properly construct the new
+&nbsp; * object and read its data. (To more efficient write and read a single Parceable object, you can
+&nbsp; * directly call {@link Parcelable#writeToParcel Parcelable.writeToParcel} and
+&nbsp; * {@link Parcelable.Creator#createFromParcel Parcelable.Creator.createFromParcel} yourself.)
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;h3&gt;Bundles&lt;/h3&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * A special type-safe container, called {@link Bundle}, is available for key/value maps of
+&nbsp; * heterogeneous values. This has many optimizations for improved performance when reading and
+&nbsp; * writing data, and its type-safe API avoids difficult to debug type errors when finally
+&nbsp; * marshalling the data contents into a Parcel. The methods to use are {@link #writeBundle(Bundle)},
+&nbsp; * {@link #readBundle()}, and {@link #readBundle(ClassLoader)}.
+&nbsp; * &lt;h3&gt;Active Objects&lt;/h3&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * An unusual feature of Parcel is the ability to read and write active objects. For these objects
+&nbsp; * the actual contents of the object is not written, rather a special token referencing the object
+&nbsp; * is written. When reading the object back from the Parcel, you do not get a new instance of the
+&nbsp; * object, but rather a handle that operates on the exact same object that was originally written.
+&nbsp; * There are two forms of active objects available.
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * {@link Binder} objects are a core facility of Android&#39;s general cross-process communication
+&nbsp; * system. The {@link IBinder} interface describes an abstract protocol with a Binder object. Any
+&nbsp; * such interface can be written in to a Parcel, and upon reading you will receive either the
+&nbsp; * original object implementing that interface or a special proxy implementation that communicates
+&nbsp; * calls back to the original object. The methods to use are {@link #writeStrongBinder(IBinder)},
+&nbsp; * {@link #writeStrongInterface(IInterface)}, {@link #readStrongBinder()},
+&nbsp; * {@link #writeBinderArray(IBinder[])}, {@link #readBinderArray(IBinder[])},
+&nbsp; * {@link #createBinderArray()}, {@link #writeBinderList(List)}, {@link #readBinderList(List)},
+&nbsp; * {@link #createBinderArrayList()}.
+&nbsp; * &lt;/p&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * FileDescriptor objects, representing raw Linux file descriptor identifiers, can be written and
+&nbsp; * {@link ParcelFileDescriptor} objects returned to operate on the original file descriptor. The
+&nbsp; * returned file descriptor is a dup of the original file descriptor: the object and fd is
+&nbsp; * different, but operating on the same underlying file stream, with the same position, etc. The
+&nbsp; * methods to use are {@link #writeFileDescriptor(FileDescriptor)}, {@link #readFileDescriptor()}.
+&nbsp; * &lt;h3&gt;Untyped Containers&lt;/h3&gt;
+&nbsp; * &lt;p&gt;
+&nbsp; * A final class of methods are for writing and reading standard Java containers of arbitrary types.
+&nbsp; * These all revolve around the {@link #writeValue(Object)} and {@link #readValue(ClassLoader)}
+&nbsp; * methods which define the types of objects allowed. The container methods are
+&nbsp; * {@link #writeArray(Object[])}, {@link #readArray(ClassLoader)}, {@link #writeList(List)},
+&nbsp; * {@link #readList(List, ClassLoader)}, {@link #readArrayList(ClassLoader)}, {@link #writeMap(Map)}, {@link #readMap(Map, ClassLoader)}, {@link #writeSparseArray(SparseArray)},
+&nbsp; * {@link #readSparseArray(ClassLoader)}.
+&nbsp; */
+<b class="nc">&nbsp;public abstract class Parcel {</b>
+<b class="nc">&nbsp;  public final static Parcelable.Creator&lt;String&gt; STRING_CREATOR = new Parcelable.Creator&lt;String&gt;() {</b>
+&nbsp;    @Override
+&nbsp;    public String createFromParcel(Parcel source) {
+<b class="nc">&nbsp;      return source.readString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String[] newArray(int size) {
+<b class="nc">&nbsp;      return new String[size];</b>
+&nbsp;    }
+&nbsp;  };
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put a Parcel object back into the pool. You must not touch
+&nbsp;   * the object after this call.
+&nbsp;   */
+&nbsp;  public abstract void recycle();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the total amount of data contained in the parcel.
+&nbsp;   */
+&nbsp;  public abstract int dataSize();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the amount of data remaining to be read from the
+&nbsp;   * parcel. That is, {@link #dataSize}-{@link #dataPosition}.
+&nbsp;   */
+&nbsp;  public abstract int dataAvail();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the current position in the parcel data. Never
+&nbsp;   * more than {@link #dataSize}.
+&nbsp;   */
+&nbsp;  public abstract int dataPosition();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the total amount of space in the parcel. This is always
+&nbsp;   * &gt;= {@link #dataSize}. The difference between it and dataSize() is the
+&nbsp;   * amount of room left until the parcel needs to re-allocate its
+&nbsp;   * data buffer.
+&nbsp;   */
+&nbsp;  public abstract int dataCapacity();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Change the amount of data in the parcel. Can be either smaller or
+&nbsp;   * larger than the current size. If larger than the current capacity,
+&nbsp;   * more memory will be allocated.
+&nbsp;   * @param size The new number of bytes in the Parcel.
+&nbsp;   */
+&nbsp;  public abstract void setDataSize(int size);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Move the current read/write position in the parcel.
+&nbsp;   * @param pos New offset in the parcel; must be between 0 and {@link #dataSize}.
+&nbsp;   */
+&nbsp;  public abstract void setDataPosition(int pos);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Change the capacity (current available space) of the parcel.
+&nbsp;   * @param size The new capacity of the parcel, in bytes. Can not be
+&nbsp;   *          less than {@link #dataSize} -- that is, you can not drop existing data
+&nbsp;   *          with this method.
+&nbsp;   */
+&nbsp;  public abstract void setDataCapacity(int size);
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public abstract boolean pushAllowFds(boolean allowFds);
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public abstract void restoreAllowFds(boolean lastValue);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the raw bytes of the parcel.
+&nbsp;   * &lt;p class=&quot;note&quot;&gt;
+&nbsp;   * The data you retrieve here &lt;strong&gt;must not&lt;/strong&gt; be placed in any kind of persistent
+&nbsp;   * storage (on local disk, across a network, etc). For that, you should use standard serialization
+&nbsp;   * or another kind of general serialization mechanism. The Parcel marshalled representation is
+&nbsp;   * highly optimized for local IPC, and as such does not attempt to maintain compatibility with
+&nbsp;   * data created in different versions of the platform.
+&nbsp;   */
+&nbsp;  public abstract byte[] marshall();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Set the bytes in data to be the raw bytes of this Parcel.
+&nbsp;   */
+&nbsp;  public abstract void unmarshall(byte[] data, int offset, int length);
+&nbsp;
+&nbsp;  public abstract void appendFrom(Parcel parcel, int offset, int length);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Report whether the parcel contains any marshalled file descriptors.
+&nbsp;   */
+&nbsp;  public abstract boolean hasFileDescriptors();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Store or read an IBinder interface token in the parcel at the current {@link #dataPosition}.
+&nbsp;   * This is used to validate that the marshalled
+&nbsp;   * transaction is intended for the target interface.
+&nbsp;   */
+&nbsp;  public abstract void writeInterfaceToken(String interfaceName);
+&nbsp;
+&nbsp;  public abstract void enforceInterface(String interfaceName);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a byte array into the parcel at the current {@link #dataPosition},
+&nbsp;   * growing {@link #dataCapacity} if needed.
+&nbsp;   * @param b Bytes to place into the parcel.
+&nbsp;   */
+&nbsp;  public abstract void writeByteArray(byte[] b);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a byte array into the parcel at the current {@link #dataPosition},
+&nbsp;   * growing {@link #dataCapacity} if needed.
+&nbsp;   * @param b Bytes to place into the parcel.
+&nbsp;   * @param offset Index of first byte to be written.
+&nbsp;   * @param len Number of bytes to write.
+&nbsp;   */
+&nbsp;  public abstract void writeByteArray(byte[] b, int offset, int len);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a blob of data into the parcel at the current {@link #dataPosition},
+&nbsp;   * growing {@link #dataCapacity} if needed.
+&nbsp;   * @param b Bytes to place into the parcel. {@hide} {@SystemApi}
+&nbsp;   */
+&nbsp;  public abstract void writeBlob(byte[] b);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write an integer value into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeInt(int val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a long integer value into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeLong(long val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a floating point value into the parcel at the current
+&nbsp;   * dataPosition(), growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeFloat(float val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a double precision floating point value into the parcel at the
+&nbsp;   * current dataPosition(), growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeDouble(double val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a string value into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeString(String val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a CharSequence value into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   * @hide
+&nbsp;   */
+&nbsp;  public abstract void writeCharSequence(CharSequence val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write an object into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeStrongBinder(IBinder val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write an object into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeStrongInterface(IInterface val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a FileDescriptor into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   * &lt;p class=&quot;caution&quot;&gt;
+&nbsp;   * The file descriptor will not be closed, which may result in file descriptor leaks when objects
+&nbsp;   * are returned from Binder calls. Use {@link ParcelFileDescriptor#writeToParcel} instead, which
+&nbsp;   * accepts contextual flags and will close the original file descriptor if
+&nbsp;   * {@link Parcelable#PARCELABLE_WRITE_RETURN_VALUE} is set.
+&nbsp;   * &lt;/p&gt;
+&nbsp;   */
+&nbsp;  public abstract void writeFileDescriptor(FileDescriptor val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a byte value into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeByte(byte val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Please use {@link #writeBundle} instead. Flattens a Map into the parcel
+&nbsp;   * at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed. The Map keys must be String objects.
+&nbsp;   * The Map values are written using {@link #writeValue} and must follow
+&nbsp;   * the specification there.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * It is strongly recommended to use {@link #writeBundle} instead of this method, since the Bundle
+&nbsp;   * class provides a type-safe API that allows you to avoid mysterious type errors at the point of
+&nbsp;   * marshalling.
+&nbsp;   */
+&nbsp;  public abstract void writeMap(Map val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @hide For testing only.
+&nbsp;   */
+&nbsp;  public abstract void writeArrayMap(Object val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a Bundle into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeBundle(Bundle val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a PersistableBundle into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writePersistableBundle(PersistableBundle val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a Size into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeSize(Size val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a SizeF into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed.
+&nbsp;   */
+&nbsp;  public abstract void writeSizeF(SizeF val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a List into the parcel at the current dataPosition(), growing
+&nbsp;   * dataCapacity() if needed. The List values are written using {@link #writeValue} and must follow
+&nbsp;   * the specification there.
+&nbsp;   */
+&nbsp;  public abstract void writeList(List val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten an Object array into the parcel at the current dataPosition(),
+&nbsp;   * growing dataCapacity() if needed. The array values are written using {@link #writeValue} and
+&nbsp;   * must follow the specification there.
+&nbsp;   */
+&nbsp;  public abstract void writeArray(Object[] val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a generic SparseArray into the parcel at the current
+&nbsp;   * dataPosition(), growing dataCapacity() if needed. The SparseArray
+&nbsp;   * values are written using {@link #writeValue} and must follow the
+&nbsp;   * specification there.
+&nbsp;   */
+&nbsp;  public abstract void writeSparseArray(SparseArray&lt;Object&gt; val);
+&nbsp;
+&nbsp;  public abstract void writeSparseBooleanArray(SparseBooleanArray val);
+&nbsp;
+&nbsp;  public abstract void writeBooleanArray(boolean[] val);
+&nbsp;
+&nbsp;  public abstract boolean[] createBooleanArray();
+&nbsp;
+&nbsp;  public abstract void readBooleanArray(boolean[] val);
+&nbsp;
+&nbsp;  public abstract void writeCharArray(char[] val);
+&nbsp;
+&nbsp;  public abstract char[] createCharArray();
+&nbsp;
+&nbsp;  public abstract void readCharArray(char[] val);
+&nbsp;
+&nbsp;  public abstract void writeIntArray(int[] val);
+&nbsp;
+&nbsp;  public abstract int[] createIntArray();
+&nbsp;
+&nbsp;  public abstract void readIntArray(int[] val);
+&nbsp;
+&nbsp;  public abstract void writeLongArray(long[] val);
+&nbsp;
+&nbsp;  public abstract long[] createLongArray();
+&nbsp;
+&nbsp;  public abstract void readLongArray(long[] val);
+&nbsp;
+&nbsp;  public abstract void writeFloatArray(float[] val);
+&nbsp;
+&nbsp;  public abstract float[] createFloatArray();
+&nbsp;
+&nbsp;  public abstract void readFloatArray(float[] val);
+&nbsp;
+&nbsp;  public abstract void writeDoubleArray(double[] val);
+&nbsp;
+&nbsp;  public abstract double[] createDoubleArray();
+&nbsp;
+&nbsp;  public abstract void readDoubleArray(double[] val);
+&nbsp;
+&nbsp;  public abstract void writeStringArray(String[] val);
+&nbsp;
+&nbsp;  public abstract String[] createStringArray();
+&nbsp;
+&nbsp;  public abstract void readStringArray(String[] val);
+&nbsp;
+&nbsp;  public abstract void writeBinderArray(IBinder[] val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @hide
+&nbsp;   */
+&nbsp;  public abstract void writeCharSequenceArray(CharSequence[] val);
+&nbsp;
+&nbsp;  public abstract IBinder[] createBinderArray();
+&nbsp;
+&nbsp;  public abstract void readBinderArray(IBinder[] val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a List containing a particular object type into the parcel, at
+&nbsp;   * the current dataPosition() and growing dataCapacity() if needed. The
+&nbsp;   * type of the objects in the list must be one that implements Parcelable.
+&nbsp;   * Unlike the generic writeList() method, however, only the raw data of the
+&nbsp;   * objects is written and not their type, so you must use the corresponding
+&nbsp;   * readTypedList() to unmarshall them.
+&nbsp;   * @param val The list of objects to be written.
+&nbsp;   * @see #createTypedArrayList
+&nbsp;   * @see #readTypedList
+&nbsp;   * @see Parcelable
+&nbsp;   */
+&nbsp;  public abstract &lt;T extends Parcelable&gt; void writeTypedList(List&lt;T&gt; val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a List containing String objects into the parcel, at
+&nbsp;   * the current dataPosition() and growing dataCapacity() if needed. They
+&nbsp;   * can later be retrieved with {@link #createStringArrayList} or {@link #readStringList}.
+&nbsp;   * @param val The list of strings to be written.
+&nbsp;   * @see #createStringArrayList
+&nbsp;   * @see #readStringList
+&nbsp;   */
+&nbsp;  public abstract void writeStringList(List&lt;String&gt; val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a List containing IBinder objects into the parcel, at
+&nbsp;   * the current dataPosition() and growing dataCapacity() if needed. They
+&nbsp;   * can later be retrieved with {@link #createBinderArrayList} or {@link #readBinderList}.
+&nbsp;   * @param val The list of strings to be written.
+&nbsp;   * @see #createBinderArrayList
+&nbsp;   * @see #readBinderList
+&nbsp;   */
+&nbsp;  public abstract void writeBinderList(List&lt;IBinder&gt; val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a heterogeneous array containing a particular object type into
+&nbsp;   * the parcel, at
+&nbsp;   * the current dataPosition() and growing dataCapacity() if needed. The
+&nbsp;   * type of the objects in the array must be one that implements Parcelable.
+&nbsp;   * Unlike the {@link #writeParcelableArray} method, however, only the
+&nbsp;   * raw data of the objects is written and not their type, so you must use {@link #readTypedArray}
+&nbsp;   * with the correct corresponding {@link Parcelable.Creator} implementation to unmarshall them.
+&nbsp;   * @param val The array of objects to be written.
+&nbsp;   * @param parcelableFlags Contextual flags as per {@link Parcelable#writeToParcel(Parcel, int)
+&nbsp;   *          Parcelable.writeToParcel()}.
+&nbsp;   * @see #readTypedArray
+&nbsp;   * @see #writeParcelableArray
+&nbsp;   * @see Parcelable.Creator
+&nbsp;   */
+&nbsp;  public abstract &lt;T extends Parcelable&gt; void writeTypedArray(T[] val,
+&nbsp;      int parcelableFlags);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten a generic object in to a parcel. The given Object value may
+&nbsp;   * currently be one of the following types:
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;null
+&nbsp;   * &lt;li&gt;String
+&nbsp;   * &lt;li&gt;Byte
+&nbsp;   * &lt;li&gt;Short
+&nbsp;   * &lt;li&gt;Integer
+&nbsp;   * &lt;li&gt;Long
+&nbsp;   * &lt;li&gt;Float
+&nbsp;   * &lt;li&gt;Double
+&nbsp;   * &lt;li&gt;Boolean
+&nbsp;   * &lt;li&gt;String[]
+&nbsp;   * &lt;li&gt;boolean[]
+&nbsp;   * &lt;li&gt;byte[]
+&nbsp;   * &lt;li&gt;int[]
+&nbsp;   * &lt;li&gt;long[]
+&nbsp;   * &lt;li&gt;Object[] (supporting objects of the same type defined here).
+&nbsp;   * &lt;li&gt; {@link Bundle}
+&nbsp;   * &lt;li&gt;Map (as supported by {@link #writeMap}).
+&nbsp;   * &lt;li&gt;Any object that implements the {@link Parcelable} protocol.
+&nbsp;   * &lt;li&gt;Parcelable[]
+&nbsp;   * &lt;li&gt;CharSequence (as supported by {@link TextUtils#writeToParcel}).
+&nbsp;   * &lt;li&gt;List (as supported by {@link #writeList}).
+&nbsp;   * &lt;li&gt; {@link SparseArray} (as supported by {@link #writeSparseArray(SparseArray)}).
+&nbsp;   * &lt;li&gt; {@link IBinder}
+&nbsp;   * &lt;li&gt;Any object that implements Serializable (but see {@link #writeSerializable} for caveats).
+&nbsp;   * Note that all of the previous types have relatively efficient implementations for writing to a
+&nbsp;   * Parcel; having to rely on the generic serialization approach is much less efficient and should
+&nbsp;   * be avoided whenever possible.
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * &lt;p class=&quot;caution&quot;&gt;
+&nbsp;   * {@link Parcelable} objects are written with {@link Parcelable#writeToParcel} using contextual
+&nbsp;   * flags of 0. When serializing objects containing {@link ParcelFileDescriptor}s, this may result
+&nbsp;   * in file descriptor leaks when they are returned from Binder calls (where
+&nbsp;   * {@link Parcelable#PARCELABLE_WRITE_RETURN_VALUE} should be used).
+&nbsp;   * &lt;/p&gt;
+&nbsp;   */
+&nbsp;  public abstract void writeValue(Object v);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten the name of the class of the Parcelable and its contents
+&nbsp;   * into the parcel.
+&nbsp;   * @param p The Parcelable object to be written.
+&nbsp;   * @param parcelableFlags Contextual flags as per {@link Parcelable#writeToParcel(Parcel, int)
+&nbsp;   *          Parcelable.writeToParcel()}.
+&nbsp;   */
+&nbsp;  public abstract void writeParcelable(Parcelable p, int parcelableFlags);
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public abstract void writeParcelableCreator(Parcelable p);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a generic serializable object in to a Parcel. It is strongly
+&nbsp;   * recommended that this method be avoided, since the serialization
+&nbsp;   * overhead is extremely large, and this approach will be much slower than
+&nbsp;   * using the other approaches to writing data in to a Parcel.
+&nbsp;   */
+&nbsp;  public abstract void writeSerializable(Serializable s);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Special function for writing an exception result at the header of
+&nbsp;   * a parcel, to be used when returning an exception from a transaction.
+&nbsp;   * Note that this currently only supports a few exception types; any other
+&nbsp;   * exception will be re-thrown by this function as a RuntimeException
+&nbsp;   * (to be caught by the system&#39;s last-resort exception handling when
+&nbsp;   * dispatching a transaction).
+&nbsp;   * &lt;p&gt;
+&nbsp;   * The supported exception types are:
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;{@link BadParcelableException}
+&nbsp;   * &lt;li&gt;{@link IllegalArgumentException}
+&nbsp;   * &lt;li&gt;{@link IllegalStateException}
+&nbsp;   * &lt;li&gt;{@link NullPointerException}
+&nbsp;   * &lt;li&gt;{@link SecurityException}
+&nbsp;   * &lt;li&gt;{@link NetworkOnMainThreadException}
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * @param e The Exception to be written.
+&nbsp;   * @see #writeNoException
+&nbsp;   * @see #readException
+&nbsp;   */
+&nbsp;  public abstract void writeException(Exception e);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Special function for writing information at the front of the Parcel
+&nbsp;   * indicating that no exception occurred.
+&nbsp;   * @see #writeException
+&nbsp;   * @see #readException
+&nbsp;   */
+&nbsp;  public abstract void writeNoException();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Special function for reading an exception result from the header of
+&nbsp;   * a parcel, to be used after receiving the result of a transaction. This
+&nbsp;   * will throw the exception for you if it had been written to the Parcel,
+&nbsp;   * otherwise return and let you read the normal result data from the Parcel.
+&nbsp;   * @see #writeException
+&nbsp;   * @see #writeNoException
+&nbsp;   */
+&nbsp;  public abstract void readException();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Parses the header of a Binder call&#39;s response Parcel and
+&nbsp;   * returns the exception code. Deals with lite or fat headers.
+&nbsp;   * In the common successful case, this header is generally zero.
+&nbsp;   * In less common cases, it&#39;s a small negative number and will be
+&nbsp;   * followed by an error string.
+&nbsp;   * This exists purely for android.database.DatabaseUtils and
+&nbsp;   * insulating it from having to handle fat headers as returned by
+&nbsp;   * e.g. StrictMode-induced RPC responses.
+&nbsp;   * @hide
+&nbsp;   */
+&nbsp;  public abstract int readExceptionCode();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Throw an exception with the given message. Not intended for use
+&nbsp;   * outside the Parcel class.
+&nbsp;   * @param code Used to determine which exception class to throw.
+&nbsp;   * @param msg The exception message.
+&nbsp;   */
+&nbsp;  public abstract void readException(int code, String msg);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read an integer value from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract int readInt();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a long integer value from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract long readLong();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a floating point value from the parcel at the current
+&nbsp;   * dataPosition().
+&nbsp;   */
+&nbsp;  public abstract float readFloat();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a double precision floating point value from the parcel at the
+&nbsp;   * current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract double readDouble();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a string value from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract String readString();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a CharSequence value from the parcel at the current dataPosition().
+&nbsp;   * @hide
+&nbsp;   */
+&nbsp;  public abstract CharSequence readCharSequence();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read an object from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract IBinder readStrongBinder();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a FileDescriptor from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract ParcelFileDescriptor readFileDescriptor();
+&nbsp;
+&nbsp;  /** {@hide} */
+&nbsp;  public abstract FileDescriptor readRawFileDescriptor();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a byte value from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract byte readByte();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Please use {@link #readBundle(ClassLoader)} instead (whose data must have
+&nbsp;   * been written with {@link #writeBundle}. Read into an existing Map object
+&nbsp;   * from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract void readMap(Map outVal, ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read into an existing List object from the parcel at the current
+&nbsp;   * dataPosition(), using the given class loader to load any enclosed
+&nbsp;   * Parcelables. If it is null, the default class loader is used.
+&nbsp;   */
+&nbsp;  public abstract void readList(List outVal, ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Please use {@link #readBundle(ClassLoader)} instead (whose data must have
+&nbsp;   * been written with {@link #writeBundle}. Read and return a new HashMap
+&nbsp;   * object from the parcel at the current dataPosition(), using the given
+&nbsp;   * class loader to load any enclosed Parcelables. Returns null if
+&nbsp;   * the previously written map object was null.
+&nbsp;   */
+&nbsp;  public abstract HashMap readHashMap(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Bundle object from the parcel at the current
+&nbsp;   * dataPosition(). Returns null if the previously written Bundle object was
+&nbsp;   * null.
+&nbsp;   */
+&nbsp;  public abstract Bundle readBundle();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Bundle object from the parcel at the current
+&nbsp;   * dataPosition(), using the given class loader to initialize the class
+&nbsp;   * loader of the Bundle for later retrieval of Parcelable objects.
+&nbsp;   * Returns null if the previously written Bundle object was null.
+&nbsp;   */
+&nbsp;  public abstract Bundle readBundle(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Bundle object from the parcel at the current
+&nbsp;   * dataPosition(). Returns null if the previously written Bundle object was
+&nbsp;   * null.
+&nbsp;   */
+&nbsp;  public abstract PersistableBundle readPersistableBundle();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Bundle object from the parcel at the current
+&nbsp;   * dataPosition(), using the given class loader to initialize the class
+&nbsp;   * loader of the Bundle for later retrieval of Parcelable objects.
+&nbsp;   * Returns null if the previously written Bundle object was null.
+&nbsp;   */
+&nbsp;  public abstract PersistableBundle readPersistableBundle(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a Size from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract Size readSize();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a SizeF from the parcel at the current dataPosition().
+&nbsp;   */
+&nbsp;  public abstract SizeF readSizeF();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a byte[] object from the parcel.
+&nbsp;   */
+&nbsp;  public abstract byte[] createByteArray();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a byte[] object from the parcel and copy it into the
+&nbsp;   * given byte array.
+&nbsp;   */
+&nbsp;  public abstract void readByteArray(byte[] val);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a blob of data from the parcel and return it as a byte array. {@hide} {@SystemApi
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * 
+&nbsp;   * }
+&nbsp;   */
+&nbsp;  public abstract byte[] readBlob();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a String[] object from the parcel. {@hide}
+&nbsp;   */
+&nbsp;  public abstract String[] readStringArray();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a CharSequence[] object from the parcel. {@hide}
+&nbsp;   */
+&nbsp;  public abstract CharSequence[] readCharSequenceArray();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new ArrayList object from the parcel at the current
+&nbsp;   * dataPosition(). Returns null if the previously written list object was
+&nbsp;   * null. The given class loader will be used to load any enclosed
+&nbsp;   * Parcelables.
+&nbsp;   */
+&nbsp;  public abstract ArrayList readArrayList(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Object array from the parcel at the current
+&nbsp;   * dataPosition(). Returns null if the previously written array was
+&nbsp;   * null. The given class loader will be used to load any enclosed
+&nbsp;   * Parcelables.
+&nbsp;   */
+&nbsp;  public abstract Object[] readArray(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new SparseArray object from the parcel at the current
+&nbsp;   * dataPosition(). Returns null if the previously written list object was
+&nbsp;   * null. The given class loader will be used to load any enclosed
+&nbsp;   * Parcelables.
+&nbsp;   */
+&nbsp;  public abstract SparseArray readSparseArray(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new SparseBooleanArray object from the parcel at the current
+&nbsp;   * dataPosition(). Returns null if the previously written list object was
+&nbsp;   * null.
+&nbsp;   */
+&nbsp;  public abstract SparseBooleanArray readSparseBooleanArray();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new ArrayList containing a particular object type from
+&nbsp;   * the parcel that was written with {@link #writeTypedList} at the
+&nbsp;   * current dataPosition(). Returns null if the
+&nbsp;   * previously written list object was null. The list &lt;em&gt;must&lt;/em&gt; have
+&nbsp;   * previously been written via {@link #writeTypedList} with the same object
+&nbsp;   * type.
+&nbsp;   * @return A newly created ArrayList containing objects with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeTypedList
+&nbsp;   */
+&nbsp;  public abstract &lt;T&gt; ArrayList&lt;T&gt; createTypedArrayList(Parcelable.Creator&lt;T&gt; c);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read into the given List items containing a particular object type
+&nbsp;   * that were written with {@link #writeTypedList} at the
+&nbsp;   * current dataPosition(). The list &lt;em&gt;must&lt;/em&gt; have
+&nbsp;   * previously been written via {@link #writeTypedList} with the same object
+&nbsp;   * type.
+&nbsp;   * @return A newly created ArrayList containing objects with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeTypedList
+&nbsp;   */
+&nbsp;  public abstract &lt;T&gt; void readTypedList(List&lt;T&gt; list, Parcelable.Creator&lt;T&gt; c);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new ArrayList containing String objects from
+&nbsp;   * the parcel that was written with {@link #writeStringList} at the
+&nbsp;   * current dataPosition(). Returns null if the
+&nbsp;   * previously written list object was null.
+&nbsp;   * @return A newly created ArrayList containing strings with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeStringList
+&nbsp;   */
+&nbsp;  public abstract ArrayList&lt;String&gt; createStringArrayList();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new ArrayList containing IBinder objects from
+&nbsp;   * the parcel that was written with {@link #writeBinderList} at the
+&nbsp;   * current dataPosition(). Returns null if the
+&nbsp;   * previously written list object was null.
+&nbsp;   * @return A newly created ArrayList containing strings with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeBinderList
+&nbsp;   */
+&nbsp;  public abstract ArrayList&lt;IBinder&gt; createBinderArrayList();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read into the given List items String objects that were written with {@link #writeStringList}
+&nbsp;   * at the current dataPosition().
+&nbsp;   * @return A newly created ArrayList containing strings with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeStringList
+&nbsp;   */
+&nbsp;  public abstract void readStringList(List&lt;String&gt; list);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read into the given List items IBinder objects that were written with {@link #writeBinderList}
+&nbsp;   * at the current dataPosition().
+&nbsp;   * @return A newly created ArrayList containing strings with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeBinderList
+&nbsp;   */
+&nbsp;  public abstract void readBinderList(List&lt;IBinder&gt; list);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new array containing a particular object type from
+&nbsp;   * the parcel at the current dataPosition(). Returns null if the
+&nbsp;   * previously written array was null. The array &lt;em&gt;must&lt;/em&gt; have
+&nbsp;   * previously been written via {@link #writeTypedArray} with the same
+&nbsp;   * object type.
+&nbsp;   * @return A newly created array containing objects with the same data
+&nbsp;   *         as those that were previously written.
+&nbsp;   * @see #writeTypedArray
+&nbsp;   */
+&nbsp;  public abstract &lt;T&gt; T[] createTypedArray(Parcelable.Creator&lt;T&gt; c);
+&nbsp;
+&nbsp;  public abstract &lt;T&gt; void readTypedArray(T[] val, Parcelable.Creator&lt;T&gt; c);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @deprecated
+&nbsp;   * @hide
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  public abstract &lt;T&gt; T[] readTypedArray(Parcelable.Creator&lt;T&gt; c);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write a heterogeneous array of Parcelable objects into the Parcel.
+&nbsp;   * Each object in the array is written along with its class name, so
+&nbsp;   * that the correct class can later be instantiated. As a result, this
+&nbsp;   * has significantly more overhead than {@link #writeTypedArray}, but will
+&nbsp;   * correctly handle an array containing more than one type of object.
+&nbsp;   * @param value The array of objects to be written.
+&nbsp;   * @param parcelableFlags Contextual flags as per {@link Parcelable#writeToParcel(Parcel, int)
+&nbsp;   *          Parcelable.writeToParcel()}.
+&nbsp;   * @see #writeTypedArray
+&nbsp;   */
+&nbsp;  public abstract &lt;T extends Parcelable&gt; void writeParcelableArray(T[] value,
+&nbsp;      int parcelableFlags);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read a typed object from a parcel. The given class loader will be
+&nbsp;   * used to load any enclosed Parcelables. If it is null, the default class
+&nbsp;   * loader will be used.
+&nbsp;   */
+&nbsp;  public abstract Object readValue(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Parcelable from the parcel. The given class loader
+&nbsp;   * will be used to load any enclosed Parcelables. If it is null, the default
+&nbsp;   * class loader will be used.
+&nbsp;   * @param loader A ClassLoader from which to instantiate the Parcelable
+&nbsp;   *          object, or null for the default class loader.
+&nbsp;   * @return Returns the newly created Parcelable, or null if a null
+&nbsp;   *         object has been written.
+&nbsp;   * @throws BadParcelableException Throws BadParcelableException if there
+&nbsp;   *           was an error trying to instantiate the Parcelable.
+&nbsp;   */
+&nbsp;  public abstract &lt;T extends Parcelable&gt; T readParcelable(ClassLoader loader);
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public abstract &lt;T extends Parcelable&gt; T readCreator(Parcelable.Creator&lt;T&gt; creator,
+&nbsp;      ClassLoader loader);
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public abstract &lt;T extends Parcelable&gt; Parcelable.Creator&lt;T&gt; readParcelableCreator(
+&nbsp;      ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Parcelable array from the parcel.
+&nbsp;   * The given class loader will be used to load any enclosed
+&nbsp;   * Parcelables.
+&nbsp;   * @return the Parcelable array, or null if the array is null
+&nbsp;   */
+&nbsp;  public abstract Parcelable[] readParcelableArray(ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Read and return a new Serializable object from the parcel.
+&nbsp;   * @return the Serializable object, or null if the Serializable name
+&nbsp;   *         wasn&#39;t found in the parcel.
+&nbsp;   */
+&nbsp;  public abstract Serializable readSerializable();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @hide For testing only.
+&nbsp;   */
+&nbsp;  public abstract void readArrayMap(ArrayMap outVal, ClassLoader loader);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Retrieve a new Parcel object from the pool.
+&nbsp;   */
+&nbsp;  public static Parcel obtain() {
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public static native long getGlobalAllocSize();
+&nbsp;
+&nbsp;  /** @hide */
+&nbsp;  public static native long getGlobalAllocCount();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

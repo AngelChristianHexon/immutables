@@ -1,0 +1,153 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Criteria</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria</a>
+</div>
+
+<h1>Coverage Summary for Class: Criteria (org.immutables.criteria)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Criteria$Id</td>
+  </tr>
+  <tr>
+    <td class="name">Criteria$Repository</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria;
+&nbsp;
+&nbsp;import org.immutables.criteria.repository.Facet;
+&nbsp;import org.immutables.criteria.repository.sync.SyncReadable;
+&nbsp;import org.immutables.criteria.repository.sync.SyncWritable;
+&nbsp;
+&nbsp;import java.lang.annotation.Documented;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Retention;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;
+&nbsp;/**
+&nbsp; * An immutable class annotated with {@code @Criteria} will have Criteria class automatically generated.
+&nbsp; *
+&nbsp; * Generated criteria class is a type-safe query DSL modeled after current type.
+&nbsp; */
+&nbsp;@Documented
+&nbsp;@Target(ElementType.TYPE)
+&nbsp;@Retention(RetentionPolicy.CLASS) // need at least CLASS retention because of APT unit testing
+&nbsp;public @interface Criteria {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Marks attribute as id (primary key) for a particular class.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.METHOD, ElementType.FIELD})
+&nbsp;  @Retention(RetentionPolicy.RUNTIME)
+&nbsp;  @interface Id {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Classes annotated with this annotation will have repository generated to
+&nbsp;   * store and retrieve documents. Repository classes are generated in the same package and
+&nbsp;   * and have same visibility as original class (public / package private). They are named
+&nbsp;   * after annotated value type: {@code [name_of_annotated_type]Repository}.
+&nbsp;   * &lt;/p&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * {@code @Criteria.Repository} should only be used with value types annotated with
+&nbsp;   * {@code @Value.Immutable}.
+&nbsp;   * &lt;/p&gt;
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  @Retention(RetentionPolicy.RUNTIME)
+&nbsp;  @interface Repository {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Name of destination container (can be table for RDBMS, collection for MongoDB, index for ElasticSearch).
+&nbsp;     * If not specified, name will be derived from the class name like {@code &quot;myDocument&quot;} for {@code MyDocument} class.
+&nbsp;     * @return name of the container (table, collection etc.)
+&nbsp;     */
+&nbsp;    String name() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Allows defining repository properties like readable / writable / watchable etc.
+&nbsp;     * @return list of facets the repository should support
+&nbsp;     */
+&nbsp;    Class&lt;? extends Facet&gt;[] facets() default {SyncReadable.class, SyncWritable.class};
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

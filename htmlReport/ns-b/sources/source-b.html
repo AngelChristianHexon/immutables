@@ -1,0 +1,414 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > StandardOperations</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: StandardOperations (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">StandardOperations$Delete</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$DeleteByKey</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$GetByKey</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$Insert</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$Select</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$Update</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$UpdateByQuery</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">StandardOperations$Watch</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import org.immutables.criteria.Criterias;
+&nbsp;import org.immutables.criteria.Criterion;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;/**
+&nbsp; * Common operations which can be executed on a backend.
+&nbsp; * It is by no means an exhaustive list and other (custom) operations can exists independently.
+&nbsp; */
+&nbsp;public final class StandardOperations {
+&nbsp;
+&nbsp;  private StandardOperations() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Query sent to a backend similar to SQL {@code SELECT} clause.
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface Select extends Backend.Operation {
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    Query query();
+&nbsp;
+&nbsp;    static ImmutableSelect of(Query query) {
+<b class="nc">&nbsp;      return ImmutableSelect.of(query);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Operation for a list of objects to be inserted
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface Insert extends Backend.Operation {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * List of values to be inserted
+&nbsp;     */
+&nbsp;    @Value.Parameter
+&nbsp;    List&lt;Object&gt; values();
+&nbsp;
+&nbsp;    static Insert ofValues(Iterable&lt;?&gt; values) {
+<b class="nc">&nbsp;      return ImmutableInsert.of(ImmutableList.copyOf(values));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Operation for a list of objects to be updated
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface Update extends Backend.Operation {
+&nbsp;    List&lt;Object&gt; values();
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    default boolean upsert() {
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Wherever objects should be inserted if not present.
+&nbsp;     */
+&nbsp;    default Update withUpsert() {
+<b class="nc">&nbsp;      return ImmutableUpdate.copyOf(this).withUpsert(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static Update ofValues(Iterable&lt;?&gt; values) {
+<b class="nc">&nbsp;      return ImmutableUpdate.builder().addAllValues(values).build();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Conditional update operation similar to SQL clause {@code UPDATE ... SET ... WHERE ...}.
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface UpdateByQuery extends Backend.Operation {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Filter for records to be updated
+&nbsp;     */
+&nbsp;    @Value.Parameter
+&nbsp;    Query query();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Values to be set. Key is usually a {@linkplain Path} and value is object to be set.
+&nbsp;     */
+&nbsp;    @Value.Parameter
+&nbsp;    Map&lt;Expression, Object&gt; values();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Wherever documents should be inserted if not present.
+&nbsp;     */
+&nbsp;    @Value.Default
+&nbsp;    default boolean upsert() {
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    default UpdateByQuery withUpsert() {
+<b class="nc">&nbsp;      return ImmutableUpdateByQuery.copyOf(this).withUpsert(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If current operation is replace, return replacement, otherwise return empty optional.
+&nbsp;     * Replace means override whole record / document not a subset of attributes.
+&nbsp;     */
+&nbsp;    default Optional&lt;Object&gt; replace() {
+<b class="nc">&nbsp;      Optional&lt;Path&gt; found = values().keySet().stream().map(Visitors::toPath).filter(Path::isRoot).findAny();</b>
+&nbsp;      // check that there is just a replace value. no others (like attribute set)
+<b class="nc">&nbsp;      found.ifPresent(p -&gt; {</b>
+<b class="nc">&nbsp;        if (values().size() != 1) {</b>
+<b class="nc">&nbsp;          throw new IllegalArgumentException(String.format(&quot;Expected exactly one value for replacement got %d: %s&quot;, values().size(), values().keySet()));</b>
+&nbsp;        }
+&nbsp;      });
+<b class="nc">&nbsp;      return found.map(p -&gt; values().get(p));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static UpdateByQuery of(Query query, Map&lt;Expression, Object&gt; values) {
+<b class="nc">&nbsp;      Preconditions.checkArgument(!values.isEmpty(), &quot;no values&quot;);</b>
+<b class="nc">&nbsp;      return ImmutableUpdateByQuery.of(query, values);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Delete documents using some criteria
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface Delete extends Backend.Operation {
+&nbsp;    @Value.Parameter
+&nbsp;    Query query();
+&nbsp;
+&nbsp;    static Delete of(Criterion&lt;?&gt; criteria) {
+<b class="nc">&nbsp;      return ImmutableDelete.of(Criterias.toQuery(criteria));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Low-level delete operation when key can not be expressed as a query (or queried). For instance
+&nbsp;   * when key is not present on the entity itself (eg. generic key defined by a
+&nbsp;   * function).
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface DeleteByKey extends Backend.Operation {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Keys to delete
+&nbsp;     */
+&nbsp;    @Value.Parameter
+&nbsp;    Set&lt;?&gt; keys();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Key lookup operation. Used when lookup can not be
+&nbsp;   * expressed as a query (eg. there is no field representing
+&nbsp;   * ID). The order of returned entities is not deterministic and
+&nbsp;   * is not guaranteed to be same as the input order of keys.
+&nbsp;   */
+&nbsp;  @Value.Immutable
+&nbsp;  public interface GetByKey extends Backend.Operation {
+&nbsp;    /**
+&nbsp;     * Keys to perform the lookup operation
+&nbsp;     */
+&nbsp;    @Value.Parameter
+&nbsp;    Set&lt;?&gt; keys();
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  @Value.Immutable
+&nbsp;  public interface Watch extends Backend.Operation {
+&nbsp;    @Value.Parameter
+&nbsp;    Query query();
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

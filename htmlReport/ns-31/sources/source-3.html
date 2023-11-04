@@ -1,0 +1,358 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Companion</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: Companion (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">Companion$Extra</td>
+  </tr>
+  <tr>
+    <td class="name">Companion$JdkComp</td>
+  </tr>
+  <tr>
+    <td class="name">Companion$NullableAndDefault</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Companion$Small</td>
+  </tr>
+  <tr>
+    <td class="name">Companion$Standalone</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.*;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;@Value.Modifiable
+&nbsp;public interface Companion {
+&nbsp;  int integer();
+&nbsp;
+&nbsp;  String string();
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  Boolean bools();
+&nbsp;
+&nbsp;  List&lt;String&gt; str();
+&nbsp;
+&nbsp;  Set&lt;Integer&gt; ints();
+&nbsp;
+&nbsp;  int[] arrayInts();
+&nbsp;
+&nbsp;  String[] arrayStrings();
+&nbsp;
+&nbsp;  @Value.NaturalOrder
+&nbsp;  SortedSet&lt;Integer&gt; ords();
+&nbsp;
+&nbsp;  Set&lt;RetentionPolicy&gt; pols();
+&nbsp;
+&nbsp;  @Value.ReverseOrder
+&nbsp;  NavigableSet&lt;Integer&gt; navs();
+&nbsp;
+&nbsp;  Map&lt;Long, Integer&gt; just();
+&nbsp;
+&nbsp;  @Value.NaturalOrder
+&nbsp;  SortedMap&lt;Integer, String&gt; ordsmap();
+&nbsp;
+&nbsp;  Map&lt;RetentionPolicy, Integer&gt; polsmap();
+&nbsp;
+&nbsp;  @Value.ReverseOrder
+&nbsp;  NavigableMap&lt;String, Integer&gt; navsmap();
+&nbsp;
+&nbsp;  @Value.Modifiable
+&nbsp;  @Value.Style(create = &quot;new&quot;)
+&nbsp;  interface Small {
+&nbsp;    @Value.Parameter
+&nbsp;    int first();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    String second();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Modifiable
+&nbsp;  interface Standalone {
+&nbsp;    @Value.Parameter
+&nbsp;    int first();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    String second();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    short sh();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    char ch();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    boolean bool();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    double dob();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    float fl();
+&nbsp;
+&nbsp;    Optional&lt;Integer&gt; v1();
+&nbsp;
+&nbsp;    java.util.Optional&lt;Integer&gt; v2();
+&nbsp;
+&nbsp;    OptionalInt i1();
+&nbsp;
+&nbsp;    OptionalLong l1();
+&nbsp;
+&nbsp;    OptionalDouble d1();
+&nbsp;
+&nbsp;    Option&lt;Integer&gt; fugue3();
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    default int def() {
+<b class="nc">&nbsp;      return 1;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    default String defs() {
+<b class="nc">&nbsp;      return &quot;&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Lazy
+&nbsp;    default String lazy() {
+<b class="nc">&nbsp;      return &quot;&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Derived
+&nbsp;    default int derived() {
+<b class="nc">&nbsp;      return v1().or(0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    List&lt;Unit&gt; nullableUnit();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Style(strictBuilder = true)
+&nbsp;  @Value.Modifiable
+&nbsp;  interface Extra {
+&nbsp;    @Value.Parameter
+&nbsp;    Multiset&lt;String&gt; bag();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    Multimap&lt;Integer, String&gt; index();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    ListMultimap&lt;Integer, String&gt; indexList();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    SetMultimap&lt;Integer, String&gt; indexSet();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    BiMap&lt;Integer, String&gt; biMap();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Modifiable
+&nbsp;  @Value.Immutable
+&nbsp;  @Value.Style(jdkOnly = true)
+&nbsp;  interface JdkComp {
+&nbsp;    int integer();
+&nbsp;
+&nbsp;    String string();
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    Boolean bools();
+&nbsp;
+&nbsp;    List&lt;String&gt; str();
+&nbsp;
+&nbsp;    Set&lt;Integer&gt; ints();
+&nbsp;
+&nbsp;    int[] arrayInts();
+&nbsp;
+&nbsp;    String[] arrayStrings();
+&nbsp;
+&nbsp;    @Value.NaturalOrder
+&nbsp;    SortedSet&lt;Integer&gt; ords();
+&nbsp;
+&nbsp;    Set&lt;RetentionPolicy&gt; pols();
+&nbsp;
+&nbsp;    @Value.ReverseOrder
+&nbsp;    NavigableSet&lt;Integer&gt; navs();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Style(deferCollectionAllocation = true)
+&nbsp;  @Value.Modifiable
+&nbsp;  @Value.Immutable
+&nbsp;  interface NullableAndDefault {
+&nbsp;    List&lt;String&gt; lst();
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    @Nullable
+&nbsp;    default List&lt;String&gt; str() {
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    default Set&lt;Integer&gt; ints() {
+<b class="nc">&nbsp;      return Collections.singleton(1);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    default int[] arrayInts() {
+<b class="nc">&nbsp;      return new int[0];</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.NaturalOrder
+&nbsp;    @Nullable
+&nbsp;    @Value.Default
+&nbsp;    default SortedSet&lt;Integer&gt; ords() {
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    default Set&lt;RetentionPolicy&gt; pols() {
+<b class="nc">&nbsp;      return EnumSet.noneOf(RetentionPolicy.class);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    @Value.ReverseOrder
+&nbsp;    default NavigableSet&lt;Integer&gt; navs() {
+<b class="nc">&nbsp;      return Collections.emptyNavigableSet();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,671 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableDefaultCollection</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableDefaultCollection (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableDefaultCollection$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableDefaultCollection$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableDefaultCollection$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link DefaultCollection}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableDefaultCollection.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;DefaultCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableDefaultCollection implements DefaultCollection {
+&nbsp;  private final @Nullable ImmutableList&lt;String&gt; nullable;
+&nbsp;  private final ImmutableList&lt;String&gt; defaults;
+&nbsp;  private final @Nullable ImmutableList&lt;Integer&gt; defnullable;
+&nbsp;
+&nbsp;  private ImmutableDefaultCollection(ImmutableDefaultCollection.Builder builder) {
+&nbsp;    this.nullable = builder.nullable == null ? null : builder.nullable.build();
+&nbsp;    if (builder.defaultsIsSet()) {
+&nbsp;      initShim.defaults(builder.defaults.build());
+&nbsp;    }
+&nbsp;    if (builder.defnullableIsSet()) {
+&nbsp;      initShim.defnullable(builder.defnullable == null ? null : builder.defnullable.build());
+&nbsp;    }
+&nbsp;    this.defaults = initShim.defaults();
+&nbsp;    this.defnullable = initShim.defnullable();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableDefaultCollection(
+&nbsp;      @Nullable ImmutableList&lt;String&gt; nullable,
+&nbsp;      ImmutableList&lt;String&gt; defaults,
+&nbsp;      @Nullable ImmutableList&lt;Integer&gt; defnullable) {
+&nbsp;    this.nullable = nullable;
+&nbsp;    this.defaults = defaults;
+&nbsp;    this.defnullable = defnullable;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;DefaultCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte defaultsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableList&lt;String&gt; defaults;
+&nbsp;
+&nbsp;    ImmutableList&lt;String&gt; defaults() {
+&nbsp;      if (defaultsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (defaultsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        defaultsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.defaults = ImmutableList.copyOf(defaultsInitialize());
+&nbsp;        defaultsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.defaults;
+&nbsp;    }
+&nbsp;
+&nbsp;    void defaults(ImmutableList&lt;String&gt; defaults) {
+&nbsp;      this.defaults = defaults;
+&nbsp;      defaultsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte defnullableBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableList&lt;Integer&gt; defnullable;
+&nbsp;
+&nbsp;    ImmutableList&lt;Integer&gt; defnullable() {
+&nbsp;      if (defnullableBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (defnullableBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        defnullableBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.defnullable = defnullableInitialize() == null ? null : ImmutableList.copyOf(defnullableInitialize());
+&nbsp;        defnullableBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.defnullable;
+&nbsp;    }
+&nbsp;
+&nbsp;    void defnullable(ImmutableList&lt;Integer&gt; defnullable) {
+&nbsp;      this.defnullable = defnullable;
+&nbsp;      defnullableBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (defaultsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;defaults&quot;);
+&nbsp;      if (defnullableBuildStage == STAGE_INITIALIZING) attributes.add(&quot;defnullable&quot;);
+&nbsp;      return &quot;Cannot build DefaultCollection, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private List&lt;String&gt; defaultsInitialize() {
+&nbsp;    return DefaultCollection.super.defaults();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable List&lt;Integer&gt; defnullableInitialize() {
+&nbsp;    return DefaultCollection.super.defnullable();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nullable} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;nullable&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;String&gt; nullable() {
+&nbsp;    return nullable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code defaults} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;defaults&quot;)
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; defaults() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.defaults()
+&nbsp;        : this.defaults;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code defnullable} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;defnullable&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;Integer&gt; defnullable() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.defnullable()
+&nbsp;        : this.defnullable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultCollection#nullable() nullable}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultCollection withNullable(@Nullable String... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableDefaultCollection(null, this.defaults, this.defnullable);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDefaultCollection(newValue, this.defaults, this.defnullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultCollection#nullable() nullable}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of nullable elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultCollection withNullable(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.nullable == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDefaultCollection(newValue, this.defaults, this.defnullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultCollection#defaults() defaults}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultCollection withDefaults(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDefaultCollection(this.nullable, newValue, this.defnullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultCollection#defaults() defaults}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of defaults elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultCollection withDefaults(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.defaults == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDefaultCollection(this.nullable, newValue, this.defnullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultCollection#defnullable() defnullable}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultCollection withDefnullable(@Nullable int... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableDefaultCollection(this.nullable, this.defaults, null);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;Integer&gt; newValue = Ints.asList(elements) == null ? null : ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableDefaultCollection(this.nullable, this.defaults, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultCollection#defnullable() defnullable}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of defnullable elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultCollection withDefnullable(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.defnullable == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;Integer&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDefaultCollection(this.nullable, this.defaults, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableDefaultCollection} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableDefaultCollection
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableDefaultCollection) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableDefaultCollection another) {
+&nbsp;    return Objects.equals(nullable, another.nullable)
+&nbsp;        &amp;&amp; defaults.equals(another.defaults)
+&nbsp;        &amp;&amp; Objects.equals(defnullable, another.defnullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code nullable}, {@code defaults}, {@code defnullable}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(nullable);
+&nbsp;    h += (h &lt;&lt; 5) + defaults.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(defnullable);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code DefaultCollection} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;DefaultCollection&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;nullable&quot;, nullable)
+&nbsp;        .add(&quot;defaults&quot;, defaults)
+&nbsp;        .add(&quot;defnullable&quot;, defnullable)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;DefaultCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements DefaultCollection {
+&nbsp;    @Nullable List&lt;String&gt; nullable = null;
+&nbsp;    @Nullable List&lt;String&gt; defaults = ImmutableList.of();
+&nbsp;    boolean defaultsIsSet;
+&nbsp;    @Nullable List&lt;Integer&gt; defnullable = null;
+&nbsp;    boolean defnullableIsSet;
+&nbsp;    @JsonProperty(&quot;nullable&quot;)
+&nbsp;    public void setNullable(@Nullable List&lt;String&gt; nullable) {
+&nbsp;      this.nullable = nullable;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;defaults&quot;)
+&nbsp;    public void setDefaults(List&lt;String&gt; defaults) {
+&nbsp;      this.defaults = defaults;
+&nbsp;      this.defaultsIsSet = null != defaults;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;defnullable&quot;)
+&nbsp;    public void setDefnullable(@Nullable List&lt;Integer&gt; defnullable) {
+&nbsp;      this.defnullable = defnullable;
+&nbsp;      this.defnullableIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public List&lt;String&gt; nullable() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public List&lt;String&gt; defaults() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public List&lt;Integer&gt; defnullable() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableDefaultCollection fromJson(Json json) {
+&nbsp;    ImmutableDefaultCollection.Builder builder = ImmutableDefaultCollection.builder();
+&nbsp;    if (json.nullable != null) {
+&nbsp;      builder.addAllNullable(json.nullable);
+&nbsp;    }
+&nbsp;    if (json.defaultsIsSet) {
+&nbsp;      builder.addAllDefaults(json.defaults);
+&nbsp;    }
+&nbsp;    if (json.defnullableIsSet) {
+&nbsp;      builder.addAllDefnullable(json.defnullable);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link DefaultCollection} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable DefaultCollection instance
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultCollection copyOf(DefaultCollection instance) {
+&nbsp;    if (instance instanceof ImmutableDefaultCollection) {
+&nbsp;      return (ImmutableDefaultCollection) instance;
+&nbsp;    }
+&nbsp;    return ImmutableDefaultCollection.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableDefaultCollection ImmutableDefaultCollection}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableDefaultCollection.builder()
+&nbsp;   *    .nullable(List&amp;amp;lt;String&amp;amp;gt; | null) // nullable {@link DefaultCollection#nullable() nullable}
+&nbsp;   *    .addDefaults|addAllDefaults(String) // {@link DefaultCollection#defaults() defaults} elements
+&nbsp;   *    .defnullable(List&amp;amp;lt;Integer&amp;amp;gt; | null) // nullable {@link DefaultCollection#defnullable() defnullable}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableDefaultCollection builder
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultCollection.Builder builder() {
+&nbsp;    return new ImmutableDefaultCollection.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableDefaultCollection ImmutableDefaultCollection}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;DefaultCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_DEFAULTS = 0x1L;
+&nbsp;    private static final long OPT_BIT_DEFNULLABLE = 0x2L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; nullable = null;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; defaults = ImmutableList.builder();
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; defnullable = null;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code DefaultCollection} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(DefaultCollection instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable List&lt;String&gt; nullableValue = instance.nullable();
+&nbsp;      if (nullableValue != null) {
+&nbsp;        addAllNullable(nullableValue);
+&nbsp;      }
+&nbsp;      addAllDefaults(instance.defaults());
+&nbsp;      @Nullable List&lt;Integer&gt; defnullableValue = instance.defnullable();
+&nbsp;      if (defnullableValue != null) {
+&nbsp;        addAllDefnullable(defnullableValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DefaultCollection#nullable() nullable} list.
+&nbsp;     * @param element A nullable element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNullable(String element) {
+&nbsp;      if (this.nullable == null) {
+&nbsp;        this.nullable = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.nullable.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultCollection#nullable() nullable} list.
+&nbsp;     * @param elements An array of nullable elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNullable(String... elements) {
+&nbsp;      if (this.nullable == null) {
+&nbsp;        this.nullable = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.nullable.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DefaultCollection#nullable() nullable} list.
+&nbsp;     * @param elements An iterable of nullable elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;nullable&quot;)
+&nbsp;    public final Builder nullable(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.nullable = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.nullable = ImmutableList.builder();
+&nbsp;      return addAllNullable(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultCollection#nullable() nullable} list.
+&nbsp;     * @param elements An iterable of nullable elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNullable(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;nullable element&quot;);
+&nbsp;      if (this.nullable == null) {
+&nbsp;        this.nullable = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.nullable.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DefaultCollection#defaults() defaults} list.
+&nbsp;     * @param element A defaults element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addDefaults(String element) {
+&nbsp;      this.defaults.add(element);
+&nbsp;      optBits |= OPT_BIT_DEFAULTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultCollection#defaults() defaults} list.
+&nbsp;     * @param elements An array of defaults elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addDefaults(String... elements) {
+&nbsp;      this.defaults.add(elements);
+&nbsp;      optBits |= OPT_BIT_DEFAULTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DefaultCollection#defaults() defaults} list.
+&nbsp;     * @param elements An iterable of defaults elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;defaults&quot;)
+&nbsp;    public final Builder defaults(Iterable&lt;String&gt; elements) {
+&nbsp;      this.defaults = ImmutableList.builder();
+&nbsp;      return addAllDefaults(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultCollection#defaults() defaults} list.
+&nbsp;     * @param elements An iterable of defaults elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllDefaults(Iterable&lt;String&gt; elements) {
+&nbsp;      this.defaults.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_DEFAULTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DefaultCollection#defnullable() defnullable} list.
+&nbsp;     * @param element A defnullable element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addDefnullable(int element) {
+&nbsp;      if (this.defnullable == null) {
+&nbsp;        this.defnullable = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.defnullable.add(element);
+&nbsp;      optBits |= OPT_BIT_DEFNULLABLE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultCollection#defnullable() defnullable} list.
+&nbsp;     * @param elements An array of defnullable elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addDefnullable(int... elements) {
+&nbsp;      if (this.defnullable == null) {
+&nbsp;        this.defnullable = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.defnullable.addAll(Ints.asList(elements));
+&nbsp;      optBits |= OPT_BIT_DEFNULLABLE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DefaultCollection#defnullable() defnullable} list.
+&nbsp;     * @param elements An iterable of defnullable elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;defnullable&quot;)
+&nbsp;    public final Builder defnullable(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.defnullable = null;
+&nbsp;        optBits |= OPT_BIT_DEFNULLABLE;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.defnullable = ImmutableList.builder();
+&nbsp;      return addAllDefnullable(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultCollection#defnullable() defnullable} list.
+&nbsp;     * @param elements An iterable of defnullable elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllDefnullable(Iterable&lt;Integer&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;defnullable element&quot;);
+&nbsp;      if (this.defnullable == null) {
+&nbsp;        this.defnullable = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.defnullable.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_DEFNULLABLE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableDefaultCollection ImmutableDefaultCollection}.
+&nbsp;     * @return An immutable instance of DefaultCollection
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableDefaultCollection build() {
+&nbsp;      return new ImmutableDefaultCollection(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean defaultsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_DEFAULTS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean defnullableIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_DEFNULLABLE) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableGenericHolder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableGenericHolder (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableGenericHolder</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link GenericHolder GenericHolder} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableGenericHolder is not thread-safe&lt;/em&gt;
+&nbsp; * @param &lt;T&gt; generic parameter T
+&nbsp; * @see ImmutableGenericHolder
+&nbsp; */
+&nbsp;@Generated(from = &quot;GenericHolder&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;GenericHolder&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableGenericHolder&lt;T&gt; implements GenericHolder&lt;T&gt; {
+&nbsp;  private static final long INIT_BIT_MANDATORY = 0x1L;
+&nbsp;  private long initBits = 0x1L;
+&nbsp;
+&nbsp;  private T mandatory;
+&nbsp;  private @Nullable T optional;
+&nbsp;
+&nbsp;  private ModifiableGenericHolder() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code GenericHolder}.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; ModifiableGenericHolder&lt;T&gt; create() {
+&nbsp;    return new ModifiableGenericHolder&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code mandatory} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final T mandatory() {
+&nbsp;    if (!mandatoryIsSet()) checkRequiredAttributes();
+&nbsp;    return mandatory;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code optional} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable T optional() {
+&nbsp;    return optional;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericHolder&lt;T&gt; clear() {
+&nbsp;    initBits = 0x1L;
+&nbsp;    mandatory = null;
+&nbsp;    optional = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link GenericHolder} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableGenericHolder&lt;T&gt; from(GenericHolder&lt;T&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableGenericHolder&lt;?&gt;) {
+&nbsp;      from((ModifiableGenericHolder&lt;T&gt;) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setMandatory(instance.mandatory());
+&nbsp;    @Nullable T optionalValue = instance.optional();
+&nbsp;    if (optionalValue != null) {
+&nbsp;      setOptional(optionalValue);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link GenericHolder} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableGenericHolder&lt;T&gt; from(ModifiableGenericHolder&lt;T&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.mandatoryIsSet()) {
+&nbsp;      setMandatory(instance.mandatory());
+&nbsp;    }
+&nbsp;    @Nullable T optionalValue = instance.optional();
+&nbsp;    if (optionalValue != null) {
+&nbsp;      setOptional(optionalValue);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link GenericHolder#mandatory() mandatory} attribute.
+&nbsp;   * @param mandatory The value for mandatory
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericHolder&lt;T&gt; setMandatory(T mandatory) {
+&nbsp;    this.mandatory = Objects.requireNonNull(mandatory, &quot;mandatory&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_MANDATORY;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link GenericHolder#optional() optional} attribute.
+&nbsp;   * @param optional The value for optional, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericHolder&lt;T&gt; setOptional(@Nullable T optional) {
+&nbsp;    this.optional = optional;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link GenericHolder#mandatory() mandatory} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean mandatoryIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_MANDATORY) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableGenericHolder&lt;T&gt; unsetMandatory() {
+&nbsp;    initBits |= INIT_BIT_MANDATORY;
+&nbsp;    mandatory = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!mandatoryIsSet()) attributes.add(&quot;mandatory&quot;);
+&nbsp;    return &quot;GenericHolder is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableGenericHolder ImmutableGenericHolder}.
+&nbsp;   * @return An immutable instance of GenericHolder
+&nbsp;   */
+&nbsp;  public final ImmutableGenericHolder&lt;T&gt; toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableGenericHolder.&lt;T&gt;copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableGenericHolder&lt;?&gt;} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableGenericHolder&lt;?&gt;)) return false;
+&nbsp;    ModifiableGenericHolder&lt;?&gt; other = (ModifiableGenericHolder&lt;?&gt;) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableGenericHolder&lt;?&gt; another) {
+&nbsp;    return mandatory.equals(another.mandatory)
+&nbsp;        &amp;&amp; Objects.equals(optional, another.optional);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code mandatory}, {@code optional}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + mandatory.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(optional);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code GenericHolder}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableGenericHolder&quot;)
+&nbsp;        .add(&quot;mandatory&quot;, mandatoryIsSet() ? mandatory() : &quot;?&quot;)
+&nbsp;        .add(&quot;optional&quot;, optional())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

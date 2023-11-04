@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Geodes</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: Geodes (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Geodes</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.backend.ProjectedTuple;
+&nbsp;import org.immutables.criteria.expression.ExpressionConverter;
+&nbsp;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;/**
+&nbsp; * Util functions for Geode backend
+&nbsp; */
+&nbsp;final class Geodes {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns only predicate part to be appended to {@code WHERE} clause.
+&nbsp;   *
+&nbsp;   * @return predicate, empty string if no predicate
+&nbsp;   */
+&nbsp;  static ExpressionConverter&lt;Oql&gt; converter(boolean useBindVariables, PathNaming pathNaming) {
+<b class="nc">&nbsp;    return expression -&gt; expression.accept(new GeodeQueryVisitor(useBindVariables, pathNaming));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used to convert between types. Sometimes geode backend returns different types for aggregate functions like AVG / MIN / MAX.
+&nbsp;   * Eg. Long vs Integer
+&nbsp;   */
+&nbsp;  static ProjectedTuple castNumbers(ProjectedTuple tuple) {
+<b class="nc">&nbsp;    List&lt;Object&gt; newVaues = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    for (int i = 0; i &lt; tuple.values().size(); i++) {</b>
+<b class="nc">&nbsp;      newVaues.add(convert(tuple.values().get(i), tuple.paths().get(i).returnType()));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return ProjectedTuple.of(tuple.paths(), newVaues);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static Object convert(Object value, Type destinationType) {
+<b class="nc">&nbsp;    if (value == null) {</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (value.getClass() == destinationType) {</b>
+&nbsp;      // no need to cast
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // try to convert between numbers
+<b class="nc">&nbsp;    if (value instanceof Number) {</b>
+<b class="nc">&nbsp;      Primitive primitive = Primitive.ofAny(destinationType);</b>
+<b class="nc">&nbsp;      if (primitive != null &amp;&amp; !primitive.boxClass.isInstance(value)) {</b>
+&nbsp;        // cast
+<b class="nc">&nbsp;        return primitive.cast((Number) value);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    // don&#39;t know what to do with this value
+&nbsp;    // return AS IS
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Geodes() {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

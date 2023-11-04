@@ -1,0 +1,204 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Parcelable</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">android.os</a>
+</div>
+
+<h1>Coverage Summary for Class: Parcelable (android.os)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Parcelable$ClassLoaderCreator</td>
+  </tr>
+  <tr>
+    <td class="name">Parcelable$Creator</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright (C) 2006 The Android Open Source Project
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;//THIS IS STUB!!!!
+&nbsp;//THIS IS STUB!!!!
+&nbsp;package android.os;
+&nbsp;
+&nbsp;/**
+&nbsp; * Interface for classes whose instances can be written to
+&nbsp; * and restored from a {@link Parcel}. Classes implementing the Parcelable
+&nbsp; * interface must also have a static field called &lt;code&gt;CREATOR&lt;/code&gt;, which
+&nbsp; * is an object implementing the {@link Parcelable.Creator Parcelable.Creator} interface.
+&nbsp; * &lt;p&gt;
+&nbsp; * A typical implementation of Parcelable is:
+&nbsp; * &lt;/p&gt;
+&nbsp; * 
+&nbsp; * &lt;pre&gt;
+&nbsp; * public class MyParcelable implements Parcelable {
+&nbsp; *   private int mData;
+&nbsp; * 
+&nbsp; *   public int describeContents() {
+&nbsp; *     return 0;
+&nbsp; *   }
+&nbsp; * 
+&nbsp; *   public void writeToParcel(Parcel out, int flags) {
+&nbsp; *     out.writeInt(mData);
+&nbsp; *   }
+&nbsp; * 
+&nbsp; *   public static final Parcelable.Creator&amp;lt;MyParcelable&amp;gt; CREATOR = new Parcelable.Creator&amp;lt;MyParcelable&amp;gt;() {
+&nbsp; *     public MyParcelable createFromParcel(Parcel in) {
+&nbsp; *       return new MyParcelable(in);
+&nbsp; *     }
+&nbsp; * 
+&nbsp; *     public MyParcelable[] newArray(int size) {
+&nbsp; *       return new MyParcelable[size];
+&nbsp; *     }
+&nbsp; *   };
+&nbsp; * 
+&nbsp; *   private MyParcelable(Parcel in) {
+&nbsp; *     mData = in.readInt();
+&nbsp; *   }
+&nbsp; * }
+&nbsp; * &lt;/pre&gt;
+&nbsp; */
+&nbsp;public interface Parcelable {
+&nbsp;  /**
+&nbsp;   * Flag for use with {@link #writeToParcel}: the object being written
+&nbsp;   * is a return value, that is the result of a function such as
+&nbsp;   * &quot;&lt;code&gt;Parcelable someFunction()&lt;/code&gt;&quot;,
+&nbsp;   * &quot;&lt;code&gt;void someFunction(out Parcelable)&lt;/code&gt;&quot;, or
+&nbsp;   * &quot;&lt;code&gt;void someFunction(inout Parcelable)&lt;/code&gt;&quot;. Some implementations
+&nbsp;   * may want to release resources at this point.
+&nbsp;   */
+&nbsp;  public static final int PARCELABLE_WRITE_RETURN_VALUE = 0x0001;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Bit masks for use with {@link #describeContents}: each bit represents a
+&nbsp;   * kind of object considered to have potential special significance when
+&nbsp;   * marshalled.
+&nbsp;   */
+&nbsp;  public static final int CONTENTS_FILE_DESCRIPTOR = 0x0001;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Describe the kinds of special objects contained in this Parcelable&#39;s
+&nbsp;   * marshalled representation.
+&nbsp;   * @return a bitmask indicating the set of special object types marshalled
+&nbsp;   *         by the Parcelable.
+&nbsp;   */
+&nbsp;  public int describeContents();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Flatten this object in to a Parcel.
+&nbsp;   * @param dest The Parcel in which the object should be written.
+&nbsp;   * @param flags Additional flags about how the object should be written.
+&nbsp;   *          May be 0 or {@link #PARCELABLE_WRITE_RETURN_VALUE}.
+&nbsp;   */
+&nbsp;  public void writeToParcel(Parcel dest, int flags);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Interface that must be implemented and provided as a public CREATOR
+&nbsp;   * field that generates instances of your Parcelable class from a Parcel.
+&nbsp;   */
+&nbsp;  public interface Creator&lt;T&gt; {
+&nbsp;    /**
+&nbsp;     * Create a new instance of the Parcelable class, instantiating it
+&nbsp;     * from the given Parcel whose data had previously been written by
+&nbsp;     * {@link Parcelable#writeToParcel Parcelable.writeToParcel()}.
+&nbsp;     * @param source The Parcel to read the object&#39;s data from.
+&nbsp;     * @return Returns a new instance of the Parcelable class.
+&nbsp;     */
+&nbsp;    public T createFromParcel(Parcel source);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Create a new array of the Parcelable class.
+&nbsp;     * @param size Size of the array.
+&nbsp;     * @return Returns an array of the Parcelable class, with every entry
+&nbsp;     *         initialized to null.
+&nbsp;     */
+&nbsp;    public T[] newArray(int size);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Specialization of {@link Creator} that allows you to receive the
+&nbsp;   * ClassLoader the object is being created in.
+&nbsp;   */
+&nbsp;  public interface ClassLoaderCreator&lt;T&gt; extends Creator&lt;T&gt; {
+&nbsp;    /**
+&nbsp;     * Create a new instance of the Parcelable class, instantiating it
+&nbsp;     * from the given Parcel whose data had previously been written by
+&nbsp;     * {@link Parcelable#writeToParcel Parcelable.writeToParcel()} and
+&nbsp;     * using the given ClassLoader.
+&nbsp;     * @param source The Parcel to read the object&#39;s data from.
+&nbsp;     * @param loader The ClassLoader that this object is being created in.
+&nbsp;     * @return Returns a new instance of the Parcelable class.
+&nbsp;     */
+&nbsp;    public T createFromParcel(Parcel source, ClassLoader loader);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

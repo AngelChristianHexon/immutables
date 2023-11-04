@@ -1,0 +1,381 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableColor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.deep</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableColor (org.immutables.fixture.deep)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableColor</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.deep;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Doubles;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Canvas.Color Color} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableColor is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableColor
+&nbsp; */
+&nbsp;@Generated(from = &quot;Canvas.Color&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Canvas.Color&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableColor implements Canvas.Color {
+&nbsp;  private static final long INIT_BIT_RED = 0x1L;
+&nbsp;  private static final long INIT_BIT_GREEN = 0x2L;
+&nbsp;  private static final long INIT_BIT_BLUE = 0x4L;
+&nbsp;  private long initBits = 0x7L;
+&nbsp;
+&nbsp;  private double red;
+&nbsp;  private double green;
+&nbsp;  private double blue;
+&nbsp;
+&nbsp;  private ModifiableColor() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Color}.
+&nbsp;   * @param red The value for the {@link Canvas.Color#red() red} attribute 
+&nbsp;   * @param green The value for the {@link Canvas.Color#green() green} attribute 
+&nbsp;   * @param blue The value for the {@link Canvas.Color#blue() blue} attribute 
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableColor create(double red, double green, double blue) {
+&nbsp;    return new ModifiableColor()
+&nbsp;        .setRed(red)
+&nbsp;        .setGreen(green)
+&nbsp;        .setBlue(blue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Color}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableColor create() {
+&nbsp;    return new ModifiableColor();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code red} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final double red() {
+&nbsp;    if (!redIsSet()) checkRequiredAttributes();
+&nbsp;    return red;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code green} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final double green() {
+&nbsp;    if (!greenIsSet()) checkRequiredAttributes();
+&nbsp;    return green;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code blue} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final double blue() {
+&nbsp;    if (!blueIsSet()) checkRequiredAttributes();
+&nbsp;    return blue;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableColor clear() {
+&nbsp;    initBits = 0x7L;
+&nbsp;    red = 0;
+&nbsp;    green = 0;
+&nbsp;    blue = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Canvas.Color} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableColor from(Canvas.Color instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableColor) {
+&nbsp;      from((ModifiableColor) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setRed(instance.red());
+&nbsp;    setGreen(instance.green());
+&nbsp;    setBlue(instance.blue());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Canvas.Color} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableColor from(ModifiableColor instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.redIsSet()) {
+&nbsp;      setRed(instance.red());
+&nbsp;    }
+&nbsp;    if (instance.greenIsSet()) {
+&nbsp;      setGreen(instance.green());
+&nbsp;    }
+&nbsp;    if (instance.blueIsSet()) {
+&nbsp;      setBlue(instance.blue());
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Canvas.Color#red() red} attribute.
+&nbsp;   * @param red The value for red
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableColor setRed(double red) {
+&nbsp;    this.red = red;
+&nbsp;    initBits &amp;= ~INIT_BIT_RED;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Canvas.Color#green() green} attribute.
+&nbsp;   * @param green The value for green
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableColor setGreen(double green) {
+&nbsp;    this.green = green;
+&nbsp;    initBits &amp;= ~INIT_BIT_GREEN;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Canvas.Color#blue() blue} attribute.
+&nbsp;   * @param blue The value for blue
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableColor setBlue(double blue) {
+&nbsp;    this.blue = blue;
+&nbsp;    initBits &amp;= ~INIT_BIT_BLUE;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Canvas.Color#red() red} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean redIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_RED) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Canvas.Color#green() green} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean greenIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_GREEN) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Canvas.Color#blue() blue} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean blueIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_BLUE) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableColor unsetRed() {
+&nbsp;    initBits |= INIT_BIT_RED;
+&nbsp;    red = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableColor unsetGreen() {
+&nbsp;    initBits |= INIT_BIT_GREEN;
+&nbsp;    green = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableColor unsetBlue() {
+&nbsp;    initBits |= INIT_BIT_BLUE;
+&nbsp;    blue = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!redIsSet()) attributes.add(&quot;red&quot;);
+&nbsp;    if (!greenIsSet()) attributes.add(&quot;green&quot;);
+&nbsp;    if (!blueIsSet()) attributes.add(&quot;blue&quot;);
+&nbsp;    return &quot;Color is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableColor ImmutableColor}.
+&nbsp;   * @return An immutable instance of Color
+&nbsp;   */
+&nbsp;  public final ImmutableColor toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableColor.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableColor} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableColor)) return false;
+&nbsp;    ModifiableColor other = (ModifiableColor) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableColor another) {
+&nbsp;    return Double.doubleToLongBits(red) == Double.doubleToLongBits(another.red)
+&nbsp;        &amp;&amp; Double.doubleToLongBits(green) == Double.doubleToLongBits(another.green)
+&nbsp;        &amp;&amp; Double.doubleToLongBits(blue) == Double.doubleToLongBits(another.blue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code red}, {@code green}, {@code blue}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(red);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(green);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(blue);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Color}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableColor&quot;)
+&nbsp;        .add(&quot;red&quot;, redIsSet() ? red() : &quot;?&quot;)
+&nbsp;        .add(&quot;green&quot;, greenIsSet() ? green() : &quot;?&quot;)
+&nbsp;        .add(&quot;blue&quot;, blueIsSet() ? blue() : &quot;?&quot;)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

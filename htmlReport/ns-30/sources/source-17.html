@@ -1,0 +1,632 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNoLocalVariablesOverlapping</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNoLocalVariablesOverlapping (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNoLocalVariablesOverlapping$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NoLocalVariablesOverlapping}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNoLocalVariablesOverlapping.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NoLocalVariablesOverlapping&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNoLocalVariablesOverlapping
+&nbsp;    extends NoLocalVariablesOverlapping {
+&nbsp;  private final Map&lt;String, String&gt; entry;
+&nbsp;  private final Map&lt;String, String&gt; k;
+&nbsp;  private final Map&lt;String, String&gt; v;
+&nbsp;  private final List&lt;String&gt; elements;
+&nbsp;
+&nbsp;  private ImmutableNoLocalVariablesOverlapping(
+&nbsp;      Map&lt;String, String&gt; entry,
+&nbsp;      Map&lt;String, String&gt; k,
+&nbsp;      Map&lt;String, String&gt; v,
+&nbsp;      List&lt;String&gt; elements) {
+&nbsp;    this.entry = entry;
+&nbsp;    this.k = k;
+&nbsp;    this.v = v;
+&nbsp;    this.elements = elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code entry} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; getEntry() {
+&nbsp;    return entry;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code k} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; getK() {
+&nbsp;    return k;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; getV() {
+&nbsp;    return v;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code elements} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; getElements() {
+&nbsp;    return elements;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NoLocalVariablesOverlapping#getEntry() entry} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the entry map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoLocalVariablesOverlapping withEntry(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.entry == entries) return this;
+&nbsp;    Map&lt;String, String&gt; newValue = createUnmodifiableMap(true, false, entries);
+&nbsp;    return new ImmutableNoLocalVariablesOverlapping(newValue, this.k, this.v, this.elements);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NoLocalVariablesOverlapping#getK() k} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the k map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoLocalVariablesOverlapping withK(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.k == entries) return this;
+&nbsp;    Map&lt;String, String&gt; newValue = createUnmodifiableMap(true, false, entries);
+&nbsp;    return new ImmutableNoLocalVariablesOverlapping(this.entry, newValue, this.v, this.elements);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NoLocalVariablesOverlapping#getV() v} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the v map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoLocalVariablesOverlapping withV(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.v == entries) return this;
+&nbsp;    Map&lt;String, String&gt; newValue = createUnmodifiableMap(true, false, entries);
+&nbsp;    return new ImmutableNoLocalVariablesOverlapping(this.entry, this.k, newValue, this.elements);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoLocalVariablesOverlapping#getElements() elements}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoLocalVariablesOverlapping withElements(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
+&nbsp;    return new ImmutableNoLocalVariablesOverlapping(this.entry, this.k, this.v, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoLocalVariablesOverlapping#getElements() elements}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of elements elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoLocalVariablesOverlapping withElements(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.elements == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
+&nbsp;    return new ImmutableNoLocalVariablesOverlapping(this.entry, this.k, this.v, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNoLocalVariablesOverlapping} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNoLocalVariablesOverlapping
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNoLocalVariablesOverlapping) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNoLocalVariablesOverlapping another) {
+&nbsp;    return entry.equals(another.entry)
+&nbsp;        &amp;&amp; k.equals(another.k)
+&nbsp;        &amp;&amp; v.equals(another.v)
+&nbsp;        &amp;&amp; elements.equals(another.elements);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code entry}, {@code k}, {@code v}, {@code elements}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + entry.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + k.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + v.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + elements.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NoLocalVariablesOverlapping} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;NoLocalVariablesOverlapping{&quot;
+&nbsp;        + &quot;entry=&quot; + entry
+&nbsp;        + &quot;, k=&quot; + k
+&nbsp;        + &quot;, v=&quot; + v
+&nbsp;        + &quot;, elements=&quot; + elements
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NoLocalVariablesOverlapping} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NoLocalVariablesOverlapping instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoLocalVariablesOverlapping copyOf(NoLocalVariablesOverlapping instance) {
+&nbsp;    if (instance instanceof ImmutableNoLocalVariablesOverlapping) {
+&nbsp;      return (ImmutableNoLocalVariablesOverlapping) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNoLocalVariablesOverlapping.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNoLocalVariablesOverlapping ImmutableNoLocalVariablesOverlapping}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNoLocalVariablesOverlapping.builder()
+&nbsp;   *    .putEntry|putAllEntry(String =&amp;gt; String) // {@link NoLocalVariablesOverlapping#getEntry() entry} mappings
+&nbsp;   *    .putK|putAllK(String =&amp;gt; String) // {@link NoLocalVariablesOverlapping#getK() k} mappings
+&nbsp;   *    .putV|putAllV(String =&amp;gt; String) // {@link NoLocalVariablesOverlapping#getV() v} mappings
+&nbsp;   *    .addElements|addAllElements(String) // {@link NoLocalVariablesOverlapping#getElements() elements} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNoLocalVariablesOverlapping builder
+&nbsp;   */
+&nbsp;  public static ImmutableNoLocalVariablesOverlapping.Builder builder() {
+&nbsp;    return new ImmutableNoLocalVariablesOverlapping.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNoLocalVariablesOverlapping ImmutableNoLocalVariablesOverlapping}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NoLocalVariablesOverlapping&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private Map&lt;String, String&gt; entry = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    private Map&lt;String, String&gt; k = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    private Map&lt;String, String&gt; v = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;    private List&lt;String&gt; elements = new ArrayList&lt;String&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NoLocalVariablesOverlapping} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NoLocalVariablesOverlapping instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      putAllEntry(instance.getEntry());
+&nbsp;      putAllK(instance.getK());
+&nbsp;      putAllV(instance.getV());
+&nbsp;      addAllElements(instance.getElements());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoLocalVariablesOverlapping#getEntry() entry} map.
+&nbsp;     * @param key The key in the entry map
+&nbsp;     * @param value The associated value in the entry map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putEntry(String key, String value) {
+&nbsp;      this.entry.put(
+&nbsp;          Objects.requireNonNull(key, &quot;entry key&quot;),
+&nbsp;          Objects.requireNonNull(value, value == null ? &quot;entry value for key: &quot; + key : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoLocalVariablesOverlapping#getEntry() entry} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putEntry(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      String v = entry.getValue();
+&nbsp;      this.entry.put(
+&nbsp;          Objects.requireNonNull(k, &quot;entry key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;entry value for key: &quot; + k : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NoLocalVariablesOverlapping#getEntry() entry} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the entry map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder entry(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.entry.clear();
+&nbsp;      return putAllEntry(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NoLocalVariablesOverlapping#getEntry() entry} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the entry map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllEntry(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        String v = e.getValue();
+&nbsp;        this.entry.put(
+&nbsp;            Objects.requireNonNull(k, &quot;entry key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;entry value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoLocalVariablesOverlapping#getK() k} map.
+&nbsp;     * @param key The key in the k map
+&nbsp;     * @param value The associated value in the k map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putK(String key, String value) {
+&nbsp;      this.k.put(
+&nbsp;          Objects.requireNonNull(key, &quot;k key&quot;),
+&nbsp;          Objects.requireNonNull(value, value == null ? &quot;k value for key: &quot; + key : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoLocalVariablesOverlapping#getK() k} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putK(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      String v = entry.getValue();
+&nbsp;      this.k.put(
+&nbsp;          Objects.requireNonNull(k, &quot;k key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;k value for key: &quot; + k : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NoLocalVariablesOverlapping#getK() k} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the k map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder k(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.k.clear();
+&nbsp;      return putAllK(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NoLocalVariablesOverlapping#getK() k} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the k map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllK(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        String v = e.getValue();
+&nbsp;        this.k.put(
+&nbsp;            Objects.requireNonNull(k, &quot;k key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;k value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoLocalVariablesOverlapping#getV() v} map.
+&nbsp;     * @param key The key in the v map
+&nbsp;     * @param value The associated value in the v map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putV(String key, String value) {
+&nbsp;      this.v.put(
+&nbsp;          Objects.requireNonNull(key, &quot;v key&quot;),
+&nbsp;          Objects.requireNonNull(value, value == null ? &quot;v value for key: &quot; + key : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoLocalVariablesOverlapping#getV() v} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putV(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      String v = entry.getValue();
+&nbsp;      this.v.put(
+&nbsp;          Objects.requireNonNull(k, &quot;v key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;v value for key: &quot; + k : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NoLocalVariablesOverlapping#getV() v} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the v map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.v.clear();
+&nbsp;      return putAllV(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NoLocalVariablesOverlapping#getV() v} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the v map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllV(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        String v = e.getValue();
+&nbsp;        this.v.put(
+&nbsp;            Objects.requireNonNull(k, &quot;v key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;v value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NoLocalVariablesOverlapping#getElements() elements} list.
+&nbsp;     * @param element A elements element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addElements(String element) {
+&nbsp;      this.elements.add(Objects.requireNonNull(element, &quot;elements element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoLocalVariablesOverlapping#getElements() elements} list.
+&nbsp;     * @param elements An array of elements elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addElements(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.elements.add(Objects.requireNonNull(element, &quot;elements element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NoLocalVariablesOverlapping#getElements() elements} list.
+&nbsp;     * @param elements An iterable of elements elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder elements(Iterable&lt;String&gt; elements) {
+&nbsp;      this.elements.clear();
+&nbsp;      return addAllElements(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoLocalVariablesOverlapping#getElements() elements} list.
+&nbsp;     * @param elements An iterable of elements elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllElements(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.elements.add(Objects.requireNonNull(element, &quot;elements element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNoLocalVariablesOverlapping ImmutableNoLocalVariablesOverlapping}.
+&nbsp;     * @return An immutable instance of NoLocalVariablesOverlapping
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNoLocalVariablesOverlapping build() {
+&nbsp;      return new ImmutableNoLocalVariablesOverlapping(
+&nbsp;          createUnmodifiableMap(false, false, entry),
+&nbsp;          createUnmodifiableMap(false, false, k),
+&nbsp;          createUnmodifiableMap(false, false, v),
+&nbsp;          createUnmodifiableList(true, elements));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

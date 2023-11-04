@@ -1,0 +1,720 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableUsingAllOptionals</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableUsingAllOptionals (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableUsingAllOptionals$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link UsingAllOptionals}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableUsingAllOptionals.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableUsingAllOptionals.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;UsingAllOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableUsingAllOptionals implements UsingAllOptionals {
+&nbsp;  private final Optional&lt;Integer&gt; v1;
+&nbsp;  private final @Nullable Integer v2;
+&nbsp;  private final @Nullable Integer i1;
+&nbsp;  private final @Nullable Long l1;
+&nbsp;  private final @Nullable Double d1;
+&nbsp;  private final Option&lt;String&gt; fo3;
+&nbsp;  private final javaslang.control.Option&lt;String&gt; jso;
+&nbsp;
+&nbsp;  private ImmutableUsingAllOptionals(
+&nbsp;      Optional&lt;Integer&gt; v1,
+&nbsp;      java.util.Optional&lt;Integer&gt; v2,
+&nbsp;      OptionalInt i1,
+&nbsp;      OptionalLong l1,
+&nbsp;      OptionalDouble d1,
+&nbsp;      Option&lt;String&gt; fo3,
+&nbsp;      javaslang.control.Option&lt;String&gt; jso) {
+&nbsp;    this.v1 = v1;
+&nbsp;    this.v2 = v2.orElse(null);
+&nbsp;    this.i1 = i1.isPresent() ? i1.getAsInt() : null;
+&nbsp;    this.l1 = l1.isPresent() ? l1.getAsLong() : null;
+&nbsp;    this.d1 = d1.isPresent() ? d1.getAsDouble() : null;
+&nbsp;    this.fo3 = fo3;
+&nbsp;    this.jso = jso;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableUsingAllOptionals(
+&nbsp;      ImmutableUsingAllOptionals original,
+&nbsp;      Optional&lt;Integer&gt; v1,
+&nbsp;      @Nullable Integer v2,
+&nbsp;      @Nullable Integer i1,
+&nbsp;      @Nullable Long l1,
+&nbsp;      @Nullable Double d1,
+&nbsp;      Option&lt;String&gt; fo3,
+&nbsp;      javaslang.control.Option&lt;String&gt; jso) {
+&nbsp;    this.v1 = v1;
+&nbsp;    this.v2 = v2;
+&nbsp;    this.i1 = i1;
+&nbsp;    this.l1 = l1;
+&nbsp;    this.d1 = d1;
+&nbsp;    this.fo3 = fo3;
+&nbsp;    this.jso = jso;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; v1() {
+&nbsp;    return v1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;Integer&gt; v2() {
+&nbsp;    return java.util.Optional.ofNullable(v2);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt i1() {
+&nbsp;    return i1 != null
+&nbsp;        ? OptionalInt.of(i1)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalLong l1() {
+&nbsp;    return l1 != null
+&nbsp;        ? OptionalLong.of(l1)
+&nbsp;        : OptionalLong.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalDouble d1() {
+&nbsp;    return d1 != null
+&nbsp;        ? OptionalDouble.of(d1)
+&nbsp;        : OptionalDouble.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code fo3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Option&lt;String&gt; fo3() {
+&nbsp;    return fo3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code jso} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public javaslang.control.Option&lt;String&gt; jso() {
+&nbsp;    return jso;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#v1() v1} attribute.
+&nbsp;   * @param value The value for v1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withV1(int value) {
+&nbsp;    Optional&lt;Integer&gt; newValue = Optional.of(value);
+&nbsp;    if (this.v1.equals(newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, newValue, this.v2, this.i1, this.l1, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#v1() v1} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withV1(Optional&lt;Integer&gt; optional) {
+&nbsp;    Optional&lt;Integer&gt; value = optional;
+&nbsp;    if (this.v1.equals(value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, value, this.v2, this.i1, this.l1, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#v2() v2} attribute.
+&nbsp;   * @param value The value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withV2(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.v2, newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, newValue, this.i1, this.l1, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#v2() v2} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withV2(java.util.Optional&lt;Integer&gt; optional) {
+&nbsp;    @Nullable Integer value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.v2, value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, value, this.i1, this.l1, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#i1() i1} attribute.
+&nbsp;   * @param value The value for i1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withI1(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.i1, newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, newValue, this.l1, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#i1() i1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for i1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withI1(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.i1, value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, value, this.l1, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#l1() l1} attribute.
+&nbsp;   * @param value The value for l1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withL1(long value) {
+&nbsp;    @Nullable Long newValue = value;
+&nbsp;    if (Objects.equals(this.l1, newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, newValue, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#l1() l1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for l1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withL1(OptionalLong optional) {
+&nbsp;    @Nullable Long value = optional.isPresent() ? optional.getAsLong() : null;
+&nbsp;    if (Objects.equals(this.l1, value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, value, this.d1, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#d1() d1} attribute.
+&nbsp;   * @param value The value for d1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withD1(double value) {
+&nbsp;    @Nullable Double newValue = value;
+&nbsp;    if (Objects.equals(this.d1, newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, this.l1, newValue, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#d1() d1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for d1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withD1(OptionalDouble optional) {
+&nbsp;    @Nullable Double value = optional.isPresent() ? optional.getAsDouble() : null;
+&nbsp;    if (Objects.equals(this.d1, value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, this.l1, value, this.fo3, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#fo3() fo3} attribute.
+&nbsp;   * @param value The value for fo3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withFo3(String value) {
+&nbsp;    Option&lt;String&gt; newValue = Option.some(value);
+&nbsp;    if (this.fo3.equals(newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, this.l1, this.d1, newValue, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#fo3() fo3} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for fo3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withFo3(Option&lt;String&gt; optional) {
+&nbsp;    Option&lt;String&gt; value = optional;
+&nbsp;    if (this.fo3.equals(value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, this.l1, this.d1, value, this.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link UsingAllOptionals#jso() jso} attribute.
+&nbsp;   * @param value The value for jso
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withJso(String value) {
+&nbsp;    javaslang.control.Option&lt;String&gt; newValue = javaslang.control.Option.some(value);
+&nbsp;    if (this.jso.equals(newValue)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, this.l1, this.d1, this.fo3, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link UsingAllOptionals#jso() jso} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for jso
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUsingAllOptionals withJso(javaslang.control.Option&lt;String&gt; optional) {
+&nbsp;    javaslang.control.Option&lt;String&gt; value = optional;
+&nbsp;    if (this.jso.equals(value)) return this;
+&nbsp;    return new ImmutableUsingAllOptionals(this, this.v1, this.v2, this.i1, this.l1, this.d1, this.fo3, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableUsingAllOptionals} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableUsingAllOptionals
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableUsingAllOptionals) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableUsingAllOptionals another) {
+&nbsp;    return v1.equals(another.v1)
+&nbsp;        &amp;&amp; Objects.equals(v2, another.v2)
+&nbsp;        &amp;&amp; Objects.equals(i1, another.i1)
+&nbsp;        &amp;&amp; Objects.equals(l1, another.l1)
+&nbsp;        &amp;&amp; Objects.equals(d1, another.d1)
+&nbsp;        &amp;&amp; fo3.equals(another.fo3)
+&nbsp;        &amp;&amp; jso.equals(another.jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code v1}, {@code v2}, {@code i1}, {@code l1}, {@code d1}, {@code fo3}, {@code jso}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + v1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v2);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(i1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(l1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(d1);
+&nbsp;    h += (h &lt;&lt; 5) + fo3.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + jso.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code UsingAllOptionals} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    StringBuilder builder = new StringBuilder(&quot;UsingAllOptionals{&quot;);
+&nbsp;    if (v1.isPresent()) {
+&nbsp;      builder.append(&quot;v1=&quot;).append(v1.get());
+&nbsp;    }
+&nbsp;    if (v2 != null) {
+&nbsp;      if (builder.length() &gt; 18) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;v2=&quot;).append(v2);
+&nbsp;    }
+&nbsp;    if (i1 != null) {
+&nbsp;      if (builder.length() &gt; 18) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;i1=&quot;).append(i1);
+&nbsp;    }
+&nbsp;    if (l1 != null) {
+&nbsp;      if (builder.length() &gt; 18) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;l1=&quot;).append(l1);
+&nbsp;    }
+&nbsp;    if (d1 != null) {
+&nbsp;      if (builder.length() &gt; 18) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;d1=&quot;).append(d1);
+&nbsp;    }
+&nbsp;    if (fo3.isDefined()) {
+&nbsp;      if (builder.length() &gt; 18) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;fo3=&quot;).append(fo3.get());
+&nbsp;    }
+&nbsp;    if (jso.isDefined()) {
+&nbsp;      if (builder.length() &gt; 18) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;jso=&quot;).append(jso.get());
+&nbsp;    }
+&nbsp;    return builder.append(&quot;}&quot;).toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code UsingAllOptionals} instance.
+&nbsp;   * @param v1 The value for the {@code v1} attribute
+&nbsp;   * @param v2 The value for the {@code v2} attribute
+&nbsp;   * @param i1 The value for the {@code i1} attribute
+&nbsp;   * @param l1 The value for the {@code l1} attribute
+&nbsp;   * @param d1 The value for the {@code d1} attribute
+&nbsp;   * @param fo3 The value for the {@code fo3} attribute
+&nbsp;   * @param jso The value for the {@code jso} attribute
+&nbsp;   * @return An immutable UsingAllOptionals instance
+&nbsp;   */
+&nbsp;  public static ImmutableUsingAllOptionals of(Optional&lt;Integer&gt; v1, java.util.Optional&lt;Integer&gt; v2, OptionalInt i1, OptionalLong l1, OptionalDouble d1, Option&lt;String&gt; fo3, javaslang.control.Option&lt;String&gt; jso) {
+&nbsp;    return new ImmutableUsingAllOptionals(v1, v2, i1, l1, d1, fo3, jso);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link UsingAllOptionals} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable UsingAllOptionals instance
+&nbsp;   */
+&nbsp;  public static ImmutableUsingAllOptionals copyOf(UsingAllOptionals instance) {
+&nbsp;    if (instance instanceof ImmutableUsingAllOptionals) {
+&nbsp;      return (ImmutableUsingAllOptionals) instance;
+&nbsp;    }
+&nbsp;    return ImmutableUsingAllOptionals.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableUsingAllOptionals ImmutableUsingAllOptionals}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableUsingAllOptionals.builder()
+&nbsp;   *    .v1(Integer) // optional {@link UsingAllOptionals#v1() v1}
+&nbsp;   *    .v2(Integer) // optional {@link UsingAllOptionals#v2() v2}
+&nbsp;   *    .i1(int) // optional {@link UsingAllOptionals#i1() i1}
+&nbsp;   *    .l1(long) // optional {@link UsingAllOptionals#l1() l1}
+&nbsp;   *    .d1(double) // optional {@link UsingAllOptionals#d1() d1}
+&nbsp;   *    .fo3(String) // optional {@link UsingAllOptionals#fo3() fo3}
+&nbsp;   *    .jso(String) // optional {@link UsingAllOptionals#jso() jso}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableUsingAllOptionals builder
+&nbsp;   */
+&nbsp;  public static ImmutableUsingAllOptionals.Builder builder() {
+&nbsp;    return new ImmutableUsingAllOptionals.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableUsingAllOptionals ImmutableUsingAllOptionals}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;UsingAllOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private Optional&lt;Integer&gt; v1 = Optional.absent();
+&nbsp;    private @Nullable Integer v2;
+&nbsp;    private @Nullable Integer i1;
+&nbsp;    private @Nullable Long l1;
+&nbsp;    private @Nullable Double d1;
+&nbsp;    private Option&lt;String&gt; fo3 = Option.none();
+&nbsp;    private javaslang.control.Option&lt;String&gt; jso = javaslang.control.Option.none();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code UsingAllOptionals} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(UsingAllOptionals instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      Optional&lt;Integer&gt; v1Optional = instance.v1();
+&nbsp;      if (v1Optional.isPresent()) {
+&nbsp;        v1(v1Optional);
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;Integer&gt; v2Optional = instance.v2();
+&nbsp;      if (v2Optional.isPresent()) {
+&nbsp;        v2(v2Optional);
+&nbsp;      }
+&nbsp;      OptionalInt i1Optional = instance.i1();
+&nbsp;      if (i1Optional.isPresent()) {
+&nbsp;        i1(i1Optional);
+&nbsp;      }
+&nbsp;      OptionalLong l1Optional = instance.l1();
+&nbsp;      if (l1Optional.isPresent()) {
+&nbsp;        l1(l1Optional);
+&nbsp;      }
+&nbsp;      OptionalDouble d1Optional = instance.d1();
+&nbsp;      if (d1Optional.isPresent()) {
+&nbsp;        d1(d1Optional);
+&nbsp;      }
+&nbsp;      Option&lt;String&gt; fo3Optional = instance.fo3();
+&nbsp;      if (fo3Optional.isDefined()) {
+&nbsp;        fo3(fo3Optional);
+&nbsp;      }
+&nbsp;      javaslang.control.Option&lt;String&gt; jsoOptional = instance.jso();
+&nbsp;      if (jsoOptional.isDefined()) {
+&nbsp;        jso(jsoOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#v1() v1} to v1.
+&nbsp;     * @param v1 The value for v1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v1(int v1) {
+&nbsp;      this.v1 = Optional.of(v1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#v1() v1} to v1.
+&nbsp;     * @param v1 The value for v1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v1(Optional&lt;Integer&gt; v1) {
+&nbsp;      this.v1 = v1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#v2() v2} to v2.
+&nbsp;     * @param v2 The value for v2
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v2(int v2) {
+&nbsp;      this.v2 = v2;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#v2() v2} to v2.
+&nbsp;     * @param v2 The value for v2
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v2(java.util.Optional&lt;Integer&gt; v2) {
+&nbsp;      this.v2 = v2.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#i1() i1} to i1.
+&nbsp;     * @param i1 The value for i1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i1(int i1) {
+&nbsp;      this.i1 = i1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#i1() i1} to i1.
+&nbsp;     * @param i1 The value for i1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i1(OptionalInt i1) {
+&nbsp;      this.i1 = i1.isPresent() ? i1.getAsInt() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#l1() l1} to l1.
+&nbsp;     * @param l1 The value for l1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l1(long l1) {
+&nbsp;      this.l1 = l1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#l1() l1} to l1.
+&nbsp;     * @param l1 The value for l1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l1(OptionalLong l1) {
+&nbsp;      this.l1 = l1.isPresent() ? l1.getAsLong() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#d1() d1} to d1.
+&nbsp;     * @param d1 The value for d1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d1(double d1) {
+&nbsp;      this.d1 = d1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#d1() d1} to d1.
+&nbsp;     * @param d1 The value for d1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d1(OptionalDouble d1) {
+&nbsp;      this.d1 = d1.isPresent() ? d1.getAsDouble() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#fo3() fo3} to fo3.
+&nbsp;     * @param fo3 The value for fo3
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder fo3(String fo3) {
+&nbsp;      this.fo3 = Option.some(fo3);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#fo3() fo3} to fo3.
+&nbsp;     * @param fo3 The value for fo3
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder fo3(Option&lt;String&gt; fo3) {
+&nbsp;      this.fo3 = fo3;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#jso() jso} to jso.
+&nbsp;     * @param jso The value for jso
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder jso(String jso) {
+&nbsp;      this.jso = javaslang.control.Option.some(jso);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link UsingAllOptionals#jso() jso} to jso.
+&nbsp;     * @param jso The value for jso
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder jso(javaslang.control.Option&lt;String&gt; jso) {
+&nbsp;      this.jso = jso;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableUsingAllOptionals ImmutableUsingAllOptionals}.
+&nbsp;     * @return An immutable instance of UsingAllOptionals
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableUsingAllOptionals build() {
+&nbsp;      return new ImmutableUsingAllOptionals(null, v1, v2, i1, l1, d1, fo3, jso);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

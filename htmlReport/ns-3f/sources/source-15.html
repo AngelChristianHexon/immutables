@@ -1,0 +1,507 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Templates</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator</a>
+</div>
+
+<h1>Coverage Summary for Class: Templates (org.immutables.generator)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">Templates$Binary</td>
+  </tr>
+  <tr>
+    <td class="name">Templates$CharConsumer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Templates$Fragment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Templates$Invokable</td>
+  </tr>
+  <tr>
+    <td class="name">Templates$Invokation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/27)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Templates$Iteration</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Templates$Product</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/35)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/86)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator;
+&nbsp;
+&nbsp;import com.google.common.base.CharMatcher;
+&nbsp;import com.google.common.base.Joiner;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Iterator;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import static com.google.common.base.Preconditions.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * Basis for the functionality of generated templates
+&nbsp; */
+&nbsp;public final class Templates {
+&nbsp;  private Templates() {}
+&nbsp;
+&nbsp;  public interface Binary&lt;L, R, T&gt; {
+&nbsp;    T apply(L left, R right);
+&nbsp;  }
+&nbsp;
+&nbsp;  public interface Invokable {
+&nbsp;    @Nullable
+&nbsp;    Invokable invoke(Invokation invokation, Object... parameters);
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  static class CharConsumer {</b>
+<b class="nc">&nbsp;    private final StringBuilder builder = new StringBuilder();</b>
+&nbsp;    /** Index after indentation. */
+&nbsp;    private int lineStartIndex;
+<b class="nc">&nbsp;    public String indentation = &quot;&quot;;</b>
+&nbsp;    private boolean delimit;
+<b class="nc">&nbsp;    private boolean wasNewline = true;</b>
+&nbsp;
+&nbsp;    void append(CharSequence sequence) {
+<b class="nc">&nbsp;      beforeAppend();</b>
+<b class="nc">&nbsp;      builder.append(sequence);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void append(String string) {
+<b class="nc">&nbsp;      beforeAppend();</b>
+<b class="nc">&nbsp;      builder.append(string);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void append(char c) {
+<b class="nc">&nbsp;      if (c == &#39;\n&#39;) {</b>
+<b class="nc">&nbsp;        newline();</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        beforeAppend();</b>
+<b class="nc">&nbsp;        builder.append(c);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void beforeAppend() {
+<b class="nc">&nbsp;      if (wasNewline) {</b>
+<b class="nc">&nbsp;        indent();</b>
+<b class="nc">&nbsp;        wasNewline = false;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    public CharSequence getCurrentIndentation() {
+<b class="nc">&nbsp;      CharSequence sequence = currentLine();</b>
+<b class="nc">&nbsp;      return sequence.length() &gt; 0 &amp;&amp; CharMatcher.whitespace().matchesAllOf(sequence)</b>
+<b class="nc">&nbsp;          ? sequence</b>
+<b class="nc">&nbsp;          : indentation;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private CharSequence currentLine() {
+&nbsp;      // Optimize subsequence if necessary
+<b class="nc">&nbsp;      return builder.subSequence(lineStartIndex, builder.length());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void indent() {
+<b class="nc">&nbsp;      builder.append(indentation);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** makes next newline remove previous whitespace line */
+&nbsp;    private void delimit() {
+<b class="nc">&nbsp;      delimit = true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void newline() {
+<b class="nc">&nbsp;      if (delimit &amp;&amp; wasBlankLine()) {</b>
+<b class="nc">&nbsp;        builder.setLength(lineStartIndex);</b>
+<b class="nc">&nbsp;        delimit = false;</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        builder.append(&#39;\n&#39;);</b>
+<b class="nc">&nbsp;        delimit = false;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      lineStartIndex = builder.length();</b>
+<b class="nc">&nbsp;      wasNewline = true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean wasBlankLine() {
+<b class="nc">&nbsp;      return CharMatcher.whitespace().matchesAllOf(currentLine());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      return builder.toString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public CharSequence asCharSequence() {
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  public static class Iteration {</b>
+<b class="nc">&nbsp;    public int index = 0;</b>
+<b class="nc">&nbsp;    public boolean first = true;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public final static class Invokation {
+&nbsp;    final CharConsumer consumer;
+&nbsp;    private final Object[] params;
+&nbsp;
+&nbsp;    public static Invokation initial() {
+<b class="nc">&nbsp;      return new Invokation(new CharConsumer(), &quot;&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Invokation(CharConsumer consumer, Object... params) {</b>
+<b class="nc">&nbsp;      this.consumer = consumer;</b>
+<b class="nc">&nbsp;      this.params = checkNotNull(params);</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    public int arity() {
+<b class="nc">&nbsp;      return params.length;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Object param(int ordinal) {
+<b class="nc">&nbsp;      return params[ordinal];</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Invokation dl() {
+<b class="nc">&nbsp;      consumer.delimit();</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Invokation ln() {
+<b class="nc">&nbsp;      consumer.newline();</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Invokation out(String string) {
+<b class="nc">&nbsp;      consumer.append(string);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    public Invokation out(@Nullable CharSequence content) {
+<b class="nc">&nbsp;      if (content != null) {</b>
+<b class="nc">&nbsp;        consumer.append(content);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Invokation out(@Nullable Object content) {
+<b class="nc">&nbsp;      if (content instanceof Invokable) {</b>
+<b class="nc">&nbsp;        content = ((Invokable) content).invoke(this);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (content == null) {</b>
+<b class="nc">&nbsp;        return this;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (content instanceof CharSequence) {</b>
+<b class="nc">&nbsp;        consumer.append((CharSequence) content);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        consumer.append(content.toString());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Invokation out(Object... objects) {
+<b class="nc">&nbsp;      for (Object object : objects) {</b>
+<b class="nc">&nbsp;        out(object);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specifies last processed position in template source file
+&nbsp;     * @param pos the position in template source file
+&nbsp;     * @return this invokation object for chained call
+&nbsp;     */
+&nbsp;    public Invokation pos(int pos) {
+<b class="nc">&nbsp;      throw new UnsupportedOperationException();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Tuple-like combining of a values (product), could be iterated or converted to string by
+&nbsp;   * concatenation of string forms (no separator).
+&nbsp;   */
+&nbsp;  static final class Product implements Iterable&lt;Object&gt; {
+<b class="nc">&nbsp;    private static final Joiner PLAIN_JOINER = Joiner.on(&quot;&quot;);</b>
+&nbsp;
+&nbsp;    private final Object[] elements;
+&nbsp;
+<b class="nc">&nbsp;    Product(Object[] elements) {</b>
+<b class="nc">&nbsp;      this.elements = elements;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      return PLAIN_JOINER.join(elements);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Iterator&lt;Object&gt; iterator() {
+<b class="nc">&nbsp;      return Arrays.asList(elements).iterator();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  public static abstract class Fragment implements Invokable {</b>
+&nbsp;    private final int arity;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @param arity number of fragment parameters
+&nbsp;     */
+<b class="nc">&nbsp;    protected Fragment(int arity) {</b>
+<b class="nc">&nbsp;      assert arity &gt;= 0;</b>
+<b class="nc">&nbsp;      this.arity = arity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int arity() {
+<b class="nc">&nbsp;      return arity;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public abstract void run(Invokation invokation);
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    @Override
+&nbsp;    public Invokable invoke(Invokation invokation, Object... params) {
+<b class="nc">&nbsp;      String indentationToResore = invokation.consumer.indentation;</b>
+&nbsp;      // switch to the current indentation inside fragment
+<b class="nc">&nbsp;      invokation.consumer.indentation = invokation.consumer.getCurrentIndentation().toString();</b>
+<b class="nc">&nbsp;      run(new Invokation(invokation.consumer, params));</b>
+<b class="nc">&nbsp;      invokation.consumer.indentation = indentationToResore;</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private String cachedToString;
+&nbsp;
+&nbsp;    CharSequence toCharSequence() {
+<b class="nc">&nbsp;      if (arity == 0) {</b>
+<b class="nc">&nbsp;        CharConsumer consumer = new CharConsumer();</b>
+<b class="nc">&nbsp;        invoke(new Invokation(consumer));</b>
+<b class="nc">&nbsp;        CharSequence cs = consumer.asCharSequence();</b>
+<b class="nc">&nbsp;        return cs;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return super.toString();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Ability to pass captured fragment and evaluate it as a string.
+&nbsp;     * For non-captured fragments or fragments which expects parameters, plain {@code toString}
+&nbsp;     * returned.
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      if (cachedToString == null) {</b>
+<b class="nc">&nbsp;        cachedToString = toCharSequence().toString();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return cachedToString;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

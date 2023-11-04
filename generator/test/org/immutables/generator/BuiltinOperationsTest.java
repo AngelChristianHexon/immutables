@@ -74,4 +74,11 @@ public class BuiltinOperationsTest {
     check(operations.toSafeIdentifier.apply("-11")).is("_11");
     check(operations.toSafeIdentifier.apply("987")).is("_987");
   }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testHexWithUnsupportedInput() {
+    Builtins builtins = new Builtins();
+    Number unsupportedInput = 42.0;
+    builtins.literal.hex.apply(unsupportedInput);
+  }
 }

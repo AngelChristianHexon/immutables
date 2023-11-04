@@ -1,0 +1,723 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNullAnnElements</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNullAnnElements (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNullAnnElements$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NullAnnElements}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNullAnnElements.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NullAnnElements&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNullAnnElements implements NullAnnElements {
+&nbsp;  private final List&lt;Void&gt; al;
+&nbsp;  private final List&lt;String&gt; sk;
+&nbsp;  private final Map&lt;String, Integer&gt; bl;
+&nbsp;  private final Map&lt;String, Integer&gt; sm;
+&nbsp;  private final Set&lt;String&gt; rg;
+&nbsp;
+&nbsp;  private ImmutableNullAnnElements(
+&nbsp;      List&lt;Void&gt; al,
+&nbsp;      List&lt;String&gt; sk,
+&nbsp;      Map&lt;String, Integer&gt; bl,
+&nbsp;      Map&lt;String, Integer&gt; sm,
+&nbsp;      Set&lt;String&gt; rg) {
+&nbsp;    this.al = al;
+&nbsp;    this.sk = sk;
+&nbsp;    this.bl = bl;
+&nbsp;    this.sm = sm;
+&nbsp;    this.rg = rg;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code al} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;Void&gt; al() {
+&nbsp;    return al;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code sk} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; sk() {
+&nbsp;    return sk;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code bl} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, Integer&gt; bl() {
+&nbsp;    return bl;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code sm} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, Integer&gt; sm() {
+&nbsp;    return sm;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code rg} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; rg() {
+&nbsp;    return rg;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullAnnElements#al() al}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withAl(Void... elements) {
+&nbsp;    List&lt;Void&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), false, false));
+&nbsp;    return new ImmutableNullAnnElements(newValue, this.sk, this.bl, this.sm, this.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullAnnElements#al() al}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of al elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withAl(Iterable&lt;? extends Void&gt; elements) {
+&nbsp;    if (this.al == elements) return this;
+&nbsp;    List&lt;Void&gt; newValue = createUnmodifiableList(false, createSafeList(elements, false, false));
+&nbsp;    return new ImmutableNullAnnElements(newValue, this.sk, this.bl, this.sm, this.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullAnnElements#sk() sk}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withSk(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), false, true));
+&nbsp;    return new ImmutableNullAnnElements(this.al, newValue, this.bl, this.sm, this.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullAnnElements#sk() sk}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of sk elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withSk(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.sk == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, false, true));
+&nbsp;    return new ImmutableNullAnnElements(this.al, newValue, this.bl, this.sm, this.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NullAnnElements#bl() bl} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the bl map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withBl(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.bl == entries) return this;
+&nbsp;    Map&lt;String, Integer&gt; newValue = createUnmodifiableMap(false, false, entries);
+&nbsp;    return new ImmutableNullAnnElements(this.al, this.sk, newValue, this.sm, this.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NullAnnElements#sm() sm} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the sm map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withSm(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.sm == entries) return this;
+&nbsp;    Map&lt;String, Integer&gt; newValue = createUnmodifiableMap(false, true, entries);
+&nbsp;    return new ImmutableNullAnnElements(this.al, this.sk, this.bl, newValue, this.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullAnnElements#rg() rg}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withRg(String... elements) {
+&nbsp;    Set&lt;String&gt; newValue = createUnmodifiableSet(createSafeList(Arrays.asList(elements), true, false));
+&nbsp;    return new ImmutableNullAnnElements(this.al, this.sk, this.bl, this.sm, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NullAnnElements#rg() rg}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of rg elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullAnnElements withRg(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.rg == elements) return this;
+&nbsp;    Set&lt;String&gt; newValue = createUnmodifiableSet(createSafeList(elements, true, false));
+&nbsp;    return new ImmutableNullAnnElements(this.al, this.sk, this.bl, this.sm, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNullAnnElements} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNullAnnElements
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNullAnnElements) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNullAnnElements another) {
+&nbsp;    return al.equals(another.al)
+&nbsp;        &amp;&amp; sk.equals(another.sk)
+&nbsp;        &amp;&amp; bl.equals(another.bl)
+&nbsp;        &amp;&amp; sm.equals(another.sm)
+&nbsp;        &amp;&amp; rg.equals(another.rg);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code al}, {@code sk}, {@code bl}, {@code sm}, {@code rg}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + al.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + sk.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + bl.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + sm.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + rg.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NullAnnElements} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;NullAnnElements{&quot;
+&nbsp;        + &quot;al=&quot; + al
+&nbsp;        + &quot;, sk=&quot; + sk
+&nbsp;        + &quot;, bl=&quot; + bl
+&nbsp;        + &quot;, sm=&quot; + sm
+&nbsp;        + &quot;, rg=&quot; + rg
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NullAnnElements} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NullAnnElements instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullAnnElements copyOf(NullAnnElements instance) {
+&nbsp;    if (instance instanceof ImmutableNullAnnElements) {
+&nbsp;      return (ImmutableNullAnnElements) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNullAnnElements.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNullAnnElements ImmutableNullAnnElements}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNullAnnElements.builder()
+&nbsp;   *    .addAl|addAllAl(Void) // {@link NullAnnElements#al() al} elements
+&nbsp;   *    .addSk|addAllSk(String) // {@link NullAnnElements#sk() sk} elements
+&nbsp;   *    .putBl|putAllBl(String =&amp;gt; Integer) // {@link NullAnnElements#bl() bl} mappings
+&nbsp;   *    .putSm|putAllSm(String =&amp;gt; Integer) // {@link NullAnnElements#sm() sm} mappings
+&nbsp;   *    .addRg|addAllRg(String) // {@link NullAnnElements#rg() rg} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNullAnnElements builder
+&nbsp;   */
+&nbsp;  public static ImmutableNullAnnElements.Builder builder() {
+&nbsp;    return new ImmutableNullAnnElements.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNullAnnElements ImmutableNullAnnElements}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NullAnnElements&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private List&lt;Void&gt; al = new ArrayList&lt;Void&gt;();
+&nbsp;    private List&lt;String&gt; sk = new ArrayList&lt;String&gt;();
+&nbsp;    private Map&lt;String, Integer&gt; bl = new LinkedHashMap&lt;String, Integer&gt;();
+&nbsp;    private Map&lt;String, Integer&gt; sm = new LinkedHashMap&lt;String, Integer&gt;();
+&nbsp;    private List&lt;String&gt; rg = new ArrayList&lt;String&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NullAnnElements} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NullAnnElements instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllAl(instance.al());
+&nbsp;      addAllSk(instance.sk());
+&nbsp;      putAllBl(instance.bl());
+&nbsp;      putAllSm(instance.sm());
+&nbsp;      addAllRg(instance.rg());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NullAnnElements#al() al} list.
+&nbsp;     * @param element A al element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAl(@Nullable Void element) {
+&nbsp;      this.al.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullAnnElements#al() al} list.
+&nbsp;     * @param elements An array of al elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAl(Void... elements) {
+&nbsp;      for (Void element : elements) {
+&nbsp;        this.al.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NullAnnElements#al() al} list.
+&nbsp;     * @param elements An iterable of al elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder al(Iterable&lt;? extends Void&gt; elements) {
+&nbsp;      this.al.clear();
+&nbsp;      return addAllAl(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullAnnElements#al() al} list.
+&nbsp;     * @param elements An iterable of al elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllAl(Iterable&lt;? extends Void&gt; elements) {
+&nbsp;      for (Void element : elements) {
+&nbsp;        this.al.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NullAnnElements#sk() sk} list.
+&nbsp;     * @param element A sk element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSk(@Nullable String element) {
+&nbsp;      if (element != null) this.sk.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullAnnElements#sk() sk} list.
+&nbsp;     * @param elements An array of sk elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSk(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        if (element != null) this.sk.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NullAnnElements#sk() sk} list.
+&nbsp;     * @param elements An iterable of sk elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder sk(Iterable&lt;String&gt; elements) {
+&nbsp;      this.sk.clear();
+&nbsp;      return addAllSk(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullAnnElements#sk() sk} list.
+&nbsp;     * @param elements An iterable of sk elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSk(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        if (element != null) this.sk.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NullAnnElements#bl() bl} map.
+&nbsp;     * @param key The key in the bl map
+&nbsp;     * @param value The associated value in the bl map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putBl(@Nullable String key, @Nullable Integer value) {
+&nbsp;      this.bl.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NullAnnElements#bl() bl} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putBl(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      Integer v = entry.getValue();
+&nbsp;      this.bl.put(k, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NullAnnElements#bl() bl} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the bl map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bl(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.bl.clear();
+&nbsp;      return putAllBl(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NullAnnElements#bl() bl} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the bl map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllBl(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        Integer v = e.getValue();
+&nbsp;        this.bl.put(k, v);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NullAnnElements#sm() sm} map.
+&nbsp;     * @param key The key in the sm map
+&nbsp;     * @param value The associated value in the sm map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSm(@Nullable String key, @Nullable Integer value) {
+&nbsp;      if (value != null &amp;&amp; key != null) this.sm.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NullAnnElements#sm() sm} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSm(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      Integer v = entry.getValue();
+&nbsp;      if (k != null &amp;&amp; v != null) this.sm.put(k, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NullAnnElements#sm() sm} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the sm map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder sm(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.sm.clear();
+&nbsp;      return putAllSm(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NullAnnElements#sm() sm} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the sm map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllSm(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        Integer v = e.getValue();
+&nbsp;        if (k != null &amp;&amp; v != null) this.sm.put(k, v);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NullAnnElements#rg() rg} set.
+&nbsp;     * @param element A rg element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addRg(String element) {
+&nbsp;      this.rg.add(Objects.requireNonNull(element, &quot;rg element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullAnnElements#rg() rg} set.
+&nbsp;     * @param elements An array of rg elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addRg(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.rg.add(Objects.requireNonNull(element, &quot;rg element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NullAnnElements#rg() rg} set.
+&nbsp;     * @param elements An iterable of rg elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder rg(Iterable&lt;String&gt; elements) {
+&nbsp;      this.rg.clear();
+&nbsp;      return addAllRg(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NullAnnElements#rg() rg} set.
+&nbsp;     * @param elements An iterable of rg elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllRg(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.rg.add(Objects.requireNonNull(element, &quot;rg element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNullAnnElements ImmutableNullAnnElements}.
+&nbsp;     * @return An immutable instance of NullAnnElements
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNullAnnElements build() {
+&nbsp;      return new ImmutableNullAnnElements(
+&nbsp;          createUnmodifiableList(true, al),
+&nbsp;          createUnmodifiableList(true, sk),
+&nbsp;          createUnmodifiableMap(false, false, bl),
+&nbsp;          createUnmodifiableMap(false, false, sm),
+&nbsp;          createUnmodifiableSet(rg));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /** Unmodifiable set constructed from list to avoid rehashing. */
+&nbsp;  private static &lt;T&gt; Set&lt;T&gt; createUnmodifiableSet(List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default:
+&nbsp;      Set&lt;T&gt; set = new LinkedHashSet&lt;&gt;(list.size() * 4 / 3 + 1);
+&nbsp;      set.addAll(list);
+&nbsp;      return Collections.unmodifiableSet(set);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (java.util.Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            java.util.Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            java.util.Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return java.util.Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

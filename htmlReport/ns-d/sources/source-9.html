@@ -1,0 +1,274 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Expressions</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.expression</a>
+</div>
+
+<h1>Coverage Summary for Class: Expressions (org.immutables.criteria.expression)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Expressions</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Expressions$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/27)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.expression;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;/**
+&nbsp; * A set of predefined utilities and factories for expressions like {@link Constant} or {@link Call}
+&nbsp; */
+&nbsp;public final class Expressions {
+&nbsp;
+&nbsp;  private Expressions() {}
+&nbsp;
+&nbsp;  public static Constant constant(Object value) {
+<b class="nc">&nbsp;    if (value == null) {</b>
+<b class="nc">&nbsp;      throw new NullPointerException(String.format(&quot;value argument is null. Use method %s.constantOfType(Object, Type)&quot;, Expressions.class.getSimpleName()));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return constantOfType(value, value.getClass());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Constant constantOfType(@Nullable Object value, Type type) {
+<b class="nc">&nbsp;    Objects.requireNonNull(type, &quot;type&quot;);</b>
+<b class="nc">&nbsp;    return Constant.ofType(value, type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call and(Expression left, Expression right) {
+<b class="nc">&nbsp;    return and(ImmutableList.of(left, right));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call and(Iterable&lt;? extends Expression&gt; expressions) {
+<b class="nc">&nbsp;    List&lt;Expression&gt; args = ImmutableList.copyOf(expressions);</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(args.size() &gt;= 2, &quot;expected at least 2 arguments for %s but got %s&quot;, Operators.AND, args.size());</b>
+<b class="nc">&nbsp;    return call(Operators.AND, expressions);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call or(Expression first, Expression second) {
+<b class="nc">&nbsp;    return or(ImmutableList.of(first, second));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call or(Iterable&lt;? extends Expression&gt; expressions) {
+<b class="nc">&nbsp;    List&lt;Expression&gt; args = ImmutableList.copyOf(expressions);</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(args.size() &gt;= 2, &quot;expected at least 2 arguments for %s but got %s&quot;, Operators.OR, args.size());</b>
+<b class="nc">&nbsp;    return call(Operators.OR, expressions);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Expression aggregation(AggregationOperators operator, Type returnType, Expression expression) {
+<b class="nc">&nbsp;    return ImmutableCall.of(Collections.singletonList(expression), operator, returnType);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts a {@link ExpressionVisitor} into a {@link ExpressionBiVisitor} (with ignored payload).
+&nbsp;   */
+&nbsp;  static &lt;V&gt; ExpressionBiVisitor&lt;V, Void&gt; toBiVisitor(ExpressionVisitor&lt;V&gt; visitor) {
+<b class="nc">&nbsp;    return new ExpressionBiVisitor&lt;V, Void&gt;() {</b>
+&nbsp;      @Override
+&nbsp;      public V visit(Call call, @Nullable Void context) {
+<b class="nc">&nbsp;        return visitor.visit(call);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public V visit(Constant constant, @Nullable Void context) {
+<b class="nc">&nbsp;        return visitor.visit(constant);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public V visit(Path path, @Nullable Void context) {
+<b class="nc">&nbsp;        return visitor.visit(path);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call not(Expression call) {
+<b class="nc">&nbsp;    return unaryCall(Operators.NOT, call);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call unaryCall(Operator operator, Expression arg) {
+<b class="nc">&nbsp;    Objects.requireNonNull(arg, &quot;arg&quot;);</b>
+<b class="nc">&nbsp;    return call(operator, ImmutableList.of(arg));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call binaryCall(final Operator operator, Expression left, Expression right) {
+<b class="nc">&nbsp;    Objects.requireNonNull(left, &quot;left&quot;);</b>
+<b class="nc">&nbsp;    Objects.requireNonNull(right, &quot;right&quot;);</b>
+<b class="nc">&nbsp;    return call(operator, ImmutableList.of(left, right));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Create generic call with given arguments
+&nbsp;   *
+&nbsp;   * @deprecated prefer using {@link #call(Operator, Iterable)} iterable variant of this function
+&nbsp;   *             or more specific {@link #binaryCall(Operator, Expression, Expression)}
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  public static Call call(final Operator operator, Expression ... operands) {
+<b class="nc">&nbsp;    return call(operator, ImmutableList.copyOf(operands));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call call(final Operator operator, final Iterable&lt;? extends Expression&gt; operands) {
+<b class="nc">&nbsp;    return Call.of(operator, operands);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

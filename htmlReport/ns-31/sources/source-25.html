@@ -1,0 +1,1126 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNullableAndDefault</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNullableAndDefault (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNullableAndDefault$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNullableAndDefault$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import com.google.common.collect.Ordering;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.NavigableSet;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.SortedSet;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Companion.NullableAndDefault}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNullableAndDefault.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion.NullableAndDefault&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNullableAndDefault
+&nbsp;    implements Companion.NullableAndDefault {
+&nbsp;  private final ImmutableList&lt;String&gt; lst;
+&nbsp;  private final @Nullable ImmutableList&lt;String&gt; str;
+&nbsp;  private final ImmutableSet&lt;Integer&gt; ints;
+&nbsp;  private final int[] arrayInts;
+&nbsp;  private final @Nullable ImmutableSortedSet&lt;Integer&gt; ords;
+&nbsp;  private final ImmutableSet&lt;RetentionPolicy&gt; pols;
+&nbsp;  private final ImmutableSortedSet&lt;Integer&gt; navs;
+&nbsp;
+&nbsp;  private ImmutableNullableAndDefault(ImmutableNullableAndDefault.Builder builder) {
+&nbsp;    this.lst = builder.lst == null ? ImmutableList.&lt;String&gt;of() : builder.lst.build();
+&nbsp;    if (builder.strIsSet()) {
+&nbsp;      initShim.str(builder.str == null ? null : builder.str.build());
+&nbsp;    }
+&nbsp;    if (builder.intsIsSet()) {
+&nbsp;      initShim.ints(builder.ints == null ? ImmutableSet.&lt;Integer&gt;of() : builder.ints.build());
+&nbsp;    }
+&nbsp;    if (builder.arrayInts != null) {
+&nbsp;      initShim.arrayInts(builder.arrayInts);
+&nbsp;    }
+&nbsp;    if (builder.ordsIsSet()) {
+&nbsp;      initShim.ords(builder.ords == null ? null : builder.ords.build());
+&nbsp;    }
+&nbsp;    if (builder.polsIsSet()) {
+&nbsp;      initShim.pols(builder.pols == null ? ImmutableSet.&lt;RetentionPolicy&gt;of() : Sets.immutableEnumSet(builder.pols.build()));
+&nbsp;    }
+&nbsp;    if (builder.navsIsSet()) {
+&nbsp;      initShim.navs(builder.navs == null ? ImmutableSortedSet.&lt;Integer&gt;of() : builder.navs.build());
+&nbsp;    }
+&nbsp;    this.str = initShim.str();
+&nbsp;    this.ints = initShim.ints();
+&nbsp;    this.arrayInts = initShim.arrayInts();
+&nbsp;    this.ords = initShim.ords();
+&nbsp;    this.pols = initShim.pols();
+&nbsp;    this.navs = initShim.navs();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNullableAndDefault(
+&nbsp;      ImmutableList&lt;String&gt; lst,
+&nbsp;      @Nullable ImmutableList&lt;String&gt; str,
+&nbsp;      ImmutableSet&lt;Integer&gt; ints,
+&nbsp;      int[] arrayInts,
+&nbsp;      @Nullable ImmutableSortedSet&lt;Integer&gt; ords,
+&nbsp;      ImmutableSet&lt;RetentionPolicy&gt; pols,
+&nbsp;      ImmutableSortedSet&lt;Integer&gt; navs) {
+&nbsp;    this.lst = lst;
+&nbsp;    this.str = str;
+&nbsp;    this.ints = ints;
+&nbsp;    this.arrayInts = arrayInts;
+&nbsp;    this.ords = ords;
+&nbsp;    this.pols = pols;
+&nbsp;    this.navs = navs;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;Companion.NullableAndDefault&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte strBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableList&lt;String&gt; str;
+&nbsp;
+&nbsp;    ImmutableList&lt;String&gt; str() {
+&nbsp;      if (strBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (strBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        strBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.str = strInitialize() == null ? null : ImmutableList.copyOf(strInitialize());
+&nbsp;        strBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.str;
+&nbsp;    }
+&nbsp;
+&nbsp;    void str(ImmutableList&lt;String&gt; str) {
+&nbsp;      this.str = str;
+&nbsp;      strBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte intsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSet&lt;Integer&gt; ints;
+&nbsp;
+&nbsp;    ImmutableSet&lt;Integer&gt; ints() {
+&nbsp;      if (intsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (intsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        intsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.ints = ImmutableSet.copyOf(intsInitialize());
+&nbsp;        intsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.ints;
+&nbsp;    }
+&nbsp;
+&nbsp;    void ints(ImmutableSet&lt;Integer&gt; ints) {
+&nbsp;      this.ints = ints;
+&nbsp;      intsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte arrayIntsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int[] arrayInts;
+&nbsp;
+&nbsp;    int[] arrayInts() {
+&nbsp;      if (arrayIntsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (arrayIntsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        arrayIntsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.arrayInts = arrayIntsInitialize().clone();
+&nbsp;        arrayIntsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.arrayInts;
+&nbsp;    }
+&nbsp;
+&nbsp;    void arrayInts(int[] arrayInts) {
+&nbsp;      this.arrayInts = arrayInts;
+&nbsp;      arrayIntsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte ordsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSortedSet&lt;Integer&gt; ords;
+&nbsp;
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; ords() {
+&nbsp;      if (ordsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (ordsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        ordsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.ords = ordsInitialize() == null ? null : ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        ordsInitialize());
+&nbsp;        ordsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.ords;
+&nbsp;    }
+&nbsp;
+&nbsp;    void ords(ImmutableSortedSet&lt;Integer&gt; ords) {
+&nbsp;      this.ords = ords;
+&nbsp;      ordsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte polsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSet&lt;RetentionPolicy&gt; pols;
+&nbsp;
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; pols() {
+&nbsp;      if (polsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (polsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        polsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.pols = Sets.immutableEnumSet(polsInitialize());
+&nbsp;        polsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.pols;
+&nbsp;    }
+&nbsp;
+&nbsp;    void pols(ImmutableSet&lt;RetentionPolicy&gt; pols) {
+&nbsp;      this.pols = pols;
+&nbsp;      polsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte navsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSortedSet&lt;Integer&gt; navs;
+&nbsp;
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; navs() {
+&nbsp;      if (navsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (navsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        navsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.navs = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural().reverse(),
+&nbsp;        navsInitialize());
+&nbsp;        navsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.navs;
+&nbsp;    }
+&nbsp;
+&nbsp;    void navs(ImmutableSortedSet&lt;Integer&gt; navs) {
+&nbsp;      this.navs = navs;
+&nbsp;      navsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (strBuildStage == STAGE_INITIALIZING) attributes.add(&quot;str&quot;);
+&nbsp;      if (intsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;ints&quot;);
+&nbsp;      if (arrayIntsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;arrayInts&quot;);
+&nbsp;      if (ordsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;ords&quot;);
+&nbsp;      if (polsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;pols&quot;);
+&nbsp;      if (navsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;navs&quot;);
+&nbsp;      return &quot;Cannot build NullableAndDefault, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable List&lt;String&gt; strInitialize() {
+&nbsp;    return Companion.NullableAndDefault.super.str();
+&nbsp;  }
+&nbsp;
+&nbsp;  private Set&lt;Integer&gt; intsInitialize() {
+&nbsp;    return Companion.NullableAndDefault.super.ints();
+&nbsp;  }
+&nbsp;
+&nbsp;  private int[] arrayIntsInitialize() {
+&nbsp;    return Companion.NullableAndDefault.super.arrayInts();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable SortedSet&lt;Integer&gt; ordsInitialize() {
+&nbsp;    return Companion.NullableAndDefault.super.ords();
+&nbsp;  }
+&nbsp;
+&nbsp;  private Set&lt;RetentionPolicy&gt; polsInitialize() {
+&nbsp;    return Companion.NullableAndDefault.super.pols();
+&nbsp;  }
+&nbsp;
+&nbsp;  private NavigableSet&lt;Integer&gt; navsInitialize() {
+&nbsp;    return Companion.NullableAndDefault.super.navs();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code lst} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; lst() {
+&nbsp;    return lst;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code str} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;String&gt; str() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.str()
+&nbsp;        : this.str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ints} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;Integer&gt; ints() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.ints()
+&nbsp;        : this.ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code arrayInts} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int[] arrayInts() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;      ? shim.arrayInts().clone()
+&nbsp;      : this.arrayInts.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ords} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableSortedSet&lt;Integer&gt; ords() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.ords()
+&nbsp;        : this.ords;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code pols} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;RetentionPolicy&gt; pols() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.pols()
+&nbsp;        : this.pols;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code navs} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;Integer&gt; navs() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.navs()
+&nbsp;        : this.navs;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#lst() lst}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withLst(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNullableAndDefault(newValue, this.str, this.ints, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#lst() lst}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of lst elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withLst(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.lst == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNullableAndDefault(newValue, this.str, this.ints, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#str() str}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withStr(@Nullable String... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableNullableAndDefault(this.lst, null, this.ints, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, newValue, this.ints, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#str() str}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of str elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withStr(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.str == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, newValue, this.ints, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#ints() ints}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withInts(int... elements) {
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, newValue, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#ints() ints}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ints elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ints == elements) return this;
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, newValue, this.arrayInts, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#arrayInts() arrayInts}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for arrayInts
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withArrayInts(int... elements) {
+&nbsp;    int[] newValue = elements.clone();
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, newValue, this.ords, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#ords() ords}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withOrds(@Nullable int... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, null, this.pols, this.navs);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableSortedSet&lt;Integer&gt; newValue = Ints.asList(elements) == null ? null : ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        Ints.asList(elements));
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, newValue, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#ords() ords}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ords elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withOrds(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ords == elements) return this;
+&nbsp;    @Nullable ImmutableSortedSet&lt;Integer&gt; newValue = elements == null ? null : ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, newValue, this.pols, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#pols() pols}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withPols(RetentionPolicy... elements) {
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, this.ords, newValue, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#pols() pols}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of pols elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.pols == elements) return this;
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(elements);
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, this.ords, newValue, this.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#navs() navs}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withNavs(int... elements) {
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural().reverse(),
+&nbsp;        Ints.asList(elements));
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, this.ords, this.pols, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion.NullableAndDefault#navs() navs}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of navs elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault withNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.navs == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural().reverse(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableNullableAndDefault(this.lst, this.str, this.ints, this.arrayInts, this.ords, this.pols, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNullableAndDefault} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNullableAndDefault
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNullableAndDefault) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNullableAndDefault another) {
+&nbsp;    return lst.equals(another.lst)
+&nbsp;        &amp;&amp; Objects.equals(str, another.str)
+&nbsp;        &amp;&amp; ints.equals(another.ints)
+&nbsp;        &amp;&amp; Arrays.equals(arrayInts, another.arrayInts)
+&nbsp;        &amp;&amp; Objects.equals(ords, another.ords)
+&nbsp;        &amp;&amp; pols.equals(another.pols)
+&nbsp;        &amp;&amp; navs.equals(another.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code lst}, {@code str}, {@code ints}, {@code arrayInts}, {@code ords}, {@code pols}, {@code navs}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + lst.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(str);
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayInts);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(ords);
+&nbsp;    h += (h &lt;&lt; 5) + pols.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navs.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NullableAndDefault} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NullableAndDefault&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;lst&quot;, lst)
+&nbsp;        .add(&quot;str&quot;, str)
+&nbsp;        .add(&quot;ints&quot;, ints)
+&nbsp;        .add(&quot;arrayInts&quot;, Arrays.toString(arrayInts))
+&nbsp;        .add(&quot;ords&quot;, ords)
+&nbsp;        .add(&quot;pols&quot;, pols)
+&nbsp;        .add(&quot;navs&quot;, navs)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Companion.NullableAndDefault} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NullableAndDefault instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullableAndDefault copyOf(Companion.NullableAndDefault instance) {
+&nbsp;    if (instance instanceof ImmutableNullableAndDefault) {
+&nbsp;      return (ImmutableNullableAndDefault) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNullableAndDefault.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNullableAndDefault ImmutableNullableAndDefault}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNullableAndDefault.builder()
+&nbsp;   *    .addLst|addAllLst(String) // {@link Companion.NullableAndDefault#lst() lst} elements
+&nbsp;   *    .str(List&amp;amp;lt;String&amp;amp;gt; | null) // nullable {@link Companion.NullableAndDefault#str() str}
+&nbsp;   *    .addInts|addAllInts(int) // {@link Companion.NullableAndDefault#ints() ints} elements
+&nbsp;   *    .arrayInts(int) // optional {@link Companion.NullableAndDefault#arrayInts() arrayInts}
+&nbsp;   *    .ords(SortedSet&amp;amp;lt;Integer&amp;amp;gt; | null) // nullable {@link Companion.NullableAndDefault#ords() ords}
+&nbsp;   *    .addPols|addAllPols(annotation.RetentionPolicy) // {@link Companion.NullableAndDefault#pols() pols} elements
+&nbsp;   *    .addNavs|addAllNavs(int) // {@link Companion.NullableAndDefault#navs() navs} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNullableAndDefault builder
+&nbsp;   */
+&nbsp;  public static ImmutableNullableAndDefault.Builder builder() {
+&nbsp;    return new ImmutableNullableAndDefault.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNullableAndDefault ImmutableNullableAndDefault}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Companion.NullableAndDefault&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_STR = 0x1L;
+&nbsp;    private static final long OPT_BIT_INTS = 0x2L;
+&nbsp;    private static final long OPT_BIT_ORDS = 0x4L;
+&nbsp;    private static final long OPT_BIT_POLS = 0x8L;
+&nbsp;    private static final long OPT_BIT_NAVS = 0x10L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; lst = null;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; str = null;
+&nbsp;    private ImmutableSet.Builder&lt;Integer&gt; ints = null;
+&nbsp;    private @Nullable int[] arrayInts;
+&nbsp;    private ImmutableSortedSet.Builder&lt;Integer&gt; ords = null;
+&nbsp;    private ImmutableSet.Builder&lt;RetentionPolicy&gt; pols = null;
+&nbsp;    private ImmutableSortedSet.Builder&lt;Integer&gt; navs = null;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableNullableAndDefault} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableNullableAndDefault instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllLst(instance.lst());
+&nbsp;      @Nullable List&lt;String&gt; strValue = instance.str();
+&nbsp;      if (strValue != null) {
+&nbsp;        addAllStr(strValue);
+&nbsp;      }
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      arrayInts(instance.arrayInts());
+&nbsp;      @Nullable SortedSet&lt;Integer&gt; ordsValue = instance.ords();
+&nbsp;      if (ordsValue != null) {
+&nbsp;        addAllOrds(ordsValue);
+&nbsp;      }
+&nbsp;      addAllPols(instance.pols());
+&nbsp;      addAllNavs(instance.navs());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NullableAndDefault} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Companion.NullableAndDefault instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableNullableAndDefault) {
+&nbsp;        return from((ModifiableNullableAndDefault) instance);
+&nbsp;      }
+&nbsp;      addAllLst(instance.lst());
+&nbsp;      @Nullable List&lt;String&gt; strValue = instance.str();
+&nbsp;      if (strValue != null) {
+&nbsp;        addAllStr(strValue);
+&nbsp;      }
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      arrayInts(instance.arrayInts());
+&nbsp;      @Nullable SortedSet&lt;Integer&gt; ordsValue = instance.ords();
+&nbsp;      if (ordsValue != null) {
+&nbsp;        addAllOrds(ordsValue);
+&nbsp;      }
+&nbsp;      addAllPols(instance.pols());
+&nbsp;      addAllNavs(instance.navs());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;     * @param element A lst element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addLst(String element) {
+&nbsp;      if (this.lst == null) {
+&nbsp;        this.lst = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.lst.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;     * @param elements An array of lst elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addLst(String... elements) {
+&nbsp;      if (this.lst == null) {
+&nbsp;        this.lst = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.lst.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;     * @param elements An iterable of lst elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder lst(Iterable&lt;String&gt; elements) {
+&nbsp;      this.lst = ImmutableList.builder();
+&nbsp;      return addAllLst(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;     * @param elements An iterable of lst elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllLst(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;lst element&quot;);
+&nbsp;      if (this.lst == null) {
+&nbsp;        this.lst = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.lst.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;     * @param element A str element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addStr(String element) {
+&nbsp;      if (this.str == null) {
+&nbsp;        this.str = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.str.add(element);
+&nbsp;      optBits |= OPT_BIT_STR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;     * @param elements An array of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addStr(String... elements) {
+&nbsp;      if (this.str == null) {
+&nbsp;        this.str = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.str.add(elements);
+&nbsp;      optBits |= OPT_BIT_STR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;     * @param elements An iterable of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder str(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.str = null;
+&nbsp;        optBits |= OPT_BIT_STR;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.str = ImmutableList.builder();
+&nbsp;      return addAllStr(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;     * @param elements An iterable of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllStr(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;str element&quot;);
+&nbsp;      if (this.str == null) {
+&nbsp;        this.str = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.str.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_STR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;     * @param element A ints element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int element) {
+&nbsp;      if (this.ints == null) {
+&nbsp;        this.ints = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.ints.add(element);
+&nbsp;      optBits |= OPT_BIT_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;     * @param elements An array of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int... elements) {
+&nbsp;      if (this.ints == null) {
+&nbsp;        this.ints = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.ints.addAll(Ints.asList(elements));
+&nbsp;      optBits |= OPT_BIT_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ints(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints = ImmutableSet.builder();
+&nbsp;      return addAllInts(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;ints element&quot;);
+&nbsp;      if (this.ints == null) {
+&nbsp;        this.ints = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.ints.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Companion.NullableAndDefault#arrayInts() arrayInts} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as defined by {@link Companion.NullableAndDefault#arrayInts() arrayInts}.&lt;/em&gt;
+&nbsp;     * @param arrayInts The elements for arrayInts
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder arrayInts(int... arrayInts) {
+&nbsp;      this.arrayInts = arrayInts.clone();
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;     * @param element A ords element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addOrds(int element) {
+&nbsp;      if (this.ords == null) {
+&nbsp;        this.ords = ImmutableSortedSet.naturalOrder();
+&nbsp;      }
+&nbsp;      this.ords.add(element);
+&nbsp;      optBits |= OPT_BIT_ORDS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;     * @param elements An array of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addOrds(int... elements) {
+&nbsp;      if (this.ords == null) {
+&nbsp;        this.ords = ImmutableSortedSet.naturalOrder();
+&nbsp;      }
+&nbsp;      this.ords.addAll(Ints.asList(elements));
+&nbsp;      optBits |= OPT_BIT_ORDS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;     * @param elements An iterable of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ords(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.ords = null;
+&nbsp;        optBits |= OPT_BIT_ORDS;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.ords = ImmutableSortedSet.naturalOrder();
+&nbsp;      return addAllOrds(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;     * @param elements An iterable of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;ords element&quot;);
+&nbsp;      if (this.ords == null) {
+&nbsp;        this.ords = ImmutableSortedSet.naturalOrder();
+&nbsp;      }
+&nbsp;      this.ords.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_ORDS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;     * @param element A pols element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPols(RetentionPolicy element) {
+&nbsp;      if (this.pols == null) {
+&nbsp;        this.pols = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.pols.add(element);
+&nbsp;      optBits |= OPT_BIT_POLS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;     * @param elements An array of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPols(RetentionPolicy... elements) {
+&nbsp;      if (this.pols == null) {
+&nbsp;        this.pols = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.pols.addAll(Arrays.asList(elements));
+&nbsp;      optBits |= OPT_BIT_POLS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;     * @param elements An iterable of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder pols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.pols = ImmutableSet.builder();
+&nbsp;      return addAllPols(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;     * @param elements An iterable of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;pols element&quot;);
+&nbsp;      if (this.pols == null) {
+&nbsp;        this.pols = ImmutableSet.builder();
+&nbsp;      }
+&nbsp;      this.pols.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_POLS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;     * @param element A navs element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNavs(int element) {
+&nbsp;      if (this.navs == null) {
+&nbsp;        this.navs = ImmutableSortedSet.reverseOrder();
+&nbsp;      }
+&nbsp;      this.navs.add(element);
+&nbsp;      optBits |= OPT_BIT_NAVS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;     * @param elements An array of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNavs(int... elements) {
+&nbsp;      if (this.navs == null) {
+&nbsp;        this.navs = ImmutableSortedSet.reverseOrder();
+&nbsp;      }
+&nbsp;      this.navs.addAll(Ints.asList(elements));
+&nbsp;      optBits |= OPT_BIT_NAVS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;     * @param elements An iterable of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder navs(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.navs = ImmutableSortedSet.reverseOrder();
+&nbsp;      return addAllNavs(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;     * @param elements An iterable of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;navs element&quot;);
+&nbsp;      if (this.navs == null) {
+&nbsp;        this.navs = ImmutableSortedSet.reverseOrder();
+&nbsp;      }
+&nbsp;      this.navs.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_NAVS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNullableAndDefault ImmutableNullableAndDefault}.
+&nbsp;     * @return An immutable instance of NullableAndDefault
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNullableAndDefault build() {
+&nbsp;      return new ImmutableNullableAndDefault(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean strIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_STR) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean intsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_INTS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean ordsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_ORDS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean polsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_POLS) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean navsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_NAVS) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

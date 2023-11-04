@@ -1,0 +1,238 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ReactiveUpdater</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository.reactive</a>
+</div>
+
+<h1>Coverage Summary for Class: ReactiveUpdater (org.immutables.criteria.repository.reactive)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ReactiveUpdater</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ReactiveUpdater$1</td>
+  </tr>
+  <tr>
+    <td class="name">ReactiveUpdater$ReactiveSetter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository.reactive;
+&nbsp;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import org.immutables.criteria.backend.Backend;
+&nbsp;import org.immutables.criteria.backend.StandardOperations;
+&nbsp;import org.immutables.criteria.backend.WriteResult;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.matcher.Matchers;
+&nbsp;import org.immutables.criteria.matcher.Projection;
+&nbsp;import org.immutables.criteria.repository.Updater;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;
+<b class="nc">&nbsp;public class ReactiveUpdater&lt;T&gt; implements Updater&lt;T, Publisher&lt;WriteResult&gt;&gt; {</b>
+&nbsp;
+&nbsp;  private final Query query;
+&nbsp;  private final Backend.Session session;
+&nbsp;
+<b class="nc">&nbsp;  protected ReactiveUpdater(Query query, Backend.Session session) {</b>
+<b class="nc">&nbsp;    this.query = Objects.requireNonNull(query, &quot;query&quot;);</b>
+<b class="nc">&nbsp;    this.session = Objects.requireNonNull(session, &quot;session&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public &lt;V&gt; ReactiveSetter set(Projection&lt;V&gt; projection, V value) {
+<b class="nc">&nbsp;    return new ReactiveSetter().set(projection, value);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public WriteExecutor&lt;Publisher&lt;WriteResult&gt;&gt; replace(T newValue) {
+<b class="nc">&nbsp;    return new ReactiveSetter(ImmutableMap.of(Path.ofClass(query.entityClass()), newValue));</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  public class ReactiveSetter implements Updater.Setter&lt;Publisher&lt;WriteResult&gt;&gt; {</b>
+&nbsp;
+&nbsp;    private final Map&lt;Expression, Object&gt; values;
+&nbsp;
+&nbsp;    private ReactiveSetter() {
+<b class="nc">&nbsp;      this(ImmutableMap.of());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    private ReactiveSetter(Map&lt;Expression, Object&gt; values) {</b>
+<b class="nc">&nbsp;      this.values = ImmutableMap.copyOf(values);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;V&gt; ReactiveSetter set(Projection&lt;V&gt; projection, V value) {
+<b class="nc">&nbsp;      Object nonNullValue = value;</b>
+<b class="nc">&nbsp;      if (nonNullValue == null) {</b>
+&nbsp;        // wrap in optional for nulls. Values are unwrapped by backend implementation
+<b class="nc">&nbsp;        nonNullValue = Optional.empty();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      Expression expression = Matchers.toExpression(projection);</b>
+<b class="nc">&nbsp;      ImmutableMap&lt;Expression, Object&gt; newValues = ImmutableMap.&lt;Expression, Object&gt;builder().putAll(values).put(expression, nonNullValue).build();</b>
+<b class="nc">&nbsp;      return new ReactiveSetter(newValues);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Publisher&lt;WriteResult&gt; execute() {
+<b class="nc">&nbsp;      return session.execute(StandardOperations.UpdateByQuery.of(query, values)).publisher();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

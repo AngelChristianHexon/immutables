@@ -1,0 +1,187 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Elasticsearch</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: Elasticsearch (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Elasticsearch</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.fasterxml.jackson.databind.node.ObjectNode;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.ExpressionConverter;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.Predicate;
+&nbsp;
+&nbsp;final class Elasticsearch {
+&nbsp;
+&nbsp;  private  Elasticsearch() {}
+&nbsp;
+&nbsp;  static QueryBuilders.QueryBuilder toBuilder(Expression expression, PathNaming pathNaming, Predicate&lt;Path&gt; idPredicate) {
+<b class="nc">&nbsp;    return expression.accept(new ElasticsearchQueryVisitor(pathNaming, idPredicate));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@code query} part of the JSON
+&nbsp;   */
+&nbsp;  static ExpressionConverter&lt;ObjectNode&gt; constantScoreQuery(ObjectMapper mapper, PathNaming pathNaming, Predicate&lt;Path&gt; idPredicate) {
+<b class="nc">&nbsp;    Objects.requireNonNull(mapper, &quot;expression&quot;);</b>
+<b class="nc">&nbsp;    return expression -&gt; {</b>
+<b class="nc">&nbsp;      final QueryBuilders.QueryBuilder builder = toBuilder(expression, pathNaming, idPredicate);</b>
+<b class="nc">&nbsp;      return QueryBuilders.constantScoreQuery(builder).toJson(mapper);</b>
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Predicate which checks if a path represents entity key (id). Used to generate {@code ids}
+&nbsp;   * type of queries.
+&nbsp;   */
+&nbsp;  static Predicate&lt;Path&gt; idPredicate(KeyExtractor.KeyMetadata metadata) {
+<b class="nc">&nbsp;    Objects.requireNonNull(metadata, &quot;metadata&quot;);</b>
+<b class="nc">&nbsp;    Predicate&lt;Path&gt; alwaysFalse = p -&gt; false;</b>
+<b class="nc">&nbsp;    if (!(metadata.isKeyDefined() &amp;&amp; metadata.isExpression())) {</b>
+<b class="nc">&nbsp;      return alwaysFalse;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (metadata.keys().size() != 1) {</b>
+<b class="nc">&nbsp;      return alwaysFalse;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Expression expression = Iterables.getOnlyElement(metadata.keys());</b>
+<b class="nc">&nbsp;    return Visitors.maybePath(expression)</b>
+<b class="nc">&nbsp;            .map(p -&gt; ((Predicate&lt;Path&gt;) p::equals))</b>
+<b class="nc">&nbsp;            .orElse(alwaysFalse);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,317 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Reflections</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.reflect</a>
+</div>
+
+<h1>Coverage Summary for Class: Reflections (org.immutables.criteria.reflect)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Reflections</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Reflections$1</td>
+  </tr>
+  <tr>
+    <td class="name">Reflections$FieldExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Reflections$MethodExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Reflections$ReflectionExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.reflect;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;
+&nbsp;import java.lang.reflect.Field;
+&nbsp;import java.lang.reflect.InvocationTargetException;
+&nbsp;import java.lang.reflect.Member;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.Predicate;
+&nbsp;
+&nbsp;/**
+&nbsp; * Reflection utilities
+&nbsp; */
+&nbsp;public final class Reflections {
+&nbsp;
+&nbsp;  public static Optional&lt;Member&gt; findMember(Class&lt;?&gt; type, Predicate&lt;? super Member&gt; predicate) {
+<b class="nc">&nbsp;    Objects.requireNonNull(type, &quot;type&quot;);</b>
+<b class="nc">&nbsp;    Objects.requireNonNull(predicate, &quot;predicate&quot;);</b>
+<b class="nc">&nbsp;    return ClassScanner.of(type)</b>
+<b class="nc">&nbsp;            .stream()</b>
+<b class="nc">&nbsp;            .filter(predicate)</b>
+<b class="nc">&nbsp;            .findAny();</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  static class ReflectionExtractor implements MemberExtractor {</b>
+&nbsp;    @Override
+&nbsp;    public Object extract(Member member, Object instance) {
+<b class="nc">&nbsp;      Objects.requireNonNull(member, &quot;member&quot;);</b>
+<b class="nc">&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+<b class="nc">&nbsp;      if (member instanceof Field) {</b>
+<b class="nc">&nbsp;        return new FieldExtractor((Field) member).apply(instance);</b>
+<b class="nc">&nbsp;      } else if (member instanceof Method) {</b>
+<b class="nc">&nbsp;        return new MethodExtractor((Method) member).apply(instance);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      throw new IllegalArgumentException(&quot;Member is not a field nor a method: &quot; + member);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Extracts value by calling a method using reflection
+&nbsp;   */
+<b class="nc">&nbsp;  private static class MethodExtractor implements Function&lt;Object, Object&gt; {</b>
+&nbsp;    private final Method method;
+&nbsp;
+<b class="nc">&nbsp;    private MethodExtractor(Method method) {</b>
+<b class="nc">&nbsp;      this.method = Objects.requireNonNull(method, &quot;method&quot;);</b>
+<b class="nc">&nbsp;      if (!method.isAccessible()) {</b>
+<b class="nc">&nbsp;        method.setAccessible(true);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      Preconditions.checkArgument(method.getParameterCount() == 0, &quot;expected not parameters for %s&quot;, method);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Object apply(Object instance) {
+<b class="nc">&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        return method.invoke(instance);</b>
+<b class="nc">&nbsp;      } catch (IllegalAccessException| InvocationTargetException e) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(e);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used to extract value from a field
+&nbsp;   */
+<b class="nc">&nbsp;  private static class FieldExtractor implements Function&lt;Object, Object&gt; {</b>
+&nbsp;    private final Field field;
+&nbsp;
+<b class="nc">&nbsp;    private FieldExtractor(Field field) {</b>
+<b class="nc">&nbsp;      this.field = Objects.requireNonNull(field, &quot;field&quot;);</b>
+<b class="nc">&nbsp;      if (!field.isAccessible()) {</b>
+<b class="nc">&nbsp;        field.setAccessible(true);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Object apply(Object instance) {
+<b class="nc">&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        return field.get(instance);</b>
+<b class="nc">&nbsp;      } catch (IllegalAccessException e) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(e);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  private Reflections() {}
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,535 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJdkOptionals</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJdkOptionals (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJdkOptionals$InternerHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableJdkOptionals$InternProxy</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableJdkOptionals$SerialForm</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.io.Serializable;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import java.util.concurrent.ConcurrentHashMap;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link JdkOptionals}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableJdkOptionals.of()}.
+&nbsp; * Use the static factory method to get the default singleton instance:
+&nbsp; * {@code ImmutableJdkOptionals.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableJdkOptionals
+&nbsp;    implements JdkOptionals, Serializable {
+&nbsp;  private final @Nullable String v2;
+&nbsp;  private final @Nullable Integer i1;
+&nbsp;  private final @Nullable Long l1;
+&nbsp;  private final @Nullable Double d1;
+&nbsp;  private transient final int hashCode;
+&nbsp;
+&nbsp;  private ImmutableJdkOptionals() {
+&nbsp;    this.v2 = null;
+&nbsp;    this.i1 = null;
+&nbsp;    this.l1 = null;
+&nbsp;    this.d1 = null;
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableJdkOptionals(
+&nbsp;      Optional&lt;String&gt; v2,
+&nbsp;      OptionalInt i1,
+&nbsp;      OptionalLong l1,
+&nbsp;      OptionalDouble d1) {
+&nbsp;    this.v2 = v2.orElse(null);
+&nbsp;    this.i1 = i1.isPresent() ? i1.getAsInt() : null;
+&nbsp;    this.l1 = l1.isPresent() ? l1.getAsLong() : null;
+&nbsp;    this.d1 = d1.isPresent() ? d1.getAsDouble() : null;
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableJdkOptionals(
+&nbsp;      ImmutableJdkOptionals original,
+&nbsp;      @Nullable String v2,
+&nbsp;      @Nullable Integer i1,
+&nbsp;      @Nullable Long l1,
+&nbsp;      @Nullable Double d1) {
+&nbsp;    this.v2 = v2;
+&nbsp;    this.i1 = i1;
+&nbsp;    this.l1 = l1;
+&nbsp;    this.d1 = d1;
+&nbsp;    this.hashCode = computeHashCode();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; v2() {
+&nbsp;    return Optional.ofNullable(v2);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt i1() {
+&nbsp;    return i1 != null
+&nbsp;        ? OptionalInt.of(i1)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalLong l1() {
+&nbsp;    return l1 != null
+&nbsp;        ? OptionalLong.of(l1)
+&nbsp;        : OptionalLong.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalDouble d1() {
+&nbsp;    return d1 != null
+&nbsp;        ? OptionalDouble.of(d1)
+&nbsp;        : OptionalDouble.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionals#v2() v2} attribute.
+&nbsp;   * @param value The value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withV2(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;v2&quot;);
+&nbsp;    if (Objects.equals(this.v2, newValue)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, newValue, this.i1, this.l1, this.d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionals#v2() v2} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withV2(Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.v2, value)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, value, this.i1, this.l1, this.d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionals#i1() i1} attribute.
+&nbsp;   * @param value The value for i1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withI1(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.i1, newValue)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, this.v2, newValue, this.l1, this.d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionals#i1() i1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for i1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withI1(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.i1, value)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, this.v2, value, this.l1, this.d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionals#l1() l1} attribute.
+&nbsp;   * @param value The value for l1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withL1(long value) {
+&nbsp;    @Nullable Long newValue = value;
+&nbsp;    if (Objects.equals(this.l1, newValue)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, this.v2, this.i1, newValue, this.d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionals#l1() l1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for l1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withL1(OptionalLong optional) {
+&nbsp;    @Nullable Long value = optional.isPresent() ? optional.getAsLong() : null;
+&nbsp;    if (Objects.equals(this.l1, value)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, this.v2, this.i1, value, this.d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link JdkOptionals#d1() d1} attribute.
+&nbsp;   * @param value The value for d1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withD1(double value) {
+&nbsp;    @Nullable Double newValue = value;
+&nbsp;    if (Objects.equals(this.d1, newValue)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, this.v2, this.i1, this.l1, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link JdkOptionals#d1() d1} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for d1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkOptionals withD1(OptionalDouble optional) {
+&nbsp;    @Nullable Double value = optional.isPresent() ? optional.getAsDouble() : null;
+&nbsp;    if (Objects.equals(this.d1, value)) return this;
+&nbsp;    return validate(new ImmutableJdkOptionals(this, this.v2, this.i1, this.l1, value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJdkOptionals} that have equal attribute values.
+&nbsp;   * As instances of the {@code ImmutableJdkOptionals} class are interned, the {@code equals} method is implemented
+&nbsp;   * as an efficient reference equality check.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    return this == another;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJdkOptionals another) {
+&nbsp;    if (hashCode != another.hashCode) return false;
+&nbsp;    return Objects.equals(v2, another.v2)
+&nbsp;        &amp;&amp; Objects.equals(i1, another.i1)
+&nbsp;        &amp;&amp; Objects.equals(l1, another.l1)
+&nbsp;        &amp;&amp; Objects.equals(d1, another.d1);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns a precomputed-on-construction hash code from attributes: {@code v2}, {@code i1}, {@code l1}, {@code d1}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    return hashCode;
+&nbsp;  }
+&nbsp;
+&nbsp;  private int computeHashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v2);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(i1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(l1);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(d1);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code JdkOptionals} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    StringBuilder builder = new StringBuilder(&quot;JdkOptionals{&quot;);
+&nbsp;    if (v2 != null) {
+&nbsp;      builder.append(&quot;v2=&quot;).append(v2);
+&nbsp;    }
+&nbsp;    if (i1 != null) {
+&nbsp;      if (builder.length() &gt; 13) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;i1=&quot;).append(i1);
+&nbsp;    }
+&nbsp;    if (l1 != null) {
+&nbsp;      if (builder.length() &gt; 13) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;l1=&quot;).append(l1);
+&nbsp;    }
+&nbsp;    if (d1 != null) {
+&nbsp;      if (builder.length() &gt; 13) builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;d1=&quot;).append(d1);
+&nbsp;    }
+&nbsp;    return builder.append(&quot;}&quot;).toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;JdkOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class InternProxy {
+&nbsp;    final ImmutableJdkOptionals instance;
+&nbsp;
+&nbsp;    InternProxy(ImmutableJdkOptionals instance) {
+&nbsp;      this.instance = instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      return another != null &amp;&amp; instance.equalTo(0, ((InternProxy) another).instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return instance.hashCode();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final class InternerHolder {
+<b class="nc">&nbsp;    static final ConcurrentHashMap&lt;InternProxy, ImmutableJdkOptionals&gt; INTERNER =</b>
+&nbsp;        new ConcurrentHashMap&lt;InternProxy, ImmutableJdkOptionals&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final ImmutableJdkOptionals INSTANCE = validate(new ImmutableJdkOptionals());
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the default immutable singleton value of {@code JdkOptionals}
+&nbsp;   * @return An immutable instance of JdkOptionals
+&nbsp;   */
+&nbsp;  public static ImmutableJdkOptionals of() {
+&nbsp;    return INSTANCE;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code JdkOptionals} instance.
+&nbsp;   * @param v2 The value for the {@code v2} attribute
+&nbsp;   * @param i1 The value for the {@code i1} attribute
+&nbsp;   * @param l1 The value for the {@code l1} attribute
+&nbsp;   * @param d1 The value for the {@code d1} attribute
+&nbsp;   * @return An immutable JdkOptionals instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdkOptionals of(Optional&lt;String&gt; v2, OptionalInt i1, OptionalLong l1, OptionalDouble d1) {
+&nbsp;    return validate(new ImmutableJdkOptionals(v2, i1, l1, d1));
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableJdkOptionals validate(ImmutableJdkOptionals instance) {
+&nbsp;    @Nullable ImmutableJdkOptionals interned = InternerHolder.INTERNER.putIfAbsent(new InternProxy(instance), instance);
+&nbsp;    return interned != null ? interned : instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link JdkOptionals} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable JdkOptionals instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdkOptionals copyOf(JdkOptionals instance) {
+&nbsp;    if (instance instanceof ImmutableJdkOptionals) {
+&nbsp;      return (ImmutableJdkOptionals) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJdkOptionals.of(instance.v2(), instance.i1(), instance.l1(), instance.d1());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * The serialized form captures the structural content of the value object,
+&nbsp;   * providing the ability to reconstruct values with the capability to migrate
+&nbsp;   * data. Uses optional, nullable, and provides flexible handling of
+&nbsp;   * collection attributes.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JdkOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class SerialForm implements Serializable {
+&nbsp;    private static final long serialVersionUID = 0L;
+&nbsp;    private final String[] names;
+&nbsp;    private final Object[] values;
+&nbsp;    SerialForm(ImmutableJdkOptionals instance) {
+&nbsp;      List&lt;String&gt; names = new ArrayList&lt;&gt;(4);
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(4);
+&nbsp;      if (instance.v2().isPresent()) {
+&nbsp;        names.add(&quot;v2&quot;);
+&nbsp;        values.add(instance.v2().get());
+&nbsp;      }
+&nbsp;      if (instance.i1().isPresent()) {
+&nbsp;        names.add(&quot;i1&quot;);
+&nbsp;        values.add(instance.i1().getAsInt());
+&nbsp;      }
+&nbsp;      if (instance.l1().isPresent()) {
+&nbsp;        names.add(&quot;l1&quot;);
+&nbsp;        values.add(instance.l1().getAsLong());
+&nbsp;      }
+&nbsp;      if (instance.d1().isPresent()) {
+&nbsp;        names.add(&quot;d1&quot;);
+&nbsp;        values.add(instance.d1().getAsDouble());
+&nbsp;      }
+&nbsp;      this.names = names.toArray(new String[names.size()]);
+&nbsp;      this.values = values.toArray();
+&nbsp;    }
+&nbsp;
+&nbsp;    Object readResolve() {
+&nbsp;      Optional&lt;String&gt; v2Value = Optional.empty();
+&nbsp;      OptionalInt i1Value = OptionalInt.empty();
+&nbsp;      OptionalLong l1Value = OptionalLong.empty();
+&nbsp;      OptionalDouble d1Value = OptionalDouble.empty();
+&nbsp;
+&nbsp;      for (int i = 0; i &lt; names.length; i++) {
+&nbsp;        String name = names[i];
+&nbsp;        if (&quot;v2&quot;.equals(name)) {
+&nbsp;          if (values[i] != null) {
+&nbsp;            v2Value = Optional.of((String) values[i]);
+&nbsp;          }
+&nbsp;          continue;
+&nbsp;        }
+&nbsp;        if (&quot;i1&quot;.equals(name)) {
+&nbsp;          if (values[i] != null) {
+&nbsp;            i1Value = OptionalInt.of((Integer) values[i]);
+&nbsp;          }
+&nbsp;          continue;
+&nbsp;        }
+&nbsp;        if (&quot;l1&quot;.equals(name)) {
+&nbsp;          if (values[i] != null) {
+&nbsp;            l1Value = OptionalLong.of((Long) values[i]);
+&nbsp;          }
+&nbsp;          continue;
+&nbsp;        }
+&nbsp;        if (&quot;d1&quot;.equals(name)) {
+&nbsp;          if (values[i] != null) {
+&nbsp;            d1Value = OptionalDouble.of((Double) values[i]);
+&nbsp;          }
+&nbsp;          continue;
+&nbsp;        }
+&nbsp;      }
+&nbsp;      ImmutableJdkOptionals instance = ImmutableJdkOptionals.of(v2Value, i1Value, l1Value, d1Value);
+&nbsp;      return instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static Object toSingle(String attribute, Object value) {
+&nbsp;      if (value instanceof Object[]) {
+&nbsp;        Object[] elements = (Object[]) value;
+&nbsp;        if (elements.length == 1) {
+&nbsp;          return elements[0];
+&nbsp;        }
+&nbsp;        throw new IllegalStateException(&quot;Cannot extract scalar value for attribute &#39;&quot;
+&nbsp;            + attribute + &quot;&#39; from array of length &quot; + elements.length);
+&nbsp;      }
+&nbsp;      return value;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private Object writeReplace() {
+&nbsp;    return new SerialForm(this);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

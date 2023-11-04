@@ -1,0 +1,214 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyValidatedConstructedValue</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyValidatedConstructedValue (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ImmutableSillyValidatedConstructedValue</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyValidatedConstructedValue}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSillyValidatedConstructedValue.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyValidatedConstructedValue&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyValidatedConstructedValue
+&nbsp;    extends SillyValidatedConstructedValue {
+&nbsp;  private final int value;
+&nbsp;  private final boolean negativeOnly;
+&nbsp;
+&nbsp;  private ImmutableSillyValidatedConstructedValue(int value, boolean negativeOnly) {
+&nbsp;    this.value = value;
+&nbsp;    this.negativeOnly = negativeOnly;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillyValidatedConstructedValue(ImmutableSillyValidatedConstructedValue original, int value, boolean negativeOnly) {
+&nbsp;    this.value = value;
+&nbsp;    this.negativeOnly = negativeOnly;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code value} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int value() {
+&nbsp;    return value;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code negativeOnly} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean negativeOnly() {
+&nbsp;    return negativeOnly;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyValidatedConstructedValue#value() value} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for value
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyValidatedConstructedValue withValue(int value) {
+&nbsp;    if (this.value == value) return this;
+&nbsp;    return validate(new ImmutableSillyValidatedConstructedValue(this, value, this.negativeOnly));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyValidatedConstructedValue#negativeOnly() negativeOnly} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for negativeOnly
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyValidatedConstructedValue withNegativeOnly(boolean value) {
+&nbsp;    if (this.negativeOnly == value) return this;
+&nbsp;    return validate(new ImmutableSillyValidatedConstructedValue(this, this.value, value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyValidatedConstructedValue} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyValidatedConstructedValue
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyValidatedConstructedValue) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyValidatedConstructedValue another) {
+&nbsp;    return value == another.value
+&nbsp;        &amp;&amp; negativeOnly == another.negativeOnly;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code value}, {@code negativeOnly}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + value;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(negativeOnly);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyValidatedConstructedValue} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyValidatedConstructedValue&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;value&quot;, value)
+&nbsp;        .add(&quot;negativeOnly&quot;, negativeOnly)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyValidatedConstructedValue} instance.
+&nbsp;   * @param value The value for the {@code value} attribute
+&nbsp;   * @param negativeOnly The value for the {@code negativeOnly} attribute
+&nbsp;   * @return An immutable SillyValidatedConstructedValue instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyValidatedConstructedValue of(int value, boolean negativeOnly) {
+&nbsp;    return validate(new ImmutableSillyValidatedConstructedValue(value, negativeOnly));
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableSillyValidatedConstructedValue validate(ImmutableSillyValidatedConstructedValue instance) {
+&nbsp;    instance.validate();
+&nbsp;    return instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyValidatedConstructedValue} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyValidatedConstructedValue instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyValidatedConstructedValue copyOf(SillyValidatedConstructedValue instance) {
+&nbsp;    if (instance instanceof ImmutableSillyValidatedConstructedValue) {
+&nbsp;      return (ImmutableSillyValidatedConstructedValue) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyValidatedConstructedValue.of(instance.value(), instance.negativeOnly());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

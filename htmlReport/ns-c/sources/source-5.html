@@ -1,0 +1,369 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ElasticsearchBackend</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: ElasticsearchBackend (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ElasticsearchBackend</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ElasticsearchBackend$1</td>
+  </tr>
+  <tr>
+    <td class="name">ElasticsearchBackend$Session</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/81)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/91)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.fasterxml.jackson.databind.node.ArrayNode;
+&nbsp;import com.fasterxml.jackson.databind.node.ObjectNode;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import io.reactivex.Flowable;
+&nbsp;import org.elasticsearch.client.RestClient;
+&nbsp;import org.immutables.criteria.backend.Backend;
+&nbsp;import org.immutables.criteria.backend.DefaultResult;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.backend.ProjectedTuple;
+&nbsp;import org.immutables.criteria.backend.StandardOperations;
+&nbsp;import org.immutables.criteria.backend.WriteResult;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.BiFunction;
+&nbsp;import java.util.function.Predicate;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Queries &lt;a href=&quot;https://www.elastic.co/&quot;&gt;ElasticSearch&lt;/a&gt; data-store.
+&nbsp; */
+&nbsp;public class ElasticsearchBackend implements Backend {
+&nbsp;
+&nbsp;  final RestClient restClient;
+&nbsp;  final ObjectMapper objectMapper;
+&nbsp;  private final IndexResolver resolver;
+&nbsp;  private final KeyExtractor.Factory keyExtractorFactory;
+&nbsp;  private final int scrollSize;
+&nbsp;  private final PathNaming pathNaming;
+&nbsp;
+<b class="nc">&nbsp;  public ElasticsearchBackend(ElasticsearchSetup setup) {</b>
+<b class="nc">&nbsp;    Objects.requireNonNull(setup, &quot;setup&quot;);</b>
+<b class="nc">&nbsp;    this.restClient = setup.restClient();</b>
+<b class="nc">&nbsp;    this.objectMapper = setup.objectMapper();</b>
+<b class="nc">&nbsp;    this.resolver = setup.indexResolver();</b>
+<b class="nc">&nbsp;    this.scrollSize = setup.scrollSize();</b>
+<b class="nc">&nbsp;    this.keyExtractorFactory = setup.keyExtractorFactory();</b>
+<b class="nc">&nbsp;    this.pathNaming = PathNaming.defaultNaming();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Backend.Session open(Class&lt;?&gt; entityType) {
+<b class="nc">&nbsp;    final String index = resolver.resolve(entityType);</b>
+<b class="nc">&nbsp;    return new Session(entityType, keyExtractorFactory.create(entityType), new ElasticsearchOps(restClient, index, objectMapper, scrollSize), pathNaming);</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  static class Session implements Backend.Session {</b>
+&nbsp;    final Class&lt;?&gt; entityType;
+&nbsp;    final ObjectMapper objectMapper;
+&nbsp;    final ElasticsearchOps ops;
+&nbsp;    final KeyExtractor keyExtractor;
+&nbsp;    final JsonConverter&lt;Object&gt; converter;
+&nbsp;    private final boolean hasId;
+&nbsp;    final PathNaming pathNaming;
+&nbsp;    final Predicate&lt;Path&gt; idPredicate;
+&nbsp;
+<b class="nc">&nbsp;    private Session(Class&lt;?&gt; entityClass, KeyExtractor keyExtractor, ElasticsearchOps ops, PathNaming pathNaming) {</b>
+<b class="nc">&nbsp;      Objects.requireNonNull(entityClass, &quot;entityClass&quot;);</b>
+<b class="nc">&nbsp;      this.entityType = entityClass;</b>
+<b class="nc">&nbsp;      this.ops = Objects.requireNonNull(ops, &quot;ops&quot;);</b>
+<b class="nc">&nbsp;      this.objectMapper = ops.mapper();</b>
+<b class="nc">&nbsp;      this.keyExtractor = keyExtractor;</b>
+<b class="nc">&nbsp;      this.converter = DefaultConverter.&lt;Object&gt;of(objectMapper, entityClass);</b>
+<b class="nc">&nbsp;      KeyExtractor.KeyMetadata metadata = keyExtractor.metadata();</b>
+<b class="nc">&nbsp;      this.hasId = metadata.isKeyDefined();</b>
+<b class="nc">&nbsp;      this.pathNaming = pathNaming;</b>
+<b class="nc">&nbsp;      this.idPredicate = Elasticsearch.idPredicate(keyExtractor.metadata());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;?&gt; entityType() {
+<b class="nc">&nbsp;      return entityType;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Result execute(Operation operation) {
+<b class="nc">&nbsp;      Objects.requireNonNull(operation, &quot;operation&quot;);</b>
+<b class="nc">&nbsp;      if (operation instanceof StandardOperations.Insert) {</b>
+<b class="nc">&nbsp;        return DefaultResult.of(insert((StandardOperations.Insert) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.Select) {</b>
+<b class="nc">&nbsp;        return DefaultResult.of(select((StandardOperations.Select) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.GetByKey) {</b>
+<b class="nc">&nbsp;        return DefaultResult.of(getByKey((StandardOperations.GetByKey) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.DeleteByKey) {</b>
+<b class="nc">&nbsp;        return DefaultResult.of(deleteByKey((StandardOperations.DeleteByKey) operation));</b>
+<b class="nc">&nbsp;      } else if (operation instanceof StandardOperations.Delete) {</b>
+<b class="nc">&nbsp;        return DefaultResult.of(delete((StandardOperations.Delete) operation));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return DefaultResult.of(Flowable.error(new UnsupportedOperationException(String.format(&quot;Op %s not supported&quot;, operation))));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Flowable&lt;ProjectedTuple&gt; aggregate(StandardOperations.Select op) {
+<b class="nc">&nbsp;      final Query query = op.query();</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(query.hasAggregations(), &quot;No Aggregations&quot;);</b>
+<b class="nc">&nbsp;      AggregateQueryBuilder builder = new AggregateQueryBuilder(query, objectMapper, ops.mapping, pathNaming, idPredicate);</b>
+<b class="nc">&nbsp;      return ops.searchRaw(builder.jsonQuery(), Collections.emptyMap())</b>
+<b class="nc">&nbsp;              .map(builder::processResult)</b>
+<b class="nc">&nbsp;              .toFlowable()</b>
+<b class="nc">&nbsp;              .flatMapIterable(x -&gt; x);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Flowable&lt;?&gt; select(StandardOperations.Select op) {
+<b class="nc">&nbsp;      final Query query = op.query();</b>
+&nbsp;
+<b class="nc">&nbsp;      if (query.distinct()) {</b>
+<b class="nc">&nbsp;        return Flowable.error(new UnsupportedOperationException(&quot;DISTINCT not yet supported by &quot; + ElasticsearchBackend.class.getSimpleName()));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (query.count()) {</b>
+<b class="nc">&nbsp;        return new CountCall(op, this).call().toFlowable();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (query.hasAggregations()) {</b>
+<b class="nc">&nbsp;        return aggregate(op);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      final ObjectNode json = objectMapper.createObjectNode();</b>
+&nbsp;
+<b class="nc">&nbsp;      query.filter().ifPresent(f -&gt; json.set(&quot;query&quot;, Elasticsearch.constantScoreQuery(objectMapper, pathNaming, idPredicate).convert(f)));</b>
+<b class="nc">&nbsp;      query.limit().ifPresent(limit -&gt; json.put(&quot;size&quot;, limit));</b>
+<b class="nc">&nbsp;      query.offset().ifPresent(offset -&gt; json.put(&quot;from&quot;, offset));</b>
+<b class="nc">&nbsp;      if (!query.collations().isEmpty()) {</b>
+<b class="nc">&nbsp;        final ArrayNode sort = json.withArray(&quot;sort&quot;);</b>
+<b class="nc">&nbsp;        query.collations().forEach(c -&gt; {</b>
+<b class="nc">&nbsp;          sort.add(objectMapper.createObjectNode().put(c.path().toStringPath(), c.direction().isAscending() ? &quot;asc&quot; : &quot;desc&quot;));</b>
+&nbsp;        });
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      JsonConverter converter = this.converter;</b>
+&nbsp;
+<b class="nc">&nbsp;      if (query.hasProjections()) {</b>
+<b class="nc">&nbsp;        ArrayNode projection = query.projections().stream()</b>
+<b class="nc">&nbsp;                 .map(p -&gt; ((Path) p).toStringPath())</b>
+<b class="nc">&nbsp;                 .reduce(objectMapper.createArrayNode(), ArrayNode::add, (old, newNode) -&gt; newNode);</b>
+<b class="nc">&nbsp;        json.set(&quot;_source&quot;, projection);</b>
+<b class="nc">&nbsp;        converter = new ToTupleConverter(query, objectMapper);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      final Flowable&lt;?&gt; flowable;
+<b class="nc">&nbsp;      if (query.offset().isPresent()) {</b>
+&nbsp;        // scroll doesn&#39;t work with offset
+<b class="nc">&nbsp;        flowable = ops.search(json, (JsonConverter&lt;?&gt;) converter);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        flowable = ops.scrolledSearch(json, (JsonConverter&lt;?&gt;) converter);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return flowable;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Publisher&lt;WriteResult&gt; insert(StandardOperations.Insert insert) {
+<b class="nc">&nbsp;      if (insert.values().isEmpty()) {</b>
+<b class="nc">&nbsp;        return Flowable.just(WriteResult.empty());</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      // sets _id attribute (if entity has @Criteria.Id annotation)
+<b class="nc">&nbsp;      final BiFunction&lt;Object, ObjectNode, ObjectNode&gt; idFn = (entity, node) -&gt;</b>
+<b class="nc">&nbsp;              hasId ? (ObjectNode) node.set(&quot;_id&quot;, objectMapper.valueToTree(keyExtractor.extract(entity))) : node;</b>
+&nbsp;
+<b class="nc">&nbsp;      final List&lt;ObjectNode&gt; docs = insert.values().stream()</b>
+<b class="nc">&nbsp;              .map(e -&gt; idFn.apply(e, objectMapper.valueToTree(e)))</b>
+<b class="nc">&nbsp;              .collect(Collectors.toList());</b>
+&nbsp;
+<b class="nc">&nbsp;      return ops.insertBulk(docs).toFlowable();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Flowable&lt;?&gt; getByKey(StandardOperations.GetByKey op) {
+<b class="nc">&nbsp;      ObjectNode json = objectMapper.createObjectNode();</b>
+<b class="nc">&nbsp;      ObjectNode query = QueryBuilders.idsQuery(op.keys()).toJson(objectMapper);</b>
+<b class="nc">&nbsp;      json.set(&quot;query&quot;, query);</b>
+<b class="nc">&nbsp;      return ops.scrolledSearch(json, converter);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Flowable&lt;WriteResult&gt; deleteByKey(StandardOperations.DeleteByKey op) {
+<b class="nc">&nbsp;      ObjectNode json = objectMapper.createObjectNode();</b>
+<b class="nc">&nbsp;      ObjectNode query = QueryBuilders.idsQuery(op.keys()).toJson(objectMapper);</b>
+<b class="nc">&nbsp;      json.set(&quot;query&quot;, query);</b>
+<b class="nc">&nbsp;      return ops.deleteByQuery(json).toFlowable();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Flowable&lt;WriteResult&gt; delete(StandardOperations.Delete op) {
+<b class="nc">&nbsp;      Query query = op.query();</b>
+<b class="nc">&nbsp;      ObjectNode json = objectMapper.createObjectNode();</b>
+&nbsp;
+<b class="nc">&nbsp;      QueryBuilders.QueryBuilder builder = query.filter()</b>
+<b class="nc">&nbsp;              .map(f -&gt;Elasticsearch.toBuilder(f, pathNaming, idPredicate))</b>
+<b class="nc">&nbsp;              .orElse(QueryBuilders.matchAll());</b>
+&nbsp;
+<b class="nc">&nbsp;      json.set(&quot;query&quot;, builder.toJson(objectMapper));</b>
+<b class="nc">&nbsp;      return ops.deleteByQuery(json).toFlowable();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

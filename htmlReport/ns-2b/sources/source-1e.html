@@ -1,0 +1,764 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableMultimapSafeVarargs</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.generics</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableMultimapSafeVarargs (org.immutables.fixture.generics)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableMultimapSafeVarargs$ParamBoth</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMultimapSafeVarargs$ParamBoth$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMultimapSafeVarargs$ParamKey</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMultimapSafeVarargs$ParamKey$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMultimapSafeVarargs$ParamVal</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableMultimapSafeVarargs$ParamVal$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.generics;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMultimap;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code ImmutableMultimapSafeVarargs} contains immutable implementation classes generated from
+&nbsp; * abstract value types defined as nested inside {@link MultimapSafeVarargs}.
+&nbsp; * @see ImmutableMultimapSafeVarargs.ParamKey
+&nbsp; * @see ImmutableMultimapSafeVarargs.ParamVal
+&nbsp; * @see ImmutableMultimapSafeVarargs.ParamBoth
+&nbsp; */
+&nbsp;@Generated(from = &quot;MultimapSafeVarargs&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;public final class ImmutableMultimapSafeVarargs {
+&nbsp;  private ImmutableMultimapSafeVarargs() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link MultimapSafeVarargs.ParamKey}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableMultimapSafeVarargs.ParamKey.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;MultimapSafeVarargs.ParamKey&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class ParamKey implements MultimapSafeVarargs.ParamKey {
+&nbsp;    private final ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, String&gt; vals;
+&nbsp;
+&nbsp;    private ParamKey(
+&nbsp;        ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, String&gt; vals) {
+&nbsp;      this.vals = vals;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code vals} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, String&gt; vals() {
+&nbsp;      return vals;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by replacing the {@link MultimapSafeVarargs.ParamKey#vals() vals} map with the specified map.
+&nbsp;     * Nulls are not permitted as keys or values.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param entries The entries to be added to the vals map
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableMultimapSafeVarargs.ParamKey withVals(Multimap&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends String&gt; entries) {
+&nbsp;      if (this.vals == entries) return this;
+&nbsp;      ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, String&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;      return new ImmutableMultimapSafeVarargs.ParamKey(newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ParamKey} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableMultimapSafeVarargs.ParamKey
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableMultimapSafeVarargs.ParamKey) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableMultimapSafeVarargs.ParamKey another) {
+&nbsp;      return vals.equals(another.vals);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code vals}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + vals.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code ParamKey} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;ParamKey&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;vals&quot;, vals)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link MultimapSafeVarargs.ParamKey} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable ParamKey instance
+&nbsp;     */
+&nbsp;    public static ImmutableMultimapSafeVarargs.ParamKey copyOf(MultimapSafeVarargs.ParamKey instance) {
+&nbsp;      if (instance instanceof ImmutableMultimapSafeVarargs.ParamKey) {
+&nbsp;        return (ImmutableMultimapSafeVarargs.ParamKey) instance;
+&nbsp;      }
+&nbsp;      return ImmutableMultimapSafeVarargs.ParamKey.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableMultimapSafeVarargs.ParamKey ParamKey}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableMultimapSafeVarargs.ParamKey.builder()
+&nbsp;     *    .putVals|putAllVals(org.immutables.fixture.generics.MultimapSafeVarargs.Val&amp;amp;lt;String&amp;amp;gt; =&amp;gt; String) // {@link MultimapSafeVarargs.ParamKey#vals() vals} mappings
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new ParamKey builder
+&nbsp;     */
+&nbsp;    public static ImmutableMultimapSafeVarargs.ParamKey.Builder builder() {
+&nbsp;      return new ImmutableMultimapSafeVarargs.ParamKey.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableMultimapSafeVarargs.ParamKey ParamKey}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;MultimapSafeVarargs.ParamKey&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private ImmutableMultimap.Builder&lt;MultimapSafeVarargs.Val&lt;String&gt;, String&gt; vals = ImmutableMultimap.builder();
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code ParamKey} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * Collection elements and entries will be added, not replaced.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(MultimapSafeVarargs.ParamKey instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        putAllVals(instance.vals());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified key to values for {@link MultimapSafeVarargs.ParamKey#vals() vals} true. Nulls are not permitted
+&nbsp;       * @param key The key for vals
+&nbsp;       * @param values The values for vals
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(MultimapSafeVarargs.Val&lt;String&gt; key, String... values) {
+&nbsp;        this.vals.putAll(key, Arrays.asList(values));
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified key to values for {@link MultimapSafeVarargs.ParamKey#vals() vals} true. Nulls are not permitted
+&nbsp;       * @param key The key for vals
+&nbsp;       * @param values The values for vals
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putAllVals(MultimapSafeVarargs.Val&lt;String&gt; key, Iterable&lt;String&gt; values) {
+&nbsp;        this.vals.putAll(key, values);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put one entry to the {@link MultimapSafeVarargs.ParamKey#vals() vals} map.
+&nbsp;       * @param key The key in the vals map
+&nbsp;       * @param value The associated value in the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(MultimapSafeVarargs.Val&lt;String&gt; key, String value) {
+&nbsp;        this.vals.put(key, value);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put one entry to the {@link MultimapSafeVarargs.ParamKey#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entry The key and value entry
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(Map.Entry&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends String&gt; entry) {
+&nbsp;        this.vals.put(entry);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Sets or replaces all mappings from the specified map as entries for the {@link MultimapSafeVarargs.ParamKey#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entries The entries that will be added to the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder vals(Multimap&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends String&gt; entries) {
+&nbsp;        this.vals = ImmutableMultimap.builder();
+&nbsp;        return putAllVals(entries);
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified map as entries to {@link MultimapSafeVarargs.ParamKey#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entries The entries that will be added to the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putAllVals(Multimap&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends String&gt; entries) {
+&nbsp;        this.vals.putAll(entries);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableMultimapSafeVarargs.ParamKey ParamKey}.
+&nbsp;       * @return An immutable instance of ParamKey
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableMultimapSafeVarargs.ParamKey build() {
+&nbsp;        return new ImmutableMultimapSafeVarargs.ParamKey(vals.build());
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link MultimapSafeVarargs.ParamVal}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableMultimapSafeVarargs.ParamVal.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;MultimapSafeVarargs.ParamVal&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class ParamVal implements MultimapSafeVarargs.ParamVal {
+&nbsp;    private final ImmutableMultimap&lt;String, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals;
+&nbsp;
+&nbsp;    private ParamVal(
+&nbsp;        ImmutableMultimap&lt;String, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals) {
+&nbsp;      this.vals = vals;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code vals} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public ImmutableMultimap&lt;String, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals() {
+&nbsp;      return vals;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by replacing the {@link MultimapSafeVarargs.ParamVal#vals() vals} map with the specified map.
+&nbsp;     * Nulls are not permitted as keys or values.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param entries The entries to be added to the vals map
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableMultimapSafeVarargs.ParamVal withVals(Multimap&lt;String, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entries) {
+&nbsp;      if (this.vals == entries) return this;
+&nbsp;      ImmutableMultimap&lt;String, MultimapSafeVarargs.Val&lt;String&gt;&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;      return new ImmutableMultimapSafeVarargs.ParamVal(newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ParamVal} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableMultimapSafeVarargs.ParamVal
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableMultimapSafeVarargs.ParamVal) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableMultimapSafeVarargs.ParamVal another) {
+&nbsp;      return vals.equals(another.vals);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code vals}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + vals.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code ParamVal} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;ParamVal&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;vals&quot;, vals)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link MultimapSafeVarargs.ParamVal} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable ParamVal instance
+&nbsp;     */
+&nbsp;    public static ImmutableMultimapSafeVarargs.ParamVal copyOf(MultimapSafeVarargs.ParamVal instance) {
+&nbsp;      if (instance instanceof ImmutableMultimapSafeVarargs.ParamVal) {
+&nbsp;        return (ImmutableMultimapSafeVarargs.ParamVal) instance;
+&nbsp;      }
+&nbsp;      return ImmutableMultimapSafeVarargs.ParamVal.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableMultimapSafeVarargs.ParamVal ParamVal}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableMultimapSafeVarargs.ParamVal.builder()
+&nbsp;     *    .putVals|putAllVals(String =&amp;gt; org.immutables.fixture.generics.MultimapSafeVarargs.Val&amp;amp;lt;String&amp;amp;gt;) // {@link MultimapSafeVarargs.ParamVal#vals() vals} mappings
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new ParamVal builder
+&nbsp;     */
+&nbsp;    public static ImmutableMultimapSafeVarargs.ParamVal.Builder builder() {
+&nbsp;      return new ImmutableMultimapSafeVarargs.ParamVal.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableMultimapSafeVarargs.ParamVal ParamVal}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;MultimapSafeVarargs.ParamVal&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private ImmutableMultimap.Builder&lt;String, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals = ImmutableMultimap.builder();
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code ParamVal} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * Collection elements and entries will be added, not replaced.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(MultimapSafeVarargs.ParamVal instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        putAllVals(instance.vals());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified key to values for {@link MultimapSafeVarargs.ParamVal#vals() vals} true. Nulls are not permitted
+&nbsp;       * @param key The key for vals
+&nbsp;       * @param values The values for vals
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;      public final Builder putVals(String key, MultimapSafeVarargs.Val&lt;String&gt;... values) {
+&nbsp;        this.vals.putAll(key, Arrays.asList(values));
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified key to values for {@link MultimapSafeVarargs.ParamVal#vals() vals} true. Nulls are not permitted
+&nbsp;       * @param key The key for vals
+&nbsp;       * @param values The values for vals
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putAllVals(String key, Iterable&lt;MultimapSafeVarargs.Val&lt;String&gt;&gt; values) {
+&nbsp;        this.vals.putAll(key, values);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put one entry to the {@link MultimapSafeVarargs.ParamVal#vals() vals} map.
+&nbsp;       * @param key The key in the vals map
+&nbsp;       * @param value The associated value in the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(String key, MultimapSafeVarargs.Val&lt;String&gt; value) {
+&nbsp;        this.vals.put(key, value);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put one entry to the {@link MultimapSafeVarargs.ParamVal#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entry The key and value entry
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(Map.Entry&lt;String, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entry) {
+&nbsp;        this.vals.put(entry);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Sets or replaces all mappings from the specified map as entries for the {@link MultimapSafeVarargs.ParamVal#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entries The entries that will be added to the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder vals(Multimap&lt;String, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entries) {
+&nbsp;        this.vals = ImmutableMultimap.builder();
+&nbsp;        return putAllVals(entries);
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified map as entries to {@link MultimapSafeVarargs.ParamVal#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entries The entries that will be added to the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putAllVals(Multimap&lt;String, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entries) {
+&nbsp;        this.vals.putAll(entries);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableMultimapSafeVarargs.ParamVal ParamVal}.
+&nbsp;       * @return An immutable instance of ParamVal
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableMultimapSafeVarargs.ParamVal build() {
+&nbsp;        return new ImmutableMultimapSafeVarargs.ParamVal(vals.build());
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link MultimapSafeVarargs.ParamBoth}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableMultimapSafeVarargs.ParamBoth.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;MultimapSafeVarargs.ParamBoth&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class ParamBoth implements MultimapSafeVarargs.ParamBoth {
+&nbsp;    private final ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals;
+&nbsp;
+&nbsp;    private ParamBoth(
+&nbsp;        ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals) {
+&nbsp;      this.vals = vals;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code vals} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals() {
+&nbsp;      return vals;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by replacing the {@link MultimapSafeVarargs.ParamBoth#vals() vals} map with the specified map.
+&nbsp;     * Nulls are not permitted as keys or values.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param entries The entries to be added to the vals map
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableMultimapSafeVarargs.ParamBoth withVals(Multimap&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entries) {
+&nbsp;      if (this.vals == entries) return this;
+&nbsp;      ImmutableMultimap&lt;MultimapSafeVarargs.Val&lt;String&gt;, MultimapSafeVarargs.Val&lt;String&gt;&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;      return new ImmutableMultimapSafeVarargs.ParamBoth(newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ParamBoth} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableMultimapSafeVarargs.ParamBoth
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableMultimapSafeVarargs.ParamBoth) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableMultimapSafeVarargs.ParamBoth another) {
+&nbsp;      return vals.equals(another.vals);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code vals}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + vals.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code ParamBoth} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;ParamBoth&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;vals&quot;, vals)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link MultimapSafeVarargs.ParamBoth} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable ParamBoth instance
+&nbsp;     */
+&nbsp;    public static ImmutableMultimapSafeVarargs.ParamBoth copyOf(MultimapSafeVarargs.ParamBoth instance) {
+&nbsp;      if (instance instanceof ImmutableMultimapSafeVarargs.ParamBoth) {
+&nbsp;        return (ImmutableMultimapSafeVarargs.ParamBoth) instance;
+&nbsp;      }
+&nbsp;      return ImmutableMultimapSafeVarargs.ParamBoth.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableMultimapSafeVarargs.ParamBoth ParamBoth}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableMultimapSafeVarargs.ParamBoth.builder()
+&nbsp;     *    .putVals|putAllVals(org.immutables.fixture.generics.MultimapSafeVarargs.Val&amp;amp;lt;String&amp;amp;gt; =&amp;gt; org.immutables.fixture.generics.MultimapSafeVarargs.Val&amp;amp;lt;String&amp;amp;gt;) // {@link MultimapSafeVarargs.ParamBoth#vals() vals} mappings
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new ParamBoth builder
+&nbsp;     */
+&nbsp;    public static ImmutableMultimapSafeVarargs.ParamBoth.Builder builder() {
+&nbsp;      return new ImmutableMultimapSafeVarargs.ParamBoth.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableMultimapSafeVarargs.ParamBoth ParamBoth}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;MultimapSafeVarargs.ParamBoth&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private ImmutableMultimap.Builder&lt;MultimapSafeVarargs.Val&lt;String&gt;, MultimapSafeVarargs.Val&lt;String&gt;&gt; vals = ImmutableMultimap.builder();
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code ParamBoth} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * Collection elements and entries will be added, not replaced.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(MultimapSafeVarargs.ParamBoth instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        putAllVals(instance.vals());
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified key to values for {@link MultimapSafeVarargs.ParamBoth#vals() vals} true. Nulls are not permitted
+&nbsp;       * @param key The key for vals
+&nbsp;       * @param values The values for vals
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      @SafeVarargs @SuppressWarnings(&quot;varargs&quot;)
+&nbsp;      public final Builder putVals(MultimapSafeVarargs.Val&lt;String&gt; key, MultimapSafeVarargs.Val&lt;String&gt;... values) {
+&nbsp;        this.vals.putAll(key, Arrays.asList(values));
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified key to values for {@link MultimapSafeVarargs.ParamBoth#vals() vals} true. Nulls are not permitted
+&nbsp;       * @param key The key for vals
+&nbsp;       * @param values The values for vals
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putAllVals(MultimapSafeVarargs.Val&lt;String&gt; key, Iterable&lt;MultimapSafeVarargs.Val&lt;String&gt;&gt; values) {
+&nbsp;        this.vals.putAll(key, values);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put one entry to the {@link MultimapSafeVarargs.ParamBoth#vals() vals} map.
+&nbsp;       * @param key The key in the vals map
+&nbsp;       * @param value The associated value in the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(MultimapSafeVarargs.Val&lt;String&gt; key, MultimapSafeVarargs.Val&lt;String&gt; value) {
+&nbsp;        this.vals.put(key, value);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put one entry to the {@link MultimapSafeVarargs.ParamBoth#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entry The key and value entry
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putVals(Map.Entry&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entry) {
+&nbsp;        this.vals.put(entry);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Sets or replaces all mappings from the specified map as entries for the {@link MultimapSafeVarargs.ParamBoth#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entries The entries that will be added to the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder vals(Multimap&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entries) {
+&nbsp;        this.vals = ImmutableMultimap.builder();
+&nbsp;        return putAllVals(entries);
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Put all mappings from the specified map as entries to {@link MultimapSafeVarargs.ParamBoth#vals() vals} map. Nulls are not permitted
+&nbsp;       * @param entries The entries that will be added to the vals map
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder putAllVals(Multimap&lt;? extends MultimapSafeVarargs.Val&lt;String&gt;, ? extends MultimapSafeVarargs.Val&lt;String&gt;&gt; entries) {
+&nbsp;        this.vals.putAll(entries);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableMultimapSafeVarargs.ParamBoth ParamBoth}.
+&nbsp;       * @return An immutable instance of ParamBoth
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableMultimapSafeVarargs.ParamBoth build() {
+&nbsp;        return new ImmutableMultimapSafeVarargs.ParamBoth(vals.build());
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

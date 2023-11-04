@@ -1,0 +1,477 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableFacet</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableFacet (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableFacet$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableFacet$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link RepositoryModel.Facet}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableFacet.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;RepositoryModel.Facet&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableFacet implements RepositoryModel.Facet {
+&nbsp;  private final String name;
+&nbsp;  private final TypeMirror interfaceType;
+&nbsp;  private final TypeMirror fieldType;
+&nbsp;  private final RepositoryModel.CodeBlock constructor;
+&nbsp;  private final ImmutableList&lt;RepositoryModel.DelegateMethod&gt; methods;
+&nbsp;
+&nbsp;  private ImmutableFacet(
+&nbsp;      String name,
+&nbsp;      TypeMirror interfaceType,
+&nbsp;      TypeMirror fieldType,
+&nbsp;      RepositoryModel.CodeBlock constructor,
+&nbsp;      ImmutableList&lt;RepositoryModel.DelegateMethod&gt; methods) {
+&nbsp;    this.name = name;
+&nbsp;    this.interfaceType = interfaceType;
+&nbsp;    this.fieldType = fieldType;
+&nbsp;    this.constructor = constructor;
+&nbsp;    this.methods = methods;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code name} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String name() {
+&nbsp;    return name;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code interfaceType} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public TypeMirror interfaceType() {
+&nbsp;    return interfaceType;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code fieldType} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public TypeMirror fieldType() {
+&nbsp;    return fieldType;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code constructor} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RepositoryModel.CodeBlock constructor() {
+&nbsp;    return constructor;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code methods} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;RepositoryModel.DelegateMethod&gt; methods() {
+&nbsp;    return methods;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link RepositoryModel.Facet#name() name} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for name
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFacet withName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;    if (this.name.equals(newValue)) return this;
+&nbsp;    return new ImmutableFacet(newValue, this.interfaceType, this.fieldType, this.constructor, this.methods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link RepositoryModel.Facet#interfaceType() interfaceType} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for interfaceType
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFacet withInterfaceType(TypeMirror value) {
+&nbsp;    if (this.interfaceType == value) return this;
+&nbsp;    TypeMirror newValue = Objects.requireNonNull(value, &quot;interfaceType&quot;);
+&nbsp;    return new ImmutableFacet(this.name, newValue, this.fieldType, this.constructor, this.methods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link RepositoryModel.Facet#fieldType() fieldType} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for fieldType
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFacet withFieldType(TypeMirror value) {
+&nbsp;    if (this.fieldType == value) return this;
+&nbsp;    TypeMirror newValue = Objects.requireNonNull(value, &quot;fieldType&quot;);
+&nbsp;    return new ImmutableFacet(this.name, this.interfaceType, newValue, this.constructor, this.methods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link RepositoryModel.Facet#constructor() constructor} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for constructor
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFacet withConstructor(RepositoryModel.CodeBlock value) {
+&nbsp;    if (this.constructor == value) return this;
+&nbsp;    RepositoryModel.CodeBlock newValue = Objects.requireNonNull(value, &quot;constructor&quot;);
+&nbsp;    return new ImmutableFacet(this.name, this.interfaceType, this.fieldType, newValue, this.methods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link RepositoryModel.Facet#methods() methods}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFacet withMethods(RepositoryModel.DelegateMethod... elements) {
+&nbsp;    ImmutableList&lt;RepositoryModel.DelegateMethod&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableFacet(this.name, this.interfaceType, this.fieldType, this.constructor, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link RepositoryModel.Facet#methods() methods}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of methods elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFacet withMethods(Iterable&lt;? extends RepositoryModel.DelegateMethod&gt; elements) {
+&nbsp;    if (this.methods == elements) return this;
+&nbsp;    ImmutableList&lt;RepositoryModel.DelegateMethod&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableFacet(this.name, this.interfaceType, this.fieldType, this.constructor, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableFacet} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableFacet
+&nbsp;        &amp;&amp; equalTo((ImmutableFacet) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableFacet another) {
+&nbsp;    return name.equals(another.name)
+&nbsp;        &amp;&amp; interfaceType.equals(another.interfaceType)
+&nbsp;        &amp;&amp; fieldType.equals(another.fieldType)
+&nbsp;        &amp;&amp; constructor.equals(another.constructor)
+&nbsp;        &amp;&amp; methods.equals(another.methods);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code name}, {@code interfaceType}, {@code fieldType}, {@code constructor}, {@code methods}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + interfaceType.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + fieldType.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + constructor.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + methods.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Facet} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Facet&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;name&quot;, name)
+&nbsp;        .add(&quot;interfaceType&quot;, interfaceType)
+&nbsp;        .add(&quot;fieldType&quot;, fieldType)
+&nbsp;        .add(&quot;constructor&quot;, constructor)
+&nbsp;        .add(&quot;methods&quot;, methods)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link RepositoryModel.Facet} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Facet instance
+&nbsp;   */
+&nbsp;  public static ImmutableFacet copyOf(RepositoryModel.Facet instance) {
+&nbsp;    if (instance instanceof ImmutableFacet) {
+&nbsp;      return (ImmutableFacet) instance;
+&nbsp;    }
+&nbsp;    return ImmutableFacet.builder()
+&nbsp;        .name(instance.name())
+&nbsp;        .interfaceType(instance.interfaceType())
+&nbsp;        .fieldType(instance.fieldType())
+&nbsp;        .constructor(instance.constructor())
+&nbsp;        .addAllMethods(instance.methods())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableFacet ImmutableFacet}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableFacet.builder()
+&nbsp;   *    .name(String) // required {@link RepositoryModel.Facet#name() name}
+&nbsp;   *    .interfaceType(javax.lang.model.type.TypeMirror) // required {@link RepositoryModel.Facet#interfaceType() interfaceType}
+&nbsp;   *    .fieldType(javax.lang.model.type.TypeMirror) // required {@link RepositoryModel.Facet#fieldType() fieldType}
+&nbsp;   *    .constructor(org.immutables.value.processor.meta.RepositoryModel.CodeBlock) // required {@link RepositoryModel.Facet#constructor() constructor}
+&nbsp;   *    .addMethods|addAllMethods(org.immutables.value.processor.meta.RepositoryModel.DelegateMethod) // {@link RepositoryModel.Facet#methods() methods} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableFacet builder
+&nbsp;   */
+&nbsp;  public static ImmutableFacet.Builder builder() {
+&nbsp;    return new ImmutableFacet.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableFacet ImmutableFacet}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;RepositoryModel.Facet&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_NAME = 0x1L;
+&nbsp;    private static final long INIT_BIT_INTERFACE_TYPE = 0x2L;
+&nbsp;    private static final long INIT_BIT_FIELD_TYPE = 0x4L;
+&nbsp;    private static final long INIT_BIT_CONSTRUCTOR = 0x8L;
+&nbsp;    private long initBits = 0xfL;
+&nbsp;
+&nbsp;    private @Nullable String name;
+&nbsp;    private @Nullable TypeMirror interfaceType;
+&nbsp;    private @Nullable TypeMirror fieldType;
+&nbsp;    private @Nullable RepositoryModel.CodeBlock constructor;
+&nbsp;    private final ImmutableList.Builder&lt;RepositoryModel.DelegateMethod&gt; methods = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link RepositoryModel.Facet#name() name} attribute.
+&nbsp;     * @param name The value for name 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder name(String name) {
+&nbsp;      checkNotIsSet(nameIsSet(), &quot;name&quot;);
+&nbsp;      this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_NAME;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link RepositoryModel.Facet#interfaceType() interfaceType} attribute.
+&nbsp;     * @param interfaceType The value for interfaceType 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder interfaceType(TypeMirror interfaceType) {
+&nbsp;      checkNotIsSet(interfaceTypeIsSet(), &quot;interfaceType&quot;);
+&nbsp;      this.interfaceType = Objects.requireNonNull(interfaceType, &quot;interfaceType&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_INTERFACE_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link RepositoryModel.Facet#fieldType() fieldType} attribute.
+&nbsp;     * @param fieldType The value for fieldType 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder fieldType(TypeMirror fieldType) {
+&nbsp;      checkNotIsSet(fieldTypeIsSet(), &quot;fieldType&quot;);
+&nbsp;      this.fieldType = Objects.requireNonNull(fieldType, &quot;fieldType&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_FIELD_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link RepositoryModel.Facet#constructor() constructor} attribute.
+&nbsp;     * @param constructor The value for constructor 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder constructor(RepositoryModel.CodeBlock constructor) {
+&nbsp;      checkNotIsSet(constructorIsSet(), &quot;constructor&quot;);
+&nbsp;      this.constructor = Objects.requireNonNull(constructor, &quot;constructor&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_CONSTRUCTOR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link RepositoryModel.Facet#methods() methods} list.
+&nbsp;     * @param element A methods element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMethods(RepositoryModel.DelegateMethod element) {
+&nbsp;      this.methods.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link RepositoryModel.Facet#methods() methods} list.
+&nbsp;     * @param elements An array of methods elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMethods(RepositoryModel.DelegateMethod... elements) {
+&nbsp;      this.methods.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link RepositoryModel.Facet#methods() methods} list.
+&nbsp;     * @param elements An iterable of methods elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllMethods(Iterable&lt;? extends RepositoryModel.DelegateMethod&gt; elements) {
+&nbsp;      this.methods.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableFacet ImmutableFacet}.
+&nbsp;     * @return An immutable instance of Facet
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableFacet build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableFacet(name, interfaceType, fieldType, constructor, methods.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean nameIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_NAME) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean interfaceTypeIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_INTERFACE_TYPE) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean fieldTypeIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_FIELD_TYPE) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean constructorIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_CONSTRUCTOR) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of Facet is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!nameIsSet()) attributes.add(&quot;name&quot;);
+&nbsp;      if (!interfaceTypeIsSet()) attributes.add(&quot;interfaceType&quot;);
+&nbsp;      if (!fieldTypeIsSet()) attributes.add(&quot;fieldType&quot;);
+&nbsp;      if (!constructorIsSet()) attributes.add(&quot;constructor&quot;);
+&nbsp;      return &quot;Cannot build Facet, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

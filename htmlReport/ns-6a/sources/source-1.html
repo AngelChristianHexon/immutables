@@ -1,0 +1,279 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Builder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.builder</a>
+</div>
+
+<h1>Coverage Summary for Class: Builder (org.immutables.builder)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Builder$AccessibleFields</td>
+  </tr>
+  <tr>
+    <td class="name">Builder$Constructor</td>
+  </tr>
+  <tr>
+    <td class="name">Builder$Factory</td>
+  </tr>
+  <tr>
+    <td class="name">Builder$Include</td>
+  </tr>
+  <tr>
+    <td class="name">Builder$Parameter</td>
+  </tr>
+  <tr>
+    <td class="name">Builder$Switch</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.builder;
+&nbsp;
+&nbsp;import java.lang.annotation.Documented;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.Target;
+&nbsp;import org.immutables.value.Value.Immutable;
+&nbsp;import org.immutables.value.Value.Style;
+&nbsp;
+&nbsp;/**
+&nbsp; * This umbrella annotation does nothing. Use nested annotations, such as {@literal @}
+&nbsp; * {@code Builder.Factory} to generate builders for arbitrary static factory methods.
+&nbsp; * and is used for static factory methods to generate arbitrary builders.
+&nbsp; * Immutable values as {@link Immutable Value.Immutable} generate builder by default, unless
+&nbsp; * turned off using {@literal @}{@link Immutable#builder() Value.Immutable(builder=false)}
+&nbsp; * @see Factory
+&nbsp; */
+&nbsp;@Target({})
+&nbsp;public @interface Builder {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Annotate nested static builder to get access to the builder&#39;s fields to avoid building the
+&nbsp;   * entire
+&nbsp;   * object. The fields will be protected rather then private as they are by default.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * &amp;#064;Immutable
+&nbsp;   * abstract class A {
+&nbsp;   *   int a();
+&nbsp;   * 
+&nbsp;   *   &amp;#064;AccessibleFields
+&nbsp;   *   static class Builder extends ImmutableA.Builder {
+&nbsp;   *     A build() {
+&nbsp;   *       int accessibleBuilderFieldA = this.a;
+&nbsp;   *       return super.build();
+&nbsp;   *     }
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.TYPE})
+&nbsp;  public @interface AccessibleFields {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Annotate static factory methods that produce some value (non-void, non-private) to create
+&nbsp;   * builder out of constructor parameters.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * class Sum {
+&nbsp;   *   {@literal @}Builder.Factory
+&nbsp;   *   static Integer sum(int a, int b) {
+&nbsp;   *      return a + b;
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ... // use generated builder
+&nbsp;   * Integer result = new SumBuilder()
+&nbsp;   *    .a(111)
+&nbsp;   *    .b(222)
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Class level and package level style annotations fully supported (see {@link Style}).
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  public @interface Factory {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * The same as {@link Factory}, but for constructors rather than static methods.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * class Sum {
+&nbsp;   *   final int result;
+&nbsp;   * 
+&nbsp;   *   {@literal @}Builder.Constructor
+&nbsp;   *   Sum(int a, int b) {
+&nbsp;   *      this.result = a + b;
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ... // use generated builder
+&nbsp;   * Sum sum = new SumBuilder()
+&nbsp;   *    .a(111)
+&nbsp;   *    .b(222)
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Class level and package level style annotations fully supported (see {@link Style}).
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.CONSTRUCTOR)
+&nbsp;  public @interface Constructor {}
+&nbsp;
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.TYPE, ElementType.PACKAGE})
+&nbsp;  public @interface Include {
+&nbsp;    Class&lt;?&gt;[] value();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Factory method parameter might be turned into builder parameter using this annotation.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * class NodeFactory {
+&nbsp;   *   {@literal @}Builder.Factory
+&nbsp;   *   static Node node({@literal @}Builder.Parameter Object value, Optional&amp;lt;Node&amp;gt; left, Optional&amp;lt;Node&amp;gt; right) {
+&nbsp;   *      return ...
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ... // notice the constructor parameter generated
+&nbsp;   * Integer result = new NodeBuilder(new Object())
+&nbsp;   *    .left(node1)
+&nbsp;   *    .right(node2)
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Also note that with some limitation this annotation works on value type attribute to generate
+&nbsp;   * builder parameter.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.PARAMETER, ElementType.METHOD})
+&nbsp;  public @interface Parameter {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Applicable only to enum parameters, this annotation turns parameters into switcher methods on
+&nbsp;   * builder. Each switcher method applies corresponding constant value. Switch methods are named
+&nbsp;   * after parameter name prefixed with properly cased (case transformed) enum constant name.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * class BulbFactory {
+&nbsp;   *   enum Switcher {
+&nbsp;   *     OFF, ON
+&nbsp;   *   }
+&nbsp;   *   {@literal @}Builder.Factory
+&nbsp;   *   static Bulb bulb({@literal @}Builder.Switch Switcher light) {
+&nbsp;   *      return ...
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ... // notice the switcher methods instead of enum initializer
+&nbsp;   * Bulb b = new BulbBuilder()
+&nbsp;   *    .onLight() // set to Switcher.ON
+&nbsp;   *    .offLight() // set to Switcher.OFF
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * If proper {@link #defaultName()} value is specified, then one of the state will be considered
+&nbsp;   * the default. If no default is specified then it is mandatory to call switcher method once. If
+&nbsp;   * default is specified then it switcher method call could be omitted.
+&nbsp;   * 
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * class BulbFactory {
+&nbsp;   *   enum Switcher {
+&nbsp;   *     OFF, ON
+&nbsp;   *   }
+&nbsp;   *   {@literal @}Builder.Factory
+&nbsp;   *   static Bulb bulb({@literal @}Builder.Switch(defaultName = &quot;OFF&quot;) Switcher light) {
+&nbsp;   *      return ...
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * ... // notice no &#39;offLight&#39; generated
+&nbsp;   * Bulb b = new BulbBuilder() // default is Switcher.OFF
+&nbsp;   *    .onLight() // but we can switch to Switcher.ON
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Also note that with some limitation this annotation works on value type attribute to generate
+&nbsp;   * switch option.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.PARAMETER, ElementType.METHOD})
+&nbsp;  public @interface Switch {
+&nbsp;    /**
+&nbsp;     * Specify constant name of default enum value for this switch. The name should match constant
+&nbsp;     * identifier name. If empty of none specified, then switch will be mandatory to set on builder.
+&nbsp;     * @return name enum constant
+&nbsp;     */
+&nbsp;    String defaultName() default &quot;&quot;;
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

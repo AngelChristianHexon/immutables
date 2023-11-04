@@ -1,0 +1,278 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OptionalList2Enabled</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.encoding.defs</a>
+</div>
+
+<h1>Coverage Summary for Class: OptionalList2Enabled (org.immutables.fixture.encoding.defs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">OptionalList2Enabled</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.encoding.defs;
+&nbsp;
+&nbsp;import org.immutables.encode.EncodingMetadata;
+&nbsp;
+&nbsp;@EncodingMetadata(
+&nbsp;  name = &quot;org.immutables.fixture.encoding.defs.OptionalList2&quot;,
+&nbsp;  imports = {
+&nbsp;    &quot;java.util.*&quot;,
+&nbsp;    &quot;java.util.stream.*&quot;
+&nbsp;  },
+&nbsp;  typeParams = {&quot;T&quot;},
+&nbsp;  elements = {
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;list&quot;,
+&nbsp;      tags = {&quot;IMPL&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;null&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;initFromOptional&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FROM&quot;},
+&nbsp;      naming = &quot;*_initFromOptional&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;optional: java.util.Optional&lt;java.util.List&lt;T&gt;&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nObjects.requireNonNull(@^optional, \&quot;optional\&quot;); // TODO: Adding this line causes methods to be\r\n// created twice in generated code\r\nreturn @^optional\r\n.map(elements -&gt; @:createSafeList(elements)) // TODO: Method reference name mangling doesn\&#39;t\r\n// happen in generated code\r\n.orElse(null);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;toString&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;TO_STRING&quot;},
+&nbsp;      naming = &quot;*_toString&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn Objects.toString(this.@@list);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;hashCode&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;HASH_CODE&quot;},
+&nbsp;      naming = &quot;*_hashCode&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn Objects.hashCode(this.@@list);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;equals&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;EQUALS&quot;},
+&nbsp;      naming = &quot;*_equals&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;boolean&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;other: org.immutables.fixture.encoding.defs.OptionalList2&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn Objects.equals(this.@@list, @^other.@@list);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;build&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;BUILD&quot;},
+&nbsp;      naming = &quot;*_build&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn this.@@list;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;get&quot;,
+&nbsp;      tags = {&quot;EXPOSE&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.Optional&lt;java.util.List&lt;T&gt;&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn Optional.ofNullable(this.@@list);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;optionalList2_copy&quot;,
+&nbsp;      tags = {&quot;COPY&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.Optional&lt;java.util.List&lt;T&gt;&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @:initFromOptional(@^value);\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;createSafeList&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;HELPER&quot;},
+&nbsp;      naming = &quot;*_createSafeList&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {&quot;T: java.lang.Object&quot;},
+&nbsp;      params = {&quot;iterable: java.lang.Iterable&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nList&lt;@^T&gt; list = StreamSupport.stream(@^iterable.spliterator(), false)\r\n.map(element -&gt; Objects.requireNonNull(element, \&quot;element\&quot;))\r\n.collect(Collectors.toList());\r\nreturn Collections.unmodifiableList(list);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;list&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_list&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;addAll&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;ADD_ALL&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;iterable: java.lang.Iterable&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nObjects.requireNonNull(@^iterable, \&quot;iterable\&quot;);\r\nif (this.@@list == null) {\r\nthis.@@list = new ArrayList&lt;&gt;();\r\n}\r\nStreamSupport.stream(@^iterable.spliterator(), false)\r\n.map(element -&gt; Objects.requireNonNull(element, \&quot;element\&quot;))\r\n.forEach(element -&gt; this.@@list.add(element));\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;addSingle&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;ADD&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;element: T&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nif (this.@@list == null) {\r\nthis.@@list = new ArrayList&lt;&gt;();\r\n}\r\nthis.@@list.add(Objects.requireNonNull(@^element, \&quot;element\&quot;));\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;addVarargs&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;FINAL&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;ADD&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;elements: T...&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {&quot;@java.lang.SafeVarargs&quot;},
+&nbsp;      code = &quot;{\r\nif (this.@@list == null) {\r\nthis.@@list = new ArrayList&lt;&gt;();\r\n}\r\nStream.of(@^elements)\r\n.forEach(element -&gt; this.@@list.add(Objects.requireNonNull(element, \&quot;element\&quot;)));\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;setFromIterable&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;INIT&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;iterable: java.lang.Iterable&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nif (this.@@list == null) {\r\nthis.@@list = null;\r\n} else {\r\nthis.@@list = StreamSupport.stream(@^iterable.spliterator(), false)\r\n.map(element -&gt; Objects.requireNonNull(element, \&quot;element\&quot;))\r\n.collect(Collectors.toList());\r\n}\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;setFromOptional&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;, &quot;COPY&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;INIT&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;optional: java.util.Optional&lt;java.util.List&lt;T&gt;&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nthis.@@list = @^optional.orElse(null);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    )
+&nbsp;  }
+&nbsp;)
+&nbsp;public @interface OptionalList2Enabled {}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

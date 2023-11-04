@@ -1,0 +1,1028 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableQuery</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.expression</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableQuery (org.immutables.criteria.expression)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableQuery$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableQuery$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableQuery$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.expression;
+&nbsp;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Query}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableQuery.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableQuery.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Query&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableQuery extends Query {
+&nbsp;  private final Class&lt;?&gt; entityClass;
+&nbsp;  private final @Nullable Expression filter;
+&nbsp;  private final @Nullable Long limit;
+&nbsp;  private final @Nullable Long offset;
+&nbsp;  private final ImmutableList&lt;Expression&gt; projections;
+&nbsp;  private final ImmutableList&lt;Collation&gt; collations;
+&nbsp;  private final ImmutableList&lt;Expression&gt; groupBy;
+&nbsp;  private final boolean distinct;
+&nbsp;  private final boolean count;
+&nbsp;
+&nbsp;  private ImmutableQuery(Class&lt;?&gt; entityClass) {
+&nbsp;    this.entityClass = Objects.requireNonNull(entityClass, &quot;entityClass&quot;);
+&nbsp;    this.filter = null;
+&nbsp;    this.limit = null;
+&nbsp;    this.offset = null;
+&nbsp;    this.projections = ImmutableList.of();
+&nbsp;    this.collations = ImmutableList.of();
+&nbsp;    this.groupBy = ImmutableList.of();
+&nbsp;    this.distinct = initShim.distinct();
+&nbsp;    this.count = initShim.count();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableQuery(ImmutableQuery.Builder builder) {
+&nbsp;    this.entityClass = builder.entityClass;
+&nbsp;    this.filter = builder.filter;
+&nbsp;    this.limit = builder.limit;
+&nbsp;    this.offset = builder.offset;
+&nbsp;    this.projections = builder.projections.build();
+&nbsp;    this.collations = builder.collations.build();
+&nbsp;    this.groupBy = builder.groupBy.build();
+&nbsp;    if (builder.distinctIsSet()) {
+&nbsp;      initShim.distinct(builder.distinct);
+&nbsp;    }
+&nbsp;    if (builder.countIsSet()) {
+&nbsp;      initShim.count(builder.count);
+&nbsp;    }
+&nbsp;    this.distinct = initShim.distinct();
+&nbsp;    this.count = initShim.count();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableQuery(
+&nbsp;      Class&lt;?&gt; entityClass,
+&nbsp;      @Nullable Expression filter,
+&nbsp;      @Nullable Long limit,
+&nbsp;      @Nullable Long offset,
+&nbsp;      ImmutableList&lt;Expression&gt; projections,
+&nbsp;      ImmutableList&lt;Collation&gt; collations,
+&nbsp;      ImmutableList&lt;Expression&gt; groupBy,
+&nbsp;      boolean distinct,
+&nbsp;      boolean count) {
+&nbsp;    this.entityClass = entityClass;
+&nbsp;    this.filter = filter;
+&nbsp;    this.limit = limit;
+&nbsp;    this.offset = offset;
+&nbsp;    this.projections = projections;
+&nbsp;    this.collations = collations;
+&nbsp;    this.groupBy = groupBy;
+&nbsp;    this.distinct = distinct;
+&nbsp;    this.count = count;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;Query&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte distinctBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean distinct;
+&nbsp;
+&nbsp;    boolean distinct() {
+&nbsp;      if (distinctBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (distinctBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        distinctBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.distinct = ImmutableQuery.super.distinct();
+&nbsp;        distinctBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.distinct;
+&nbsp;    }
+&nbsp;
+&nbsp;    void distinct(boolean distinct) {
+&nbsp;      this.distinct = distinct;
+&nbsp;      distinctBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte countBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean count;
+&nbsp;
+&nbsp;    boolean count() {
+&nbsp;      if (countBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (countBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        countBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.count = ImmutableQuery.super.count();
+&nbsp;        countBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.count;
+&nbsp;    }
+&nbsp;
+&nbsp;    void count(boolean count) {
+&nbsp;      this.count = count;
+&nbsp;      countBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (distinctBuildStage == STAGE_INITIALIZING) attributes.add(&quot;distinct&quot;);
+&nbsp;      if (countBuildStage == STAGE_INITIALIZING) attributes.add(&quot;count&quot;);
+&nbsp;      return &quot;Cannot build Query, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code entityClass} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Class&lt;?&gt; entityClass() {
+&nbsp;    return entityClass;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code filter} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Expression&gt; filter() {
+&nbsp;    return Optional.ofNullable(filter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code limit} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalLong limit() {
+&nbsp;    return limit != null
+&nbsp;        ? OptionalLong.of(limit)
+&nbsp;        : OptionalLong.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code offset} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalLong offset() {
+&nbsp;    return offset != null
+&nbsp;        ? OptionalLong.of(offset)
+&nbsp;        : OptionalLong.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code projections} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Expression&gt; projections() {
+&nbsp;    return projections;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code collations} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Collation&gt; collations() {
+&nbsp;    return collations;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code groupBy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Expression&gt; groupBy() {
+&nbsp;    return groupBy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Request results to be unique. {@code false} by default.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean distinct() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.distinct()
+&nbsp;        : this.distinct;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Similar to {@code COUNT(*)} in SQL. Wherever to compute just number of to be returned records.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean count() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.count()
+&nbsp;        : this.count;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Query#entityClass() entityClass} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for entityClass
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withEntityClass(Class&lt;?&gt; value) {
+&nbsp;    if (this.entityClass == value) return this;
+&nbsp;    Class&lt;?&gt; newValue = Objects.requireNonNull(value, &quot;entityClass&quot;);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        newValue,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Query#filter() filter} attribute.
+&nbsp;   * @param value The value for filter
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withFilter(Expression value) {
+&nbsp;    Expression newValue = Objects.requireNonNull(value, &quot;filter&quot;);
+&nbsp;    if (this.filter == newValue) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        newValue,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Query#filter() filter} attribute.
+&nbsp;   * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for filter
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableQuery withFilter(Optional&lt;? extends Expression&gt; optional) {
+&nbsp;    @Nullable Expression value = optional.orElse(null);
+&nbsp;    if (this.filter == value) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        value,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Query#limit() limit} attribute.
+&nbsp;   * @param value The value for limit
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withLimit(long value) {
+&nbsp;    @Nullable Long newValue = value;
+&nbsp;    if (Objects.equals(this.limit, newValue)) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        newValue,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Query#limit() limit} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for limit
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withLimit(OptionalLong optional) {
+&nbsp;    @Nullable Long value = optional.isPresent() ? optional.getAsLong() : null;
+&nbsp;    if (Objects.equals(this.limit, value)) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        value,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Query#offset() offset} attribute.
+&nbsp;   * @param value The value for offset
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withOffset(long value) {
+&nbsp;    @Nullable Long newValue = value;
+&nbsp;    if (Objects.equals(this.offset, newValue)) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        newValue,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Query#offset() offset} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for offset
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withOffset(OptionalLong optional) {
+&nbsp;    @Nullable Long value = optional.isPresent() ? optional.getAsLong() : null;
+&nbsp;    if (Objects.equals(this.offset, value)) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        value,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Query#projections() projections}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withProjections(Expression... elements) {
+&nbsp;    ImmutableList&lt;Expression&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        newValue,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Query#projections() projections}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of projections elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withProjections(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;    if (this.projections == elements) return this;
+&nbsp;    ImmutableList&lt;Expression&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        newValue,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Query#collations() collations}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withCollations(Collation... elements) {
+&nbsp;    ImmutableList&lt;Collation&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        newValue,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Query#collations() collations}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of collations elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withCollations(Iterable&lt;? extends Collation&gt; elements) {
+&nbsp;    if (this.collations == elements) return this;
+&nbsp;    ImmutableList&lt;Collation&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        newValue,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Query#groupBy() groupBy}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withGroupBy(Expression... elements) {
+&nbsp;    ImmutableList&lt;Expression&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        newValue,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Query#groupBy() groupBy}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of groupBy elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withGroupBy(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;    if (this.groupBy == elements) return this;
+&nbsp;    ImmutableList&lt;Expression&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        newValue,
+&nbsp;        this.distinct,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Query#distinct() distinct} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for distinct
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withDistinct(boolean value) {
+&nbsp;    if (this.distinct == value) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        value,
+&nbsp;        this.count);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Query#count() count} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for count
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableQuery withCount(boolean value) {
+&nbsp;    if (this.count == value) return this;
+&nbsp;    return new ImmutableQuery(
+&nbsp;        this.entityClass,
+&nbsp;        this.filter,
+&nbsp;        this.limit,
+&nbsp;        this.offset,
+&nbsp;        this.projections,
+&nbsp;        this.collations,
+&nbsp;        this.groupBy,
+&nbsp;        this.distinct,
+&nbsp;        value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableQuery} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableQuery
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableQuery) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableQuery another) {
+&nbsp;    return entityClass.equals(another.entityClass)
+&nbsp;        &amp;&amp; Objects.equals(filter, another.filter)
+&nbsp;        &amp;&amp; Objects.equals(limit, another.limit)
+&nbsp;        &amp;&amp; Objects.equals(offset, another.offset)
+&nbsp;        &amp;&amp; projections.equals(another.projections)
+&nbsp;        &amp;&amp; collations.equals(another.collations)
+&nbsp;        &amp;&amp; groupBy.equals(another.groupBy)
+&nbsp;        &amp;&amp; distinct == another.distinct
+&nbsp;        &amp;&amp; count == another.count;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code entityClass}, {@code filter}, {@code limit}, {@code offset}, {@code projections}, {@code collations}, {@code groupBy}, {@code distinct}, {@code count}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + entityClass.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(filter);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(limit);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(offset);
+&nbsp;    h += (h &lt;&lt; 5) + projections.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + collations.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + groupBy.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(distinct);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(count);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Query} instance.
+&nbsp;   * @param entityClass The value for the {@code entityClass} attribute
+&nbsp;   * @return An immutable Query instance
+&nbsp;   */
+&nbsp;  public static ImmutableQuery of(Class&lt;?&gt; entityClass) {
+&nbsp;    return new ImmutableQuery(entityClass);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Query} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Query instance
+&nbsp;   */
+&nbsp;  public static ImmutableQuery copyOf(Query instance) {
+&nbsp;    if (instance instanceof ImmutableQuery) {
+&nbsp;      return (ImmutableQuery) instance;
+&nbsp;    }
+&nbsp;    return ImmutableQuery.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableQuery ImmutableQuery}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableQuery.builder()
+&nbsp;   *    .entityClass(Class&amp;amp;lt;?&amp;amp;gt;) // required {@link Query#entityClass() entityClass}
+&nbsp;   *    .filter(org.immutables.criteria.expression.Expression) // optional {@link Query#filter() filter}
+&nbsp;   *    .limit(long) // optional {@link Query#limit() limit}
+&nbsp;   *    .offset(long) // optional {@link Query#offset() offset}
+&nbsp;   *    .addProjections|addAllProjections(org.immutables.criteria.expression.Expression) // {@link Query#projections() projections} elements
+&nbsp;   *    .addCollations|addAllCollations(org.immutables.criteria.expression.Collation) // {@link Query#collations() collations} elements
+&nbsp;   *    .addGroupBy|addAllGroupBy(org.immutables.criteria.expression.Expression) // {@link Query#groupBy() groupBy} elements
+&nbsp;   *    .distinct(boolean) // optional {@link Query#distinct() distinct}
+&nbsp;   *    .count(boolean) // optional {@link Query#count() count}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableQuery builder
+&nbsp;   */
+&nbsp;  public static ImmutableQuery.Builder builder() {
+&nbsp;    return new ImmutableQuery.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableQuery ImmutableQuery}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Query&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ENTITY_CLASS = 0x1L;
+&nbsp;    private static final long OPT_BIT_DISTINCT = 0x1L;
+&nbsp;    private static final long OPT_BIT_COUNT = 0x2L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable Class&lt;?&gt; entityClass;
+&nbsp;    private @Nullable Expression filter;
+&nbsp;    private @Nullable Long limit;
+&nbsp;    private @Nullable Long offset;
+&nbsp;    private ImmutableList.Builder&lt;Expression&gt; projections = ImmutableList.builder();
+&nbsp;    private ImmutableList.Builder&lt;Collation&gt; collations = ImmutableList.builder();
+&nbsp;    private ImmutableList.Builder&lt;Expression&gt; groupBy = ImmutableList.builder();
+&nbsp;    private boolean distinct;
+&nbsp;    private boolean count;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Query} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Query instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      entityClass(instance.entityClass());
+&nbsp;      Optional&lt;Expression&gt; filterOptional = instance.filter();
+&nbsp;      if (filterOptional.isPresent()) {
+&nbsp;        filter(filterOptional);
+&nbsp;      }
+&nbsp;      OptionalLong limitOptional = instance.limit();
+&nbsp;      if (limitOptional.isPresent()) {
+&nbsp;        limit(limitOptional);
+&nbsp;      }
+&nbsp;      OptionalLong offsetOptional = instance.offset();
+&nbsp;      if (offsetOptional.isPresent()) {
+&nbsp;        offset(offsetOptional);
+&nbsp;      }
+&nbsp;      addAllProjections(instance.projections());
+&nbsp;      addAllCollations(instance.collations());
+&nbsp;      addAllGroupBy(instance.groupBy());
+&nbsp;      distinct(instance.distinct());
+&nbsp;      count(instance.count());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Query#entityClass() entityClass} attribute.
+&nbsp;     * @param entityClass The value for entityClass 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder entityClass(Class&lt;?&gt; entityClass) {
+&nbsp;      this.entityClass = Objects.requireNonNull(entityClass, &quot;entityClass&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ENTITY_CLASS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Query#filter() filter} to filter.
+&nbsp;     * @param filter The value for filter
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder filter(Expression filter) {
+&nbsp;      this.filter = Objects.requireNonNull(filter, &quot;filter&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Query#filter() filter} to filter.
+&nbsp;     * @param filter The value for filter
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder filter(Optional&lt;? extends Expression&gt; filter) {
+&nbsp;      this.filter = filter.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Query#limit() limit} to limit.
+&nbsp;     * @param limit The value for limit
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder limit(long limit) {
+&nbsp;      this.limit = limit;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Query#limit() limit} to limit.
+&nbsp;     * @param limit The value for limit
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder limit(OptionalLong limit) {
+&nbsp;      this.limit = limit.isPresent() ? limit.getAsLong() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Query#offset() offset} to offset.
+&nbsp;     * @param offset The value for offset
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder offset(long offset) {
+&nbsp;      this.offset = offset;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Query#offset() offset} to offset.
+&nbsp;     * @param offset The value for offset
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder offset(OptionalLong offset) {
+&nbsp;      this.offset = offset.isPresent() ? offset.getAsLong() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Query#projections() projections} list.
+&nbsp;     * @param element A projections element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addProjections(Expression element) {
+&nbsp;      this.projections.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Query#projections() projections} list.
+&nbsp;     * @param elements An array of projections elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addProjections(Expression... elements) {
+&nbsp;      this.projections.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Query#projections() projections} list.
+&nbsp;     * @param elements An iterable of projections elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder projections(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;      this.projections = ImmutableList.builder();
+&nbsp;      return addAllProjections(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Query#projections() projections} list.
+&nbsp;     * @param elements An iterable of projections elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllProjections(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;      this.projections.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Query#collations() collations} list.
+&nbsp;     * @param element A collations element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addCollations(Collation element) {
+&nbsp;      this.collations.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Query#collations() collations} list.
+&nbsp;     * @param elements An array of collations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addCollations(Collation... elements) {
+&nbsp;      this.collations.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Query#collations() collations} list.
+&nbsp;     * @param elements An iterable of collations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder collations(Iterable&lt;? extends Collation&gt; elements) {
+&nbsp;      this.collations = ImmutableList.builder();
+&nbsp;      return addAllCollations(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Query#collations() collations} list.
+&nbsp;     * @param elements An iterable of collations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllCollations(Iterable&lt;? extends Collation&gt; elements) {
+&nbsp;      this.collations.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Query#groupBy() groupBy} list.
+&nbsp;     * @param element A groupBy element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addGroupBy(Expression element) {
+&nbsp;      this.groupBy.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Query#groupBy() groupBy} list.
+&nbsp;     * @param elements An array of groupBy elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addGroupBy(Expression... elements) {
+&nbsp;      this.groupBy.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Query#groupBy() groupBy} list.
+&nbsp;     * @param elements An iterable of groupBy elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder groupBy(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;      this.groupBy = ImmutableList.builder();
+&nbsp;      return addAllGroupBy(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Query#groupBy() groupBy} list.
+&nbsp;     * @param elements An iterable of groupBy elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllGroupBy(Iterable&lt;? extends Expression&gt; elements) {
+&nbsp;      this.groupBy.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Query#distinct() distinct} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Query#distinct() distinct}.&lt;/em&gt;
+&nbsp;     * @param distinct The value for distinct 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder distinct(boolean distinct) {
+&nbsp;      this.distinct = distinct;
+&nbsp;      optBits |= OPT_BIT_DISTINCT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Query#count() count} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Query#count() count}.&lt;/em&gt;
+&nbsp;     * @param count The value for count 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder count(boolean count) {
+&nbsp;      this.count = count;
+&nbsp;      optBits |= OPT_BIT_COUNT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableQuery ImmutableQuery}.
+&nbsp;     * @return An immutable instance of Query
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableQuery build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableQuery(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean distinctIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_DISTINCT) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean countIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_COUNT) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ENTITY_CLASS) != 0) attributes.add(&quot;entityClass&quot;);
+&nbsp;      return &quot;Cannot build Query, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

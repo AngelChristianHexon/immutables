@@ -1,0 +1,270 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableReporter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableReporter (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ImmutableReporter</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.processing.Messager;
+&nbsp;import javax.lang.model.element.AnnotationMirror;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Reporter}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableReporter.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Reporter&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableReporter extends Reporter {
+&nbsp;  private final Messager messager;
+&nbsp;  private final Optional&lt;Element&gt; element;
+&nbsp;  private final Optional&lt;AnnotationMirror&gt; annotation;
+&nbsp;
+&nbsp;  private ImmutableReporter(Messager messager) {
+&nbsp;    this.messager = Objects.requireNonNull(messager, &quot;messager&quot;);
+&nbsp;    this.element = Optional.absent();
+&nbsp;    this.annotation = Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableReporter(
+&nbsp;      Messager messager,
+&nbsp;      Optional&lt;Element&gt; element,
+&nbsp;      Optional&lt;AnnotationMirror&gt; annotation) {
+&nbsp;    this.messager = messager;
+&nbsp;    this.element = element;
+&nbsp;    this.annotation = annotation;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code messager} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Messager messager() {
+&nbsp;    return messager;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code element} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Optional&lt;Element&gt; element() {
+&nbsp;    return element;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code annotation} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Optional&lt;AnnotationMirror&gt; annotation() {
+&nbsp;    return annotation;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Reporter#messager() messager} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for messager
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableReporter withMessager(Messager value) {
+&nbsp;    if (this.messager == value) return this;
+&nbsp;    Messager newValue = Objects.requireNonNull(value, &quot;messager&quot;);
+&nbsp;    return new ImmutableReporter(newValue, this.element, this.annotation);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Reporter#element() element} attribute.
+&nbsp;   * @param value The value for element
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableReporter withElement(Element value) {
+&nbsp;    Optional&lt;Element&gt; newValue = Optional.of(value);
+&nbsp;    if (this.element.isPresent() &amp;&amp; this.element.get() == value) return this;
+&nbsp;    return new ImmutableReporter(this.messager, newValue, this.annotation);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Reporter#element() element} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for element
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableReporter withElement(Optional&lt;? extends Element&gt; optional) {
+&nbsp;    Optional&lt;Element&gt; value = (Optional&lt;Element&gt;) optional;
+&nbsp;    if (!this.element.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.element.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.element.get() == value.get()) return this;
+&nbsp;    return new ImmutableReporter(this.messager, value, this.annotation);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Reporter#annotation() annotation} attribute.
+&nbsp;   * @param value The value for annotation
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableReporter withAnnotation(AnnotationMirror value) {
+&nbsp;    Optional&lt;AnnotationMirror&gt; newValue = Optional.of(value);
+&nbsp;    if (this.annotation.isPresent() &amp;&amp; this.annotation.get() == value) return this;
+&nbsp;    return new ImmutableReporter(this.messager, this.element, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Reporter#annotation() annotation} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for annotation
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableReporter withAnnotation(Optional&lt;? extends AnnotationMirror&gt; optional) {
+&nbsp;    Optional&lt;AnnotationMirror&gt; value = (Optional&lt;AnnotationMirror&gt;) optional;
+&nbsp;    if (!this.annotation.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.annotation.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.annotation.get() == value.get()) return this;
+&nbsp;    return new ImmutableReporter(this.messager, this.element, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableReporter} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableReporter
+&nbsp;        &amp;&amp; equalTo((ImmutableReporter) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableReporter another) {
+&nbsp;    return messager.equals(another.messager)
+&nbsp;        &amp;&amp; element.equals(another.element)
+&nbsp;        &amp;&amp; annotation.equals(another.annotation);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code messager}, {@code element}, {@code annotation}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + messager.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + element.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + annotation.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Reporter} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Reporter&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;messager&quot;, messager)
+&nbsp;        .add(&quot;element&quot;, element.orNull())
+&nbsp;        .add(&quot;annotation&quot;, annotation.orNull())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Reporter} instance.
+&nbsp;   * @param messager The value for the {@code messager} attribute
+&nbsp;   * @return An immutable Reporter instance
+&nbsp;   */
+&nbsp;  public static ImmutableReporter of(Messager messager) {
+&nbsp;    return new ImmutableReporter(messager);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Reporter} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Reporter instance
+&nbsp;   */
+&nbsp;  public static ImmutableReporter copyOf(Reporter instance) {
+&nbsp;    if (instance instanceof ImmutableReporter) {
+&nbsp;      return (ImmutableReporter) instance;
+&nbsp;    }
+&nbsp;    return ImmutableReporter.of(instance.messager())
+&nbsp;        .withElement(instance.element())
+&nbsp;        .withAnnotation(instance.annotation());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

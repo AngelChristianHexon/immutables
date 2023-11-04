@@ -1,0 +1,410 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableGeoPoint</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableGeoPoint (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableGeoPoint$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableGeoPoint$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Doubles;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link GeoPoint}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableGeoPoint.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;GeoPoint&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableGeoPoint extends GeoPoint {
+&nbsp;  private final double altitude;
+&nbsp;  private final double longitude;
+&nbsp;  private final double latitude;
+&nbsp;
+&nbsp;  private ImmutableGeoPoint(double altitude, double longitude, double latitude) {
+&nbsp;    this.altitude = altitude;
+&nbsp;    this.longitude = longitude;
+&nbsp;    this.latitude = latitude;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code altitude} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;altitude&quot;)
+&nbsp;  @Override
+&nbsp;  public double altitude() {
+&nbsp;    return altitude;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code longitude} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;longitude&quot;)
+&nbsp;  @Override
+&nbsp;  public double longitude() {
+&nbsp;    return longitude;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code latitude} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;latitude&quot;)
+&nbsp;  @Override
+&nbsp;  public double latitude() {
+&nbsp;    return latitude;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GeoPoint#altitude() altitude} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for altitude
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableGeoPoint withAltitude(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.altitude) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableGeoPoint(value, this.longitude, this.latitude);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GeoPoint#longitude() longitude} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for longitude
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableGeoPoint withLongitude(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.longitude) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableGeoPoint(this.altitude, value, this.latitude);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GeoPoint#latitude() latitude} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for latitude
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableGeoPoint withLatitude(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.latitude) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableGeoPoint(this.altitude, this.longitude, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableGeoPoint} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableGeoPoint
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableGeoPoint) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableGeoPoint another) {
+&nbsp;    return Double.doubleToLongBits(altitude) == Double.doubleToLongBits(another.altitude)
+&nbsp;        &amp;&amp; Double.doubleToLongBits(longitude) == Double.doubleToLongBits(another.longitude)
+&nbsp;        &amp;&amp; Double.doubleToLongBits(latitude) == Double.doubleToLongBits(another.latitude);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code altitude}, {@code longitude}, {@code latitude}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(altitude);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(longitude);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(latitude);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code GeoPoint} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;GeoPoint&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;altitude&quot;, altitude)
+&nbsp;        .add(&quot;longitude&quot;, longitude)
+&nbsp;        .add(&quot;latitude&quot;, latitude)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;GeoPoint&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json extends GeoPoint {
+&nbsp;    double altitude;
+&nbsp;    boolean altitudeIsSet;
+&nbsp;    double longitude;
+&nbsp;    boolean longitudeIsSet;
+&nbsp;    double latitude;
+&nbsp;    boolean latitudeIsSet;
+&nbsp;    @JsonProperty(&quot;altitude&quot;)
+&nbsp;    public void setAltitude(double altitude) {
+&nbsp;      this.altitude = altitude;
+&nbsp;      this.altitudeIsSet = true;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;longitude&quot;)
+&nbsp;    public void setLongitude(double longitude) {
+&nbsp;      this.longitude = longitude;
+&nbsp;      this.longitudeIsSet = true;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;latitude&quot;)
+&nbsp;    public void setLatitude(double latitude) {
+&nbsp;      this.latitude = latitude;
+&nbsp;      this.latitudeIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public double altitude() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public double longitude() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public double latitude() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableGeoPoint fromJson(Json json) {
+&nbsp;    ImmutableGeoPoint.Builder builder = ImmutableGeoPoint.builder();
+&nbsp;    if (json.altitudeIsSet) {
+&nbsp;      builder.altitude(json.altitude);
+&nbsp;    }
+&nbsp;    if (json.longitudeIsSet) {
+&nbsp;      builder.longitude(json.longitude);
+&nbsp;    }
+&nbsp;    if (json.latitudeIsSet) {
+&nbsp;      builder.latitude(json.latitude);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link GeoPoint} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable GeoPoint instance
+&nbsp;   */
+&nbsp;  public static ImmutableGeoPoint copyOf(GeoPoint instance) {
+&nbsp;    if (instance instanceof ImmutableGeoPoint) {
+&nbsp;      return (ImmutableGeoPoint) instance;
+&nbsp;    }
+&nbsp;    return ImmutableGeoPoint.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableGeoPoint ImmutableGeoPoint}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableGeoPoint.builder()
+&nbsp;   *    .altitude(double) // required {@link GeoPoint#altitude() altitude}
+&nbsp;   *    .longitude(double) // required {@link GeoPoint#longitude() longitude}
+&nbsp;   *    .latitude(double) // required {@link GeoPoint#latitude() latitude}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableGeoPoint builder
+&nbsp;   */
+&nbsp;  public static ImmutableGeoPoint.Builder builder() {
+&nbsp;    return new ImmutableGeoPoint.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableGeoPoint ImmutableGeoPoint}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;GeoPoint&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ALTITUDE = 0x1L;
+&nbsp;    private static final long INIT_BIT_LONGITUDE = 0x2L;
+&nbsp;    private static final long INIT_BIT_LATITUDE = 0x4L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;
+&nbsp;    private double altitude;
+&nbsp;    private double longitude;
+&nbsp;    private double latitude;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code GeoPoint} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(GeoPoint instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      altitude(instance.altitude());
+&nbsp;      longitude(instance.longitude());
+&nbsp;      latitude(instance.latitude());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GeoPoint#altitude() altitude} attribute.
+&nbsp;     * @param altitude The value for altitude 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;altitude&quot;)
+&nbsp;    public final Builder altitude(double altitude) {
+&nbsp;      this.altitude = altitude;
+&nbsp;      initBits &amp;= ~INIT_BIT_ALTITUDE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GeoPoint#longitude() longitude} attribute.
+&nbsp;     * @param longitude The value for longitude 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;longitude&quot;)
+&nbsp;    public final Builder longitude(double longitude) {
+&nbsp;      this.longitude = longitude;
+&nbsp;      initBits &amp;= ~INIT_BIT_LONGITUDE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GeoPoint#latitude() latitude} attribute.
+&nbsp;     * @param latitude The value for latitude 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;latitude&quot;)
+&nbsp;    public final Builder latitude(double latitude) {
+&nbsp;      this.latitude = latitude;
+&nbsp;      initBits &amp;= ~INIT_BIT_LATITUDE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableGeoPoint ImmutableGeoPoint}.
+&nbsp;     * @return An immutable instance of GeoPoint
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableGeoPoint build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableGeoPoint(altitude, longitude, latitude);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ALTITUDE) != 0) attributes.add(&quot;altitude&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_LONGITUDE) != 0) attributes.add(&quot;longitude&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_LATITUDE) != 0) attributes.add(&quot;latitude&quot;);
+&nbsp;      return &quot;Cannot build GeoPoint, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

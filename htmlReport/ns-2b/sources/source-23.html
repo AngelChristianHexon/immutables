@@ -1,0 +1,370 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableBaz</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.generics</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableBaz (org.immutables.fixture.generics)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableBaz$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.generics;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link FromGenericInh.Baz}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableBaz.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;FromGenericInh.Baz&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableBaz implements FromGenericInh.Baz {
+&nbsp;  private final FromGenericInh.Bar foo;
+&nbsp;  private final String barId;
+&nbsp;  private final String bazId;
+&nbsp;
+&nbsp;  private ImmutableBaz(
+&nbsp;      FromGenericInh.Bar foo,
+&nbsp;      String barId,
+&nbsp;      String bazId) {
+&nbsp;    this.foo = foo;
+&nbsp;    this.barId = barId;
+&nbsp;    this.bazId = bazId;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code foo} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public FromGenericInh.Bar getFoo() {
+&nbsp;    return foo;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code barId} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getBarId() {
+&nbsp;    return barId;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code bazId} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getBazId() {
+&nbsp;    return bazId;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link FromGenericInh.Baz#getFoo() foo} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for foo
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBaz withFoo(FromGenericInh.Bar value) {
+&nbsp;    if (this.foo == value) return this;
+&nbsp;    FromGenericInh.Bar newValue = Objects.requireNonNull(value, &quot;foo&quot;);
+&nbsp;    return new ImmutableBaz(newValue, this.barId, this.bazId);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link FromGenericInh.Baz#getBarId() barId} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for barId
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBaz withBarId(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;barId&quot;);
+&nbsp;    if (this.barId.equals(newValue)) return this;
+&nbsp;    return new ImmutableBaz(this.foo, newValue, this.bazId);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link FromGenericInh.Baz#getBazId() bazId} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for bazId
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBaz withBazId(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;bazId&quot;);
+&nbsp;    if (this.bazId.equals(newValue)) return this;
+&nbsp;    return new ImmutableBaz(this.foo, this.barId, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableBaz} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableBaz
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableBaz) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableBaz another) {
+&nbsp;    return foo.equals(another.foo)
+&nbsp;        &amp;&amp; barId.equals(another.barId)
+&nbsp;        &amp;&amp; bazId.equals(another.bazId);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code foo}, {@code barId}, {@code bazId}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + foo.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + barId.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + bazId.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Baz} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Baz&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;foo&quot;, foo)
+&nbsp;        .add(&quot;barId&quot;, barId)
+&nbsp;        .add(&quot;bazId&quot;, bazId)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link FromGenericInh.Baz} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Baz instance
+&nbsp;   */
+&nbsp;  public static ImmutableBaz copyOf(FromGenericInh.Baz instance) {
+&nbsp;    if (instance instanceof ImmutableBaz) {
+&nbsp;      return (ImmutableBaz) instance;
+&nbsp;    }
+&nbsp;    return ImmutableBaz.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableBaz ImmutableBaz}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableBaz.builder()
+&nbsp;   *    .foo(org.immutables.fixture.generics.FromGenericInh.Bar) // required {@link FromGenericInh.Baz#getFoo() foo}
+&nbsp;   *    .barId(String) // required {@link FromGenericInh.Baz#getBarId() barId}
+&nbsp;   *    .bazId(String) // required {@link FromGenericInh.Baz#getBazId() bazId}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableBaz builder
+&nbsp;   */
+&nbsp;  public static ImmutableBaz.Builder builder() {
+&nbsp;    return new ImmutableBaz.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableBaz ImmutableBaz}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;FromGenericInh.Baz&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_FOO = 0x1L;
+&nbsp;    private static final long INIT_BIT_BAR_ID = 0x2L;
+&nbsp;    private static final long INIT_BIT_BAZ_ID = 0x4L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;
+&nbsp;    private @Nullable FromGenericInh.Bar foo;
+&nbsp;    private @Nullable String barId;
+&nbsp;    private @Nullable String bazId;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.generics.FromGenericInh.Baz} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(FromGenericInh.Baz instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.generics.FromGenericInh.Bar} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(FromGenericInh.Bar instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      @Var long bits = 0;
+&nbsp;      if (object instanceof FromGenericInh.Baz) {
+&nbsp;        FromGenericInh.Baz instance = (FromGenericInh.Baz) object;
+&nbsp;        bazId(instance.getBazId());
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          barId(instance.getBarId());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;        foo(instance.getFoo());
+&nbsp;      }
+&nbsp;      if (object instanceof FromGenericInh.Bar) {
+&nbsp;        FromGenericInh.Bar instance = (FromGenericInh.Bar) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          barId(instance.getBarId());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link FromGenericInh.Baz#getFoo() foo} attribute.
+&nbsp;     * @param foo The value for foo 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder foo(FromGenericInh.Bar foo) {
+&nbsp;      this.foo = Objects.requireNonNull(foo, &quot;foo&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_FOO;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link FromGenericInh.Baz#getBarId() barId} attribute.
+&nbsp;     * @param barId The value for barId 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder barId(String barId) {
+&nbsp;      this.barId = Objects.requireNonNull(barId, &quot;barId&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_BAR_ID;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link FromGenericInh.Baz#getBazId() bazId} attribute.
+&nbsp;     * @param bazId The value for bazId 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bazId(String bazId) {
+&nbsp;      this.bazId = Objects.requireNonNull(bazId, &quot;bazId&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_BAZ_ID;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableBaz ImmutableBaz}.
+&nbsp;     * @return An immutable instance of Baz
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableBaz build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableBaz(foo, barId, bazId);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_FOO) != 0) attributes.add(&quot;foo&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_BAR_ID) != 0) attributes.add(&quot;barId&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_BAZ_ID) != 0) attributes.add(&quot;bazId&quot;);
+&nbsp;      return &quot;Cannot build Baz, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

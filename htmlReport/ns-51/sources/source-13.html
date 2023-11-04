@@ -1,0 +1,358 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Instantiator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: Instantiator (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Instantiator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Instantiator$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Instantiator$InstantiationCreator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Instantiator$TemplateAnchor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/47)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ArrayListMultimap;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.Parameterizable;
+&nbsp;import org.immutables.value.processor.encode.Type.Parameterized;
+&nbsp;import org.immutables.value.processor.encode.Type.Variable;
+&nbsp;import org.immutables.value.processor.encode.Type.VariableResolver;
+&nbsp;import org.immutables.value.processor.encode.Type.Wildcard;
+&nbsp;import org.immutables.value.processor.meta.Reporter;
+&nbsp;import org.immutables.value.processor.meta.Styles;
+&nbsp;import org.immutables.value.processor.meta.ValueType;
+&nbsp;import org.immutables.value.processor.meta.Reporter.About;
+&nbsp;
+<b class="nc">&nbsp;public final class Instantiator {</b>
+&nbsp;  private final Type.Factory typeFactory;
+<b class="nc">&nbsp;  private final Multimap&lt;Type, TemplateAnchor&gt; anchors = ArrayListMultimap.create();</b>
+&nbsp;
+<b class="nc">&nbsp;  Instantiator(Type.Factory typeFactory, Set&lt;EncodingInfo&gt; encodings) {</b>
+<b class="nc">&nbsp;    this.typeFactory = typeFactory;</b>
+&nbsp;
+<b class="nc">&nbsp;    for (EncodingInfo encoding : encodings) {</b>
+<b class="nc">&nbsp;      for (EncodedElement e : encoding.element()) {</b>
+<b class="nc">&nbsp;        if (e.isExpose()) {</b>
+<b class="nc">&nbsp;          Type raw = getRaw(e.type());</b>
+<b class="nc">&nbsp;          this.anchors.put(raw, new TemplateAnchor(encoding, e));</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isEmpty() {
+<b class="nc">&nbsp;    return anchors.isEmpty();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public @Nullable InstantiationCreator creatorFor(Parameterizable element) {
+<b class="nc">&nbsp;    return !isEmpty() ? new InstantiationCreator(element) : null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Type getRaw(Type type) {
+<b class="nc">&nbsp;    return type.accept(new Type.Transformer() {</b>
+&nbsp;      @Override
+&nbsp;      public Type parameterized(Parameterized parameterized) {
+<b class="nc">&nbsp;        return parameterized.reference;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public Type extendsWildcard(Wildcard.Extends wildcard) {
+<b class="nc">&nbsp;        return typeFactory.extendsWildcard(Type.OBJECT);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public Type superWildcard(Wildcard.Super wildcard) {
+<b class="nc">&nbsp;        return typeFactory.extendsWildcard(Type.OBJECT);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public Type variable(Variable variable) {
+<b class="nc">&nbsp;        return typeFactory.extendsWildcard(Type.OBJECT);</b>
+&nbsp;      }
+&nbsp;    });
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class TemplateAnchor {
+&nbsp;    final Type.Template template;
+&nbsp;    final EncodedElement exposedElement;
+&nbsp;    final EncodingInfo encoding;
+&nbsp;
+<b class="nc">&nbsp;    TemplateAnchor(EncodingInfo encoding, EncodedElement exposedElement) {</b>
+<b class="nc">&nbsp;      this.encoding = encoding;</b>
+<b class="nc">&nbsp;      this.exposedElement = exposedElement;</b>
+<b class="nc">&nbsp;      this.template = new Type.Template(exposedElement.type());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      return template.template + &quot; (from &quot; + encoding.name() + &quot;)&quot;;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public final class InstantiationCreator {
+<b class="nc">&nbsp;    public final Set&lt;String&gt; imports = new LinkedHashSet&lt;&gt;();</b>
+&nbsp;    private final TypeExtractor typeExtractor;
+&nbsp;
+<b class="nc">&nbsp;    InstantiationCreator(Parameterizable parameterizable) {</b>
+<b class="nc">&nbsp;      this.typeExtractor = new TypeExtractor(typeFactory, parameterizable);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public @Nullable Instantiation tryInstantiateFor(
+&nbsp;        Reporter reporter,
+&nbsp;        String typeString,
+&nbsp;        Styles.UsingName.AttributeNames names,
+&nbsp;        ValueType containingType,
+&nbsp;        boolean indirectField) {
+&nbsp;
+&nbsp;      // we use parse/string here to reuse all cryptic logic to extract type strings
+&nbsp;      // when resolving not-yet-generated types and othe complex cases
+&nbsp;      // the alternative would be just to read TypeMirror directly
+<b class="nc">&nbsp;      Type type = typeExtractor.parser.parse(typeString);</b>
+<b class="nc">&nbsp;      @Nullable List&lt;TemplateAnchor&gt; contenders = null;</b>
+<b class="nc">&nbsp;      @Nullable TemplateAnchor winner = null;</b>
+<b class="nc">&nbsp;      @Nullable VariableResolver winnerResolver = null;</b>
+&nbsp;
+<b class="nc">&nbsp;      for (TemplateAnchor anchor : anchors.get(getRaw(type))) {</b>
+<b class="nc">&nbsp;        Optional&lt;VariableResolver&gt; match = anchor.template.match(type);</b>
+<b class="nc">&nbsp;        if (match.isPresent()) {</b>
+<b class="nc">&nbsp;          if (winner == null) {</b>
+<b class="nc">&nbsp;            winner = anchor;</b>
+<b class="nc">&nbsp;            winnerResolver = match.get();</b>
+&nbsp;          } else {
+<b class="nc">&nbsp;            if (contenders == null) {</b>
+<b class="nc">&nbsp;              contenders = new ArrayList&lt;&gt;();</b>
+&nbsp;            }
+<b class="nc">&nbsp;            contenders.add(anchor);</b>
+&nbsp;          }
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      if (winner != null) {</b>
+<b class="nc">&nbsp;        if (contenders != null) {</b>
+<b class="nc">&nbsp;          reporter.warning(About.INCOMPAT,</b>
+&nbsp;              &quot;Encoding conflict for attribute &#39;%s&#39;, the winning match: %s. Other applicable: %s&quot;,
+&nbsp;              names.var, winner, contenders);
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        imports.addAll(winner.encoding.imports());</b>
+&nbsp;
+<b class="nc">&nbsp;        return new Instantiation(</b>
+&nbsp;            winner.encoding,
+&nbsp;            winner.exposedElement,
+&nbsp;            type,
+&nbsp;            names,
+&nbsp;            winnerResolver,
+&nbsp;            containingType,
+&nbsp;            indirectField);
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

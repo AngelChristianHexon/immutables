@@ -1,0 +1,543 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > JavaBeanAttributesCollector</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: JavaBeanAttributesCollector (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JavaBeanAttributesCollector</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">JavaBeanAttributesCollector$1</td>
+  </tr>
+  <tr>
+    <td class="name">JavaBeanAttributesCollector$Fields</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">JavaBeanAttributesCollector$Getters</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/34)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">JavaBeanAttributesCollector$Setters</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/86)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/115)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import org.immutables.generator.Naming;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.element.VariableElement;
+&nbsp;import javax.lang.model.type.TypeKind;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import javax.lang.model.util.ElementFilter;
+&nbsp;import javax.lang.model.util.Elements;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;/**
+&nbsp; * Collects attributes by scanning for getters/setters/fields in a class definition.
+&nbsp; *
+&nbsp; * &lt;p&gt;Current logic is as follows:
+&nbsp; * &lt;ol&gt;
+&nbsp; *   &lt;li&gt;Collect getters (no-arg, non-static, non-void methods). Infer attribute names using JavaBean spec.&lt;/li&gt;
+&nbsp; *   &lt;li&gt;Collect setters (single-arg, non-static, void methods). Infer attribute names using JavaBean spec.&lt;/li&gt;
+&nbsp; *   &lt;li&gt;Collect (non-static) fields including from parent classes.
+&nbsp; *   Add alternative field names using primitive heuristics like underscore &#39;_&#39; removal or first letter decapitalization.
+&nbsp; *   &lt;/li&gt;
+&nbsp; * &lt;/ol&gt;
+&nbsp; * Intersection between getter / setter and field names is final attribute set. Created {@link ValueAttribute} will
+&nbsp; * point to field element. For now we don&#39;t allow &quot;derived&quot; attributes and require fields to be present.
+&nbsp; *
+&nbsp; * &lt;p&gt;It is important that attributes are serialized otherwise using criteria on non-marshalable attribute(s) doesn&#39;t
+&nbsp; * make sense (we may provide attribute renaming strategies in future).
+&nbsp; *
+&nbsp; * For each {@code getFoo} method (without parameters) create attribute {@code foo}.
+&nbsp; * @see AccessorAttributesCollector
+&nbsp; * @see &lt;a href=&quot;https://www.oracle.com/technetwork/java/javase/documentation/spec-136004.html&quot;&gt;JavaBeans spec&lt;/a&gt;
+&nbsp; */
+<b class="nc">&nbsp;final class JavaBeanAttributesCollector {</b>
+&nbsp;
+&nbsp;  private final ValueType type;
+&nbsp;  private final Proto.Protoclass protoclass;
+&nbsp;  private final Fields fields;
+&nbsp;  private final Getters getters;
+&nbsp;  private final Setters setters;
+&nbsp;  private final Styles styles;
+&nbsp;
+<b class="nc">&nbsp;  JavaBeanAttributesCollector(Proto.Protoclass protoclass, ValueType type) {</b>
+<b class="nc">&nbsp;    this.type = Preconditions.checkNotNull(type, &quot;type&quot;);</b>
+<b class="nc">&nbsp;    this.protoclass = Preconditions.checkNotNull(protoclass, &quot;protoclass&quot;);</b>
+<b class="nc">&nbsp;    this.styles = new Styles(ImmutableStyleInfo.copyOf(protoclass.styles().style()).withGet(&quot;is*&quot;, &quot;get*&quot;).withSet(&quot;set*&quot;));</b>
+<b class="nc">&nbsp;    this.fields = new Fields();</b>
+<b class="nc">&nbsp;    List&lt;? extends ExecutableElement&gt; members = ElementFilter.methodsIn(protoclass.processing().getElementUtils().getAllMembers(getCachedTypeElement()));</b>
+<b class="nc">&nbsp;    this.getters = new Getters(members);</b>
+<b class="nc">&nbsp;    this.setters = new Setters(members);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks if current element is {@link Object}. Usually no processing is necessary
+&nbsp;   * for top-level {@code Object} class.
+&nbsp;   */
+&nbsp;  private static boolean isJavaLangObject(Element element) {
+<b class="nc">&nbsp;    return MoreElements.isType(element) &amp;&amp; MoreElements.asType(element).getQualifiedName().contentEquals(Object.class.getName());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private TypeElement getCachedTypeElement() {
+<b class="nc">&nbsp;    return CachingElements.getDelegate(MoreElements.asType(type.element));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Collects and caches list of fields for current type
+&nbsp;   */
+<b class="nc">&nbsp;  private class Fields {</b>
+&nbsp;    private final Map&lt;String, VariableElement&gt; fields;
+&nbsp;
+<b class="nc">&nbsp;    private Fields() {</b>
+<b class="nc">&nbsp;      Map&lt;String, VariableElement&gt; map = new LinkedHashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (VariableElement field: collectFields(getCachedTypeElement(), new LinkedHashSet&lt;VariableElement&gt;())) {</b>
+<b class="nc">&nbsp;        if (!field.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;          String name = field.getSimpleName().toString();</b>
+<b class="nc">&nbsp;          map.put(name, field);</b>
+<b class="nc">&nbsp;          for (String alt: alternativeNamesFor(field)) {</b>
+<b class="nc">&nbsp;            map.put(alt, field);</b>
+<b class="nc">&nbsp;          }</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      this.fields = ImmutableMap.copyOf(map);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * List alternative names for a field
+&nbsp;     */
+&nbsp;    private Set&lt;String&gt; alternativeNamesFor(VariableElement element) {
+<b class="nc">&nbsp;      String name = element.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      Set&lt;String&gt; names = new LinkedHashSet&lt;&gt;();</b>
+&nbsp;      // add alternative field names for legacy code-generators
+<b class="nc">&nbsp;      if (name.length() &gt; 1 &amp;&amp; Character.isUpperCase(name.charAt(0)) &amp;&amp; Character.isLowerCase(name.charAt(1))) {</b>
+&nbsp;        // replace Foo with foo
+<b class="nc">&nbsp;        names.add(Character.toLowerCase(name.charAt(0)) + name.substring(1));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (name.length() &gt; 1 &amp;&amp; name.charAt(0) == &#39;_&#39;) {</b>
+&nbsp;        // replace _foo with foo
+<b class="nc">&nbsp;        String altName = name.substring(1);</b>
+<b class="nc">&nbsp;        names.add(altName);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (name.length() == 1 &amp;&amp; Character.isUpperCase(name.charAt(0))) {</b>
+<b class="nc">&nbsp;        names.add(name.toLowerCase());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return names;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    VariableElement field(String name) {
+<b class="nc">&nbsp;      Preconditions.checkArgument(names().contains(name), &quot;Field by name %s not found in %s&quot;, name, type.name());</b>
+<b class="nc">&nbsp;      return fields.get(name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * For some reason {@link Elements#getAllMembers(TypeElement)} does not
+&nbsp;     * return fields from parent class. Collecting them manually in this method.
+&nbsp;     */
+&nbsp;    private &lt;C extends Collection&lt;VariableElement&gt;&gt; C collectFields(@Nullable Element element, C collection) {
+<b class="nc">&nbsp;      if (element == null || !element.getKind().isClass() || element.getKind() == ElementKind.ENUM) {</b>
+<b class="nc">&nbsp;        return collection;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      collection.addAll(ElementFilter.fieldsIn(element.getEnclosedElements()));</b>
+<b class="nc">&nbsp;      TypeMirror parent = MoreElements.asType(element).getSuperclass();</b>
+<b class="nc">&nbsp;      if (parent.getKind() != TypeKind.NONE) {</b>
+<b class="nc">&nbsp;        collectFields(MoreTypes.asDeclared(parent).asElement(), collection);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return collection;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;String&gt; names() {
+<b class="nc">&nbsp;      return fields.keySet();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;  private class Setters {</b>
+&nbsp;    private final Map&lt;String, ExecutableElement&gt; setters;
+&nbsp;
+<b class="nc">&nbsp;    private Setters(Iterable&lt;? extends ExecutableElement&gt; methods) {</b>
+<b class="nc">&nbsp;      Map&lt;String, ExecutableElement&gt; map = new LinkedHashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (ExecutableElement executable: methods) {</b>
+<b class="nc">&nbsp;        if (isSetter(executable)) {</b>
+<b class="nc">&nbsp;          String name = styles.scheme().set.requireJavaBeanConvention().detect(executable.getSimpleName().toString());</b>
+<b class="nc">&nbsp;          map.put(name, executable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      this.setters = ImmutableMap.copyOf(map);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Set&lt;String&gt; names() {
+<b class="nc">&nbsp;      return setters.keySet();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean isSetter(ExecutableElement executable) {
+<b class="nc">&nbsp;      if (isJavaLangObject(executable.getEnclosingElement())) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      Naming set = styles.scheme().set;</b>
+<b class="nc">&nbsp;      boolean notASetter = set.detect(executable.getSimpleName().toString()).isEmpty();</b>
+<b class="nc">&nbsp;      if (notASetter) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return !executable.getModifiers().contains(Modifier.STATIC)</b>
+<b class="nc">&nbsp;             &amp;&amp; executable.getModifiers().contains(Modifier.PUBLIC)</b>
+<b class="nc">&nbsp;             &amp;&amp; executable.getParameters().size() == 1</b>
+<b class="nc">&nbsp;             &amp;&amp; executable.getReturnType().getKind() == TypeKind.VOID;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Collects and caches list of getters for current type
+&nbsp;   */
+<b class="nc">&nbsp;  private class Getters {</b>
+&nbsp;    private final Map&lt;String, ExecutableElement&gt; getters;
+&nbsp;    private final TypeMirror boxedBooleanType;
+&nbsp;
+<b class="nc">&nbsp;    private Getters(Iterable&lt;? extends ExecutableElement&gt; methods) {</b>
+<b class="nc">&nbsp;      ProcessingEnvironment processing = protoclass.environment().processing();</b>
+<b class="nc">&nbsp;      this.boxedBooleanType = processing.getElementUtils().getTypeElement(Boolean.class.getCanonicalName()).asType();</b>
+<b class="nc">&nbsp;      Map&lt;String, ExecutableElement&gt; map = new LinkedHashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (ExecutableElement executable: methods) {</b>
+<b class="nc">&nbsp;        if (isGetter(executable)) {</b>
+<b class="nc">&nbsp;          String name = javaBeanAttributeName(executable.getSimpleName().toString());</b>
+<b class="nc">&nbsp;          map.put(name, executable);</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      this.getters = ImmutableMap.copyOf(map);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Get attribute name from java bean getter. Some examples:
+&nbsp;     * &lt;pre&gt;
+&nbsp;     *   getA -&gt; a
+&nbsp;     *   getAB -&gt; AB (fist 2 chars are uppercase)
+&nbsp;     *   getABC -&gt; ABC (fist 2 chars are uppercase)
+&nbsp;     *   getAb -&gt; ab
+&nbsp;     *   getAbc -&gt; abc
+&nbsp;     *   getFoo -&gt; foo
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     *
+&nbsp;     * &lt;p&gt;See 8.8 Capitalization of inferred names in
+&nbsp;     * &lt;a href=&quot;https://download.oracle.com/otndocs/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/&quot;&gt;javabean spec&lt;/a&gt;
+&nbsp;     */
+&nbsp;    private String javaBeanAttributeName(String raw) {
+<b class="nc">&nbsp;      for (Naming naming: styles.scheme().get) {</b>
+<b class="nc">&nbsp;        String detected = naming.requireJavaBeanConvention().detect(raw);</b>
+<b class="nc">&nbsp;        if (!detected.isEmpty()) {</b>
+<b class="nc">&nbsp;          return detected;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      throw new IllegalArgumentException(String.format(&quot;%s it not a getter in %s&quot;, raw, type.name()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private ExecutableElement getter(String name) {
+<b class="nc">&nbsp;      Preconditions.checkArgument(names().contains(name), &quot;Getter by name %s not found in %s&quot;, name, type.name());</b>
+<b class="nc">&nbsp;      return getters.get(name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;String&gt; names() {
+<b class="nc">&nbsp;      return getters.keySet();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Checks if {@code executable} follows JavaBean convention for getter methods (like {@code getFoo})
+&nbsp;     */
+&nbsp;    private boolean isGetter(ExecutableElement executable) {
+<b class="nc">&nbsp;      if (isJavaLangObject(executable.getEnclosingElement())) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      String name = executable.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      boolean isGetterName = false;</b>
+<b class="nc">&nbsp;      for (Naming naming: styles.scheme().get) {</b>
+<b class="nc">&nbsp;        if (!naming.detect(name).isEmpty()) {</b>
+<b class="nc">&nbsp;          isGetterName = true;</b>
+<b class="nc">&nbsp;          break;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!isGetterName) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      // methods starting with &quot;is&quot; have to have boolean return type to be considered a valid JavaBean getter
+<b class="nc">&nbsp;      if (name.startsWith(&quot;is&quot;) &amp;&amp; name.length() &gt; &quot;is&quot;.length() &amp;&amp; !isBoolean(executable.getReturnType())) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return executable.getParameters().isEmpty()</b>
+<b class="nc">&nbsp;              &amp;&amp; executable.getReturnType().getKind() != TypeKind.VOID</b>
+<b class="nc">&nbsp;              &amp;&amp; executable.getModifiers().contains(Modifier.PUBLIC)</b>
+<b class="nc">&nbsp;              &amp;&amp; !executable.getModifiers().contains(Modifier.STATIC)</b>
+<b class="nc">&nbsp;              &amp;&amp; !executable.getModifiers().contains(Modifier.ABSTRACT);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean isBoolean(TypeMirror type) {
+<b class="nc">&nbsp;      return type.getKind() == TypeKind.BOOLEAN || boxedBooleanType.equals(type);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  void collect() {
+<b class="nc">&nbsp;    List&lt;ValueAttribute&gt; attributes = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    for (String name: Sets.intersection(fields.names(), Sets.intersection(getters.names(), setters.names()))) {</b>
+<b class="nc">&nbsp;      attributes.add(toAttribute(name, fields.field(name)));</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    type.attributes.addAll(attributes);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Create attribute from JavaBean getter
+&nbsp;   */
+&nbsp;  private ValueAttribute toAttribute(String name, Element element) {
+&nbsp;    // expect field or method
+<b class="nc">&nbsp;    TypeMirror returnType = element.getKind().isField() ? element.asType() : MoreElements.asExecutable(element).getReturnType();</b>
+<b class="nc">&nbsp;    ValueAttribute attribute = new ValueAttribute();</b>
+<b class="nc">&nbsp;    attribute.reporter = protoclass.report();</b>
+<b class="nc">&nbsp;    attribute.returnType = returnType;</b>
+<b class="nc">&nbsp;    attribute.names = styles.forAccessorWithRaw(element.getSimpleName().toString(), name);</b>
+<b class="nc">&nbsp;    attribute.element = element;</b>
+<b class="nc">&nbsp;    attribute.containingType = type;</b>
+<b class="nc">&nbsp;    attribute.isGenerateAbstract = true; // to be visible as marshalling attribute</b>
+<b class="nc">&nbsp;    attribute.initAndValidate(null);</b>
+<b class="nc">&nbsp;    return attribute;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

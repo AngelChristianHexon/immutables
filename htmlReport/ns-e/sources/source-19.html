@@ -1,0 +1,441 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableGeodeSetup</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableGeodeSetup (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableGeodeSetup$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableGeodeSetup$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableGeodeSetup$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link GeodeSetup}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new GeodeSetup.Builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableGeodeSetup.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;GeodeSetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableGeodeSetup implements GeodeSetup {
+&nbsp;  private final RegionResolver regionResolver;
+&nbsp;  private final KeyExtractor.Factory keyExtractorFactory;
+&nbsp;  private final QueryServiceResolver queryServiceResolver;
+&nbsp;
+&nbsp;  private ImmutableGeodeSetup(RegionResolver regionResolver) {
+&nbsp;    this.regionResolver = Objects.requireNonNull(regionResolver, &quot;regionResolver&quot;);
+&nbsp;    this.keyExtractorFactory = initShim.keyExtractorFactory();
+&nbsp;    this.queryServiceResolver = initShim.queryServiceResolver();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableGeodeSetup(ImmutableGeodeSetup.Builder builder) {
+&nbsp;    this.regionResolver = builder.regionResolver;
+&nbsp;    if (builder.keyExtractorFactory != null) {
+&nbsp;      initShim.keyExtractorFactory(builder.keyExtractorFactory);
+&nbsp;    }
+&nbsp;    if (builder.queryServiceResolver != null) {
+&nbsp;      initShim.queryServiceResolver(builder.queryServiceResolver);
+&nbsp;    }
+&nbsp;    this.keyExtractorFactory = initShim.keyExtractorFactory();
+&nbsp;    this.queryServiceResolver = initShim.queryServiceResolver();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableGeodeSetup(
+&nbsp;      RegionResolver regionResolver,
+&nbsp;      KeyExtractor.Factory keyExtractorFactory,
+&nbsp;      QueryServiceResolver queryServiceResolver) {
+&nbsp;    this.regionResolver = regionResolver;
+&nbsp;    this.keyExtractorFactory = keyExtractorFactory;
+&nbsp;    this.queryServiceResolver = queryServiceResolver;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;GeodeSetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte keyExtractorFactoryBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private KeyExtractor.Factory keyExtractorFactory;
+&nbsp;
+&nbsp;    KeyExtractor.Factory keyExtractorFactory() {
+&nbsp;      if (keyExtractorFactoryBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (keyExtractorFactoryBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        keyExtractorFactoryBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.keyExtractorFactory = Objects.requireNonNull(keyExtractorFactoryInitialize(), &quot;keyExtractorFactory&quot;);
+&nbsp;        keyExtractorFactoryBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.keyExtractorFactory;
+&nbsp;    }
+&nbsp;
+&nbsp;    void keyExtractorFactory(KeyExtractor.Factory keyExtractorFactory) {
+&nbsp;      this.keyExtractorFactory = keyExtractorFactory;
+&nbsp;      keyExtractorFactoryBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte queryServiceResolverBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private QueryServiceResolver queryServiceResolver;
+&nbsp;
+&nbsp;    QueryServiceResolver queryServiceResolver() {
+&nbsp;      if (queryServiceResolverBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (queryServiceResolverBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        queryServiceResolverBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.queryServiceResolver = Objects.requireNonNull(queryServiceResolverInitialize(), &quot;queryServiceResolver&quot;);
+&nbsp;        queryServiceResolverBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.queryServiceResolver;
+&nbsp;    }
+&nbsp;
+&nbsp;    void queryServiceResolver(QueryServiceResolver queryServiceResolver) {
+&nbsp;      this.queryServiceResolver = queryServiceResolver;
+&nbsp;      queryServiceResolverBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (keyExtractorFactoryBuildStage == STAGE_INITIALIZING) attributes.add(&quot;keyExtractorFactory&quot;);
+&nbsp;      if (queryServiceResolverBuildStage == STAGE_INITIALIZING) attributes.add(&quot;queryServiceResolver&quot;);
+&nbsp;      return &quot;Cannot build GeodeSetup, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private KeyExtractor.Factory keyExtractorFactoryInitialize() {
+&nbsp;    return GeodeSetup.super.keyExtractorFactory();
+&nbsp;  }
+&nbsp;
+&nbsp;  private QueryServiceResolver queryServiceResolverInitialize() {
+&nbsp;    return GeodeSetup.super.queryServiceResolver();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code regionResolver} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RegionResolver regionResolver() {
+&nbsp;    return regionResolver;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code keyExtractorFactory} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public KeyExtractor.Factory keyExtractorFactory() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.keyExtractorFactory()
+&nbsp;        : this.keyExtractorFactory;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code queryServiceResolver} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public QueryServiceResolver queryServiceResolver() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.queryServiceResolver()
+&nbsp;        : this.queryServiceResolver;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GeodeSetup#regionResolver() regionResolver} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for regionResolver
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableGeodeSetup withRegionResolver(RegionResolver value) {
+&nbsp;    if (this.regionResolver == value) return this;
+&nbsp;    RegionResolver newValue = Objects.requireNonNull(value, &quot;regionResolver&quot;);
+&nbsp;    return new ImmutableGeodeSetup(newValue, this.keyExtractorFactory, this.queryServiceResolver);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GeodeSetup#keyExtractorFactory() keyExtractorFactory} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for keyExtractorFactory
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableGeodeSetup withKeyExtractorFactory(KeyExtractor.Factory value) {
+&nbsp;    if (this.keyExtractorFactory == value) return this;
+&nbsp;    KeyExtractor.Factory newValue = Objects.requireNonNull(value, &quot;keyExtractorFactory&quot;);
+&nbsp;    return new ImmutableGeodeSetup(this.regionResolver, newValue, this.queryServiceResolver);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link GeodeSetup#queryServiceResolver() queryServiceResolver} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for queryServiceResolver
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableGeodeSetup withQueryServiceResolver(QueryServiceResolver value) {
+&nbsp;    if (this.queryServiceResolver == value) return this;
+&nbsp;    QueryServiceResolver newValue = Objects.requireNonNull(value, &quot;queryServiceResolver&quot;);
+&nbsp;    return new ImmutableGeodeSetup(this.regionResolver, this.keyExtractorFactory, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableGeodeSetup} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableGeodeSetup
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableGeodeSetup) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableGeodeSetup another) {
+&nbsp;    return regionResolver.equals(another.regionResolver)
+&nbsp;        &amp;&amp; keyExtractorFactory.equals(another.keyExtractorFactory)
+&nbsp;        &amp;&amp; queryServiceResolver.equals(another.queryServiceResolver);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code regionResolver}, {@code keyExtractorFactory}, {@code queryServiceResolver}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + regionResolver.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + keyExtractorFactory.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + queryServiceResolver.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code GeodeSetup} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;GeodeSetup&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;regionResolver&quot;, regionResolver)
+&nbsp;        .add(&quot;keyExtractorFactory&quot;, keyExtractorFactory)
+&nbsp;        .add(&quot;queryServiceResolver&quot;, queryServiceResolver)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code GeodeSetup} instance.
+&nbsp;   * @param regionResolver The value for the {@code regionResolver} attribute
+&nbsp;   * @return An immutable GeodeSetup instance
+&nbsp;   */
+&nbsp;  public static ImmutableGeodeSetup of(RegionResolver regionResolver) {
+&nbsp;    return new ImmutableGeodeSetup(regionResolver);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link GeodeSetup} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable GeodeSetup instance
+&nbsp;   */
+&nbsp;  public static ImmutableGeodeSetup copyOf(GeodeSetup instance) {
+&nbsp;    if (instance instanceof ImmutableGeodeSetup) {
+&nbsp;      return (ImmutableGeodeSetup) instance;
+&nbsp;    }
+&nbsp;    return new GeodeSetup.Builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableGeodeSetup ImmutableGeodeSetup}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;GeodeSetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private static final long INIT_BIT_REGION_RESOLVER = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable RegionResolver regionResolver;
+&nbsp;    private @Nullable KeyExtractor.Factory keyExtractorFactory;
+&nbsp;    private @Nullable QueryServiceResolver queryServiceResolver;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableGeodeSetup ImmutableGeodeSetup} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new GeodeSetup.Builder()
+&nbsp;     *    .regionResolver(org.immutables.criteria.geode.RegionResolver) // required {@link GeodeSetup#regionResolver() regionResolver}
+&nbsp;     *    .keyExtractorFactory(org.immutables.criteria.backend.KeyExtractor.Factory) // optional {@link GeodeSetup#keyExtractorFactory() keyExtractorFactory}
+&nbsp;     *    .queryServiceResolver(org.immutables.criteria.geode.QueryServiceResolver) // optional {@link GeodeSetup#queryServiceResolver() queryServiceResolver}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof GeodeSetup.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new GeodeSetup.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code GeodeSetup} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final GeodeSetup.Builder from(GeodeSetup instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      regionResolver(instance.regionResolver());
+&nbsp;      keyExtractorFactory(instance.keyExtractorFactory());
+&nbsp;      queryServiceResolver(instance.queryServiceResolver());
+&nbsp;      return (GeodeSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GeodeSetup#regionResolver() regionResolver} attribute.
+&nbsp;     * @param regionResolver The value for regionResolver 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final GeodeSetup.Builder regionResolver(RegionResolver regionResolver) {
+&nbsp;      this.regionResolver = Objects.requireNonNull(regionResolver, &quot;regionResolver&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_REGION_RESOLVER;
+&nbsp;      return (GeodeSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GeodeSetup#keyExtractorFactory() keyExtractorFactory} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link GeodeSetup#keyExtractorFactory() keyExtractorFactory}.&lt;/em&gt;
+&nbsp;     * @param keyExtractorFactory The value for keyExtractorFactory 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final GeodeSetup.Builder keyExtractorFactory(KeyExtractor.Factory keyExtractorFactory) {
+&nbsp;      this.keyExtractorFactory = Objects.requireNonNull(keyExtractorFactory, &quot;keyExtractorFactory&quot;);
+&nbsp;      return (GeodeSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link GeodeSetup#queryServiceResolver() queryServiceResolver} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link GeodeSetup#queryServiceResolver() queryServiceResolver}.&lt;/em&gt;
+&nbsp;     * @param queryServiceResolver The value for queryServiceResolver 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final GeodeSetup.Builder queryServiceResolver(QueryServiceResolver queryServiceResolver) {
+&nbsp;      this.queryServiceResolver = Objects.requireNonNull(queryServiceResolver, &quot;queryServiceResolver&quot;);
+&nbsp;      return (GeodeSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableGeodeSetup ImmutableGeodeSetup}.
+&nbsp;     * @return An immutable instance of GeodeSetup
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableGeodeSetup build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableGeodeSetup(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_REGION_RESOLVER) != 0) attributes.add(&quot;regionResolver&quot;);
+&nbsp;      return &quot;Cannot build GeodeSetup, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

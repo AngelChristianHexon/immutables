@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Backend</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: Backend (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Backend$Operation</td>
+  </tr>
+  <tr>
+    <td class="name">Backend$Result</td>
+  </tr>
+  <tr>
+    <td class="name">Backend$Session</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import org.reactivestreams.Publisher;
+&nbsp;
+&nbsp;/**
+&nbsp; * Abstraction of a asynchronous service used by different clients.
+&nbsp; * &lt;p&gt;Example of backend: database, REST service or file system.
+&nbsp; */
+&nbsp;public interface Backend {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Open a session (or reuse existing one) with a given context
+&nbsp;   *
+&nbsp;   * @param entityType entity entityType for which to open a session
+&nbsp;   * @return new session
+&nbsp;   */
+&nbsp;  Session open(Class&lt;?&gt; entityType);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generic operation to be executed on the back-end. Typical operations include
+&nbsp;   * query, update, delete etc.
+&nbsp;   */
+&nbsp;  interface Operation { }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Context specific &quot;connection&quot; to the back-end. Typically creates isolated view on a table,
+&nbsp;   * collection (mongo) or class.
+&nbsp;   */
+&nbsp;  interface Session {
+&nbsp;
+&nbsp;    Class&lt;?&gt; entityType();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Apply an operation on the back-end. {@code operation} in this context can mean query / update
+&nbsp;     * / insert  / index etc.
+&nbsp;     *
+&nbsp;     *
+&nbsp;     * @param operation operation to be performed on the back-end.
+&nbsp;     * @return result of the operation
+&nbsp;     */
+&nbsp;    Result execute(Operation operation);
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Result of an operation which gives access to stream of events
+&nbsp;   */
+&nbsp;  interface Result {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Depending on operation, publisher can represent empty, single, multiple or unbounded event flow.
+&nbsp;     *
+&nbsp;     * @return empty, single, multiple or unbounded event flow
+&nbsp;     */
+&nbsp;    &lt;T&gt; Publisher&lt;T&gt; publisher();
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

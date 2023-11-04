@@ -1,0 +1,576 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > C</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.couse.sub</a>
+</div>
+
+<h1>Coverage Summary for Class: C (org.immutables.fixture.couse.sub)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">C$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.couse.sub;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.fixture.couse.A;
+&nbsp;import org.immutables.fixture.couse.B;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link AbstractC}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code C.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;AbstractC&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class C implements AbstractC {
+&nbsp;  private final @Strange int i;
+&nbsp;  private final java.lang.@Strange String s;
+&nbsp;  private final A a;
+&nbsp;  private final Optional&lt;A&gt; aO;
+&nbsp;  private final ImmutableMap&lt;A, List&lt;B&gt;&gt; abM;
+&nbsp;  private final ImmutableMap&lt;RetentionPolicy, C&gt; raM;
+&nbsp;
+&nbsp;  private C(
+&nbsp;      @Strange int i,
+&nbsp;      java.lang.@Strange String s,
+&nbsp;      A a,
+&nbsp;      Optional&lt;A&gt; aO,
+&nbsp;      ImmutableMap&lt;A, List&lt;B&gt;&gt; abM,
+&nbsp;      ImmutableMap&lt;RetentionPolicy, C&gt; raM) {
+&nbsp;    this.i = i;
+&nbsp;    this.s = s;
+&nbsp;    this.a = a;
+&nbsp;    this.aO = aO;
+&nbsp;    this.abM = abM;
+&nbsp;    this.raM = raM;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Strange int i() {
+&nbsp;    return i;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code s} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.lang.@Strange String s() {
+&nbsp;    return s;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public A a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code aO} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;A&gt; aO() {
+&nbsp;    return aO;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code abM} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;A, List&lt;B&gt;&gt; abM() {
+&nbsp;    return abM;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code raM} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;RetentionPolicy, C&gt; raM() {
+&nbsp;    return raM;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link C#i() i} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for i
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final C withI(@Strange int value) {
+&nbsp;    if (this.i == value) return this;
+&nbsp;    return new C(value, this.s, this.a, this.aO, this.abM, this.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link C#s() s} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for s
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final C withS(java.lang.@Strange String value) {
+&nbsp;    java.lang.@Strange String newValue = Objects.requireNonNull(value, &quot;s&quot;);
+&nbsp;    if (this.s.equals(newValue)) return this;
+&nbsp;    return new C(this.i, newValue, this.a, this.aO, this.abM, this.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link C#a() a} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final C withA(A value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    A newValue = Objects.requireNonNull(value, &quot;a&quot;);
+&nbsp;    return new C(this.i, this.s, newValue, this.aO, this.abM, this.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link C#aO() aO} attribute.
+&nbsp;   * @param value The value for aO
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final C withAO(A value) {
+&nbsp;    Optional&lt;A&gt; newValue = Optional.of(value);
+&nbsp;    if (this.aO.isPresent() &amp;&amp; this.aO.get() == value) return this;
+&nbsp;    return new C(this.i, this.s, this.a, newValue, this.abM, this.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link C#aO() aO} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for aO
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final C withAO(Optional&lt;? extends A&gt; optional) {
+&nbsp;    Optional&lt;A&gt; value = (Optional&lt;A&gt;) optional;
+&nbsp;    if (!this.aO.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.aO.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.aO.get() == value.get()) return this;
+&nbsp;    return new C(this.i, this.s, this.a, value, this.abM, this.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link C#abM() abM} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the abM map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final C withAbM(Map&lt;? extends A, ? extends List&lt;B&gt;&gt; entries) {
+&nbsp;    if (this.abM == entries) return this;
+&nbsp;    ImmutableMap&lt;A, List&lt;B&gt;&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new C(this.i, this.s, this.a, this.aO, newValue, this.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link C#raM() raM} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the raM map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final C withRaM(Map&lt;RetentionPolicy, ? extends C&gt; entries) {
+&nbsp;    if (this.raM == entries) return this;
+&nbsp;    ImmutableMap&lt;RetentionPolicy, C&gt; newValue = Maps.immutableEnumMap(entries);
+&nbsp;    return new C(this.i, this.s, this.a, this.aO, this.abM, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code C} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof C
+&nbsp;        &amp;&amp; equalTo(0, (C) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, C another) {
+&nbsp;    return i == another.i
+&nbsp;        &amp;&amp; s.equals(another.s)
+&nbsp;        &amp;&amp; a.equals(another.a)
+&nbsp;        &amp;&amp; aO.equals(another.aO)
+&nbsp;        &amp;&amp; abM.equals(another.abM)
+&nbsp;        &amp;&amp; raM.equals(another.raM);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code i}, {@code s}, {@code a}, {@code aO}, {@code abM}, {@code raM}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + i;
+&nbsp;    h += (h &lt;&lt; 5) + s.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + a.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + aO.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + abM.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + raM.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code C} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;C&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;i&quot;, i)
+&nbsp;        .add(&quot;s&quot;, s)
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;aO&quot;, aO.orNull())
+&nbsp;        .add(&quot;abM&quot;, abM)
+&nbsp;        .add(&quot;raM&quot;, raM)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link AbstractC} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable C instance
+&nbsp;   */
+&nbsp;  static C copyOf(AbstractC instance) {
+&nbsp;    if (instance instanceof C) {
+&nbsp;      return (C) instance;
+&nbsp;    }
+&nbsp;    return C.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link C C}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * C.builder()
+&nbsp;   *    .i(@org.immutables.fixture.couse.sub.Strange int) // required {@link C#i() i}
+&nbsp;   *    .s(@org.immutables.fixture.couse.sub.Strange String) // required {@link C#s() s}
+&nbsp;   *    .a(org.immutables.fixture.couse.A) // required {@link C#a() a}
+&nbsp;   *    .aO(org.immutables.fixture.couse.A) // optional {@link C#aO() aO}
+&nbsp;   *    .putAbM|putAllAbM(org.immutables.fixture.couse.A =&amp;gt; List&amp;amp;lt;org.immutables.fixture.couse.B&amp;amp;gt;) // {@link C#abM() abM} mappings
+&nbsp;   *    .putRaM|putAllRaM(annotation.RetentionPolicy =&amp;gt; C) // {@link C#raM() raM} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new C builder
+&nbsp;   */
+&nbsp;  public static C.Builder builder() {
+&nbsp;    return new C.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link C C}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AbstractC&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_I = 0x1L;
+&nbsp;    private static final long INIT_BIT_S = 0x2L;
+&nbsp;    private static final long INIT_BIT_A = 0x4L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;
+&nbsp;    private @Strange int i;
+&nbsp;    private @Nullable java.lang.@Strange String s;
+&nbsp;    private @Nullable A a;
+&nbsp;    private Optional&lt;A&gt; aO = Optional.absent();
+&nbsp;    private ImmutableMap.Builder&lt;A, List&lt;B&gt;&gt; abM = ImmutableMap.builder();
+&nbsp;    private ImmutableMap.Builder&lt;RetentionPolicy, C&gt; raM = ImmutableMap.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code C} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder from(C instance) {
+&nbsp;      return from((AbstractC) instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy abstract value type {@code AbstractC} instance into builder.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    final Builder from(AbstractC instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      i(instance.i());
+&nbsp;      s(instance.s());
+&nbsp;      a(instance.a());
+&nbsp;      Optional&lt;A&gt; aOOptional = instance.aO();
+&nbsp;      if (aOOptional.isPresent()) {
+&nbsp;        aO(aOOptional);
+&nbsp;      }
+&nbsp;      putAllAbM(instance.abM());
+&nbsp;      putAllRaM(instance.raM());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link C#i() i} attribute.
+&nbsp;     * @param i The value for i 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i(@Strange int i) {
+&nbsp;      this.i = i;
+&nbsp;      initBits &amp;= ~INIT_BIT_I;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link C#s() s} attribute.
+&nbsp;     * @param s The value for s 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder s(java.lang.@Strange String s) {
+&nbsp;      this.s = Objects.requireNonNull(s, &quot;s&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_S;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link C#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(A a) {
+&nbsp;      this.a = Objects.requireNonNull(a, &quot;a&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link C#aO() aO} to aO.
+&nbsp;     * @param aO The value for aO
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder aO(A aO) {
+&nbsp;      this.aO = Optional.of(aO);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link C#aO() aO} to aO.
+&nbsp;     * @param aO The value for aO
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder aO(Optional&lt;? extends A&gt; aO) {
+&nbsp;      this.aO = (Optional&lt;A&gt;) aO;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link C#abM() abM} map.
+&nbsp;     * @param key The key in the abM map
+&nbsp;     * @param value The associated value in the abM map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAbM(A key, List&lt;B&gt; value) {
+&nbsp;      this.abM.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link C#abM() abM} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAbM(Map.Entry&lt;? extends A, ? extends List&lt;B&gt;&gt; entry) {
+&nbsp;      this.abM.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link C#abM() abM} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the abM map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder abM(Map&lt;? extends A, ? extends List&lt;B&gt;&gt; entries) {
+&nbsp;      this.abM = ImmutableMap.builder();
+&nbsp;      return putAllAbM(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link C#abM() abM} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the abM map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllAbM(Map&lt;? extends A, ? extends List&lt;B&gt;&gt; entries) {
+&nbsp;      this.abM.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link C#raM() raM} map.
+&nbsp;     * @param key The key in the raM map
+&nbsp;     * @param value The associated value in the raM map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putRaM(RetentionPolicy key, C value) {
+&nbsp;      this.raM.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link C#raM() raM} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putRaM(Map.Entry&lt;RetentionPolicy, ? extends C&gt; entry) {
+&nbsp;      this.raM.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link C#raM() raM} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the raM map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder raM(Map&lt;RetentionPolicy, ? extends C&gt; entries) {
+&nbsp;      this.raM = ImmutableMap.builder();
+&nbsp;      return putAllRaM(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link C#raM() raM} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the raM map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllRaM(Map&lt;RetentionPolicy, ? extends C&gt; entries) {
+&nbsp;      this.raM.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link C C}.
+&nbsp;     * @return An immutable instance of C
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public C build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new C(i, s, a, aO, abM.build(), Maps.immutableEnumMap(raM.build()));
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_I) != 0) attributes.add(&quot;i&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_S) != 0) attributes.add(&quot;s&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      return &quot;Cannot build C, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

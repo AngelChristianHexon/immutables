@@ -1,0 +1,315 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TableEncodingEnabled</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.encoding.defs</a>
+</div>
+
+<h1>Coverage Summary for Class: TableEncodingEnabled (org.immutables.fixture.encoding.defs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">TableEncodingEnabled</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.encoding.defs;
+&nbsp;
+&nbsp;import org.immutables.encode.EncodingMetadata;
+&nbsp;
+&nbsp;@EncodingMetadata(
+&nbsp;  name = &quot;org.immutables.fixture.encoding.defs.TableEncoding&quot;,
+&nbsp;  imports = {
+&nbsp;  },
+&nbsp;  typeParams = {&quot;R&quot;, &quot;C&quot;, &quot;V&quot;},
+&nbsp;  elements = {
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;value&quot;,
+&nbsp;      tags = {&quot;IMPL&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableTable&lt;R, C, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;com.google.common.collect.ImmutableTable.of()&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;init&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FROM&quot;},
+&nbsp;      naming = &quot;*_init&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableTable&lt;R, C, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;table: com.google.common.collect.Table&lt;? extends R, ? extends C, ? extends V&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn com.google.common.collect.ImmutableTable.copyOf(@^table);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;toString&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;TO_STRING&quot;},
+&nbsp;      naming = &quot;*_toString&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nString actuallyInvolvedToString = @@value.toString() + @@SILLY_CONSTANT;\r\nreturn actuallyInvolvedToString;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;hashCode&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;HASH_CODE&quot;},
+&nbsp;      naming = &quot;*_hashCode&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@value.hashCode() + 1;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;equals&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;EQUALS&quot;},
+&nbsp;      naming = &quot;*_equals&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;boolean&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;other: org.immutables.fixture.encoding.defs.TableEncoding&lt;R, C, V&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@value.equals(@^other.@@value);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;build&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;BUILD&quot;},
+&nbsp;      naming = &quot;*_build&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableTable&lt;R, C, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@builder.build();\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;SMART_NULL&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_SMART_NULL&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.Void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;null&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;SILLY_CONSTANT&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_SILLY_CONSTANT&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;\&quot;{T}\&quot;&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;tableSize&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_tableSize&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;@@value.size()&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;accessor&quot;,
+&nbsp;      tags = {&quot;EXPOSE&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.Table&lt;R, C, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@value;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;withPut&quot;,
+&nbsp;      tags = {&quot;COPY&quot;},
+&nbsp;      naming = &quot;with*Put&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableTable&lt;R, C, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;row: R&quot;, &quot;column: C&quot;, &quot;value: V&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn com.google.common.collect.ImmutableTable.&lt;@^R, @^C, @^V&gt;builder()\r\n.put(@^row, @^column, @^value)\r\n.build();\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;getTableSize&quot;,
+&nbsp;      tags = {&quot;HELPER&quot;},
+&nbsp;      naming = &quot;*GetTableSize&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@tableSize;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;helper&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;HELPER&quot;},
+&nbsp;      naming = &quot;*Helper&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;T&quot;,
+&nbsp;      typeParams = {&quot;T: java.lang.Object &amp; java.io.Serializable&quot;},
+&nbsp;      params = {&quot;param: T&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @^param;\r\n}&quot;,
+&nbsp;      thrown = {&quot;java.lang.Exception&quot;, &quot;java.lang.Error&quot;}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;cellSet&quot;,
+&nbsp;      tags = {&quot;HELPER&quot;},
+&nbsp;      naming = &quot;*CellSet&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableSet&lt;com.google.common.collect.Table.Cell&lt;R, C, V&gt;&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@value.cellSet();\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;DILLY_CONSTANT&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_DILLY_CONSTANT&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.Object&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;\&quot;{D}\&quot;&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;builder&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_builder&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableTable.Builder&lt;R, C, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;com.google.common.collect.ImmutableTable.&lt;@^R, @^C, @^V&gt;builder()&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;put&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;PUT&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;row: R&quot;, &quot;column: C&quot;, &quot;value: V&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\n@@builder.put(@^row, @^column, @^value);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;putAll&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;, &quot;COPY&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;PUT_ALL&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;table: com.google.common.collect.Table&lt;R, C, V&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\n@@builder.putAll(@^table);\r\n@@DILLY_CONSTANT.toString();// just reference constant\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    )
+&nbsp;  }
+&nbsp;)
+&nbsp;public @interface TableEncodingEnabled {}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

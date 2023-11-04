@@ -1,0 +1,309 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImBuild</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImBuild (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImBuild$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Constr.Build}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImBuild.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code new ImBuild()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Constr.Build&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImBuild implements Constr.Build {
+&nbsp;  private final String date;
+&nbsp;  private final String qualifier;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code Build} instance.
+&nbsp;   * @param date The value for the {@code date} attribute
+&nbsp;   * @param qualifier The value for the {@code qualifier} attribute
+&nbsp;   */
+&nbsp;  public ImBuild(String date, String qualifier) {
+&nbsp;    this.date = Objects.requireNonNull(date, &quot;date&quot;);
+&nbsp;    this.qualifier = Objects.requireNonNull(qualifier, &quot;qualifier&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImBuild(ImBuild original, String date, String qualifier) {
+&nbsp;    this.date = date;
+&nbsp;    this.qualifier = qualifier;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code date} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String date() {
+&nbsp;    return date;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code qualifier} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String qualifier() {
+&nbsp;    return qualifier;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Constr.Build#date() date} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for date
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImBuild withDate(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;date&quot;);
+&nbsp;    if (this.date.equals(newValue)) return this;
+&nbsp;    return new ImBuild(this, newValue, this.qualifier);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Constr.Build#qualifier() qualifier} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for qualifier
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImBuild withQualifier(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;qualifier&quot;);
+&nbsp;    if (this.qualifier.equals(newValue)) return this;
+&nbsp;    return new ImBuild(this, this.date, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImBuild} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImBuild
+&nbsp;        &amp;&amp; equalTo(0, (ImBuild) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImBuild another) {
+&nbsp;    return date.equals(another.date)
+&nbsp;        &amp;&amp; qualifier.equals(another.qualifier);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code date}, {@code qualifier}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + date.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + qualifier.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Build} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Build&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;date&quot;, date)
+&nbsp;        .add(&quot;qualifier&quot;, qualifier)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Constr.Build} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Build instance
+&nbsp;   */
+&nbsp;  public static ImBuild copyOf(Constr.Build instance) {
+&nbsp;    if (instance instanceof ImBuild) {
+&nbsp;      return (ImBuild) instance;
+&nbsp;    }
+&nbsp;    return ImBuild.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImBuild ImBuild}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImBuild.builder()
+&nbsp;   *    .date(String) // required {@link Constr.Build#date() date}
+&nbsp;   *    .qualifier(String) // required {@link Constr.Build#qualifier() qualifier}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImBuild builder
+&nbsp;   */
+&nbsp;  public static ImBuild.Builder builder() {
+&nbsp;    return new ImBuild.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImBuild ImBuild}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Constr.Build&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_DATE = 0x1L;
+&nbsp;    private static final long INIT_BIT_QUALIFIER = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable String date;
+&nbsp;    private @Nullable String qualifier;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Build} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Constr.Build instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      date(instance.date());
+&nbsp;      qualifier(instance.qualifier());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Constr.Build#date() date} attribute.
+&nbsp;     * @param date The value for date 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder date(String date) {
+&nbsp;      this.date = Objects.requireNonNull(date, &quot;date&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_DATE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Constr.Build#qualifier() qualifier} attribute.
+&nbsp;     * @param qualifier The value for qualifier 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder qualifier(String qualifier) {
+&nbsp;      this.qualifier = Objects.requireNonNull(qualifier, &quot;qualifier&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_QUALIFIER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImBuild ImBuild}.
+&nbsp;     * @return An immutable instance of Build
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImBuild build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImBuild(null, date, qualifier);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_DATE) != 0) attributes.add(&quot;date&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_QUALIFIER) != 0) attributes.add(&quot;qualifier&quot;);
+&nbsp;      return &quot;Cannot build Build, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

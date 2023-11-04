@@ -1,0 +1,1331 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SillyEntityRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: SillyEntityRepository (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Criteria</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Finder</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Indexer</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Modifier</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Replacer</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Serialization</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Serialization$SillyEntityNamingFields</td>
+  </tr>
+  <tr>
+    <td class="name">SillyEntityRepository$Updater</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.annotations.Beta;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Range;
+&nbsp;import com.google.common.primitives.UnsignedInteger;
+&nbsp;import com.mongodb.DBCollection;
+&nbsp;import com.mongodb.DBObject;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.annotation.concurrent.ThreadSafe;
+&nbsp;import org.bson.codecs.Encoder;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.bson.conversions.Bson;
+&nbsp;import org.immutables.mongo.concurrent.FluentFuture;
+&nbsp;import org.immutables.mongo.repository.Repositories;
+&nbsp;import org.immutables.mongo.repository.RepositorySetup;
+&nbsp;import org.immutables.mongo.repository.internal.Constraints;
+&nbsp;import org.immutables.mongo.repository.internal.Support;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code SillyEntityRepository} provides type-safe access for storing and retrieving documents
+&nbsp; * from the MongoDB collection {@code &quot;sillyEntity&quot;}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@ThreadSafe
+&nbsp;public class SillyEntityRepository extends Repositories.Repository&lt;SillyEntity&gt; {
+&nbsp;  private static final String DOCUMENT_COLLECTION_NAME = &quot;sillyEntity&quot;;
+&nbsp;
+&nbsp;  private final Serialization serialization;
+&nbsp;  private final Criteria anyCriteria;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Constructs a {@link SillyEntity} repository using {@link RepositorySetup configuration}.
+&nbsp;   * @param configuration The repository configuration
+&nbsp;   */
+&nbsp;  public SillyEntityRepository(RepositorySetup configuration) {
+&nbsp;    super(configuration, DOCUMENT_COLLECTION_NAME, SillyEntity.class);
+&nbsp;    this.serialization = new Serialization(codecRegistry(), fieldNamingStrategy());
+&nbsp;    this.anyCriteria = new Criteria(this.serialization, Constraints.nilConstraint());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Inserts a single document into the collection.
+&nbsp;   * @param document The sillyEntity to insert
+&nbsp;   * @return A future representing the number of inserted documents (1) if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; insert(SillyEntity document) {
+&nbsp;    return super.doInsert(ImmutableList.of(document));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Insert documents into the collection.
+&nbsp;   * @param documents The documents to insert
+&nbsp;   * @return A future representing the number of inserted documents if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; insert(Iterable&lt;? extends SillyEntity&gt; documents) {
+&nbsp;    return super.doInsert(ImmutableList.copyOf(documents));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds all documents. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch all} or other operations.
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder findAll() {
+&nbsp;    return find(criteria());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find documents by the criteria expressed as a JSON string. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch} or {@link Finder#fetchFirst() fetch} operations.
+&nbsp;   * @param jsonCriteria A JSON string for native criteria
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder find(String jsonCriteria) {
+&nbsp;    return new Finder(this, Support.jsonQuery(jsonCriteria));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find documents by the {@link SillyEntity#id() id} identity attribute. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchFirst() fetch} or {@link Finder#fetchAll() fetchAll} read operations.
+&nbsp;   * You can also use {@link Finder#andModifyFirst() modify}, {@link Finder#andReplaceFirst(SillyEntity) replace}
+&nbsp;   * or {@link Finder#deleteFirst() delete} operations to update / delete the document.
+&nbsp;   * @param id The exact {@code id} value
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder findById(int id) {
+&nbsp;    return find(criteria().id(id));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Update or insert a document, matched by the identifier value of the &#39;id&#39; attribute.
+&nbsp;   * @param document The sillyEntity to upsert
+&nbsp;   * @return A future representing the of number of inserted documents (1) if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; upsert(SillyEntity document) {
+&nbsp;    Criteria byId = criteria().id(document.id());
+&nbsp;    return super.doUpsert(byId.constraint, document);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find a document by the given {@link SillyEntityRepository#criteria() criteria}. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch}  operations.
+&nbsp;   * You can also use {@link Finder#andModifyFirst() modify} or {@link Finder#deleteFirst() delete}
+&nbsp;   * operations to update / delete the document(s).
+&nbsp;   * @param criteria The search criteria
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder find(Criteria criteria) {
+&nbsp;    return new Finder(this, criteria.constraint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * The finder object used to proceed with find operations via the
+&nbsp;   * {@link Finder#fetchAll()}, {@link Finder#fetchFirst()}, {@link Finder#andModifyFirst()}, or {@link Finder#deleteFirst()} methods.
+&nbsp;   * Configure exclusion and sort ordering for results using the family of {@code exclude*()} and {@code orderBy*()} attribute-specific methods.
+&nbsp;   * @see SillyEntityRepository#find(Criteria)
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Finder extends Repositories.FinderWithDelete&lt;SillyEntity, Finder&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Finder(SillyEntityRepository repository, Constraints.ConstraintHost criteria) {
+&nbsp;      super(repository);
+&nbsp;      this.criteria = criteria;
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#id() id} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#id() id} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderById() {
+&nbsp;      ordering = ordering.equal(serialization.idName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#id() id} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#id() id} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByIdDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.idName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#val() val} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#val() val} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByVal() {
+&nbsp;      ordering = ordering.equal(serialization.valName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#val() val} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#val() val} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByValDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.valName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#payload() payload} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#payload() payload} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByPayload() {
+&nbsp;      ordering = ordering.equal(serialization.payloadName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#payload() payload} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#payload() payload} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByPayloadDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.payloadName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#ints() ints} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#ints() ints} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByInts() {
+&nbsp;      ordering = ordering.equal(serialization.intsName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#ints() ints} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#ints() ints} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByIntsDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.intsName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#der() der} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#der() der} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByDer() {
+&nbsp;      ordering = ordering.equal(serialization.derName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyEntity#der() der} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyEntity#der() der} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByDerDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.derName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Exclude the {@link SillyEntity#payload() payload} attribute from each document in the results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder excludePayload() {
+&nbsp;      exclusion = exclusion.equal(serialization.payloadName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Exclude the {@link SillyEntity#ints() ints} attribute from each document in the results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder excludeInts() {
+&nbsp;      exclusion = exclusion.equal(serialization.intsName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Turn a find operation into an atomic {@link DBCollection#findAndModify(DBObject, DBObject, DBObject, boolean, DBObject, boolean, boolean) findAndModify}
+&nbsp;     * operation. Use the family of {@code set*()}, {@code unset*()}, {@code add*()}, {@code remove*()}, {@code put*()}m and {@code init*()}
+&nbsp;     * (and other attribute-specific) methods to describe the modification.
+&nbsp;     * @return A modifier object to complete the {@code findAndModify} operation
+&nbsp;     */
+&nbsp;    @CheckReturnValue
+&nbsp;    public Modifier andModifyFirst() {
+&nbsp;      return new Modifier((SillyEntityRepository) repository, criteria, ordering, exclusion);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Used to replace in-place existing version of the document
+&nbsp;     */
+&nbsp;    @CheckReturnValue
+&nbsp;    public Replacer andReplaceFirst(SillyEntity document) {
+&nbsp;      return new Replacer((SillyEntityRepository) repository, document, criteria, ordering);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Update the set of {@code &quot;sillyEntity&quot;} documents.
+&nbsp;   * @param criteria The search criteria for update
+&nbsp;   * @return An updater object that will be used to complete the update.
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Updater update(Criteria criteria) {
+&nbsp;    return new Updater(this, criteria);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@link #update(Criteria) Given} the criteria updater describes how to perform
+&nbsp;   * update operations on sets of documents.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Updater extends Repositories.Updater&lt;SillyEntity&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Updater(SillyEntityRepository repository, Criteria criteria) {
+&nbsp;      super(repository);
+&nbsp;      this.criteria = criteria.constraint;
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code id} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code id} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setId(int value) {
+&nbsp;      setFields = setFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code id} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code id} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initId(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code id} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code id} attribute (may be negative)
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater incrementId(int increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.idName, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code val} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code val} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setVal(java.lang.String value) {
+&nbsp;      setFields = setFields.equal(serialization.valName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code val} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code val} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initVal(java.lang.String value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.valName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the {@code payload} map attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator, used to reset to empty object
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater clearPayload() {
+&nbsp;      setFields = setFields.equal(serialization.payloadName, false, Support.emptyBsonObject());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put the given key and value into the {@code payload} map attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator for nested objects
+&nbsp;     * @param key The key
+&nbsp;     * @param value The value
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater putPayload(java.lang.String key, int value) {
+&nbsp;      setFields = setFields.equal(serialization.payloadName + &quot;.&quot; + key, false, Support.writable(serialization.payloadSecondaryEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Remove the key to value mapping from the {@code payload} map attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to MongoDB {@code $unset} operator for nested objects
+&nbsp;     * @param key The key
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater removePayload(java.lang.String key) {
+&nbsp;      unsetFields = unsetFields.equal(serialization.payloadName + &quot;.&quot; + key, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to empty array
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater clearInts() {
+&nbsp;      setFields = setFields.equal(serialization.intsName, false, ImmutableList.&lt;Object&gt;of());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Remove a value from the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $pull} operator.
+&nbsp;     * @param value The value to remove
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater removeInts(int value) {
+&nbsp;      pullFields = pullFields.equal(serialization.intsName, false, Support.writable(serialization.intsEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add a value to the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator.
+&nbsp;     * @param value The value to add
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater addInts(int value) {
+&nbsp;      pushFields = pushFields.equal(serialization.intsName, false, Support.writable(serialization.intsEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Override all values of {@code ints} list attribute.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;Corresponds to the MongoDB {@code $set} operator on the array field.
+&nbsp;     * @param values The values to set
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;     public Updater setInts(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;       List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;       for (java.lang.Integer value : values) {
+&nbsp;         wrappedValues.add(Support.writable(serialization.intsEncoder, value));
+&nbsp;       }
+&nbsp;
+&nbsp;       setFields = setFields.equal(serialization.intsName, false, wrappedValues);
+&nbsp;       return this;
+&nbsp;     }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add all of the given values to the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator with the {@code $each} modifier.
+&nbsp;     * @param values The values to add
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater addAllInts(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.intsEncoder, value));
+&nbsp;      }
+&nbsp;      if (wrappedValues.isEmpty()) {
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      Object v = wrappedValues.size() == 1
+&nbsp;          ? wrappedValues.get(0)
+&nbsp;          : Support.bsonObjectAttribute(&quot;$each&quot;, wrappedValues);
+&nbsp;
+&nbsp;      pushFields = pushFields.equal(serialization.intsName, false, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code der} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code der} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setDer(UnsignedInteger value) {
+&nbsp;      setFields = setFields.equal(serialization.derName, false, Support.writable(serialization.derEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code der} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code der} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initDer(UnsignedInteger value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.derName, false, Support.writable(serialization.derEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Modifier extends Repositories.Modifier&lt;SillyEntity, Modifier&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Modifier(
+&nbsp;        SillyEntityRepository repository,
+&nbsp;        Constraints.ConstraintHost criteria,
+&nbsp;        Constraints.Constraint ordering,
+&nbsp;        Constraints.Constraint exclusion) {
+&nbsp;      super(repository);
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;      this.criteria = criteria;
+&nbsp;      this.ordering = ordering;
+&nbsp;      this.exclusion = exclusion;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code id} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code id} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setId(int value) {
+&nbsp;      setFields = setFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code id} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code id} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initId(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code id} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code id} attribute (may be negative)
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier incrementId(int increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.idName, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code val} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code val} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setVal(java.lang.String value) {
+&nbsp;      setFields = setFields.equal(serialization.valName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code val} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code val} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initVal(java.lang.String value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.valName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the {@code payload} map attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator, used to reset to empty object
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier clearPayload() {
+&nbsp;      setFields = setFields.equal(serialization.payloadName, false, Support.emptyBsonObject());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put the given key and value into the {@code payload} map attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator for nested objects
+&nbsp;     * @param key The key
+&nbsp;     * @param value The value
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier putPayload(java.lang.String key, int value) {
+&nbsp;      setFields = setFields.equal(serialization.payloadName + &quot;.&quot; + key, false, Support.writable(serialization.payloadSecondaryEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Remove the key to value mapping from the {@code payload} map attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to MongoDB {@code $unset} operator for nested objects
+&nbsp;     * @param key The key
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier removePayload(java.lang.String key) {
+&nbsp;      unsetFields = unsetFields.equal(serialization.payloadName + &quot;.&quot; + key, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to empty array
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier clearInts() {
+&nbsp;      setFields = setFields.equal(serialization.intsName, false, ImmutableList.&lt;Object&gt;of());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Remove a value from the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $pull} operator.
+&nbsp;     * @param value The value to remove
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier removeInts(int value) {
+&nbsp;      pullFields = pullFields.equal(serialization.intsName, false, Support.writable(serialization.intsEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add a value to the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator.
+&nbsp;     * @param value The value to add
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier addInts(int value) {
+&nbsp;      pushFields = pushFields.equal(serialization.intsName, false, Support.writable(serialization.intsEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Override all values of {@code ints} list attribute.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;Corresponds to the MongoDB {@code $set} operator on the array field.
+&nbsp;     * @param values The values to set
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;     public Modifier setInts(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;       List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;       for (java.lang.Integer value : values) {
+&nbsp;         wrappedValues.add(Support.writable(serialization.intsEncoder, value));
+&nbsp;       }
+&nbsp;
+&nbsp;       setFields = setFields.equal(serialization.intsName, false, wrappedValues);
+&nbsp;       return this;
+&nbsp;     }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add all of the given values to the {@code ints} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator with the {@code $each} modifier.
+&nbsp;     * @param values The values to add
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier addAllInts(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.intsEncoder, value));
+&nbsp;      }
+&nbsp;      if (wrappedValues.isEmpty()) {
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      Object v = wrappedValues.size() == 1
+&nbsp;          ? wrappedValues.get(0)
+&nbsp;          : Support.bsonObjectAttribute(&quot;$each&quot;, wrappedValues);
+&nbsp;
+&nbsp;      pushFields = pushFields.equal(serialization.intsName, false, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code der} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code der} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setDer(UnsignedInteger value) {
+&nbsp;      setFields = setFields.equal(serialization.derName, false, Support.writable(serialization.derEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code der} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code der} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initDer(UnsignedInteger value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.derName, false, Support.writable(serialization.derEncoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Replacer extends Repositories.Replacer&lt;SillyEntity, Replacer&gt; {
+&nbsp;    protected Replacer(SillyEntityRepository repository, SillyEntity document, Constraints.ConstraintHost criteria, Constraints.Constraint ordering) {
+&nbsp;      super(repository, document, criteria, ordering);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@link DBCollection#createIndex(DBObject, DBObject) Ensure an index} on collection sillyEntity by one or
+&nbsp;   * more attributes using the family of {@code with*()} attribute-specific methods.
+&nbsp;   * While indexes will usually be maintained by special administration scripts, for simple cases it is convenient
+&nbsp;   * to ensure an index on application startup.
+&nbsp;   * @see Indexer#named(String)
+&nbsp;   * @see Indexer#unique()
+&nbsp;   * @return An indexer object to be completed with the {@link Indexer#ensure()} operation.
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Indexer index() {
+&nbsp;    return new Indexer(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * An indexer used to create an index on the {@code &quot;sillyEntity&quot;} collection if it does not exist by one or more attributes.
+&nbsp;   * @see DBCollection#createIndex(DBObject, DBObject)
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Indexer extends Repositories.Indexer&lt;SillyEntity, Indexer&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Indexer(SillyEntityRepository repository) {
+&nbsp;      super(repository);
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#id() id}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withId() {
+&nbsp;      fields = fields.equal(serialization.idName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#id() id}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withIdDesceding() {
+&nbsp;      fields = fields.equal(serialization.idName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#val() val}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withVal() {
+&nbsp;      fields = fields.equal(serialization.valName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#val() val}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withValDesceding() {
+&nbsp;      fields = fields.equal(serialization.valName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#payload() payload}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withPayload() {
+&nbsp;      fields = fields.equal(serialization.payloadName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#payload() payload}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withPayloadDesceding() {
+&nbsp;      fields = fields.equal(serialization.payloadName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#ints() ints}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withInts() {
+&nbsp;      fields = fields.equal(serialization.intsName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#ints() ints}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withIntsDesceding() {
+&nbsp;      fields = fields.equal(serialization.intsName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#der() der}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withDer() {
+&nbsp;      fields = fields.equal(serialization.derName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyEntity#der() der}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withDerDesceding() {
+&nbsp;      fields = fields.equal(serialization.derName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Search criteria.
+&nbsp;   * Returns an initial object to create criteria by invoking methods that describe attribute specific constraints.
+&nbsp;   * @return An empty immutable criteria
+&nbsp;   */
+&nbsp;  public Criteria criteria() {
+&nbsp;    return anyCriteria;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Beta
+&nbsp;  Bson toBson(Criteria criteria) {
+&nbsp;    return Support.convertToBson(criteria.constraint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@code SillyEntityRepository.Criteria} is a SillyEntity document search query.
+&nbsp;   * Call methods on the criteria to add constraints for search queries.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @Immutable
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  public static final class Criteria extends Repositories.Criteria {
+&nbsp;    private final Constraints.Constraint constraint;
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    Criteria(Serialization serialization, Constraints.Constraint constraint) {
+&nbsp;      this.constraint = constraint;
+&nbsp;      this.serialization = serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria id(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.idName, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNot(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.idName, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idIn(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idIn(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotIn(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotIn(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idGreaterThan(int lower) {
+&nbsp;      return idIn(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idLessThan(int upper) {
+&nbsp;      return idIn(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idAtMost(int upperInclusive) {
+&nbsp;      return idIn(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idAtLeast(int lowerInclusive) {
+&nbsp;      return idIn(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idIn(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.idName, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotIn(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.idName, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria val(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.valName, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valNot(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.valName, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.valName, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.valName, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valNotIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.valName, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valNotIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.valName, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valStartsWith(String prefix) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.valName, false, Constraints.prefixPatternOf(prefix)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valMatches(Pattern pattern) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.valName, false, pattern));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valNotMatches(Pattern pattern) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.valName, true, pattern));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valGreaterThan(java.lang.String lower) {
+&nbsp;      return valIn(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valLessThan(java.lang.String upper) {
+&nbsp;      return valIn(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valAtMost(java.lang.String upperInclusive) {
+&nbsp;      return valIn(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valAtLeast(java.lang.String lowerInclusive) {
+&nbsp;      return valIn(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valIn(Range&lt;java.lang.String&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.valName, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria valNotIn(Range&lt;java.lang.String&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.valName, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria payload(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.payloadName, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria payloadNot(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.payloadName, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria payloadIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.payloadName, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria payloadIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.payloadName, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria payloadNotIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.payloadName, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria payloadNotIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.payloadName, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria intsEmpty() {
+&nbsp;      return new Criteria(serialization, constraint.size(serialization.intsName, false, 0));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria intsNonEmpty() {
+&nbsp;      return new Criteria(serialization, constraint.size(serialization.intsName, true, 0));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria intsSize(int size) {
+&nbsp;      return new Criteria(serialization, constraint.size(serialization.intsName, false, size));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria intsContains(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.intsName, false, Support.writable(serialization.intsEncoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria intsContainsAll(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.intsEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.nested(serialization.intsName, Constraints.nilConstraint().equal(&quot;$all&quot;, false, wrappedValues)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria der(UnsignedInteger value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.derName, false, Support.writable(serialization.derEncoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derNot(UnsignedInteger value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.derName, true, Support.writable(serialization.derEncoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derIn(Iterable&lt;UnsignedInteger&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (UnsignedInteger value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.derEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.derName, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derIn(UnsignedInteger first, UnsignedInteger second, UnsignedInteger... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.derEncoder, first));
+&nbsp;      values.add(Support.writable(serialization.derEncoder, second));
+&nbsp;      for (UnsignedInteger value : rest) {
+&nbsp;        values.add(Support.writable(serialization.derEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.derName, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derNotIn(Iterable&lt;UnsignedInteger&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (UnsignedInteger value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.derEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.derName, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derNotIn(UnsignedInteger first, UnsignedInteger second, UnsignedInteger... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.derEncoder, first));
+&nbsp;      values.add(Support.writable(serialization.derEncoder, second));
+&nbsp;      for (UnsignedInteger value : rest) {
+&nbsp;        values.add(Support.writable(serialization.derEncoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.derName, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derGreaterThan(UnsignedInteger lower) {
+&nbsp;      return derIn(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derLessThan(UnsignedInteger upper) {
+&nbsp;      return derIn(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derAtMost(UnsignedInteger upperInclusive) {
+&nbsp;      return derIn(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derAtLeast(UnsignedInteger lowerInclusive) {
+&nbsp;      return derIn(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derIn(Range&lt;UnsignedInteger&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.derName, false, Support.writable(serialization.derEncoder, range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria derNotIn(Range&lt;UnsignedInteger&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.derName, true, Support.writable(serialization.derEncoder, range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Criteria or() {
+&nbsp;      return new Criteria(serialization, constraint.disjunction());
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria with(Criteria criteria) {
+&nbsp;      return new Criteria(serialization, criteria.constraint.accept(constraint));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;SillyEntityRepository.criteria(&quot; + Support.stringify(constraint) + &quot;)&quot;;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  private static class Serialization {
+&nbsp;    final Encoder&lt;java.lang.Integer&gt; payloadSecondaryEncoder;
+&nbsp;    final Encoder&lt;java.lang.Integer&gt; intsEncoder;
+&nbsp;    final Encoder&lt;UnsignedInteger&gt; derEncoder;
+&nbsp;    final CodecRegistry registry;
+&nbsp;    final String idName;
+&nbsp;    final String valName;
+&nbsp;    final String payloadName;
+&nbsp;    final String intsName;
+&nbsp;    final String derName;
+&nbsp;
+&nbsp;    Serialization(CodecRegistry registry, RepositorySetup.FieldNamingStrategy fieldNamingStrategy) {
+&nbsp;      this.registry = registry;
+&nbsp;      this.payloadSecondaryEncoder = this.registry.get(java.lang.Integer.class);
+&nbsp;      this.intsEncoder = this.registry.get(java.lang.Integer.class);
+&nbsp;      this.derEncoder = this.registry.get(UnsignedInteger.class);
+&nbsp;      this.idName = &quot;_id&quot;;
+&nbsp;      this.valName = &quot;v&quot;;
+&nbsp;      this.payloadName = &quot;p&quot;;
+&nbsp;      this.intsName = &quot;i&quot;;
+&nbsp;      this.derName = translateName(fieldNamingStrategy, &quot;der&quot;);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Generated(from = &quot;SillyEntity&quot;, generator = &quot;Repositories&quot;)
+&nbsp;    static final class SillyEntityNamingFields {
+&nbsp;      public int id;
+&nbsp;      public java.lang.String val;
+&nbsp;      public Map&lt;java.lang.String, java.lang.Integer&gt; payload;
+&nbsp;      public List&lt;java.lang.Integer&gt; ints;
+&nbsp;      public UnsignedInteger der;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static String translateName(RepositorySetup.FieldNamingStrategy fieldNamingStrategy, String fieldName) {
+&nbsp;      try {
+&nbsp;        return fieldNamingStrategy.translateName(
+&nbsp;            SillyEntityNamingFields.class.getField(fieldName));
+&nbsp;      } catch (NoSuchFieldException noSuchField) {
+&nbsp;        throw new AssertionError(noSuchField);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,263 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OptionalMapEnabled</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.encoding.defs</a>
+</div>
+
+<h1>Coverage Summary for Class: OptionalMapEnabled (org.immutables.fixture.encoding.defs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">OptionalMapEnabled</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.encoding.defs;
+&nbsp;
+&nbsp;import org.immutables.encode.EncodingMetadata;
+&nbsp;
+&nbsp;@EncodingMetadata(
+&nbsp;  name = &quot;org.immutables.fixture.encoding.defs.OptionalMap&quot;,
+&nbsp;  imports = {
+&nbsp;  },
+&nbsp;  typeParams = {&quot;K&quot;, &quot;V&quot;},
+&nbsp;  elements = {
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;map&quot;,
+&nbsp;      tags = {&quot;IMPL&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableMap&lt;K, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;null&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;init&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FROM&quot;},
+&nbsp;      naming = &quot;*_init&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableMap&lt;K, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;map: java.util.Optional&lt;? extends java.util.Map&lt;K, V&gt;&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {&quot;@javax.annotation.Nullable&quot;},
+&nbsp;      code = &quot;{\r\nreturn @^map.isPresent()\r\n? com.google.common.collect.ImmutableMap.copyOf(@^map.get())\r\n: null;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;toString&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;TO_STRING&quot;},
+&nbsp;      naming = &quot;*_toString&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @:get().toString();\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;hashCode&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;HASH_CODE&quot;},
+&nbsp;      naming = &quot;*_hashCode&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn java.util.Objects.hashCode(@@map);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;equals&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;EQUALS&quot;},
+&nbsp;      naming = &quot;*_equals&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;boolean&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;obj: org.immutables.fixture.encoding.defs.OptionalMap&lt;K, V&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn java.util.Objects.equals(this.@@map, @^obj.@@map);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;build&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;BUILD&quot;},
+&nbsp;      naming = &quot;*_build&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableMap&lt;K, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {&quot;@javax.annotation.Nullable&quot;},
+&nbsp;      code = &quot;{\r\nreturn @@builder != null ? @@builder.build() : null;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;get&quot;,
+&nbsp;      tags = {&quot;EXPOSE&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.Optional&lt;java.util.Map&lt;K, V&gt;&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn java.util.Optional.&lt;java.util.Map&lt;@^K, @^V&gt;&gt;ofNullable(@@map);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;getImmutable&quot;,
+&nbsp;      tags = {&quot;EXPOSE&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.Optional&lt;com.google.common.collect.ImmutableMap&lt;K, V&gt;&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn java.util.Optional.ofNullable(@@map);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;optionalMap_copy&quot;,
+&nbsp;      tags = {&quot;COPY&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableMap&lt;K, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.Optional&lt;? extends java.util.Map&lt;K, V&gt;&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @:init(@^value);\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;builder&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_builder&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableMap.Builder&lt;K, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {&quot;@javax.annotation.Nullable&quot;},
+&nbsp;      code = &quot;null&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;nonnullBuilder&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;HELPER&quot;},
+&nbsp;      naming = &quot;*_nonnullBuilder&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;com.google.common.collect.ImmutableMap.Builder&lt;K, V&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn @@builder == null ? @@builder = com.google.common.collect.ImmutableMap.&lt;@^K, @^V&gt;builder() : @@builder;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;put&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;put*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;row: K&quot;, &quot;value: V&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\n@:nonnullBuilder().put(@^row, @^value);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;putAll&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;putAll*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;entries: java.util.Map&lt;? extends K, ? extends V&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\n@:nonnullBuilder().putAll(@^entries);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;set&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;, &quot;COPY&quot;},
+&nbsp;      naming = &quot;set*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;entries: java.util.Optional&lt;? extends java.util.Map&lt;K, V&gt;&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nthis.@@builder = null;\r\nif (@^entries.isPresent()) {\r\n@:nonnullBuilder().putAll(@^entries.get());\r\n}\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    )
+&nbsp;  }
+&nbsp;)
+&nbsp;public @interface OptionalMapEnabled {}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > InjectAnnotation</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.annotate</a>
+</div>
+
+<h1>Coverage Summary for Class: InjectAnnotation (org.immutables.annotate)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">InjectAnnotation$Where</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.annotate;
+&nbsp;
+&nbsp;import java.lang.annotation.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * Meta-annotation that if detected on the annotation, will turn target annotation into special
+&nbsp; * instruction to inject derived annotation code into target places. This annotated annotations -
+&nbsp; * directives are called &lt;em&gt;injection annotations&lt;/em&gt;, the derived annotation&#39;s code to be
+&nbsp; * inserted is called &lt;em&gt;target annotation&lt;/em&gt;. The injection annotations
+&nbsp; * themselves are to be placed on attributes, abstract value types or packages, impacting all
+&nbsp; * covered types and attributes for injection of target annotations (see {@link #type()},
+&nbsp; * {@link #code()}) into specified placed (see {@link Where}) of the generated classes.
+&nbsp; * &lt;h5&gt;Examples&lt;/h5&gt;
+&nbsp; * 1) Inject Deprecated into fields &quot;a&quot; and &quot;b&quot; of the generated class
+&nbsp; * 
+&nbsp; * &lt;pre&gt;
+&nbsp; * &amp;#64;InjectAnnotation(type = Deprecated.class, target = Where.FIELD)
+&nbsp; * &amp;#64;interface InjectDeprecated {}
+&nbsp; * 
+&nbsp; * &amp;#64;Value.Immutable
+&nbsp; * &amp;#64;InjectDeprecated
+&nbsp; * interface Val {
+&nbsp; *   int a();
+&nbsp; * 
+&nbsp; *   int b();
+&nbsp; * }
+&nbsp; * &lt;/pre&gt;
+&nbsp; * 
+&nbsp; * 2) Inject @TargetAnn(message=&quot;I&#39;m BUILDER&quot;, of=&quot;Val2&quot;) onto generated ImmutableVal2.Builder
+&nbsp; * 
+&nbsp; * &lt;pre&gt;
+&nbsp; * &amp;#64;interface TargetAnn {
+&nbsp; *   String message();
+&nbsp; * 
+&nbsp; *   String of();
+&nbsp; * }
+&nbsp; * 
+&nbsp; * &amp;#64;InjectAnnotation(type = TargetAnn.class, code = &quot;(message=[[echo]], of=\&quot;[[!name]]\&quot;)&quot;, target = Where.BUILDER_TYPE)
+&nbsp; * &amp;#64;interface InjectBuilderTarget {
+&nbsp; *   String echo();
+&nbsp; * }
+&nbsp; * 
+&nbsp; * &amp;#64;Value.Immutable
+&nbsp; * &amp;#64;InjectBuilderTarget(echo = &quot;I&#39;m BUILDER&quot;)
+&nbsp; * interface Val2 {
+&nbsp; *   int a();
+&nbsp; * }
+&nbsp; * &lt;/pre&gt;
+&nbsp; * 
+&nbsp; * 3) Inject Point(x = 2, y = 3) on field &quot;a&quot; and Point(x = 4, y = 5) on field &quot;b&quot;
+&nbsp; * 
+&nbsp; * &lt;pre&gt;
+&nbsp; * &amp;#64;interface Point {
+&nbsp; *   int x();
+&nbsp; * 
+&nbsp; *   int y();
+&nbsp; * }
+&nbsp; * 
+&nbsp; * &amp;#64;InjectAnnotation(code = &quot;@Point([[*]])&quot;, target = Where.FIELD)
+&nbsp; * // watch-out for the relative or qualified name when putting annotation name into code attribute
+&nbsp; * // that would be inserted and resolved from a generated code. Putting FQCN is recommended.
+&nbsp; * &amp;#64;interface PointInject {
+&nbsp; *   int x();
+&nbsp; * 
+&nbsp; *   int y();
+&nbsp; * }
+&nbsp; * 
+&nbsp; * &amp;#64;Value.Immutable
+&nbsp; * interface Val2 {
+&nbsp; *   &amp;#64;PointInject(x = 2, y = 3)
+&nbsp; *   String a();
+&nbsp; * 
+&nbsp; *   &amp;#64;PointInject(x = 4, y = 5)
+&nbsp; *   String b();
+&nbsp; * }
+&nbsp; * &lt;/pre&gt;
+&nbsp; */
+&nbsp;@Documented
+&nbsp;@Target(ElementType.ANNOTATION_TYPE)
+&nbsp;@Repeatable(InjectManyAnnotations.class)
+&nbsp;public @interface InjectAnnotation {
+&nbsp;  /**
+&nbsp;   * Used to specify whole source code for the annotation. Can specify whole target annotation(s)
+&nbsp;   * code or just attributes in parentheses and the {@code type} attribute will be used for the
+&nbsp;   * annotation fully qualified name.
+&nbsp;   * Special symbols can be used to further refine code of the annotation:
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;{@code [[*]]} inserts all attributes of defining annotation (the one which is annotated
+&nbsp;   * with {@code InjectAnnotation}) into target annotation code. Obviously those should match: be
+&nbsp;   * source-compatible. These will fully format attribute and literals, including commas between,
+&nbsp;   * but excluding any surrounding parentheses, so they can be mixed to non-overlapping hardcoded
+&nbsp;   * attributes.
+&nbsp;   * &lt;li&gt;{@code [[!name]]} inserts the simple name of the target attribute (or type) into annotation
+&nbsp;   * code, insertions are literal, without any quotes etc.
+&nbsp;   * &lt;li&gt;{@code [[*names]]} inserts the simple names of all attributes defined by abstract value
+&nbsp;   * type as as comma separated array initializer of quoted string literals. {@code {&quot;a&quot;, &quot;b&quot;, &quot;c&quot;}}
+&nbsp;   * &lt;li&gt;{@code [[}&lt;em&gt;attr_name&lt;/em&gt;{@code ]]} inserts source formatted value of injection
+&nbsp;   * annotation into code, where &lt;em&gt;attr_name&lt;/em&gt; is one of the name of injection annotation
+&nbsp;   * attributes.
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;If code includes {@literal @} symbol at the beginning, {@link #type()} would be ignored, if
+&nbsp;   * code does not includes annotation start symbol and {@link #type()} specified, then annotation
+&nbsp;   * symbol and type name would be prepended to the {@link #code()}, so code essentially can be used
+&nbsp;   * to override set of annotation attributes.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  String code() default &quot;&quot;;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Specify annotation type, this is an alternative to specifying {@link #code()}. All the
+&nbsp;   * attributes from the annotated annotation (the one which is annotated by
+&nbsp;   * {@link InjectAnnotation}) are placed on abstract value type or abstract attribute.
+&nbsp;   * Default value is {@code InjectAnnotation.class} which is just a placeholder for unspecified
+&nbsp;   * value.
+&nbsp;   * @see #code()
+&nbsp;   */
+&nbsp;  Class&lt;? extends Annotation&gt; type() default InjectAnnotation.class;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Enables special behavior when annotation is injected to {@link #target()} only if
+&nbsp;   * {@link #type()} is set and corresponding model element have the same annotation. {@link #code}
+&nbsp;   * expansion will still work and can override annotation type (if starts with full annotation
+&nbsp;   * definition).
+&nbsp;   * @return {@code true} if annotation insertion is triggered by the presence of the same
+&nbsp;   *         annotation on a model element.
+&nbsp;   */
+&nbsp;  boolean ifPresent() default false;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * The places where to put generated annotation. If annotation type have been specified by
+&nbsp;   * {@link #type()} (and is not overridden by #code()), then there will be element target check,
+&nbsp;   * otherwise (if fully specified by {@link #code()}) annotation will be always placed and it&#39;s
+&nbsp;   * better match to target element type.
+&nbsp;   */
+&nbsp;  Where[] target();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Unique key is used when there&#39;s a need to prevent putting multiple conflicting annotations on
+&nbsp;   * the element if it&#39;s covered by injection annotations. Putting it straight: when traversing all
+&nbsp;   * injection annotations (or as meta-annotations) which covers the element in question, starting
+&nbsp;   * from most specific to least specific, if there already was annotation injected by some key,
+&nbsp;   * the following annotations by the same key will be discarded.
+&nbsp;   * if not specified explicitly (empty string in the annotation attribute) the key will be
+&nbsp;   * auto-inferred as {@code type()} if specified or from code template string
+&nbsp;   */
+&nbsp;  String deduplicationKey() default &quot;&quot;;
+&nbsp;
+&nbsp;  /** Logical elements of generated code to which annotations can be applied to. */
+<b class="nc">&nbsp;  enum Where {</b>
+<b class="nc">&nbsp;    FIELD,</b>
+<b class="nc">&nbsp;    ACCESSOR,</b>
+<b class="nc">&nbsp;    SYNTHETIC_FIELDS,</b>
+<b class="nc">&nbsp;    CONSTRUCTOR_PARAMETER,</b>
+<b class="nc">&nbsp;    INITIALIZER,</b>
+<b class="nc">&nbsp;    ELEMENT_INITIALIZER,</b>
+<b class="nc">&nbsp;    BUILDER_TYPE,</b>
+<b class="nc">&nbsp;    IMMUTABLE_TYPE,</b>
+<b class="nc">&nbsp;    MODIFIABLE_TYPE,</b>
+&nbsp;    /** Constructor if public or a factory method constructor otherwise.  */
+<b class="nc">&nbsp;    CONSTRUCTOR,</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

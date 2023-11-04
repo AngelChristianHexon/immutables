@@ -1,0 +1,327 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableEcho</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">nonimmutables.bravo</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableEcho (nonimmutables.bravo)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableEcho$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package nonimmutables.bravo;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import nonimmutables.alpha.Charlie;
+&nbsp;import nonimmutables.alpha.ImmutableDelta;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Echo}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableEcho.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Echo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableEcho implements Echo {
+&nbsp;  private final ImmutableDelta delta;
+&nbsp;  private final nonimmutables.bravo.ImmutableDelta buelta;
+&nbsp;
+&nbsp;  private ImmutableEcho(ImmutableDelta delta, nonimmutables.bravo.ImmutableDelta buelta) {
+&nbsp;    this.delta = delta;
+&nbsp;    this.buelta = buelta;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code delta} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableDelta getDelta() {
+&nbsp;    return delta;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code buelta} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public nonimmutables.bravo.ImmutableDelta getBuelta() {
+&nbsp;    return buelta;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Echo#getDelta() delta} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for delta
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEcho withDelta(ImmutableDelta value) {
+&nbsp;    if (this.delta == value) return this;
+&nbsp;    ImmutableDelta newValue = Objects.requireNonNull(value, &quot;delta&quot;);
+&nbsp;    return new ImmutableEcho(newValue, this.buelta);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Echo#getBuelta() buelta} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for buelta
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEcho withBuelta(nonimmutables.bravo.ImmutableDelta value) {
+&nbsp;    if (this.buelta == value) return this;
+&nbsp;    nonimmutables.bravo.ImmutableDelta newValue = Objects.requireNonNull(value, &quot;buelta&quot;);
+&nbsp;    return new ImmutableEcho(this.delta, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableEcho} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableEcho
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableEcho) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableEcho another) {
+&nbsp;    return delta.equals(another.delta)
+&nbsp;        &amp;&amp; buelta.equals(another.buelta);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code delta}, {@code buelta}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + delta.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + buelta.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Echo} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Echo&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;delta&quot;, delta)
+&nbsp;        .add(&quot;buelta&quot;, buelta)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Echo} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Echo instance
+&nbsp;   */
+&nbsp;  public static ImmutableEcho copyOf(Echo instance) {
+&nbsp;    if (instance instanceof ImmutableEcho) {
+&nbsp;      return (ImmutableEcho) instance;
+&nbsp;    }
+&nbsp;    return ImmutableEcho.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableEcho ImmutableEcho}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableEcho.builder()
+&nbsp;   *    .delta(nonimmutables.alpha.ImmutableDelta) // required {@link Echo#getDelta() delta}
+&nbsp;   *    .buelta(nonimmutables.bravo.ImmutableDelta) // required {@link Echo#getBuelta() buelta}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableEcho builder
+&nbsp;   */
+&nbsp;  public static ImmutableEcho.Builder builder() {
+&nbsp;    return new ImmutableEcho.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableEcho ImmutableEcho}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Echo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_DELTA = 0x1L;
+&nbsp;    private static final long INIT_BIT_BUELTA = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable ImmutableDelta delta;
+&nbsp;    private @Nullable nonimmutables.bravo.ImmutableDelta buelta;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code nonimmutables.bravo.Echo} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Echo instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code nonimmutables.alpha.Charlie} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Charlie instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      @Var long bits = 0;
+&nbsp;      if (object instanceof Echo) {
+&nbsp;        Echo instance = (Echo) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          delta(instance.getDelta());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;        buelta(instance.getBuelta());
+&nbsp;      }
+&nbsp;      if (object instanceof Charlie) {
+&nbsp;        Charlie instance = (Charlie) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          delta(instance.getDelta());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Echo#getDelta() delta} attribute.
+&nbsp;     * @param delta The value for delta 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder delta(ImmutableDelta delta) {
+&nbsp;      this.delta = Objects.requireNonNull(delta, &quot;delta&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_DELTA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Echo#getBuelta() buelta} attribute.
+&nbsp;     * @param buelta The value for buelta 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder buelta(nonimmutables.bravo.ImmutableDelta buelta) {
+&nbsp;      this.buelta = Objects.requireNonNull(buelta, &quot;buelta&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_BUELTA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableEcho ImmutableEcho}.
+&nbsp;     * @return An immutable instance of Echo
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableEcho build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableEcho(delta, buelta);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_DELTA) != 0) attributes.add(&quot;delta&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_BUELTA) != 0) attributes.add(&quot;buelta&quot;);
+&nbsp;      return &quot;Cannot build Echo, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

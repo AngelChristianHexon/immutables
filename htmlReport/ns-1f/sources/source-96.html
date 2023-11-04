@@ -1,0 +1,334 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersSillyStructure</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersSillyStructure (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersSillyStructure$SillyStructureTypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.List;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;import org.immutables.fixture.subpack.SillySubstructure;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code SillyStructure}.
+&nbsp; * @see ImmutableSillyStructure
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;org.immutables.fixture&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersSillyStructure implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (SillyStructureTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new SillyStructureTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersSillyStructure(SillyStructure)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;SillyStructure&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class SillyStructureTypeAdapter extends TypeAdapter&lt;SillyStructure&gt; {
+&nbsp;    public final Integer opt3TypeSample = null;
+&nbsp;    public final SillySubstructure subs6TypeSample = null;
+&nbsp;    public final SillySubstructure nest7TypeSample = null;
+&nbsp;    public final SillyTuplie tup3TypeSample = null;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; opt3TypeAdapter;
+&nbsp;    private final TypeAdapter&lt;SillySubstructure&gt; subs6TypeAdapter;
+&nbsp;    private final TypeAdapter&lt;SillySubstructure&gt; nest7TypeAdapter;
+&nbsp;    private final TypeAdapter&lt;SillyTuplie&gt; tup3TypeAdapter;
+&nbsp;
+&nbsp;    SillyStructureTypeAdapter(Gson gson) {
+&nbsp;      this.opt3TypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;      this.subs6TypeAdapter = gson.getAdapter( SillySubstructure.class);
+&nbsp;      this.nest7TypeAdapter = gson.getAdapter( SillySubstructure.class);
+&nbsp;      this.tup3TypeAdapter = gson.getAdapter( SillyTuplie.class);
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return SillyStructure.class == type.getRawType()
+&nbsp;          || ImmutableSillyStructure.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, SillyStructure value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writeSillyStructure(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SillyStructure read(JsonReader in) throws IOException {
+&nbsp;      return readSillyStructure(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writeSillyStructure(JsonWriter out, SillyStructure instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      out.name(&quot;attr1&quot;);
+&nbsp;      out.value(instance.attr1());
+&nbsp;      out.name(&quot;flag2&quot;);
+&nbsp;      out.value(instance.flag2());
+&nbsp;      Optional&lt;Integer&gt; opt3Optional = instance.opt3();
+&nbsp;      if (opt3Optional.isPresent()) {
+&nbsp;        out.name(&quot;opt3&quot;);
+&nbsp;        Integer opt3Value = opt3Optional.get();
+&nbsp;        opt3TypeAdapter.write(out, opt3Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;opt3&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      out.name(&quot;very4&quot;);
+&nbsp;      out.value(instance.very4());
+&nbsp;      out.name(&quot;wet5&quot;);
+&nbsp;      out.value(instance.wet5());
+&nbsp;      List&lt;SillySubstructure&gt; subs6Elements = instance.subs6();
+&nbsp;      out.name(&quot;subs6&quot;);
+&nbsp;      out.beginArray();
+&nbsp;      for (SillySubstructure e : subs6Elements) {
+&nbsp;        subs6TypeAdapter.write(out, e);
+&nbsp;      }
+&nbsp;      out.endArray();
+&nbsp;      out.name(&quot;nest7&quot;);
+&nbsp;      nest7TypeAdapter.write(out, instance.nest7());
+&nbsp;      Optional&lt;SillyTuplie&gt; tup3Optional = instance.tup3();
+&nbsp;      if (tup3Optional.isPresent()) {
+&nbsp;        out.name(&quot;tup3&quot;);
+&nbsp;        SillyTuplie tup3Value = tup3Optional.get();
+&nbsp;        tup3TypeAdapter.write(out, tup3Value);
+&nbsp;      } else if (out.getSerializeNulls()) {
+&nbsp;        out.name(&quot;tup3&quot;);
+&nbsp;        out.nullValue();
+&nbsp;      }
+&nbsp;      out.name(&quot;int9&quot;);
+&nbsp;      out.value(instance.int9());
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  SillyStructure readSillyStructure(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutableSillyStructure.Builder builder = ImmutableSillyStructure.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;a&#39;:
+&nbsp;        if (&quot;attr1&quot;.equals(attributeName)) {
+&nbsp;          readInAttr1(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;f&#39;:
+&nbsp;        if (&quot;flag2&quot;.equals(attributeName)) {
+&nbsp;          readInFlag2(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;o&#39;:
+&nbsp;        if (&quot;opt3&quot;.equals(attributeName)) {
+&nbsp;          readInOpt3(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;v&#39;:
+&nbsp;        if (&quot;very4&quot;.equals(attributeName)) {
+&nbsp;          readInVery4(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;w&#39;:
+&nbsp;        if (&quot;wet5&quot;.equals(attributeName)) {
+&nbsp;          readInWet5(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;s&#39;:
+&nbsp;        if (&quot;subs6&quot;.equals(attributeName)) {
+&nbsp;          readInSubs6(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;n&#39;:
+&nbsp;        if (&quot;nest7&quot;.equals(attributeName)) {
+&nbsp;          readInNest7(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;t&#39;:
+&nbsp;        if (&quot;tup3&quot;.equals(attributeName)) {
+&nbsp;          readInTup3(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;i&#39;:
+&nbsp;        if (&quot;int9&quot;.equals(attributeName)) {
+&nbsp;          readInInt9(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInAttr1(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.attr1(in.nextString());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInFlag2(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.flag2(in.nextBoolean());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInOpt3(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        Integer value = opt3TypeAdapter.read(in);
+&nbsp;        builder.opt3(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInVery4(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.very4(in.nextLong());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInWet5(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.wet5(in.nextDouble());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInSubs6(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.BEGIN_ARRAY) {
+&nbsp;        in.beginArray();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          SillySubstructure value = subs6TypeAdapter.read(in);
+&nbsp;          builder.addSubs6(value);
+&nbsp;        }
+&nbsp;        in.endArray();
+&nbsp;      } else if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        SillySubstructure value = subs6TypeAdapter.read(in);
+&nbsp;        builder.addSubs6(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInNest7(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      SillySubstructure value = nest7TypeAdapter.read(in);
+&nbsp;      builder.nest7(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInTup3(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        SillyTuplie value = tup3TypeAdapter.read(in);
+&nbsp;        builder.tup3(value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInInt9(JsonReader in, ImmutableSillyStructure.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.int9(in.nextInt());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,387 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyInterned</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyInterned (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSillyInterned$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableSillyInterned$InternerHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableSillyInterned$InternProxy</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.Interner;
+&nbsp;import com.google.common.collect.Interners;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyInterned}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSillyInterned.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSillyInterned.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyInterned&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyInterned extends SillyInterned {
+&nbsp;  private final int arg1;
+&nbsp;  private final int arg2;
+&nbsp;
+&nbsp;  private ImmutableSillyInterned(int arg1, int arg2) {
+&nbsp;    this.arg1 = arg1;
+&nbsp;    this.arg2 = arg2;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillyInterned(ImmutableSillyInterned original, int arg1, int arg2) {
+&nbsp;    this.arg1 = arg1;
+&nbsp;    this.arg2 = arg2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code arg1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int arg1() {
+&nbsp;    return arg1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code arg2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int arg2() {
+&nbsp;    return arg2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyInterned#arg1() arg1} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for arg1
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyInterned withArg1(int value) {
+&nbsp;    if (this.arg1 == value) return this;
+&nbsp;    return validate(new ImmutableSillyInterned(this, value, this.arg2));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyInterned#arg2() arg2} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for arg2
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyInterned withArg2(int value) {
+&nbsp;    if (this.arg2 == value) return this;
+&nbsp;    return validate(new ImmutableSillyInterned(this, this.arg1, value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyInterned} that have equal attribute values.
+&nbsp;   * As instances of the {@code ImmutableSillyInterned} class are interned, the {@code equals} method is implemented
+&nbsp;   * as an efficient reference equality check.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    return this == another;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyInterned another) {
+&nbsp;    return arg1 == another.arg1
+&nbsp;        &amp;&amp; arg2 == another.arg2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code arg1}, {@code arg2}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + arg1;
+&nbsp;    h += (h &lt;&lt; 5) + arg2;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyInterned} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyInterned&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;arg1&quot;, arg1)
+&nbsp;        .add(&quot;arg2&quot;, arg2)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyInterned&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class InternProxy {
+&nbsp;    final ImmutableSillyInterned instance;
+&nbsp;
+&nbsp;    InternProxy(ImmutableSillyInterned instance) {
+&nbsp;      this.instance = instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      return another != null &amp;&amp; instance.equalTo(0, ((InternProxy) another).instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return instance.hashCode();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final class InternerHolder {
+<b class="nc">&nbsp;    static final Interner&lt;InternProxy&gt; INTERNER = Interners.newStrongInterner();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyInterned} instance.
+&nbsp;   * @param arg1 The value for the {@code arg1} attribute
+&nbsp;   * @param arg2 The value for the {@code arg2} attribute
+&nbsp;   * @return An immutable SillyInterned instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyInterned of(int arg1, int arg2) {
+&nbsp;    return validate(new ImmutableSillyInterned(arg1, arg2));
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableSillyInterned validate(ImmutableSillyInterned instance) {
+&nbsp;    return InternerHolder.INTERNER.intern(new InternProxy(instance)).instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyInterned} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyInterned instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyInterned copyOf(SillyInterned instance) {
+&nbsp;    if (instance instanceof ImmutableSillyInterned) {
+&nbsp;      return (ImmutableSillyInterned) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyInterned.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSillyInterned ImmutableSillyInterned}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSillyInterned.builder()
+&nbsp;   *    .arg1(int) // required {@link SillyInterned#arg1() arg1}
+&nbsp;   *    .arg2(int) // required {@link SillyInterned#arg2() arg2}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSillyInterned builder
+&nbsp;   */
+&nbsp;  public static ImmutableSillyInterned.Builder builder() {
+&nbsp;    return new ImmutableSillyInterned.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSillyInterned ImmutableSillyInterned}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyInterned&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ARG1 = 0x1L;
+&nbsp;    private static final long INIT_BIT_ARG2 = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int arg1;
+&nbsp;    private int arg2;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SillyInterned} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SillyInterned instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      arg1(instance.arg1());
+&nbsp;      arg2(instance.arg2());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyInterned#arg1() arg1} attribute.
+&nbsp;     * @param arg1 The value for arg1 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder arg1(int arg1) {
+&nbsp;      this.arg1 = arg1;
+&nbsp;      initBits &amp;= ~INIT_BIT_ARG1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyInterned#arg2() arg2} attribute.
+&nbsp;     * @param arg2 The value for arg2 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder arg2(int arg2) {
+&nbsp;      this.arg2 = arg2;
+&nbsp;      initBits &amp;= ~INIT_BIT_ARG2;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSillyInterned ImmutableSillyInterned}.
+&nbsp;     * @return An immutable instance of SillyInterned
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSillyInterned build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return ImmutableSillyInterned.validate(new ImmutableSillyInterned(null, arg1, arg2));
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ARG1) != 0) attributes.add(&quot;arg1&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ARG2) != 0) attributes.add(&quot;arg2&quot;);
+&nbsp;      return &quot;Cannot build SillyInterned, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

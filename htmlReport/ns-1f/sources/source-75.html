@@ -1,0 +1,279 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyTuplie</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyTuplie (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ImmutableSillyTuplie</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Floats;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyTuplie}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSillyTuplie.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyTuplie&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyTuplie extends SillyTuplie {
+&nbsp;  private final float float1;
+&nbsp;  private final Optional&lt;Byte&gt; opt2;
+&nbsp;  private final ImmutableSet&lt;Boolean&gt; set3;
+&nbsp;
+&nbsp;  private ImmutableSillyTuplie(
+&nbsp;      float float1,
+&nbsp;      Optional&lt;Byte&gt; opt2,
+&nbsp;      Iterable&lt;Boolean&gt; set3) {
+&nbsp;    this.float1 = float1;
+&nbsp;    this.opt2 = opt2;
+&nbsp;    this.set3 = ImmutableSet.copyOf(set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillyTuplie(
+&nbsp;      ImmutableSillyTuplie original,
+&nbsp;      float float1,
+&nbsp;      Optional&lt;Byte&gt; opt2,
+&nbsp;      ImmutableSet&lt;Boolean&gt; set3) {
+&nbsp;    this.float1 = float1;
+&nbsp;    this.opt2 = opt2;
+&nbsp;    this.set3 = set3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code float1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public float float1() {
+&nbsp;    return float1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code opt2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Byte&gt; opt2() {
+&nbsp;    return opt2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;Boolean&gt; set3() {
+&nbsp;    return set3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyTuplie#float1() float1} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for float1
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyTuplie withFloat1(float value) {
+&nbsp;    if (Float.floatToIntBits(this.float1) == Float.floatToIntBits(value)) return this;
+&nbsp;    return new ImmutableSillyTuplie(this, value, this.opt2, this.set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SillyTuplie#opt2() opt2} attribute.
+&nbsp;   * @param value The value for opt2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyTuplie withOpt2(byte value) {
+&nbsp;    Optional&lt;Byte&gt; newValue = Optional.of(value);
+&nbsp;    if (this.opt2.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyTuplie(this, this.float1, newValue, this.set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SillyTuplie#opt2() opt2} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for opt2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyTuplie withOpt2(Optional&lt;Byte&gt; optional) {
+&nbsp;    Optional&lt;Byte&gt; value = optional;
+&nbsp;    if (this.opt2.equals(value)) return this;
+&nbsp;    return new ImmutableSillyTuplie(this, this.float1, value, this.set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyTuplie#set3() set3}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyTuplie withSet3(boolean... elements) {
+&nbsp;    ImmutableSet&lt;Boolean&gt; newValue = ImmutableSet.copyOf(Booleans.asList(elements));
+&nbsp;    return new ImmutableSillyTuplie(this, this.float1, this.opt2, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyTuplie#set3() set3}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set3 elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyTuplie withSet3(Iterable&lt;Boolean&gt; elements) {
+&nbsp;    if (this.set3 == elements) return this;
+&nbsp;    ImmutableSet&lt;Boolean&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableSillyTuplie(this, this.float1, this.opt2, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyTuplie} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyTuplie
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyTuplie) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyTuplie another) {
+&nbsp;    return Float.floatToIntBits(float1) == Float.floatToIntBits(another.float1)
+&nbsp;        &amp;&amp; opt2.equals(another.opt2)
+&nbsp;        &amp;&amp; set3.equals(another.set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code float1}, {@code opt2}, {@code set3}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Floats.hashCode(float1);
+&nbsp;    h += (h &lt;&lt; 5) + opt2.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + set3.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyTuplie} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyTuplie&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;float1&quot;, float1)
+&nbsp;        .add(&quot;opt2&quot;, opt2.orNull())
+&nbsp;        .add(&quot;set3&quot;, set3)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyTuplie} instance.
+&nbsp;   * @param float1 The value for the {@code float1} attribute
+&nbsp;   * @param opt2 The value for the {@code opt2} attribute
+&nbsp;   * @param set3 The value for the {@code set3} attribute
+&nbsp;   * @return An immutable SillyTuplie instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyTuplie of(float float1, Optional&lt;Byte&gt; opt2, Set&lt;Boolean&gt; set3) {
+&nbsp;    return of(float1, opt2, (Iterable&lt;Boolean&gt;) set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyTuplie} instance.
+&nbsp;   * @param float1 The value for the {@code float1} attribute
+&nbsp;   * @param opt2 The value for the {@code opt2} attribute
+&nbsp;   * @param set3 The value for the {@code set3} attribute
+&nbsp;   * @return An immutable SillyTuplie instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyTuplie of(float float1, Optional&lt;Byte&gt; opt2, Iterable&lt;Boolean&gt; set3) {
+&nbsp;    return new ImmutableSillyTuplie(float1, opt2, set3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyTuplie} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyTuplie instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyTuplie copyOf(SillyTuplie instance) {
+&nbsp;    if (instance instanceof ImmutableSillyTuplie) {
+&nbsp;      return (ImmutableSillyTuplie) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyTuplie.of(instance.float1(), instance.opt2(), instance.set3());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

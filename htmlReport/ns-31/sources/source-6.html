@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > FromTypesModifiables</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: FromTypesModifiables (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">FromTypesModifiables$FromManyTypes</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FromTypesModifiables$FromType</td>
+  </tr>
+  <tr>
+    <td class="name">FromTypesModifiables$FromType$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">FromTypesModifiables$Iface</td>
+  </tr>
+  <tr>
+    <td class="name">FromTypesModifiables$NoFrom</td>
+  </tr>
+  <tr>
+    <td class="name">FromTypesModifiables$NoFrom$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;public interface FromTypesModifiables {
+&nbsp;
+&nbsp;  interface Iface {
+&nbsp;    boolean a();
+&nbsp;  }
+&nbsp;
+&nbsp;  // renaming from-&gt;mergeFrom is needed to test non-hardcoded resolution of from/mergeFrom methods
+&nbsp;  @Value.Immutable
+&nbsp;  @Value.Style(from = &quot;mergeFrom&quot;)
+&nbsp;  @Value.Modifiable
+&nbsp;  interface FromType {
+&nbsp;    int a();
+&nbsp;
+<b class="nc">&nbsp;    class Builder extends ImmutableFromType.Builder {}</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Immutable
+&nbsp;  @Value.Style(from = &quot;mergeFrom&quot;)
+&nbsp;  @Value.Modifiable
+<b class="nc">&nbsp;  public abstract class FromManyTypes implements Iface {</b>
+&nbsp;    public abstract int b();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Immutable
+&nbsp;  @Value.Style(from = &quot;&quot;, strictModifiable = false)
+&nbsp;  @Value.Modifiable
+&nbsp;  interface NoFrom {
+&nbsp;    int a();
+&nbsp;    String b();
+<b class="nc">&nbsp;    class Builder extends ImmutableNoFrom.Builder {}</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

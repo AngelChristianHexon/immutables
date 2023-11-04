@@ -1,0 +1,318 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > JeNcCustomEncl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.custann</a>
+</div>
+
+<h1>Coverage Summary for Class: JeNcCustomEncl (org.immutables.fixture.custann)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">JeNcCustomEncl$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">JeNcCustomEncl$Cuzt</td>
+  </tr>
+  <tr>
+    <td class="name">JeNcCustomEncl$Cuzt$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.custann;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link CustomEncl}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code JeNcCustomEncl.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;CustomEncl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class JeNcCustomEncl implements CustomEncl {
+&nbsp;
+&nbsp;  private JeNcCustomEncl(JeNcCustomEncl.Builder builder) {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code JeNcCustomEncl} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof JeNcCustomEncl
+&nbsp;        &amp;&amp; equalTo(0, (JeNcCustomEncl) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;MethodCanBeStatic&quot;)
+&nbsp;  private boolean equalTo(int synthetic, JeNcCustomEncl another) {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns a constant hash code value.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    return 1679999674;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code CustomEncl}.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;CustomEncl{}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link CustomEncl} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable CustomEncl instance
+&nbsp;   */
+&nbsp;  public static JeNcCustomEncl copyOf(CustomEncl instance) {
+&nbsp;    if (instance instanceof JeNcCustomEncl) {
+&nbsp;      return (JeNcCustomEncl) instance;
+&nbsp;    }
+&nbsp;    return JeNcCustomEncl.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link JeNcCustomEncl JeNcCustomEncl}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * JeNcCustomEncl.builder()
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new JeNcCustomEncl builder
+&nbsp;   */
+&nbsp;  public static JeNcCustomEncl.Builder builder() {
+&nbsp;    return new JeNcCustomEncl.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link JeNcCustomEncl JeNcCustomEncl}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;CustomEncl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code CustomEncl} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(CustomEncl instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link JeNcCustomEncl JeNcCustomEncl}.
+&nbsp;     * @return An immutable instance of CustomEncl
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public JeNcCustomEncl build() {
+&nbsp;      return new JeNcCustomEncl(this);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link CustomEncl.Cuzt}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code JeNcCustomEncl.Cuzt.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;CustomEncl.Cuzt&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class Cuzt implements CustomEncl.Cuzt {
+&nbsp;
+&nbsp;    private Cuzt(JeNcCustomEncl.Cuzt.Builder builder) {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Cuzt} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof JeNcCustomEncl.Cuzt
+&nbsp;          &amp;&amp; equalTo(0, (JeNcCustomEncl.Cuzt) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;MethodCanBeStatic&quot;)
+&nbsp;    private boolean equalTo(int synthetic, JeNcCustomEncl.Cuzt another) {
+&nbsp;      return true;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a constant hash code value.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return -127001890;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Cuzt}.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;Cuzt{}&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link CustomEncl.Cuzt} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Cuzt instance
+&nbsp;     */
+&nbsp;    public static JeNcCustomEncl.Cuzt copyOf(CustomEncl.Cuzt instance) {
+&nbsp;      if (instance instanceof JeNcCustomEncl.Cuzt) {
+&nbsp;        return (JeNcCustomEncl.Cuzt) instance;
+&nbsp;      }
+&nbsp;      return JeNcCustomEncl.Cuzt.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link JeNcCustomEncl.Cuzt Cuzt}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * JeNcCustomEncl.Cuzt.builder()
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new Cuzt builder
+&nbsp;     */
+&nbsp;    public static JeNcCustomEncl.Cuzt.Builder builder() {
+&nbsp;      return new JeNcCustomEncl.Cuzt.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link JeNcCustomEncl.Cuzt Cuzt}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;CustomEncl.Cuzt&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code Cuzt} instance.
+&nbsp;       * Regular attribute values will be replaced with those from the given instance.
+&nbsp;       * Absent optional values will not replace present values.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(CustomEncl.Cuzt instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link JeNcCustomEncl.Cuzt Cuzt}.
+&nbsp;       * @return An immutable instance of Cuzt
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public JeNcCustomEncl.Cuzt build() {
+&nbsp;        return new JeNcCustomEncl.Cuzt(this);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

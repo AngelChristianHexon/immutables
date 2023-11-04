@@ -1,0 +1,432 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Datatype</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.data</a>
+</div>
+
+<h1>Coverage Summary for Class: Datatype (org.immutables.data)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Datatype</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Datatype$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">Datatype$Feature</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Datatype$Feature$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Datatype$Violation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Datatype$Violation$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Datatype$Violation$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.data;
+&nbsp;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.reflect.TypeToken;
+&nbsp;import java.util.List;
+&nbsp;import java.util.NoSuchElementException;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;public interface Datatype&lt;T&gt; {
+&nbsp;  String name();
+&nbsp;
+&nbsp;  TypeToken&lt;T&gt; type();
+&nbsp;  
+&nbsp;  boolean isInline();
+&nbsp;  
+&nbsp;  List&lt;Feature&lt;T, ?&gt;&gt; features();
+&nbsp;
+&nbsp;  &lt;F&gt; F get(Feature&lt;T, F&gt; feature, T instance);
+&nbsp;  
+&nbsp;  boolean isInstantiable();
+&nbsp;
+&nbsp;  default Set&lt;Datatype&lt;? extends T&gt;&gt; cases() {
+<b class="nc">&nbsp;    return ImmutableSet.of();</b>
+&nbsp;  }
+&nbsp;  
+&nbsp;  Builder&lt;T&gt; builder();
+&nbsp;
+&nbsp;  interface Builder&lt;T&gt; {
+&nbsp;    List&lt;Violation&gt; verify();
+&nbsp;
+&nbsp;    &lt;F&gt; void set(Feature&lt;T, F&gt; feature, F value);
+&nbsp;
+&nbsp;    T build();
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Feature&lt;T, F&gt; {
+&nbsp;    int index();
+&nbsp;
+&nbsp;    boolean nullable();
+&nbsp;
+&nbsp;    String name();
+&nbsp;
+&nbsp;    TypeToken&lt;F&gt; type();
+&nbsp;
+&nbsp;    boolean supportsInput();
+&nbsp;
+&nbsp;    boolean supportsOutput();
+&nbsp;
+&nbsp;    boolean omittableOnInput();
+&nbsp;
+&nbsp;    boolean ignorableOnOutput();
+&nbsp;
+&nbsp;    static &lt;T, F&gt; Feature&lt;T, F&gt; of(
+&nbsp;        int index,
+&nbsp;        String owner,
+&nbsp;        String name,
+&nbsp;        TypeToken&lt;F&gt; type,
+&nbsp;        boolean nullable,
+&nbsp;        boolean setter,
+&nbsp;        boolean getter,
+&nbsp;        boolean omittable,
+&nbsp;        boolean ignorable) {
+<b class="nc">&nbsp;      return new Feature&lt;T, F&gt;() {</b>
+&nbsp;        @Override
+&nbsp;        public int index() {
+<b class="nc">&nbsp;          return index;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public boolean nullable() {
+<b class="nc">&nbsp;          return nullable;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String name() {
+<b class="nc">&nbsp;          return name;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public TypeToken&lt;F&gt; type() {
+<b class="nc">&nbsp;          return type;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public boolean supportsInput() {
+<b class="nc">&nbsp;          return setter;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public boolean supportsOutput() {
+<b class="nc">&nbsp;          return getter;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public boolean omittableOnInput() {
+<b class="nc">&nbsp;          return omittable;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public boolean ignorableOnOutput() {
+<b class="nc">&nbsp;          return ignorable;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String toString() {
+<b class="nc">&nbsp;          return String.format(&quot;%s.%s: %s%s(getter:%s,setter:%s,omittable:%s,ignorable:%s&quot;,</b>
+&nbsp;              owner,
+&nbsp;              name,
+&nbsp;              type,
+<b class="nc">&nbsp;              nullable ? &quot;?&quot; : &quot;&quot;,</b>
+<b class="nc">&nbsp;              getter,</b>
+<b class="nc">&nbsp;              setter,</b>
+<b class="nc">&nbsp;              omittable,</b>
+<b class="nc">&nbsp;              ignorable);</b>
+&nbsp;        }
+&nbsp;      };
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  default Feature&lt;T, ?&gt; feature(String name) {
+<b class="nc">&nbsp;    for (Feature&lt;T, ?&gt; f : features()) {</b>
+<b class="nc">&nbsp;      if (f.name().equals(name)) {</b>
+<b class="nc">&nbsp;        return f;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    throw new NoSuchElementException(name);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // runtime token check
+&nbsp;  default &lt;F&gt; Feature&lt;T, F&gt; feature(String name, TypeToken&lt;F&gt; type) {
+<b class="nc">&nbsp;    for (Feature&lt;T, ?&gt; f : features()) {</b>
+<b class="nc">&nbsp;      if (f.name().equals(name) &amp;&amp; f.type().equals(type)) {</b>
+<b class="nc">&nbsp;        return (Feature&lt;T, F&gt;) f;</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    throw new NoSuchElementException(name + &quot;: &quot; + type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Violation {
+&nbsp;    Optional&lt;Feature&lt;?, ?&gt;&gt; feature();
+&nbsp;
+&nbsp;    String rule();
+&nbsp;
+&nbsp;    String message();
+&nbsp;
+&nbsp;    static Violation of(String rule, String message, Feature&lt;?, ?&gt; setter) {
+<b class="nc">&nbsp;      return new Violation() {</b>
+&nbsp;        @Override
+&nbsp;        public Optional&lt;Feature&lt;?, ?&gt;&gt; feature() {
+<b class="nc">&nbsp;          return Optional.of(setter);</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String rule() {
+<b class="nc">&nbsp;          return rule;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String message() {
+<b class="nc">&nbsp;          return message;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String toString() {
+<b class="nc">&nbsp;          return String.format(&quot;&#39;%s&#39;: %s (%s)&quot;, setter.name(), message, rule);</b>
+&nbsp;        }
+&nbsp;      };
+&nbsp;    }
+&nbsp;
+&nbsp;    static Violation of(String rule, String message) {
+<b class="nc">&nbsp;      return new Violation() {</b>
+&nbsp;        @Override
+&nbsp;        public Optional&lt;Feature&lt;?, ?&gt;&gt; feature() {
+<b class="nc">&nbsp;          return Optional.empty();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String rule() {
+<b class="nc">&nbsp;          return rule;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String message() {
+<b class="nc">&nbsp;          return message;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @Override
+&nbsp;        public String toString() {
+<b class="nc">&nbsp;          return String.format(&quot;%s (%s)&quot;, message, rule);</b>
+&nbsp;        }
+&nbsp;      };
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

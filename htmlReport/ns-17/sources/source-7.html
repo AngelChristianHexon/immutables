@@ -1,0 +1,119 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AsyncMapper4</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository.async</a>
+</div>
+
+<h1>Coverage Summary for Class: AsyncMapper4 (org.immutables.criteria.repository.async)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">AsyncMapper4$DistinctLimitOffset</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMapper4$LimitOffset</td>
+  </tr>
+  <tr>
+    <td class="name">AsyncMapper4$Offset</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository.async;
+&nbsp;
+&nbsp;import org.immutables.criteria.repository.MapperFunction4;
+&nbsp;import org.immutables.criteria.repository.Tuple;
+&nbsp;
+&nbsp;import java.util.function.Function;
+&nbsp;
+&nbsp;public interface AsyncMapper4&lt;T1, T2, T3, T4&gt; {
+&nbsp;
+&nbsp;  &lt;R&gt; AsyncFetcher&lt;R&gt; map(MapperFunction4&lt;T1, T2, T3, T4, R&gt; mapFn);
+&nbsp;
+&nbsp;  &lt;R&gt; AsyncFetcher&lt;R&gt; map(Function&lt;? super Tuple, ? extends R&gt; mapFn);
+&nbsp;
+&nbsp;  interface DistinctLimitOffset&lt;T1, T2, T3, T4&gt; extends LimitOffset&lt;T1, T2, T3, T4&gt;, AsyncMapper4&lt;T1, T2, T3, T4&gt; {
+&nbsp;    AsyncMapper4.LimitOffset&lt;T1, T2, T3, T4&gt; distinct();
+&nbsp;  }
+&nbsp;
+&nbsp;  interface LimitOffset&lt;T1, T2, T3, T4&gt; extends Offset&lt;T1, T2, T3, T4&gt; {
+&nbsp;    AsyncMapper4.Offset&lt;T1, T2, T3, T4&gt; limit(long limit);
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Offset&lt;T1, T2, T3, T4&gt; extends AsyncMapper4&lt;T1, T2, T3, T4&gt; {
+&nbsp;    AsyncMapper4&lt;T1, T2, T3, T4&gt; offset(long offset);
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

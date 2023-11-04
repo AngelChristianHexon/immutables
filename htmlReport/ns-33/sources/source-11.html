@@ -1,0 +1,103 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > FromSupertypeNullable</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: FromSupertypeNullable (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">FromSupertypeNullable$Subtype</td>
+  </tr>
+  <tr>
+    <td class="name">FromSupertypeNullable$SuperA</td>
+  </tr>
+  <tr>
+    <td class="name">FromSupertypeNullable$SuperB</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import org.immutables.value.Value.Immutable;
+&nbsp;
+&nbsp;interface FromSupertypeNullable {
+&nbsp;
+&nbsp;  interface SuperA {
+&nbsp;    @Nullable
+&nbsp;    String a();
+&nbsp;  }
+&nbsp;
+&nbsp;  interface SuperB {
+&nbsp;    @Nullable
+&nbsp;    String b();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Immutable
+&nbsp;  interface Subtype extends SuperA, SuperB {
+&nbsp;    @Override
+&nbsp;    String a();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    String b();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,757 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOrderAttributeValue</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOrderAttributeValue (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOrderAttributeValue$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.ImmutableSortedMultiset;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import com.google.common.collect.Ordering;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OrderAttributeValue}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOrderAttributeValue.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OrderAttributeValue&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableOrderAttributeValue extends OrderAttributeValue {
+&nbsp;  private final ImmutableSortedSet&lt;Integer&gt; natural;
+&nbsp;  private final ImmutableSortedSet&lt;String&gt; reverse;
+&nbsp;  private final ImmutableSortedMap&lt;String, String&gt; reverseMap;
+&nbsp;  private final ImmutableSortedMap&lt;Integer, String&gt; navigableMap;
+&nbsp;  private final ImmutableSortedMultiset&lt;Integer&gt; naturalMultiset;
+&nbsp;  private final ImmutableSortedMultiset&lt;String&gt; reverseMultiset;
+&nbsp;
+&nbsp;  private ImmutableOrderAttributeValue(
+&nbsp;      ImmutableSortedSet&lt;Integer&gt; natural,
+&nbsp;      ImmutableSortedSet&lt;String&gt; reverse,
+&nbsp;      ImmutableSortedMap&lt;String, String&gt; reverseMap,
+&nbsp;      ImmutableSortedMap&lt;Integer, String&gt; navigableMap,
+&nbsp;      ImmutableSortedMultiset&lt;Integer&gt; naturalMultiset,
+&nbsp;      ImmutableSortedMultiset&lt;String&gt; reverseMultiset) {
+&nbsp;    this.natural = natural;
+&nbsp;    this.reverse = reverse;
+&nbsp;    this.reverseMap = reverseMap;
+&nbsp;    this.navigableMap = navigableMap;
+&nbsp;    this.naturalMultiset = naturalMultiset;
+&nbsp;    this.reverseMultiset = reverseMultiset;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code natural} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;Integer&gt; natural() {
+&nbsp;    return natural;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code reverse} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;String&gt; reverse() {
+&nbsp;    return reverse;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code reverseMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;String, String&gt; reverseMap() {
+&nbsp;    return reverseMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code navigableMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;Integer, String&gt; navigableMap() {
+&nbsp;    return navigableMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code naturalMultiset} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMultiset&lt;Integer&gt; naturalMultiset() {
+&nbsp;    return naturalMultiset;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code reverseMultiset} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMultiset&lt;String&gt; reverseMultiset() {
+&nbsp;    return reverseMultiset;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#natural() natural}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withNatural(int... elements) {
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        Ints.asList(elements));
+&nbsp;    return new ImmutableOrderAttributeValue(
+&nbsp;        newValue,
+&nbsp;        this.reverse,
+&nbsp;        this.reverseMap,
+&nbsp;        this.navigableMap,
+&nbsp;        this.naturalMultiset,
+&nbsp;        this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#natural() natural}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of natural elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withNatural(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.natural == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableOrderAttributeValue(
+&nbsp;        newValue,
+&nbsp;        this.reverse,
+&nbsp;        this.reverseMap,
+&nbsp;        this.navigableMap,
+&nbsp;        this.naturalMultiset,
+&nbsp;        this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#reverse() reverse}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withReverse(String... elements) {
+&nbsp;    ImmutableSortedSet&lt;String&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;String&gt;natural().reverse(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableOrderAttributeValue(
+&nbsp;        this.natural,
+&nbsp;        newValue,
+&nbsp;        this.reverseMap,
+&nbsp;        this.navigableMap,
+&nbsp;        this.naturalMultiset,
+&nbsp;        this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#reverse() reverse}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of reverse elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withReverse(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.reverse == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;String&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;String&gt;natural().reverse(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableOrderAttributeValue(
+&nbsp;        this.natural,
+&nbsp;        newValue,
+&nbsp;        this.reverseMap,
+&nbsp;        this.navigableMap,
+&nbsp;        this.naturalMultiset,
+&nbsp;        this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link OrderAttributeValue#reverseMap() reverseMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the reverseMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withReverseMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.reverseMap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;String, String&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;String&gt;natural().reverse()
+&nbsp;    );
+&nbsp;    return new ImmutableOrderAttributeValue(
+&nbsp;        this.natural,
+&nbsp;        this.reverse,
+&nbsp;        newValue,
+&nbsp;        this.navigableMap,
+&nbsp;        this.naturalMultiset,
+&nbsp;        this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link OrderAttributeValue#navigableMap() navigableMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the navigableMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withNavigableMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.navigableMap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;Integer, String&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;Integer&gt;natural()
+&nbsp;    );
+&nbsp;    return new ImmutableOrderAttributeValue(
+&nbsp;        this.natural,
+&nbsp;        this.reverse,
+&nbsp;        this.reverseMap,
+&nbsp;        newValue,
+&nbsp;        this.naturalMultiset,
+&nbsp;        this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#naturalMultiset() naturalMultiset}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withNaturalMultiset(int... elements) {
+&nbsp;    ImmutableSortedMultiset&lt;Integer&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        Ints.asList(elements));
+&nbsp;    return new ImmutableOrderAttributeValue(this.natural, this.reverse, this.reverseMap, this.navigableMap, newValue, this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#naturalMultiset() naturalMultiset}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of naturalMultiset elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withNaturalMultiset(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.naturalMultiset == elements) return this;
+&nbsp;    ImmutableSortedMultiset&lt;Integer&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableOrderAttributeValue(this.natural, this.reverse, this.reverseMap, this.navigableMap, newValue, this.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#reverseMultiset() reverseMultiset}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withReverseMultiset(String... elements) {
+&nbsp;    ImmutableSortedMultiset&lt;String&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;String&gt;natural().reverse(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableOrderAttributeValue(this.natural, this.reverse, this.reverseMap, this.navigableMap, this.naturalMultiset, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link OrderAttributeValue#reverseMultiset() reverseMultiset}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of reverseMultiset elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOrderAttributeValue withReverseMultiset(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.reverseMultiset == elements) return this;
+&nbsp;    ImmutableSortedMultiset&lt;String&gt; newValue = ImmutableSortedMultiset.copyOf(
+&nbsp;        Ordering.&lt;String&gt;natural().reverse(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableOrderAttributeValue(this.natural, this.reverse, this.reverseMap, this.navigableMap, this.naturalMultiset, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOrderAttributeValue} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOrderAttributeValue
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOrderAttributeValue) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOrderAttributeValue another) {
+&nbsp;    return natural.equals(another.natural)
+&nbsp;        &amp;&amp; reverse.equals(another.reverse)
+&nbsp;        &amp;&amp; reverseMap.equals(another.reverseMap)
+&nbsp;        &amp;&amp; navigableMap.equals(another.navigableMap)
+&nbsp;        &amp;&amp; naturalMultiset.equals(another.naturalMultiset)
+&nbsp;        &amp;&amp; reverseMultiset.equals(another.reverseMultiset);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code natural}, {@code reverse}, {@code reverseMap}, {@code navigableMap}, {@code naturalMultiset}, {@code reverseMultiset}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + natural.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + reverse.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + reverseMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navigableMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + naturalMultiset.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + reverseMultiset.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OrderAttributeValue} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OrderAttributeValue&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;natural&quot;, natural)
+&nbsp;        .add(&quot;reverse&quot;, reverse)
+&nbsp;        .add(&quot;reverseMap&quot;, reverseMap)
+&nbsp;        .add(&quot;navigableMap&quot;, navigableMap)
+&nbsp;        .add(&quot;naturalMultiset&quot;, naturalMultiset)
+&nbsp;        .add(&quot;reverseMultiset&quot;, reverseMultiset)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OrderAttributeValue} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OrderAttributeValue instance
+&nbsp;   */
+&nbsp;  public static ImmutableOrderAttributeValue copyOf(OrderAttributeValue instance) {
+&nbsp;    if (instance instanceof ImmutableOrderAttributeValue) {
+&nbsp;      return (ImmutableOrderAttributeValue) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOrderAttributeValue.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOrderAttributeValue ImmutableOrderAttributeValue}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOrderAttributeValue.builder()
+&nbsp;   *    .addNatural|addAllNatural(int) // {@link OrderAttributeValue#natural() natural} elements
+&nbsp;   *    .addReverse|addAllReverse(String) // {@link OrderAttributeValue#reverse() reverse} elements
+&nbsp;   *    .putReverseMap|putAllReverseMap(String =&amp;gt; String) // {@link OrderAttributeValue#reverseMap() reverseMap} mappings
+&nbsp;   *    .putNavigableMap|putAllNavigableMap(int =&amp;gt; String) // {@link OrderAttributeValue#navigableMap() navigableMap} mappings
+&nbsp;   *    .addNaturalMultiset|addAllNaturalMultiset(int) // {@link OrderAttributeValue#naturalMultiset() naturalMultiset} elements
+&nbsp;   *    .addReverseMultiset|addAllReverseMultiset(String) // {@link OrderAttributeValue#reverseMultiset() reverseMultiset} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableOrderAttributeValue builder
+&nbsp;   */
+&nbsp;  public static ImmutableOrderAttributeValue.Builder builder() {
+&nbsp;    return new ImmutableOrderAttributeValue.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOrderAttributeValue ImmutableOrderAttributeValue}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OrderAttributeValue&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableSortedSet.Builder&lt;Integer&gt; natural = ImmutableSortedSet.naturalOrder();
+&nbsp;    private ImmutableSortedSet.Builder&lt;String&gt; reverse = ImmutableSortedSet.reverseOrder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;String, String&gt; reverseMap = ImmutableSortedMap.reverseOrder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;Integer, String&gt; navigableMap = ImmutableSortedMap.naturalOrder();
+&nbsp;    private ImmutableSortedMultiset.Builder&lt;Integer&gt; naturalMultiset = ImmutableSortedMultiset.naturalOrder();
+&nbsp;    private ImmutableSortedMultiset.Builder&lt;String&gt; reverseMultiset = ImmutableSortedMultiset.reverseOrder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code OrderAttributeValue} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(OrderAttributeValue instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllNatural(instance.natural());
+&nbsp;      addAllReverse(instance.reverse());
+&nbsp;      putAllReverseMap(instance.reverseMap());
+&nbsp;      putAllNavigableMap(instance.navigableMap());
+&nbsp;      addAllNaturalMultiset(instance.naturalMultiset());
+&nbsp;      addAllReverseMultiset(instance.reverseMultiset());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link OrderAttributeValue#natural() natural} sortedSet.
+&nbsp;     * @param element A natural element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNatural(int element) {
+&nbsp;      this.natural.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#natural() natural} sortedSet.
+&nbsp;     * @param elements An array of natural elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNatural(int... elements) {
+&nbsp;      this.natural.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link OrderAttributeValue#natural() natural} sortedSet.
+&nbsp;     * @param elements An iterable of natural elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder natural(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.natural = ImmutableSortedSet.naturalOrder();
+&nbsp;      return addAllNatural(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#natural() natural} sortedSet.
+&nbsp;     * @param elements An iterable of natural elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNatural(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.natural.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link OrderAttributeValue#reverse() reverse} sortedSet.
+&nbsp;     * @param element A reverse element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addReverse(String element) {
+&nbsp;      this.reverse.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#reverse() reverse} sortedSet.
+&nbsp;     * @param elements An array of reverse elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addReverse(String... elements) {
+&nbsp;      this.reverse.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link OrderAttributeValue#reverse() reverse} sortedSet.
+&nbsp;     * @param elements An iterable of reverse elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder reverse(Iterable&lt;String&gt; elements) {
+&nbsp;      this.reverse = ImmutableSortedSet.reverseOrder();
+&nbsp;      return addAllReverse(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#reverse() reverse} sortedSet.
+&nbsp;     * @param elements An iterable of reverse elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllReverse(Iterable&lt;String&gt; elements) {
+&nbsp;      this.reverse.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link OrderAttributeValue#reverseMap() reverseMap} map.
+&nbsp;     * @param key The key in the reverseMap map
+&nbsp;     * @param value The associated value in the reverseMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putReverseMap(String key, String value) {
+&nbsp;      this.reverseMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link OrderAttributeValue#reverseMap() reverseMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putReverseMap(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      this.reverseMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link OrderAttributeValue#reverseMap() reverseMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the reverseMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder reverseMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.reverseMap = ImmutableSortedMap.reverseOrder();
+&nbsp;      return putAllReverseMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link OrderAttributeValue#reverseMap() reverseMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the reverseMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllReverseMap(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.reverseMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link OrderAttributeValue#navigableMap() navigableMap} map.
+&nbsp;     * @param key The key in the navigableMap map
+&nbsp;     * @param value The associated value in the navigableMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putNavigableMap(int key, String value) {
+&nbsp;      this.navigableMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link OrderAttributeValue#navigableMap() navigableMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putNavigableMap(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.navigableMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link OrderAttributeValue#navigableMap() navigableMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the navigableMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder navigableMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.navigableMap = ImmutableSortedMap.naturalOrder();
+&nbsp;      return putAllNavigableMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link OrderAttributeValue#navigableMap() navigableMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the navigableMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllNavigableMap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.navigableMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link OrderAttributeValue#naturalMultiset() naturalMultiset} sortedMultiset.
+&nbsp;     * @param element A naturalMultiset element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNaturalMultiset(int element) {
+&nbsp;      this.naturalMultiset.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#naturalMultiset() naturalMultiset} sortedMultiset.
+&nbsp;     * @param elements An array of naturalMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNaturalMultiset(int... elements) {
+&nbsp;      this.naturalMultiset.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link OrderAttributeValue#naturalMultiset() naturalMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of naturalMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder naturalMultiset(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.naturalMultiset = ImmutableSortedMultiset.naturalOrder();
+&nbsp;      return addAllNaturalMultiset(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#naturalMultiset() naturalMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of naturalMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNaturalMultiset(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.naturalMultiset.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link OrderAttributeValue#reverseMultiset() reverseMultiset} sortedMultiset.
+&nbsp;     * @param element A reverseMultiset element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addReverseMultiset(String element) {
+&nbsp;      this.reverseMultiset.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#reverseMultiset() reverseMultiset} sortedMultiset.
+&nbsp;     * @param elements An array of reverseMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addReverseMultiset(String... elements) {
+&nbsp;      this.reverseMultiset.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link OrderAttributeValue#reverseMultiset() reverseMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of reverseMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder reverseMultiset(Iterable&lt;String&gt; elements) {
+&nbsp;      this.reverseMultiset = ImmutableSortedMultiset.reverseOrder();
+&nbsp;      return addAllReverseMultiset(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link OrderAttributeValue#reverseMultiset() reverseMultiset} sortedMultiset.
+&nbsp;     * @param elements An iterable of reverseMultiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllReverseMultiset(Iterable&lt;String&gt; elements) {
+&nbsp;      this.reverseMultiset.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOrderAttributeValue ImmutableOrderAttributeValue}.
+&nbsp;     * @return An immutable instance of OrderAttributeValue
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOrderAttributeValue build() {
+&nbsp;      return new ImmutableOrderAttributeValue(
+&nbsp;          natural.build(),
+&nbsp;          reverse.build(),
+&nbsp;          reverseMap.build(),
+&nbsp;          navigableMap.build(),
+&nbsp;          naturalMultiset.build(),
+&nbsp;          reverseMultiset.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

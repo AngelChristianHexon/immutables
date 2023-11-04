@@ -30,6 +30,30 @@ public class SourceTypeTest {
     check(sourceTypes.getKey()).is("Map");
     check(sourceTypes.getValue()).isOf("String<X>", "Map<Int, B>");
   }
+  @Test
+  public void extractWithMultiCase() {
+    Entry<String, List<String>> sourceTypes1 = SourceTypes.extract("Map<String, Map<Int, B>('Test')>");
+    check(sourceTypes1.getKey()).is("Map");
+    check(sourceTypes1.getValue()).isOf("String", "Map<Int, B>('Test')");
+
+    Entry<String, List<String>> sourceTypes2 = SourceTypes.extract("List<Integer>");
+    check(sourceTypes2.getKey()).is("List");
+    check(sourceTypes2.getValue()).isOf("Integer");
+
+    Entry<String, List<String>> sourceTypes3 = SourceTypes.extract("Pair<\"String\", 'Character'>");
+    check(sourceTypes3.getKey()).is("Pair");
+    check(sourceTypes3.getValue()).isOf("\"String\"", "'Character'");
+
+    Entry<String, List<String>> sourceTypes4 = SourceTypes.extract("MyType");
+    check(sourceTypes4.getKey()).is("MyType");
+    check(sourceTypes4.getValue()).isEmpty();
+
+    Entry<String, List<String>> sourceTypes5 = SourceTypes.extract("Nested<Pair<String, Integer>>");
+    check(sourceTypes5.getKey()).is("Nested");
+    check(sourceTypes5.getValue()).isOf("Pair<String, Integer>");
+
+  }
+
 
   public void stringify() {
     Entry<String, List<String>> entry =

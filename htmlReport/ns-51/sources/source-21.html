@@ -1,0 +1,2527 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableEncodedElement</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableEncodedElement (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableEncodedElement$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodedElement$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodedElement$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodedElement$Param</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodedElement$TypeParam</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodedElement$TypeParam$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.generator.Naming;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link EncodedElement}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new EncodedElement.Builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;EncodedElement&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableEncodedElement extends EncodedElement {
+&nbsp;  private final String name;
+&nbsp;  private final Type type;
+&nbsp;  private final Naming naming;
+&nbsp;  private final ImmutableList&lt;EncodedElement.Param&gt; params;
+&nbsp;  private final ImmutableList&lt;Code.Term&gt; code;
+&nbsp;  private final ImmutableList&lt;Type&gt; thrown;
+&nbsp;  private final ImmutableSet&lt;EncodedElement.Tag&gt; tags;
+&nbsp;  private final Type.Parameters typeParameters;
+&nbsp;  private final ImmutableList&lt;EncodedElement.TypeParam&gt; typeParams;
+&nbsp;  private final ImmutableList&lt;String&gt; doc;
+&nbsp;  private final ImmutableList&lt;String&gt; annotations;
+&nbsp;  private final StandardNaming standardNaming;
+&nbsp;  private transient final Code.Binding asBinding;
+&nbsp;  private transient final boolean isToString;
+&nbsp;  private transient final boolean isHashCode;
+&nbsp;  private transient final boolean isEquals;
+&nbsp;  private transient final boolean isFrom;
+&nbsp;  private transient final boolean isBuild;
+&nbsp;  private transient final boolean isInit;
+&nbsp;  private transient final boolean isWasInit;
+&nbsp;  private transient final boolean isCopy;
+&nbsp;  private transient final boolean isBuilderCopy;
+&nbsp;  private transient final boolean isExpose;
+&nbsp;  private transient final boolean inBuilder;
+&nbsp;  private transient final boolean isStatic;
+&nbsp;  private transient final boolean isFinal;
+&nbsp;  private transient final boolean isPrivate;
+&nbsp;  private transient final boolean isSynthetic;
+&nbsp;  private transient final boolean isImplField;
+&nbsp;  private transient final boolean isValueField;
+&nbsp;  private transient final boolean isStaticField;
+&nbsp;  private transient final boolean isField;
+&nbsp;  private transient final boolean isBuilderField;
+&nbsp;  private transient final boolean isStaticMethod;
+&nbsp;  private transient final boolean isValueMethod;
+&nbsp;  private transient final boolean isBuilderMethod;
+&nbsp;  private transient final boolean isBuilderStaticField;
+&nbsp;  private transient final ImmutableList&lt;Code.Term&gt; oneLiner;
+&nbsp;  private transient final boolean usesThis;
+&nbsp;  private transient final boolean isInlinable;
+&nbsp;
+&nbsp;  private ImmutableEncodedElement(ImmutableEncodedElement.Builder builder) {
+&nbsp;    this.name = builder.name;
+&nbsp;    this.type = builder.type;
+&nbsp;    this.naming = builder.naming;
+&nbsp;    this.params = builder.params.build();
+&nbsp;    this.code = builder.code.build();
+&nbsp;    this.thrown = builder.thrown.build();
+&nbsp;    this.tags = Sets.immutableEnumSet(builder.tags.build());
+&nbsp;    this.typeParameters = builder.typeParameters;
+&nbsp;    this.typeParams = builder.typeParams.build();
+&nbsp;    this.doc = builder.doc.build();
+&nbsp;    this.annotations = builder.annotations.build();
+&nbsp;    if (builder.standardNamingIsSet()) {
+&nbsp;      initShim.standardNaming(builder.standardNaming);
+&nbsp;    }
+&nbsp;    this.standardNaming = initShim.standardNaming();
+&nbsp;    this.asBinding = initShim.asBinding();
+&nbsp;    this.isToString = initShim.isToString();
+&nbsp;    this.isHashCode = initShim.isHashCode();
+&nbsp;    this.isEquals = initShim.isEquals();
+&nbsp;    this.isFrom = initShim.isFrom();
+&nbsp;    this.isBuild = initShim.isBuild();
+&nbsp;    this.isInit = initShim.isInit();
+&nbsp;    this.isWasInit = initShim.isWasInit();
+&nbsp;    this.isCopy = initShim.isCopy();
+&nbsp;    this.isBuilderCopy = initShim.isBuilderCopy();
+&nbsp;    this.isExpose = initShim.isExpose();
+&nbsp;    this.inBuilder = initShim.inBuilder();
+&nbsp;    this.isStatic = initShim.isStatic();
+&nbsp;    this.isFinal = initShim.isFinal();
+&nbsp;    this.isPrivate = initShim.isPrivate();
+&nbsp;    this.isSynthetic = initShim.isSynthetic();
+&nbsp;    this.isImplField = initShim.isImplField();
+&nbsp;    this.isValueField = initShim.isValueField();
+&nbsp;    this.isStaticField = initShim.isStaticField();
+&nbsp;    this.isField = initShim.isField();
+&nbsp;    this.isBuilderField = initShim.isBuilderField();
+&nbsp;    this.isStaticMethod = initShim.isStaticMethod();
+&nbsp;    this.isValueMethod = initShim.isValueMethod();
+&nbsp;    this.isBuilderMethod = initShim.isBuilderMethod();
+&nbsp;    this.isBuilderStaticField = initShim.isBuilderStaticField();
+&nbsp;    this.oneLiner = initShim.oneLiner();
+&nbsp;    this.usesThis = initShim.usesThis();
+&nbsp;    this.isInlinable = initShim.isInlinable();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableEncodedElement(
+&nbsp;      String name,
+&nbsp;      Type type,
+&nbsp;      Naming naming,
+&nbsp;      ImmutableList&lt;EncodedElement.Param&gt; params,
+&nbsp;      ImmutableList&lt;Code.Term&gt; code,
+&nbsp;      ImmutableList&lt;Type&gt; thrown,
+&nbsp;      ImmutableSet&lt;EncodedElement.Tag&gt; tags,
+&nbsp;      Type.Parameters typeParameters,
+&nbsp;      ImmutableList&lt;EncodedElement.TypeParam&gt; typeParams,
+&nbsp;      ImmutableList&lt;String&gt; doc,
+&nbsp;      ImmutableList&lt;String&gt; annotations,
+&nbsp;      StandardNaming standardNaming) {
+&nbsp;    this.name = name;
+&nbsp;    this.type = type;
+&nbsp;    this.naming = naming;
+&nbsp;    this.params = params;
+&nbsp;    this.code = code;
+&nbsp;    this.thrown = thrown;
+&nbsp;    this.tags = tags;
+&nbsp;    this.typeParameters = typeParameters;
+&nbsp;    this.typeParams = typeParams;
+&nbsp;    this.doc = doc;
+&nbsp;    this.annotations = annotations;
+&nbsp;    initShim.standardNaming(standardNaming);
+&nbsp;    this.standardNaming = initShim.standardNaming();
+&nbsp;    this.asBinding = initShim.asBinding();
+&nbsp;    this.isToString = initShim.isToString();
+&nbsp;    this.isHashCode = initShim.isHashCode();
+&nbsp;    this.isEquals = initShim.isEquals();
+&nbsp;    this.isFrom = initShim.isFrom();
+&nbsp;    this.isBuild = initShim.isBuild();
+&nbsp;    this.isInit = initShim.isInit();
+&nbsp;    this.isWasInit = initShim.isWasInit();
+&nbsp;    this.isCopy = initShim.isCopy();
+&nbsp;    this.isBuilderCopy = initShim.isBuilderCopy();
+&nbsp;    this.isExpose = initShim.isExpose();
+&nbsp;    this.inBuilder = initShim.inBuilder();
+&nbsp;    this.isStatic = initShim.isStatic();
+&nbsp;    this.isFinal = initShim.isFinal();
+&nbsp;    this.isPrivate = initShim.isPrivate();
+&nbsp;    this.isSynthetic = initShim.isSynthetic();
+&nbsp;    this.isImplField = initShim.isImplField();
+&nbsp;    this.isValueField = initShim.isValueField();
+&nbsp;    this.isStaticField = initShim.isStaticField();
+&nbsp;    this.isField = initShim.isField();
+&nbsp;    this.isBuilderField = initShim.isBuilderField();
+&nbsp;    this.isStaticMethod = initShim.isStaticMethod();
+&nbsp;    this.isValueMethod = initShim.isValueMethod();
+&nbsp;    this.isBuilderMethod = initShim.isBuilderMethod();
+&nbsp;    this.isBuilderStaticField = initShim.isBuilderStaticField();
+&nbsp;    this.oneLiner = initShim.oneLiner();
+&nbsp;    this.usesThis = initShim.usesThis();
+&nbsp;    this.isInlinable = initShim.isInlinable();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;EncodedElement&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte standardNamingBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private StandardNaming standardNaming;
+&nbsp;
+&nbsp;    StandardNaming standardNaming() {
+&nbsp;      if (standardNamingBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (standardNamingBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        standardNamingBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.standardNaming = Objects.requireNonNull(ImmutableEncodedElement.super.standardNaming(), &quot;standardNaming&quot;);
+&nbsp;        standardNamingBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.standardNaming;
+&nbsp;    }
+&nbsp;
+&nbsp;    void standardNaming(StandardNaming standardNaming) {
+&nbsp;      this.standardNaming = standardNaming;
+&nbsp;      standardNamingBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte asBindingBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private Code.Binding asBinding;
+&nbsp;
+&nbsp;    Code.Binding asBinding() {
+&nbsp;      if (asBindingBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (asBindingBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        asBindingBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.asBinding = Objects.requireNonNull(ImmutableEncodedElement.super.asBinding(), &quot;asBinding&quot;);
+&nbsp;        asBindingBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.asBinding;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isToStringBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isToString;
+&nbsp;
+&nbsp;    boolean isToString() {
+&nbsp;      if (isToStringBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isToStringBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isToStringBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isToString = ImmutableEncodedElement.super.isToString();
+&nbsp;        isToStringBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isToString;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isHashCodeBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isHashCode;
+&nbsp;
+&nbsp;    boolean isHashCode() {
+&nbsp;      if (isHashCodeBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isHashCodeBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isHashCodeBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isHashCode = ImmutableEncodedElement.super.isHashCode();
+&nbsp;        isHashCodeBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isHashCode;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isEqualsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isEquals;
+&nbsp;
+&nbsp;    boolean isEquals() {
+&nbsp;      if (isEqualsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isEqualsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isEqualsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isEquals = ImmutableEncodedElement.super.isEquals();
+&nbsp;        isEqualsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isEquals;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isFromBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isFrom;
+&nbsp;
+&nbsp;    boolean isFrom() {
+&nbsp;      if (isFromBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isFromBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isFromBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isFrom = ImmutableEncodedElement.super.isFrom();
+&nbsp;        isFromBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isFrom;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isBuildBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isBuild;
+&nbsp;
+&nbsp;    boolean isBuild() {
+&nbsp;      if (isBuildBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isBuildBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isBuildBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isBuild = ImmutableEncodedElement.super.isBuild();
+&nbsp;        isBuildBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isBuild;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isInitBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isInit;
+&nbsp;
+&nbsp;    boolean isInit() {
+&nbsp;      if (isInitBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isInitBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isInitBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isInit = ImmutableEncodedElement.super.isInit();
+&nbsp;        isInitBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isInit;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isWasInitBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isWasInit;
+&nbsp;
+&nbsp;    boolean isWasInit() {
+&nbsp;      if (isWasInitBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isWasInitBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isWasInitBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isWasInit = ImmutableEncodedElement.super.isWasInit();
+&nbsp;        isWasInitBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isWasInit;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isCopyBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isCopy;
+&nbsp;
+&nbsp;    boolean isCopy() {
+&nbsp;      if (isCopyBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isCopyBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isCopyBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isCopy = ImmutableEncodedElement.super.isCopy();
+&nbsp;        isCopyBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isCopy;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isBuilderCopyBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isBuilderCopy;
+&nbsp;
+&nbsp;    boolean isBuilderCopy() {
+&nbsp;      if (isBuilderCopyBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isBuilderCopyBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isBuilderCopyBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isBuilderCopy = ImmutableEncodedElement.super.isBuilderCopy();
+&nbsp;        isBuilderCopyBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isBuilderCopy;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isExposeBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isExpose;
+&nbsp;
+&nbsp;    boolean isExpose() {
+&nbsp;      if (isExposeBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isExposeBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isExposeBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isExpose = ImmutableEncodedElement.super.isExpose();
+&nbsp;        isExposeBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isExpose;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte inBuilderBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean inBuilder;
+&nbsp;
+&nbsp;    boolean inBuilder() {
+&nbsp;      if (inBuilderBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (inBuilderBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        inBuilderBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.inBuilder = ImmutableEncodedElement.super.inBuilder();
+&nbsp;        inBuilderBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.inBuilder;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isStaticBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isStatic;
+&nbsp;
+&nbsp;    boolean isStatic() {
+&nbsp;      if (isStaticBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isStaticBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isStaticBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isStatic = ImmutableEncodedElement.super.isStatic();
+&nbsp;        isStaticBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isStatic;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isFinalBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isFinal;
+&nbsp;
+&nbsp;    boolean isFinal() {
+&nbsp;      if (isFinalBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isFinalBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isFinalBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isFinal = ImmutableEncodedElement.super.isFinal();
+&nbsp;        isFinalBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isFinal;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isPrivateBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isPrivate;
+&nbsp;
+&nbsp;    boolean isPrivate() {
+&nbsp;      if (isPrivateBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isPrivateBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isPrivateBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isPrivate = ImmutableEncodedElement.super.isPrivate();
+&nbsp;        isPrivateBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isPrivate;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isSyntheticBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isSynthetic;
+&nbsp;
+&nbsp;    boolean isSynthetic() {
+&nbsp;      if (isSyntheticBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isSyntheticBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isSyntheticBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isSynthetic = ImmutableEncodedElement.super.isSynthetic();
+&nbsp;        isSyntheticBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isSynthetic;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isImplFieldBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isImplField;
+&nbsp;
+&nbsp;    boolean isImplField() {
+&nbsp;      if (isImplFieldBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isImplFieldBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isImplFieldBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isImplField = ImmutableEncodedElement.super.isImplField();
+&nbsp;        isImplFieldBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isImplField;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isValueFieldBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isValueField;
+&nbsp;
+&nbsp;    boolean isValueField() {
+&nbsp;      if (isValueFieldBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isValueFieldBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isValueFieldBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isValueField = ImmutableEncodedElement.super.isValueField();
+&nbsp;        isValueFieldBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isValueField;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isStaticFieldBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isStaticField;
+&nbsp;
+&nbsp;    boolean isStaticField() {
+&nbsp;      if (isStaticFieldBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isStaticFieldBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isStaticFieldBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isStaticField = ImmutableEncodedElement.super.isStaticField();
+&nbsp;        isStaticFieldBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isStaticField;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isFieldBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isField;
+&nbsp;
+&nbsp;    boolean isField() {
+&nbsp;      if (isFieldBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isFieldBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isFieldBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isField = ImmutableEncodedElement.super.isField();
+&nbsp;        isFieldBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isField;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isBuilderFieldBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isBuilderField;
+&nbsp;
+&nbsp;    boolean isBuilderField() {
+&nbsp;      if (isBuilderFieldBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isBuilderFieldBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isBuilderFieldBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isBuilderField = ImmutableEncodedElement.super.isBuilderField();
+&nbsp;        isBuilderFieldBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isBuilderField;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isStaticMethodBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isStaticMethod;
+&nbsp;
+&nbsp;    boolean isStaticMethod() {
+&nbsp;      if (isStaticMethodBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isStaticMethodBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isStaticMethodBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isStaticMethod = ImmutableEncodedElement.super.isStaticMethod();
+&nbsp;        isStaticMethodBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isStaticMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isValueMethodBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isValueMethod;
+&nbsp;
+&nbsp;    boolean isValueMethod() {
+&nbsp;      if (isValueMethodBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isValueMethodBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isValueMethodBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isValueMethod = ImmutableEncodedElement.super.isValueMethod();
+&nbsp;        isValueMethodBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isValueMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isBuilderMethodBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isBuilderMethod;
+&nbsp;
+&nbsp;    boolean isBuilderMethod() {
+&nbsp;      if (isBuilderMethodBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isBuilderMethodBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isBuilderMethodBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isBuilderMethod = ImmutableEncodedElement.super.isBuilderMethod();
+&nbsp;        isBuilderMethodBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isBuilderMethod;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isBuilderStaticFieldBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isBuilderStaticField;
+&nbsp;
+&nbsp;    boolean isBuilderStaticField() {
+&nbsp;      if (isBuilderStaticFieldBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isBuilderStaticFieldBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isBuilderStaticFieldBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isBuilderStaticField = ImmutableEncodedElement.super.isBuilderStaticField();
+&nbsp;        isBuilderStaticFieldBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isBuilderStaticField;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte oneLinerBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableList&lt;Code.Term&gt; oneLiner;
+&nbsp;
+&nbsp;    ImmutableList&lt;Code.Term&gt; oneLiner() {
+&nbsp;      if (oneLinerBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (oneLinerBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        oneLinerBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.oneLiner = Objects.requireNonNull(ImmutableEncodedElement.super.oneLiner(), &quot;oneLiner&quot;);
+&nbsp;        oneLinerBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.oneLiner;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte usesThisBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean usesThis;
+&nbsp;
+&nbsp;    boolean usesThis() {
+&nbsp;      if (usesThisBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (usesThisBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        usesThisBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.usesThis = ImmutableEncodedElement.super.usesThis();
+&nbsp;        usesThisBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.usesThis;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isInlinableBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean isInlinable;
+&nbsp;
+&nbsp;    boolean isInlinable() {
+&nbsp;      if (isInlinableBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isInlinableBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isInlinableBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isInlinable = ImmutableEncodedElement.super.isInlinable();
+&nbsp;        isInlinableBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isInlinable;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (standardNamingBuildStage == STAGE_INITIALIZING) attributes.add(&quot;standardNaming&quot;);
+&nbsp;      if (asBindingBuildStage == STAGE_INITIALIZING) attributes.add(&quot;asBinding&quot;);
+&nbsp;      if (isToStringBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isToString&quot;);
+&nbsp;      if (isHashCodeBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isHashCode&quot;);
+&nbsp;      if (isEqualsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isEquals&quot;);
+&nbsp;      if (isFromBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isFrom&quot;);
+&nbsp;      if (isBuildBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isBuild&quot;);
+&nbsp;      if (isInitBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isInit&quot;);
+&nbsp;      if (isWasInitBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isWasInit&quot;);
+&nbsp;      if (isCopyBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isCopy&quot;);
+&nbsp;      if (isBuilderCopyBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isBuilderCopy&quot;);
+&nbsp;      if (isExposeBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isExpose&quot;);
+&nbsp;      if (inBuilderBuildStage == STAGE_INITIALIZING) attributes.add(&quot;inBuilder&quot;);
+&nbsp;      if (isStaticBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isStatic&quot;);
+&nbsp;      if (isFinalBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isFinal&quot;);
+&nbsp;      if (isPrivateBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isPrivate&quot;);
+&nbsp;      if (isSyntheticBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isSynthetic&quot;);
+&nbsp;      if (isImplFieldBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isImplField&quot;);
+&nbsp;      if (isValueFieldBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isValueField&quot;);
+&nbsp;      if (isStaticFieldBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isStaticField&quot;);
+&nbsp;      if (isFieldBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isField&quot;);
+&nbsp;      if (isBuilderFieldBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isBuilderField&quot;);
+&nbsp;      if (isStaticMethodBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isStaticMethod&quot;);
+&nbsp;      if (isValueMethodBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isValueMethod&quot;);
+&nbsp;      if (isBuilderMethodBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isBuilderMethod&quot;);
+&nbsp;      if (isBuilderStaticFieldBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isBuilderStaticField&quot;);
+&nbsp;      if (oneLinerBuildStage == STAGE_INITIALIZING) attributes.add(&quot;oneLiner&quot;);
+&nbsp;      if (usesThisBuildStage == STAGE_INITIALIZING) attributes.add(&quot;usesThis&quot;);
+&nbsp;      if (isInlinableBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isInlinable&quot;);
+&nbsp;      return &quot;Cannot build EncodedElement, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code name} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String name() {
+&nbsp;    return name;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code type} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Type type() {
+&nbsp;    return type;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code naming} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Naming naming() {
+&nbsp;    return naming;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code params} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;EncodedElement.Param&gt; params() {
+&nbsp;    return params;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code code} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;Code.Term&gt; code() {
+&nbsp;    return code;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code thrown} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;Type&gt; thrown() {
+&nbsp;    return thrown;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tags} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableSet&lt;EncodedElement.Tag&gt; tags() {
+&nbsp;    return tags;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code typeParameters} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Type.Parameters typeParameters() {
+&nbsp;    return typeParameters;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code typeParams} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;EncodedElement.TypeParam&gt; typeParams() {
+&nbsp;    return typeParams;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code doc} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;String&gt; doc() {
+&nbsp;    return doc;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code annotations} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;String&gt; annotations() {
+&nbsp;    return annotations;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code standardNaming} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  StandardNaming standardNaming() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.standardNaming()
+&nbsp;        : this.standardNaming;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code asBinding} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Code.Binding asBinding() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.asBinding()
+&nbsp;        : this.asBinding;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isToString} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isToString() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isToString()
+&nbsp;        : this.isToString;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isHashCode} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isHashCode() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isHashCode()
+&nbsp;        : this.isHashCode;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isEquals} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isEquals() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isEquals()
+&nbsp;        : this.isEquals;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isFrom} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isFrom() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isFrom()
+&nbsp;        : this.isFrom;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isBuild} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isBuild() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isBuild()
+&nbsp;        : this.isBuild;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isInit} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isInit() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isInit()
+&nbsp;        : this.isInit;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isWasInit} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isWasInit() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isWasInit()
+&nbsp;        : this.isWasInit;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isCopy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isCopy() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isCopy()
+&nbsp;        : this.isCopy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isBuilderCopy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isBuilderCopy() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isBuilderCopy()
+&nbsp;        : this.isBuilderCopy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isExpose} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isExpose() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isExpose()
+&nbsp;        : this.isExpose;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code inBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean inBuilder() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.inBuilder()
+&nbsp;        : this.inBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isStatic} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isStatic() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isStatic()
+&nbsp;        : this.isStatic;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isFinal} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isFinal() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isFinal()
+&nbsp;        : this.isFinal;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isPrivate} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isPrivate() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isPrivate()
+&nbsp;        : this.isPrivate;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isSynthetic} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isSynthetic() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isSynthetic()
+&nbsp;        : this.isSynthetic;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isImplField} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isImplField() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isImplField()
+&nbsp;        : this.isImplField;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isValueField} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isValueField() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isValueField()
+&nbsp;        : this.isValueField;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isStaticField} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isStaticField() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isStaticField()
+&nbsp;        : this.isStaticField;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isField} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isField() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isField()
+&nbsp;        : this.isField;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isBuilderField} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isBuilderField() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isBuilderField()
+&nbsp;        : this.isBuilderField;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isStaticMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isStaticMethod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isStaticMethod()
+&nbsp;        : this.isStaticMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isValueMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isValueMethod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isValueMethod()
+&nbsp;        : this.isValueMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isBuilderMethod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isBuilderMethod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isBuilderMethod()
+&nbsp;        : this.isBuilderMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isBuilderStaticField} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isBuilderStaticField() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isBuilderStaticField()
+&nbsp;        : this.isBuilderStaticField;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code oneLiner} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;Code.Term&gt; oneLiner() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.oneLiner()
+&nbsp;        : this.oneLiner;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code usesThis} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean usesThis() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.usesThis()
+&nbsp;        : this.usesThis;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isInlinable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isInlinable() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isInlinable()
+&nbsp;        : this.isInlinable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodedElement#name() name} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for name
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;    if (this.name.equals(newValue)) return this;
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        newValue,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodedElement#type() type} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for type
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withType(Type value) {
+&nbsp;    if (this.type == value) return this;
+&nbsp;    Type newValue = Objects.requireNonNull(value, &quot;type&quot;);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        newValue,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodedElement#naming() naming} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for naming
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withNaming(Naming value) {
+&nbsp;    if (this.naming == value) return this;
+&nbsp;    Naming newValue = Objects.requireNonNull(value, &quot;naming&quot;);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        newValue,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#params() params}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withParams(EncodedElement.Param... elements) {
+&nbsp;    ImmutableList&lt;EncodedElement.Param&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        newValue,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#params() params}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of params elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withParams(Iterable&lt;? extends EncodedElement.Param&gt; elements) {
+&nbsp;    if (this.params == elements) return this;
+&nbsp;    ImmutableList&lt;EncodedElement.Param&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        newValue,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#code() code}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withCode(Code.Term... elements) {
+&nbsp;    ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        newValue,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#code() code}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of code elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withCode(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;    if (this.code == elements) return this;
+&nbsp;    ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        newValue,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#thrown() thrown}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withThrown(Type... elements) {
+&nbsp;    ImmutableList&lt;Type&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        newValue,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#thrown() thrown}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of thrown elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withThrown(Iterable&lt;? extends Type&gt; elements) {
+&nbsp;    if (this.thrown == elements) return this;
+&nbsp;    ImmutableList&lt;Type&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        newValue,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#tags() tags}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withTags(EncodedElement.Tag... elements) {
+&nbsp;    ImmutableSet&lt;EncodedElement.Tag&gt; newValue = Sets.immutableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        newValue,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#tags() tags}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of tags elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withTags(Iterable&lt;EncodedElement.Tag&gt; elements) {
+&nbsp;    if (this.tags == elements) return this;
+&nbsp;    ImmutableSet&lt;EncodedElement.Tag&gt; newValue = Sets.immutableEnumSet(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        newValue,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodedElement#typeParameters() typeParameters} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for typeParameters
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withTypeParameters(Type.Parameters value) {
+&nbsp;    if (this.typeParameters == value) return this;
+&nbsp;    Type.Parameters newValue = Objects.requireNonNull(value, &quot;typeParameters&quot;);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        newValue,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#typeParams() typeParams}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withTypeParams(EncodedElement.TypeParam... elements) {
+&nbsp;    ImmutableList&lt;EncodedElement.TypeParam&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        newValue,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#typeParams() typeParams}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of typeParams elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withTypeParams(Iterable&lt;? extends EncodedElement.TypeParam&gt; elements) {
+&nbsp;    if (this.typeParams == elements) return this;
+&nbsp;    ImmutableList&lt;EncodedElement.TypeParam&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        newValue,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#doc() doc}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withDoc(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        newValue,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#doc() doc}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of doc elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withDoc(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.doc == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        newValue,
+&nbsp;        this.annotations,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#annotations() annotations}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withAnnotations(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        newValue,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodedElement#annotations() annotations}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of annotations elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withAnnotations(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.annotations == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        newValue,
+&nbsp;        this.standardNaming);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodedElement#standardNaming() standardNaming} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for standardNaming
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodedElement withStandardNaming(StandardNaming value) {
+&nbsp;    if (this.standardNaming == value) return this;
+&nbsp;    StandardNaming newValue = Objects.requireNonNull(value, &quot;standardNaming&quot;);
+&nbsp;    if (this.standardNaming.equals(newValue)) return this;
+&nbsp;    return new ImmutableEncodedElement(
+&nbsp;        this.name,
+&nbsp;        this.type,
+&nbsp;        this.naming,
+&nbsp;        this.params,
+&nbsp;        this.code,
+&nbsp;        this.thrown,
+&nbsp;        this.tags,
+&nbsp;        this.typeParameters,
+&nbsp;        this.typeParams,
+&nbsp;        this.doc,
+&nbsp;        this.annotations,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableEncodedElement} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableEncodedElement
+&nbsp;        &amp;&amp; equalTo((ImmutableEncodedElement) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableEncodedElement another) {
+&nbsp;    return name.equals(another.name)
+&nbsp;        &amp;&amp; type.equals(another.type)
+&nbsp;        &amp;&amp; naming.equals(another.naming)
+&nbsp;        &amp;&amp; params.equals(another.params)
+&nbsp;        &amp;&amp; code.equals(another.code)
+&nbsp;        &amp;&amp; thrown.equals(another.thrown)
+&nbsp;        &amp;&amp; tags.equals(another.tags)
+&nbsp;        &amp;&amp; typeParameters.equals(another.typeParameters)
+&nbsp;        &amp;&amp; typeParams.equals(another.typeParams)
+&nbsp;        &amp;&amp; doc.equals(another.doc)
+&nbsp;        &amp;&amp; annotations.equals(another.annotations)
+&nbsp;        &amp;&amp; standardNaming.equals(another.standardNaming)
+&nbsp;        &amp;&amp; asBinding.equals(another.asBinding)
+&nbsp;        &amp;&amp; isToString == another.isToString
+&nbsp;        &amp;&amp; isHashCode == another.isHashCode
+&nbsp;        &amp;&amp; isEquals == another.isEquals
+&nbsp;        &amp;&amp; isFrom == another.isFrom
+&nbsp;        &amp;&amp; isBuild == another.isBuild
+&nbsp;        &amp;&amp; isInit == another.isInit
+&nbsp;        &amp;&amp; isWasInit == another.isWasInit
+&nbsp;        &amp;&amp; isCopy == another.isCopy
+&nbsp;        &amp;&amp; isBuilderCopy == another.isBuilderCopy
+&nbsp;        &amp;&amp; isExpose == another.isExpose
+&nbsp;        &amp;&amp; inBuilder == another.inBuilder
+&nbsp;        &amp;&amp; isStatic == another.isStatic
+&nbsp;        &amp;&amp; isFinal == another.isFinal
+&nbsp;        &amp;&amp; isPrivate == another.isPrivate
+&nbsp;        &amp;&amp; isSynthetic == another.isSynthetic
+&nbsp;        &amp;&amp; isImplField == another.isImplField
+&nbsp;        &amp;&amp; isValueField == another.isValueField
+&nbsp;        &amp;&amp; isStaticField == another.isStaticField
+&nbsp;        &amp;&amp; isField == another.isField
+&nbsp;        &amp;&amp; isBuilderField == another.isBuilderField
+&nbsp;        &amp;&amp; isStaticMethod == another.isStaticMethod
+&nbsp;        &amp;&amp; isValueMethod == another.isValueMethod
+&nbsp;        &amp;&amp; isBuilderMethod == another.isBuilderMethod
+&nbsp;        &amp;&amp; isBuilderStaticField == another.isBuilderStaticField
+&nbsp;        &amp;&amp; oneLiner.equals(another.oneLiner)
+&nbsp;        &amp;&amp; usesThis == another.usesThis
+&nbsp;        &amp;&amp; isInlinable == another.isInlinable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code name}, {@code type}, {@code naming}, {@code params}, {@code code}, {@code thrown}, {@code tags}, {@code typeParameters}, {@code typeParams}, {@code doc}, {@code annotations}, {@code standardNaming}, {@code asBinding}, {@code isToString}, {@code isHashCode}, {@code isEquals}, {@code isFrom}, {@code isBuild}, {@code isInit}, {@code isWasInit}, {@code isCopy}, {@code isBuilderCopy}, {@code isExpose}, {@code inBuilder}, {@code isStatic}, {@code isFinal}, {@code isPrivate}, {@code isSynthetic}, {@code isImplField}, {@code isValueField}, {@code isStaticField}, {@code isField}, {@code isBuilderField}, {@code isStaticMethod}, {@code isValueMethod}, {@code isBuilderMethod}, {@code isBuilderStaticField}, {@code oneLiner}, {@code usesThis}, {@code isInlinable}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + type.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + naming.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + params.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + code.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + thrown.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + tags.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + typeParameters.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + typeParams.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + doc.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + annotations.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + standardNaming.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + asBinding.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isToString);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isHashCode);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isEquals);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isFrom);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isBuild);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isInit);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isWasInit);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isCopy);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isBuilderCopy);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isExpose);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(inBuilder);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isStatic);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isFinal);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isPrivate);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isSynthetic);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isImplField);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isValueField);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isStaticField);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isField);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isBuilderField);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isStaticMethod);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isValueMethod);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isBuilderMethod);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isBuilderStaticField);
+&nbsp;    h += (h &lt;&lt; 5) + oneLiner.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(usesThis);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isInlinable);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code EncodedElement} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;EncodedElement&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;name&quot;, name)
+&nbsp;        .add(&quot;type&quot;, type)
+&nbsp;        .add(&quot;naming&quot;, naming)
+&nbsp;        .add(&quot;params&quot;, params)
+&nbsp;        .add(&quot;code&quot;, code)
+&nbsp;        .add(&quot;thrown&quot;, thrown)
+&nbsp;        .add(&quot;tags&quot;, tags)
+&nbsp;        .add(&quot;typeParameters&quot;, typeParameters)
+&nbsp;        .add(&quot;typeParams&quot;, typeParams)
+&nbsp;        .add(&quot;doc&quot;, doc)
+&nbsp;        .add(&quot;annotations&quot;, annotations)
+&nbsp;        .add(&quot;standardNaming&quot;, standardNaming)
+&nbsp;        .add(&quot;asBinding&quot;, asBinding)
+&nbsp;        .add(&quot;isToString&quot;, isToString)
+&nbsp;        .add(&quot;isHashCode&quot;, isHashCode)
+&nbsp;        .add(&quot;isEquals&quot;, isEquals)
+&nbsp;        .add(&quot;isFrom&quot;, isFrom)
+&nbsp;        .add(&quot;isBuild&quot;, isBuild)
+&nbsp;        .add(&quot;isInit&quot;, isInit)
+&nbsp;        .add(&quot;isWasInit&quot;, isWasInit)
+&nbsp;        .add(&quot;isCopy&quot;, isCopy)
+&nbsp;        .add(&quot;isBuilderCopy&quot;, isBuilderCopy)
+&nbsp;        .add(&quot;isExpose&quot;, isExpose)
+&nbsp;        .add(&quot;inBuilder&quot;, inBuilder)
+&nbsp;        .add(&quot;isStatic&quot;, isStatic)
+&nbsp;        .add(&quot;isFinal&quot;, isFinal)
+&nbsp;        .add(&quot;isPrivate&quot;, isPrivate)
+&nbsp;        .add(&quot;isSynthetic&quot;, isSynthetic)
+&nbsp;        .add(&quot;isImplField&quot;, isImplField)
+&nbsp;        .add(&quot;isValueField&quot;, isValueField)
+&nbsp;        .add(&quot;isStaticField&quot;, isStaticField)
+&nbsp;        .add(&quot;isField&quot;, isField)
+&nbsp;        .add(&quot;isBuilderField&quot;, isBuilderField)
+&nbsp;        .add(&quot;isStaticMethod&quot;, isStaticMethod)
+&nbsp;        .add(&quot;isValueMethod&quot;, isValueMethod)
+&nbsp;        .add(&quot;isBuilderMethod&quot;, isBuilderMethod)
+&nbsp;        .add(&quot;isBuilderStaticField&quot;, isBuilderStaticField)
+&nbsp;        .add(&quot;oneLiner&quot;, oneLiner)
+&nbsp;        .add(&quot;usesThis&quot;, usesThis)
+&nbsp;        .add(&quot;isInlinable&quot;, isInlinable)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link EncodedElement} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable EncodedElement instance
+&nbsp;   */
+&nbsp;  public static EncodedElement copyOf(EncodedElement instance) {
+&nbsp;    if (instance instanceof ImmutableEncodedElement) {
+&nbsp;      return (ImmutableEncodedElement) instance;
+&nbsp;    }
+&nbsp;    return new EncodedElement.Builder()
+&nbsp;        .name(instance.name())
+&nbsp;        .type(instance.type())
+&nbsp;        .naming(instance.naming())
+&nbsp;        .addAllParams(instance.params())
+&nbsp;        .addAllCode(instance.code())
+&nbsp;        .addAllThrown(instance.thrown())
+&nbsp;        .addAllTags(instance.tags())
+&nbsp;        .typeParameters(instance.typeParameters())
+&nbsp;        .addAllTypeParams(instance.typeParams())
+&nbsp;        .addAllDoc(instance.doc())
+&nbsp;        .addAllAnnotations(instance.annotations())
+&nbsp;        .standardNaming(instance.standardNaming())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link EncodedElement EncodedElement}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;EncodedElement&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private static final long INIT_BIT_NAME = 0x1L;
+&nbsp;    private static final long INIT_BIT_TYPE = 0x2L;
+&nbsp;    private static final long INIT_BIT_NAMING = 0x4L;
+&nbsp;    private static final long INIT_BIT_TYPE_PARAMETERS = 0x8L;
+&nbsp;    private static final long OPT_BIT_STANDARD_NAMING = 0x1L;
+&nbsp;    private long initBits = 0xfL;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable String name;
+&nbsp;    private @Nullable Type type;
+&nbsp;    private @Nullable Naming naming;
+&nbsp;    private final ImmutableList.Builder&lt;EncodedElement.Param&gt; params = ImmutableList.builder();
+&nbsp;    private final ImmutableList.Builder&lt;Code.Term&gt; code = ImmutableList.builder();
+&nbsp;    private final ImmutableList.Builder&lt;Type&gt; thrown = ImmutableList.builder();
+&nbsp;    private final ImmutableSet.Builder&lt;EncodedElement.Tag&gt; tags = ImmutableSet.builder();
+&nbsp;    private @Nullable Type.Parameters typeParameters;
+&nbsp;    private final ImmutableList.Builder&lt;EncodedElement.TypeParam&gt; typeParams = ImmutableList.builder();
+&nbsp;    private final ImmutableList.Builder&lt;String&gt; doc = ImmutableList.builder();
+&nbsp;    private final ImmutableList.Builder&lt;String&gt; annotations = ImmutableList.builder();
+&nbsp;    private @Nullable StandardNaming standardNaming;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link EncodedElement EncodedElement} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new EncodedElement.Builder()
+&nbsp;     *    .name(String) // required {@link EncodedElement#name() name}
+&nbsp;     *    .type(org.immutables.value.processor.encode.Type) // required {@link EncodedElement#type() type}
+&nbsp;     *    .naming(org.immutables.generator.Naming) // required {@link EncodedElement#naming() naming}
+&nbsp;     *    .addParams|addAllParams(org.immutables.value.processor.encode.EncodedElement.Param) // {@link EncodedElement#params() params} elements
+&nbsp;     *    .addCode|addAllCode(org.immutables.value.processor.encode.Code.Term) // {@link EncodedElement#code() code} elements
+&nbsp;     *    .addThrown|addAllThrown(org.immutables.value.processor.encode.Type) // {@link EncodedElement#thrown() thrown} elements
+&nbsp;     *    .addTags|addAllTags(org.immutables.value.processor.encode.EncodedElement.Tag) // {@link EncodedElement#tags() tags} elements
+&nbsp;     *    .typeParameters(org.immutables.value.processor.encode.Type.Parameters) // required {@link EncodedElement#typeParameters() typeParameters}
+&nbsp;     *    .addTypeParams|addAllTypeParams(org.immutables.value.processor.encode.EncodedElement.TypeParam) // {@link EncodedElement#typeParams() typeParams} elements
+&nbsp;     *    .addDoc|addAllDoc(String) // {@link EncodedElement#doc() doc} elements
+&nbsp;     *    .addAnnotations|addAllAnnotations(String) // {@link EncodedElement#annotations() annotations} elements
+&nbsp;     *    .standardNaming(org.immutables.value.processor.encode.StandardNaming) // optional {@link EncodedElement#standardNaming() standardNaming}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof EncodedElement.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new EncodedElement.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodedElement#name() name} attribute.
+&nbsp;     * @param name The value for name 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder name(String name) {
+&nbsp;      checkNotIsSet(nameIsSet(), &quot;name&quot;);
+&nbsp;      this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_NAME;
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodedElement#type() type} attribute.
+&nbsp;     * @param type The value for type 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder type(Type type) {
+&nbsp;      checkNotIsSet(typeIsSet(), &quot;type&quot;);
+&nbsp;      this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE;
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodedElement#naming() naming} attribute.
+&nbsp;     * @param naming The value for naming 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder naming(Naming naming) {
+&nbsp;      checkNotIsSet(namingIsSet(), &quot;naming&quot;);
+&nbsp;      this.naming = Objects.requireNonNull(naming, &quot;naming&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_NAMING;
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#params() params} list.
+&nbsp;     * @param element A params element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addParams(EncodedElement.Param element) {
+&nbsp;      this.params.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#params() params} list.
+&nbsp;     * @param elements An array of params elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addParams(EncodedElement.Param... elements) {
+&nbsp;      this.params.add(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#params() params} list.
+&nbsp;     * @param elements An iterable of params elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllParams(Iterable&lt;? extends EncodedElement.Param&gt; elements) {
+&nbsp;      this.params.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#code() code} list.
+&nbsp;     * @param element A code element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addCode(Code.Term element) {
+&nbsp;      this.code.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#code() code} list.
+&nbsp;     * @param elements An array of code elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addCode(Code.Term... elements) {
+&nbsp;      this.code.add(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#code() code} list.
+&nbsp;     * @param elements An iterable of code elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllCode(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;      this.code.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#thrown() thrown} list.
+&nbsp;     * @param element A thrown element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addThrown(Type element) {
+&nbsp;      this.thrown.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#thrown() thrown} list.
+&nbsp;     * @param elements An array of thrown elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addThrown(Type... elements) {
+&nbsp;      this.thrown.add(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#thrown() thrown} list.
+&nbsp;     * @param elements An iterable of thrown elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllThrown(Iterable&lt;? extends Type&gt; elements) {
+&nbsp;      this.thrown.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#tags() tags} set.
+&nbsp;     * @param element A tags element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addTags(EncodedElement.Tag element) {
+&nbsp;      this.tags.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#tags() tags} set.
+&nbsp;     * @param elements An array of tags elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addTags(EncodedElement.Tag... elements) {
+&nbsp;      this.tags.addAll(Arrays.asList(elements));
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#tags() tags} set.
+&nbsp;     * @param elements An iterable of tags elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllTags(Iterable&lt;EncodedElement.Tag&gt; elements) {
+&nbsp;      this.tags.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodedElement#typeParameters() typeParameters} attribute.
+&nbsp;     * @param typeParameters The value for typeParameters 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder typeParameters(Type.Parameters typeParameters) {
+&nbsp;      checkNotIsSet(typeParametersIsSet(), &quot;typeParameters&quot;);
+&nbsp;      this.typeParameters = Objects.requireNonNull(typeParameters, &quot;typeParameters&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE_PARAMETERS;
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#typeParams() typeParams} list.
+&nbsp;     * @param element A typeParams element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addTypeParams(EncodedElement.TypeParam element) {
+&nbsp;      this.typeParams.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#typeParams() typeParams} list.
+&nbsp;     * @param elements An array of typeParams elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addTypeParams(EncodedElement.TypeParam... elements) {
+&nbsp;      this.typeParams.add(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#typeParams() typeParams} list.
+&nbsp;     * @param elements An iterable of typeParams elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllTypeParams(Iterable&lt;? extends EncodedElement.TypeParam&gt; elements) {
+&nbsp;      this.typeParams.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#doc() doc} list.
+&nbsp;     * @param element A doc element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addDoc(String element) {
+&nbsp;      this.doc.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#doc() doc} list.
+&nbsp;     * @param elements An array of doc elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addDoc(String... elements) {
+&nbsp;      this.doc.add(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#doc() doc} list.
+&nbsp;     * @param elements An iterable of doc elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllDoc(Iterable&lt;String&gt; elements) {
+&nbsp;      this.doc.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodedElement#annotations() annotations} list.
+&nbsp;     * @param element A annotations element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAnnotations(String element) {
+&nbsp;      this.annotations.add(element);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#annotations() annotations} list.
+&nbsp;     * @param elements An array of annotations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAnnotations(String... elements) {
+&nbsp;      this.annotations.add(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodedElement#annotations() annotations} list.
+&nbsp;     * @param elements An iterable of annotations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder addAllAnnotations(Iterable&lt;String&gt; elements) {
+&nbsp;      this.annotations.addAll(elements);
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodedElement#standardNaming() standardNaming} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link EncodedElement#standardNaming() standardNaming}.&lt;/em&gt;
+&nbsp;     * @param standardNaming The value for standardNaming 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodedElement.Builder standardNaming(StandardNaming standardNaming) {
+&nbsp;      checkNotIsSet(standardNamingIsSet(), &quot;standardNaming&quot;);
+&nbsp;      this.standardNaming = Objects.requireNonNull(standardNaming, &quot;standardNaming&quot;);
+&nbsp;      optBits |= OPT_BIT_STANDARD_NAMING;
+&nbsp;      return (EncodedElement.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link EncodedElement EncodedElement}.
+&nbsp;     * @return An immutable instance of EncodedElement
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public EncodedElement build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableEncodedElement(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean standardNamingIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_STANDARD_NAMING) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean nameIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_NAME) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean typeIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_TYPE) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean namingIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_NAMING) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean typeParametersIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_TYPE_PARAMETERS) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of EncodedElement is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!nameIsSet()) attributes.add(&quot;name&quot;);
+&nbsp;      if (!typeIsSet()) attributes.add(&quot;type&quot;);
+&nbsp;      if (!namingIsSet()) attributes.add(&quot;naming&quot;);
+&nbsp;      if (!typeParametersIsSet()) attributes.add(&quot;typeParameters&quot;);
+&nbsp;      return &quot;Cannot build EncodedElement, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link EncodedElement.Param}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the static factory method to create immutable instances:
+&nbsp;   * {@code ImmutableEncodedElement.Param.of()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;EncodedElement.Param&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  static final class Param extends EncodedElement.Param {
+&nbsp;    private final String name;
+&nbsp;    private final Type type;
+&nbsp;    private final ImmutableList&lt;String&gt; annotations;
+&nbsp;
+&nbsp;    private Param(
+&nbsp;        String name,
+&nbsp;        Type type,
+&nbsp;        Iterable&lt;String&gt; annotations) {
+&nbsp;      this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;      this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;      this.annotations = ImmutableList.copyOf(annotations);
+&nbsp;    }
+&nbsp;
+&nbsp;    private Param(
+&nbsp;        ImmutableEncodedElement.Param original,
+&nbsp;        String name,
+&nbsp;        Type type,
+&nbsp;        ImmutableList&lt;String&gt; annotations) {
+&nbsp;      this.name = name;
+&nbsp;      this.type = type;
+&nbsp;      this.annotations = annotations;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code name} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    String name() {
+&nbsp;      return name;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code type} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    Type type() {
+&nbsp;      return type;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code annotations} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;String&gt; annotations() {
+&nbsp;      return annotations;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link EncodedElement.Param#name() name} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for name
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.Param withName(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;      if (this.name.equals(newValue)) return this;
+&nbsp;      return new ImmutableEncodedElement.Param(this, newValue, this.type, this.annotations);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link EncodedElement.Param#type() type} attribute.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for type
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.Param withType(Type value) {
+&nbsp;      if (this.type == value) return this;
+&nbsp;      Type newValue = Objects.requireNonNull(value, &quot;type&quot;);
+&nbsp;      return new ImmutableEncodedElement.Param(this, this.name, newValue, this.annotations);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link EncodedElement.Param#annotations() annotations}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.Param withAnnotations(String... elements) {
+&nbsp;      ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableEncodedElement.Param(this, this.name, this.type, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link EncodedElement.Param#annotations() annotations}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of annotations elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.Param withAnnotations(Iterable&lt;String&gt; elements) {
+&nbsp;      if (this.annotations == elements) return this;
+&nbsp;      ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableEncodedElement.Param(this, this.name, this.type, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Param} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableEncodedElement.Param
+&nbsp;          &amp;&amp; equalTo((ImmutableEncodedElement.Param) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(ImmutableEncodedElement.Param another) {
+&nbsp;      return name.equals(another.name)
+&nbsp;          &amp;&amp; type.equals(another.type)
+&nbsp;          &amp;&amp; annotations.equals(another.annotations);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code name}, {@code type}, {@code annotations}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + type.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + annotations.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Param} instance.
+&nbsp;     * @param name The value for the {@code name} attribute
+&nbsp;     * @param type The value for the {@code type} attribute
+&nbsp;     * @param annotations The value for the {@code annotations} attribute
+&nbsp;     * @return An immutable Param instance
+&nbsp;     */
+&nbsp;    public static EncodedElement.Param of(String name, Type type, List&lt;String&gt; annotations) {
+&nbsp;      return of(name, type, (Iterable&lt;String&gt;) annotations);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Construct a new immutable {@code Param} instance.
+&nbsp;     * @param name The value for the {@code name} attribute
+&nbsp;     * @param type The value for the {@code type} attribute
+&nbsp;     * @param annotations The value for the {@code annotations} attribute
+&nbsp;     * @return An immutable Param instance
+&nbsp;     */
+&nbsp;    public static EncodedElement.Param of(String name, Type type, Iterable&lt;String&gt; annotations) {
+&nbsp;      return new ImmutableEncodedElement.Param(name, type, annotations);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link EncodedElement.Param} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Param instance
+&nbsp;     */
+&nbsp;    public static EncodedElement.Param copyOf(EncodedElement.Param instance) {
+&nbsp;      if (instance instanceof ImmutableEncodedElement.Param) {
+&nbsp;        return (ImmutableEncodedElement.Param) instance;
+&nbsp;      }
+&nbsp;      return ImmutableEncodedElement.Param.of(instance.name(), instance.type(), instance.annotations());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link EncodedElement.TypeParam}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code new EncodedElement.TypeParam.Builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;EncodedElement.TypeParam&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  static final class TypeParam extends EncodedElement.TypeParam {
+&nbsp;    private final String name;
+&nbsp;    private final ImmutableList&lt;Type.Defined&gt; bounds;
+&nbsp;
+&nbsp;    private TypeParam(
+&nbsp;        String name,
+&nbsp;        ImmutableList&lt;Type.Defined&gt; bounds) {
+&nbsp;      this.name = name;
+&nbsp;      this.bounds = bounds;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code name} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    String name() {
+&nbsp;      return name;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code bounds} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Type.Defined&gt; bounds() {
+&nbsp;      return bounds;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link EncodedElement.TypeParam#name() name} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for name
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.TypeParam withName(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;      if (this.name.equals(newValue)) return this;
+&nbsp;      return new ImmutableEncodedElement.TypeParam(newValue, this.bounds);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link EncodedElement.TypeParam#bounds() bounds}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.TypeParam withBounds(Type.Defined... elements) {
+&nbsp;      ImmutableList&lt;Type.Defined&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableEncodedElement.TypeParam(this.name, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link EncodedElement.TypeParam#bounds() bounds}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of bounds elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableEncodedElement.TypeParam withBounds(Iterable&lt;? extends Type.Defined&gt; elements) {
+&nbsp;      if (this.bounds == elements) return this;
+&nbsp;      ImmutableList&lt;Type.Defined&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableEncodedElement.TypeParam(this.name, newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code TypeParam} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableEncodedElement.TypeParam
+&nbsp;          &amp;&amp; equalTo((ImmutableEncodedElement.TypeParam) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(ImmutableEncodedElement.TypeParam another) {
+&nbsp;      return name.equals(another.name)
+&nbsp;          &amp;&amp; bounds.equals(another.bounds);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code name}, {@code bounds}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + bounds.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link EncodedElement.TypeParam} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable TypeParam instance
+&nbsp;     */
+&nbsp;    public static EncodedElement.TypeParam copyOf(EncodedElement.TypeParam instance) {
+&nbsp;      if (instance instanceof ImmutableEncodedElement.TypeParam) {
+&nbsp;        return (ImmutableEncodedElement.TypeParam) instance;
+&nbsp;      }
+&nbsp;      return new EncodedElement.TypeParam.Builder()
+&nbsp;          .name(instance.name())
+&nbsp;          .addAllBounds(instance.bounds())
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link EncodedElement.TypeParam TypeParam}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;EncodedElement.TypeParam&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static class Builder {
+&nbsp;      private static final long INIT_BIT_NAME = 0x1L;
+&nbsp;      private long initBits = 0x1L;
+&nbsp;
+&nbsp;      private @Nullable String name;
+&nbsp;      private final ImmutableList.Builder&lt;Type.Defined&gt; bounds = ImmutableList.builder();
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Creates a builder for {@link EncodedElement.TypeParam TypeParam} instances.
+&nbsp;       * &lt;pre&gt;
+&nbsp;       * new EncodedElement.TypeParam.Builder()
+&nbsp;       *    .name(String) // required {@link EncodedElement.TypeParam#name() name}
+&nbsp;       *    .addBounds|addAllBounds(org.immutables.value.processor.encode.Type.Defined) // {@link EncodedElement.TypeParam#bounds() bounds} elements
+&nbsp;       *    .build();
+&nbsp;       * &lt;/pre&gt;
+&nbsp;       */
+&nbsp;      public Builder() {
+&nbsp;        if (!(this instanceof EncodedElement.TypeParam.Builder)) {
+&nbsp;          throw new UnsupportedOperationException(&quot;Use: new EncodedElement.TypeParam.Builder()&quot;);
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link EncodedElement.TypeParam#name() name} attribute.
+&nbsp;       * @param name The value for name 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final EncodedElement.TypeParam.Builder name(String name) {
+&nbsp;        checkNotIsSet(nameIsSet(), &quot;name&quot;);
+&nbsp;        this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;        initBits &amp;= ~INIT_BIT_NAME;
+&nbsp;        return (EncodedElement.TypeParam.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link EncodedElement.TypeParam#bounds() bounds} list.
+&nbsp;       * @param element A bounds element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final EncodedElement.TypeParam.Builder addBounds(Type.Defined element) {
+&nbsp;        this.bounds.add(element);
+&nbsp;        return (EncodedElement.TypeParam.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link EncodedElement.TypeParam#bounds() bounds} list.
+&nbsp;       * @param elements An array of bounds elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final EncodedElement.TypeParam.Builder addBounds(Type.Defined... elements) {
+&nbsp;        this.bounds.add(elements);
+&nbsp;        return (EncodedElement.TypeParam.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link EncodedElement.TypeParam#bounds() bounds} list.
+&nbsp;       * @param elements An iterable of bounds elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final EncodedElement.TypeParam.Builder addAllBounds(Iterable&lt;? extends Type.Defined&gt; elements) {
+&nbsp;        this.bounds.addAll(elements);
+&nbsp;        return (EncodedElement.TypeParam.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link EncodedElement.TypeParam TypeParam}.
+&nbsp;       * @return An immutable instance of TypeParam
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public EncodedElement.TypeParam build() {
+&nbsp;        checkRequiredAttributes();
+&nbsp;        return new ImmutableEncodedElement.TypeParam(name, bounds.build());
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean nameIsSet() {
+&nbsp;        return (initBits &amp; INIT_BIT_NAME) == 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;        if (isSet) throw new IllegalStateException(&quot;Builder of TypeParam is strict, attribute is already set: &quot;.concat(name));
+&nbsp;      }
+&nbsp;
+&nbsp;      private void checkRequiredAttributes() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (!nameIsSet()) attributes.add(&quot;name&quot;);
+&nbsp;        return &quot;Cannot build TypeParam, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

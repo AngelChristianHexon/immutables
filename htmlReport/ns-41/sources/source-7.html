@@ -1,0 +1,532 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Parser</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Parser (org.immutables.generator.processor)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Parser</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/54)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/176)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator.processor;
+&nbsp;
+&nbsp;import org.immutables.trees.ast.Extractions;
+&nbsp;import org.immutables.generator.processor.TreesAst.SimpleAccessExpression;
+&nbsp;import org.immutables.generator.processor.TreesAst.ApplyExpression;
+&nbsp;import org.immutables.generator.processor.TreesAst.AssignGenerator;
+&nbsp;import org.immutables.generator.processor.TreesAst.Comment;
+&nbsp;import org.immutables.generator.processor.TreesAst.Else;
+&nbsp;import org.immutables.generator.processor.TreesAst.ElseIf;
+&nbsp;import org.immutables.generator.processor.TreesAst.For;
+&nbsp;import org.immutables.generator.processor.TreesAst.ForEnd;
+&nbsp;import org.immutables.generator.processor.TreesAst.ForIterationAccessExpression;
+&nbsp;import org.immutables.generator.processor.TreesAst.Identifier;
+&nbsp;import org.immutables.generator.processor.TreesAst.If;
+&nbsp;import org.immutables.generator.processor.TreesAst.IfEnd;
+&nbsp;import org.immutables.generator.processor.TreesAst.InvokableDeclaration;
+&nbsp;import org.immutables.generator.processor.TreesAst.Invoke;
+&nbsp;import org.immutables.generator.processor.TreesAst.InvokeEnd;
+&nbsp;import org.immutables.generator.processor.TreesAst.InvokeString;
+&nbsp;import org.immutables.generator.processor.TreesAst.IterationGenerator;
+&nbsp;import org.immutables.generator.processor.TreesAst.Let;
+&nbsp;import org.immutables.generator.processor.TreesAst.LetEnd;
+&nbsp;import org.immutables.generator.processor.TreesAst.Newline;
+&nbsp;import org.immutables.generator.processor.TreesAst.Parameter;
+&nbsp;import org.immutables.generator.processor.TreesAst.StringLiteral;
+&nbsp;import org.immutables.generator.processor.TreesAst.Template;
+&nbsp;import org.immutables.generator.processor.TreesAst.TextBlock;
+&nbsp;import org.immutables.generator.processor.TreesAst.TextFragment;
+&nbsp;import org.immutables.generator.processor.TreesAst.TransformGenerator;
+&nbsp;import org.immutables.generator.processor.TreesAst.TypeDeclaration;
+&nbsp;import org.immutables.generator.processor.TreesAst.TypeIdentifier;
+&nbsp;import org.immutables.generator.processor.TreesAst.Unit;
+&nbsp;import org.immutables.generator.processor.TreesAst.ValueDeclaration;
+&nbsp;import org.parboiled.BaseParser;
+&nbsp;import org.parboiled.Rule;
+&nbsp;import org.parboiled.annotations.DontLabel;
+&nbsp;import org.parboiled.annotations.ExplicitActionsOnly;
+&nbsp;import org.parboiled.annotations.MemoMismatches;
+&nbsp;import org.parboiled.annotations.SuppressNode;
+&nbsp;import org.parboiled.annotations.SuppressSubnodes;
+&nbsp;
+&nbsp;@ExplicitActionsOnly
+<b class="nc">&nbsp;public class Parser extends BaseParser&lt;Object&gt; {</b>
+&nbsp;
+&nbsp;  public Rule Unit() {
+<b class="nc">&nbsp;    return Sequence(Unit.builder(),</b>
+<b class="nc">&nbsp;        Spacing(),</b>
+<b class="nc">&nbsp;        OneOrMore(Sequence(</b>
+<b class="nc">&nbsp;            FirstOf(</b>
+<b class="nc">&nbsp;                OpeningDirective(Comment()),</b>
+<b class="nc">&nbsp;                TemplateDirective()), Unit.addParts(),</b>
+<b class="nc">&nbsp;            Spacing())),</b>
+<b class="nc">&nbsp;        EOI, Unit.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Comment() {
+<b class="nc">&nbsp;    return Sequence(COMMENT, Optional(TextBlock(), Extractions.popped()), Comment.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TextBlock() {
+<b class="nc">&nbsp;    return Sequence(TextBlock.builder(),</b>
+<b class="nc">&nbsp;        TextFragment(), TextBlock.addParts(TextFragment.of()),</b>
+<b class="nc">&nbsp;        ZeroOrMore(Sequence(</b>
+<b class="nc">&nbsp;            Newline(), TextBlock.addParts(Newline.of()),</b>
+<b class="nc">&nbsp;            TextFragment(), TextBlock.addParts(TextFragment.of()))),</b>
+<b class="nc">&nbsp;        TextBlock.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TemplateDirective() {
+<b class="nc">&nbsp;    return Sequence(Template.builder(),</b>
+<b class="nc">&nbsp;        TemplateStart(),</b>
+<b class="nc">&nbsp;        TemplateBody(),</b>
+<b class="nc">&nbsp;        TemplateEnd(), Template.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TemplateStart() {
+<b class="nc">&nbsp;    return OpeningDirective(Template());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TemplateEnd() {
+<b class="nc">&nbsp;    return ClosingDirective(TEMPLATE);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TemplateBody() {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        TextBlock(), Template.addParts(),</b>
+<b class="nc">&nbsp;        ZeroOrMore(</b>
+<b class="nc">&nbsp;        Sequence(</b>
+<b class="nc">&nbsp;            Directive(), Template.addParts(),</b>
+<b class="nc">&nbsp;            TextBlock(), Template.addParts())));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule DirectiveStart() {
+<b class="nc">&nbsp;    return OpeningDirective(FirstOf(</b>
+<b class="nc">&nbsp;        Comment(),</b>
+<b class="nc">&nbsp;        Let(),</b>
+<b class="nc">&nbsp;        If(),</b>
+<b class="nc">&nbsp;        ElseIf(),</b>
+<b class="nc">&nbsp;        Else(),</b>
+<b class="nc">&nbsp;        For(),</b>
+<b class="nc">&nbsp;        InvokeString(),</b>
+<b class="nc">&nbsp;        InvokeStart()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule InvokeString() {
+<b class="nc">&nbsp;    return Sequence(StringLiteral(), InvokeString.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule InvokeEnd() {
+<b class="nc">&nbsp;    return Sequence(AccessExpression(), InvokeEnd.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule InvokeStart() {
+<b class="nc">&nbsp;    return Sequence(Invoke.builder(),</b>
+<b class="nc">&nbsp;        AccessExpression(), Invoke.access(),</b>
+<b class="nc">&nbsp;        Optional(Expression(), Invoke.invoke()),</b>
+<b class="nc">&nbsp;        Invoke.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule DirectiveEnd() {
+<b class="nc">&nbsp;    return ClosingDirective(FirstOf(</b>
+<b class="nc">&nbsp;        IfEnd(),</b>
+<b class="nc">&nbsp;        LetEnd(),</b>
+<b class="nc">&nbsp;        ForEnd(),</b>
+<b class="nc">&nbsp;        InvokeEnd()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule IfEnd() {
+<b class="nc">&nbsp;    return Sequence(IF, IfEnd.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule LetEnd() {
+<b class="nc">&nbsp;    return Sequence(LET, LetEnd.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ForEnd() {
+<b class="nc">&nbsp;    return Sequence(FOR, ForEnd.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Directive() {
+<b class="nc">&nbsp;    return FirstOf(</b>
+<b class="nc">&nbsp;        DirectiveEnd(),</b>
+<b class="nc">&nbsp;        DirectiveStart());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule OpeningDirective(Rule directive) {
+<b class="nc">&nbsp;    return Sequence(&quot;[&quot;, directive, &quot;]&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ClosingDirective(Rule directive) {
+<b class="nc">&nbsp;    return Sequence(&quot;[/&quot;, directive, &quot;]&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Parens(Rule expression) {
+<b class="nc">&nbsp;    return Sequence(Literal(&quot;(&quot;), expression, Literal(&quot;)&quot;));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule AccessExpression() {
+<b class="nc">&nbsp;    return Sequence(SimpleAccessExpression.builder(),</b>
+<b class="nc">&nbsp;        Identifier(), SimpleAccessExpression.addPath(),</b>
+<b class="nc">&nbsp;        ZeroOrMore(Sequence(DOT,</b>
+<b class="nc">&nbsp;            Identifier(), SimpleAccessExpression.addPath())),</b>
+<b class="nc">&nbsp;        SimpleAccessExpression.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule GeneratorDeclaration() {
+<b class="nc">&nbsp;    return FirstOf(</b>
+<b class="nc">&nbsp;        TransformGenerator(),</b>
+<b class="nc">&nbsp;        AssignGenerator(),</b>
+<b class="nc">&nbsp;        IterationGenerator());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule IterationGenerator() {
+<b class="nc">&nbsp;    return Sequence(IterationGenerator.builder(),</b>
+<b class="nc">&nbsp;        ValueDeclaration(), IterationGenerator.declaration(),</b>
+&nbsp;        IN,
+<b class="nc">&nbsp;        Expression(), IterationGenerator.from(),</b>
+<b class="nc">&nbsp;        Optional(IF, Expression(), IterationGenerator.condition()),</b>
+<b class="nc">&nbsp;        IterationGenerator.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule AssignGenerator() {
+<b class="nc">&nbsp;    return Sequence(AssignGenerator.builder(),</b>
+<b class="nc">&nbsp;        ValueDeclaration(), AssignGenerator.declaration(),</b>
+&nbsp;        ASSIGN,
+<b class="nc">&nbsp;        Expression(), AssignGenerator.from(),</b>
+<b class="nc">&nbsp;        AssignGenerator.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TransformGenerator() {
+<b class="nc">&nbsp;    return Sequence(TransformGenerator.builder(),</b>
+<b class="nc">&nbsp;        ValueDeclaration(), TransformGenerator.declaration(),</b>
+&nbsp;        ASSIGN,
+<b class="nc">&nbsp;        Expression(), TransformGenerator.transform(),</b>
+&nbsp;        FOR,
+<b class="nc">&nbsp;        ValueDeclaration(), TransformGenerator.varDeclaration(),</b>
+&nbsp;        IN,
+<b class="nc">&nbsp;        Expression(), TransformGenerator.from(),</b>
+<b class="nc">&nbsp;        Optional(IF, Expression(), TransformGenerator.condition()),</b>
+<b class="nc">&nbsp;        TransformGenerator.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @DontLabel
+&nbsp;  Rule DisambiguatedExpression() {
+<b class="nc">&nbsp;    return FirstOf(</b>
+<b class="nc">&nbsp;        Parens(ApplyExpression()),</b>
+<b class="nc">&nbsp;        ForIterationAccessExpression(),</b>
+<b class="nc">&nbsp;        AccessExpression(),</b>
+<b class="nc">&nbsp;        StringLiteral());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ForIterationAccessExpression() {
+<b class="nc">&nbsp;    return Sequence(</b>
+&nbsp;        FOR, DOT,
+<b class="nc">&nbsp;        AccessExpression(), ForIterationAccessExpression.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Expression() {
+<b class="nc">&nbsp;    return FirstOf(</b>
+<b class="nc">&nbsp;        Parens(ApplyExpression()),</b>
+<b class="nc">&nbsp;        ApplyExpression());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ApplyExpression() {
+<b class="nc">&nbsp;    return Sequence(ApplyExpression.builder(),</b>
+<b class="nc">&nbsp;        OneOrMore(DisambiguatedExpression(), ApplyExpression.addParams()),</b>
+<b class="nc">&nbsp;        ApplyExpression.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule If() {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        IF, If.builder(),</b>
+<b class="nc">&nbsp;        Expression(), If.condition(),</b>
+<b class="nc">&nbsp;        If.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ElseIf() {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        ELSE, IF, ElseIf.builder(),</b>
+<b class="nc">&nbsp;        Expression(), ElseIf.condition(),</b>
+<b class="nc">&nbsp;        ElseIf.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Else() {
+<b class="nc">&nbsp;    return Sequence(ELSE, Else.of());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule For() {
+<b class="nc">&nbsp;    return FirstOf(</b>
+<b class="nc">&nbsp;        Sequence(</b>
+&nbsp;            FOR,
+&nbsp;            DOT,
+<b class="nc">&nbsp;            Invoke.builder(),</b>
+<b class="nc">&nbsp;            AccessExpression(),</b>
+<b class="nc">&nbsp;            ForIterationAccessExpression.of(), Invoke.access(),</b>
+<b class="nc">&nbsp;            Invoke.build()),</b>
+<b class="nc">&nbsp;        Sequence(</b>
+<b class="nc">&nbsp;            FOR, For.builder(),</b>
+<b class="nc">&nbsp;            ForDeclaration(),</b>
+<b class="nc">&nbsp;            For.build()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ForDeclaration() {
+<b class="nc">&nbsp;    return Sequence(GeneratorDeclaration(), For.addDeclaration(),</b>
+<b class="nc">&nbsp;        ZeroOrMore(Sequence(COMMA,</b>
+<b class="nc">&nbsp;            GeneratorDeclaration(), For.addDeclaration())));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Let() {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        LET, Let.builder(),</b>
+<b class="nc">&nbsp;        InvokableDeclaration(), Let.declaration(),</b>
+<b class="nc">&nbsp;        Let.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ValueDeclaration() {
+<b class="nc">&nbsp;    return Sequence(ValueDeclaration.builder(),</b>
+<b class="nc">&nbsp;        Optional(Type(), ValueDeclaration.type()),</b>
+<b class="nc">&nbsp;        Name(), ValueDeclaration.name(),</b>
+<b class="nc">&nbsp;        ValueDeclaration.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule InvokableDeclaration() {
+<b class="nc">&nbsp;    return Sequence(InvokableDeclaration.builder(),</b>
+<b class="nc">&nbsp;        Name(), InvokableDeclaration.name(),</b>
+<b class="nc">&nbsp;        ZeroOrMore(ParameterDeclaration()),</b>
+<b class="nc">&nbsp;        InvokableDeclaration.build());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule ParameterDeclaration() {
+<b class="nc">&nbsp;    return Sequence(Parameter.builder(),</b>
+<b class="nc">&nbsp;        Type(), Parameter.type(),</b>
+<b class="nc">&nbsp;        Name(), Parameter.name(),</b>
+<b class="nc">&nbsp;        Parameter.build(),</b>
+<b class="nc">&nbsp;        InvokableDeclaration.addParameters());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Template() {
+<b class="nc">&nbsp;    return Sequence(</b>
+&nbsp;        TEMPLATE,
+<b class="nc">&nbsp;        Optional(PUBLIC, Template.isPublic(true)),</b>
+<b class="nc">&nbsp;        InvokableDeclaration(), Template.declaration());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Name() {
+<b class="nc">&nbsp;    return Identifier();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule Type() {
+<b class="nc">&nbsp;    return Sequence(TypeDeclaration.builder(),</b>
+<b class="nc">&nbsp;        TypeIdentifer(), TypeDeclaration.type(),</b>
+<b class="nc">&nbsp;        Optional(Ellipsis(), TypeDeclaration.kind(Trees.TypeDeclaration.Kind.ITERABLE)),</b>
+<b class="nc">&nbsp;        TypeDeclaration.build());</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  Rule COMMENT = Literal(&quot;--&quot;);</b>
+<b class="nc">&nbsp;  Rule ASSIGN = Literal(&quot;=&quot;);</b>
+<b class="nc">&nbsp;  Rule DOT = Literal(&quot;.&quot;);</b>
+<b class="nc">&nbsp;  Rule COMMA = Literal(&quot;,&quot;);</b>
+<b class="nc">&nbsp;  Rule ELLIPSIS = Literal(&quot;...&quot;);</b>
+<b class="nc">&nbsp;  Rule IN = Literal(KEYWORD_IN);</b>
+<b class="nc">&nbsp;  Rule FOR = Literal(KEYWORD_FOR);</b>
+<b class="nc">&nbsp;  Rule LET = Literal(KEYWORD_LET);</b>
+<b class="nc">&nbsp;  Rule IF = Literal(KEYWORD_IF);</b>
+<b class="nc">&nbsp;  Rule ELSE = Literal(KEYWORD_ELSE);</b>
+<b class="nc">&nbsp;  Rule TEMPLATE = Literal(KEYWORD_TEMPLATE);</b>
+<b class="nc">&nbsp;  Rule PUBLIC = Literal(KEYWORD_PUBLIC);</b>
+&nbsp;
+&nbsp;  private static final String KEYWORD_IN = &quot;in&quot;;
+&nbsp;  private static final String KEYWORD_FOR = &quot;for&quot;;
+&nbsp;  private static final String KEYWORD_LET = &quot;let&quot;;
+&nbsp;  private static final String KEYWORD_IF = &quot;if&quot;;
+&nbsp;  private static final String KEYWORD_ELSE = &quot;else&quot;;
+&nbsp;  private static final String KEYWORD_TEMPLATE = &quot;template&quot;;
+&nbsp;  private static final String KEYWORD_PUBLIC = &quot;public&quot;;
+&nbsp;
+&nbsp;  @MemoMismatches
+&nbsp;  @SuppressNode
+&nbsp;  Rule Keyword() {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        FirstOf(KEYWORD_IN, KEYWORD_FOR, KEYWORD_LET, KEYWORD_IF, KEYWORD_ELSE, KEYWORD_TEMPLATE, KEYWORD_PUBLIC),</b>
+<b class="nc">&nbsp;        TestNot(LetterOrDigit()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @DontLabel
+&nbsp;  @SuppressSubnodes
+&nbsp;  Rule Literal(String string) {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        String(string),</b>
+<b class="nc">&nbsp;        Spacing());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressSubnodes
+&nbsp;  @MemoMismatches
+&nbsp;  Rule Identifier() {
+<b class="nc">&nbsp;    return Sequence(</b>
+<b class="nc">&nbsp;        TestNot(Keyword()),</b>
+<b class="nc">&nbsp;        Sequence(Sequence(IdentifierStartLetter(), ZeroOrMore(LetterOrDigit())), Identifier.of()),</b>
+<b class="nc">&nbsp;        Spacing());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressSubnodes
+&nbsp;  @MemoMismatches
+&nbsp;  Rule StringLiteral() {
+<b class="nc">&nbsp;    return Sequence(&quot;&#39;&quot;, ZeroOrMore(NoneOf(&quot;&#39;&quot;)), StringLiteral.of(), &quot;&#39;&quot;, Spacing());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressSubnodes
+&nbsp;  @MemoMismatches
+&nbsp;  Rule TypeIdentifer() {
+<b class="nc">&nbsp;    return Sequence(TestNot(Keyword()),</b>
+<b class="nc">&nbsp;        Sequence(Sequence(TypeStartLetter(), ZeroOrMore(LetterOrDigit())), TypeIdentifier.of()),</b>
+<b class="nc">&nbsp;        Spacing());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressSubnodes
+&nbsp;  Rule Newline() {
+<b class="nc">&nbsp;    return FirstOf(&quot;\n&quot;, &quot;\n\r&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressSubnodes
+&nbsp;  Rule TextFragment() {
+<b class="nc">&nbsp;    return ZeroOrMore(NoneOf(&quot;[]\n\r&quot;));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressSubnodes
+&nbsp;  Rule Ellipsis() {
+<b class="nc">&nbsp;    return Sequence(ELLIPSIS, Spacing());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule IdentifierStartLetter() {
+<b class="nc">&nbsp;    return FirstOf(CharRange(&#39;a&#39;, &#39;z&#39;), &#39;_&#39;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Rule TypeStartLetter() {
+<b class="nc">&nbsp;    return CharRange(&#39;A&#39;, &#39;Z&#39;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @MemoMismatches
+&nbsp;  Rule Letter() {
+<b class="nc">&nbsp;    return FirstOf(CharRange(&#39;a&#39;, &#39;z&#39;), CharRange(&#39;A&#39;, &#39;Z&#39;), &#39;_&#39;, &#39;$&#39;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @MemoMismatches
+&nbsp;  Rule LetterOrDigit() {
+<b class="nc">&nbsp;    return FirstOf(CharRange(&#39;a&#39;, &#39;z&#39;), CharRange(&#39;A&#39;, &#39;Z&#39;), CharRange(&#39;0&#39;, &#39;9&#39;), &#39;_&#39;, &#39;$&#39;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressNode
+&nbsp;  Rule Spacing() {
+<b class="nc">&nbsp;    return ZeroOrMore(AnyOf(&quot; \n\r\f\t&quot;));</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,358 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ExpectedSubtypesAdapter</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.gson.adapter</a>
+</div>
+
+<h1>Coverage Summary for Class: ExpectedSubtypesAdapter (org.immutables.gson.adapter)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ExpectedSubtypesAdapter</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/48)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ExpectedSubtypesAdapter$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExpectedSubtypesAdapter$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ExpectedSubtypesAdapter$ReadAttempt</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/54)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015-2021 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.gson.adapter;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.util.TokenBuffer;
+&nbsp;import com.google.gson.Gson;
+&nbsp;import com.google.gson.JsonElement;
+&nbsp;import com.google.gson.JsonParseException;
+&nbsp;import com.google.gson.TypeAdapter;
+&nbsp;import com.google.gson.reflect.TypeToken;
+&nbsp;import com.google.gson.stream.JsonReader;
+&nbsp;import com.google.gson.stream.JsonWriter;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.concurrent.Callable;
+&nbsp;import org.immutables.gson.stream.JsonParserReader;
+&nbsp;
+&nbsp;/**
+&nbsp; * Composite type adapter used for polymorphic serialization.
+&nbsp; * It just buffers input and try each of delegating type adapters until succeeded. While there may
+&nbsp; * be legit concern about performance, it is most flexible way to handle subtypes by structure and
+&nbsp; * not by discriminator fields of some sort.
+&nbsp; * If failed with all type adapters exception will be thrown, attaching suppressed exceptions for
+&nbsp; * individual delegate adapters.
+&nbsp; * @param &lt;T&gt; supertype to adapt
+&nbsp; */
+&nbsp;public final class ExpectedSubtypesAdapter&lt;T&gt; extends TypeAdapter&lt;T&gt; {
+&nbsp;  private final TypeToken&lt;T&gt; type;
+&nbsp;  private final Gson gson;
+&nbsp;  private final List&lt;TypeAdapter&lt;? extends T&gt;&gt; adapters;
+&nbsp;  private final TypeToken&lt;? extends T&gt;[] subtypes;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates adapter from {@link Gson} and type tokens.
+&nbsp;   * @param &lt;T&gt; the generic type
+&nbsp;   * @param gson Gson instance
+&nbsp;   * @param type supertype token
+&nbsp;   * @param subtypes subtype tokens
+&nbsp;   * @return subtype adapter
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  public static &lt;T&gt; ExpectedSubtypesAdapter&lt;T&gt; create(
+&nbsp;      Gson gson,
+&nbsp;      TypeToken&lt;T&gt; type,
+&nbsp;      TypeToken&lt;? extends T&gt;... subtypes) {
+<b class="nc">&nbsp;    return new ExpectedSubtypesAdapter&lt;&gt;(gson, type, subtypes);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SafeVarargs
+&nbsp;  public static &lt;T&gt; ExpectedSubtypesAdapter&lt;T&gt; create(
+&nbsp;      Gson gson,
+&nbsp;      Class&lt;T&gt; type,
+&nbsp;      TypeToken&lt;? extends T&gt;... subtypes) {
+<b class="nc">&nbsp;    return create(gson, TypeToken.get(type), subtypes);</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private ExpectedSubtypesAdapter(Gson gson, TypeToken&lt;T&gt; type, TypeToken&lt;? extends T&gt;[] subtypes) {</b>
+<b class="nc">&nbsp;    if (subtypes.length &lt; 1) {</b>
+<b class="nc">&nbsp;      throw new IllegalArgumentException(&quot;At least one subtype should be specified&quot;);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (gson == null) {</b>
+<b class="nc">&nbsp;      throw new NullPointerException(&quot;supplied Gson is null&quot;);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (type == null) {</b>
+<b class="nc">&nbsp;      throw new NullPointerException(&quot;supplied type Gson is null&quot;);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    this.gson = gson;</b>
+<b class="nc">&nbsp;    this.type = type;</b>
+<b class="nc">&nbsp;    this.subtypes = subtypes.clone();</b>
+<b class="nc">&nbsp;    this.adapters = lookupAdapters();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private List&lt;TypeAdapter&lt;? extends T&gt;&gt; lookupAdapters() {
+<b class="nc">&nbsp;    List&lt;TypeAdapter&lt;? extends T&gt;&gt; adapters = new ArrayList&lt;&gt;(subtypes.length);</b>
+<b class="nc">&nbsp;    for (TypeToken&lt;? extends T&gt; subtype : subtypes) {</b>
+<b class="nc">&nbsp;      adapters.add(gson.getAdapter(subtype));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return adapters;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public TypeToken&lt;T&gt; getType() {
+<b class="nc">&nbsp;    return type;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void write(JsonWriter out, T value) throws IOException {
+<b class="nc">&nbsp;    if (value == null) {</b>
+<b class="nc">&nbsp;      out.nullValue();</b>
+&nbsp;      return;
+&nbsp;    }
+<b class="nc">&nbsp;    for (int i = 0; i &lt; subtypes.length; i++) {</b>
+<b class="nc">&nbsp;      TypeToken&lt;? extends T&gt; subtype = subtypes[i];</b>
+<b class="nc">&nbsp;      if (subtype.getRawType().isInstance(value)) {</b>
+&nbsp;        // safe unchecked, type is checked at runtime
+<b class="nc">&nbsp;        @SuppressWarnings(&quot;unchecked&quot;) TypeAdapter&lt;Object&gt; typeAdapter = (TypeAdapter&lt;Object&gt;) adapters.get(i);</b>
+<b class="nc">&nbsp;        typeAdapter.write(out, value);</b>
+&nbsp;        return;
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    gson.toJson(value, value.getClass(), out);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private interface ReadAttempt {
+&nbsp;    Object read(TypeAdapter&lt;?&gt; typeAdapter) throws Exception;
+&nbsp;  }
+&nbsp;
+&nbsp;  // safe unchecked. expected that supplied adapters are producing correct types
+&nbsp;  // enforced by constructor parameters.
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  @Override
+&nbsp;  public T read(JsonReader in) throws IOException {
+<b class="nc">&nbsp;    List&lt;Exception&gt; exceptions = new ArrayList&lt;&gt;(subtypes.length);</b>
+<b class="nc">&nbsp;    ReadAttempt attempt = readInAttempt(in);</b>
+<b class="nc">&nbsp;    for (TypeAdapter&lt;?&gt; typeAdapter : adapters) {</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        return (T) attempt.read(typeAdapter);</b>
+<b class="nc">&nbsp;      } catch (Exception ex) {</b>
+<b class="nc">&nbsp;        exceptions.add(ex);</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    JsonParseException failure = new JsonParseException(</b>
+<b class="nc">&nbsp;        String.format(</b>
+&nbsp;            &quot;Cannot parse %s with following subtypes: %s&quot;,
+&nbsp;            type,
+<b class="nc">&nbsp;            Arrays.toString(subtypes)));</b>
+<b class="nc">&nbsp;    for (Exception exception : exceptions) {</b>
+<b class="nc">&nbsp;      failure.addSuppressed(exception);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    throw failure;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private ReadAttempt readInAttempt(JsonReader in) throws IOException {
+&nbsp;    // check Callable marker for Jackson implementation
+<b class="nc">&nbsp;    if (in instanceof Callable&lt;?&gt;) {</b>
+&nbsp;      // if done inside &#39;if&#39; we would not leak runtime dependency on Jackson
+<b class="nc">&nbsp;      if (in instanceof JsonParserReader) {</b>
+<b class="nc">&nbsp;        return newJacksonAttempt((JsonParserReader) in);</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return newGsonAttempt(in);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Default Jackson implementation
+&nbsp;   */
+&nbsp;  private ReadAttempt newGsonAttempt(JsonReader in) throws IOException {
+<b class="nc">&nbsp;    JsonElement element = gson.getAdapter(JsonElement.class).read(in);</b>
+<b class="nc">&nbsp;    return new ReadAttempt() {</b>
+&nbsp;      @Override public Object read(TypeAdapter&lt;?&gt; typeAdapter) throws Exception {
+<b class="nc">&nbsp;        return typeAdapter.fromJsonTree(element);</b>
+&nbsp;      }
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Jackson buffer copy attempt. Use of Jackson&#39;s own mechanisms is important to preserve custom elements
+&nbsp;   * such as special embedded objects in BSON or other data formats. Jackson classes should not leak outside
+&nbsp;   * of this&#39; class methods. So when there&#39;s no Jackson available in classpath, it will still work
+&nbsp;   * with Gson based implementation.
+&nbsp;   */
+&nbsp;  private ReadAttempt newJacksonAttempt(JsonParserReader in) throws IOException {
+<b class="nc">&nbsp;    TokenBuffer buffer = ((JsonParserReader) in).nextTokenBuffer();</b>
+<b class="nc">&nbsp;    return new ReadAttempt() {</b>
+&nbsp;      @Override public Object read(TypeAdapter&lt;?&gt; typeAdapter) throws Exception {
+<b class="nc">&nbsp;        try(JsonParserReader reader = new JsonParserReader(buffer.asParser())) {</b>
+<b class="nc">&nbsp;          return typeAdapter.read(reader);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;    };
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

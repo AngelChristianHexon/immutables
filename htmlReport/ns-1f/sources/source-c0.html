@@ -1,0 +1,452 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSafeInitIface</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSafeInitIface (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSafeInitIface$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableSafeInitIface$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SafeDerivedInit.SafeInitIface}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSafeInitIface.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SafeDerivedInit.SafeInitIface&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSafeInitIface implements SafeDerivedInit.SafeInitIface {
+&nbsp;  private final int b;
+&nbsp;  private final int a;
+&nbsp;  private final int c;
+&nbsp;
+&nbsp;  private ImmutableSafeInitIface(ImmutableSafeInitIface.Builder builder) {
+&nbsp;    if (builder.bIsSet()) {
+&nbsp;      initShim.b(builder.b);
+&nbsp;    }
+&nbsp;    if (builder.aIsSet()) {
+&nbsp;      initShim.a(builder.a);
+&nbsp;    }
+&nbsp;    if (builder.cIsSet()) {
+&nbsp;      initShim.c(builder.c);
+&nbsp;    }
+&nbsp;    this.b = initShim.b();
+&nbsp;    this.a = initShim.a();
+&nbsp;    this.c = initShim.c();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSafeInitIface(int b, int a, int c) {
+&nbsp;    this.b = b;
+&nbsp;    this.a = a;
+&nbsp;    this.c = c;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;SafeDerivedInit.SafeInitIface&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte bBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int b;
+&nbsp;
+&nbsp;    int b() {
+&nbsp;      if (bBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (bBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        bBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.b = bInitialize();
+&nbsp;        bBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.b;
+&nbsp;    }
+&nbsp;
+&nbsp;    void b(int b) {
+&nbsp;      this.b = b;
+&nbsp;      bBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte aBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int a;
+&nbsp;
+&nbsp;    int a() {
+&nbsp;      if (aBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (aBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        aBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.a = aInitialize();
+&nbsp;        aBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.a;
+&nbsp;    }
+&nbsp;
+&nbsp;    void a(int a) {
+&nbsp;      this.a = a;
+&nbsp;      aBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte cBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int c;
+&nbsp;
+&nbsp;    int c() {
+&nbsp;      if (cBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (cBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        cBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.c = cInitialize();
+&nbsp;        cBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.c;
+&nbsp;    }
+&nbsp;
+&nbsp;    void c(int c) {
+&nbsp;      this.c = c;
+&nbsp;      cBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (bBuildStage == STAGE_INITIALIZING) attributes.add(&quot;b&quot;);
+&nbsp;      if (aBuildStage == STAGE_INITIALIZING) attributes.add(&quot;a&quot;);
+&nbsp;      if (cBuildStage == STAGE_INITIALIZING) attributes.add(&quot;c&quot;);
+&nbsp;      return &quot;Cannot build SafeInitIface, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private int bInitialize() {
+&nbsp;    return SafeDerivedInit.SafeInitIface.super.b();
+&nbsp;  }
+&nbsp;
+&nbsp;  private int aInitialize() {
+&nbsp;    return SafeDerivedInit.SafeInitIface.super.a();
+&nbsp;  }
+&nbsp;
+&nbsp;  private int cInitialize() {
+&nbsp;    return SafeDerivedInit.SafeInitIface.super.c();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int b() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.b()
+&nbsp;        : this.b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int a() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.a()
+&nbsp;        : this.a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int c() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.c()
+&nbsp;        : this.c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SafeDerivedInit.SafeInitIface#b() b} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSafeInitIface withB(int value) {
+&nbsp;    if (this.b == value) return this;
+&nbsp;    return new ImmutableSafeInitIface(value, this.a, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SafeDerivedInit.SafeInitIface#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSafeInitIface withA(int value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    return new ImmutableSafeInitIface(this.b, value, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SafeDerivedInit.SafeInitIface#c() c} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSafeInitIface withC(int value) {
+&nbsp;    if (this.c == value) return this;
+&nbsp;    return new ImmutableSafeInitIface(this.b, this.a, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSafeInitIface} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSafeInitIface
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSafeInitIface) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSafeInitIface another) {
+&nbsp;    return b == another.b
+&nbsp;        &amp;&amp; a == another.a
+&nbsp;        &amp;&amp; c == another.c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code b}, {@code a}, {@code c}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + b;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + c;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SafeInitIface} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SafeInitIface&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;c&quot;, c)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SafeDerivedInit.SafeInitIface} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SafeInitIface instance
+&nbsp;   */
+&nbsp;  public static ImmutableSafeInitIface copyOf(SafeDerivedInit.SafeInitIface instance) {
+&nbsp;    if (instance instanceof ImmutableSafeInitIface) {
+&nbsp;      return (ImmutableSafeInitIface) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSafeInitIface.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSafeInitIface ImmutableSafeInitIface}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSafeInitIface.builder()
+&nbsp;   *    .b(int) // optional {@link SafeDerivedInit.SafeInitIface#b() b}
+&nbsp;   *    .a(int) // optional {@link SafeDerivedInit.SafeInitIface#a() a}
+&nbsp;   *    .c(int) // optional {@link SafeDerivedInit.SafeInitIface#c() c}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSafeInitIface builder
+&nbsp;   */
+&nbsp;  public static ImmutableSafeInitIface.Builder builder() {
+&nbsp;    return new ImmutableSafeInitIface.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSafeInitIface ImmutableSafeInitIface}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SafeDerivedInit.SafeInitIface&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_B = 0x1L;
+&nbsp;    private static final long OPT_BIT_A = 0x2L;
+&nbsp;    private static final long OPT_BIT_C = 0x4L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private int b;
+&nbsp;    private int a;
+&nbsp;    private int c;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SafeInitIface} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SafeDerivedInit.SafeInitIface instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      b(instance.b());
+&nbsp;      a(instance.a());
+&nbsp;      c(instance.c());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SafeDerivedInit.SafeInitIface#b() b} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link SafeDerivedInit.SafeInitIface#b() b}.&lt;/em&gt;
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(int b) {
+&nbsp;      this.b = b;
+&nbsp;      optBits |= OPT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SafeDerivedInit.SafeInitIface#a() a} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link SafeDerivedInit.SafeInitIface#a() a}.&lt;/em&gt;
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(int a) {
+&nbsp;      this.a = a;
+&nbsp;      optBits |= OPT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SafeDerivedInit.SafeInitIface#c() c} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link SafeDerivedInit.SafeInitIface#c() c}.&lt;/em&gt;
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(int c) {
+&nbsp;      this.c = c;
+&nbsp;      optBits |= OPT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSafeInitIface ImmutableSafeInitIface}.
+&nbsp;     * @return An immutable instance of SafeInitIface
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSafeInitIface build() {
+&nbsp;      return new ImmutableSafeInitIface(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean bIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_B) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean aIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_A) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean cIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_C) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Two</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.builder</a>
+</div>
+
+<h1>Coverage Summary for Class: Two (org.immutables.fixture.builder)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">Two</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.builder;
+&nbsp;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;interface One {
+&nbsp;  String one();
+&nbsp;}
+&nbsp;
+&nbsp;interface Two {
+&nbsp;  String two();
+&nbsp;}
+&nbsp;
+&nbsp;interface Three {
+&nbsp;  String three();
+&nbsp;}
+&nbsp;
+&nbsp;interface OneAndTwo extends One, Two {}
+&nbsp;
+&nbsp;interface OneAndTwoAndThree extends OneAndTwo, Three {}
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;interface OneAndTwoConcrete extends OneAndTwo {}
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;interface OneAndTwoAndThreeConcrete extends OneAndTwoAndThree {}
+&nbsp;
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;public interface FromSupertypeOneTwoThree {
+&nbsp;  static void use() {
+&nbsp;    One one = null;
+&nbsp;    Two two = null;
+&nbsp;    Three three = null;
+&nbsp;    OneAndTwo oneAndTwo = null;
+&nbsp;    OneAndTwoAndThree oneAndTwoAndThree = null;
+&nbsp;
+&nbsp;    System.out.println(ImmutableOneAndTwoConcrete.builder()
+&nbsp;        .from(one)
+&nbsp;        .from(two)
+&nbsp;        .from(oneAndTwo)
+&nbsp;        .build());
+&nbsp;
+&nbsp;    System.out.println(ImmutableOneAndTwoAndThreeConcrete.builder()
+&nbsp;        .from(one)
+&nbsp;        .from(two)
+&nbsp;        .from(three)
+&nbsp;        .from(oneAndTwo)
+&nbsp;        .from(oneAndTwoAndThree)
+&nbsp;        .build());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

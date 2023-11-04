@@ -1,0 +1,416 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableUpdateByQuery</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableUpdateByQuery (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableUpdateByQuery$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableUpdateByQuery$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link StandardOperations.UpdateByQuery}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableUpdateByQuery.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableUpdateByQuery.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;StandardOperations.UpdateByQuery&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableUpdateByQuery
+&nbsp;    implements StandardOperations.UpdateByQuery {
+&nbsp;  private final Query query;
+&nbsp;  private final ImmutableMap&lt;Expression, Object&gt; values;
+&nbsp;  private final boolean upsert;
+&nbsp;
+&nbsp;  private ImmutableUpdateByQuery(
+&nbsp;      Query query,
+&nbsp;      Map&lt;? extends Expression, ? extends Object&gt; values) {
+&nbsp;    this.query = Objects.requireNonNull(query, &quot;query&quot;);
+&nbsp;    this.values = ImmutableMap.copyOf(values);
+&nbsp;    this.upsert = StandardOperations.UpdateByQuery.super.upsert();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableUpdateByQuery(ImmutableUpdateByQuery.Builder builder) {
+&nbsp;    this.query = builder.query;
+&nbsp;    this.values = builder.values.build();
+&nbsp;    this.upsert = builder.upsertIsSet()
+&nbsp;        ? builder.upsert
+&nbsp;        : StandardOperations.UpdateByQuery.super.upsert();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableUpdateByQuery(
+&nbsp;      Query query,
+&nbsp;      ImmutableMap&lt;Expression, Object&gt; values,
+&nbsp;      boolean upsert) {
+&nbsp;    this.query = query;
+&nbsp;    this.values = values;
+&nbsp;    this.upsert = upsert;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Filter for records to be updated
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Query query() {
+&nbsp;    return query;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Values to be set. Key is usually a {@linkplain Path} and value is object to be set.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;Expression, Object&gt; values() {
+&nbsp;    return values;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Wherever documents should be inserted if not present.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean upsert() {
+&nbsp;    return upsert;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StandardOperations.UpdateByQuery#query() query} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for query
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUpdateByQuery withQuery(Query value) {
+&nbsp;    if (this.query == value) return this;
+&nbsp;    Query newValue = Objects.requireNonNull(value, &quot;query&quot;);
+&nbsp;    return new ImmutableUpdateByQuery(newValue, this.values, this.upsert);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link StandardOperations.UpdateByQuery#values() values} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the values map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUpdateByQuery withValues(Map&lt;? extends Expression, ? extends Object&gt; entries) {
+&nbsp;    if (this.values == entries) return this;
+&nbsp;    ImmutableMap&lt;Expression, Object&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableUpdateByQuery(this.query, newValue, this.upsert);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StandardOperations.UpdateByQuery#upsert() upsert} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for upsert
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUpdateByQuery withUpsert(boolean value) {
+&nbsp;    if (this.upsert == value) return this;
+&nbsp;    return new ImmutableUpdateByQuery(this.query, this.values, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableUpdateByQuery} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableUpdateByQuery
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableUpdateByQuery) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableUpdateByQuery another) {
+&nbsp;    return query.equals(another.query)
+&nbsp;        &amp;&amp; values.equals(another.values)
+&nbsp;        &amp;&amp; upsert == another.upsert;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code query}, {@code values}, {@code upsert}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + query.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + values.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(upsert);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code UpdateByQuery} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;UpdateByQuery&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;query&quot;, query)
+&nbsp;        .add(&quot;values&quot;, values)
+&nbsp;        .add(&quot;upsert&quot;, upsert)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code UpdateByQuery} instance.
+&nbsp;   * @param query The value for the {@code query} attribute
+&nbsp;   * @param values The value for the {@code values} attribute
+&nbsp;   * @return An immutable UpdateByQuery instance
+&nbsp;   */
+&nbsp;  public static ImmutableUpdateByQuery of(Query query, Map&lt;? extends Expression, ? extends Object&gt; values) {
+&nbsp;    return new ImmutableUpdateByQuery(query, values);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link StandardOperations.UpdateByQuery} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable UpdateByQuery instance
+&nbsp;   */
+&nbsp;  public static ImmutableUpdateByQuery copyOf(StandardOperations.UpdateByQuery instance) {
+&nbsp;    if (instance instanceof ImmutableUpdateByQuery) {
+&nbsp;      return (ImmutableUpdateByQuery) instance;
+&nbsp;    }
+&nbsp;    return ImmutableUpdateByQuery.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableUpdateByQuery ImmutableUpdateByQuery}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableUpdateByQuery.builder()
+&nbsp;   *    .query(org.immutables.criteria.expression.Query) // required {@link StandardOperations.UpdateByQuery#query() query}
+&nbsp;   *    .putValues|putAllValues(org.immutables.criteria.expression.Expression =&amp;gt; Object) // {@link StandardOperations.UpdateByQuery#values() values} mappings
+&nbsp;   *    .upsert(boolean) // optional {@link StandardOperations.UpdateByQuery#upsert() upsert}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableUpdateByQuery builder
+&nbsp;   */
+&nbsp;  public static ImmutableUpdateByQuery.Builder builder() {
+&nbsp;    return new ImmutableUpdateByQuery.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableUpdateByQuery ImmutableUpdateByQuery}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;StandardOperations.UpdateByQuery&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_QUERY = 0x1L;
+&nbsp;    private static final long OPT_BIT_UPSERT = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable Query query;
+&nbsp;    private ImmutableMap.Builder&lt;Expression, Object&gt; values = ImmutableMap.builder();
+&nbsp;    private boolean upsert;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code UpdateByQuery} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(StandardOperations.UpdateByQuery instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      query(instance.query());
+&nbsp;      putAllValues(instance.values());
+&nbsp;      upsert(instance.upsert());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StandardOperations.UpdateByQuery#query() query} attribute.
+&nbsp;     * @param query The value for query 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder query(Query query) {
+&nbsp;      this.query = Objects.requireNonNull(query, &quot;query&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_QUERY;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link StandardOperations.UpdateByQuery#values() values} map.
+&nbsp;     * @param key The key in the values map
+&nbsp;     * @param value The associated value in the values map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putValues(Expression key, Object value) {
+&nbsp;      this.values.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link StandardOperations.UpdateByQuery#values() values} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putValues(Map.Entry&lt;? extends Expression, ? extends Object&gt; entry) {
+&nbsp;      this.values.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link StandardOperations.UpdateByQuery#values() values} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the values map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder values(Map&lt;? extends Expression, ? extends Object&gt; entries) {
+&nbsp;      this.values = ImmutableMap.builder();
+&nbsp;      return putAllValues(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link StandardOperations.UpdateByQuery#values() values} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the values map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllValues(Map&lt;? extends Expression, ? extends Object&gt; entries) {
+&nbsp;      this.values.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StandardOperations.UpdateByQuery#upsert() upsert} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link StandardOperations.UpdateByQuery#upsert() upsert}.&lt;/em&gt;
+&nbsp;     * @param upsert The value for upsert 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder upsert(boolean upsert) {
+&nbsp;      this.upsert = upsert;
+&nbsp;      optBits |= OPT_BIT_UPSERT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableUpdateByQuery ImmutableUpdateByQuery}.
+&nbsp;     * @return An immutable instance of UpdateByQuery
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableUpdateByQuery build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableUpdateByQuery(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean upsertIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_UPSERT) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_QUERY) != 0) attributes.add(&quot;query&quot;);
+&nbsp;      return &quot;Cannot build UpdateByQuery, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

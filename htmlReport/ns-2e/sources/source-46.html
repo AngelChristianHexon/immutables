@@ -1,0 +1,355 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNamingStrategy</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNamingStrategy (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNamingStrategy$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNamingStrategy$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NamingStrategy}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNamingStrategy.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NamingStrategy&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNamingStrategy implements NamingStrategy {
+&nbsp;  private final int abraCadabra;
+&nbsp;  private final boolean focusPocus;
+&nbsp;
+&nbsp;  private ImmutableNamingStrategy(int abraCadabra, boolean focusPocus) {
+&nbsp;    this.abraCadabra = abraCadabra;
+&nbsp;    this.focusPocus = focusPocus;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code abraCadabra} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty
+&nbsp;  @Override
+&nbsp;  public int abraCadabra() {
+&nbsp;    return abraCadabra;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code focusPocus} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty
+&nbsp;  @Override
+&nbsp;  public boolean focusPocus() {
+&nbsp;    return focusPocus;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NamingStrategy#abraCadabra() abraCadabra} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for abraCadabra
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNamingStrategy withAbraCadabra(int value) {
+&nbsp;    if (this.abraCadabra == value) return this;
+&nbsp;    return new ImmutableNamingStrategy(value, this.focusPocus);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NamingStrategy#focusPocus() focusPocus} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for focusPocus
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNamingStrategy withFocusPocus(boolean value) {
+&nbsp;    if (this.focusPocus == value) return this;
+&nbsp;    return new ImmutableNamingStrategy(this.abraCadabra, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNamingStrategy} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNamingStrategy
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNamingStrategy) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNamingStrategy another) {
+&nbsp;    return abraCadabra == another.abraCadabra
+&nbsp;        &amp;&amp; focusPocus == another.focusPocus;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code abraCadabra}, {@code focusPocus}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + abraCadabra;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(focusPocus);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NamingStrategy} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NamingStrategy&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;abraCadabra&quot;, abraCadabra)
+&nbsp;        .add(&quot;focusPocus&quot;, focusPocus)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NamingStrategy&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements NamingStrategy {
+&nbsp;    int abraCadabra;
+&nbsp;    boolean abraCadabraIsSet;
+&nbsp;    boolean focusPocus;
+&nbsp;    boolean focusPocusIsSet;
+&nbsp;    @JsonProperty
+&nbsp;    public void setAbraCadabra(int abraCadabra) {
+&nbsp;      this.abraCadabra = abraCadabra;
+&nbsp;      this.abraCadabraIsSet = true;
+&nbsp;    }
+&nbsp;    @JsonProperty
+&nbsp;    public void setFocusPocus(boolean focusPocus) {
+&nbsp;      this.focusPocus = focusPocus;
+&nbsp;      this.focusPocusIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public int abraCadabra() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public boolean focusPocus() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableNamingStrategy fromJson(Json json) {
+&nbsp;    ImmutableNamingStrategy.Builder builder = ImmutableNamingStrategy.builder();
+&nbsp;    if (json.abraCadabraIsSet) {
+&nbsp;      builder.abraCadabra(json.abraCadabra);
+&nbsp;    }
+&nbsp;    if (json.focusPocusIsSet) {
+&nbsp;      builder.focusPocus(json.focusPocus);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NamingStrategy} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NamingStrategy instance
+&nbsp;   */
+&nbsp;  public static ImmutableNamingStrategy copyOf(NamingStrategy instance) {
+&nbsp;    if (instance instanceof ImmutableNamingStrategy) {
+&nbsp;      return (ImmutableNamingStrategy) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNamingStrategy.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNamingStrategy ImmutableNamingStrategy}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNamingStrategy.builder()
+&nbsp;   *    .abraCadabra(int) // required {@link NamingStrategy#abraCadabra() abraCadabra}
+&nbsp;   *    .focusPocus(boolean) // required {@link NamingStrategy#focusPocus() focusPocus}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNamingStrategy builder
+&nbsp;   */
+&nbsp;  public static ImmutableNamingStrategy.Builder builder() {
+&nbsp;    return new ImmutableNamingStrategy.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNamingStrategy ImmutableNamingStrategy}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NamingStrategy&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ABRA_CADABRA = 0x1L;
+&nbsp;    private static final long INIT_BIT_FOCUS_POCUS = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int abraCadabra;
+&nbsp;    private boolean focusPocus;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NamingStrategy} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NamingStrategy instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      abraCadabra(instance.abraCadabra());
+&nbsp;      focusPocus(instance.focusPocus());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NamingStrategy#abraCadabra() abraCadabra} attribute.
+&nbsp;     * @param abraCadabra The value for abraCadabra 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty
+&nbsp;    public final Builder abraCadabra(int abraCadabra) {
+&nbsp;      this.abraCadabra = abraCadabra;
+&nbsp;      initBits &amp;= ~INIT_BIT_ABRA_CADABRA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NamingStrategy#focusPocus() focusPocus} attribute.
+&nbsp;     * @param focusPocus The value for focusPocus 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty
+&nbsp;    public final Builder focusPocus(boolean focusPocus) {
+&nbsp;      this.focusPocus = focusPocus;
+&nbsp;      initBits &amp;= ~INIT_BIT_FOCUS_POCUS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNamingStrategy ImmutableNamingStrategy}.
+&nbsp;     * @return An immutable instance of NamingStrategy
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNamingStrategy build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableNamingStrategy(abraCadabra, focusPocus);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ABRA_CADABRA) != 0) attributes.add(&quot;abraCadabra&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_FOCUS_POCUS) != 0) attributes.add(&quot;focusPocus&quot;);
+&nbsp;      return &quot;Cannot build NamingStrategy, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

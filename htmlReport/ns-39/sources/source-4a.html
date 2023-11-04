@@ -1,0 +1,339 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableStagedBuilderExtendingBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableStagedBuilderExtendingBuilder (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableStagedBuilderExtendingBuilder$AgeBuildStage</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedBuilderExtendingBuilder$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedBuilderExtendingBuilder$BuildFinal</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedBuilderExtendingBuilder$NameBuildStage</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link StagedBuilderExtendingBuilder}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new StagedBuilderExtendingBuilder.Builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;StagedBuilderExtendingBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableStagedBuilderExtendingBuilder
+&nbsp;    implements StagedBuilderExtendingBuilder {
+&nbsp;  private final String name;
+&nbsp;  private final int age;
+&nbsp;
+&nbsp;  private ImmutableStagedBuilderExtendingBuilder(String name, int age) {
+&nbsp;    this.name = name;
+&nbsp;    this.age = age;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code name} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String name() {
+&nbsp;    return name;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code age} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int age() {
+&nbsp;    return age;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StagedBuilderExtendingBuilder#name() name} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for name
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableStagedBuilderExtendingBuilder withName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;    if (this.name.equals(newValue)) return this;
+&nbsp;    return new ImmutableStagedBuilderExtendingBuilder(newValue, this.age);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StagedBuilderExtendingBuilder#age() age} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for age
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableStagedBuilderExtendingBuilder withAge(int value) {
+&nbsp;    if (this.age == value) return this;
+&nbsp;    return new ImmutableStagedBuilderExtendingBuilder(this.name, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableStagedBuilderExtendingBuilder} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableStagedBuilderExtendingBuilder
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableStagedBuilderExtendingBuilder) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableStagedBuilderExtendingBuilder another) {
+&nbsp;    return name.equals(another.name)
+&nbsp;        &amp;&amp; age == another.age;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code name}, {@code age}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + age;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code StagedBuilderExtendingBuilder} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;StagedBuilderExtendingBuilder&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;name&quot;, name)
+&nbsp;        .add(&quot;age&quot;, age)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link StagedBuilderExtendingBuilder} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable StagedBuilderExtendingBuilder instance
+&nbsp;   */
+&nbsp;  public static ImmutableStagedBuilderExtendingBuilder copyOf(StagedBuilderExtendingBuilder instance) {
+&nbsp;    if (instance instanceof ImmutableStagedBuilderExtendingBuilder) {
+&nbsp;      return (ImmutableStagedBuilderExtendingBuilder) instance;
+&nbsp;    }
+&nbsp;    return new StagedBuilderExtendingBuilder.Builder()
+&nbsp;        .name(instance.name())
+&nbsp;        .age(instance.age())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableStagedBuilderExtendingBuilder ImmutableStagedBuilderExtendingBuilder}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;StagedBuilderExtendingBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder implements NameBuildStage, AgeBuildStage, BuildFinal {
+&nbsp;    private static final long INIT_BIT_NAME = 0x1L;
+&nbsp;    private static final long INIT_BIT_AGE = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable String name;
+&nbsp;    private int age;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableStagedBuilderExtendingBuilder ImmutableStagedBuilderExtendingBuilder} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new StagedBuilderExtendingBuilder.Builder()
+&nbsp;     *    .name(String) // required {@link StagedBuilderExtendingBuilder#name() name}
+&nbsp;     *    .age(int) // required {@link StagedBuilderExtendingBuilder#age() age}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof StagedBuilderExtendingBuilder.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new StagedBuilderExtendingBuilder.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedBuilderExtendingBuilder#name() name} attribute.
+&nbsp;     * @param name The value for name 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final StagedBuilderExtendingBuilder.Builder name(String name) {
+&nbsp;      checkNotIsSet(nameIsSet(), &quot;name&quot;);
+&nbsp;      this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_NAME;
+&nbsp;      return (StagedBuilderExtendingBuilder.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedBuilderExtendingBuilder#age() age} attribute.
+&nbsp;     * @param age The value for age 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final StagedBuilderExtendingBuilder.Builder age(int age) {
+&nbsp;      checkNotIsSet(ageIsSet(), &quot;age&quot;);
+&nbsp;      this.age = age;
+&nbsp;      initBits &amp;= ~INIT_BIT_AGE;
+&nbsp;      return (StagedBuilderExtendingBuilder.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableStagedBuilderExtendingBuilder ImmutableStagedBuilderExtendingBuilder}.
+&nbsp;     * @return An immutable instance of StagedBuilderExtendingBuilder
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableStagedBuilderExtendingBuilder build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableStagedBuilderExtendingBuilder(name, age);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean nameIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_NAME) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean ageIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_AGE) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of StagedBuilderExtendingBuilder is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!nameIsSet()) attributes.add(&quot;name&quot;);
+&nbsp;      if (!ageIsSet()) attributes.add(&quot;age&quot;);
+&nbsp;      return &quot;Cannot build StagedBuilderExtendingBuilder, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;StagedBuilderExtendingBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface NameBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedBuilderExtendingBuilder#name() name} attribute.
+&nbsp;     * @param name The value for name 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    AgeBuildStage name(String name);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;StagedBuilderExtendingBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface AgeBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedBuilderExtendingBuilder#age() age} attribute.
+&nbsp;     * @param age The value for age 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    BuildFinal age(int age);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;StagedBuilderExtendingBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface BuildFinal {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableStagedBuilderExtendingBuilder ImmutableStagedBuilderExtendingBuilder}.
+&nbsp;     * @return An immutable instance of StagedBuilderExtendingBuilder
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    ImmutableStagedBuilderExtendingBuilder build();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

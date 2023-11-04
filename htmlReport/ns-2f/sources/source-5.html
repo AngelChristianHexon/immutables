@@ -1,0 +1,329 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AbstractResponse</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson.poly2</a>
+</div>
+
+<h1>Coverage Summary for Class: AbstractResponse (org.immutables.fixture.jackson.poly2)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">AbstractResponse$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">AbstractResponse$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson.poly2;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.annotation.JsonSubTypes;
+&nbsp;import com.fasterxml.jackson.annotation.JsonTypeInfo;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link _AbstractResponse}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code AbstractResponse.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;_AbstractResponse&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class AbstractResponse extends org.immutables.fixture.jackson.poly2._AbstractResponse {
+&nbsp;  private final String type;
+&nbsp;  private final Payload payload;
+&nbsp;
+&nbsp;  private AbstractResponse(AbstractResponse.Builder builder) {
+&nbsp;    this.type = builder.type;
+&nbsp;    this.payload = builder.payload;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code type} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;type&quot;)
+&nbsp;  @Override
+&nbsp;  public String getType() {
+&nbsp;    return type;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code payload} attribute
+&nbsp;   */
+&nbsp;  @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = &quot;type&quot;)
+&nbsp;  @JsonSubTypes({@JsonSubTypes.Type(name = &quot;one&quot;, value = PayloadOne.class), @JsonSubTypes.Type(name = &quot;two&quot;, value = PayloadTwo.class)})
+&nbsp;  @JsonProperty(&quot;payload&quot;)
+&nbsp;  @Override
+&nbsp;  public Payload getPayload() {
+&nbsp;    return payload;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code AbstractResponse} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof AbstractResponse
+&nbsp;        &amp;&amp; equalTo(0, (AbstractResponse) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, AbstractResponse another) {
+&nbsp;    return type.equals(another.type)
+&nbsp;        &amp;&amp; payload.equals(another.payload);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code type}, {@code payload}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + type.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + payload.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code AbstractResponse} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;AbstractResponse&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;type&quot;, type)
+&nbsp;        .add(&quot;payload&quot;, payload)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;_AbstractResponse&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json extends org.immutables.fixture.jackson.poly2._AbstractResponse {
+&nbsp;    @Nullable String type;
+&nbsp;    @Nullable Payload payload;
+&nbsp;    @JsonProperty(&quot;type&quot;)
+&nbsp;    public void setType(String type) {
+&nbsp;      this.type = type;
+&nbsp;    }
+&nbsp;    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = &quot;type&quot;)
+&nbsp;    @JsonSubTypes({@JsonSubTypes.Type(name = &quot;one&quot;, value = PayloadOne.class), @JsonSubTypes.Type(name = &quot;two&quot;, value = PayloadTwo.class)})
+&nbsp;    @JsonProperty(&quot;payload&quot;)
+&nbsp;    public void setPayload(Payload payload) {
+&nbsp;      this.payload = payload;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public String getType() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public Payload getPayload() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static AbstractResponse fromJson(Json json) {
+&nbsp;    AbstractResponse.Builder builder = AbstractResponse.builder();
+&nbsp;    if (json.type != null) {
+&nbsp;      builder.type(json.type);
+&nbsp;    }
+&nbsp;    if (json.payload != null) {
+&nbsp;      builder.payload(json.payload);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link AbstractResponse AbstractResponse}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * AbstractResponse.builder()
+&nbsp;   *    .type(String) // required {@link AbstractResponse#getType() type}
+&nbsp;   *    .payload(org.immutables.fixture.jackson.poly2.Payload) // required {@link AbstractResponse#getPayload() payload}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new AbstractResponse builder
+&nbsp;   */
+&nbsp;  public static AbstractResponse.Builder builder() {
+&nbsp;    return new AbstractResponse.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link AbstractResponse AbstractResponse}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;_AbstractResponse&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_TYPE = 0x1L;
+&nbsp;    private static final long INIT_BIT_PAYLOAD = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable String type;
+&nbsp;    private @Nullable Payload payload;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code AbstractResponse} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder from(AbstractResponse instance) {
+&nbsp;      return from((_AbstractResponse) instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy abstract value type {@code _AbstractResponse} instance into builder.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    final Builder from(_AbstractResponse instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      type(instance.getType());
+&nbsp;      payload(instance.getPayload());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AbstractResponse#getType() type} attribute.
+&nbsp;     * @param type The value for type 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;type&quot;)
+&nbsp;    public final Builder type(String type) {
+&nbsp;      this.type = Objects.requireNonNull(type, &quot;type&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AbstractResponse#getPayload() payload} attribute.
+&nbsp;     * @param payload The value for payload 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = &quot;type&quot;)
+&nbsp;    @JsonSubTypes({@JsonSubTypes.Type(name = &quot;one&quot;, value = PayloadOne.class), @JsonSubTypes.Type(name = &quot;two&quot;, value = PayloadTwo.class)})
+&nbsp;    @JsonProperty(&quot;payload&quot;)
+&nbsp;    public final Builder payload(Payload payload) {
+&nbsp;      this.payload = Objects.requireNonNull(payload, &quot;payload&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PAYLOAD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link AbstractResponse AbstractResponse}.
+&nbsp;     * @return An immutable instance of AbstractResponse
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public AbstractResponse build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new AbstractResponse(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_TYPE) != 0) attributes.add(&quot;type&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_PAYLOAD) != 0) attributes.add(&quot;payload&quot;);
+&nbsp;      return &quot;Cannot build AbstractResponse, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

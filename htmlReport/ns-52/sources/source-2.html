@@ -1,0 +1,689 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AccessorAttributesCollector</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: AccessorAttributesCollector (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AccessorAttributesCollector</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/266)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/276)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableListMultimap;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import org.immutables.generator.SourceOrdering;
+&nbsp;import org.immutables.generator.SourceOrdering.AccessorProvider;
+&nbsp;import org.immutables.value.processor.encode.Instantiator;
+&nbsp;import org.immutables.value.processor.encode.Instantiator.InstantiationCreator;
+&nbsp;import org.immutables.value.processor.meta.Proto.DeclaringType;
+&nbsp;import org.immutables.value.processor.meta.Proto.Protoclass;
+&nbsp;import org.immutables.value.processor.meta.Reporter.About;
+&nbsp;import org.immutables.value.processor.meta.Styles.UsingName.AttributeNames;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.Name;
+&nbsp;import javax.lang.model.element.Parameterizable;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.element.VariableElement;
+&nbsp;import javax.lang.model.type.DeclaredType;
+&nbsp;import javax.lang.model.type.ExecutableType;
+&nbsp;import javax.lang.model.type.TypeKind;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import javax.lang.model.util.ElementFilter;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;final class AccessorAttributesCollector {
+&nbsp;  private static final String ORDINAL_ORDINAL_ATTRIBUTE_NAME = &quot;ordinal&quot;;
+&nbsp;  private static final String ORDINAL_DOMAIN_ATTRIBUTE_NAME = &quot;domain&quot;;
+&nbsp;  private static final String PARCELABLE_DESCRIBE_CONTENTS_METHOD = &quot;describeContents&quot;;
+&nbsp;  private static final @Nullable Modifier DEFAULT_MODIFIER;
+&nbsp;  static {
+&nbsp;    // because we still don&#39;t fully go java 8)
+<b class="nc">&nbsp;    @Nullable Modifier def = null;</b>
+<b class="nc">&nbsp;    for (Modifier m : Modifier.values()) {</b>
+<b class="nc">&nbsp;      if (m.name().equals(&quot;DEFAULT&quot;)) def = m;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    DEFAULT_MODIFIER = def;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final String ORG_ECLIPSE = &quot;org.eclipse&quot;;
+&nbsp;
+&nbsp;  static final String EQUALS_METHOD = &quot;equals&quot;;
+&nbsp;  static final String TO_STRING_METHOD = &quot;toString&quot;;
+&nbsp;  static final String HASH_CODE_METHOD = &quot;hashCode&quot;;
+&nbsp;
+&nbsp;  private final Protoclass protoclass;
+&nbsp;  private final ValueType type;
+&nbsp;  private final ProcessingEnvironment processing;
+<b class="nc">&nbsp;  private final List&lt;ValueAttribute&gt; attributes = Lists.newArrayList();</b>
+&nbsp;  private final Styles styles;
+&nbsp;  private final Reporter reporter;
+<b class="nc">&nbsp;  private ImmutableListMultimap&lt;String, TypeElement&gt; accessorMapping = ImmutableListMultimap.of();</b>
+&nbsp;
+&nbsp;  private final boolean isEclipseImplementation;
+&nbsp;  private boolean hasNonInheritedAttributes;
+&nbsp;
+<b class="nc">&nbsp;  AccessorAttributesCollector(Protoclass protoclass, ValueType type) {</b>
+<b class="nc">&nbsp;    this.protoclass = protoclass;</b>
+<b class="nc">&nbsp;    this.processing = protoclass.processing();</b>
+<b class="nc">&nbsp;    this.styles = protoclass.styles();</b>
+<b class="nc">&nbsp;    this.type = type;</b>
+<b class="nc">&nbsp;    this.reporter = protoclass.report();</b>
+<b class="nc">&nbsp;    this.isEclipseImplementation = ProcessingEnvironments.isEclipseImplementation(processing);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  void collect() {
+<b class="nc">&nbsp;    collectGeneratedCandidateMethods(getTypeElement());</b>
+&nbsp;
+<b class="nc">&nbsp;    Instantiator encodingInstantiator = protoclass.encodingInstantiator();</b>
+<b class="nc">&nbsp;    @Nullable InstantiationCreator instantiationCreator =</b>
+<b class="nc">&nbsp;        encodingInstantiator.creatorFor((Parameterizable) type.element);</b>
+&nbsp;
+<b class="nc">&nbsp;    for (ValueAttribute attribute : attributes) {</b>
+<b class="nc">&nbsp;      attribute.initAndValidate(instantiationCreator);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    if (instantiationCreator != null) {</b>
+<b class="nc">&nbsp;      type.additionalImports(instantiationCreator.imports);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    type.attributes.addAll(attributes);</b>
+<b class="nc">&nbsp;    type.accessorMapping = accessorMapping;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private TypeElement getTypeElement() {
+<b class="nc">&nbsp;    return (TypeElement) type.element;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void collectGeneratedCandidateMethods(TypeElement type) {
+<b class="nc">&nbsp;    TypeElement originalType = CachingElements.getDelegate(type);</b>
+&nbsp;
+&nbsp;    List&lt;? extends Element&gt; accessorsInSourceOrder;
+<b class="nc">&nbsp;    if (originalType.getKind() == ElementKind.ANNOTATION_TYPE) {</b>
+<b class="nc">&nbsp;      accessorsInSourceOrder = SourceOrdering.getEnclosedElements(originalType);</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      AccessorProvider provider =</b>
+<b class="nc">&nbsp;          SourceOrdering.getAllAccessorsProvider(processing.getElementUtils(), processing.getTypeUtils(), originalType);</b>
+<b class="nc">&nbsp;      accessorsInSourceOrder = provider.get();</b>
+<b class="nc">&nbsp;      accessorMapping = provider.accessorMapping();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    for (ExecutableElement element : ElementFilter.methodsIn(accessorsInSourceOrder)) {</b>
+<b class="nc">&nbsp;      if (isElegibleAccessorMethod(element)) {</b>
+<b class="nc">&nbsp;        processGenerationCandidateMethod(element, originalType);</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+&nbsp;    // We do this afterwards to observe field flag that can
+&nbsp;    // inform use during checking for warnings.
+<b class="nc">&nbsp;    for (Element element : processing.getElementUtils().getAllMembers(originalType)) {</b>
+<b class="nc">&nbsp;      if (element.getKind() == ElementKind.METHOD) {</b>
+<b class="nc">&nbsp;        ExecutableElement e = (ExecutableElement) element;</b>
+<b class="nc">&nbsp;        String simpleName = element.getSimpleName().toString();</b>
+<b class="nc">&nbsp;        switch (simpleName) {</b>
+&nbsp;        case HASH_CODE_METHOD:
+&nbsp;        case TO_STRING_METHOD:
+&nbsp;        case EQUALS_METHOD:
+<b class="nc">&nbsp;          processUtilityCandidateMethod(e, originalType);</b>
+<b class="nc">&nbsp;          break;</b>
+&nbsp;        default:
+<b class="nc">&nbsp;          if (!e.getTypeParameters().isEmpty()) break;</b>
+<b class="nc">&nbsp;          boolean hasDefaultModifier = element.getModifiers().contains(DEFAULT_MODIFIER);</b>
+<b class="nc">&nbsp;          boolean hasStaticModifier = element.getModifiers().contains(Modifier.STATIC);</b>
+<b class="nc">&nbsp;          boolean hasAbstractModifier = element.getModifiers().contains(Modifier.ABSTRACT);</b>
+<b class="nc">&nbsp;          if (hasStaticModifier || hasDefaultModifier || !hasAbstractModifier) {</b>
+<b class="nc">&nbsp;            String definedIn = element.getEnclosingElement().toString();</b>
+<b class="nc">&nbsp;            if (!styles.style().underrideEquals().isEmpty()</b>
+<b class="nc">&nbsp;                &amp;&amp; styles.style().underrideEquals().equals(simpleName)) {</b>
+<b class="nc">&nbsp;              if (hasStaticModifier) {</b>
+<b class="nc">&nbsp;                if (e.getParameters().size() == 2) {</b>
+<b class="nc">&nbsp;                  this.type.underrideEquals = new ValueType.UnderrideMethod(simpleName, true, definedIn);</b>
+<b class="nc">&nbsp;                  this.type.isEqualToDefined = true;</b>
+&nbsp;                }
+&nbsp;              } else {
+<b class="nc">&nbsp;                if (e.getParameters().size() == 1) {</b>
+<b class="nc">&nbsp;                  this.type.underrideEquals = new ValueType.UnderrideMethod(simpleName, false, definedIn);</b>
+<b class="nc">&nbsp;                  this.type.isEqualToDefined = true;</b>
+&nbsp;                }
+&nbsp;              }
+<b class="nc">&nbsp;            } else if (!styles.style().underrideHashCode().isEmpty()</b>
+<b class="nc">&nbsp;                &amp;&amp; styles.style().underrideHashCode().equals(simpleName)) {</b>
+<b class="nc">&nbsp;              if (hasStaticModifier) {</b>
+<b class="nc">&nbsp;                if (e.getParameters().size() == 1) {</b>
+<b class="nc">&nbsp;                  this.type.underrideHashCode = new ValueType.UnderrideMethod(simpleName, true, definedIn);</b>
+<b class="nc">&nbsp;                  this.type.isHashCodeDefined = true;</b>
+&nbsp;                }
+&nbsp;              } else {
+<b class="nc">&nbsp;                if (e.getParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;                  this.type.underrideHashCode = new ValueType.UnderrideMethod(simpleName, false, definedIn);</b>
+<b class="nc">&nbsp;                  this.type.isHashCodeDefined = true;</b>
+&nbsp;                }
+&nbsp;              }
+<b class="nc">&nbsp;            } else if (!styles.style().underrideToString().isEmpty()</b>
+<b class="nc">&nbsp;                &amp;&amp; styles.style().underrideToString().equals(simpleName)) {</b>
+<b class="nc">&nbsp;              if (hasStaticModifier) {</b>
+<b class="nc">&nbsp;                if (e.getParameters().size() == 1) {</b>
+<b class="nc">&nbsp;                  this.type.underrideToString = new ValueType.UnderrideMethod(simpleName, true, definedIn);</b>
+<b class="nc">&nbsp;                  this.type.isToStringDefined = true;</b>
+&nbsp;                }
+&nbsp;              } else {
+<b class="nc">&nbsp;                if (e.getParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;                  this.type.underrideToString = new ValueType.UnderrideMethod(simpleName, false, definedIn);</b>
+<b class="nc">&nbsp;                  this.type.isToStringDefined = true;</b>
+&nbsp;                }
+&nbsp;              }
+&nbsp;            }
+&nbsp;          }
+&nbsp;        }
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean isElegibleAccessorMethod(Element element) {
+<b class="nc">&nbsp;    if (element.getKind() != ElementKind.METHOD) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (element.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (NonAttributeMirror.isPresent(element)) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    String simpleName = element.getSimpleName().toString();</b>
+<b class="nc">&nbsp;    switch (simpleName) {</b>
+&nbsp;    case HASH_CODE_METHOD:
+&nbsp;    case TO_STRING_METHOD:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    default:
+&nbsp;    }
+<b class="nc">&nbsp;    if (!type.style().toBuilder().isEmpty()</b>
+<b class="nc">&nbsp;        &amp;&amp; !type.style().strictBuilder()</b>
+<b class="nc">&nbsp;        &amp;&amp; simpleName.equals(type.names().toBuilder())</b>
+<b class="nc">&nbsp;        &amp;&amp; element.getModifiers().contains(Modifier.ABSTRACT)) {</b>
+&nbsp;      // When we enable toBuilder generation, then matching abstract toBuilder declarations
+&nbsp;      // will not be considered accessors. Any other name signature conficts is up to the user to resolve
+&nbsp;      // Note: this is not the full check if to builder will be actually generated (isGenerateToBuilder)
+&nbsp;      // but it&#39;s good enough for this stage when we don&#39;t know all attribute set
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    String definitionType = element.getEnclosingElement().toString();</b>
+<b class="nc">&nbsp;    return !definitionType.equals(Object.class.getName())</b>
+<b class="nc">&nbsp;        &amp;&amp; !definitionType.equals(Proto.ORDINAL_VALUE_INTERFACE_TYPE)</b>
+<b class="nc">&nbsp;        &amp;&amp; !definitionType.equals(Proto.PARCELABLE_INTERFACE_TYPE);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void processUtilityCandidateMethod(ExecutableElement utilityMethodCandidate, TypeElement originalType) {
+<b class="nc">&nbsp;    Name name = utilityMethodCandidate.getSimpleName();</b>
+<b class="nc">&nbsp;    List&lt;? extends VariableElement&gt; parameters = utilityMethodCandidate.getParameters();</b>
+&nbsp;
+<b class="nc">&nbsp;    TypeElement definingType = (TypeElement) utilityMethodCandidate.getEnclosingElement();</b>
+<b class="nc">&nbsp;    boolean nonFinal = !utilityMethodCandidate.getModifiers().contains(Modifier.FINAL);</b>
+<b class="nc">&nbsp;    boolean nonAbstract = !utilityMethodCandidate.getModifiers().contains(Modifier.ABSTRACT);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (isJavaLangObjectType(definingType)) {</b>
+&nbsp;      // We ignore methods of java.lang.Object
+&nbsp;      return;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (name.contentEquals(EQUALS_METHOD)</b>
+<b class="nc">&nbsp;        &amp;&amp; parameters.size() == 1</b>
+<b class="nc">&nbsp;        &amp;&amp; isJavaLangObjectType(parameters.get(0).asType())) {</b>
+&nbsp;
+<b class="nc">&nbsp;      if (nonAbstract) {</b>
+<b class="nc">&nbsp;        type.isEqualToDefined = true;</b>
+<b class="nc">&nbsp;        type.isEqualToFinal = !nonFinal;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (!definingType.equals(originalType) &amp;&amp; hasNonInheritedAttributes &amp;&amp; nonFinal) {</b>
+<b class="nc">&nbsp;          report(originalType)</b>
+<b class="nc">&nbsp;              .warning(About.INCOMPAT,</b>
+&nbsp;                  &quot;Type inherits overridden &#39;equals&#39; method but have some non-inherited attributes.&quot;
+&nbsp;                  + &quot; Please override &#39;equals&#39; with abstract method to have it generate. Otherwise override&quot;
+&nbsp;                  + &quot; with calling super implementation to use custom implementation&quot;);
+&nbsp;        }
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (name.contentEquals(HASH_CODE_METHOD)</b>
+<b class="nc">&nbsp;        &amp;&amp; parameters.isEmpty()) {</b>
+<b class="nc">&nbsp;      if (nonAbstract) {</b>
+<b class="nc">&nbsp;        type.isHashCodeDefined = true;</b>
+<b class="nc">&nbsp;        type.isHashCodeFinal = !nonFinal;</b>
+&nbsp;
+&nbsp;        // inherited non-abstract implementation
+<b class="nc">&nbsp;        if (!definingType.equals(originalType) &amp;&amp; hasNonInheritedAttributes &amp;&amp; nonFinal) {</b>
+<b class="nc">&nbsp;          report(originalType)</b>
+<b class="nc">&nbsp;              .warning(About.INCOMPAT,</b>
+&nbsp;                  &quot;Type inherits non-default &#39;hashCode&#39; method but have some non-inherited attributes.&quot;
+&nbsp;                  + &quot; Please override &#39;hashCode&#39; with abstract method to have it generated. Otherwise override&quot;
+&nbsp;                  + &quot; with calling super implementation to use custom implementation&quot;);
+&nbsp;        }
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (name.contentEquals(TO_STRING_METHOD)</b>
+<b class="nc">&nbsp;        &amp;&amp; parameters.isEmpty()) {</b>
+<b class="nc">&nbsp;      if (nonAbstract) {</b>
+<b class="nc">&nbsp;        type.isToStringDefined = true;</b>
+&nbsp;
+&nbsp;        // inherited non-abstract implementation
+<b class="nc">&nbsp;        if (!definingType.equals(originalType) &amp;&amp; hasNonInheritedAttributes &amp;&amp; nonFinal) {</b>
+<b class="nc">&nbsp;          report(originalType)</b>
+<b class="nc">&nbsp;              .warning(About.INCOMPAT,</b>
+&nbsp;                  &quot;Type inherits non-default &#39;toString&#39; method but have some non-inherited attributes.&quot;
+&nbsp;                  + &quot; Please override &#39;toString&#39; with abstract method to have generate it. Otherwise override&quot;
+&nbsp;                  + &quot; with calling super implementation to use custom implementation&quot;);
+&nbsp;        }
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean isJavaLangObjectType(TypeMirror typeMirror) {
+<b class="nc">&nbsp;    if (typeMirror.getKind() == TypeKind.DECLARED) {</b>
+<b class="nc">&nbsp;      Element element = ((DeclaredType) typeMirror).asElement();</b>
+<b class="nc">&nbsp;      if (element.getKind().isClass()) {</b>
+<b class="nc">&nbsp;        return isJavaLangObjectType(((TypeElement) element));</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean isJavaLangObjectType(TypeElement definingType) {
+<b class="nc">&nbsp;    return definingType.getQualifiedName().contentEquals(Object.class.getName());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void processGenerationCandidateMethod(ExecutableElement attributeMethodCandidate, TypeElement originalType) {
+<b class="nc">&nbsp;    Name name = attributeMethodCandidate.getSimpleName();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (CheckMirror.isPresent(attributeMethodCandidate)) {</b>
+<b class="nc">&nbsp;      if (!attributeMethodCandidate.getParameters().isEmpty()</b>
+<b class="nc">&nbsp;          || attributeMethodCandidate.getModifiers().contains(Modifier.PRIVATE)</b>
+<b class="nc">&nbsp;          || attributeMethodCandidate.getModifiers().contains(Modifier.ABSTRACT)</b>
+<b class="nc">&nbsp;          || attributeMethodCandidate.getModifiers().contains(Modifier.STATIC)</b>
+<b class="nc">&nbsp;          || attributeMethodCandidate.getModifiers().contains(Modifier.NATIVE)</b>
+<b class="nc">&nbsp;          || !attributeMethodCandidate.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;            .error(&quot;Method &#39;%s&#39; annotated with @%s must be non-private parameter-less method&quot;,</b>
+&nbsp;                name,
+<b class="nc">&nbsp;                CheckMirror.simpleName());</b>
+<b class="nc">&nbsp;      } else if (attributeMethodCandidate.getReturnType().getKind() == TypeKind.VOID) {</b>
+<b class="nc">&nbsp;        type.addNormalizeMethod(name.toString(), false);</b>
+<b class="nc">&nbsp;      } else if (returnsNormalizedAbstractValueType(attributeMethodCandidate)) {</b>
+<b class="nc">&nbsp;        type.addNormalizeMethod(name.toString(), true);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;            .error(&quot;Method &#39;%s&#39; annotated with @%s must return void or normalized instance of abstract value type&quot;,</b>
+&nbsp;                name,
+<b class="nc">&nbsp;                CheckMirror.simpleName());</b>
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    boolean useDefaultAsDefault = type.constitution.style().defaultAsDefault();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (isDiscoveredAttribute(attributeMethodCandidate, useDefaultAsDefault)) {</b>
+<b class="nc">&nbsp;      if (!attributeMethodCandidate.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;            .error(&quot;Method &#39;%s&#39; cannot have own generic type parameters.&quot;</b>
+&nbsp;                + &quot; Attribute accessors can only use enclosing type&#39;s type variables&quot;, name);
+&nbsp;        return;
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      TypeMirror returnType = resolveReturnType(attributeMethodCandidate);</b>
+&nbsp;
+<b class="nc">&nbsp;      ValueAttribute attribute = new ValueAttribute();</b>
+<b class="nc">&nbsp;      attribute.reporter = reporter;</b>
+<b class="nc">&nbsp;      attribute.returnType = returnType;</b>
+<b class="nc">&nbsp;      attribute.names = deriveNames(name.toString());</b>
+<b class="nc">&nbsp;      attribute.element = attributeMethodCandidate;</b>
+<b class="nc">&nbsp;      attribute.containingType = type;</b>
+&nbsp;
+<b class="nc">&nbsp;      boolean isFinal = isFinal(attributeMethodCandidate);</b>
+<b class="nc">&nbsp;      boolean isAbstract = isAbstract(attributeMethodCandidate);</b>
+<b class="nc">&nbsp;      boolean defaultAnnotationPresent = DefaultMirror.isPresent(attributeMethodCandidate);</b>
+<b class="nc">&nbsp;      boolean derivedAnnotationPresent = DerivedMirror.isPresent(attributeMethodCandidate);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (isAbstract) {</b>
+<b class="nc">&nbsp;        attribute.isGenerateAbstract = true;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (attributeMethodCandidate.getDefaultValue() != null) {</b>
+<b class="nc">&nbsp;          attribute.isGenerateDefault = true;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (defaultAnnotationPresent || derivedAnnotationPresent) {</b>
+<b class="nc">&nbsp;          if (defaultAnnotationPresent) {</b>
+<b class="nc">&nbsp;            if (attribute.isGenerateDefault) {</b>
+<b class="nc">&nbsp;              report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;                  .annotationNamed(DefaultMirror.simpleName())</b>
+<b class="nc">&nbsp;                  .warning(About.INCOMPAT,</b>
+&nbsp;                      &quot;@Value.Default annotation is superfluous for default annotation attribute&quot;);
+&nbsp;            } else {
+<b class="nc">&nbsp;              report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;                  .annotationNamed(DefaultMirror.simpleName())</b>
+<b class="nc">&nbsp;                  .error(&quot;@Value.Default attribute should have initializer body&quot;, name);</b>
+&nbsp;            }
+&nbsp;          }
+<b class="nc">&nbsp;          if (derivedAnnotationPresent) {</b>
+<b class="nc">&nbsp;            if (attribute.isGenerateDefault) {</b>
+<b class="nc">&nbsp;              report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;                  .annotationNamed(DerivedMirror.simpleName())</b>
+<b class="nc">&nbsp;                  .error(&quot;@Value.Derived cannot be used with default annotation attribute&quot;);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;              report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;                  .annotationNamed(DerivedMirror.simpleName())</b>
+<b class="nc">&nbsp;                  .error(&quot;@Value.Derived attribute should have initializer body&quot;, name);</b>
+&nbsp;            }
+&nbsp;          }
+&nbsp;        }
+<b class="nc">&nbsp;      } else if (defaultAnnotationPresent &amp;&amp; derivedAnnotationPresent) {</b>
+<b class="nc">&nbsp;        report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;            .annotationNamed(DerivedMirror.simpleName())</b>
+<b class="nc">&nbsp;            .error(&quot;Attribute &#39;%s&#39; cannot be both @Value.Default and @Value.Derived&quot;, name);</b>
+<b class="nc">&nbsp;        attribute.isGenerateDefault = true;</b>
+<b class="nc">&nbsp;      } else if ((defaultAnnotationPresent || derivedAnnotationPresent) &amp;&amp; isFinal) {</b>
+<b class="nc">&nbsp;        report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;            .error(&quot;Annotated attribute &#39;%s&#39; will be overriden and cannot be final&quot;, name);</b>
+<b class="nc">&nbsp;      } else if (defaultAnnotationPresent) {</b>
+<b class="nc">&nbsp;        attribute.isGenerateDefault = true;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (useDefaultAsDefault &amp;&amp; attribute.isInterfaceDefaultMethod()) {</b>
+<b class="nc">&nbsp;          report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;              .annotationNamed(DefaultMirror.simpleName())</b>
+<b class="nc">&nbsp;              .warning(About.INCOMPAT,</b>
+&nbsp;                  &quot;@Value.Default annotation is superfluous for default annotation attribute&quot;
+&nbsp;                      + &quot; when &#39;defaultAsDefault&#39; style is enabled&quot;);
+&nbsp;        }
+<b class="nc">&nbsp;      } else if (derivedAnnotationPresent) {</b>
+<b class="nc">&nbsp;        attribute.isGenerateDerived = true;</b>
+<b class="nc">&nbsp;      } else if (useDefaultAsDefault) {</b>
+<b class="nc">&nbsp;        attribute.isGenerateDefault = attribute.isInterfaceDefaultMethod();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (LazyMirror.isPresent(attributeMethodCandidate)) {</b>
+<b class="nc">&nbsp;        if (isAbstract || isFinal) {</b>
+<b class="nc">&nbsp;          report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;              .error(&quot;@Value.Lazy attribute &#39;%s&#39; must be non abstract and non-final&quot;, name);</b>
+<b class="nc">&nbsp;        } else if (defaultAnnotationPresent || derivedAnnotationPresent) {</b>
+<b class="nc">&nbsp;          report(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;              .error(&quot;@Value.Lazy attribute &#39;%s&#39; cannot be @Value.Derived or @Value.Default&quot;, name);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          attribute.isGenerateLazy = true;</b>
+<b class="nc">&nbsp;          attribute.isGenerateDefault = false;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      attributes.add(attribute);</b>
+&nbsp;
+&nbsp;      // Compute this eagerly here, for no strong reason
+<b class="nc">&nbsp;      if (attribute.isGenerateDefault) {</b>
+<b class="nc">&nbsp;        type.defaultAttributesCount++;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (attribute.isGenerateDerived) {</b>
+<b class="nc">&nbsp;        type.derivedAttributesCount++;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (attributeMethodCandidate.getEnclosingElement().equals(originalType)) {</b>
+<b class="nc">&nbsp;        hasNonInheritedAttributes = true;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean returnsNormalizedAbstractValueType(ExecutableElement validationMethodCandidate) {
+<b class="nc">&nbsp;    Optional&lt;DeclaringType&gt; declaringType = protoclass.declaringType();</b>
+<b class="nc">&nbsp;    if (!declaringType.isPresent()) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    TypeStringProvider provider = new TypeStringProvider(</b>
+&nbsp;        reporter,
+&nbsp;        validationMethodCandidate,
+<b class="nc">&nbsp;        resolveReturnType(validationMethodCandidate),</b>
+<b class="nc">&nbsp;        new ImportsTypeStringResolver(declaringType.orNull(), declaringType.orNull()),</b>
+<b class="nc">&nbsp;        protoclass.constitution().generics().vars(),</b>
+&nbsp;        null);
+<b class="nc">&nbsp;    provider.process();</b>
+<b class="nc">&nbsp;    String returnTypeName = provider.returnTypeName();</b>
+<b class="nc">&nbsp;    boolean isCompatibleReturnType =</b>
+<b class="nc">&nbsp;        protoclass.constitution().typeAbstract().toString().equals(returnTypeName)</b>
+<b class="nc">&nbsp;            || protoclass.constitution().typeImmutable().toString().equals(returnTypeName);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (!isCompatibleReturnType) {</b>
+<b class="nc">&nbsp;      report(validationMethodCandidate)</b>
+<b class="nc">&nbsp;          .error(&quot;Method &#39;%s&#39; annotated with @%s should have compatible return type to&quot;</b>
+&nbsp;              + &quot; be used as normalization method. It should return abstract value type itself&quot;
+&nbsp;              + &quot; or immutable generated type (i.e. %s or %s)&quot;,
+<b class="nc">&nbsp;              validationMethodCandidate.getSimpleName(),</b>
+<b class="nc">&nbsp;              CheckMirror.simpleName(),</b>
+<b class="nc">&nbsp;              protoclass.constitution().typeAbstract(),</b>
+<b class="nc">&nbsp;              protoclass.constitution().typeImmutable());</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return true;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private AttributeNames deriveNames(String accessorName) {
+<b class="nc">&nbsp;    AttributeNames names = styles.forAccessor(accessorName);</b>
+<b class="nc">&nbsp;    switch (names.raw) {</b>
+&nbsp;    case HASH_CODE_METHOD: //$FALL-THROUGH$
+&nbsp;    case TO_STRING_METHOD:
+&nbsp;      // name could equal reserved method name if template is used
+&nbsp;      // like &quot;getToString&quot; accessor -&gt; &quot;toString&quot; attribute
+&nbsp;      // then we force literal accessor name as raw name
+<b class="nc">&nbsp;      return styles.forAccessorWithRaw(accessorName, accessorName);</b>
+&nbsp;    case ORDINAL_ORDINAL_ATTRIBUTE_NAME: //$FALL-THROUGH$
+&nbsp;    case ORDINAL_DOMAIN_ATTRIBUTE_NAME:
+<b class="nc">&nbsp;      if (type.isOrdinalValue()) {</b>
+&nbsp;        // name could equal reserved method name if template is used
+&nbsp;        // like &quot;getOrdinal&quot; accessor -&gt; &quot;ordinal&quot; attribute
+&nbsp;        // then we force literal accessor name as raw name.
+&nbsp;        // Here we have assumption that actual &quot;ordinal&quot; and &quot;domain&quot; accessors
+&nbsp;        // defined in OrdinalValue interface were filtered out beforehand
+<b class="nc">&nbsp;        return styles.forAccessorWithRaw(accessorName, accessorName);</b>
+&nbsp;      }
+&nbsp;      break;
+&nbsp;    case PARCELABLE_DESCRIBE_CONTENTS_METHOD:
+<b class="nc">&nbsp;      if (type.isParcelable()) {</b>
+<b class="nc">&nbsp;        return styles.forAccessorWithRaw(accessorName, accessorName);</b>
+&nbsp;      }
+&nbsp;      break;
+&nbsp;    }
+<b class="nc">&nbsp;    return names;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private TypeMirror resolveReturnType(ExecutableElement method) {
+<b class="nc">&nbsp;    TypeElement typeElement = getTypeElement();</b>
+<b class="nc">&nbsp;    if (isEclipseImplementation) {</b>
+<b class="nc">&nbsp;      return method.getReturnType();</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return resolveReturnType(processing, method, typeElement);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static TypeMirror resolveReturnType(
+&nbsp;      ProcessingEnvironment processing,
+&nbsp;      ExecutableElement method,
+&nbsp;      TypeElement typeElement) {
+<b class="nc">&nbsp;    method = CachingElements.getDelegate(method);</b>
+<b class="nc">&nbsp;    TypeMirror returnType = method.getReturnType();</b>
+&nbsp;
+&nbsp;    // We do not support parametrized accessor methods,
+&nbsp;    // but we do support inheriting parametrized accessors, which
+&nbsp;    // we supposedly parametrized with actual type parameters as
+&nbsp;    // our target class could not define formal type parameters also.
+<b class="nc">&nbsp;    if (returnType.getKind() == TypeKind.TYPEVAR) {</b>
+<b class="nc">&nbsp;      return asInheritedMemberReturnType(processing, typeElement, method);</b>
+<b class="nc">&nbsp;    } else if (returnType.getKind() == TypeKind.DECLARED</b>
+<b class="nc">&nbsp;        || returnType.getKind() == TypeKind.ERROR) {</b>
+<b class="nc">&nbsp;      if (!((DeclaredType) returnType).getTypeArguments().isEmpty()) {</b>
+<b class="nc">&nbsp;        return asInheritedMemberReturnType(processing, typeElement, method);</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return returnType;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static TypeMirror asInheritedMemberReturnType(
+&nbsp;      ProcessingEnvironment processing,
+&nbsp;      TypeElement typeElement,
+&nbsp;      ExecutableElement method) {
+<b class="nc">&nbsp;    ExecutableType asMethodOfType =</b>
+<b class="nc">&nbsp;        (ExecutableType) processing.getTypeUtils()</b>
+<b class="nc">&nbsp;            .asMemberOf((DeclaredType) typeElement.asType(), method);</b>
+&nbsp;
+<b class="nc">&nbsp;    return asMethodOfType.getReturnType();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean isAbstract(Element element) {
+<b class="nc">&nbsp;    return element.getModifiers().contains(Modifier.ABSTRACT);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean isFinal(Element element) {
+<b class="nc">&nbsp;    return element.getModifiers().contains(Modifier.FINAL);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean isDiscoveredAttribute(ExecutableElement attributeMethodCandidate, boolean isDefaultAsDefault) {
+<b class="nc">&nbsp;    return attributeMethodCandidate.getParameters().isEmpty()</b>
+<b class="nc">&nbsp;        &amp;&amp; attributeMethodCandidate.getReturnType().getKind() != TypeKind.VOID</b>
+<b class="nc">&nbsp;        &amp;&amp; (isAbstract(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;            || hasGenerateAnnotation(attributeMethodCandidate)</b>
+&nbsp;            || isDefaultAsDefault);
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean hasGenerateAnnotation(ExecutableElement attributeMethodCandidate) {
+<b class="nc">&nbsp;    return DefaultMirror.isPresent(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;        || DerivedMirror.isPresent(attributeMethodCandidate)</b>
+<b class="nc">&nbsp;        || LazyMirror.isPresent(attributeMethodCandidate);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Reporter report(Element type) {
+<b class="nc">&nbsp;    return Reporter.from(protoclass.processing()).withElement(type);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

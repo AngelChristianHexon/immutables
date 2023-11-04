@@ -1,0 +1,546 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableStagedEntity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableStagedEntity (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableStagedEntity$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedEntity$BuildFinal</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedEntity$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedEntity$Json</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStagedEntity$RequiredBuildStage</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link StagedEntity}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableStagedEntity.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;StagedEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableStagedEntity implements StagedEntity {
+&nbsp;  private final String required;
+&nbsp;  private final String optional;
+&nbsp;  private final boolean optionalPrimitive;
+&nbsp;
+&nbsp;  private ImmutableStagedEntity(ImmutableStagedEntity.Builder builder) {
+&nbsp;    this.required = builder.required;
+&nbsp;    if (builder.optionalIsSet()) {
+&nbsp;      initShim.optional(builder.optional);
+&nbsp;    }
+&nbsp;    if (builder.optionalPrimitiveIsSet()) {
+&nbsp;      initShim.optionalPrimitive(builder.optionalPrimitive);
+&nbsp;    }
+&nbsp;    this.optional = initShim.getOptional();
+&nbsp;    this.optionalPrimitive = initShim.getOptionalPrimitive();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableStagedEntity(String required, String optional, boolean optionalPrimitive) {
+&nbsp;    this.required = required;
+&nbsp;    this.optional = optional;
+&nbsp;    this.optionalPrimitive = optionalPrimitive;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;StagedEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte optionalBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String optional;
+&nbsp;
+&nbsp;    String getOptional() {
+&nbsp;      if (optionalBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (optionalBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        optionalBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.optional = Objects.requireNonNull(getOptionalInitialize(), &quot;optional&quot;);
+&nbsp;        optionalBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.optional;
+&nbsp;    }
+&nbsp;
+&nbsp;    void optional(String optional) {
+&nbsp;      this.optional = optional;
+&nbsp;      optionalBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte optionalPrimitiveBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private boolean optionalPrimitive;
+&nbsp;
+&nbsp;    boolean getOptionalPrimitive() {
+&nbsp;      if (optionalPrimitiveBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (optionalPrimitiveBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        optionalPrimitiveBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.optionalPrimitive = getOptionalPrimitiveInitialize();
+&nbsp;        optionalPrimitiveBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.optionalPrimitive;
+&nbsp;    }
+&nbsp;
+&nbsp;    void optionalPrimitive(boolean optionalPrimitive) {
+&nbsp;      this.optionalPrimitive = optionalPrimitive;
+&nbsp;      optionalPrimitiveBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (optionalBuildStage == STAGE_INITIALIZING) attributes.add(&quot;optional&quot;);
+&nbsp;      if (optionalPrimitiveBuildStage == STAGE_INITIALIZING) attributes.add(&quot;optionalPrimitive&quot;);
+&nbsp;      return &quot;Cannot build StagedEntity, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getOptionalInitialize() {
+&nbsp;    return StagedEntity.super.getOptional();
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean getOptionalPrimitiveInitialize() {
+&nbsp;    return StagedEntity.super.getOptionalPrimitive();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code required} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;required&quot;)
+&nbsp;  @Override
+&nbsp;  public String getRequired() {
+&nbsp;    return required;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code optional} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;optional&quot;)
+&nbsp;  @Override
+&nbsp;  public String getOptional() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.getOptional()
+&nbsp;        : this.optional;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code optionalPrimitive} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;optionalPrimitive&quot;)
+&nbsp;  @Override
+&nbsp;  public boolean getOptionalPrimitive() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.getOptionalPrimitive()
+&nbsp;        : this.optionalPrimitive;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StagedEntity#getRequired() required} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for required
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableStagedEntity withRequired(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;required&quot;);
+&nbsp;    if (this.required.equals(newValue)) return this;
+&nbsp;    return new ImmutableStagedEntity(newValue, this.optional, this.optionalPrimitive);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StagedEntity#getOptional() optional} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for optional
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableStagedEntity withOptional(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;optional&quot;);
+&nbsp;    if (this.optional.equals(newValue)) return this;
+&nbsp;    return new ImmutableStagedEntity(this.required, newValue, this.optionalPrimitive);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StagedEntity#getOptionalPrimitive() optionalPrimitive} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for optionalPrimitive
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableStagedEntity withOptionalPrimitive(boolean value) {
+&nbsp;    if (this.optionalPrimitive == value) return this;
+&nbsp;    return new ImmutableStagedEntity(this.required, this.optional, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableStagedEntity} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableStagedEntity
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableStagedEntity) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableStagedEntity another) {
+&nbsp;    return required.equals(another.required)
+&nbsp;        &amp;&amp; optional.equals(another.optional)
+&nbsp;        &amp;&amp; optionalPrimitive == another.optionalPrimitive;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code required}, {@code optional}, {@code optionalPrimitive}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + required.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + optional.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(optionalPrimitive);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code StagedEntity} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;StagedEntity&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;required&quot;, required)
+&nbsp;        .add(&quot;optional&quot;, optional)
+&nbsp;        .add(&quot;optionalPrimitive&quot;, optionalPrimitive)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;StagedEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements StagedEntity {
+&nbsp;    @Nullable String required;
+&nbsp;    @Nullable String optional;
+&nbsp;    boolean optionalIsSet;
+&nbsp;    boolean optionalPrimitive;
+&nbsp;    boolean optionalPrimitiveIsSet;
+&nbsp;    @JsonProperty(&quot;required&quot;)
+&nbsp;    public void setRequired(String required) {
+&nbsp;      this.required = required;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;optional&quot;)
+&nbsp;    public void setOptional(String optional) {
+&nbsp;      this.optional = optional;
+&nbsp;      this.optionalIsSet = null != optional;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;optionalPrimitive&quot;)
+&nbsp;    public void setOptionalPrimitive(boolean optionalPrimitive) {
+&nbsp;      this.optionalPrimitive = optionalPrimitive;
+&nbsp;      this.optionalPrimitiveIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public String getRequired() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public String getOptional() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public boolean getOptionalPrimitive() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableStagedEntity fromJson(Json json) {
+&nbsp;    ImmutableStagedEntity.Builder builder = ((ImmutableStagedEntity.Builder) ImmutableStagedEntity.builder());
+&nbsp;    if (json.required != null) {
+&nbsp;      builder.required(json.required);
+&nbsp;    }
+&nbsp;    if (json.optionalIsSet) {
+&nbsp;      builder.optional(json.optional);
+&nbsp;    }
+&nbsp;    if (json.optionalPrimitiveIsSet) {
+&nbsp;      builder.optionalPrimitive(json.optionalPrimitive);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link StagedEntity} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable StagedEntity instance
+&nbsp;   */
+&nbsp;  public static ImmutableStagedEntity copyOf(StagedEntity instance) {
+&nbsp;    if (instance instanceof ImmutableStagedEntity) {
+&nbsp;      return (ImmutableStagedEntity) instance;
+&nbsp;    }
+&nbsp;    return ((ImmutableStagedEntity.Builder) ImmutableStagedEntity.builder())
+&nbsp;        .required(instance.getRequired())
+&nbsp;        .optional(instance.getOptional())
+&nbsp;        .optionalPrimitive(instance.getOptionalPrimitive())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableStagedEntity ImmutableStagedEntity}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableStagedEntity.builder()
+&nbsp;   *    .required(String) // required {@link StagedEntity#getRequired() required}
+&nbsp;   *    .optional(String) // optional {@link StagedEntity#getOptional() optional}
+&nbsp;   *    .optionalPrimitive(boolean) // optional {@link StagedEntity#getOptionalPrimitive() optionalPrimitive}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableStagedEntity builder
+&nbsp;   */
+&nbsp;  public static RequiredBuildStage builder() {
+&nbsp;    return new ImmutableStagedEntity.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableStagedEntity ImmutableStagedEntity}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;StagedEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder implements RequiredBuildStage, BuildFinal {
+&nbsp;    private static final long INIT_BIT_REQUIRED = 0x1L;
+&nbsp;    private static final long OPT_BIT_OPTIONAL = 0x1L;
+&nbsp;    private static final long OPT_BIT_OPTIONAL_PRIMITIVE = 0x2L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable String required;
+&nbsp;    private @Nullable String optional;
+&nbsp;    private boolean optionalPrimitive;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedEntity#getRequired() required} attribute.
+&nbsp;     * @param required The value for required 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;required&quot;)
+&nbsp;    public final Builder required(String required) {
+&nbsp;      checkNotIsSet(requiredIsSet(), &quot;required&quot;);
+&nbsp;      this.required = Objects.requireNonNull(required, &quot;required&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_REQUIRED;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedEntity#getOptional() optional} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link StagedEntity#getOptional() optional}.&lt;/em&gt;
+&nbsp;     * @param optional The value for optional 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;optional&quot;)
+&nbsp;    public final Builder optional(String optional) {
+&nbsp;      checkNotIsSet(optionalIsSet(), &quot;optional&quot;);
+&nbsp;      this.optional = Objects.requireNonNull(optional, &quot;optional&quot;);
+&nbsp;      optBits |= OPT_BIT_OPTIONAL;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedEntity#getOptionalPrimitive() optionalPrimitive} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link StagedEntity#getOptionalPrimitive() optionalPrimitive}.&lt;/em&gt;
+&nbsp;     * @param optionalPrimitive The value for optionalPrimitive 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;optionalPrimitive&quot;)
+&nbsp;    public final Builder optionalPrimitive(boolean optionalPrimitive) {
+&nbsp;      checkNotIsSet(optionalPrimitiveIsSet(), &quot;optionalPrimitive&quot;);
+&nbsp;      this.optionalPrimitive = optionalPrimitive;
+&nbsp;      optBits |= OPT_BIT_OPTIONAL_PRIMITIVE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableStagedEntity ImmutableStagedEntity}.
+&nbsp;     * @return An immutable instance of StagedEntity
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableStagedEntity build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableStagedEntity(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean optionalIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_OPTIONAL) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean optionalPrimitiveIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_OPTIONAL_PRIMITIVE) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean requiredIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_REQUIRED) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of StagedEntity is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!requiredIsSet()) attributes.add(&quot;required&quot;);
+&nbsp;      return &quot;Cannot build StagedEntity, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;StagedEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface RequiredBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedEntity#getRequired() required} attribute.
+&nbsp;     * @param required The value for required 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    BuildFinal required(String required);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;StagedEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface BuildFinal {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedEntity#getOptional() optional} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link StagedEntity#getOptional() optional}.&lt;/em&gt;
+&nbsp;     * @param optional The value for optional 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    BuildFinal optional(String optional);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StagedEntity#getOptionalPrimitive() optionalPrimitive} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link StagedEntity#getOptionalPrimitive() optionalPrimitive}.&lt;/em&gt;
+&nbsp;     * @param optionalPrimitive The value for optionalPrimitive 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    BuildFinal optionalPrimitive(boolean optionalPrimitive);
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableStagedEntity ImmutableStagedEntity}.
+&nbsp;     * @return An immutable instance of StagedEntity
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    ImmutableStagedEntity build();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

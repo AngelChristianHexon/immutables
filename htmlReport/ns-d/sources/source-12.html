@@ -1,0 +1,269 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Visitors</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.expression</a>
+</div>
+
+<h1>Coverage Summary for Class: Visitors (org.immutables.criteria.expression)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Visitors</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Visitors$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Visitors$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Visitors$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.expression;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.function.BiFunction;
+&nbsp;
+&nbsp;/**
+&nbsp; * Utilities to simplify visiting {@link ExpressionVisitor} and processing an {@link Expression}.
+&nbsp; */
+&nbsp;public final class Visitors {
+&nbsp;
+&nbsp;  private Visitors() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Function which returns an exception (to be thrown) when an expressin does not match expected type
+&nbsp;   */
+<b class="nc">&nbsp;  private static final BiFunction&lt;? super Expression, Class&lt;? extends Expression&gt;, IllegalArgumentException&gt; ERROR_FN =</b>
+<b class="nc">&nbsp;          (e, type) -&gt; new IllegalArgumentException(String.format(&quot;Expression %s is not of type %s&quot;, e, type.getSimpleName()));</b>
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * If {@code expression} is {@link Path} returns optional describing found constant
+&nbsp;   * otherwise it is an empty optional.
+&nbsp;   */
+&nbsp;  public static Optional&lt;Path&gt; maybePath(Expression expression) {
+<b class="nc">&nbsp;    Objects.requireNonNull(expression, &quot;expression&quot;);</b>
+<b class="nc">&nbsp;    return expression.accept(new AbstractExpressionVisitor&lt;Optional&lt;Path&gt;&gt;(Optional.empty()) {</b>
+&nbsp;      @Override
+&nbsp;      public Optional&lt;Path&gt; visit(Path path) {
+<b class="nc">&nbsp;        return Optional.of(path);</b>
+&nbsp;      }
+&nbsp;    });
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assumes current expression is a {@link Path}. Throws exception when it is not.
+&nbsp;   */
+&nbsp;  public static Path toPath(Expression expression) {
+<b class="nc">&nbsp;    return maybePath(expression).orElseThrow(() -&gt; ERROR_FN.apply(expression, Path.class));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * If {@code expression} is {@link Constant} returns optional describing found constant
+&nbsp;   * otherwise it is an empty optional.
+&nbsp;   */
+&nbsp;  public static Optional&lt;Constant&gt; maybeConstant(Expression expression) {
+<b class="nc">&nbsp;    Objects.requireNonNull(expression, &quot;expression&quot;);</b>
+<b class="nc">&nbsp;    return expression.accept(new AbstractExpressionVisitor&lt;Optional&lt;Constant&gt;&gt;(Optional.empty()) {</b>
+&nbsp;      @Override
+&nbsp;      public Optional&lt;Constant&gt; visit(Constant constant) {
+<b class="nc">&nbsp;        return Optional.of(constant);</b>
+&nbsp;      }
+&nbsp;    });
+&nbsp;  };
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assumes current expression is a {@link Constant}. Throws exception when it is not.
+&nbsp;   */
+&nbsp;  public static Constant toConstant(Expression expression) {
+<b class="nc">&nbsp;    return maybeConstant(expression)</b>
+<b class="nc">&nbsp;            .orElseThrow(() -&gt; ERROR_FN.apply(expression, Constant.class));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Optional&lt;Call&gt; maybeCall(Expression expression) {
+<b class="nc">&nbsp;    Objects.requireNonNull(expression, &quot;expression&quot;);</b>
+<b class="nc">&nbsp;    return expression.accept(new AbstractExpressionVisitor&lt;Optional&lt;Call&gt;&gt;(Optional.empty()) {</b>
+&nbsp;      @Override
+&nbsp;      public Optional&lt;Call&gt; visit(Call call) {
+<b class="nc">&nbsp;        return Optional.of(call);</b>
+&nbsp;      }
+&nbsp;    });
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Call toCall(Expression expression) {
+<b class="nc">&nbsp;    Objects.requireNonNull(expression, &quot;expression&quot;);</b>
+<b class="nc">&nbsp;    return maybeCall(expression).orElseThrow(() -&gt; ERROR_FN.apply(expression, Call.class));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static boolean isAggregationCall(Expression expression) {
+<b class="nc">&nbsp;    return maybeCall(expression)</b>
+<b class="nc">&nbsp;            .map(c -&gt; AggregationOperators.isAggregation(c.operator()))</b>
+<b class="nc">&nbsp;            .orElse(false);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

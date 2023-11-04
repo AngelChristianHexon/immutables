@@ -1,0 +1,224 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > MutableListEncodingEnabled</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.encoding.defs</a>
+</div>
+
+<h1>Coverage Summary for Class: MutableListEncodingEnabled (org.immutables.fixture.encoding.defs)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">MutableListEncodingEnabled</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.encoding.defs;
+&nbsp;
+&nbsp;import org.immutables.encode.EncodingMetadata;
+&nbsp;
+&nbsp;@EncodingMetadata(
+&nbsp;  name = &quot;org.immutables.fixture.encoding.defs.MutableListEncoding&quot;,
+&nbsp;  imports = {
+&nbsp;  },
+&nbsp;  typeParams = {&quot;T&quot;},
+&nbsp;  elements = {
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;impl&quot;,
+&nbsp;      tags = {&quot;IMPL&quot;, &quot;PRIVATE&quot;, &quot;FINAL&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;mutableListEncoding_from&quot;,
+&nbsp;      tags = {&quot;STATIC&quot;, &quot;PRIVATE&quot;, &quot;FROM&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_from&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.List&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @^value;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;toString&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;TO_STRING&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_toString&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @:mutableListEncoding_get().toString();\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;hashCode&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;HASH_CODE&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_hashCode&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;int&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @:mutableListEncoding_get().hashCode();\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;equals&quot;,
+&nbsp;      tags = {&quot;PRIVATE&quot;, &quot;EQUALS&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*_equals&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.lang.String&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;other: org.immutables.fixture.encoding.defs.MutableListEncoding&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn this.@:mutableListEncoding_get().equals(@^other.@:mutableListEncoding_get())\n;}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;build&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;BUILD&quot;},
+&nbsp;      naming = &quot;*_build&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nreturn this.@@list;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;mutableListEncoding_get&quot;,
+&nbsp;      tags = {&quot;EXPOSE&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @@impl;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;mutableListEncoding_copy&quot;,
+&nbsp;      tags = {&quot;COPY&quot;, &quot;SYNTH&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;value: java.util.List&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\nreturn @^value;\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;list&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;PRIVATE&quot;, &quot;FIELD&quot;},
+&nbsp;      naming = &quot;*_list&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;java.util.List&lt;T&gt;&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;new java.util.ArrayList&lt;&gt;()&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;setValue&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;},
+&nbsp;      naming = &quot;set*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;obj: T&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\n@@list.add(@^obj);\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    ),
+&nbsp;    @EncodingMetadata.Element(
+&nbsp;      name = &quot;set&quot;,
+&nbsp;      tags = {&quot;BUILDER&quot;, &quot;INIT&quot;, &quot;COPY&quot;},
+&nbsp;      naming = &quot;*&quot;,
+&nbsp;      stdNaming = &quot;NONE&quot;,
+&nbsp;      type = &quot;void&quot;,
+&nbsp;      typeParams = {},
+&nbsp;      params = {&quot;list: java.util.List&lt;T&gt;&quot;},
+&nbsp;      doc = {},
+&nbsp;      annotations = {},
+&nbsp;      code = &quot;{\r\nthis.@@list = @^list;\r\n}&quot;,
+&nbsp;      thrown = {}
+&nbsp;    )
+&nbsp;  }
+&nbsp;)
+&nbsp;public @interface MutableListEncodingEnabled {}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

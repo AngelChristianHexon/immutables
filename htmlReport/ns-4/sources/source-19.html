@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJust</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">nonimmutables</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJust (nonimmutables)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJust$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;//-no-import-rewrite
+&nbsp;package nonimmutables;
+&nbsp;
+&nbsp;import java.lang.Object;
+&nbsp;import java.lang.String;
+&nbsp;import java.lang.Float;
+&nbsp;import java.lang.Double;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link nonimmutables.Uppercase.Just}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableJust.builder()}.
+&nbsp; */
+&nbsp;@org.immutables.value.Generated(from = &quot;nonimmutables.Uppercase.Just&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@javax.annotation.ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@javax.annotation.concurrent.Immutable
+&nbsp;@javax.annotation.CheckReturnValue
+&nbsp;public final class ImmutableJust implements nonimmutables.Uppercase.Just {
+&nbsp;
+&nbsp;  private ImmutableJust(ImmutableJust.Builder builder) {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJust} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@javax.annotation.Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableJust
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableJust) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;MethodCanBeStatic&quot;)
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJust another) {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns a constant hash code value.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    return -2025427689;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Just}.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;Just{}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link nonimmutables.Uppercase.Just} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Just instance
+&nbsp;   */
+&nbsp;  public static ImmutableJust copyOf(nonimmutables.Uppercase.Just instance) {
+&nbsp;    if (instance instanceof ImmutableJust) {
+&nbsp;      return (ImmutableJust) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJust.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableJust ImmutableJust}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableJust.builder()
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableJust builder
+&nbsp;   */
+&nbsp;  public static ImmutableJust.Builder builder() {
+&nbsp;    return new ImmutableJust.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableJust ImmutableJust}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @org.immutables.value.Generated(from = &quot;nonimmutables.Uppercase.Just&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @javax.annotation.concurrent.NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Just} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @com.google.errorprone.annotations.CanIgnoreReturnValue 
+&nbsp;    public final Builder from(nonimmutables.Uppercase.Just instance) {
+&nbsp;      java.util.Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableJust ImmutableJust}.
+&nbsp;     * @return An immutable instance of Just
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableJust build() {
+&nbsp;      return new ImmutableJust(this);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

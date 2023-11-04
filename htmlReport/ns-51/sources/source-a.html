@@ -1,0 +1,1506 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Encodings</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: Encodings (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Encodings</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Encodings$Encoding</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/288)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/677)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Encodings$Encoding$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Encodings$Encoding$Linkage</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/51)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/324)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/741)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import com.google.common.base.Ascii;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.base.Joiner;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.base.Predicates;
+&nbsp;import com.google.common.base.Splitter;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import com.google.common.collect.ObjectArrays;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.HashSet;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.LinkedList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.NoSuchElementException;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.concurrent.atomic.AtomicReference;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.AnnotationMirror;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.NestingKind;
+&nbsp;import javax.lang.model.element.Parameterizable;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.element.TypeParameterElement;
+&nbsp;import javax.lang.model.element.VariableElement;
+&nbsp;import javax.lang.model.util.ElementFilter;
+&nbsp;import org.immutables.generator.AbstractTemplate;
+&nbsp;import org.immutables.generator.AnnotationMirrors;
+&nbsp;import org.immutables.generator.Generator;
+&nbsp;import org.immutables.generator.Naming;
+&nbsp;import org.immutables.generator.Naming.Usage;
+&nbsp;import org.immutables.generator.SourceExtraction;
+&nbsp;import org.immutables.generator.Templates;
+&nbsp;import org.immutables.value.processor.encode.Code.Binding;
+&nbsp;import org.immutables.value.processor.encode.Code.Term;
+&nbsp;import org.immutables.value.processor.encode.EncodedElement.Param;
+&nbsp;import org.immutables.value.processor.encode.EncodedElement.Tag;
+&nbsp;import org.immutables.value.processor.encode.Type.Array;
+&nbsp;import org.immutables.value.processor.encode.Type.Defined;
+&nbsp;import org.immutables.value.processor.encode.Type.Primitive;
+&nbsp;import org.immutables.value.processor.meta.Reporter;
+&nbsp;
+&nbsp;@Generator.Template
+<b class="nc">&nbsp;public abstract class Encodings extends AbstractTemplate {</b>
+&nbsp;  @Generator.Typedef
+&nbsp;  Encoding Encoding;
+&nbsp;
+&nbsp;  public abstract Templates.Invokable generate();
+&nbsp;
+<b class="nc">&nbsp;  final Reporter reporter = Reporter.from(processing());</b>
+<b class="nc">&nbsp;  final List&lt;Encoding&gt; encodings = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;  Encodings() {</b>
+<b class="nc">&nbsp;    for (TypeElement a : annotations()) {</b>
+<b class="nc">&nbsp;      if (a.getQualifiedName().contentEquals(EncodingMirror.qualifiedName())) {</b>
+<b class="nc">&nbsp;        for (TypeElement t : ElementFilter.typesIn(round().getElementsAnnotatedWith(a))) {</b>
+<b class="nc">&nbsp;          encodings.add(new Encoding(t));</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  class Encoding {</b>
+<b class="nc">&nbsp;    private final Type.Factory types = new Type.Producer();</b>
+&nbsp;    private final TypeExtractor typesReader;
+&nbsp;    private final SourceMapper sourceMapper;
+<b class="nc">&nbsp;    private final Set&lt;String&gt; memberNames = new HashSet&lt;&gt;();</b>
+&nbsp;
+&nbsp;    final String name;
+&nbsp;    final String $$package;
+&nbsp;
+<b class="nc">&nbsp;    List&lt;String&gt; typeParams = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement impl;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement toString;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement hashCode;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement equals;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement from;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement isInit;
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    EncodedElement build;
+&nbsp;
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; fields = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; expose = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; copy = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; helpers = new ArrayList&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; builderFields = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; builderInits = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    final List&lt;EncodedElement&gt; builderHelpers = new ArrayList&lt;&gt;();</b>
+&nbsp;
+&nbsp;    final Linkage linkage;
+&nbsp;    final SourceExtraction.Imports imports;
+&nbsp;
+&nbsp;    final Iterable&lt;EncodedElement&gt; allElements;
+&nbsp;    final Set&lt;String&gt; generatedImports;
+&nbsp;    private final Type encodingSelfType;
+&nbsp;    private String builderInitCopy;
+&nbsp;
+&nbsp;    final TypeElement typeEncoding;
+&nbsp;    private @Nullable TypeElement typeBuilder;
+&nbsp;
+<b class="nc">&nbsp;    Encoding(TypeElement type) {</b>
+<b class="nc">&nbsp;      this.typeEncoding = type;</b>
+<b class="nc">&nbsp;      if (type.getKind() != ElementKind.CLASS || type.getNestingKind() != NestingKind.TOP_LEVEL) {</b>
+<b class="nc">&nbsp;        reporter.withElement(type).error(&quot;Encoding type &#39;%s&#39; should be top-level class&quot;, type.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.$$package = processing().getElementUtils().getPackageOf(type).getQualifiedName().toString();</b>
+<b class="nc">&nbsp;      this.name = type.getSimpleName().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;      CharSequence source = SourceExtraction.extract(processing(), type);</b>
+<b class="nc">&nbsp;      if (source.length() == 0) {</b>
+<b class="nc">&nbsp;        reporter.withElement(type)</b>
+<b class="nc">&nbsp;            .error(&quot;No source code can be extracted for @Encoding class. Unsupported compilation mode&quot;);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.imports = SourceExtraction.importsFrom(source);</b>
+<b class="nc">&nbsp;      this.sourceMapper = new SourceMapper(source);</b>
+<b class="nc">&nbsp;      this.typesReader = new TypeExtractor(types, type);</b>
+&nbsp;
+<b class="nc">&nbsp;      this.encodingSelfType = typesReader.get(type.asType());</b>
+&nbsp;
+<b class="nc">&nbsp;      addTypeParameters(type);</b>
+&nbsp;
+<b class="nc">&nbsp;      for (Element e : type.getEnclosedElements()) {</b>
+<b class="nc">&nbsp;        processMember(e);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      if (postValidate()) {</b>
+<b class="nc">&nbsp;        provideSyntheticElements();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.allElements = Iterables.concat(</b>
+<b class="nc">&nbsp;          Arrays.asList(</b>
+<b class="nc">&nbsp;              Iterables.filter(</b>
+<b class="nc">&nbsp;                  Arrays.asList(</b>
+&nbsp;                      impl,
+&nbsp;                      from,
+&nbsp;                      toString,
+&nbsp;                      hashCode,
+&nbsp;                      equals,
+&nbsp;                      build,
+&nbsp;                      isInit),
+<b class="nc">&nbsp;                  Predicates.notNull()),</b>
+&nbsp;              fields,
+&nbsp;              expose,
+&nbsp;              copy,
+&nbsp;              helpers,
+&nbsp;              builderFields,
+&nbsp;              builderHelpers,
+&nbsp;              builderInits));
+&nbsp;
+<b class="nc">&nbsp;      this.linkage = new Linkage();</b>
+<b class="nc">&nbsp;      this.generatedImports = generatedImports();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // used for cross validation possible only when all elements are discovered
+&nbsp;    private boolean postValidate() {
+<b class="nc">&nbsp;      if (impl == null) {</b>
+<b class="nc">&nbsp;        reporter.withElement(typeEncoding)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Impl field is bare minimum to be declared. Please add implementation field declaration&quot;);</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (isPrimitiveExpose()</b>
+&nbsp;          &amp;&amp; (toString == null || hashCode == null || equals == null)) {
+<b class="nc">&nbsp;        reporter.withElement(typeEncoding)</b>
+<b class="nc">&nbsp;            .error(</b>
+&nbsp;                &quot;Encoding implemented or exposed via primitive type must define explicitly encoded &#39;toString&#39;, &#39;hashCode&#39; and &#39;equals&#39;.&quot;
+&nbsp;                    + &quot; For reference types default routines are assumed via Object.toString(), Object.hashCode() and Object.equals()&quot;);
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      for (EncodedElement e : copy) {</b>
+<b class="nc">&nbsp;        if (!e.type().equals(impl.type())) {</b>
+<b class="nc">&nbsp;          reporter.withElement(findEnclosedByName(typeEncoding, e.name()))</b>
+<b class="nc">&nbsp;              .error(&quot;@Encoding.Copy method &#39;%s&#39; return type does not match @Encoding.Impl field type.&quot;</b>
+&nbsp;                  + &quot; Please, declare it to return: %s&quot;,
+<b class="nc">&nbsp;                  e.name(),</b>
+<b class="nc">&nbsp;                  impl.type());</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      if (typeBuilder != null) {</b>
+<b class="nc">&nbsp;        if (build != null) {</b>
+<b class="nc">&nbsp;          if (!build.type().equals(impl.type())) {</b>
+&nbsp;            // this is actually best-effort check
+<b class="nc">&nbsp;            reporter.withElement(findEnclosedByName(typeBuilder, build.name()))</b>
+<b class="nc">&nbsp;                .warning(&quot;@Encoding.Build method &#39;%s&#39; return type does not match @Encoding.Impl field type.&quot;</b>
+&nbsp;                    + &quot; Please, declare it to return: %s&quot;,
+<b class="nc">&nbsp;                    build.name(),</b>
+<b class="nc">&nbsp;                    impl.type());</b>
+&nbsp;          }
+&nbsp;
+&nbsp;        } else {
+<b class="nc">&nbsp;          reporter.withElement(typeBuilder)</b>
+<b class="nc">&nbsp;              .error(&quot;@Encoding.Builder must have no arg method @Encoding.Build.&quot;</b>
+&nbsp;                  + &quot; It is used to describe how to get built fully built instance&quot;);
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (builderInitCopy == null) {</b>
+<b class="nc">&nbsp;          reporter.withElement(typeBuilder)</b>
+<b class="nc">&nbsp;              .error(&quot;One of builder init methods should be a copy method,&quot;</b>
+&nbsp;                  + &quot; i.e. it should be annotated @Encoding.Init @Encoding.Copy&quot;
+&nbsp;                  + &quot; and be able to accept values of type which exposed accessor returns&quot;);
+&nbsp;
+<b class="nc">&nbsp;          return false;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean isPrimitiveExpose() {
+<b class="nc">&nbsp;      if (!expose.isEmpty()) {</b>
+<b class="nc">&nbsp;        for (EncodedElement e : expose) {</b>
+<b class="nc">&nbsp;          if (e.type() instanceof Type.Primitive) {</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;          }
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;      } else if (impl.type() instanceof Type.Primitive) {</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Element findEnclosedByName(Element enclosing, String name) {
+<b class="nc">&nbsp;      for (Element e : enclosing.getEnclosedElements()) {</b>
+<b class="nc">&nbsp;        if (e.getSimpleName().contentEquals(name)) {</b>
+<b class="nc">&nbsp;          return e;</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      throw new NoSuchElementException(&quot;No enclosed element named &#39;&quot; + name + &quot;&#39; found in &quot; + enclosing);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Set&lt;String&gt; generatedImports() {
+<b class="nc">&nbsp;      Set&lt;String&gt; lines = new LinkedHashSet&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (String a : imports.all) {</b>
+<b class="nc">&nbsp;        if (a.contains(ENCODE_PACKAGE_PREFIX)) {</b>
+&nbsp;          // don&#39;t want to bother with any of encoding annotation imports
+<b class="nc">&nbsp;          continue;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (a.startsWith(&quot;static &quot;) || a.endsWith(&quot;.*&quot;)) {</b>
+&nbsp;          // only adding this, other are added directly to code as fully qualified names by
+&nbsp;          // Code.Binder. This is to minimize conflicts betweed differend encodings.
+&nbsp;          // thus encoding authors should avoid use star and static imports.
+<b class="nc">&nbsp;          lines.add(a);</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return lines;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void addTypeParameters(TypeElement type) {
+<b class="nc">&nbsp;      for (String n : typesReader.parameters.names()) {</b>
+<b class="nc">&nbsp;        Type.Variable v = typesReader.parameters.variable(n);</b>
+<b class="nc">&nbsp;        if (!v.isUnbounded()) {</b>
+<b class="nc">&nbsp;          reporter.withElement(type)</b>
+<b class="nc">&nbsp;              .warning(&quot;Encoding type &#39;%s&#39; has type parameter &lt;%s extends %s&gt; and it&#39;s bounds will be ignored&quot;</b>
+&nbsp;                  + &quot; as they are not yet adequately supported or ever will&quot;,
+<b class="nc">&nbsp;                  type.getSimpleName(),</b>
+&nbsp;                  v.name,
+&nbsp;                  v.upperBounds);
+&nbsp;        }
+<b class="nc">&nbsp;        this.typeParams.add(n);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void processMember(Element member) {
+<b class="nc">&nbsp;      if ((member.getKind() == ElementKind.FIELD</b>
+<b class="nc">&nbsp;          || member.getKind() == ElementKind.METHOD)</b>
+<b class="nc">&nbsp;          &amp;&amp; !memberNames.add(memberPath(member))) {</b>
+<b class="nc">&nbsp;        reporter.withElement(member)</b>
+<b class="nc">&nbsp;            .error(</b>
+&nbsp;                &quot;Duplicate member name &#39;%s&#39;. Encoding has limitation so that any duplicate method names are not supported,&quot;
+&nbsp;                    + &quot; even when allowed by JLS: methods cannot have overloads here.&quot;
+&nbsp;                    + &quot; @Encoding.Naming annotation could be used so that actually generated methods might have the same name&quot;
+&nbsp;                    + &quot; if they are not conflicting as per JLS overload rules&quot;,
+<b class="nc">&nbsp;                member.getSimpleName());</b>
+&nbsp;        return;
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (member.getKind() == ElementKind.FIELD) {</b>
+<b class="nc">&nbsp;        if (processField((VariableElement) member))</b>
+&nbsp;          return;
+&nbsp;      }
+<b class="nc">&nbsp;      if (member.getKind() == ElementKind.METHOD) {</b>
+<b class="nc">&nbsp;        if (!Ascii.isLowerCase(member.getSimpleName().charAt(0))) {</b>
+<b class="nc">&nbsp;          reporter.withElement(member)</b>
+<b class="nc">&nbsp;              .warning(&quot;Methods not starting with lowercase ascii letter might not work properly&quot;,</b>
+<b class="nc">&nbsp;                  member.getSimpleName());</b>
+&nbsp;        }
+<b class="nc">&nbsp;        if (processMethod((ExecutableElement) member))</b>
+&nbsp;          return;
+&nbsp;      }
+<b class="nc">&nbsp;      if (member.getKind() == ElementKind.CLASS) {</b>
+<b class="nc">&nbsp;        if (processClass((TypeElement) member))</b>
+&nbsp;          return;
+&nbsp;      }
+<b class="nc">&nbsp;      if (member.getKind() == ElementKind.INSTANCE_INIT) {</b>
+&nbsp;        return;
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (member.getSimpleName().contentEquals(&quot;&lt;init&gt;&quot;)) {</b>
+&nbsp;        return;
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      reporter.withElement(member)</b>
+<b class="nc">&nbsp;          .warning(&quot;Unrecognized encoding member &#39;%s&#39; will be ignored&quot;, member.getSimpleName());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processField(VariableElement field) {
+<b class="nc">&nbsp;      if (ImplMirror.isPresent(field)) {</b>
+<b class="nc">&nbsp;        return processImplField(field);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return processAuxField(field);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processAuxField(VariableElement field) {
+<b class="nc">&nbsp;      List&lt;Term&gt; expression = sourceMapper.getExpression(memberPath(field));</b>
+&nbsp;
+<b class="nc">&nbsp;      if (expression.isEmpty() || !field.getModifiers().contains(Modifier.FINAL)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .error(&quot;Auxiliary field &#39;%s&#39; have to be final and initialized to some value,&quot;</b>
+&nbsp;                + &quot; possibly derived from @Encoding.Impl field (if it&#39;s not static)&quot;,
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+&nbsp;
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(field)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;Auxiliary field &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; a field name is always directly derived from the attribute name&quot;,
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      EnumSet&lt;Tag&gt; tags = EnumSet.of(Tag.FIELD);</b>
+<b class="nc">&nbsp;      AtomicReference&lt;StandardNaming&gt; standardNaming = new AtomicReference&lt;&gt;(StandardNaming.NONE);</b>
+&nbsp;
+<b class="nc">&nbsp;      fields.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(field.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(field.asType()))</b>
+<b class="nc">&nbsp;          .naming(inferNaming(field, tags, standardNaming))</b>
+<b class="nc">&nbsp;          .standardNaming(standardNaming.get())</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllTags(inferTags(field, tags))</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(field))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(field))</b>
+<b class="nc">&nbsp;          .addAllCode(expression)</b>
+<b class="nc">&nbsp;          .build());</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processImplField(VariableElement field) {
+<b class="nc">&nbsp;      boolean virtual = ImplMirror.find(field).get().virtual();</b>
+&nbsp;
+<b class="nc">&nbsp;      if (impl != null) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Impl duplicate field &#39;%s&#39;. Cannot have more than one implementation field&quot;,</b>
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (field.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Impl field &#39;%s&#39; cannot be static&quot;,</b>
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!field.getModifiers().contains(Modifier.PRIVATE)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Impl field &#39;%s&#39; must be private. Other auxiliary fields may be of whatever visibility,&quot;</b>
+&nbsp;                + &quot; but primary implementation field should be private&quot;,
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(field)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;@Encoding.Impl field &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; a field name is always directly derived from the attribute name&quot;,
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.impl = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(field.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(field.asType()))</b>
+<b class="nc">&nbsp;          .addTags(Tag.IMPL, Tag.FINAL, Tag.PRIVATE, virtual ? Tag.VIRTUAL : Tag.FIELD)</b>
+<b class="nc">&nbsp;          .naming(Naming.identity())</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(field))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(field))</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getExpression(memberPath(field)))</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (method.getSimpleName().contentEquals(&quot;toString&quot;)) {</b>
+<b class="nc">&nbsp;        return processToStringMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (method.getSimpleName().contentEquals(&quot;hashCode&quot;)) {</b>
+<b class="nc">&nbsp;        return processHashCodeMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (method.getSimpleName().contentEquals(&quot;equals&quot;)) {</b>
+<b class="nc">&nbsp;        return processEqualsMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (ExposeMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        return processExposeMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (CopyMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        return processCopyMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (OfMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        return processFromMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return processHelperMethod(method);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processHelperMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      return processGenericEncodedMethod(method, helpers, Tag.HELPER);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processCopyMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (method.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Copy method &#39;%s&#39; cannot be static&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (impl != null &amp;&amp; !typesReader.get(method.getReturnType()).equals(impl.type())) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Copy method &#39;%s&#39; should be declared to return implementation field&#39;s type&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return processGenericEncodedMethod(method, copy, Tag.COPY);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processFromMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (from != null) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Of duplicate method &#39;%s&#39;. Cannot have more than one init method&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!typeParams.equals(getTypeParameterNames(method))</b>
+<b class="nc">&nbsp;          || !method.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Of method &#39;%s&#39; should be static with&quot;</b>
+&nbsp;                + &quot; the same type parameters as encoding type: %s&quot;,
+<b class="nc">&nbsp;                method.getSimpleName(),</b>
+&nbsp;                typesReader.parameters);
+&nbsp;
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (method.getParameters().size() != 1) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Of method &#39;%s&#39; should take a single parameter&quot;</b>
+&nbsp;                + &quot; return type assignable to implementation field&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      VariableElement parameter = method.getParameters().get(0);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getThrownTypes().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Of method &#39;%s&#39; cannot have throws declaration&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;@Encoding.Of method &#39;%s&#39; have naming annotation which is ignored.&quot;</b>
+&nbsp;                + &quot; Init is not exposed as a standalone method&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.from = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(method.getReturnType()))</b>
+<b class="nc">&nbsp;          .addTags(Tag.PRIVATE, Tag.FROM, Tag.STATIC)</b>
+<b class="nc">&nbsp;          .naming(helperNaming(method.getSimpleName()))</b>
+<b class="nc">&nbsp;          .addParams(Param.of(parameter.getSimpleName().toString(), typesReader.get(parameter.asType())))</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(method))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(method))</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processEqualsMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (method.getParameters().size() != 1) {</b>
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      VariableElement parameter = method.getParameters().get(0);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (typesReader.get(method.getReturnType()) != Primitive.BOOLEAN</b>
+<b class="nc">&nbsp;          || !typesReader.get(parameter.asType()).equals(encodingSelfType)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;method &#39;%s&#39; should take a single parameter of encoding type %s and return boolean&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName(),</b>
+&nbsp;                encodingSelfType);
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (method.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;method &#39;%s&#39; cannot be static&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;method &#39;%s&#39; cannot have type parameters&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getThrownTypes().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;method &#39;%s&#39; cannot have throws declaration&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;method &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; it is used as part of generated equals()&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.equals = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(Primitive.BOOLEAN)</b>
+<b class="nc">&nbsp;          .addParams(Param.of(parameter.getSimpleName().toString(), encodingSelfType))</b>
+<b class="nc">&nbsp;          .addTags(Tag.PRIVATE, Tag.EQUALS)</b>
+<b class="nc">&nbsp;          .naming(helperNaming(method.getSimpleName()))</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processHashCodeMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (!method.getParameters().isEmpty()) {</b>
+&nbsp;        // major checks are made by compiler which forces hashCode to properly override
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;method &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; it is used as part of generated hashCode()&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.hashCode = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(Primitive.INT)</b>
+<b class="nc">&nbsp;          .addTags(Tag.PRIVATE, Tag.HASH_CODE)</b>
+<b class="nc">&nbsp;          .naming(helperNaming(method.getSimpleName()))</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processToStringMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (!method.getParameters().isEmpty()) {</b>
+&nbsp;        // major checks are made by compiler which forces hashCode to properly override
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;method &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; it is used as part of generated toString()&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.toString = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(Type.Reference.STRING)</b>
+<b class="nc">&nbsp;          .addTags(Tag.PRIVATE, Tag.TO_STRING)</b>
+<b class="nc">&nbsp;          .naming(helperNaming(method.getSimpleName()))</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processExposeMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;@Encoding.Expose method &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; an accessor name is configured using @Value.Style(get) patterns&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (method.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Expose method &#39;%s&#39; cannot be static&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Expose method &#39;%s&#39; cannot have type parameters&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getThrownTypes().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Expose method &#39;%s&#39; cannot have throws declaration&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Expose method &#39;%s&#39; must have not parameters and should only access fields&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      expose.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(method.getReturnType()))</b>
+<b class="nc">&nbsp;          .addTags(Tag.EXPOSE)</b>
+<b class="nc">&nbsp;          .naming(Naming.identity())</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(method))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(method))</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .build());</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processGenericEncodedMethod(
+&nbsp;        ExecutableElement method,
+&nbsp;        List&lt;EncodedElement&gt; collection,
+&nbsp;        Tag... additionalTags) {
+<b class="nc">&nbsp;      EncodedElement.Builder builder = new EncodedElement.Builder();</b>
+<b class="nc">&nbsp;      TypeExtractor typesReader = processTypeParameters(method, builder);</b>
+<b class="nc">&nbsp;      AtomicReference&lt;StandardNaming&gt; standardNaming = new AtomicReference&lt;&gt;(StandardNaming.NONE);</b>
+&nbsp;
+<b class="nc">&nbsp;      EnumSet&lt;Tag&gt; tags = EnumSet.noneOf(Tag.class);</b>
+<b class="nc">&nbsp;      for (Tag t : additionalTags) {</b>
+<b class="nc">&nbsp;        tags.add(t);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      collection.add(builder</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(method.getReturnType()))</b>
+<b class="nc">&nbsp;          .naming(inferNaming(method, tags, standardNaming))</b>
+<b class="nc">&nbsp;          .standardNaming(standardNaming.get())</b>
+<b class="nc">&nbsp;          .addAllTags(inferTags(method, tags))</b>
+<b class="nc">&nbsp;          .addAllParams(getParameters(typesReader, method))</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(method))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(method))</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .addAllThrown(typesReader.getDefined(method.getThrownTypes()))</b>
+<b class="nc">&nbsp;          .build());</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private TypeExtractor processTypeParameters(ExecutableElement method, EncodedElement.Builder builder) {
+<b class="nc">&nbsp;      boolean isStatic = method.getModifiers().contains(Modifier.STATIC);</b>
+&nbsp;
+<b class="nc">&nbsp;      TypeExtractor typesReader = isStatic</b>
+<b class="nc">&nbsp;          ? new TypeExtractor(types, method)</b>
+<b class="nc">&nbsp;          : this.typesReader;</b>
+&nbsp;
+<b class="nc">&nbsp;      for (TypeParameterElement p : method.getTypeParameters()) {</b>
+<b class="nc">&nbsp;        String name = p.getSimpleName().toString();</b>
+<b class="nc">&nbsp;        ImmutableList&lt;Defined&gt; bounds = typesReader.getDefined(p.getBounds());</b>
+<b class="nc">&nbsp;        if (!isStatic) {</b>
+<b class="nc">&nbsp;          typesReader = typesReader.withParameter(name, bounds);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        builder.addTypeParams(new EncodedElement.TypeParam.Builder()</b>
+<b class="nc">&nbsp;            .name(name)</b>
+<b class="nc">&nbsp;            .addAllBounds(bounds)</b>
+<b class="nc">&nbsp;            .build());</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      builder.typeParameters(typesReader.parameters);</b>
+&nbsp;
+<b class="nc">&nbsp;      return typesReader;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;Param&gt; getParameters(final TypeExtractor typesReader, ExecutableElement method) {
+<b class="nc">&nbsp;      List&lt;Param&gt; result = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (VariableElement v : method.getParameters()) {</b>
+<b class="nc">&nbsp;        result.add(Param.of(</b>
+<b class="nc">&nbsp;            v.getSimpleName().toString(),</b>
+<b class="nc">&nbsp;            typesReader.get(v.asType()),</b>
+<b class="nc">&nbsp;            ImmutableList.copyOf(annotationsFrom(v))));</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      if (!result.isEmpty() &amp;&amp; method.isVarArgs()) {</b>
+<b class="nc">&nbsp;        Param last = Iterables.getLast(result);</b>
+<b class="nc">&nbsp;        Type type = last.type().accept(new Type.Transformer() {</b>
+&nbsp;          @Override
+&nbsp;          public Type array(Array array) {
+<b class="nc">&nbsp;            return typesReader.factory.varargs(array.element);</b>
+&nbsp;          }
+&nbsp;        });
+<b class="nc">&nbsp;        result.set(result.size() - 1, Param.of(last.name(), type));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Naming helperNaming(CharSequence encodedName) {
+<b class="nc">&nbsp;      return Naming.from(&quot;*_&quot; + encodedName);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Naming inferNaming(Element element, EnumSet&lt;Tag&gt; tags, AtomicReference&lt;StandardNaming&gt; standardNaming) {
+<b class="nc">&nbsp;      Optional&lt;NamingMirror&gt; namingAnnotation = NamingMirror.find(element);</b>
+<b class="nc">&nbsp;      if (namingAnnotation.isPresent()) {</b>
+&nbsp;        try {
+<b class="nc">&nbsp;          NamingMirror mirror = namingAnnotation.get();</b>
+<b class="nc">&nbsp;          Naming naming = Naming.from(mirror.value());</b>
+<b class="nc">&nbsp;          if (mirror.depluralize()) {</b>
+<b class="nc">&nbsp;            tags.add(Tag.DEPLURALIZE);</b>
+&nbsp;          }
+<b class="nc">&nbsp;          standardNaming.set(mirror.standard());</b>
+<b class="nc">&nbsp;          return naming;</b>
+<b class="nc">&nbsp;        } catch (IllegalArgumentException ex) {</b>
+<b class="nc">&nbsp;          reporter.withElement(element)</b>
+<b class="nc">&nbsp;              .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;              .error(ex.getMessage());</b>
+&nbsp;        }
+&nbsp;      }
+<b class="nc">&nbsp;      if (element.getKind() == ElementKind.FIELD</b>
+<b class="nc">&nbsp;          || (element.getKind() == ElementKind.METHOD</b>
+<b class="nc">&nbsp;              &amp;&amp; (element.getModifiers().contains(Modifier.PRIVATE) || tags.contains(Tag.PRIVATE)))) {</b>
+<b class="nc">&nbsp;        return helperNaming(element.getSimpleName());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (tags.contains(Tag.INIT) || tags.contains(Tag.COPY)) {</b>
+<b class="nc">&nbsp;        return Naming.identity();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      String encodedMethodName = element.getSimpleName().toString();</b>
+<b class="nc">&nbsp;      return Naming.from(&quot;*&quot; + Naming.Usage.CAPITALIZED.apply(encodedMethodName));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private String memberPath(Element member) {
+<b class="nc">&nbsp;      LinkedList&lt;String&gt; names = new LinkedList&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (Element e = member; e.getKind() != ElementKind.PACKAGE; e = e.getEnclosingElement()) {</b>
+<b class="nc">&nbsp;        names.addFirst(e.getSimpleName().toString());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      String path = Joiner.on(&#39;.&#39;).join(names);</b>
+<b class="nc">&nbsp;      String suffix = member.getKind() == ElementKind.METHOD ? &quot;()&quot; : &quot;&quot;;</b>
+<b class="nc">&nbsp;      return path + suffix;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processClass(TypeElement type) {
+<b class="nc">&nbsp;      if (BuilderMirror.isPresent(type)) {</b>
+<b class="nc">&nbsp;        this.typeBuilder = type;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (!typeParams.equals(getTypeParameterNames(type))</b>
+<b class="nc">&nbsp;            || !type.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;          reporter.withElement(type)</b>
+<b class="nc">&nbsp;              .error(&quot;@Encoding.Builder class &#39;%s&#39; should be static with&quot;</b>
+&nbsp;                  + &quot; the same type parameters as encoding type: %s&quot;,
+<b class="nc">&nbsp;                  type.getSimpleName(),</b>
+&nbsp;                  typesReader.parameters);
+&nbsp;
+<b class="nc">&nbsp;          return true;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        for (Element member : type.getEnclosedElements()) {</b>
+<b class="nc">&nbsp;          if ((member.getKind() == ElementKind.FIELD</b>
+<b class="nc">&nbsp;              || member.getKind() == ElementKind.METHOD)</b>
+<b class="nc">&nbsp;              &amp;&amp; !memberNames.add(memberPath(member))) {</b>
+<b class="nc">&nbsp;            reporter.withElement(member)</b>
+<b class="nc">&nbsp;                .error(memberPath(member)</b>
+&nbsp;                    + &quot;: Duplicate builder member name &#39;%s&#39;.&quot;
+&nbsp;                    + &quot; Encoding has limitation so that any duplicate method names are not supported,&quot;
+&nbsp;                    + &quot; even when allowed by JLS: methods cannot have overloads here.&quot;
+&nbsp;                    + &quot; @Encoding.Naming annotation could be used so that actually generated methods might have the same name&quot;
+&nbsp;                    + &quot; if they are not conflicting as per JLS overload rules&quot;,
+<b class="nc">&nbsp;                    member.getSimpleName());</b>
+<b class="nc">&nbsp;            continue;</b>
+&nbsp;          }
+&nbsp;
+<b class="nc">&nbsp;          if (member.getKind() == ElementKind.FIELD) {</b>
+<b class="nc">&nbsp;            if (processBuilderField((VariableElement) member))</b>
+<b class="nc">&nbsp;              continue;</b>
+&nbsp;          }
+&nbsp;
+<b class="nc">&nbsp;          if (member.getKind() == ElementKind.METHOD) {</b>
+<b class="nc">&nbsp;            if (processBuilderMethod((ExecutableElement) member))</b>
+<b class="nc">&nbsp;              continue;</b>
+&nbsp;          }
+&nbsp;
+<b class="nc">&nbsp;          if (member.getKind() == ElementKind.INSTANCE_INIT) {</b>
+<b class="nc">&nbsp;            continue;</b>
+&nbsp;          }
+&nbsp;
+<b class="nc">&nbsp;          if (member.getSimpleName().contentEquals(&quot;&lt;init&gt;&quot;)) {</b>
+<b class="nc">&nbsp;            continue;</b>
+&nbsp;          }
+&nbsp;
+<b class="nc">&nbsp;          reporter.withElement(member)</b>
+<b class="nc">&nbsp;              .warning(&quot;Unrecognized Builder member &#39;%s&#39; will be ignored&quot;, member.getSimpleName());</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processBuilderField(VariableElement field) {
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(field)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(field)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;@Enclosing.Builder field &#39;%s&#39; have naming annotation which is ignored,&quot;</b>
+&nbsp;                + &quot; an builder field name is derived automatically&quot;,
+<b class="nc">&nbsp;                field.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      EnumSet&lt;Tag&gt; tags = EnumSet.of(Tag.FIELD, Tag.BUILDER);</b>
+&nbsp;
+<b class="nc">&nbsp;      AtomicReference&lt;StandardNaming&gt; standardNaming = new AtomicReference&lt;&gt;(StandardNaming.NONE);</b>
+&nbsp;
+<b class="nc">&nbsp;      builderFields.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(field.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(field.asType()))</b>
+<b class="nc">&nbsp;          .naming(inferNaming(field, tags, standardNaming))</b>
+<b class="nc">&nbsp;          .standardNaming(standardNaming.get())</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllTags(inferTags(field, tags))</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(field))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(field))</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getExpression(memberPath(field)))</b>
+<b class="nc">&nbsp;          .build());</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processBuilderMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (BuildMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        return processBuilderBuildMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (IsInitMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        return processBuilderIsInitMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (InitMirror.isPresent(method) || CopyMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        return processBuilderInitMethod(method);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return processBuilderHelperMethod(method);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processBuilderBuildMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (NamingMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .annotationNamed(NamingMirror.simpleName())</b>
+<b class="nc">&nbsp;            .warning(&quot;@Encoding.Build method &#39;%s&#39; have naming annotation which is ignored.&quot;</b>
+&nbsp;                + &quot; This method is used internally to build instances&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Build method &#39;%s&#39; cannot have type parameters&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getThrownTypes().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Build method &#39;%s&#39; cannot have throws declaration&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Build method &#39;%s&#39; cannot have parameters&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      EnumSet&lt;Tag&gt; tags = EnumSet.of(Tag.BUILDER, Tag.BUILD, Tag.PRIVATE);</b>
+&nbsp;
+<b class="nc">&nbsp;      AtomicReference&lt;StandardNaming&gt; standardNaming = new AtomicReference&lt;&gt;(StandardNaming.NONE);</b>
+&nbsp;
+<b class="nc">&nbsp;      this.build = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;          .name(method.getSimpleName().toString())</b>
+<b class="nc">&nbsp;          .type(typesReader.get(method.getReturnType()))</b>
+<b class="nc">&nbsp;          .naming(inferNaming(method, tags, standardNaming))</b>
+<b class="nc">&nbsp;          .standardNaming(standardNaming.get())</b>
+<b class="nc">&nbsp;          .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;          .addAllTags(tags)</b>
+<b class="nc">&nbsp;          .addAllDoc(docFrom(method))</b>
+<b class="nc">&nbsp;          .addAllAnnotations(annotationsFrom(method))</b>
+<b class="nc">&nbsp;          .addAllCode(sourceMapper.getBlock(memberPath(method)))</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processBuilderInitMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (method.getModifiers().contains(Modifier.PRIVATE)) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Init method &#39;%s&#39; cannot be private&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (typesReader.get(method.getReturnType()) != Type.Primitive.VOID) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Init method &#39;%s&#39; should be declared void.&quot;</b>
+&nbsp;                + &quot; During instantiation, void return type will be replaced with builder type&quot;
+&nbsp;                + &quot; and &#39;return this&#39; used for chained invokation&quot;,
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.Init method &#39;%s&#39; cannot have type parameters&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      Tag[] additionalTags = {Tag.INIT, Tag.BUILDER};</b>
+&nbsp;
+<b class="nc">&nbsp;      if (CopyMirror.isPresent(method)) {</b>
+<b class="nc">&nbsp;        if (builderInitCopy != null) {</b>
+<b class="nc">&nbsp;          reporter.withElement(method)</b>
+<b class="nc">&nbsp;              .error(&quot;@Encoding.Copy method &#39;%s&#39; is duplicating another builder copy method &#39;%s&#39;.&quot;</b>
+&nbsp;                  + &quot; There should be only one builder initializer defined as copy-initializer&quot;,
+<b class="nc">&nbsp;                  method.getSimpleName(),</b>
+&nbsp;                  builderInitCopy);
+<b class="nc">&nbsp;          return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;        builderInitCopy = method.getSimpleName().toString();</b>
+<b class="nc">&nbsp;        additionalTags = ObjectArrays.concat(additionalTags, Tag.COPY);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return processGenericEncodedMethod(method, builderInits, additionalTags);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processBuilderIsInitMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      if (isInit != null) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.IsInit duplicate is init method &#39;%s&#39;. Cannot have more than one&quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (typesReader.get(method.getReturnType()) != Type.Primitive.BOOLEAN) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.IsInit method &#39;%s&#39; must return boolean if &quot;,</b>
+<b class="nc">&nbsp;                method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getTypeParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.IsInit method &#39;%s&#39; cannot have type parameters&quot;, method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!method.getParameters().isEmpty()) {</b>
+<b class="nc">&nbsp;        reporter.withElement(method)</b>
+<b class="nc">&nbsp;            .error(&quot;@Encoding.IsInit method &#39;%s&#39; cannot have parameters&quot;, method.getSimpleName());</b>
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      List&lt;EncodedElement&gt; captured = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      boolean result = processGenericEncodedMethod(method, captured, Tag.IS_INIT, Tag.BUILDER, Tag.PRIVATE);</b>
+<b class="nc">&nbsp;      if (result) {</b>
+<b class="nc">&nbsp;        this.isInit = captured.get(0);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processBuilderHelperMethod(ExecutableElement method) {
+<b class="nc">&nbsp;      return processGenericEncodedMethod(method, builderHelpers, Tag.HELPER, Tag.BUILDER);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Set&lt;Tag&gt; inferTags(Element member, EnumSet&lt;Tag&gt; tags) {
+<b class="nc">&nbsp;      if (member.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;        tags.add(Tag.STATIC);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (member.getModifiers().contains(Modifier.PRIVATE)) {</b>
+<b class="nc">&nbsp;        tags.add(Tag.PRIVATE);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (member.getModifiers().contains(Modifier.FINAL)) {</b>
+<b class="nc">&nbsp;        tags.add(Tag.FINAL);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return tags;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void provideSyntheticElements() {
+<b class="nc">&nbsp;      boolean trivialFrom = false;</b>
+<b class="nc">&nbsp;      if (from == null) {</b>
+<b class="nc">&nbsp;        trivialFrom = true;</b>
+&nbsp;        // adding pass-through intializer
+<b class="nc">&nbsp;        this.from = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(synthName(&quot;from&quot;))</b>
+<b class="nc">&nbsp;            .type(impl.type())</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.FROM, Tag.STATIC, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;from&quot;))</b>
+<b class="nc">&nbsp;            .addParams(Param.of(&quot;value&quot;, impl.type()))</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(&quot;{\nreturn value;\n}&quot;))</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (expose.isEmpty()) {</b>
+<b class="nc">&nbsp;        expose.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(synthName(&quot;get&quot;))</b>
+<b class="nc">&nbsp;            .type(impl.type())</b>
+<b class="nc">&nbsp;            .addTags(Tag.EXPOSE, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .naming(Naming.identity())</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(&quot;{\nreturn &quot; + impl.name() + &quot;;\n}&quot;))</b>
+<b class="nc">&nbsp;            .build());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      String exposeName = expose.get(0).name();</b>
+&nbsp;
+<b class="nc">&nbsp;      if (hashCode == null) {</b>
+<b class="nc">&nbsp;        this.hashCode = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(&quot;hashCode&quot;)</b>
+<b class="nc">&nbsp;            .type(Type.Primitive.INT)</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;hashCode&quot;))</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.HASH_CODE, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(&quot;{\nreturn &quot; + exposeName + &quot;().hashCode();\n}&quot;))</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (toString == null) {</b>
+<b class="nc">&nbsp;        this.toString = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(&quot;toString&quot;)</b>
+<b class="nc">&nbsp;            .type(Type.Reference.STRING)</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;toString&quot;))</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.TO_STRING, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(&quot;{\nreturn &quot; + exposeName + &quot;().toString();\n}&quot;))</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (equals == null) {</b>
+<b class="nc">&nbsp;        this.equals = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(&quot;equals&quot;)</b>
+<b class="nc">&nbsp;            .type(Type.Reference.STRING)</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.EQUALS, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;equals&quot;))</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addParams(Param.of(&quot;other&quot;, encodingSelfType))</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(&quot;{\nreturn this.&quot; + exposeName + &quot;().equals(other.&quot; + exposeName + &quot;())\n;}&quot;))</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (copy.isEmpty()) {</b>
+&nbsp;        // adding pass-through copy
+<b class="nc">&nbsp;        copy.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(synthName(&quot;copy&quot;))</b>
+<b class="nc">&nbsp;            .type(impl.type())</b>
+<b class="nc">&nbsp;            .naming(Naming.identity())</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addTags(Tag.COPY, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .addParams(Param.of(&quot;value&quot;, from.params().get(0).type()))</b>
+<b class="nc">&nbsp;            .addAllCode(trivialFrom</b>
+<b class="nc">&nbsp;                ? Code.termsFrom(&quot;{\nreturn value;\n}&quot;)</b>
+<b class="nc">&nbsp;                : Code.termsFrom(&quot;{\nreturn &quot; + from.name() + &quot;(value);\n}&quot;))</b>
+<b class="nc">&nbsp;            .build());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (typeBuilder == null) {</b>
+&nbsp;        // adding simple pass thru - assign builders
+<b class="nc">&nbsp;        String fieldElementName = synthName(&quot;builder&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;        builderFields.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .type(Primitive.asNonprimitive(impl.type()))</b>
+<b class="nc">&nbsp;            .name(fieldElementName)</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;builder&quot;))</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.FIELD, Tag.BUILDER, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .build());</b>
+&nbsp;
+<b class="nc">&nbsp;        this.build = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .type(impl.type())</b>
+<b class="nc">&nbsp;            .name(synthName(&quot;build&quot;))</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;build&quot;))</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.BUILD, Tag.BUILDER, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .addAllCode(</b>
+<b class="nc">&nbsp;                Code.termsFrom(&quot;{\n&quot;</b>
+&nbsp;                    + &quot;if (&quot;
+&nbsp;                    + fieldElementName
+&nbsp;                    + &quot; == null)&quot;
+&nbsp;                    + &quot; throw new java.lang.IllegalStateException(\&quot;&#39;&lt;*&gt;&#39; is not initialized\&quot;);\n&quot;
+&nbsp;                    + &quot;return &quot;
+&nbsp;                    + fieldElementName
+&nbsp;                    + &quot;;\n&quot;
+&nbsp;                    + &quot;}&quot;))
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;
+<b class="nc">&nbsp;        this.isInit = new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(synthName(&quot;isSet&quot;))</b>
+<b class="nc">&nbsp;            .naming(helperNaming(&quot;isSet&quot;))</b>
+<b class="nc">&nbsp;            .type(Type.Primitive.BOOLEAN)</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addTags(Tag.PRIVATE, Tag.BUILDER, Tag.IS_INIT, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(&quot;{\nreturn this.&quot; + fieldElementName + &quot; != null;\n}&quot;))</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;
+<b class="nc">&nbsp;        builderInits.add(new EncodedElement.Builder()</b>
+<b class="nc">&nbsp;            .name(synthName(&quot;set&quot;))</b>
+<b class="nc">&nbsp;            .type(Type.Primitive.VOID)</b>
+<b class="nc">&nbsp;            .naming(Naming.identity())</b>
+<b class="nc">&nbsp;            .typeParameters(typesReader.parameters)</b>
+<b class="nc">&nbsp;            .addTags(Tag.INIT, Tag.COPY, Tag.BUILDER, Tag.SYNTH)</b>
+<b class="nc">&nbsp;            .addParams(Param.of(&quot;value&quot;, from.params().get(0).type()))</b>
+<b class="nc">&nbsp;            .addAllCode(Code.termsFrom(</b>
+<b class="nc">&nbsp;                &quot;{\nthis.&quot; + fieldElementName + &quot; = &quot; + (trivialFrom ? &quot;value&quot; : (from.name() + &quot;(value)&quot;)) + &quot;;\n}&quot;))</b>
+<b class="nc">&nbsp;            .build());</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String synthName(String name) {
+<b class="nc">&nbsp;      return Usage.LOWERIZED.apply(this.name) + &quot;_&quot; + name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    class Linkage implements Function&lt;EncodedElement, String&gt; {
+<b class="nc">&nbsp;      private final Set&lt;Binding&gt; staticContext = new LinkedHashSet&lt;&gt;();</b>
+<b class="nc">&nbsp;      private final Set&lt;Binding&gt; instanceContext = new LinkedHashSet&lt;&gt;();</b>
+<b class="nc">&nbsp;      private final Set&lt;Binding&gt; builderContext = new LinkedHashSet&lt;&gt;();</b>
+&nbsp;
+<b class="nc">&nbsp;      Linkage() {</b>
+<b class="nc">&nbsp;        addStaticMembers(staticContext);</b>
+<b class="nc">&nbsp;        addStaticMembers(instanceContext);</b>
+<b class="nc">&nbsp;        addStaticMembers(builderContext);</b>
+<b class="nc">&nbsp;        addTypeParameters(instanceContext);</b>
+<b class="nc">&nbsp;        addTypeParameters(builderContext);</b>
+<b class="nc">&nbsp;        addTypeParameters(staticContext);</b>
+<b class="nc">&nbsp;        addInstanceMembers(instanceContext);</b>
+<b class="nc">&nbsp;        addBuilderMembers(builderContext);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      private void addTypeParameters(Set&lt;Binding&gt; context) {
+<b class="nc">&nbsp;        for (String p : typeParams) {</b>
+<b class="nc">&nbsp;          context.add(Binding.newTop(p));</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      private void addBuilderMembers(Set&lt;Binding&gt; context) {
+<b class="nc">&nbsp;        for (EncodedElement e : allElements) {</b>
+<b class="nc">&nbsp;          if (e.inBuilder()) {</b>
+<b class="nc">&nbsp;            context.add(e.asBinding());</b>
+&nbsp;          }
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      private void addInstanceMembers(Set&lt;Binding&gt; context) {
+<b class="nc">&nbsp;        for (EncodedElement e : allElements) {</b>
+<b class="nc">&nbsp;          if (!e.inBuilder() &amp;&amp; !e.isStatic()) {</b>
+<b class="nc">&nbsp;            context.add(e.asBinding());</b>
+&nbsp;          }
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      private void addStaticMembers(Set&lt;Binding&gt; context) {
+<b class="nc">&nbsp;        for (EncodedElement e : allElements) {</b>
+<b class="nc">&nbsp;          if (!e.inBuilder() &amp;&amp; e.isStatic()) {</b>
+<b class="nc">&nbsp;            context.add(e.asBinding());</b>
+&nbsp;          }
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      @Override
+&nbsp;      public String apply(EncodedElement element) {
+<b class="nc">&nbsp;        Code.Binder linker = linkerFor(element);</b>
+<b class="nc">&nbsp;        List&lt;Term&gt; boundTerms = applyBinder(element, linker);</b>
+<b class="nc">&nbsp;        return Code.join(Code.trimLeadingIndent(boundTerms));</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      private Code.Binder linkerFor(EncodedElement element) {
+<b class="nc">&nbsp;        Set&lt;Binding&gt; bindings = new LinkedHashSet&lt;&gt;();</b>
+<b class="nc">&nbsp;        if (element.tags().contains(Tag.BUILDER)) {</b>
+<b class="nc">&nbsp;          bindings.addAll(builderContext);</b>
+<b class="nc">&nbsp;        } else if (element.tags().contains(Tag.STATIC)) {</b>
+<b class="nc">&nbsp;          bindings.addAll(staticContext);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          bindings.addAll(instanceContext);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        for (Param p : element.params()) {</b>
+<b class="nc">&nbsp;          bindings.add(Binding.newTop(p.name()));</b>
+<b class="nc">&nbsp;        }</b>
+<b class="nc">&nbsp;        return new Code.Binder(imports.classes, bindings);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;String&gt; getTypeParameterNames(Parameterizable element) {
+<b class="nc">&nbsp;      List&lt;String&gt; names = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (TypeParameterElement p : element.getTypeParameters()) {</b>
+<b class="nc">&nbsp;        names.add(p.getSimpleName().toString());</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return names;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private List&lt;Term&gt; applyBinder(EncodedElement element, Code.Binder binder) {
+<b class="nc">&nbsp;      List&lt;Term&gt; result = binder.apply(element.code());</b>
+<b class="nc">&nbsp;      for (Param p : element.params()) {</b>
+&nbsp;        // trick to interpolate members on the self-type parameter (for equals etc)
+<b class="nc">&nbsp;        if (p.type().equals(encodingSelfType)) {</b>
+<b class="nc">&nbsp;          result = binder.parameterAsThis(result, p.name());</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return result;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private Iterable&lt;String&gt; annotationsFrom(Element element) {
+<b class="nc">&nbsp;    List&lt;String&gt; annotations = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    for (AnnotationMirror annotationMirror : element.getAnnotationMirrors()) {</b>
+<b class="nc">&nbsp;      String a = AnnotationMirrors.toCharSequence(annotationMirror).toString();</b>
+<b class="nc">&nbsp;      if (!a.startsWith(ENCODE_PACKAGE_PREFIX, 1)) {</b>
+<b class="nc">&nbsp;        annotations.add(a);</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return annotations;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Iterable&lt;String&gt; docFrom(Element element) {
+<b class="nc">&nbsp;    @Nullable String docComment = processing().getElementUtils().getDocComment(element);</b>
+<b class="nc">&nbsp;    return docComment == null</b>
+<b class="nc">&nbsp;        ? ImmutableList.&lt;String&gt;of()</b>
+<b class="nc">&nbsp;        : DOC_COMMENT_LINE_SPLITTER.split(docComment);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final String ENCODE_PACKAGE_PREFIX = &quot;org.immutables.encode.&quot;;
+<b class="nc">&nbsp;  private static final Splitter DOC_COMMENT_LINE_SPLITTER = Splitter.on(&#39;\n&#39;).omitEmptyStrings();</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

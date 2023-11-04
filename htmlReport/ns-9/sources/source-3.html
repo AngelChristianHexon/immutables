@@ -1,0 +1,352 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ObjectChecker</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.check</a>
+</div>
+
+<h1>Coverage Summary for Class: ObjectChecker (org.immutables.check)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ObjectChecker</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    30.8%
+  </span>
+  <span class="absValue">
+    (8/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    18.8%
+  </span>
+  <span class="absValue">
+    (3/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    23.7%
+  </span>
+  <span class="absValue">
+    (14/59)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.check;
+&nbsp;
+&nbsp;import com.google.common.base.Predicate;
+&nbsp;import com.google.common.base.Predicates;
+&nbsp;import com.google.common.base.Throwables;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.LinkedList;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import org.hamcrest.CoreMatchers;
+&nbsp;import org.hamcrest.Description;
+&nbsp;import org.hamcrest.Matcher;
+&nbsp;import org.hamcrest.MatcherAssert;
+&nbsp;import org.hamcrest.Matchers;
+&nbsp;import org.hamcrest.StringDescription;
+&nbsp;import org.hamcrest.core.Is;
+&nbsp;import org.hamcrest.core.IsNull;
+&nbsp;
+&nbsp;/**
+&nbsp; * The match wrapper.
+&nbsp; * @param &lt;T&gt; the generic type
+&nbsp; */
+&nbsp;public class ObjectChecker&lt;T&gt; {
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  final T actualValue;
+&nbsp;  final boolean negate;
+&nbsp;
+<b class="fc">&nbsp;  ObjectChecker(@Nullable T actualValue, boolean negate) {</b>
+<b class="fc">&nbsp;    this.actualValue = actualValue;</b>
+<b class="fc">&nbsp;    this.negate = negate;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static void fail(@Nullable Object actualValue, Matcher&lt;?&gt; matcher) {
+<b class="nc">&nbsp;    Description description =</b>
+&nbsp;        new StringDescription()
+<b class="nc">&nbsp;            .appendText(&quot;\nExpected: &quot;)</b>
+<b class="nc">&nbsp;            .appendDescriptionOf(matcher)</b>
+<b class="nc">&nbsp;            .appendText(&quot;\n     but: &quot;);</b>
+<b class="nc">&nbsp;    matcher.describeMismatch(actualValue, description);</b>
+<b class="nc">&nbsp;    AssertionError assertionError = new AssertionError(description.toString());</b>
+<b class="nc">&nbsp;    assertionError.setStackTrace(ObjectChecker.trimStackTrace(assertionError.getStackTrace()));</b>
+<b class="nc">&nbsp;    throw assertionError;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static StackTraceElement[] trimStackTrace(StackTraceElement[] stackTrace) {
+<b class="nc">&nbsp;    LinkedList&lt;StackTraceElement&gt; list = Lists.newLinkedList();</b>
+<b class="nc">&nbsp;    for (int i = stackTrace.length - 1; i &gt;= 0; i--) {</b>
+<b class="nc">&nbsp;      StackTraceElement s = stackTrace[i];</b>
+<b class="nc">&nbsp;      if (s.getClassName().startsWith(Checkers.class.getPackage().getName())) {</b>
+<b class="nc">&nbsp;        break;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      list.addLast(s);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return list.toArray(new StackTraceElement[list.size()]);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static void verifyCheck(String description, boolean assertionState) {
+&nbsp;    try {
+<b class="fc">&nbsp;      MatcherAssert.assertThat(description, assertionState);</b>
+<b class="nc">&nbsp;    } catch (Throwable ex) {</b>
+<b class="nc">&nbsp;      ex.setStackTrace(trimStackTrace(ex.getStackTrace()));</b>
+<b class="nc">&nbsp;      Throwables.propagate(ex);</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static &lt;Z&gt; void verifyUsingMatcher(@Nullable Z actualValue, Matcher&lt;? super Z&gt; matcher) {
+&nbsp;    try {
+<b class="fc">&nbsp;      MatcherAssert.assertThat(actualValue, matcher);</b>
+<b class="nc">&nbsp;    } catch (Throwable ex) {</b>
+<b class="nc">&nbsp;      ex.setStackTrace(trimStackTrace(ex.getStackTrace()));</b>
+<b class="nc">&nbsp;      Throwables.propagate(ex);</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Deprecated to prevent accidental usage of this method.
+&nbsp;   * @param any object
+&nbsp;   * @return nothing
+&nbsp;   * @deprecated You probably want to use {@link #is(Object)} method for matcher wrapper.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  @Deprecated
+&nbsp;  public boolean equals(Object any) {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use &#39;is&#39; method on matcher wrapper&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Evaluates to true only if ALL of the passed in matchers evaluate to true.
+&nbsp;   * @param matchers the matchers
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  public final void allOf(Matcher&lt;? super T&gt;... matchers) {
+<b class="nc">&nbsp;    verifyUsingMatcher(CoreMatchers.allOf(matchers));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Evaluates to true if ANY of the passed in matchers evaluate to true.
+&nbsp;   * @param matchers the matchers
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  public final void anyOf(Matcher&lt;? super T&gt;... matchers) {
+<b class="nc">&nbsp;    verifyUsingMatcher(CoreMatchers.anyOf(matchers));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** This matcher always evaluates to true. */
+&nbsp;  public void anything() {
+<b class="nc">&nbsp;    verifyUsingMatcher(CoreMatchers.anything());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public StringChecker asString() {
+<b class="pc">&nbsp;    return new StringChecker(actualValue != null ? actualValue.toString() : null, negate);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void hasToString(String expectedToStringValue) {
+<b class="fc">&nbsp;    asString().is(expectedToStringValue);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void is(Matcher&lt;? super T&gt; matcher) {
+<b class="nc">&nbsp;    verifyUsingMatcher(matcher);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This is equal to check
+&nbsp;   * @param value the value
+&nbsp;   */
+&nbsp;  public void is(@Nullable T value) {
+<b class="pc">&nbsp;    if (value == null) {</b>
+<b class="nc">&nbsp;      isNull();</b>
+&nbsp;    } else {
+<b class="fc">&nbsp;      verifyUsingMatcher(Is.is(value));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Is the value an instance of a particular type?.
+&nbsp;   * @param type the type
+&nbsp;   */
+&nbsp;  public void isA(java.lang.Class&lt;?&gt; type) {
+<b class="nc">&nbsp;    verifyUsingMatcher(CoreMatchers.instanceOf(type));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void isNull() {
+<b class="nc">&nbsp;    verifyUsingMatcher(IsNull.nullValue());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Inverts the rule.
+&nbsp;   * @param matcher the matcher
+&nbsp;   */
+&nbsp;  public void not(Matcher&lt;? super T&gt; matcher) {
+<b class="nc">&nbsp;    verifyUsingMatcher(CoreMatchers.not(matcher));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Makes checker negative.
+&nbsp;   * @return negative checker
+&nbsp;   */
+&nbsp;  public ObjectChecker&lt;T&gt; not() {
+<b class="nc">&nbsp;    ensureNonNegative();</b>
+<b class="nc">&nbsp;    return new ObjectChecker&lt;&gt;(actualValue, true);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  protected void ensureNonNegative() {
+<b class="nc">&nbsp;    if (negate) {</b>
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Already negated checker, simply check expression to avoid double negation&quot;);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public void not(@Nullable T value) {
+<b class="nc">&nbsp;    if (value == null) {</b>
+<b class="nc">&nbsp;      notNull();</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      verifyUsingMatcher(CoreMatchers.not(value));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public void notNull() {
+<b class="nc">&nbsp;    verifyUsingMatcher(IsNull.notNullValue());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a new instance of IsSame
+&nbsp;   * @param object The predicate evaluates to true only when the argument is this object.
+&nbsp;   */
+&nbsp;  public void same(T object) {
+<b class="fc">&nbsp;    verifyUsingMatcher(CoreMatchers.sameInstance(object));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void isIn(Collection&lt;T&gt; values) {
+<b class="nc">&nbsp;    verifyUsingMatcher(Matchers.isIn(values));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SafeVarargs
+&nbsp;  public final void isIn(T... values) {
+<b class="nc">&nbsp;    verifyUsingMatcher(Matchers.isIn(values));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void satisfies(Predicate&lt;? super T&gt; predicate) {
+<b class="nc">&nbsp;    if (negate) {</b>
+<b class="nc">&nbsp;      predicate = Predicates.not(predicate);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    verifyUsingMatcher(predicate.apply(actualValue), Is.is(true));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  protected void verifyUsingMatcher(Matcher&lt;? super T&gt; matcher) {
+<b class="pc">&nbsp;    if (negate) {</b>
+<b class="nc">&nbsp;      matcher = CoreMatchers.not(matcher);</b>
+&nbsp;    }
+<b class="fc">&nbsp;    verifyUsingMatcher(actualValue, matcher);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @deprecated This class should not be used with collections
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;This class should not be used with collections&quot;);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

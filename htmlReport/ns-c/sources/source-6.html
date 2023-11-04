@@ -1,0 +1,322 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ElasticsearchOps</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: ElasticsearchOps (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ElasticsearchOps</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/71)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.core.JsonProcessingException;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.fasterxml.jackson.databind.node.ArrayNode;
+&nbsp;import com.fasterxml.jackson.databind.node.ObjectNode;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import io.reactivex.Completable;
+&nbsp;import io.reactivex.Flowable;
+&nbsp;import io.reactivex.Single;
+&nbsp;import org.apache.http.entity.ContentType;
+&nbsp;import org.apache.http.entity.StringEntity;
+&nbsp;import org.elasticsearch.client.Request;
+&nbsp;import org.elasticsearch.client.Response;
+&nbsp;import org.elasticsearch.client.RestClient;
+&nbsp;import org.immutables.criteria.backend.WriteResult;
+&nbsp;
+&nbsp;import java.io.IOException;
+&nbsp;import java.io.InputStream;
+&nbsp;import java.io.UncheckedIOException;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Locale;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.logging.Level;
+&nbsp;import java.util.logging.Logger;
+&nbsp;
+&nbsp;/**
+&nbsp; * Helper methods to operate on ES index: search, scroll etc.
+&nbsp; */
+&nbsp;class ElasticsearchOps {
+&nbsp;
+<b class="nc">&nbsp;  private static final Logger logger = Logger.getLogger(ElasticsearchOps.class.getName());</b>
+&nbsp;
+&nbsp;  private final RxJavaTransport transport;
+&nbsp;  private final ObjectMapper mapper;
+&nbsp;  private final String index;
+&nbsp;  final Mapping mapping;
+&nbsp;  final Version version;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * batch size of scroll
+&nbsp;   */
+&nbsp;  final int scrollSize;
+&nbsp;
+<b class="nc">&nbsp;  ElasticsearchOps(RestClient restClient, String index, ObjectMapper mapper, int scrollSize) {</b>
+<b class="nc">&nbsp;    this.transport = new RxJavaTransport(restClient);</b>
+<b class="nc">&nbsp;    this.mapper = Objects.requireNonNull(mapper, &quot;mapper&quot;);</b>
+<b class="nc">&nbsp;    this.index = Objects.requireNonNull(index, &quot;index&quot;);</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(scrollSize &gt; 0, &quot;Invalid scrollSize: %s&quot;, scrollSize);</b>
+<b class="nc">&nbsp;    this.scrollSize = scrollSize;</b>
+<b class="nc">&nbsp;    IndexOps ops = new IndexOps(restClient, mapper, index);</b>
+&nbsp;    // cache mapping and version
+<b class="nc">&nbsp;    this.mapping = ops.mapping().blockingGet();</b>
+<b class="nc">&nbsp;    this.version = ops.version().blockingGet();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Single&lt;WriteResult&gt; insertDocument(ObjectNode document) throws IOException {
+<b class="nc">&nbsp;    Objects.requireNonNull(document, &quot;document&quot;);</b>
+<b class="nc">&nbsp;    String uri = String.format(Locale.ROOT, &quot;/%s/_doc?refresh&quot;, index);</b>
+<b class="nc">&nbsp;    StringEntity entity = new StringEntity(mapper().writeValueAsString(document),</b>
+&nbsp;            ContentType.APPLICATION_JSON);
+<b class="nc">&nbsp;    final Request r = new Request(&quot;POST&quot;, uri);</b>
+<b class="nc">&nbsp;    r.setEntity(entity);</b>
+<b class="nc">&nbsp;    return transport.execute(r).map(x -&gt; WriteResult.unknown());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Single&lt;WriteResult&gt; insertBulk(List&lt;ObjectNode&gt; documents) {
+<b class="nc">&nbsp;    return Single.defer(() -&gt; insertBulkInternal(documents));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Delete documents using query API
+&nbsp;   * @see &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-delete-by-query.html&quot;&gt;Delete by query API&lt;/a&gt;
+&nbsp;   */
+&nbsp;  Single&lt;WriteResult&gt; deleteByQuery(ObjectNode query) {
+<b class="nc">&nbsp;    Objects.requireNonNull(query, &quot;query&quot;);</b>
+<b class="nc">&nbsp;    Request request = new Request(&quot;POST&quot;, String.format(&quot;/%s/_delete_by_query&quot;, index));</b>
+<b class="nc">&nbsp;    request.addParameter(&quot;refresh&quot;, &quot;true&quot;);</b>
+<b class="nc">&nbsp;    request.setJsonEntity(query.toString());</b>
+<b class="nc">&nbsp;    return transport.execute(request).map(x -&gt; WriteResult.unknown());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Single&lt;WriteResult&gt; insertBulkInternal(List&lt;ObjectNode&gt; documents) throws JsonProcessingException {
+<b class="nc">&nbsp;    Objects.requireNonNull(documents, &quot;documents&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (documents.isEmpty()) {</b>
+&nbsp;      // nothing to process
+<b class="nc">&nbsp;      return Single.just(WriteResult.empty());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    final List&lt;String&gt; bulk = new ArrayList&lt;&gt;(documents.size() * 2);</b>
+<b class="nc">&nbsp;    for (ObjectNode doc: documents) {</b>
+<b class="nc">&nbsp;      final ObjectNode header = mapper.createObjectNode();</b>
+<b class="nc">&nbsp;      header.with(&quot;index&quot;).put(&quot;_index&quot;, index);</b>
+<b class="nc">&nbsp;      if (doc.has(&quot;_id&quot;)) {</b>
+&nbsp;        // check if document has already an _id
+<b class="nc">&nbsp;        header.with(&quot;index&quot;).set(&quot;_id&quot;, doc.get(&quot;_id&quot;));</b>
+<b class="nc">&nbsp;        doc.remove(&quot;_id&quot;);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      bulk.add(header.toString());</b>
+<b class="nc">&nbsp;      bulk.add(mapper().writeValueAsString(doc));</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    final StringEntity entity = new StringEntity(String.join(&quot;\n&quot;, bulk) + &quot;\n&quot;,</b>
+&nbsp;            ContentType.APPLICATION_JSON);
+&nbsp;
+<b class="nc">&nbsp;    final Request r = new Request(&quot;POST&quot;, &quot;/_bulk?refresh&quot;);</b>
+<b class="nc">&nbsp;    r.setEntity(entity);</b>
+<b class="nc">&nbsp;    return transport.execute(r).map(x -&gt; WriteResult.unknown());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  private &lt;T&gt; T convert(Response response, Class&lt;T&gt; type) {
+<b class="nc">&nbsp;    try (InputStream is = response.getEntity().getContent()) {</b>
+<b class="nc">&nbsp;      return mapper.readValue(is, type);</b>
+<b class="nc">&nbsp;    } catch (IOException e) {</b>
+<b class="nc">&nbsp;      final String message = String.format(&quot;Couldn&#39;t parse HTTP response %s into %s&quot;, response, type.getSimpleName());</b>
+<b class="nc">&nbsp;      throw new UncheckedIOException(message, e);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private Function&lt;Response, Json.Result&gt; responseConverter() {
+<b class="nc">&nbsp;    return response -&gt; convert(response, Json.Result.class);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * See &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html&quot;&gt;Scroll API&lt;/a&gt;
+&nbsp;   */
+&nbsp;  &lt;T&gt; Flowable&lt;T&gt; scrolledSearch(ObjectNode query, JsonConverter&lt;T&gt; converter) {
+<b class="nc">&nbsp;    return new Scrolling&lt;&gt;(this, converter).scroll(query);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fetches next results given a scrollId.
+&nbsp;   */
+&nbsp;  Single&lt;Json.Result&gt; nextScroll(String scrollId) {
+&nbsp;    // fetch next scroll
+<b class="nc">&nbsp;    final Request request = new Request(&quot;POST&quot;, &quot;/_search/scroll&quot;);</b>
+<b class="nc">&nbsp;    final ObjectNode payload = mapper.createObjectNode()</b>
+<b class="nc">&nbsp;            .put(&quot;scroll&quot;, &quot;1m&quot;)</b>
+<b class="nc">&nbsp;            .put(&quot;scroll_id&quot;, scrollId);</b>
+<b class="nc">&nbsp;    request.setJsonEntity(payload.toString());</b>
+<b class="nc">&nbsp;    return transport.execute(request).map(r -&gt; responseConverter().apply(r));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Completable closeScroll(Iterable&lt;String&gt; scrollIds) {
+<b class="nc">&nbsp;    final ObjectNode payload = mapper.createObjectNode();</b>
+<b class="nc">&nbsp;    final ArrayNode array = payload.withArray(&quot;scroll_id&quot;);</b>
+<b class="nc">&nbsp;    scrollIds.forEach(array::add);</b>
+<b class="nc">&nbsp;    final Request request = new Request(&quot;DELETE&quot;, &quot;/_search/scroll&quot;);</b>
+<b class="nc">&nbsp;    request.setJsonEntity(payload.toString());</b>
+<b class="nc">&nbsp;    return transport.execute(request).ignoreElement();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  &lt;T&gt; Flowable&lt;T&gt; search(ObjectNode query, JsonConverter&lt;T&gt; converter) {
+<b class="nc">&nbsp;    return searchRaw(query, Collections.emptyMap()).toFlowable()</b>
+<b class="nc">&nbsp;            .flatMapIterable(r -&gt; r.searchHits().hits())</b>
+<b class="nc">&nbsp;            .map(x -&gt; converter.convert(x.source()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Call {@code _count} endpoint to get count of documents matching a query.
+&nbsp;   * @see &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-count.html&quot;&gt;search-count&lt;/a&gt;
+&nbsp;   */
+&nbsp;  Single&lt;Json.Count&gt; count(ObjectNode query) {
+<b class="nc">&nbsp;    final Request request = new Request(&quot;POST&quot;, String.format(&quot;/%s/_count&quot;, index));</b>
+<b class="nc">&nbsp;    request.setJsonEntity(query.toString());</b>
+<b class="nc">&nbsp;    return transport.execute(request).map(r -&gt; convert(r, Json.Count.class));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Single&lt;Json.Result&gt; searchRaw(ObjectNode query, Map&lt;String, String&gt; httpParams) {
+<b class="nc">&nbsp;      final Request request = new Request(&quot;POST&quot;, String.format(&quot;/%s/_search&quot;, index));</b>
+<b class="nc">&nbsp;      httpParams.forEach(request::addParameter);</b>
+<b class="nc">&nbsp;      request.setJsonEntity(query.toString());</b>
+<b class="nc">&nbsp;      if (logger.isLoggable(Level.FINE)) {</b>
+<b class="nc">&nbsp;        logger.log(Level.FINE, &quot;Performing search {0} on {1}&quot;, new Object[] {query, request});</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return transport.execute(request).map(r -&gt; responseConverter().apply(r));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  ObjectMapper mapper() {
+<b class="nc">&nbsp;    return mapper;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

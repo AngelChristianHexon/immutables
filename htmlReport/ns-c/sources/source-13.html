@@ -1,0 +1,594 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableElasticsearchSetup</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableElasticsearchSetup (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableElasticsearchSetup$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableElasticsearchSetup$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableElasticsearchSetup$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.elasticsearch.client.RestClient;
+&nbsp;import org.immutables.criteria.backend.KeyExtractor;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ElasticsearchSetup}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new ElasticsearchSetup.Builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableElasticsearchSetup.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ElasticsearchSetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableElasticsearchSetup
+&nbsp;    implements ElasticsearchSetup {
+&nbsp;  private final RestClient restClient;
+&nbsp;  private final ObjectMapper objectMapper;
+&nbsp;  private final IndexResolver indexResolver;
+&nbsp;  private final KeyExtractor.Factory keyExtractorFactory;
+&nbsp;  private final int scrollSize;
+&nbsp;
+&nbsp;  private ImmutableElasticsearchSetup(RestClient restClient) {
+&nbsp;    this.restClient = Objects.requireNonNull(restClient, &quot;restClient&quot;);
+&nbsp;    this.objectMapper = initShim.objectMapper();
+&nbsp;    this.indexResolver = initShim.indexResolver();
+&nbsp;    this.keyExtractorFactory = initShim.keyExtractorFactory();
+&nbsp;    this.scrollSize = initShim.scrollSize();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableElasticsearchSetup(ImmutableElasticsearchSetup.Builder builder) {
+&nbsp;    this.restClient = builder.restClient;
+&nbsp;    if (builder.objectMapper != null) {
+&nbsp;      initShim.objectMapper(builder.objectMapper);
+&nbsp;    }
+&nbsp;    if (builder.indexResolver != null) {
+&nbsp;      initShim.indexResolver(builder.indexResolver);
+&nbsp;    }
+&nbsp;    if (builder.keyExtractorFactory != null) {
+&nbsp;      initShim.keyExtractorFactory(builder.keyExtractorFactory);
+&nbsp;    }
+&nbsp;    if (builder.scrollSizeIsSet()) {
+&nbsp;      initShim.scrollSize(builder.scrollSize);
+&nbsp;    }
+&nbsp;    this.objectMapper = initShim.objectMapper();
+&nbsp;    this.indexResolver = initShim.indexResolver();
+&nbsp;    this.keyExtractorFactory = initShim.keyExtractorFactory();
+&nbsp;    this.scrollSize = initShim.scrollSize();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableElasticsearchSetup(
+&nbsp;      RestClient restClient,
+&nbsp;      ObjectMapper objectMapper,
+&nbsp;      IndexResolver indexResolver,
+&nbsp;      KeyExtractor.Factory keyExtractorFactory,
+&nbsp;      int scrollSize) {
+&nbsp;    this.restClient = restClient;
+&nbsp;    this.objectMapper = objectMapper;
+&nbsp;    this.indexResolver = indexResolver;
+&nbsp;    this.keyExtractorFactory = keyExtractorFactory;
+&nbsp;    this.scrollSize = scrollSize;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;ElasticsearchSetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte objectMapperBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ObjectMapper objectMapper;
+&nbsp;
+&nbsp;    ObjectMapper objectMapper() {
+&nbsp;      if (objectMapperBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (objectMapperBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        objectMapperBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.objectMapper = Objects.requireNonNull(objectMapperInitialize(), &quot;objectMapper&quot;);
+&nbsp;        objectMapperBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.objectMapper;
+&nbsp;    }
+&nbsp;
+&nbsp;    void objectMapper(ObjectMapper objectMapper) {
+&nbsp;      this.objectMapper = objectMapper;
+&nbsp;      objectMapperBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte indexResolverBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private IndexResolver indexResolver;
+&nbsp;
+&nbsp;    IndexResolver indexResolver() {
+&nbsp;      if (indexResolverBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (indexResolverBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        indexResolverBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.indexResolver = Objects.requireNonNull(indexResolverInitialize(), &quot;indexResolver&quot;);
+&nbsp;        indexResolverBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.indexResolver;
+&nbsp;    }
+&nbsp;
+&nbsp;    void indexResolver(IndexResolver indexResolver) {
+&nbsp;      this.indexResolver = indexResolver;
+&nbsp;      indexResolverBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte keyExtractorFactoryBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private KeyExtractor.Factory keyExtractorFactory;
+&nbsp;
+&nbsp;    KeyExtractor.Factory keyExtractorFactory() {
+&nbsp;      if (keyExtractorFactoryBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (keyExtractorFactoryBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        keyExtractorFactoryBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.keyExtractorFactory = Objects.requireNonNull(keyExtractorFactoryInitialize(), &quot;keyExtractorFactory&quot;);
+&nbsp;        keyExtractorFactoryBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.keyExtractorFactory;
+&nbsp;    }
+&nbsp;
+&nbsp;    void keyExtractorFactory(KeyExtractor.Factory keyExtractorFactory) {
+&nbsp;      this.keyExtractorFactory = keyExtractorFactory;
+&nbsp;      keyExtractorFactoryBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte scrollSizeBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int scrollSize;
+&nbsp;
+&nbsp;    int scrollSize() {
+&nbsp;      if (scrollSizeBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (scrollSizeBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        scrollSizeBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.scrollSize = scrollSizeInitialize();
+&nbsp;        scrollSizeBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.scrollSize;
+&nbsp;    }
+&nbsp;
+&nbsp;    void scrollSize(int scrollSize) {
+&nbsp;      this.scrollSize = scrollSize;
+&nbsp;      scrollSizeBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (objectMapperBuildStage == STAGE_INITIALIZING) attributes.add(&quot;objectMapper&quot;);
+&nbsp;      if (indexResolverBuildStage == STAGE_INITIALIZING) attributes.add(&quot;indexResolver&quot;);
+&nbsp;      if (keyExtractorFactoryBuildStage == STAGE_INITIALIZING) attributes.add(&quot;keyExtractorFactory&quot;);
+&nbsp;      if (scrollSizeBuildStage == STAGE_INITIALIZING) attributes.add(&quot;scrollSize&quot;);
+&nbsp;      return &quot;Cannot build ElasticsearchSetup, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private ObjectMapper objectMapperInitialize() {
+&nbsp;    return ElasticsearchSetup.super.objectMapper();
+&nbsp;  }
+&nbsp;
+&nbsp;  private IndexResolver indexResolverInitialize() {
+&nbsp;    return ElasticsearchSetup.super.indexResolver();
+&nbsp;  }
+&nbsp;
+&nbsp;  private KeyExtractor.Factory keyExtractorFactoryInitialize() {
+&nbsp;    return ElasticsearchSetup.super.keyExtractorFactory();
+&nbsp;  }
+&nbsp;
+&nbsp;  private int scrollSizeInitialize() {
+&nbsp;    return ElasticsearchSetup.super.scrollSize();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code restClient} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RestClient restClient() {
+&nbsp;    return restClient;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code objectMapper} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ObjectMapper objectMapper() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.objectMapper()
+&nbsp;        : this.objectMapper;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code indexResolver} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public IndexResolver indexResolver() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.indexResolver()
+&nbsp;        : this.indexResolver;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code keyExtractorFactory} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public KeyExtractor.Factory keyExtractorFactory() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.keyExtractorFactory()
+&nbsp;        : this.keyExtractorFactory;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code scrollSize} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int scrollSize() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.scrollSize()
+&nbsp;        : this.scrollSize;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ElasticsearchSetup#restClient() restClient} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for restClient
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableElasticsearchSetup withRestClient(RestClient value) {
+&nbsp;    if (this.restClient == value) return this;
+&nbsp;    RestClient newValue = Objects.requireNonNull(value, &quot;restClient&quot;);
+&nbsp;    return new ImmutableElasticsearchSetup(newValue, this.objectMapper, this.indexResolver, this.keyExtractorFactory, this.scrollSize);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ElasticsearchSetup#objectMapper() objectMapper} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for objectMapper
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableElasticsearchSetup withObjectMapper(ObjectMapper value) {
+&nbsp;    if (this.objectMapper == value) return this;
+&nbsp;    ObjectMapper newValue = Objects.requireNonNull(value, &quot;objectMapper&quot;);
+&nbsp;    return new ImmutableElasticsearchSetup(this.restClient, newValue, this.indexResolver, this.keyExtractorFactory, this.scrollSize);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ElasticsearchSetup#indexResolver() indexResolver} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for indexResolver
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableElasticsearchSetup withIndexResolver(IndexResolver value) {
+&nbsp;    if (this.indexResolver == value) return this;
+&nbsp;    IndexResolver newValue = Objects.requireNonNull(value, &quot;indexResolver&quot;);
+&nbsp;    return new ImmutableElasticsearchSetup(this.restClient, this.objectMapper, newValue, this.keyExtractorFactory, this.scrollSize);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ElasticsearchSetup#keyExtractorFactory() keyExtractorFactory} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for keyExtractorFactory
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableElasticsearchSetup withKeyExtractorFactory(KeyExtractor.Factory value) {
+&nbsp;    if (this.keyExtractorFactory == value) return this;
+&nbsp;    KeyExtractor.Factory newValue = Objects.requireNonNull(value, &quot;keyExtractorFactory&quot;);
+&nbsp;    return new ImmutableElasticsearchSetup(this.restClient, this.objectMapper, this.indexResolver, newValue, this.scrollSize);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ElasticsearchSetup#scrollSize() scrollSize} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for scrollSize
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableElasticsearchSetup withScrollSize(int value) {
+&nbsp;    if (this.scrollSize == value) return this;
+&nbsp;    return new ImmutableElasticsearchSetup(this.restClient, this.objectMapper, this.indexResolver, this.keyExtractorFactory, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableElasticsearchSetup} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableElasticsearchSetup
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableElasticsearchSetup) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableElasticsearchSetup another) {
+&nbsp;    return restClient.equals(another.restClient)
+&nbsp;        &amp;&amp; objectMapper.equals(another.objectMapper)
+&nbsp;        &amp;&amp; indexResolver.equals(another.indexResolver)
+&nbsp;        &amp;&amp; keyExtractorFactory.equals(another.keyExtractorFactory)
+&nbsp;        &amp;&amp; scrollSize == another.scrollSize;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code restClient}, {@code objectMapper}, {@code indexResolver}, {@code keyExtractorFactory}, {@code scrollSize}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + restClient.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + objectMapper.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + indexResolver.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + keyExtractorFactory.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + scrollSize;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ElasticsearchSetup} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ElasticsearchSetup&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;restClient&quot;, restClient)
+&nbsp;        .add(&quot;objectMapper&quot;, objectMapper)
+&nbsp;        .add(&quot;indexResolver&quot;, indexResolver)
+&nbsp;        .add(&quot;keyExtractorFactory&quot;, keyExtractorFactory)
+&nbsp;        .add(&quot;scrollSize&quot;, scrollSize)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code ElasticsearchSetup} instance.
+&nbsp;   * @param restClient The value for the {@code restClient} attribute
+&nbsp;   * @return An immutable ElasticsearchSetup instance
+&nbsp;   */
+&nbsp;  public static ImmutableElasticsearchSetup of(RestClient restClient) {
+&nbsp;    return new ImmutableElasticsearchSetup(restClient);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ElasticsearchSetup} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ElasticsearchSetup instance
+&nbsp;   */
+&nbsp;  public static ImmutableElasticsearchSetup copyOf(ElasticsearchSetup instance) {
+&nbsp;    if (instance instanceof ImmutableElasticsearchSetup) {
+&nbsp;      return (ImmutableElasticsearchSetup) instance;
+&nbsp;    }
+&nbsp;    return new ElasticsearchSetup.Builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableElasticsearchSetup ImmutableElasticsearchSetup}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ElasticsearchSetup&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private static final long INIT_BIT_REST_CLIENT = 0x1L;
+&nbsp;    private static final long OPT_BIT_SCROLL_SIZE = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable RestClient restClient;
+&nbsp;    private @Nullable ObjectMapper objectMapper;
+&nbsp;    private @Nullable IndexResolver indexResolver;
+&nbsp;    private @Nullable KeyExtractor.Factory keyExtractorFactory;
+&nbsp;    private int scrollSize;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableElasticsearchSetup ImmutableElasticsearchSetup} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new ElasticsearchSetup.Builder()
+&nbsp;     *    .restClient(org.elasticsearch.client.RestClient) // required {@link ElasticsearchSetup#restClient() restClient}
+&nbsp;     *    .objectMapper(com.fasterxml.jackson.databind.ObjectMapper) // optional {@link ElasticsearchSetup#objectMapper() objectMapper}
+&nbsp;     *    .indexResolver(org.immutables.criteria.elasticsearch.IndexResolver) // optional {@link ElasticsearchSetup#indexResolver() indexResolver}
+&nbsp;     *    .keyExtractorFactory(org.immutables.criteria.backend.KeyExtractor.Factory) // optional {@link ElasticsearchSetup#keyExtractorFactory() keyExtractorFactory}
+&nbsp;     *    .scrollSize(int) // optional {@link ElasticsearchSetup#scrollSize() scrollSize}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof ElasticsearchSetup.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new ElasticsearchSetup.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ElasticsearchSetup} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ElasticsearchSetup.Builder from(ElasticsearchSetup instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      restClient(instance.restClient());
+&nbsp;      objectMapper(instance.objectMapper());
+&nbsp;      indexResolver(instance.indexResolver());
+&nbsp;      keyExtractorFactory(instance.keyExtractorFactory());
+&nbsp;      scrollSize(instance.scrollSize());
+&nbsp;      return (ElasticsearchSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ElasticsearchSetup#restClient() restClient} attribute.
+&nbsp;     * @param restClient The value for restClient 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ElasticsearchSetup.Builder restClient(RestClient restClient) {
+&nbsp;      this.restClient = Objects.requireNonNull(restClient, &quot;restClient&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_REST_CLIENT;
+&nbsp;      return (ElasticsearchSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ElasticsearchSetup#objectMapper() objectMapper} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ElasticsearchSetup#objectMapper() objectMapper}.&lt;/em&gt;
+&nbsp;     * @param objectMapper The value for objectMapper 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ElasticsearchSetup.Builder objectMapper(ObjectMapper objectMapper) {
+&nbsp;      this.objectMapper = Objects.requireNonNull(objectMapper, &quot;objectMapper&quot;);
+&nbsp;      return (ElasticsearchSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ElasticsearchSetup#indexResolver() indexResolver} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ElasticsearchSetup#indexResolver() indexResolver}.&lt;/em&gt;
+&nbsp;     * @param indexResolver The value for indexResolver 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ElasticsearchSetup.Builder indexResolver(IndexResolver indexResolver) {
+&nbsp;      this.indexResolver = Objects.requireNonNull(indexResolver, &quot;indexResolver&quot;);
+&nbsp;      return (ElasticsearchSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ElasticsearchSetup#keyExtractorFactory() keyExtractorFactory} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ElasticsearchSetup#keyExtractorFactory() keyExtractorFactory}.&lt;/em&gt;
+&nbsp;     * @param keyExtractorFactory The value for keyExtractorFactory 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ElasticsearchSetup.Builder keyExtractorFactory(KeyExtractor.Factory keyExtractorFactory) {
+&nbsp;      this.keyExtractorFactory = Objects.requireNonNull(keyExtractorFactory, &quot;keyExtractorFactory&quot;);
+&nbsp;      return (ElasticsearchSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ElasticsearchSetup#scrollSize() scrollSize} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ElasticsearchSetup#scrollSize() scrollSize}.&lt;/em&gt;
+&nbsp;     * @param scrollSize The value for scrollSize 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ElasticsearchSetup.Builder scrollSize(int scrollSize) {
+&nbsp;      this.scrollSize = scrollSize;
+&nbsp;      optBits |= OPT_BIT_SCROLL_SIZE;
+&nbsp;      return (ElasticsearchSetup.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableElasticsearchSetup ImmutableElasticsearchSetup}.
+&nbsp;     * @return An immutable instance of ElasticsearchSetup
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableElasticsearchSetup build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableElasticsearchSetup(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean scrollSizeIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_SCROLL_SIZE) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_REST_CLIENT) != 0) attributes.add(&quot;restClient&quot;);
+&nbsp;      return &quot;Cannot build ElasticsearchSetup, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

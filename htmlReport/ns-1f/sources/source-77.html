@@ -1,0 +1,543 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyMapHolder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyMapHolder (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSillyMapHolder$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyMapHolder}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSillyMapHolder.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableSillyMapHolder.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyMapHolder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyMapHolder extends SillyMapHolder {
+&nbsp;  private final ImmutableMap&lt;SillyValue, Integer&gt; holder1;
+&nbsp;  private final ImmutableMap&lt;Integer, String&gt; holder2;
+&nbsp;  private final ImmutableMap&lt;String, SillyMapTup&gt; holder3;
+&nbsp;  private final ImmutableSet&lt;RetentionPolicy&gt; zz;
+&nbsp;
+&nbsp;  private ImmutableSillyMapHolder(
+&nbsp;      Map&lt;SillyValue, ? extends Integer&gt; holder1,
+&nbsp;      Map&lt;Integer, ? extends String&gt; holder2) {
+&nbsp;    this.holder1 = Maps.immutableEnumMap(holder1);
+&nbsp;    this.holder2 = ImmutableMap.copyOf(holder2);
+&nbsp;    this.holder3 = ImmutableMap.of();
+&nbsp;    this.zz = ImmutableSet.of();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillyMapHolder(
+&nbsp;      ImmutableMap&lt;SillyValue, Integer&gt; holder1,
+&nbsp;      ImmutableMap&lt;Integer, String&gt; holder2,
+&nbsp;      ImmutableMap&lt;String, SillyMapTup&gt; holder3,
+&nbsp;      ImmutableSet&lt;RetentionPolicy&gt; zz) {
+&nbsp;    this.holder1 = holder1;
+&nbsp;    this.holder2 = holder2;
+&nbsp;    this.holder3 = holder3;
+&nbsp;    this.zz = zz;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code holder1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;SillyValue, Integer&gt; holder1() {
+&nbsp;    return holder1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code holder2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;Integer, String&gt; holder2() {
+&nbsp;    return holder2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code holder3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, SillyMapTup&gt; holder3() {
+&nbsp;    return holder3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code zz} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;RetentionPolicy&gt; zz() {
+&nbsp;    return zz;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SillyMapHolder#holder1() holder1} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the holder1 map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapHolder withHolder1(Map&lt;SillyValue, ? extends Integer&gt; entries) {
+&nbsp;    if (this.holder1 == entries) return this;
+&nbsp;    ImmutableMap&lt;SillyValue, Integer&gt; newValue = Maps.immutableEnumMap(entries);
+&nbsp;    return new ImmutableSillyMapHolder(newValue, this.holder2, this.holder3, this.zz);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SillyMapHolder#holder2() holder2} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the holder2 map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapHolder withHolder2(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.holder2 == entries) return this;
+&nbsp;    ImmutableMap&lt;Integer, String&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableSillyMapHolder(this.holder1, newValue, this.holder3, this.zz);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link SillyMapHolder#holder3() holder3} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the holder3 map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapHolder withHolder3(Map&lt;String, ? extends SillyMapTup&gt; entries) {
+&nbsp;    if (this.holder3 == entries) return this;
+&nbsp;    ImmutableMap&lt;String, SillyMapTup&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableSillyMapHolder(this.holder1, this.holder2, newValue, this.zz);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyMapHolder#zz() zz}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapHolder withZz(RetentionPolicy... elements) {
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableSillyMapHolder(this.holder1, this.holder2, this.holder3, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyMapHolder#zz() zz}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of zz elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyMapHolder withZz(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.zz == elements) return this;
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(elements);
+&nbsp;    return new ImmutableSillyMapHolder(this.holder1, this.holder2, this.holder3, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyMapHolder} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyMapHolder
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyMapHolder) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyMapHolder another) {
+&nbsp;    return holder1.equals(another.holder1)
+&nbsp;        &amp;&amp; holder2.equals(another.holder2)
+&nbsp;        &amp;&amp; holder3.equals(another.holder3)
+&nbsp;        &amp;&amp; zz.equals(another.zz);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code holder1}, {@code holder2}, {@code holder3}, {@code zz}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + holder1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + holder2.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + holder3.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + zz.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyMapHolder} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyMapHolder&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;holder1&quot;, holder1)
+&nbsp;        .add(&quot;holder2&quot;, holder2)
+&nbsp;        .add(&quot;holder3&quot;, holder3)
+&nbsp;        .add(&quot;zz&quot;, zz)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code SillyMapHolder} instance.
+&nbsp;   * @param holder1 The value for the {@code holder1} attribute
+&nbsp;   * @param holder2 The value for the {@code holder2} attribute
+&nbsp;   * @return An immutable SillyMapHolder instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyMapHolder of(Map&lt;SillyValue, ? extends Integer&gt; holder1, Map&lt;Integer, ? extends String&gt; holder2) {
+&nbsp;    return new ImmutableSillyMapHolder(holder1, holder2);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyMapHolder} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyMapHolder instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyMapHolder copyOf(SillyMapHolder instance) {
+&nbsp;    if (instance instanceof ImmutableSillyMapHolder) {
+&nbsp;      return (ImmutableSillyMapHolder) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyMapHolder.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSillyMapHolder ImmutableSillyMapHolder}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSillyMapHolder.builder()
+&nbsp;   *    .putHolder1|putAllHolder1(org.immutables.fixture.SillyValue =&amp;gt; int) // {@link SillyMapHolder#holder1() holder1} mappings
+&nbsp;   *    .putHolder2|putAllHolder2(int =&amp;gt; String) // {@link SillyMapHolder#holder2() holder2} mappings
+&nbsp;   *    .putHolder3|putAllHolder3(String =&amp;gt; org.immutables.fixture.SillyMapTup) // {@link SillyMapHolder#holder3() holder3} mappings
+&nbsp;   *    .addZz|addAllZz(annotation.RetentionPolicy) // {@link SillyMapHolder#zz() zz} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSillyMapHolder builder
+&nbsp;   */
+&nbsp;  public static ImmutableSillyMapHolder.Builder builder() {
+&nbsp;    return new ImmutableSillyMapHolder.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSillyMapHolder ImmutableSillyMapHolder}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyMapHolder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableMap.Builder&lt;SillyValue, Integer&gt; holder1 = ImmutableMap.builder();
+&nbsp;    private ImmutableMap.Builder&lt;Integer, String&gt; holder2 = ImmutableMap.builder();
+&nbsp;    private ImmutableMap.Builder&lt;String, SillyMapTup&gt; holder3 = ImmutableMap.builder();
+&nbsp;    private ImmutableSet.Builder&lt;RetentionPolicy&gt; zz = ImmutableSet.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SillyMapHolder} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SillyMapHolder instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      putAllHolder1(instance.holder1());
+&nbsp;      putAllHolder2(instance.holder2());
+&nbsp;      putAllHolder3(instance.holder3());
+&nbsp;      addAllZz(instance.zz());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyMapHolder#holder1() holder1} map.
+&nbsp;     * @param key The key in the holder1 map
+&nbsp;     * @param value The associated value in the holder1 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putHolder1(SillyValue key, int value) {
+&nbsp;      this.holder1.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyMapHolder#holder1() holder1} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putHolder1(Map.Entry&lt;SillyValue, ? extends Integer&gt; entry) {
+&nbsp;      this.holder1.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link SillyMapHolder#holder1() holder1} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the holder1 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder holder1(Map&lt;SillyValue, ? extends Integer&gt; entries) {
+&nbsp;      this.holder1 = ImmutableMap.builder();
+&nbsp;      return putAllHolder1(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link SillyMapHolder#holder1() holder1} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the holder1 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllHolder1(Map&lt;SillyValue, ? extends Integer&gt; entries) {
+&nbsp;      this.holder1.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyMapHolder#holder2() holder2} map.
+&nbsp;     * @param key The key in the holder2 map
+&nbsp;     * @param value The associated value in the holder2 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putHolder2(int key, String value) {
+&nbsp;      this.holder2.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyMapHolder#holder2() holder2} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putHolder2(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.holder2.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link SillyMapHolder#holder2() holder2} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the holder2 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder holder2(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.holder2 = ImmutableMap.builder();
+&nbsp;      return putAllHolder2(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link SillyMapHolder#holder2() holder2} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the holder2 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllHolder2(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.holder2.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyMapHolder#holder3() holder3} map.
+&nbsp;     * @param key The key in the holder3 map
+&nbsp;     * @param value The associated value in the holder3 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putHolder3(String key, SillyMapTup value) {
+&nbsp;      this.holder3.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link SillyMapHolder#holder3() holder3} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putHolder3(Map.Entry&lt;String, ? extends SillyMapTup&gt; entry) {
+&nbsp;      this.holder3.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link SillyMapHolder#holder3() holder3} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the holder3 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder holder3(Map&lt;String, ? extends SillyMapTup&gt; entries) {
+&nbsp;      this.holder3 = ImmutableMap.builder();
+&nbsp;      return putAllHolder3(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link SillyMapHolder#holder3() holder3} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the holder3 map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllHolder3(Map&lt;String, ? extends SillyMapTup&gt; entries) {
+&nbsp;      this.holder3.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SillyMapHolder#zz() zz} set.
+&nbsp;     * @param element A zz element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addZz(RetentionPolicy element) {
+&nbsp;      this.zz.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillyMapHolder#zz() zz} set.
+&nbsp;     * @param elements An array of zz elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addZz(RetentionPolicy... elements) {
+&nbsp;      this.zz.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SillyMapHolder#zz() zz} set.
+&nbsp;     * @param elements An iterable of zz elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder zz(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.zz = ImmutableSet.builder();
+&nbsp;      return addAllZz(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillyMapHolder#zz() zz} set.
+&nbsp;     * @param elements An iterable of zz elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllZz(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.zz.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSillyMapHolder ImmutableSillyMapHolder}.
+&nbsp;     * @return An immutable instance of SillyMapHolder
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSillyMapHolder build() {
+&nbsp;      return new ImmutableSillyMapHolder(
+&nbsp;          Maps.immutableEnumMap(holder1.build()),
+&nbsp;          holder2.build(),
+&nbsp;          holder3.build(),
+&nbsp;          Sets.immutableEnumSet(zz.build()));
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

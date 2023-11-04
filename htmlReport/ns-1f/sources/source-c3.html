@@ -1,0 +1,1354 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableUseImmutableCollections</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableUseImmutableCollections (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableUseImmutableCollections$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableListMultimap;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableMultimap;
+&nbsp;import com.google.common.collect.ImmutableMultiset;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.ImmutableSetMultimap;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.common.collect.Ordering;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link UseImmutableCollections}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableUseImmutableCollections.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;UseImmutableCollections&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableUseImmutableCollections implements UseImmutableCollections {
+&nbsp;  private final ImmutableList&lt;String&gt; list;
+&nbsp;  private final ImmutableSet&lt;Integer&gt; set;
+&nbsp;  private final ImmutableSet&lt;RetentionPolicy&gt; enumSet;
+&nbsp;  private final ImmutableSortedSet&lt;RetentionPolicy&gt; sortedSet;
+&nbsp;  private final ImmutableMultiset&lt;String&gt; multiset;
+&nbsp;  private final ImmutableMap&lt;String, Integer&gt; map;
+&nbsp;  private final ImmutableMap&lt;RetentionPolicy, Integer&gt; enumMap;
+&nbsp;  private final ImmutableSortedMap&lt;RetentionPolicy, Integer&gt; sortedMap;
+&nbsp;  private final ImmutableMultimap&lt;String, Integer&gt; multimap;
+&nbsp;  private final ImmutableSetMultimap&lt;String, Integer&gt; setMultimap;
+&nbsp;  private final ImmutableListMultimap&lt;String, Integer&gt; listMultimap;
+&nbsp;
+&nbsp;  private ImmutableUseImmutableCollections(
+&nbsp;      ImmutableList&lt;String&gt; list,
+&nbsp;      ImmutableSet&lt;Integer&gt; set,
+&nbsp;      ImmutableSet&lt;RetentionPolicy&gt; enumSet,
+&nbsp;      ImmutableSortedSet&lt;RetentionPolicy&gt; sortedSet,
+&nbsp;      ImmutableMultiset&lt;String&gt; multiset,
+&nbsp;      ImmutableMap&lt;String, Integer&gt; map,
+&nbsp;      ImmutableMap&lt;RetentionPolicy, Integer&gt; enumMap,
+&nbsp;      ImmutableSortedMap&lt;RetentionPolicy, Integer&gt; sortedMap,
+&nbsp;      ImmutableMultimap&lt;String, Integer&gt; multimap,
+&nbsp;      ImmutableSetMultimap&lt;String, Integer&gt; setMultimap,
+&nbsp;      ImmutableListMultimap&lt;String, Integer&gt; listMultimap) {
+&nbsp;    this.list = list;
+&nbsp;    this.set = set;
+&nbsp;    this.enumSet = enumSet;
+&nbsp;    this.sortedSet = sortedSet;
+&nbsp;    this.multiset = multiset;
+&nbsp;    this.map = map;
+&nbsp;    this.enumMap = enumMap;
+&nbsp;    this.sortedMap = sortedMap;
+&nbsp;    this.multimap = multimap;
+&nbsp;    this.setMultimap = setMultimap;
+&nbsp;    this.listMultimap = listMultimap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; list() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;Integer&gt; set() {
+&nbsp;    return set;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code enumSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;RetentionPolicy&gt; enumSet() {
+&nbsp;    return enumSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code sortedSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;RetentionPolicy&gt; sortedSet() {
+&nbsp;    return sortedSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code multiset} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultiset&lt;String&gt; multiset() {
+&nbsp;    return multiset;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Integer&gt; map() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code enumMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;RetentionPolicy, Integer&gt; enumMap() {
+&nbsp;    return enumMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code sortedMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;RetentionPolicy, Integer&gt; sortedMap() {
+&nbsp;    return sortedMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code multimap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMultimap&lt;String, Integer&gt; multimap() {
+&nbsp;    return multimap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code setMultimap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSetMultimap&lt;String, Integer&gt; setMultimap() {
+&nbsp;    return setMultimap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code listMultimap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableListMultimap&lt;String, Integer&gt; listMultimap() {
+&nbsp;    return listMultimap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#list() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withList(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        newValue,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#list() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withList(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.list == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        newValue,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#set() set}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withSet(int... elements) {
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        newValue,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#set() set}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withSet(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.set == elements) return this;
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        newValue,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#enumSet() enumSet}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withEnumSet(RetentionPolicy... elements) {
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        newValue,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#enumSet() enumSet}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of enumSet elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withEnumSet(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.enumSet == elements) return this;
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        newValue,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#sortedSet() sortedSet}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withSortedSet(RetentionPolicy... elements) {
+&nbsp;    ImmutableSortedSet&lt;RetentionPolicy&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;RetentionPolicy&gt;natural(),
+&nbsp;        Arrays.asList(elements));
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        newValue,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#sortedSet() sortedSet}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of sortedSet elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withSortedSet(Iterable&lt;? extends RetentionPolicy&gt; elements) {
+&nbsp;    if (this.sortedSet == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;RetentionPolicy&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;RetentionPolicy&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        newValue,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#multiset() multiset}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withMultiset(String... elements) {
+&nbsp;    ImmutableMultiset&lt;String&gt; newValue = ImmutableMultiset.copyOf(elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        newValue,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link UseImmutableCollections#multiset() multiset}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of multiset elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withMultiset(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.multiset == elements) return this;
+&nbsp;    ImmutableMultiset&lt;String&gt; newValue = ImmutableMultiset.copyOf(elements);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        newValue,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link UseImmutableCollections#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    ImmutableMap&lt;String, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        newValue,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link UseImmutableCollections#enumMap() enumMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the enumMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withEnumMap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    if (this.enumMap == entries) return this;
+&nbsp;    ImmutableMap&lt;RetentionPolicy, Integer&gt; newValue = Maps.immutableEnumMap(entries);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        newValue,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link UseImmutableCollections#sortedMap() sortedMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the sortedMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withSortedMap(Map&lt;? extends RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    if (this.sortedMap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;RetentionPolicy, Integer&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;RetentionPolicy&gt;natural().reverse()
+&nbsp;    );
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        newValue,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link UseImmutableCollections#multimap() multimap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the multimap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.multimap == entries) return this;
+&nbsp;    ImmutableMultimap&lt;String, Integer&gt; newValue = ImmutableMultimap.copyOf(entries);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        newValue,
+&nbsp;        this.setMultimap,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link UseImmutableCollections#setMultimap() setMultimap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the setMultimap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withSetMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.setMultimap == entries) return this;
+&nbsp;    ImmutableSetMultimap&lt;String, Integer&gt; newValue = ImmutableSetMultimap.copyOf(entries);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        newValue,
+&nbsp;        this.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link UseImmutableCollections#listMultimap() listMultimap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the listMultimap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUseImmutableCollections withListMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.listMultimap == entries) return this;
+&nbsp;    ImmutableListMultimap&lt;String, Integer&gt; newValue = ImmutableListMultimap.copyOf(entries);
+&nbsp;    return new ImmutableUseImmutableCollections(
+&nbsp;        this.list,
+&nbsp;        this.set,
+&nbsp;        this.enumSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.multiset,
+&nbsp;        this.map,
+&nbsp;        this.enumMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.multimap,
+&nbsp;        this.setMultimap,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableUseImmutableCollections} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableUseImmutableCollections
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableUseImmutableCollections) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableUseImmutableCollections another) {
+&nbsp;    return list.equals(another.list)
+&nbsp;        &amp;&amp; set.equals(another.set)
+&nbsp;        &amp;&amp; enumSet.equals(another.enumSet)
+&nbsp;        &amp;&amp; sortedSet.equals(another.sortedSet)
+&nbsp;        &amp;&amp; multiset.equals(another.multiset)
+&nbsp;        &amp;&amp; map.equals(another.map)
+&nbsp;        &amp;&amp; enumMap.equals(another.enumMap)
+&nbsp;        &amp;&amp; sortedMap.equals(another.sortedMap)
+&nbsp;        &amp;&amp; multimap.equals(another.multimap)
+&nbsp;        &amp;&amp; setMultimap.equals(another.setMultimap)
+&nbsp;        &amp;&amp; listMultimap.equals(another.listMultimap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code list}, {@code set}, {@code enumSet}, {@code sortedSet}, {@code multiset}, {@code map}, {@code enumMap}, {@code sortedMap}, {@code multimap}, {@code setMultimap}, {@code listMultimap}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + list.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + set.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + enumSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + sortedSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + multiset.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + enumMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + sortedMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + multimap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + setMultimap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + listMultimap.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code UseImmutableCollections} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;UseImmutableCollections&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;list&quot;, list)
+&nbsp;        .add(&quot;set&quot;, set)
+&nbsp;        .add(&quot;enumSet&quot;, enumSet)
+&nbsp;        .add(&quot;sortedSet&quot;, sortedSet)
+&nbsp;        .add(&quot;multiset&quot;, multiset)
+&nbsp;        .add(&quot;map&quot;, map)
+&nbsp;        .add(&quot;enumMap&quot;, enumMap)
+&nbsp;        .add(&quot;sortedMap&quot;, sortedMap)
+&nbsp;        .add(&quot;multimap&quot;, multimap)
+&nbsp;        .add(&quot;setMultimap&quot;, setMultimap)
+&nbsp;        .add(&quot;listMultimap&quot;, listMultimap)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link UseImmutableCollections} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable UseImmutableCollections instance
+&nbsp;   */
+&nbsp;  public static ImmutableUseImmutableCollections copyOf(UseImmutableCollections instance) {
+&nbsp;    if (instance instanceof ImmutableUseImmutableCollections) {
+&nbsp;      return (ImmutableUseImmutableCollections) instance;
+&nbsp;    }
+&nbsp;    return ImmutableUseImmutableCollections.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableUseImmutableCollections ImmutableUseImmutableCollections}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableUseImmutableCollections.builder()
+&nbsp;   *    .addList|addAllList(String) // {@link UseImmutableCollections#list() list} elements
+&nbsp;   *    .addSet|addAllSet(int) // {@link UseImmutableCollections#set() set} elements
+&nbsp;   *    .addEnumSet|addAllEnumSet(annotation.RetentionPolicy) // {@link UseImmutableCollections#enumSet() enumSet} elements
+&nbsp;   *    .addSortedSet|addAllSortedSet(annotation.RetentionPolicy) // {@link UseImmutableCollections#sortedSet() sortedSet} elements
+&nbsp;   *    .addMultiset|addAllMultiset(String) // {@link UseImmutableCollections#multiset() multiset} elements
+&nbsp;   *    .putMap|putAllMap(String =&amp;gt; int) // {@link UseImmutableCollections#map() map} mappings
+&nbsp;   *    .putEnumMap|putAllEnumMap(annotation.RetentionPolicy =&amp;gt; int) // {@link UseImmutableCollections#enumMap() enumMap} mappings
+&nbsp;   *    .putSortedMap|putAllSortedMap(annotation.RetentionPolicy =&amp;gt; int) // {@link UseImmutableCollections#sortedMap() sortedMap} mappings
+&nbsp;   *    .putMultimap|putAllMultimap(String =&amp;gt; int) // {@link UseImmutableCollections#multimap() multimap} mappings
+&nbsp;   *    .putSetMultimap|putAllSetMultimap(String =&amp;gt; int) // {@link UseImmutableCollections#setMultimap() setMultimap} mappings
+&nbsp;   *    .putListMultimap|putAllListMultimap(String =&amp;gt; int) // {@link UseImmutableCollections#listMultimap() listMultimap} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableUseImmutableCollections builder
+&nbsp;   */
+&nbsp;  public static ImmutableUseImmutableCollections.Builder builder() {
+&nbsp;    return new ImmutableUseImmutableCollections.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableUseImmutableCollections ImmutableUseImmutableCollections}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;UseImmutableCollections&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableList.Builder&lt;String&gt; list = ImmutableList.builder();
+&nbsp;    private ImmutableSet.Builder&lt;Integer&gt; set = ImmutableSet.builder();
+&nbsp;    private ImmutableSet.Builder&lt;RetentionPolicy&gt; enumSet = ImmutableSet.builder();
+&nbsp;    private ImmutableSortedSet.Builder&lt;RetentionPolicy&gt; sortedSet = ImmutableSortedSet.naturalOrder();
+&nbsp;    private ImmutableMultiset.Builder&lt;String&gt; multiset = ImmutableMultiset.builder();
+&nbsp;    private ImmutableMap.Builder&lt;String, Integer&gt; map = ImmutableMap.builder();
+&nbsp;    private ImmutableMap.Builder&lt;RetentionPolicy, Integer&gt; enumMap = ImmutableMap.builder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;RetentionPolicy, Integer&gt; sortedMap = ImmutableSortedMap.reverseOrder();
+&nbsp;    private ImmutableMultimap.Builder&lt;String, Integer&gt; multimap = ImmutableMultimap.builder();
+&nbsp;    private ImmutableSetMultimap.Builder&lt;String, Integer&gt; setMultimap = ImmutableSetMultimap.builder();
+&nbsp;    private ImmutableListMultimap.Builder&lt;String, Integer&gt; listMultimap = ImmutableListMultimap.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code UseImmutableCollections} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(UseImmutableCollections instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllList(instance.list());
+&nbsp;      addAllSet(instance.set());
+&nbsp;      addAllEnumSet(instance.enumSet());
+&nbsp;      addAllSortedSet(instance.sortedSet());
+&nbsp;      addAllMultiset(instance.multiset());
+&nbsp;      putAllMap(instance.map());
+&nbsp;      putAllEnumMap(instance.enumMap());
+&nbsp;      putAllSortedMap(instance.sortedMap());
+&nbsp;      putAllMultimap(instance.multimap());
+&nbsp;      putAllSetMultimap(instance.setMultimap());
+&nbsp;      putAllListMultimap(instance.listMultimap());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link UseImmutableCollections#list() list} list.
+&nbsp;     * @param element A list element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(String element) {
+&nbsp;      this.list.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#list() list} list.
+&nbsp;     * @param elements An array of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(String... elements) {
+&nbsp;      this.list.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link UseImmutableCollections#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder list(Iterable&lt;String&gt; elements) {
+&nbsp;      this.list = ImmutableList.builder();
+&nbsp;      return addAllList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllList(Iterable&lt;String&gt; elements) {
+&nbsp;      this.list.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link UseImmutableCollections#set() set} set.
+&nbsp;     * @param element A set element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(int element) {
+&nbsp;      this.set.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#set() set} set.
+&nbsp;     * @param elements An array of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(int... elements) {
+&nbsp;      this.set.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link UseImmutableCollections#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder set(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.set = ImmutableSet.builder();
+&nbsp;      return addAllSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSet(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.set.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link UseImmutableCollections#enumSet() enumSet} set.
+&nbsp;     * @param element A enumSet element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addEnumSet(RetentionPolicy element) {
+&nbsp;      this.enumSet.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#enumSet() enumSet} set.
+&nbsp;     * @param elements An array of enumSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addEnumSet(RetentionPolicy... elements) {
+&nbsp;      this.enumSet.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link UseImmutableCollections#enumSet() enumSet} set.
+&nbsp;     * @param elements An iterable of enumSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder enumSet(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.enumSet = ImmutableSet.builder();
+&nbsp;      return addAllEnumSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#enumSet() enumSet} set.
+&nbsp;     * @param elements An iterable of enumSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllEnumSet(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.enumSet.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link UseImmutableCollections#sortedSet() sortedSet} sortedSet.
+&nbsp;     * @param element A sortedSet element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSortedSet(RetentionPolicy element) {
+&nbsp;      this.sortedSet.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#sortedSet() sortedSet} sortedSet.
+&nbsp;     * @param elements An array of sortedSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSortedSet(RetentionPolicy... elements) {
+&nbsp;      this.sortedSet.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link UseImmutableCollections#sortedSet() sortedSet} sortedSet.
+&nbsp;     * @param elements An iterable of sortedSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder sortedSet(Iterable&lt;? extends RetentionPolicy&gt; elements) {
+&nbsp;      this.sortedSet = ImmutableSortedSet.naturalOrder();
+&nbsp;      return addAllSortedSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#sortedSet() sortedSet} sortedSet.
+&nbsp;     * @param elements An iterable of sortedSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSortedSet(Iterable&lt;? extends RetentionPolicy&gt; elements) {
+&nbsp;      this.sortedSet.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link UseImmutableCollections#multiset() multiset} multiset.
+&nbsp;     * @param element A multiset element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMultiset(String element) {
+&nbsp;      this.multiset.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#multiset() multiset} multiset.
+&nbsp;     * @param elements An array of multiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addMultiset(String... elements) {
+&nbsp;      this.multiset.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link UseImmutableCollections#multiset() multiset} multiset.
+&nbsp;     * @param elements An iterable of multiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder multiset(Iterable&lt;String&gt; elements) {
+&nbsp;      this.multiset = ImmutableMultiset.builder();
+&nbsp;      return addAllMultiset(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link UseImmutableCollections#multiset() multiset} multiset.
+&nbsp;     * @param elements An iterable of multiset elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllMultiset(Iterable&lt;String&gt; elements) {
+&nbsp;      this.multiset.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#map() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(String key, int value) {
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#map() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.map.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link UseImmutableCollections#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder map(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.map = ImmutableMap.builder();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link UseImmutableCollections#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.map.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#enumMap() enumMap} map.
+&nbsp;     * @param key The key in the enumMap map
+&nbsp;     * @param value The associated value in the enumMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putEnumMap(RetentionPolicy key, int value) {
+&nbsp;      this.enumMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#enumMap() enumMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putEnumMap(Map.Entry&lt;RetentionPolicy, ? extends Integer&gt; entry) {
+&nbsp;      this.enumMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link UseImmutableCollections#enumMap() enumMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the enumMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder enumMap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;      this.enumMap = ImmutableMap.builder();
+&nbsp;      return putAllEnumMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link UseImmutableCollections#enumMap() enumMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the enumMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllEnumMap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;      this.enumMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#sortedMap() sortedMap} map.
+&nbsp;     * @param key The key in the sortedMap map
+&nbsp;     * @param value The associated value in the sortedMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSortedMap(RetentionPolicy key, int value) {
+&nbsp;      this.sortedMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#sortedMap() sortedMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSortedMap(Map.Entry&lt;? extends RetentionPolicy, ? extends Integer&gt; entry) {
+&nbsp;      this.sortedMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link UseImmutableCollections#sortedMap() sortedMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the sortedMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder sortedMap(Map&lt;? extends RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;      this.sortedMap = ImmutableSortedMap.reverseOrder();
+&nbsp;      return putAllSortedMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link UseImmutableCollections#sortedMap() sortedMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the sortedMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllSortedMap(Map&lt;? extends RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;      this.sortedMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link UseImmutableCollections#multimap() multimap} true. Nulls are not permitted
+&nbsp;     * @param key The key for multimap
+&nbsp;     * @param values The values for multimap
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMultimap(String key, int... values) {
+&nbsp;      this.multimap.putAll(key, Ints.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link UseImmutableCollections#multimap() multimap} true. Nulls are not permitted
+&nbsp;     * @param key The key for multimap
+&nbsp;     * @param values The values for multimap
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMultimap(String key, Iterable&lt;Integer&gt; values) {
+&nbsp;      this.multimap.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#multimap() multimap} map.
+&nbsp;     * @param key The key in the multimap map
+&nbsp;     * @param value The associated value in the multimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMultimap(String key, int value) {
+&nbsp;      this.multimap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#multimap() multimap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMultimap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.multimap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link UseImmutableCollections#multimap() multimap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the multimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder multimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.multimap = ImmutableMultimap.builder();
+&nbsp;      return putAllMultimap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link UseImmutableCollections#multimap() multimap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the multimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.multimap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link UseImmutableCollections#setMultimap() setMultimap} true. Nulls are not permitted
+&nbsp;     * @param key The key for setMultimap
+&nbsp;     * @param values The values for setMultimap
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSetMultimap(String key, int... values) {
+&nbsp;      this.setMultimap.putAll(key, Ints.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link UseImmutableCollections#setMultimap() setMultimap} true. Nulls are not permitted
+&nbsp;     * @param key The key for setMultimap
+&nbsp;     * @param values The values for setMultimap
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllSetMultimap(String key, Iterable&lt;Integer&gt; values) {
+&nbsp;      this.setMultimap.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#setMultimap() setMultimap} map.
+&nbsp;     * @param key The key in the setMultimap map
+&nbsp;     * @param value The associated value in the setMultimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSetMultimap(String key, int value) {
+&nbsp;      this.setMultimap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#setMultimap() setMultimap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putSetMultimap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.setMultimap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link UseImmutableCollections#setMultimap() setMultimap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the setMultimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder setMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.setMultimap = ImmutableSetMultimap.builder();
+&nbsp;      return putAllSetMultimap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link UseImmutableCollections#setMultimap() setMultimap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the setMultimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllSetMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.setMultimap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link UseImmutableCollections#listMultimap() listMultimap} true. Nulls are not permitted
+&nbsp;     * @param key The key for listMultimap
+&nbsp;     * @param values The values for listMultimap
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putListMultimap(String key, int... values) {
+&nbsp;      this.listMultimap.putAll(key, Ints.asList(values));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified key to values for {@link UseImmutableCollections#listMultimap() listMultimap} true. Nulls are not permitted
+&nbsp;     * @param key The key for listMultimap
+&nbsp;     * @param values The values for listMultimap
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllListMultimap(String key, Iterable&lt;Integer&gt; values) {
+&nbsp;      this.listMultimap.putAll(key, values);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#listMultimap() listMultimap} map.
+&nbsp;     * @param key The key in the listMultimap map
+&nbsp;     * @param value The associated value in the listMultimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putListMultimap(String key, int value) {
+&nbsp;      this.listMultimap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link UseImmutableCollections#listMultimap() listMultimap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putListMultimap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.listMultimap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link UseImmutableCollections#listMultimap() listMultimap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the listMultimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder listMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.listMultimap = ImmutableListMultimap.builder();
+&nbsp;      return putAllListMultimap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link UseImmutableCollections#listMultimap() listMultimap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the listMultimap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllListMultimap(Multimap&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.listMultimap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableUseImmutableCollections ImmutableUseImmutableCollections}.
+&nbsp;     * @return An immutable instance of UseImmutableCollections
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableUseImmutableCollections build() {
+&nbsp;      return new ImmutableUseImmutableCollections(
+&nbsp;          list.build(),
+&nbsp;          set.build(),
+&nbsp;          Sets.immutableEnumSet(enumSet.build()),
+&nbsp;          sortedSet.build(),
+&nbsp;          multiset.build(),
+&nbsp;          map.build(),
+&nbsp;          Maps.immutableEnumMap(enumMap.build()),
+&nbsp;          sortedMap.build(),
+&nbsp;          multimap.build(),
+&nbsp;          setMultimap.build(),
+&nbsp;          listMultimap.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

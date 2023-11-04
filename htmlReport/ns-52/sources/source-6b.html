@@ -1,0 +1,643 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableAttributeBuilderDescriptor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableAttributeBuilderDescriptor (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$BuildFinal</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$BuildMethodBuildStage</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$QualifiedBuilderConstructorMethodBuildStage</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$QualifiedBuilderTypeNameBuildStage</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$QualifiedValueTypeNameBuildStage</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$ValueToBuilderMethodBuildStage</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeBuilderDescriptor$ValueToBuilderTargetBuildStage</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link AttributeBuilderDescriptor}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableAttributeBuilderDescriptor.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableAttributeBuilderDescriptor
+&nbsp;    extends AttributeBuilderDescriptor {
+&nbsp;  private final AttributeBuilderDescriptor.ValueToBuilderTarget valueToBuilderTarget;
+&nbsp;  private final String valueToBuilderMethod;
+&nbsp;  private final String buildMethod;
+&nbsp;  private final String qualifiedValueTypeName;
+&nbsp;  private final String qualifiedBuilderTypeName;
+&nbsp;  private final String qualifiedBuilderConstructorMethod;
+&nbsp;
+&nbsp;  private ImmutableAttributeBuilderDescriptor(
+&nbsp;      AttributeBuilderDescriptor.ValueToBuilderTarget valueToBuilderTarget,
+&nbsp;      String valueToBuilderMethod,
+&nbsp;      String buildMethod,
+&nbsp;      String qualifiedValueTypeName,
+&nbsp;      String qualifiedBuilderTypeName,
+&nbsp;      String qualifiedBuilderConstructorMethod) {
+&nbsp;    this.valueToBuilderTarget = valueToBuilderTarget;
+&nbsp;    this.valueToBuilderMethod = valueToBuilderMethod;
+&nbsp;    this.buildMethod = buildMethod;
+&nbsp;    this.qualifiedValueTypeName = qualifiedValueTypeName;
+&nbsp;    this.qualifiedBuilderTypeName = qualifiedBuilderTypeName;
+&nbsp;    this.qualifiedBuilderConstructorMethod = qualifiedBuilderConstructorMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code valueToBuilderTarget} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public AttributeBuilderDescriptor.ValueToBuilderTarget getValueToBuilderTarget() {
+&nbsp;    return valueToBuilderTarget;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * A method name which when invoked will return a builder with all the properties set from
+&nbsp;   * the value object.  This method will be invoked based on {@link #getValueToBuilderTarget()}
+&nbsp;   * @return method to create a value instance. No () included.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected String getValueToBuilderMethod() {
+&nbsp;    return valueToBuilderMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * A method to be invoked on the builder instance which returns a new value instance.
+&nbsp;   * @return a method which constructs a new value instance.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getBuildMethod() {
+&nbsp;    return buildMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * A fully qualified type for the value object.
+&nbsp;   * @return fully qualified name of the value type.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getQualifiedValueTypeName() {
+&nbsp;    return qualifiedValueTypeName;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * A fully qualified type for the builder object.
+&nbsp;   * @return fully qualified name of the builder type.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getQualifiedBuilderTypeName() {
+&nbsp;    return qualifiedBuilderTypeName;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * A fully qualified path and method which creates a new instance of a builder.
+&nbsp;   * If the builder is constructed from a no-arg constructor, the {@code new} keyword
+&nbsp;   * should be prepended with a space.
+&nbsp;   * @return static path which invoked will create a new empty builder. No () included.
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getQualifiedBuilderConstructorMethod() {
+&nbsp;    return qualifiedBuilderConstructorMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderDescriptor#getValueToBuilderTarget() valueToBuilderTarget} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for valueToBuilderTarget
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderDescriptor withValueToBuilderTarget(AttributeBuilderDescriptor.ValueToBuilderTarget value) {
+&nbsp;    if (this.valueToBuilderTarget == value) return this;
+&nbsp;    AttributeBuilderDescriptor.ValueToBuilderTarget newValue = Objects.requireNonNull(value, &quot;valueToBuilderTarget&quot;);
+&nbsp;    if (this.valueToBuilderTarget.equals(newValue)) return this;
+&nbsp;    return new ImmutableAttributeBuilderDescriptor(
+&nbsp;        newValue,
+&nbsp;        this.valueToBuilderMethod,
+&nbsp;        this.buildMethod,
+&nbsp;        this.qualifiedValueTypeName,
+&nbsp;        this.qualifiedBuilderTypeName,
+&nbsp;        this.qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderDescriptor#getValueToBuilderMethod() valueToBuilderMethod} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for valueToBuilderMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderDescriptor withValueToBuilderMethod(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;valueToBuilderMethod&quot;);
+&nbsp;    if (this.valueToBuilderMethod.equals(newValue)) return this;
+&nbsp;    return new ImmutableAttributeBuilderDescriptor(
+&nbsp;        this.valueToBuilderTarget,
+&nbsp;        newValue,
+&nbsp;        this.buildMethod,
+&nbsp;        this.qualifiedValueTypeName,
+&nbsp;        this.qualifiedBuilderTypeName,
+&nbsp;        this.qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderDescriptor#getBuildMethod() buildMethod} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for buildMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderDescriptor withBuildMethod(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;buildMethod&quot;);
+&nbsp;    if (this.buildMethod.equals(newValue)) return this;
+&nbsp;    return new ImmutableAttributeBuilderDescriptor(
+&nbsp;        this.valueToBuilderTarget,
+&nbsp;        this.valueToBuilderMethod,
+&nbsp;        newValue,
+&nbsp;        this.qualifiedValueTypeName,
+&nbsp;        this.qualifiedBuilderTypeName,
+&nbsp;        this.qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderDescriptor#getQualifiedValueTypeName() qualifiedValueTypeName} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for qualifiedValueTypeName
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderDescriptor withQualifiedValueTypeName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;qualifiedValueTypeName&quot;);
+&nbsp;    if (this.qualifiedValueTypeName.equals(newValue)) return this;
+&nbsp;    return new ImmutableAttributeBuilderDescriptor(
+&nbsp;        this.valueToBuilderTarget,
+&nbsp;        this.valueToBuilderMethod,
+&nbsp;        this.buildMethod,
+&nbsp;        newValue,
+&nbsp;        this.qualifiedBuilderTypeName,
+&nbsp;        this.qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderDescriptor#getQualifiedBuilderTypeName() qualifiedBuilderTypeName} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for qualifiedBuilderTypeName
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderDescriptor withQualifiedBuilderTypeName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;qualifiedBuilderTypeName&quot;);
+&nbsp;    if (this.qualifiedBuilderTypeName.equals(newValue)) return this;
+&nbsp;    return new ImmutableAttributeBuilderDescriptor(
+&nbsp;        this.valueToBuilderTarget,
+&nbsp;        this.valueToBuilderMethod,
+&nbsp;        this.buildMethod,
+&nbsp;        this.qualifiedValueTypeName,
+&nbsp;        newValue,
+&nbsp;        this.qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderDescriptor#getQualifiedBuilderConstructorMethod() qualifiedBuilderConstructorMethod} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for qualifiedBuilderConstructorMethod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderDescriptor withQualifiedBuilderConstructorMethod(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;qualifiedBuilderConstructorMethod&quot;);
+&nbsp;    if (this.qualifiedBuilderConstructorMethod.equals(newValue)) return this;
+&nbsp;    return new ImmutableAttributeBuilderDescriptor(
+&nbsp;        this.valueToBuilderTarget,
+&nbsp;        this.valueToBuilderMethod,
+&nbsp;        this.buildMethod,
+&nbsp;        this.qualifiedValueTypeName,
+&nbsp;        this.qualifiedBuilderTypeName,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableAttributeBuilderDescriptor} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableAttributeBuilderDescriptor
+&nbsp;        &amp;&amp; equalTo((ImmutableAttributeBuilderDescriptor) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableAttributeBuilderDescriptor another) {
+&nbsp;    return valueToBuilderTarget.equals(another.valueToBuilderTarget)
+&nbsp;        &amp;&amp; valueToBuilderMethod.equals(another.valueToBuilderMethod)
+&nbsp;        &amp;&amp; buildMethod.equals(another.buildMethod)
+&nbsp;        &amp;&amp; qualifiedValueTypeName.equals(another.qualifiedValueTypeName)
+&nbsp;        &amp;&amp; qualifiedBuilderTypeName.equals(another.qualifiedBuilderTypeName)
+&nbsp;        &amp;&amp; qualifiedBuilderConstructorMethod.equals(another.qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code valueToBuilderTarget}, {@code valueToBuilderMethod}, {@code buildMethod}, {@code qualifiedValueTypeName}, {@code qualifiedBuilderTypeName}, {@code qualifiedBuilderConstructorMethod}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + valueToBuilderTarget.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + valueToBuilderMethod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + buildMethod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + qualifiedValueTypeName.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + qualifiedBuilderTypeName.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + qualifiedBuilderConstructorMethod.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code AttributeBuilderDescriptor} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;AttributeBuilderDescriptor&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;valueToBuilderTarget&quot;, valueToBuilderTarget)
+&nbsp;        .add(&quot;valueToBuilderMethod&quot;, valueToBuilderMethod)
+&nbsp;        .add(&quot;buildMethod&quot;, buildMethod)
+&nbsp;        .add(&quot;qualifiedValueTypeName&quot;, qualifiedValueTypeName)
+&nbsp;        .add(&quot;qualifiedBuilderTypeName&quot;, qualifiedBuilderTypeName)
+&nbsp;        .add(&quot;qualifiedBuilderConstructorMethod&quot;, qualifiedBuilderConstructorMethod)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link AttributeBuilderDescriptor} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable AttributeBuilderDescriptor instance
+&nbsp;   */
+&nbsp;  public static ImmutableAttributeBuilderDescriptor copyOf(AttributeBuilderDescriptor instance) {
+&nbsp;    if (instance instanceof ImmutableAttributeBuilderDescriptor) {
+&nbsp;      return (ImmutableAttributeBuilderDescriptor) instance;
+&nbsp;    }
+&nbsp;    return ((ImmutableAttributeBuilderDescriptor.Builder) ImmutableAttributeBuilderDescriptor.builder())
+&nbsp;        .valueToBuilderTarget(instance.getValueToBuilderTarget())
+&nbsp;        .valueToBuilderMethod(instance.getValueToBuilderMethod())
+&nbsp;        .buildMethod(instance.getBuildMethod())
+&nbsp;        .qualifiedValueTypeName(instance.getQualifiedValueTypeName())
+&nbsp;        .qualifiedBuilderTypeName(instance.getQualifiedBuilderTypeName())
+&nbsp;        .qualifiedBuilderConstructorMethod(instance.getQualifiedBuilderConstructorMethod())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableAttributeBuilderDescriptor ImmutableAttributeBuilderDescriptor}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableAttributeBuilderDescriptor.builder()
+&nbsp;   *    .valueToBuilderTarget(org.immutables.value.processor.meta.AttributeBuilderDescriptor.ValueToBuilderTarget) // required {@link AttributeBuilderDescriptor#getValueToBuilderTarget() valueToBuilderTarget}
+&nbsp;   *    .valueToBuilderMethod(String) // required {@link AttributeBuilderDescriptor#getValueToBuilderMethod() valueToBuilderMethod}
+&nbsp;   *    .buildMethod(String) // required {@link AttributeBuilderDescriptor#getBuildMethod() buildMethod}
+&nbsp;   *    .qualifiedValueTypeName(String) // required {@link AttributeBuilderDescriptor#getQualifiedValueTypeName() qualifiedValueTypeName}
+&nbsp;   *    .qualifiedBuilderTypeName(String) // required {@link AttributeBuilderDescriptor#getQualifiedBuilderTypeName() qualifiedBuilderTypeName}
+&nbsp;   *    .qualifiedBuilderConstructorMethod(String) // required {@link AttributeBuilderDescriptor#getQualifiedBuilderConstructorMethod() qualifiedBuilderConstructorMethod}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableAttributeBuilderDescriptor builder
+&nbsp;   */
+&nbsp;  public static ValueToBuilderTargetBuildStage builder() {
+&nbsp;    return new ImmutableAttributeBuilderDescriptor.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableAttributeBuilderDescriptor ImmutableAttributeBuilderDescriptor}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  static final class Builder
+&nbsp;      implements ValueToBuilderTargetBuildStage, ValueToBuilderMethodBuildStage, BuildMethodBuildStage, QualifiedValueTypeNameBuildStage, QualifiedBuilderTypeNameBuildStage, QualifiedBuilderConstructorMethodBuildStage, BuildFinal {
+&nbsp;    private static final long INIT_BIT_VALUE_TO_BUILDER_TARGET = 0x1L;
+&nbsp;    private static final long INIT_BIT_VALUE_TO_BUILDER_METHOD = 0x2L;
+&nbsp;    private static final long INIT_BIT_BUILD_METHOD = 0x4L;
+&nbsp;    private static final long INIT_BIT_QUALIFIED_VALUE_TYPE_NAME = 0x8L;
+&nbsp;    private static final long INIT_BIT_QUALIFIED_BUILDER_TYPE_NAME = 0x10L;
+&nbsp;    private static final long INIT_BIT_QUALIFIED_BUILDER_CONSTRUCTOR_METHOD = 0x20L;
+&nbsp;    private long initBits = 0x3fL;
+&nbsp;
+&nbsp;    private @Nullable AttributeBuilderDescriptor.ValueToBuilderTarget valueToBuilderTarget;
+&nbsp;    private @Nullable String valueToBuilderMethod;
+&nbsp;    private @Nullable String buildMethod;
+&nbsp;    private @Nullable String qualifiedValueTypeName;
+&nbsp;    private @Nullable String qualifiedBuilderTypeName;
+&nbsp;    private @Nullable String qualifiedBuilderConstructorMethod;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getValueToBuilderTarget() valueToBuilderTarget} attribute.
+&nbsp;     * @param valueToBuilderTarget The value for valueToBuilderTarget 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder valueToBuilderTarget(AttributeBuilderDescriptor.ValueToBuilderTarget valueToBuilderTarget) {
+&nbsp;      checkNotIsSet(valueToBuilderTargetIsSet(), &quot;valueToBuilderTarget&quot;);
+&nbsp;      this.valueToBuilderTarget = Objects.requireNonNull(valueToBuilderTarget, &quot;valueToBuilderTarget&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_VALUE_TO_BUILDER_TARGET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getValueToBuilderMethod() valueToBuilderMethod} attribute.
+&nbsp;     * @param valueToBuilderMethod The value for valueToBuilderMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder valueToBuilderMethod(String valueToBuilderMethod) {
+&nbsp;      checkNotIsSet(valueToBuilderMethodIsSet(), &quot;valueToBuilderMethod&quot;);
+&nbsp;      this.valueToBuilderMethod = Objects.requireNonNull(valueToBuilderMethod, &quot;valueToBuilderMethod&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_VALUE_TO_BUILDER_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getBuildMethod() buildMethod} attribute.
+&nbsp;     * @param buildMethod The value for buildMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder buildMethod(String buildMethod) {
+&nbsp;      checkNotIsSet(buildMethodIsSet(), &quot;buildMethod&quot;);
+&nbsp;      this.buildMethod = Objects.requireNonNull(buildMethod, &quot;buildMethod&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_BUILD_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getQualifiedValueTypeName() qualifiedValueTypeName} attribute.
+&nbsp;     * @param qualifiedValueTypeName The value for qualifiedValueTypeName 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder qualifiedValueTypeName(String qualifiedValueTypeName) {
+&nbsp;      checkNotIsSet(qualifiedValueTypeNameIsSet(), &quot;qualifiedValueTypeName&quot;);
+&nbsp;      this.qualifiedValueTypeName = Objects.requireNonNull(qualifiedValueTypeName, &quot;qualifiedValueTypeName&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_QUALIFIED_VALUE_TYPE_NAME;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getQualifiedBuilderTypeName() qualifiedBuilderTypeName} attribute.
+&nbsp;     * @param qualifiedBuilderTypeName The value for qualifiedBuilderTypeName 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder qualifiedBuilderTypeName(String qualifiedBuilderTypeName) {
+&nbsp;      checkNotIsSet(qualifiedBuilderTypeNameIsSet(), &quot;qualifiedBuilderTypeName&quot;);
+&nbsp;      this.qualifiedBuilderTypeName = Objects.requireNonNull(qualifiedBuilderTypeName, &quot;qualifiedBuilderTypeName&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_QUALIFIED_BUILDER_TYPE_NAME;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getQualifiedBuilderConstructorMethod() qualifiedBuilderConstructorMethod} attribute.
+&nbsp;     * @param qualifiedBuilderConstructorMethod The value for qualifiedBuilderConstructorMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder qualifiedBuilderConstructorMethod(String qualifiedBuilderConstructorMethod) {
+&nbsp;      checkNotIsSet(qualifiedBuilderConstructorMethodIsSet(), &quot;qualifiedBuilderConstructorMethod&quot;);
+&nbsp;      this.qualifiedBuilderConstructorMethod = Objects.requireNonNull(qualifiedBuilderConstructorMethod, &quot;qualifiedBuilderConstructorMethod&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_QUALIFIED_BUILDER_CONSTRUCTOR_METHOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableAttributeBuilderDescriptor ImmutableAttributeBuilderDescriptor}.
+&nbsp;     * @return An immutable instance of AttributeBuilderDescriptor
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableAttributeBuilderDescriptor build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableAttributeBuilderDescriptor(
+&nbsp;          valueToBuilderTarget,
+&nbsp;          valueToBuilderMethod,
+&nbsp;          buildMethod,
+&nbsp;          qualifiedValueTypeName,
+&nbsp;          qualifiedBuilderTypeName,
+&nbsp;          qualifiedBuilderConstructorMethod);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean valueToBuilderTargetIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_VALUE_TO_BUILDER_TARGET) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean valueToBuilderMethodIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_VALUE_TO_BUILDER_METHOD) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean buildMethodIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_BUILD_METHOD) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean qualifiedValueTypeNameIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_QUALIFIED_VALUE_TYPE_NAME) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean qualifiedBuilderTypeNameIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_QUALIFIED_BUILDER_TYPE_NAME) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean qualifiedBuilderConstructorMethodIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_QUALIFIED_BUILDER_CONSTRUCTOR_METHOD) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of AttributeBuilderDescriptor is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!valueToBuilderTargetIsSet()) attributes.add(&quot;valueToBuilderTarget&quot;);
+&nbsp;      if (!valueToBuilderMethodIsSet()) attributes.add(&quot;valueToBuilderMethod&quot;);
+&nbsp;      if (!buildMethodIsSet()) attributes.add(&quot;buildMethod&quot;);
+&nbsp;      if (!qualifiedValueTypeNameIsSet()) attributes.add(&quot;qualifiedValueTypeName&quot;);
+&nbsp;      if (!qualifiedBuilderTypeNameIsSet()) attributes.add(&quot;qualifiedBuilderTypeName&quot;);
+&nbsp;      if (!qualifiedBuilderConstructorMethodIsSet()) attributes.add(&quot;qualifiedBuilderConstructorMethod&quot;);
+&nbsp;      return &quot;Cannot build AttributeBuilderDescriptor, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface ValueToBuilderTargetBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getValueToBuilderTarget() valueToBuilderTarget} attribute.
+&nbsp;     * @param valueToBuilderTarget The value for valueToBuilderTarget 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    ValueToBuilderMethodBuildStage valueToBuilderTarget(AttributeBuilderDescriptor.ValueToBuilderTarget valueToBuilderTarget);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface ValueToBuilderMethodBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getValueToBuilderMethod() valueToBuilderMethod} attribute.
+&nbsp;     * @param valueToBuilderMethod The value for valueToBuilderMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    BuildMethodBuildStage valueToBuilderMethod(String valueToBuilderMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface BuildMethodBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getBuildMethod() buildMethod} attribute.
+&nbsp;     * @param buildMethod The value for buildMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    QualifiedValueTypeNameBuildStage buildMethod(String buildMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface QualifiedValueTypeNameBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getQualifiedValueTypeName() qualifiedValueTypeName} attribute.
+&nbsp;     * @param qualifiedValueTypeName The value for qualifiedValueTypeName 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    QualifiedBuilderTypeNameBuildStage qualifiedValueTypeName(String qualifiedValueTypeName);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface QualifiedBuilderTypeNameBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getQualifiedBuilderTypeName() qualifiedBuilderTypeName} attribute.
+&nbsp;     * @param qualifiedBuilderTypeName The value for qualifiedBuilderTypeName 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    QualifiedBuilderConstructorMethodBuildStage qualifiedBuilderTypeName(String qualifiedBuilderTypeName);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface QualifiedBuilderConstructorMethodBuildStage {
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link AttributeBuilderDescriptor#getQualifiedBuilderConstructorMethod() qualifiedBuilderConstructorMethod} attribute.
+&nbsp;     * @param qualifiedBuilderConstructorMethod The value for qualifiedBuilderConstructorMethod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    BuildFinal qualifiedBuilderConstructorMethod(String qualifiedBuilderConstructorMethod);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;AttributeBuilderDescriptor&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  public interface BuildFinal {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableAttributeBuilderDescriptor ImmutableAttributeBuilderDescriptor}.
+&nbsp;     * @return An immutable instance of AttributeBuilderDescriptor
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    ImmutableAttributeBuilderDescriptor build();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,255 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > MongoWatchEvent</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.mongo</a>
+</div>
+
+<h1>Coverage Summary for Class: MongoWatchEvent (org.immutables.criteria.mongo)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MongoWatchEvent</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/31)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">MongoWatchEvent$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2020 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.mongo;
+&nbsp;
+&nbsp;import com.mongodb.client.model.changestream.ChangeStreamDocument;
+&nbsp;import com.mongodb.client.model.changestream.OperationType;
+&nbsp;import org.bson.BsonDocument;
+&nbsp;import org.bson.BsonValue;
+&nbsp;import org.immutables.criteria.backend.WatchEvent;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;class MongoWatchEvent&lt;T&gt; implements WatchEvent&lt;T&gt; {
+&nbsp;
+&nbsp;  private final Object key;
+&nbsp;  private final T newValue;
+&nbsp;  private final Operation operation;
+&nbsp;
+<b class="nc">&nbsp;  MongoWatchEvent(Object key, T newValue, Operation operation) {</b>
+<b class="nc">&nbsp;    this.key = key;</b>
+<b class="nc">&nbsp;    this.newValue = newValue;</b>
+<b class="nc">&nbsp;    this.operation = operation;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Object key() {
+<b class="nc">&nbsp;    return key;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Optional&lt;T&gt; newValue() {
+<b class="nc">&nbsp;    return Optional.ofNullable(newValue);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Operation operation() {
+<b class="nc">&nbsp;    return operation;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static &lt;T&gt; WatchEvent&lt;T&gt; fromChangeStream(ChangeStreamDocument&lt;T&gt; doc) {
+<b class="nc">&nbsp;    Object key = toInternalKey(doc.getDocumentKey());</b>
+<b class="nc">&nbsp;    T newValue = doc.getFullDocument();</b>
+<b class="nc">&nbsp;    OperationType type = doc.getOperationType();</b>
+&nbsp;    Operation op;
+<b class="nc">&nbsp;    switch (type) {</b>
+&nbsp;      case INSERT:
+<b class="nc">&nbsp;        op =  Operation.INSERT;</b>
+<b class="nc">&nbsp;        break;</b>
+&nbsp;      case REPLACE:
+<b class="nc">&nbsp;        op = Operation.REPLACE;</b>
+<b class="nc">&nbsp;        break;</b>
+&nbsp;      case DELETE:
+<b class="nc">&nbsp;        op = Operation.DELETE;</b>
+<b class="nc">&nbsp;        break;</b>
+&nbsp;      case UPDATE:
+&nbsp;      default:
+<b class="nc">&nbsp;        op = Operation.UPDATE;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return new MongoWatchEvent&lt;&gt;(key, newValue, op);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Convert document key (BSON) to entity ID. Currently only strings are supported.
+&nbsp;   * This code needs to leverage existing CodecRegistry to correctly convert BSON value
+&nbsp;   * into ID type.
+&nbsp;   */
+&nbsp;  private static Object toInternalKey(BsonDocument key) {
+<b class="nc">&nbsp;    if (key == null) {</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    BsonValue value = key.get(Mongos.ID_FIELD_NAME);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (value == null) {</b>
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (value.isString()) {</b>
+<b class="nc">&nbsp;      return value.asString().getValue();</b>
+<b class="nc">&nbsp;    } else if (value.isSymbol()) {</b>
+<b class="nc">&nbsp;      return value.asSymbol().getSymbol();</b>
+<b class="nc">&nbsp;    } else if (value.isObjectId()) {</b>
+<b class="nc">&nbsp;      return value.asObjectId().getValue();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // don&#39;t know what to do with this value
+&nbsp;    // TODO reuse CodecRegistry
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

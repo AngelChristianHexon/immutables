@@ -1,0 +1,177 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > HiddenImplementationBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: HiddenImplementationBuilder (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">HiddenImplementationBuilder$ImmutableHiddenImplementation</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Builds instances of type {@link HiddenImplementation HiddenImplementation}.
+&nbsp; * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp; * immutable instance.
+&nbsp; * &lt;p&gt;&lt;em&gt;{@code HiddenImplementationBuilder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp; * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;HiddenImplementation&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@NotThreadSafe
+&nbsp;public final class HiddenImplementationBuilder {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link HiddenImplementation HiddenImplementation} instances.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * new HiddenImplementationBuilder()
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  public HiddenImplementationBuilder() {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill a builder with attribute values from the provided {@code HiddenImplementation} instance.
+&nbsp;   * Regular attribute values will be replaced with those from the given instance.
+&nbsp;   * Absent optional values will not replace present values.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final HiddenImplementationBuilder from(HiddenImplementation instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds a new {@link HiddenImplementation HiddenImplementation}.
+&nbsp;   * @return An immutable instance of HiddenImplementation
+&nbsp;   * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;   */
+&nbsp;  public HiddenImplementation build() {
+&nbsp;    return new HiddenImplementationBuilder.ImmutableHiddenImplementation(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link HiddenImplementation}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code new HiddenImplementationBuilder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;HiddenImplementation&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  private static final class ImmutableHiddenImplementation extends HiddenImplementation {
+&nbsp;
+&nbsp;    private ImmutableHiddenImplementation(HiddenImplementationBuilder builder) {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ImmutableHiddenImplementation} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof HiddenImplementationBuilder.ImmutableHiddenImplementation
+&nbsp;          &amp;&amp; equalTo(0, (HiddenImplementationBuilder.ImmutableHiddenImplementation) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;MethodCanBeStatic&quot;)
+&nbsp;    private boolean equalTo(int synthetic, HiddenImplementationBuilder.ImmutableHiddenImplementation another) {
+&nbsp;      return true;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a constant hash code value.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return 256755120;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code HiddenImplementation}.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;HiddenImplementation{}&quot;;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

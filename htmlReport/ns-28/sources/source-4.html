@@ -1,0 +1,91 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > DeepChild</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.deep</a>
+</div>
+
+<h1>Coverage Summary for Class: DeepChild (org.immutables.fixture.deep)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">DeepChild</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.deep;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;interface DeepChild {}
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;interface DeepStepChild {}
+&nbsp;
+&nbsp;// should not use shortcut constructor (compile error) when deepImmutablesDetection
+&nbsp;@Value.Immutable
+&nbsp;@Value.Style(deepImmutablesDetection = true, allParameters = true)
+&nbsp;interface DeepNullable {
+&nbsp;  @Nullable
+&nbsp;  DeepChild child();
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  DeepStepChild another();
+&nbsp;}
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

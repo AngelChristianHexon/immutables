@@ -1,0 +1,504 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > JsonParserReader</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.gson.stream</a>
+</div>
+
+<h1>Coverage Summary for Class: JsonParserReader (org.immutables.gson.stream)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JsonParserReader</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/58)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/119)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">JsonParserReader$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">JsonParserReader$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/58)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/123)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.gson.stream;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.core.JsonLocation;
+&nbsp;import com.fasterxml.jackson.core.JsonParseException;
+&nbsp;import com.fasterxml.jackson.core.JsonParser;
+&nbsp;import com.fasterxml.jackson.core.JsonStreamContext;
+&nbsp;import com.fasterxml.jackson.databind.util.TokenBuffer;
+&nbsp;import com.google.gson.stream.JsonReader;
+&nbsp;import com.google.gson.stream.JsonToken;
+&nbsp;import java.io.IOException;
+&nbsp;import java.io.Reader;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.concurrent.Callable;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import static com.fasterxml.jackson.core.JsonToken.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@link JsonReader} implementation backed by Jackson&#39;s {@link JsonParser}.
+&nbsp; * Provides measurable JSON parsing improvements over Gson&#39;s native implementation.
+&nbsp; * Error reporting might differ, however.
+&nbsp; */
+&nbsp;@NotThreadSafe
+&nbsp;public class JsonParserReader extends JsonReader implements Callable&lt;JsonParser&gt; {
+<b class="nc">&nbsp;  private static final Reader UNSUPPORTED_READER = new Reader() {</b>
+&nbsp;    @Override
+&nbsp;    public int read(char[] buffer, int offset, int count) {
+<b class="nc">&nbsp;      throw new UnsupportedOperationException();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void close() {
+<b class="nc">&nbsp;      throw new UnsupportedOperationException();</b>
+&nbsp;    }
+&nbsp;  };
+&nbsp;
+&nbsp;  private final JsonParser parser;
+&nbsp;
+&nbsp;  public JsonParserReader(JsonParser parser) {
+<b class="nc">&nbsp;    super(UNSUPPORTED_READER);</b>
+<b class="nc">&nbsp;    this.parser = parser;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public JsonParser getParser() {
+<b class="nc">&nbsp;    return parser;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  private com.fasterxml.jackson.core.JsonToken peek;
+&nbsp;
+&nbsp;  private void clearPeek() {
+<b class="nc">&nbsp;    peek = null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void requirePeek() throws IOException {
+<b class="nc">&nbsp;    if (peek == null) {</b>
+<b class="nc">&nbsp;      peek = parser.nextToken();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void beginArray() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    expect(START_ARRAY);</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void endArray() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    expect(END_ARRAY);</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void beginObject() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    expect(START_OBJECT);</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void endObject() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    expect(END_OBJECT);</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean hasNext() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    com.fasterxml.jackson.core.JsonToken token = peek;</b>
+<b class="nc">&nbsp;    return token != END_OBJECT &amp; token != END_ARRAY;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public JsonToken peek() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    return toGsonToken(peek);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void expect(com.fasterxml.jackson.core.JsonToken expected) {
+<b class="nc">&nbsp;    if (peek != expected) {</b>
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Expected &quot; + expected + &quot; but was &quot; + peek);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String nextName() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    expect(FIELD_NAME);</b>
+<b class="nc">&nbsp;    String name = parser.getText();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return name;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String nextString() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    if (!peek.isScalarValue()) {</b>
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Expected scalar value for string but was &quot; + peek);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    String value = parser.getText();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean nextBoolean() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    boolean value = parser.getBooleanValue();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void nextNull() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    expect(VALUE_NULL);</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public double nextDouble() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    double value = parser.getDoubleValue();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public long nextLong() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    long value = parser.getLongValue();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int nextInt() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    int value = parser.getIntValue();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void close() throws IOException {
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    parser.close();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void skipValue() throws IOException {
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    parser.skipChildren();</b>
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public void promoteNameToValue() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static JsonToken toGsonToken(com.fasterxml.jackson.core.JsonToken token) {
+<b class="nc">&nbsp;    switch (token) {</b>
+&nbsp;    case START_ARRAY:
+<b class="nc">&nbsp;      return JsonToken.BEGIN_ARRAY;</b>
+&nbsp;    case END_ARRAY:
+<b class="nc">&nbsp;      return JsonToken.END_ARRAY;</b>
+&nbsp;    case START_OBJECT:
+<b class="nc">&nbsp;      return JsonToken.BEGIN_OBJECT;</b>
+&nbsp;    case END_OBJECT:
+<b class="nc">&nbsp;      return JsonToken.END_OBJECT;</b>
+&nbsp;    case FIELD_NAME:
+<b class="nc">&nbsp;      return JsonToken.NAME;</b>
+&nbsp;    case VALUE_FALSE:
+<b class="nc">&nbsp;      return JsonToken.BOOLEAN;</b>
+&nbsp;    case VALUE_TRUE:
+<b class="nc">&nbsp;      return JsonToken.BOOLEAN;</b>
+&nbsp;    case VALUE_NULL:
+<b class="nc">&nbsp;      return JsonToken.NULL;</b>
+&nbsp;    case VALUE_NUMBER_INT:
+<b class="nc">&nbsp;      return JsonToken.NUMBER;</b>
+&nbsp;    case VALUE_NUMBER_FLOAT:
+<b class="nc">&nbsp;      return JsonToken.NUMBER;</b>
+&nbsp;    case VALUE_STRING:
+&nbsp;    case VALUE_EMBEDDED_OBJECT:
+<b class="nc">&nbsp;      return JsonToken.STRING;</b>
+&nbsp;    default: // Not semantically equivalent
+<b class="nc">&nbsp;      return JsonToken.NULL;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Implements {@link Callable} mostly as a marker interface.
+&nbsp;   * Better use {@link #getParser()} to get parser.
+&nbsp;   * @return unwrapped {@link JsonParser}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public JsonParser call() throws Exception {
+<b class="nc">&nbsp;    return parser;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reads current value including objects and array as effiecient token buffer.
+&nbsp;   * Use of Jackson&#39;s own mechanisms is important to preserve custom elements
+&nbsp;   * such as special embedded objects in BSON or other data formats.
+&nbsp;   * @return {@link TokenBuffer}
+&nbsp;   * @throws IOException if error occured
+&nbsp;   */
+&nbsp;  public final TokenBuffer nextTokenBuffer() throws IOException {
+<b class="nc">&nbsp;    TokenBuffer buffer = new TokenBuffer(parser);</b>
+&nbsp;    // if token is consumed, but undelying parser is still sitting on this token, we move forward
+<b class="nc">&nbsp;    requirePeek();</b>
+<b class="nc">&nbsp;    buffer.copyCurrentStructure(parser);</b>
+&nbsp;    // when we will return to reading from reader, state will be cleared and nextToken after
+<b class="nc">&nbsp;    clearPeek();</b>
+<b class="nc">&nbsp;    return buffer;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  protected final void consumePeek() {
+<b class="nc">&nbsp;    clearPeek();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String getPath() {
+<b class="nc">&nbsp;    return toJsonPath(parser.getParsingContext());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return getClass().getSimpleName() + &quot;(&quot; + parser + &quot;)&quot;;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public String[] getLocationInfo() {
+<b class="nc">&nbsp;    return new String[] {</b>
+<b class="nc">&nbsp;        &quot;path &quot; + getPath(),</b>
+<b class="nc">&nbsp;        &quot;token &quot; + getTokenString(),</b>
+<b class="nc">&nbsp;        &quot;at &quot; + getLocationString()</b>
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getTokenString() {
+<b class="nc">&nbsp;    if (parser.getCurrentToken() != null) {</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        return &quot;&#39;&quot; + parser.getText() + &quot;&#39;&quot;;</b>
+<b class="nc">&nbsp;      } catch (Exception ex) {</b>
+<b class="nc">&nbsp;        return &quot;?&quot;;</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return &quot;&quot;;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String getLocationString() {
+<b class="nc">&nbsp;    JsonLocation l = parser.getCurrentLocation();</b>
+<b class="nc">&nbsp;    List&lt;String&gt; parts = new ArrayList&lt;&gt;(4);</b>
+<b class="nc">&nbsp;    parts.add(&quot;line: &quot; + l.getLineNr());</b>
+<b class="nc">&nbsp;    parts.add(&quot;column: &quot; + l.getColumnNr());</b>
+<b class="nc">&nbsp;    if (l.getByteOffset() &gt;= 0) {</b>
+<b class="nc">&nbsp;      parts.add(&quot;byte offset: &quot; + l.getByteOffset());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return parts.toString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static String toJsonPath(JsonStreamContext context) {
+<b class="nc">&nbsp;    StringBuilder builder = new StringBuilder();</b>
+<b class="nc">&nbsp;    for (JsonStreamContext c = context; c != null; c = c.getParent()) {</b>
+<b class="nc">&nbsp;      if (c.inArray()) {</b>
+<b class="nc">&nbsp;        builder.insert(0, &quot;[&quot; + c.getCurrentIndex() + &quot;]&quot;);</b>
+<b class="nc">&nbsp;      } else if (c.inObject()) {</b>
+<b class="nc">&nbsp;        @Nullable String name = c.getCurrentName();</b>
+<b class="nc">&nbsp;        if (name == null || name.isEmpty()) {</b>
+<b class="nc">&nbsp;          builder.insert(0, &quot;[]&quot;);</b>
+<b class="nc">&nbsp;        } else if (isAsciiIdentifierPath(name)) {</b>
+<b class="nc">&nbsp;          builder.insert(0, &quot;.&quot; + name);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          builder.insert(0, &quot;[&#39;&quot; + name + &quot;&#39;]&quot;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;      } else if (c.inRoot()) {</b>
+<b class="nc">&nbsp;        builder.insert(0, &quot;$&quot;);</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return builder.toString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean isAsciiIdentifierPath(String name) {
+<b class="nc">&nbsp;    for (int i = 0; i &lt; name.length(); i++) {</b>
+<b class="nc">&nbsp;      char c = name.charAt(i);</b>
+<b class="nc">&nbsp;      if ((c != &#39;_&#39;)</b>
+&nbsp;          &amp;&amp; (c &lt; &#39;A&#39; || c &gt; &#39;Z&#39;)
+&nbsp;          &amp;&amp; (c &lt; &#39;a&#39; || c &gt; &#39;z&#39;)
+&nbsp;          &amp;&amp; (c &lt; &#39;0&#39; || c &gt; &#39;9&#39; || i == 0)) {
+<b class="nc">&nbsp;        return false;</b>
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return true;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

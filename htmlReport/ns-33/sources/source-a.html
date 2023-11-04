@@ -1,0 +1,594 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNonnullConstruction</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNonnullConstruction (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNonnullConstruction$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNonnullConstruction$InitShim</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNonnullConstruction$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonIgnore;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NonnullConstruction}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNonnullConstruction.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableNonnullConstruction.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NonnullConstruction&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNonnullConstruction implements NonnullConstruction {
+&nbsp;  private final String[] arr;
+&nbsp;  private final @Nullable String[] brr;
+&nbsp;  private final ImmutableList&lt;String&gt; ax;
+&nbsp;  private transient final int a;
+&nbsp;
+&nbsp;  private ImmutableNonnullConstruction(
+&nbsp;      String[] arr,
+&nbsp;      @Nullable String[] brr,
+&nbsp;      Iterable&lt;String&gt; ax) {
+&nbsp;    this.arr = arr.clone();
+&nbsp;    this.brr = brr;
+&nbsp;    initShim.ax(ImmutableList.copyOf(ax));
+&nbsp;    this.ax = initShim.ax();
+&nbsp;    this.a = initShim.a();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNonnullConstruction(ImmutableNonnullConstruction.Builder builder) {
+&nbsp;    this.arr = builder.arr;
+&nbsp;    this.brr = builder.brr;
+&nbsp;    if (builder.axIsSet()) {
+&nbsp;      initShim.ax(builder.ax.build());
+&nbsp;    }
+&nbsp;    this.ax = initShim.ax();
+&nbsp;    this.a = initShim.a();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNonnullConstruction(
+&nbsp;      ImmutableNonnullConstruction original,
+&nbsp;      String[] arr,
+&nbsp;      @Nullable String[] brr,
+&nbsp;      ImmutableList&lt;String&gt; ax) {
+&nbsp;    this.arr = arr;
+&nbsp;    this.brr = brr;
+&nbsp;    initShim.ax(ax);
+&nbsp;    this.ax = initShim.ax();
+&nbsp;    this.a = initShim.a();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;NonnullConstruction&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte axBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableList&lt;String&gt; ax;
+&nbsp;
+&nbsp;    ImmutableList&lt;String&gt; ax() {
+&nbsp;      if (axBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (axBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        axBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.ax = ImmutableList.copyOf(axInitialize());
+&nbsp;        axBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.ax;
+&nbsp;    }
+&nbsp;
+&nbsp;    void ax(ImmutableList&lt;String&gt; ax) {
+&nbsp;      this.ax = ax;
+&nbsp;      axBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte aBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int a;
+&nbsp;
+&nbsp;    int a() {
+&nbsp;      if (aBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (aBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        aBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.a = aInitialize();
+&nbsp;        aBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.a;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (axBuildStage == STAGE_INITIALIZING) attributes.add(&quot;ax&quot;);
+&nbsp;      if (aBuildStage == STAGE_INITIALIZING) attributes.add(&quot;a&quot;);
+&nbsp;      return &quot;Cannot build NonnullConstruction, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private List&lt;String&gt; axInitialize() {
+&nbsp;    return NonnullConstruction.super.ax();
+&nbsp;  }
+&nbsp;
+&nbsp;  private int aInitialize() {
+&nbsp;    return NonnullConstruction.super.a();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code arr} array
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;arr&quot;)
+&nbsp;  @Override
+&nbsp;  public String[] arr() {
+&nbsp;    return arr.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code brr} array
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;brr&quot;)
+&nbsp;  @Override
+&nbsp;  public @Nullable String[] brr() {
+&nbsp;    return brr;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ax} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;ax&quot;)
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; ax() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.ax()
+&nbsp;        : this.ax;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;a&quot;)
+&nbsp;  @Override
+&nbsp;  public int a() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.a()
+&nbsp;        : this.a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NonnullConstruction#arr() arr}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for arr
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNonnullConstruction withArr(String... elements) {
+&nbsp;    String[] newValue = elements.clone();
+&nbsp;    return new ImmutableNonnullConstruction(this, newValue, this.brr, this.ax);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NonnullConstruction#brr() brr}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for brr
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNonnullConstruction withBrr(@Nullable String... elements) {
+&nbsp;    @Nullable String[] newValue = elements == null ? null : elements.clone();
+&nbsp;    return new ImmutableNonnullConstruction(this, this.arr, newValue, this.ax);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NonnullConstruction#ax() ax}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNonnullConstruction withAx(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNonnullConstruction(this, this.arr, this.brr, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NonnullConstruction#ax() ax}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ax elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNonnullConstruction withAx(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.ax == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNonnullConstruction(this, this.arr, this.brr, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNonnullConstruction} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNonnullConstruction
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNonnullConstruction) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNonnullConstruction another) {
+&nbsp;    return Arrays.equals(arr, another.arr)
+&nbsp;        &amp;&amp; Arrays.equals(brr, another.brr)
+&nbsp;        &amp;&amp; ax.equals(another.ax)
+&nbsp;        &amp;&amp; a == another.a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code arr}, {@code brr}, {@code ax}, {@code a}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arr);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(brr);
+&nbsp;    h += (h &lt;&lt; 5) + ax.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NonnullConstruction} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NonnullConstruction&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;arr&quot;, Arrays.toString(arr))
+&nbsp;        .add(&quot;brr&quot;, Arrays.toString(brr))
+&nbsp;        .add(&quot;ax&quot;, ax)
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NonnullConstruction&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements NonnullConstruction {
+&nbsp;    @Nullable String[] arr;
+&nbsp;    @Nullable String[] brr;
+&nbsp;    @Nullable List&lt;String&gt; ax = ImmutableList.of();
+&nbsp;    boolean axIsSet;
+&nbsp;    @JsonProperty(&quot;arr&quot;)
+&nbsp;    public void setArr(String[] arr) {
+&nbsp;      this.arr = arr;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;brr&quot;)
+&nbsp;    public void setBrr(@Nullable String[] brr) {
+&nbsp;      this.brr = brr;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;ax&quot;)
+&nbsp;    public void setAx(List&lt;String&gt; ax) {
+&nbsp;      this.ax = ax;
+&nbsp;      this.axIsSet = null != ax;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public String[] arr() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public String[] brr() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public List&lt;String&gt; ax() { throw new UnsupportedOperationException(); }
+&nbsp;    @JsonIgnore
+&nbsp;    @Override
+&nbsp;    public int a() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableNonnullConstruction fromJson(Json json) {
+&nbsp;    ImmutableNonnullConstruction.Builder builder = ImmutableNonnullConstruction.builder();
+&nbsp;    if (json.arr != null) {
+&nbsp;      builder.arr(json.arr);
+&nbsp;    }
+&nbsp;    if (json.brr != null) {
+&nbsp;      builder.brr(json.brr);
+&nbsp;    }
+&nbsp;    if (json.axIsSet) {
+&nbsp;      builder.addAllAx(json.ax);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code NonnullConstruction} instance.
+&nbsp;   * @param arr The value for the {@code arr} attribute
+&nbsp;   * @param brr The value for the {@code brr} attribute
+&nbsp;   * @param ax The value for the {@code ax} attribute
+&nbsp;   * @return An immutable NonnullConstruction instance
+&nbsp;   */
+&nbsp;  public static ImmutableNonnullConstruction of(String[] arr, @Nullable String[] brr, List&lt;String&gt; ax) {
+&nbsp;    return of(arr, brr, (Iterable&lt;String&gt;) ax);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code NonnullConstruction} instance.
+&nbsp;   * @param arr The value for the {@code arr} attribute
+&nbsp;   * @param brr The value for the {@code brr} attribute
+&nbsp;   * @param ax The value for the {@code ax} attribute
+&nbsp;   * @return An immutable NonnullConstruction instance
+&nbsp;   */
+&nbsp;  public static ImmutableNonnullConstruction of(String[] arr, @Nullable String[] brr, Iterable&lt;String&gt; ax) {
+&nbsp;    return new ImmutableNonnullConstruction(arr, brr, ax);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NonnullConstruction} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NonnullConstruction instance
+&nbsp;   */
+&nbsp;  public static ImmutableNonnullConstruction copyOf(NonnullConstruction instance) {
+&nbsp;    if (instance instanceof ImmutableNonnullConstruction) {
+&nbsp;      return (ImmutableNonnullConstruction) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNonnullConstruction.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNonnullConstruction ImmutableNonnullConstruction}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNonnullConstruction.builder()
+&nbsp;   *    .arr(String) // required {@link NonnullConstruction#arr() arr}
+&nbsp;   *    .brr(String[] | null) // nullable {@link NonnullConstruction#brr() brr}
+&nbsp;   *    .addAx|addAllAx(String) // {@link NonnullConstruction#ax() ax} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNonnullConstruction builder
+&nbsp;   */
+&nbsp;  public static ImmutableNonnullConstruction.Builder builder() {
+&nbsp;    return new ImmutableNonnullConstruction.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNonnullConstruction ImmutableNonnullConstruction}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NonnullConstruction&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ARR = 0x1L;
+&nbsp;    private static final long OPT_BIT_AX = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable String[] arr;
+&nbsp;    private @Nullable String[] brr;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; ax = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NonnullConstruction} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NonnullConstruction instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      arr(instance.arr());
+&nbsp;      @Nullable String[] brrValue = instance.brr();
+&nbsp;      if (brrValue != null) {
+&nbsp;        brr(brrValue);
+&nbsp;      }
+&nbsp;      addAllAx(instance.ax());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NonnullConstruction#arr() arr} attribute.
+&nbsp;     * @param arr The elements for arr
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;arr&quot;)
+&nbsp;    public final Builder arr(String... arr) {
+&nbsp;      this.arr = arr.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_ARR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NonnullConstruction#brr() brr} attribute.
+&nbsp;     * @param brr The elements for brr
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;brr&quot;)
+&nbsp;    public final Builder brr(String... brr) {
+&nbsp;      this.brr = brr;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NonnullConstruction#ax() ax} list.
+&nbsp;     * @param element A ax element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAx(String element) {
+&nbsp;      this.ax.add(element);
+&nbsp;      optBits |= OPT_BIT_AX;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NonnullConstruction#ax() ax} list.
+&nbsp;     * @param elements An array of ax elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAx(String... elements) {
+&nbsp;      this.ax.add(elements);
+&nbsp;      optBits |= OPT_BIT_AX;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NonnullConstruction#ax() ax} list.
+&nbsp;     * @param elements An iterable of ax elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;ax&quot;)
+&nbsp;    public final Builder ax(Iterable&lt;String&gt; elements) {
+&nbsp;      this.ax = ImmutableList.builder();
+&nbsp;      return addAllAx(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NonnullConstruction#ax() ax} list.
+&nbsp;     * @param elements An iterable of ax elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllAx(Iterable&lt;String&gt; elements) {
+&nbsp;      this.ax.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_AX;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNonnullConstruction ImmutableNonnullConstruction}.
+&nbsp;     * @return An immutable instance of NonnullConstruction
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNonnullConstruction build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableNonnullConstruction(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean axIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_AX) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ARR) != 0) attributes.add(&quot;arr&quot;);
+&nbsp;      return &quot;Cannot build NonnullConstruction, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

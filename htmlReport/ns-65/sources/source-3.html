@@ -1,0 +1,1131 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableBar</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.strict</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableBar (org.immutables.fixture.strict)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableBar$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.strict;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.BoundType;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.EnumMap;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.SortedMap;
+&nbsp;import java.util.SortedSet;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Bar}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableBar.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Bar&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableBar implements Bar {
+&nbsp;  private final ImmutableList&lt;Integer&gt; nums;
+&nbsp;  private final ImmutableMap&lt;String, Integer&gt; map;
+&nbsp;  private final ImmutableMap&lt;String, Integer&gt; immutableMap;
+&nbsp;  private final SortedMap&lt;String, Integer&gt; sortedMap;
+&nbsp;  private final ImmutableSortedMap&lt;String, Integer&gt; immutableSortedMap;
+&nbsp;  private final ImmutableSet&lt;String&gt; set;
+&nbsp;  private final ImmutableSet&lt;String&gt; immutableSet;
+&nbsp;  private final SortedSet&lt;String&gt; sortedSet;
+&nbsp;  private final ImmutableSortedSet&lt;String&gt; immutableSortedSet;
+&nbsp;  private final Optional&lt;Integer&gt; opt;
+&nbsp;  private final EnumMap&lt;BoundType, Integer&gt; enumMap;
+&nbsp;  private final EnumSet&lt;BoundType&gt; enumSet;
+&nbsp;
+&nbsp;  private ImmutableBar(
+&nbsp;      ImmutableList&lt;Integer&gt; nums,
+&nbsp;      ImmutableMap&lt;String, Integer&gt; map,
+&nbsp;      ImmutableMap&lt;String, Integer&gt; immutableMap,
+&nbsp;      SortedMap&lt;String, Integer&gt; sortedMap,
+&nbsp;      ImmutableSortedMap&lt;String, Integer&gt; immutableSortedMap,
+&nbsp;      ImmutableSet&lt;String&gt; set,
+&nbsp;      ImmutableSet&lt;String&gt; immutableSet,
+&nbsp;      SortedSet&lt;String&gt; sortedSet,
+&nbsp;      ImmutableSortedSet&lt;String&gt; immutableSortedSet,
+&nbsp;      Optional&lt;Integer&gt; opt,
+&nbsp;      EnumMap&lt;BoundType, Integer&gt; enumMap,
+&nbsp;      EnumSet&lt;BoundType&gt; enumSet) {
+&nbsp;    this.nums = nums;
+&nbsp;    this.map = map;
+&nbsp;    this.immutableMap = immutableMap;
+&nbsp;    this.sortedMap = sortedMap;
+&nbsp;    this.immutableSortedMap = immutableSortedMap;
+&nbsp;    this.set = set;
+&nbsp;    this.immutableSet = immutableSet;
+&nbsp;    this.sortedSet = sortedSet;
+&nbsp;    this.immutableSortedSet = immutableSortedSet;
+&nbsp;    this.opt = opt;
+&nbsp;    this.enumMap = enumMap;
+&nbsp;    this.enumSet = enumSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nums} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Integer&gt; nums() {
+&nbsp;    return nums;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Integer&gt; map() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Integer&gt; immutableMap() {
+&nbsp;    return immutableMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code sortedMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public SortedMap&lt;String, Integer&gt; sortedMap() {
+&nbsp;    return sortedMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableSortedMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;String, Integer&gt; immutableSortedMap() {
+&nbsp;    return immutableSortedMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;String&gt; set() {
+&nbsp;    return set;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;String&gt; immutableSet() {
+&nbsp;    return immutableSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code sortedSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public SortedSet&lt;String&gt; sortedSet() {
+&nbsp;    return sortedSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code immutableSortedSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;String&gt; immutableSortedSet() {
+&nbsp;    return immutableSortedSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code opt} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; opt() {
+&nbsp;    return opt;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code enumMap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EnumMap&lt;BoundType, Integer&gt; enumMap() {
+&nbsp;    return enumMap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code enumSet} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EnumSet&lt;BoundType&gt; enumSet() {
+&nbsp;    return enumSet;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Bar#nums() nums}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withNums(int... elements) {
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableBar(
+&nbsp;        newValue,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Bar#nums() nums}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of nums elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withNums(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.nums == elements) return this;
+&nbsp;    ImmutableList&lt;Integer&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableBar(
+&nbsp;        newValue,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Bar#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    ImmutableMap&lt;String, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        newValue,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Bar#immutableMap() immutableMap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the immutableMap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withImmutableMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.immutableMap == entries) return this;
+&nbsp;    ImmutableMap&lt;String, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        newValue,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bar#sortedMap() sortedMap} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for sortedMap
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withSortedMap(SortedMap&lt;String, Integer&gt; value) {
+&nbsp;    if (this.sortedMap == value) return this;
+&nbsp;    SortedMap&lt;String, Integer&gt; newValue = Objects.requireNonNull(value, &quot;sortedMap&quot;);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        newValue,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bar#immutableSortedMap() immutableSortedMap} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for immutableSortedMap
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withImmutableSortedMap(ImmutableSortedMap&lt;String, Integer&gt; value) {
+&nbsp;    if (this.immutableSortedMap == value) return this;
+&nbsp;    ImmutableSortedMap&lt;String, Integer&gt; newValue = Objects.requireNonNull(value, &quot;immutableSortedMap&quot;);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        newValue,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Bar#set() set}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withSet(String... elements) {
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        newValue,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Bar#set() set}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withSet(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.set == elements) return this;
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        newValue,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Bar#immutableSet() immutableSet}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withImmutableSet(String... elements) {
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        newValue,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Bar#immutableSet() immutableSet}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of immutableSet elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withImmutableSet(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.immutableSet == elements) return this;
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        newValue,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bar#sortedSet() sortedSet} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for sortedSet
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withSortedSet(SortedSet&lt;String&gt; value) {
+&nbsp;    if (this.sortedSet == value) return this;
+&nbsp;    SortedSet&lt;String&gt; newValue = Objects.requireNonNull(value, &quot;sortedSet&quot;);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        newValue,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bar#immutableSortedSet() immutableSortedSet} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for immutableSortedSet
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withImmutableSortedSet(ImmutableSortedSet&lt;String&gt; value) {
+&nbsp;    if (this.immutableSortedSet == value) return this;
+&nbsp;    ImmutableSortedSet&lt;String&gt; newValue = Objects.requireNonNull(value, &quot;immutableSortedSet&quot;);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        newValue,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Bar#opt() opt} attribute.
+&nbsp;   * @param value The value for opt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withOpt(int value) {
+&nbsp;    Optional&lt;Integer&gt; newValue = Optional.of(value);
+&nbsp;    if (this.opt.equals(newValue)) return this;
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        newValue,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Bar#opt() opt} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for opt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withOpt(Optional&lt;Integer&gt; optional) {
+&nbsp;    Optional&lt;Integer&gt; value = optional;
+&nbsp;    if (this.opt.equals(value)) return this;
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        value,
+&nbsp;        this.enumMap,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bar#enumMap() enumMap} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for enumMap
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withEnumMap(EnumMap&lt;BoundType, Integer&gt; value) {
+&nbsp;    if (this.enumMap == value) return this;
+&nbsp;    EnumMap&lt;BoundType, Integer&gt; newValue = Objects.requireNonNull(value, &quot;enumMap&quot;);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        newValue,
+&nbsp;        this.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bar#enumSet() enumSet} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for enumSet
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBar withEnumSet(EnumSet&lt;BoundType&gt; value) {
+&nbsp;    if (this.enumSet == value) return this;
+&nbsp;    EnumSet&lt;BoundType&gt; newValue = Objects.requireNonNull(value, &quot;enumSet&quot;);
+&nbsp;    return new ImmutableBar(
+&nbsp;        this.nums,
+&nbsp;        this.map,
+&nbsp;        this.immutableMap,
+&nbsp;        this.sortedMap,
+&nbsp;        this.immutableSortedMap,
+&nbsp;        this.set,
+&nbsp;        this.immutableSet,
+&nbsp;        this.sortedSet,
+&nbsp;        this.immutableSortedSet,
+&nbsp;        this.opt,
+&nbsp;        this.enumMap,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableBar} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableBar
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableBar) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableBar another) {
+&nbsp;    return nums.equals(another.nums)
+&nbsp;        &amp;&amp; map.equals(another.map)
+&nbsp;        &amp;&amp; immutableMap.equals(another.immutableMap)
+&nbsp;        &amp;&amp; sortedMap.equals(another.sortedMap)
+&nbsp;        &amp;&amp; immutableSortedMap.equals(another.immutableSortedMap)
+&nbsp;        &amp;&amp; set.equals(another.set)
+&nbsp;        &amp;&amp; immutableSet.equals(another.immutableSet)
+&nbsp;        &amp;&amp; sortedSet.equals(another.sortedSet)
+&nbsp;        &amp;&amp; immutableSortedSet.equals(another.immutableSortedSet)
+&nbsp;        &amp;&amp; opt.equals(another.opt)
+&nbsp;        &amp;&amp; enumMap.equals(another.enumMap)
+&nbsp;        &amp;&amp; enumSet.equals(another.enumSet);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code nums}, {@code map}, {@code immutableMap}, {@code sortedMap}, {@code immutableSortedMap}, {@code set}, {@code immutableSet}, {@code sortedSet}, {@code immutableSortedSet}, {@code opt}, {@code enumMap}, {@code enumSet}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + nums.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + sortedMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableSortedMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + set.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + sortedSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + immutableSortedSet.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + opt.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + enumMap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + enumSet.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Bar} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Bar&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;nums&quot;, nums)
+&nbsp;        .add(&quot;map&quot;, map)
+&nbsp;        .add(&quot;immutableMap&quot;, immutableMap)
+&nbsp;        .add(&quot;sortedMap&quot;, sortedMap)
+&nbsp;        .add(&quot;immutableSortedMap&quot;, immutableSortedMap)
+&nbsp;        .add(&quot;set&quot;, set)
+&nbsp;        .add(&quot;immutableSet&quot;, immutableSet)
+&nbsp;        .add(&quot;sortedSet&quot;, sortedSet)
+&nbsp;        .add(&quot;immutableSortedSet&quot;, immutableSortedSet)
+&nbsp;        .add(&quot;opt&quot;, opt.orNull())
+&nbsp;        .add(&quot;enumMap&quot;, enumMap)
+&nbsp;        .add(&quot;enumSet&quot;, enumSet)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Bar} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Bar instance
+&nbsp;   */
+&nbsp;  public static ImmutableBar copyOf(Bar instance) {
+&nbsp;    if (instance instanceof ImmutableBar) {
+&nbsp;      return (ImmutableBar) instance;
+&nbsp;    }
+&nbsp;    return ImmutableBar.builder()
+&nbsp;        .addAllNums(instance.nums())
+&nbsp;        .putAllMap(instance.map())
+&nbsp;        .putAllImmutableMap(instance.immutableMap())
+&nbsp;        .sortedMap(instance.sortedMap())
+&nbsp;        .immutableSortedMap(instance.immutableSortedMap())
+&nbsp;        .addAllSet(instance.set())
+&nbsp;        .addAllImmutableSet(instance.immutableSet())
+&nbsp;        .sortedSet(instance.sortedSet())
+&nbsp;        .immutableSortedSet(instance.immutableSortedSet())
+&nbsp;        .opt(instance.opt())
+&nbsp;        .enumMap(instance.enumMap())
+&nbsp;        .enumSet(instance.enumSet())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableBar ImmutableBar}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableBar.builder()
+&nbsp;   *    .addNums|addAllNums(int) // {@link Bar#nums() nums} elements
+&nbsp;   *    .putMap|putAllMap(String =&amp;gt; int) // {@link Bar#map() map} mappings
+&nbsp;   *    .putImmutableMap|putAllImmutableMap(String =&amp;gt; int) // {@link Bar#immutableMap() immutableMap} mappings
+&nbsp;   *    .sortedMap(SortedMap&amp;amp;lt;String, Integer&amp;amp;gt;) // required {@link Bar#sortedMap() sortedMap}
+&nbsp;   *    .immutableSortedMap(com.google.common.collect.ImmutableSortedMap&amp;amp;lt;String, Integer&amp;amp;gt;) // required {@link Bar#immutableSortedMap() immutableSortedMap}
+&nbsp;   *    .addSet|addAllSet(String) // {@link Bar#set() set} elements
+&nbsp;   *    .addImmutableSet|addAllImmutableSet(String) // {@link Bar#immutableSet() immutableSet} elements
+&nbsp;   *    .sortedSet(SortedSet&amp;amp;lt;String&amp;amp;gt;) // required {@link Bar#sortedSet() sortedSet}
+&nbsp;   *    .immutableSortedSet(com.google.common.collect.ImmutableSortedSet&amp;amp;lt;String&amp;amp;gt;) // required {@link Bar#immutableSortedSet() immutableSortedSet}
+&nbsp;   *    .opt(Integer) // optional {@link Bar#opt() opt}
+&nbsp;   *    .enumMap(EnumMap&amp;amp;lt;com.google.common.collect.BoundType, Integer&amp;amp;gt;) // required {@link Bar#enumMap() enumMap}
+&nbsp;   *    .enumSet(EnumSet&amp;amp;lt;com.google.common.collect.BoundType&amp;amp;gt;) // required {@link Bar#enumSet() enumSet}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableBar builder
+&nbsp;   */
+&nbsp;  public static ImmutableBar.Builder builder() {
+&nbsp;    return new ImmutableBar.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableBar ImmutableBar}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Bar&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_SORTED_MAP = 0x1L;
+&nbsp;    private static final long INIT_BIT_IMMUTABLE_SORTED_MAP = 0x2L;
+&nbsp;    private static final long INIT_BIT_SORTED_SET = 0x4L;
+&nbsp;    private static final long INIT_BIT_IMMUTABLE_SORTED_SET = 0x8L;
+&nbsp;    private static final long INIT_BIT_ENUM_MAP = 0x10L;
+&nbsp;    private static final long INIT_BIT_ENUM_SET = 0x20L;
+&nbsp;    private static final long OPT_BIT_OPT = 0x1L;
+&nbsp;    private long initBits = 0x3fL;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private final ImmutableList.Builder&lt;Integer&gt; nums = ImmutableList.builder();
+&nbsp;    private final ImmutableMap.Builder&lt;String, Integer&gt; map = ImmutableMap.builder();
+&nbsp;    private final ImmutableMap.Builder&lt;String, Integer&gt; immutableMap = ImmutableMap.builder();
+&nbsp;    private @Nullable SortedMap&lt;String, Integer&gt; sortedMap;
+&nbsp;    private @Nullable ImmutableSortedMap&lt;String, Integer&gt; immutableSortedMap;
+&nbsp;    private final ImmutableSet.Builder&lt;String&gt; set = ImmutableSet.builder();
+&nbsp;    private final ImmutableSet.Builder&lt;String&gt; immutableSet = ImmutableSet.builder();
+&nbsp;    private @Nullable SortedSet&lt;String&gt; sortedSet;
+&nbsp;    private @Nullable ImmutableSortedSet&lt;String&gt; immutableSortedSet;
+&nbsp;    private Optional&lt;Integer&gt; opt = Optional.absent();
+&nbsp;    private @Nullable EnumMap&lt;BoundType, Integer&gt; enumMap;
+&nbsp;    private @Nullable EnumSet&lt;BoundType&gt; enumSet;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Bar#nums() nums} list.
+&nbsp;     * @param element A nums element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNums(int element) {
+&nbsp;      this.nums.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Bar#nums() nums} list.
+&nbsp;     * @param elements An array of nums elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNums(int... elements) {
+&nbsp;      this.nums.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Bar#nums() nums} list.
+&nbsp;     * @param elements An iterable of nums elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNums(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.nums.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Bar#map() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(String key, int value) {
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Bar#map() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.map.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Bar#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.map.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Bar#immutableMap() immutableMap} map.
+&nbsp;     * @param key The key in the immutableMap map
+&nbsp;     * @param value The associated value in the immutableMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putImmutableMap(String key, int value) {
+&nbsp;      this.immutableMap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Bar#immutableMap() immutableMap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putImmutableMap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.immutableMap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Bar#immutableMap() immutableMap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the immutableMap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllImmutableMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.immutableMap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bar#sortedMap() sortedMap} attribute.
+&nbsp;     * @param sortedMap The value for sortedMap 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder sortedMap(SortedMap&lt;String, Integer&gt; sortedMap) {
+&nbsp;      checkNotIsSet(sortedMapIsSet(), &quot;sortedMap&quot;);
+&nbsp;      this.sortedMap = Objects.requireNonNull(sortedMap, &quot;sortedMap&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_SORTED_MAP;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bar#immutableSortedMap() immutableSortedMap} attribute.
+&nbsp;     * @param immutableSortedMap The value for immutableSortedMap 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder immutableSortedMap(ImmutableSortedMap&lt;String, Integer&gt; immutableSortedMap) {
+&nbsp;      checkNotIsSet(immutableSortedMapIsSet(), &quot;immutableSortedMap&quot;);
+&nbsp;      this.immutableSortedMap = Objects.requireNonNull(immutableSortedMap, &quot;immutableSortedMap&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_IMMUTABLE_SORTED_MAP;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Bar#set() set} set.
+&nbsp;     * @param element A set element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(String element) {
+&nbsp;      this.set.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Bar#set() set} set.
+&nbsp;     * @param elements An array of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(String... elements) {
+&nbsp;      this.set.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Bar#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSet(Iterable&lt;String&gt; elements) {
+&nbsp;      this.set.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Bar#immutableSet() immutableSet} set.
+&nbsp;     * @param element A immutableSet element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addImmutableSet(String element) {
+&nbsp;      this.immutableSet.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Bar#immutableSet() immutableSet} set.
+&nbsp;     * @param elements An array of immutableSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addImmutableSet(String... elements) {
+&nbsp;      this.immutableSet.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Bar#immutableSet() immutableSet} set.
+&nbsp;     * @param elements An iterable of immutableSet elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllImmutableSet(Iterable&lt;String&gt; elements) {
+&nbsp;      this.immutableSet.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bar#sortedSet() sortedSet} attribute.
+&nbsp;     * @param sortedSet The value for sortedSet 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder sortedSet(SortedSet&lt;String&gt; sortedSet) {
+&nbsp;      checkNotIsSet(sortedSetIsSet(), &quot;sortedSet&quot;);
+&nbsp;      this.sortedSet = Objects.requireNonNull(sortedSet, &quot;sortedSet&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_SORTED_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bar#immutableSortedSet() immutableSortedSet} attribute.
+&nbsp;     * @param immutableSortedSet The value for immutableSortedSet 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder immutableSortedSet(ImmutableSortedSet&lt;String&gt; immutableSortedSet) {
+&nbsp;      checkNotIsSet(immutableSortedSetIsSet(), &quot;immutableSortedSet&quot;);
+&nbsp;      this.immutableSortedSet = Objects.requireNonNull(immutableSortedSet, &quot;immutableSortedSet&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_IMMUTABLE_SORTED_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Bar#opt() opt} to opt.
+&nbsp;     * @param opt The value for opt
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt(int opt) {
+&nbsp;      checkNotIsSet(optIsSet(), &quot;opt&quot;);
+&nbsp;      this.opt = Optional.of(opt);
+&nbsp;      optBits |= OPT_BIT_OPT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Bar#opt() opt} to opt.
+&nbsp;     * @param opt The value for opt
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt(Optional&lt;Integer&gt; opt) {
+&nbsp;      checkNotIsSet(optIsSet(), &quot;opt&quot;);
+&nbsp;      this.opt = opt;
+&nbsp;      optBits |= OPT_BIT_OPT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bar#enumMap() enumMap} attribute.
+&nbsp;     * @param enumMap The value for enumMap 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder enumMap(EnumMap&lt;BoundType, Integer&gt; enumMap) {
+&nbsp;      checkNotIsSet(enumMapIsSet(), &quot;enumMap&quot;);
+&nbsp;      this.enumMap = Objects.requireNonNull(enumMap, &quot;enumMap&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ENUM_MAP;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bar#enumSet() enumSet} attribute.
+&nbsp;     * @param enumSet The value for enumSet 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder enumSet(EnumSet&lt;BoundType&gt; enumSet) {
+&nbsp;      checkNotIsSet(enumSetIsSet(), &quot;enumSet&quot;);
+&nbsp;      this.enumSet = Objects.requireNonNull(enumSet, &quot;enumSet&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ENUM_SET;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableBar ImmutableBar}.
+&nbsp;     * @return An immutable instance of Bar
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableBar build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableBar(
+&nbsp;          nums.build(),
+&nbsp;          map.build(),
+&nbsp;          immutableMap.build(),
+&nbsp;          sortedMap,
+&nbsp;          immutableSortedMap,
+&nbsp;          set.build(),
+&nbsp;          immutableSet.build(),
+&nbsp;          sortedSet,
+&nbsp;          immutableSortedSet,
+&nbsp;          opt,
+&nbsp;          enumMap,
+&nbsp;          enumSet);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean optIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_OPT) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean sortedMapIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_SORTED_MAP) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean immutableSortedMapIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_IMMUTABLE_SORTED_MAP) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean sortedSetIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_SORTED_SET) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean immutableSortedSetIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_IMMUTABLE_SORTED_SET) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean enumMapIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_ENUM_MAP) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean enumSetIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_ENUM_SET) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of Bar is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!sortedMapIsSet()) attributes.add(&quot;sortedMap&quot;);
+&nbsp;      if (!immutableSortedMapIsSet()) attributes.add(&quot;immutableSortedMap&quot;);
+&nbsp;      if (!sortedSetIsSet()) attributes.add(&quot;sortedSet&quot;);
+&nbsp;      if (!immutableSortedSetIsSet()) attributes.add(&quot;immutableSortedSet&quot;);
+&nbsp;      if (!enumMapIsSet()) attributes.add(&quot;enumMap&quot;);
+&nbsp;      if (!enumSetIsSet()) attributes.add(&quot;enumSet&quot;);
+&nbsp;      return &quot;Cannot build Bar, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

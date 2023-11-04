@@ -1,0 +1,611 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOptionalWithNullable</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOptionalWithNullable (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOptionalWithNullable$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OptionalWithNullable}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOptionalWithNullable.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableOptionalWithNullable.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OptionalWithNullable&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableOptionalWithNullable implements OptionalWithNullable {
+&nbsp;  private final @Nullable String javaOptional;
+&nbsp;  private final @Nullable Integer javaOptionalInt;
+&nbsp;  private final @Nullable Integer javaOptionalInteger;
+&nbsp;  private final Optional&lt;String&gt; guavaOptional;
+&nbsp;  private final @Nullable String javaOptionalStringParameter;
+&nbsp;
+&nbsp;  private ImmutableOptionalWithNullable(java.util.Optional&lt;String&gt; javaOptionalStringParameter) {
+&nbsp;    this.javaOptionalStringParameter = javaOptionalStringParameter.orElse(null);
+&nbsp;    this.javaOptional = null;
+&nbsp;    this.javaOptionalInt = null;
+&nbsp;    this.javaOptionalInteger = null;
+&nbsp;    this.guavaOptional = Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableOptionalWithNullable(@Nullable String javaOptionalStringParameter) {
+&nbsp;    this.javaOptionalStringParameter = javaOptionalStringParameter;
+&nbsp;    this.javaOptional = null;
+&nbsp;    this.javaOptionalInt = null;
+&nbsp;    this.javaOptionalInteger = null;
+&nbsp;    this.guavaOptional = Optional.absent();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableOptionalWithNullable(
+&nbsp;      @Nullable String javaOptional,
+&nbsp;      @Nullable Integer javaOptionalInt,
+&nbsp;      @Nullable Integer javaOptionalInteger,
+&nbsp;      Optional&lt;String&gt; guavaOptional,
+&nbsp;      @Nullable String javaOptionalStringParameter) {
+&nbsp;    this.javaOptional = javaOptional;
+&nbsp;    this.javaOptionalInt = javaOptionalInt;
+&nbsp;    this.javaOptionalInteger = javaOptionalInteger;
+&nbsp;    this.guavaOptional = guavaOptional;
+&nbsp;    this.javaOptionalStringParameter = javaOptionalStringParameter;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code javaOptional} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;String&gt; getJavaOptional() {
+&nbsp;    return java.util.Optional.ofNullable(javaOptional);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code javaOptionalInt} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt getJavaOptionalInt() {
+&nbsp;    return javaOptionalInt != null
+&nbsp;        ? OptionalInt.of(javaOptionalInt)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code javaOptionalInteger} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;Integer&gt; getJavaOptionalInteger() {
+&nbsp;    return java.util.Optional.ofNullable(javaOptionalInteger);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code guavaOptional} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; getGuavaOptional() {
+&nbsp;    return guavaOptional;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code javaOptionalStringParameter} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;String&gt; getJavaOptionalStringParameter() {
+&nbsp;    return java.util.Optional.ofNullable(javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalWithNullable#getJavaOptional() javaOptional} attribute.
+&nbsp;   * @param value The value for javaOptional, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptional(@Nullable String value) {
+&nbsp;    @Nullable String newValue = value;
+&nbsp;    if (Objects.equals(this.javaOptional, newValue)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        newValue,
+&nbsp;        this.javaOptionalInt,
+&nbsp;        this.javaOptionalInteger,
+&nbsp;        this.guavaOptional,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalWithNullable#getJavaOptional() javaOptional} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for javaOptional
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptional(java.util.Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.javaOptional, value)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        value,
+&nbsp;        this.javaOptionalInt,
+&nbsp;        this.javaOptionalInteger,
+&nbsp;        this.guavaOptional,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalWithNullable#getJavaOptionalInt() javaOptionalInt} attribute.
+&nbsp;   * @param value The value for javaOptionalInt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptionalInt(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.javaOptionalInt, newValue)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        this.javaOptional,
+&nbsp;        newValue,
+&nbsp;        this.javaOptionalInteger,
+&nbsp;        this.guavaOptional,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalWithNullable#getJavaOptionalInt() javaOptionalInt} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for javaOptionalInt
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptionalInt(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.javaOptionalInt, value)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        this.javaOptional,
+&nbsp;        value,
+&nbsp;        this.javaOptionalInteger,
+&nbsp;        this.guavaOptional,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalWithNullable#getJavaOptionalInteger() javaOptionalInteger} attribute.
+&nbsp;   * @param value The value for javaOptionalInteger, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptionalInteger(@Nullable Integer value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.javaOptionalInteger, newValue)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        this.javaOptional,
+&nbsp;        this.javaOptionalInt,
+&nbsp;        newValue,
+&nbsp;        this.guavaOptional,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalWithNullable#getJavaOptionalInteger() javaOptionalInteger} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for javaOptionalInteger
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptionalInteger(java.util.Optional&lt;Integer&gt; optional) {
+&nbsp;    @Nullable Integer value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.javaOptionalInteger, value)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        this.javaOptional,
+&nbsp;        this.javaOptionalInt,
+&nbsp;        value,
+&nbsp;        this.guavaOptional,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalWithNullable#getGuavaOptional() guavaOptional} attribute.
+&nbsp;   * @param value The value for guavaOptional, {@code null} is accepted as {@code com.google.common.base.Optional.absent()}
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withGuavaOptional(@Nullable String value) {
+&nbsp;    Optional&lt;String&gt; newValue = Optional.fromNullable(value);
+&nbsp;    if (this.guavaOptional.equals(newValue)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        this.javaOptional,
+&nbsp;        this.javaOptionalInt,
+&nbsp;        this.javaOptionalInteger,
+&nbsp;        newValue,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalWithNullable#getGuavaOptional() guavaOptional} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for guavaOptional
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withGuavaOptional(Optional&lt;String&gt; optional) {
+&nbsp;    Optional&lt;String&gt; value = optional;
+&nbsp;    if (this.guavaOptional.equals(value)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(
+&nbsp;        this.javaOptional,
+&nbsp;        this.javaOptionalInt,
+&nbsp;        this.javaOptionalInteger,
+&nbsp;        value,
+&nbsp;        this.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalWithNullable#getJavaOptionalStringParameter() javaOptionalStringParameter} attribute.
+&nbsp;   * @param value The value for javaOptionalStringParameter, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptionalStringParameter(@Nullable String value) {
+&nbsp;    @Nullable String newValue = value;
+&nbsp;    if (Objects.equals(this.javaOptionalStringParameter, newValue)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(this.javaOptional, this.javaOptionalInt, this.javaOptionalInteger, this.guavaOptional, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalWithNullable#getJavaOptionalStringParameter() javaOptionalStringParameter} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for javaOptionalStringParameter
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalWithNullable withJavaOptionalStringParameter(java.util.Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.javaOptionalStringParameter, value)) return this;
+&nbsp;    return new ImmutableOptionalWithNullable(this.javaOptional, this.javaOptionalInt, this.javaOptionalInteger, this.guavaOptional, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOptionalWithNullable} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOptionalWithNullable
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOptionalWithNullable) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOptionalWithNullable another) {
+&nbsp;    return Objects.equals(javaOptional, another.javaOptional)
+&nbsp;        &amp;&amp; Objects.equals(javaOptionalInt, another.javaOptionalInt)
+&nbsp;        &amp;&amp; Objects.equals(javaOptionalInteger, another.javaOptionalInteger)
+&nbsp;        &amp;&amp; guavaOptional.equals(another.guavaOptional)
+&nbsp;        &amp;&amp; Objects.equals(javaOptionalStringParameter, another.javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code javaOptional}, {@code javaOptionalInt}, {@code javaOptionalInteger}, {@code guavaOptional}, {@code javaOptionalStringParameter}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(javaOptional);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(javaOptionalInt);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(javaOptionalInteger);
+&nbsp;    h += (h &lt;&lt; 5) + guavaOptional.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(javaOptionalStringParameter);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OptionalWithNullable} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OptionalWithNullable&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;javaOptional&quot;, javaOptional)
+&nbsp;        .add(&quot;javaOptionalInt&quot;, javaOptionalInt)
+&nbsp;        .add(&quot;javaOptionalInteger&quot;, javaOptionalInteger)
+&nbsp;        .add(&quot;guavaOptional&quot;, guavaOptional.orNull())
+&nbsp;        .add(&quot;javaOptionalStringParameter&quot;, javaOptionalStringParameter)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code OptionalWithNullable} instance.
+&nbsp;   * @param javaOptionalStringParameter The value for the {@code javaOptionalStringParameter} attribute
+&nbsp;   * @return An immutable OptionalWithNullable instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalWithNullable of(java.util.Optional&lt;String&gt; javaOptionalStringParameter) {
+&nbsp;    return new ImmutableOptionalWithNullable(javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code OptionalWithNullable} instance.
+&nbsp;   * @param javaOptionalStringParameter The value for the {@code javaOptionalStringParameter} attribute
+&nbsp;   * @return An immutable OptionalWithNullable instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalWithNullable of(@Nullable String javaOptionalStringParameter) {
+&nbsp;    return new ImmutableOptionalWithNullable(javaOptionalStringParameter);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OptionalWithNullable} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OptionalWithNullable instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalWithNullable copyOf(OptionalWithNullable instance) {
+&nbsp;    if (instance instanceof ImmutableOptionalWithNullable) {
+&nbsp;      return (ImmutableOptionalWithNullable) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOptionalWithNullable.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOptionalWithNullable ImmutableOptionalWithNullable}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOptionalWithNullable.builder()
+&nbsp;   *    .javaOptional(String) // optional {@link OptionalWithNullable#getJavaOptional() javaOptional}
+&nbsp;   *    .javaOptionalInt(int) // optional {@link OptionalWithNullable#getJavaOptionalInt() javaOptionalInt}
+&nbsp;   *    .javaOptionalInteger(Integer) // optional {@link OptionalWithNullable#getJavaOptionalInteger() javaOptionalInteger}
+&nbsp;   *    .guavaOptional(String) // optional {@link OptionalWithNullable#getGuavaOptional() guavaOptional}
+&nbsp;   *    .javaOptionalStringParameter(String) // optional {@link OptionalWithNullable#getJavaOptionalStringParameter() javaOptionalStringParameter}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableOptionalWithNullable builder
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalWithNullable.Builder builder() {
+&nbsp;    return new ImmutableOptionalWithNullable.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOptionalWithNullable ImmutableOptionalWithNullable}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OptionalWithNullable&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @Nullable String javaOptional;
+&nbsp;    private @Nullable Integer javaOptionalInt;
+&nbsp;    private @Nullable Integer javaOptionalInteger;
+&nbsp;    private Optional&lt;String&gt; guavaOptional = Optional.absent();
+&nbsp;    private @Nullable String javaOptionalStringParameter;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code OptionalWithNullable} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(OptionalWithNullable instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      java.util.Optional&lt;String&gt; javaOptionalOptional = instance.getJavaOptional();
+&nbsp;      if (javaOptionalOptional.isPresent()) {
+&nbsp;        javaOptional(javaOptionalOptional);
+&nbsp;      }
+&nbsp;      OptionalInt javaOptionalIntOptional = instance.getJavaOptionalInt();
+&nbsp;      if (javaOptionalIntOptional.isPresent()) {
+&nbsp;        javaOptionalInt(javaOptionalIntOptional);
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;Integer&gt; javaOptionalIntegerOptional = instance.getJavaOptionalInteger();
+&nbsp;      if (javaOptionalIntegerOptional.isPresent()) {
+&nbsp;        javaOptionalInteger(javaOptionalIntegerOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;String&gt; guavaOptionalOptional = instance.getGuavaOptional();
+&nbsp;      if (guavaOptionalOptional.isPresent()) {
+&nbsp;        guavaOptional(guavaOptionalOptional);
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;String&gt; javaOptionalStringParameterOptional = instance.getJavaOptionalStringParameter();
+&nbsp;      if (javaOptionalStringParameterOptional.isPresent()) {
+&nbsp;        javaOptionalStringParameter(javaOptionalStringParameterOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptional() javaOptional} to javaOptional.
+&nbsp;     * @param javaOptional The value for javaOptional, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptional(@Nullable String javaOptional) {
+&nbsp;      this.javaOptional = javaOptional;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptional() javaOptional} to javaOptional.
+&nbsp;     * @param javaOptional The value for javaOptional
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptional(java.util.Optional&lt;String&gt; javaOptional) {
+&nbsp;      this.javaOptional = javaOptional.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptionalInt() javaOptionalInt} to javaOptionalInt.
+&nbsp;     * @param javaOptionalInt The value for javaOptionalInt
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptionalInt(int javaOptionalInt) {
+&nbsp;      this.javaOptionalInt = javaOptionalInt;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptionalInt() javaOptionalInt} to javaOptionalInt.
+&nbsp;     * @param javaOptionalInt The value for javaOptionalInt
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptionalInt(OptionalInt javaOptionalInt) {
+&nbsp;      this.javaOptionalInt = javaOptionalInt.isPresent() ? javaOptionalInt.getAsInt() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptionalInteger() javaOptionalInteger} to javaOptionalInteger.
+&nbsp;     * @param javaOptionalInteger The value for javaOptionalInteger, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptionalInteger(@Nullable Integer javaOptionalInteger) {
+&nbsp;      this.javaOptionalInteger = javaOptionalInteger;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptionalInteger() javaOptionalInteger} to javaOptionalInteger.
+&nbsp;     * @param javaOptionalInteger The value for javaOptionalInteger
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptionalInteger(java.util.Optional&lt;Integer&gt; javaOptionalInteger) {
+&nbsp;      this.javaOptionalInteger = javaOptionalInteger.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getGuavaOptional() guavaOptional} to guavaOptional.
+&nbsp;     * @param guavaOptional The value for guavaOptional, {@code null} is accepted as {@code com.google.common.base.Optional.absent()}
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder guavaOptional(@Nullable String guavaOptional) {
+&nbsp;      this.guavaOptional = Optional.fromNullable(guavaOptional);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getGuavaOptional() guavaOptional} to guavaOptional.
+&nbsp;     * @param guavaOptional The value for guavaOptional
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder guavaOptional(Optional&lt;String&gt; guavaOptional) {
+&nbsp;      this.guavaOptional = guavaOptional;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptionalStringParameter() javaOptionalStringParameter} to javaOptionalStringParameter.
+&nbsp;     * @param javaOptionalStringParameter The value for javaOptionalStringParameter, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptionalStringParameter(@Nullable String javaOptionalStringParameter) {
+&nbsp;      this.javaOptionalStringParameter = javaOptionalStringParameter;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalWithNullable#getJavaOptionalStringParameter() javaOptionalStringParameter} to javaOptionalStringParameter.
+&nbsp;     * @param javaOptionalStringParameter The value for javaOptionalStringParameter
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder javaOptionalStringParameter(java.util.Optional&lt;String&gt; javaOptionalStringParameter) {
+&nbsp;      this.javaOptionalStringParameter = javaOptionalStringParameter.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOptionalWithNullable ImmutableOptionalWithNullable}.
+&nbsp;     * @return An immutable instance of OptionalWithNullable
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOptionalWithNullable build() {
+&nbsp;      return new ImmutableOptionalWithNullable(
+&nbsp;          javaOptional,
+&nbsp;          javaOptionalInt,
+&nbsp;          javaOptionalInteger,
+&nbsp;          guavaOptional,
+&nbsp;          javaOptionalStringParameter);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

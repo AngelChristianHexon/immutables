@@ -1,0 +1,591 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > EncodedElement</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: EncodedElement (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EncodedElement</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/35)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/58)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">EncodedElement$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">EncodedElement$Param</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">EncodedElement$Tag</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">EncodedElement$TypeParam</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">EncodedElement$TypeParam$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/47)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/66)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/112)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import com.google.common.base.Joiner;
+&nbsp;import com.google.common.base.Splitter;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import org.immutables.generator.Naming;
+&nbsp;import org.immutables.value.Value;
+&nbsp;import org.immutables.value.Value.Default;
+&nbsp;import org.immutables.value.Value.Derived;
+&nbsp;import org.immutables.value.Value.Enclosing;
+&nbsp;import org.immutables.value.Value.Immutable;
+&nbsp;import org.immutables.value.processor.encode.Code.Term;
+&nbsp;
+&nbsp;@Immutable
+&nbsp;@Enclosing
+<b class="nc">&nbsp;public abstract class EncodedElement {</b>
+<b class="nc">&nbsp;  enum Tag {</b>
+<b class="nc">&nbsp;    IMPL,</b>
+<b class="nc">&nbsp;    EXPOSE,</b>
+<b class="nc">&nbsp;    BUILDER,</b>
+<b class="nc">&nbsp;    STATIC,</b>
+<b class="nc">&nbsp;    PRIVATE,</b>
+<b class="nc">&nbsp;    FINAL,</b>
+<b class="nc">&nbsp;    BUILD,</b>
+<b class="nc">&nbsp;    INIT,</b>
+<b class="nc">&nbsp;    FROM,</b>
+<b class="nc">&nbsp;    HELPER,</b>
+<b class="nc">&nbsp;    FIELD,</b>
+<b class="nc">&nbsp;    TO_STRING,</b>
+<b class="nc">&nbsp;    HASH_CODE,</b>
+<b class="nc">&nbsp;    EQUALS,</b>
+<b class="nc">&nbsp;    COPY,</b>
+<b class="nc">&nbsp;    DEPLURALIZE,</b>
+&nbsp;    // syntethic element which is automatically inserted
+<b class="nc">&nbsp;    SYNTH,</b>
+&nbsp;    // applies to impl field
+<b class="nc">&nbsp;    VIRTUAL,</b>
+<b class="nc">&nbsp;    IS_INIT</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  abstract String name();
+&nbsp;
+&nbsp;  abstract Type type();
+&nbsp;
+&nbsp;  abstract Naming naming();
+&nbsp;
+&nbsp;  abstract List&lt;Param&gt; params();
+&nbsp;
+&nbsp;  abstract List&lt;Term&gt; code();
+&nbsp;
+&nbsp;  abstract List&lt;Type&gt; thrown();
+&nbsp;
+&nbsp;  abstract Set&lt;Tag&gt; tags();
+&nbsp;
+&nbsp;  abstract Type.Parameters typeParameters();
+&nbsp;
+&nbsp;  abstract List&lt;TypeParam&gt; typeParams();
+&nbsp;
+&nbsp;  abstract List&lt;String&gt; doc();
+&nbsp;
+&nbsp;  abstract List&lt;String&gt; annotations();
+&nbsp;
+&nbsp;  Param firstParam() {
+<b class="nc">&nbsp;    return params().get(0);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Default
+&nbsp;  StandardNaming standardNaming() {
+<b class="nc">&nbsp;    return StandardNaming.NONE;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  boolean isVirtual() {
+<b class="nc">&nbsp;    return tags().contains(Tag.VIRTUAL);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  Code.Binding asBinding() {
+<b class="nc">&nbsp;    return isField() || isImplField()</b>
+<b class="nc">&nbsp;        ? Code.Binding.newField(name())</b>
+<b class="nc">&nbsp;        : Code.Binding.newMethod(name());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isToString() {
+<b class="nc">&nbsp;    return tags().contains(Tag.TO_STRING);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isHashCode() {
+<b class="nc">&nbsp;    return tags().contains(Tag.HASH_CODE);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isEquals() {
+<b class="nc">&nbsp;    return tags().contains(Tag.EQUALS);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isFrom() {
+<b class="nc">&nbsp;    return tags().contains(Tag.FROM);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isBuild() {
+<b class="nc">&nbsp;    return tags().contains(Tag.BUILD);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isInit() {
+<b class="nc">&nbsp;    return tags().contains(Tag.INIT);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isWasInit() {
+<b class="nc">&nbsp;    return tags().contains(Tag.IS_INIT);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isCopy() {
+<b class="nc">&nbsp;    return tags().contains(Tag.COPY)</b>
+<b class="nc">&nbsp;        &amp;&amp; !inBuilder();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isBuilderCopy() {
+<b class="nc">&nbsp;    return tags().contains(Tag.COPY)</b>
+<b class="nc">&nbsp;        &amp;&amp; inBuilder();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isExpose() {
+<b class="nc">&nbsp;    return tags().contains(Tag.EXPOSE);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean inBuilder() {
+<b class="nc">&nbsp;    return tags().contains(Tag.BUILDER);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isStatic() {
+<b class="nc">&nbsp;    return tags().contains(Tag.STATIC);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isFinal() {
+<b class="nc">&nbsp;    return tags().contains(Tag.FINAL);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isPrivate() {
+<b class="nc">&nbsp;    return tags().contains(Tag.PRIVATE);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isSynthetic() {
+<b class="nc">&nbsp;    return tags().contains(Tag.SYNTH);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isImplField() {
+<b class="nc">&nbsp;    return tags().contains(Tag.IMPL);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isValueField() {
+<b class="nc">&nbsp;    return isField()</b>
+<b class="nc">&nbsp;        &amp;&amp; !tags().contains(Tag.IMPL)</b>
+<b class="nc">&nbsp;        &amp;&amp; !inBuilder()</b>
+<b class="nc">&nbsp;        &amp;&amp; !isStatic();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isStaticField() {
+<b class="nc">&nbsp;    return isField()</b>
+<b class="nc">&nbsp;        &amp;&amp; !inBuilder()</b>
+<b class="nc">&nbsp;        &amp;&amp; isStatic();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isField() {
+<b class="nc">&nbsp;    return tags().contains(Tag.FIELD);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isBuilderField() {
+<b class="nc">&nbsp;    return isField()</b>
+<b class="nc">&nbsp;        &amp;&amp; inBuilder()</b>
+<b class="nc">&nbsp;        &amp;&amp; !isStatic();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isStaticMethod() {
+<b class="nc">&nbsp;    return tags().contains(Tag.HELPER)</b>
+<b class="nc">&nbsp;        &amp;&amp; isStatic()</b>
+<b class="nc">&nbsp;        &amp;&amp; !inBuilder();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isValueMethod() {
+<b class="nc">&nbsp;    return tags().contains(Tag.HELPER)</b>
+<b class="nc">&nbsp;        &amp;&amp; !isStatic()</b>
+<b class="nc">&nbsp;        &amp;&amp; !inBuilder();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isBuilderMethod() {
+<b class="nc">&nbsp;    return tags().contains(Tag.HELPER)</b>
+<b class="nc">&nbsp;        &amp;&amp; inBuilder();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isBuilderStaticField() {
+<b class="nc">&nbsp;    return isField()</b>
+<b class="nc">&nbsp;        &amp;&amp; inBuilder()</b>
+<b class="nc">&nbsp;        &amp;&amp; isStatic();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  ImmutableList&lt;Term&gt; oneLiner() {
+<b class="nc">&nbsp;    return typeParams().isEmpty()</b>
+<b class="nc">&nbsp;        ? ImmutableList.copyOf(Code.oneLiner(code()))</b>
+<b class="nc">&nbsp;        : ImmutableList.&lt;Term&gt;of();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean usesThis() {
+<b class="nc">&nbsp;    return Code.usesThis(code());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Derived
+&nbsp;  boolean isInlinable() {
+<b class="nc">&nbsp;    return isEquals()</b>
+<b class="nc">&nbsp;        || isToString()</b>
+<b class="nc">&nbsp;        || isHashCode()</b>
+<b class="nc">&nbsp;        || isFrom()</b>
+<b class="nc">&nbsp;        || isCopy();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  boolean depluralize() {
+<b class="nc">&nbsp;    return tags().contains(Tag.DEPLURALIZE);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  String unitializedFieldValue() {
+<b class="nc">&nbsp;    Type type = type();</b>
+<b class="nc">&nbsp;    if (type instanceof Type.Primitive) {</b>
+<b class="nc">&nbsp;      return ((Type.Primitive) type).defaultValue;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return &quot;null&quot;;</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  static class Builder extends ImmutableEncodedElement.Builder {}</b>
+&nbsp;
+&nbsp;  @Immutable
+<b class="nc">&nbsp;  abstract static class Param {</b>
+&nbsp;    @Value.Parameter
+&nbsp;    abstract String name();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    abstract Type type();
+&nbsp;
+&nbsp;    @Value.Parameter
+&nbsp;    abstract List&lt;String&gt; annotations();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      String annotationStr = &quot;&quot;;</b>
+<b class="nc">&nbsp;      if (!annotations().isEmpty()) {</b>
+<b class="nc">&nbsp;        annotationStr = Joiner.on(&#39; &#39;).join(annotations()) + &#39; &#39;;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return annotationStr + name() + &quot;: &quot; + type();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static Param of(String name, Type type) {
+<b class="nc">&nbsp;      return ImmutableEncodedElement.Param.of(name, type, ImmutableList.of());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static Param of(String name, Type type, List&lt;String&gt; annotations) {
+<b class="nc">&nbsp;      return ImmutableEncodedElement.Param.of(name, type, annotations);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public static Param from(String input, Type.Parser parser) {
+&nbsp;      // continuously take annotations from the start of the string
+<b class="nc">&nbsp;      List&lt;String&gt; annotations = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      while (input.startsWith(&quot;@&quot;)) {</b>
+<b class="nc">&nbsp;        String[] split = input.split(&quot; &quot;, 2);</b>
+<b class="nc">&nbsp;        annotations.add(split[0]);</b>
+<b class="nc">&nbsp;        input = split[1];</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      List&lt;String&gt; parts = COLON_SPLITTER.splitToList(input);</b>
+<b class="nc">&nbsp;      return of(parts.get(0), parser.parse(parts.get(1)), annotations);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Immutable
+<b class="nc">&nbsp;  abstract static class TypeParam {</b>
+&nbsp;    abstract String name();
+&nbsp;
+&nbsp;    abstract List&lt;Type.Defined&gt; bounds();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      return name() + &quot;: &quot; + Joiner.on(&quot; &amp; &quot;).join(bounds());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    static class Builder extends ImmutableEncodedElement.TypeParam.Builder {}</b>
+&nbsp;
+&nbsp;    static TypeParam from(String input, Type.Factory typeFactory, Type.Parameters typeParameters) {
+<b class="nc">&nbsp;      List&lt;String&gt; parts = COLON_SPLITTER.splitToList(input);</b>
+&nbsp;
+<b class="nc">&nbsp;      Builder builder = new Builder()</b>
+<b class="nc">&nbsp;          .name(parts.get(0));</b>
+&nbsp;
+<b class="nc">&nbsp;      if (parts.size() == 1) {</b>
+<b class="nc">&nbsp;        return builder.build();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      Type.Parser parser = new Type.Parser(typeFactory, typeParameters);</b>
+&nbsp;
+<b class="nc">&nbsp;      for (String bound : AMPER_SPLITTER.split(parts.get(1))) {</b>
+<b class="nc">&nbsp;        builder.addBounds((Type.Defined) parser.parse(bound));</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      return builder.build();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static final Splitter COLON_SPLITTER = Splitter.on(&#39;:&#39;).trimResults();</b>
+<b class="nc">&nbsp;  private static final Splitter AMPER_SPLITTER = Splitter.on(&#39;&amp;&#39;).trimResults();</b>
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

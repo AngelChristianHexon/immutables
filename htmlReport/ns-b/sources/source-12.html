@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableUpdate</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableUpdate (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableUpdate$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableUpdate$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link StandardOperations.Update}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableUpdate.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;StandardOperations.Update&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableUpdate implements StandardOperations.Update {
+&nbsp;  private final ImmutableList&lt;Object&gt; values;
+&nbsp;  private final boolean upsert;
+&nbsp;
+&nbsp;  private ImmutableUpdate(ImmutableUpdate.Builder builder) {
+&nbsp;    this.values = builder.values.build();
+&nbsp;    this.upsert = builder.upsertIsSet()
+&nbsp;        ? builder.upsert
+&nbsp;        : StandardOperations.Update.super.upsert();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableUpdate(ImmutableList&lt;Object&gt; values, boolean upsert) {
+&nbsp;    this.values = values;
+&nbsp;    this.upsert = upsert;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code values} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Object&gt; values() {
+&nbsp;    return values;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code upsert} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean upsert() {
+&nbsp;    return upsert;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link StandardOperations.Update#values() values}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUpdate withValues(Object... elements) {
+&nbsp;    ImmutableList&lt;Object&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableUpdate(newValue, this.upsert);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link StandardOperations.Update#values() values}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of values elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUpdate withValues(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;    if (this.values == elements) return this;
+&nbsp;    ImmutableList&lt;Object&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableUpdate(newValue, this.upsert);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link StandardOperations.Update#upsert() upsert} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for upsert
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableUpdate withUpsert(boolean value) {
+&nbsp;    if (this.upsert == value) return this;
+&nbsp;    return new ImmutableUpdate(this.values, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableUpdate} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableUpdate
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableUpdate) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableUpdate another) {
+&nbsp;    return values.equals(another.values)
+&nbsp;        &amp;&amp; upsert == another.upsert;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code values}, {@code upsert}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + values.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(upsert);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Update} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Update&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;values&quot;, values)
+&nbsp;        .add(&quot;upsert&quot;, upsert)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link StandardOperations.Update} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Update instance
+&nbsp;   */
+&nbsp;  public static ImmutableUpdate copyOf(StandardOperations.Update instance) {
+&nbsp;    if (instance instanceof ImmutableUpdate) {
+&nbsp;      return (ImmutableUpdate) instance;
+&nbsp;    }
+&nbsp;    return ImmutableUpdate.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableUpdate ImmutableUpdate}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableUpdate.builder()
+&nbsp;   *    .addValues|addAllValues(Object) // {@link StandardOperations.Update#values() values} elements
+&nbsp;   *    .upsert(boolean) // optional {@link StandardOperations.Update#upsert() upsert}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableUpdate builder
+&nbsp;   */
+&nbsp;  public static ImmutableUpdate.Builder builder() {
+&nbsp;    return new ImmutableUpdate.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableUpdate ImmutableUpdate}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;StandardOperations.Update&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_UPSERT = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private ImmutableList.Builder&lt;Object&gt; values = ImmutableList.builder();
+&nbsp;    private boolean upsert;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Update} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(StandardOperations.Update instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllValues(instance.values());
+&nbsp;      upsert(instance.upsert());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link StandardOperations.Update#values() values} list.
+&nbsp;     * @param element A values element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addValues(Object element) {
+&nbsp;      this.values.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link StandardOperations.Update#values() values} list.
+&nbsp;     * @param elements An array of values elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addValues(Object... elements) {
+&nbsp;      this.values.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link StandardOperations.Update#values() values} list.
+&nbsp;     * @param elements An iterable of values elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder values(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;      this.values = ImmutableList.builder();
+&nbsp;      return addAllValues(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link StandardOperations.Update#values() values} list.
+&nbsp;     * @param elements An iterable of values elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllValues(Iterable&lt;? extends Object&gt; elements) {
+&nbsp;      this.values.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link StandardOperations.Update#upsert() upsert} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link StandardOperations.Update#upsert() upsert}.&lt;/em&gt;
+&nbsp;     * @param upsert The value for upsert 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder upsert(boolean upsert) {
+&nbsp;      this.upsert = upsert;
+&nbsp;      optBits |= OPT_BIT_UPSERT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableUpdate ImmutableUpdate}.
+&nbsp;     * @return An immutable instance of Update
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableUpdate build() {
+&nbsp;      return new ImmutableUpdate(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean upsertIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_UPSERT) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

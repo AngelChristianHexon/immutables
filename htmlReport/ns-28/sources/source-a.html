@@ -1,0 +1,327 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiablePoint</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.deep</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiablePoint (org.immutables.fixture.deep)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiablePoint</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.deep;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Canvas.Point Point} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiablePoint is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutablePoint
+&nbsp; */
+&nbsp;@Generated(from = &quot;Canvas.Point&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Canvas.Point&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiablePoint implements Canvas.Point {
+&nbsp;  private static final long INIT_BIT_X = 0x1L;
+&nbsp;  private static final long INIT_BIT_Y = 0x2L;
+&nbsp;  private long initBits = 0x3L;
+&nbsp;
+&nbsp;  private int x;
+&nbsp;  private int y;
+&nbsp;
+&nbsp;  private ModifiablePoint() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Point}.
+&nbsp;   * @param x The value for the {@link Canvas.Point#x() x} attribute 
+&nbsp;   * @param y The value for the {@link Canvas.Point#y() y} attribute 
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiablePoint create(int x, int y) {
+&nbsp;    return new ModifiablePoint()
+&nbsp;        .setX(x)
+&nbsp;        .setY(y);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Point}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiablePoint create() {
+&nbsp;    return new ModifiablePoint();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code x} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int x() {
+&nbsp;    if (!xIsSet()) checkRequiredAttributes();
+&nbsp;    return x;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code y} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int y() {
+&nbsp;    if (!yIsSet()) checkRequiredAttributes();
+&nbsp;    return y;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiablePoint clear() {
+&nbsp;    initBits = 0x3L;
+&nbsp;    x = 0;
+&nbsp;    y = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Canvas.Point} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiablePoint from(Canvas.Point instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiablePoint) {
+&nbsp;      from((ModifiablePoint) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setX(instance.x());
+&nbsp;    setY(instance.y());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Canvas.Point} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiablePoint from(ModifiablePoint instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.xIsSet()) {
+&nbsp;      setX(instance.x());
+&nbsp;    }
+&nbsp;    if (instance.yIsSet()) {
+&nbsp;      setY(instance.y());
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Canvas.Point#x() x} attribute.
+&nbsp;   * @param x The value for x
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiablePoint setX(int x) {
+&nbsp;    this.x = x;
+&nbsp;    initBits &amp;= ~INIT_BIT_X;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Canvas.Point#y() y} attribute.
+&nbsp;   * @param y The value for y
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiablePoint setY(int y) {
+&nbsp;    this.y = y;
+&nbsp;    initBits &amp;= ~INIT_BIT_Y;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Canvas.Point#x() x} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean xIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_X) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Canvas.Point#y() y} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean yIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_Y) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiablePoint unsetX() {
+&nbsp;    initBits |= INIT_BIT_X;
+&nbsp;    x = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiablePoint unsetY() {
+&nbsp;    initBits |= INIT_BIT_Y;
+&nbsp;    y = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!xIsSet()) attributes.add(&quot;x&quot;);
+&nbsp;    if (!yIsSet()) attributes.add(&quot;y&quot;);
+&nbsp;    return &quot;Point is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutablePoint ImmutablePoint}.
+&nbsp;   * @return An immutable instance of Point
+&nbsp;   */
+&nbsp;  public final ImmutablePoint toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutablePoint.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiablePoint} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiablePoint)) return false;
+&nbsp;    ModifiablePoint other = (ModifiablePoint) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiablePoint another) {
+&nbsp;    return x == another.x
+&nbsp;        &amp;&amp; y == another.y;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code x}, {@code y}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + x;
+&nbsp;    h += (h &lt;&lt; 5) + y;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Point}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiablePoint&quot;)
+&nbsp;        .add(&quot;x&quot;, xIsSet() ? x() : &quot;?&quot;)
+&nbsp;        .add(&quot;y&quot;, yIsSet() ? y() : &quot;?&quot;)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,491 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableState</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableState (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableState$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableState$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link CriteriaContext.State}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableState.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;CriteriaContext.State&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableState implements CriteriaContext.State {
+&nbsp;  private final @Nullable Expression current;
+&nbsp;  private final @Nullable Expression partial;
+&nbsp;  private final Combiner combiner;
+&nbsp;  private final CriteriaCreator&lt;?&gt; creator;
+&nbsp;  private final Class&lt;?&gt; entityType;
+&nbsp;  private final @Nullable Expression defaultPartial;
+&nbsp;
+&nbsp;  private ImmutableState(ImmutableState.Builder builder) {
+&nbsp;    this.current = builder.current;
+&nbsp;    this.partial = builder.partial;
+&nbsp;    this.combiner = builder.combiner;
+&nbsp;    this.creator = builder.creator;
+&nbsp;    this.entityType = builder.entityType;
+&nbsp;    this.defaultPartial = builder.defaultPartialIsSet()
+&nbsp;        ? builder.defaultPartial
+&nbsp;        : CriteriaContext.State.super.defaultPartial();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableState(
+&nbsp;      @Nullable Expression current,
+&nbsp;      @Nullable Expression partial,
+&nbsp;      Combiner combiner,
+&nbsp;      CriteriaCreator&lt;?&gt; creator,
+&nbsp;      Class&lt;?&gt; entityType,
+&nbsp;      @Nullable Expression defaultPartial) {
+&nbsp;    this.current = current;
+&nbsp;    this.partial = partial;
+&nbsp;    this.combiner = combiner;
+&nbsp;    this.creator = creator;
+&nbsp;    this.entityType = entityType;
+&nbsp;    this.defaultPartial = defaultPartial;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code current} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Expression current() {
+&nbsp;    return current;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code partial} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Expression partial() {
+&nbsp;    return partial;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code combiner} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Combiner combiner() {
+&nbsp;    return combiner;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code creator} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public CriteriaCreator&lt;?&gt; creator() {
+&nbsp;    return creator;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code entityType} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Class&lt;?&gt; entityType() {
+&nbsp;    return entityType;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code defaultPartial} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Expression defaultPartial() {
+&nbsp;    return defaultPartial;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link CriteriaContext.State#current() current} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for current (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableState withCurrent(@Nullable Expression value) {
+&nbsp;    if (this.current == value) return this;
+&nbsp;    return new ImmutableState(value, this.partial, this.combiner, this.creator, this.entityType, this.defaultPartial);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link CriteriaContext.State#partial() partial} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for partial (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableState withPartial(@Nullable Expression value) {
+&nbsp;    if (this.partial == value) return this;
+&nbsp;    return new ImmutableState(this.current, value, this.combiner, this.creator, this.entityType, this.defaultPartial);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link CriteriaContext.State#combiner() combiner} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for combiner
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableState withCombiner(Combiner value) {
+&nbsp;    if (this.combiner == value) return this;
+&nbsp;    Combiner newValue = Objects.requireNonNull(value, &quot;combiner&quot;);
+&nbsp;    return new ImmutableState(this.current, this.partial, newValue, this.creator, this.entityType, this.defaultPartial);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link CriteriaContext.State#creator() creator} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for creator
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableState withCreator(CriteriaCreator&lt;?&gt; value) {
+&nbsp;    if (this.creator == value) return this;
+&nbsp;    CriteriaCreator&lt;?&gt; newValue = Objects.requireNonNull(value, &quot;creator&quot;);
+&nbsp;    return new ImmutableState(this.current, this.partial, this.combiner, newValue, this.entityType, this.defaultPartial);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link CriteriaContext.State#entityType() entityType} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for entityType
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableState withEntityType(Class&lt;?&gt; value) {
+&nbsp;    if (this.entityType == value) return this;
+&nbsp;    Class&lt;?&gt; newValue = Objects.requireNonNull(value, &quot;entityType&quot;);
+&nbsp;    return new ImmutableState(this.current, this.partial, this.combiner, this.creator, newValue, this.defaultPartial);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link CriteriaContext.State#defaultPartial() defaultPartial} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for defaultPartial (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableState withDefaultPartial(@Nullable Expression value) {
+&nbsp;    if (this.defaultPartial == value) return this;
+&nbsp;    return new ImmutableState(this.current, this.partial, this.combiner, this.creator, this.entityType, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableState} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableState
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableState) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableState another) {
+&nbsp;    return Objects.equals(current, another.current)
+&nbsp;        &amp;&amp; Objects.equals(partial, another.partial)
+&nbsp;        &amp;&amp; combiner.equals(another.combiner)
+&nbsp;        &amp;&amp; creator.equals(another.creator)
+&nbsp;        &amp;&amp; entityType.equals(another.entityType)
+&nbsp;        &amp;&amp; Objects.equals(defaultPartial, another.defaultPartial);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code current}, {@code partial}, {@code combiner}, {@code creator}, {@code entityType}, {@code defaultPartial}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(current);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(partial);
+&nbsp;    h += (h &lt;&lt; 5) + combiner.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + creator.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + entityType.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(defaultPartial);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code State} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;State&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;current&quot;, current)
+&nbsp;        .add(&quot;partial&quot;, partial)
+&nbsp;        .add(&quot;combiner&quot;, combiner)
+&nbsp;        .add(&quot;creator&quot;, creator)
+&nbsp;        .add(&quot;entityType&quot;, entityType)
+&nbsp;        .add(&quot;defaultPartial&quot;, defaultPartial)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link CriteriaContext.State} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable State instance
+&nbsp;   */
+&nbsp;  public static ImmutableState copyOf(CriteriaContext.State instance) {
+&nbsp;    if (instance instanceof ImmutableState) {
+&nbsp;      return (ImmutableState) instance;
+&nbsp;    }
+&nbsp;    return ImmutableState.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableState ImmutableState}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableState.builder()
+&nbsp;   *    .current(org.immutables.criteria.expression.Expression | null) // nullable {@link CriteriaContext.State#current() current}
+&nbsp;   *    .partial(org.immutables.criteria.expression.Expression | null) // nullable {@link CriteriaContext.State#partial() partial}
+&nbsp;   *    .combiner(org.immutables.criteria.matcher.Combiner) // required {@link CriteriaContext.State#combiner() combiner}
+&nbsp;   *    .creator(org.immutables.criteria.matcher.CriteriaCreator&amp;amp;lt;?&amp;amp;gt;) // required {@link CriteriaContext.State#creator() creator}
+&nbsp;   *    .entityType(Class&amp;amp;lt;?&amp;amp;gt;) // required {@link CriteriaContext.State#entityType() entityType}
+&nbsp;   *    .defaultPartial(org.immutables.criteria.expression.Expression | null) // nullable {@link CriteriaContext.State#defaultPartial() defaultPartial}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableState builder
+&nbsp;   */
+&nbsp;  public static ImmutableState.Builder builder() {
+&nbsp;    return new ImmutableState.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableState ImmutableState}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;CriteriaContext.State&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_COMBINER = 0x1L;
+&nbsp;    private static final long INIT_BIT_CREATOR = 0x2L;
+&nbsp;    private static final long INIT_BIT_ENTITY_TYPE = 0x4L;
+&nbsp;    private static final long OPT_BIT_DEFAULT_PARTIAL = 0x1L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable Expression current;
+&nbsp;    private @Nullable Expression partial;
+&nbsp;    private @Nullable Combiner combiner;
+&nbsp;    private @Nullable CriteriaCreator&lt;?&gt; creator;
+&nbsp;    private @Nullable Class&lt;?&gt; entityType;
+&nbsp;    private @Nullable Expression defaultPartial;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code State} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(CriteriaContext.State instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable Expression currentValue = instance.current();
+&nbsp;      if (currentValue != null) {
+&nbsp;        current(currentValue);
+&nbsp;      }
+&nbsp;      @Nullable Expression partialValue = instance.partial();
+&nbsp;      if (partialValue != null) {
+&nbsp;        partial(partialValue);
+&nbsp;      }
+&nbsp;      combiner(instance.combiner());
+&nbsp;      creator(instance.creator());
+&nbsp;      entityType(instance.entityType());
+&nbsp;      @Nullable Expression defaultPartialValue = instance.defaultPartial();
+&nbsp;      if (defaultPartialValue != null) {
+&nbsp;        defaultPartial(defaultPartialValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link CriteriaContext.State#current() current} attribute.
+&nbsp;     * @param current The value for current (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder current(@Nullable Expression current) {
+&nbsp;      this.current = current;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link CriteriaContext.State#partial() partial} attribute.
+&nbsp;     * @param partial The value for partial (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder partial(@Nullable Expression partial) {
+&nbsp;      this.partial = partial;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link CriteriaContext.State#combiner() combiner} attribute.
+&nbsp;     * @param combiner The value for combiner 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder combiner(Combiner combiner) {
+&nbsp;      this.combiner = Objects.requireNonNull(combiner, &quot;combiner&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_COMBINER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link CriteriaContext.State#creator() creator} attribute.
+&nbsp;     * @param creator The value for creator 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder creator(CriteriaCreator&lt;?&gt; creator) {
+&nbsp;      this.creator = Objects.requireNonNull(creator, &quot;creator&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_CREATOR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link CriteriaContext.State#entityType() entityType} attribute.
+&nbsp;     * @param entityType The value for entityType 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder entityType(Class&lt;?&gt; entityType) {
+&nbsp;      this.entityType = Objects.requireNonNull(entityType, &quot;entityType&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ENTITY_TYPE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link CriteriaContext.State#defaultPartial() defaultPartial} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link CriteriaContext.State#defaultPartial() defaultPartial}.&lt;/em&gt;
+&nbsp;     * @param defaultPartial The value for defaultPartial (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder defaultPartial(@Nullable Expression defaultPartial) {
+&nbsp;      this.defaultPartial = defaultPartial;
+&nbsp;      optBits |= OPT_BIT_DEFAULT_PARTIAL;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableState ImmutableState}.
+&nbsp;     * @return An immutable instance of State
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableState build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableState(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean defaultPartialIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_DEFAULT_PARTIAL) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_COMBINER) != 0) attributes.add(&quot;combiner&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_CREATOR) != 0) attributes.add(&quot;creator&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ENTITY_TYPE) != 0) attributes.add(&quot;entityType&quot;);
+&nbsp;      return &quot;Cannot build State, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

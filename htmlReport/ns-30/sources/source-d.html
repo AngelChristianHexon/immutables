@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > BbzBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: BbzBuilder (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">BbzBuilder</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code BbzBuilder} collects parameters and invokes the static factory method:
+&nbsp; * {@code org.immutables.fixture.jdkonly.JdkOptionalBuilderFactory.bbz(..)}.
+&nbsp; * Call the {@link #build()} method to get a result of type {@code int}.
+&nbsp; * &lt;p&gt;&lt;em&gt;{@code BbzBuilder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp; * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkOptionalBuilderFactory.bbz&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@NotThreadSafe
+&nbsp;public final class BbzBuilder {
+&nbsp;  private Optional&lt;String&gt; b = Optional.empty();
+&nbsp;  private OptionalInt c = OptionalInt.empty();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a {@code BbzBuilder} factory builder.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * new BbzBuilder()
+&nbsp;   *    .b(String) // optional {@code b}
+&nbsp;   *    .c(int) // optional {@code c}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @param b {@code b} parameter
+&nbsp;   * @param c {@code c} parameter
+&nbsp;   */
+&nbsp;  public BbzBuilder(Optional&lt;String&gt; b, OptionalInt c) {
+&nbsp;    b(b);
+&nbsp;    c(c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code b} to b.
+&nbsp;   * @param b The value for b
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  private final BbzBuilder b(Optional&lt;String&gt; b) {
+&nbsp;    this.b = (Optional&lt;String&gt;) Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the optional value {@code c} to c.
+&nbsp;   * @param c The value for c
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  private final BbzBuilder c(OptionalInt c) {
+&nbsp;    this.c = (OptionalInt) Objects.requireNonNull(c, &quot;c&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Invokes {@code org.immutables.fixture.jdkonly.JdkOptionalBuilderFactory.bbz(..)} using the collected parameters and returns the result of the invocation
+&nbsp;   * @return A result of type {@code int}
+&nbsp;   * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;   */
+&nbsp;  public int build() {
+&nbsp;    return JdkOptionalBuilderFactory.bbz(b, c);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

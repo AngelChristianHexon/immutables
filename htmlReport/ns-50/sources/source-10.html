@@ -1,0 +1,2674 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Generator_Repositories</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Generator_Repositories (org.immutables.value.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Generator_Repositories</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/196)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2044)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Generator_Repositories$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_Repositories$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_Repositories$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_Repositories$FragmentDispatch</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/47)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/219)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2096)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor;
+&nbsp;
+&nbsp;import static org.immutables.generator.Intrinsics.*;
+&nbsp;
+&nbsp;@java.lang.SuppressWarnings(&quot;all&quot;)
+<b class="nc">&nbsp;public class Generator_Repositories extends org.immutables.value.processor.Repositories {</b>
+<b class="nc">&nbsp;public org.immutables.generator.Templates.Invokable generate() { return generate; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generate = new FragmentDispatch(0, 0);</b>
+&nbsp;void _t0__generate(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueType type : $in(values.values())) {</b>
+<b class="nc">&nbsp;  if ($if(type.isGenerateRepository())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(type.kind().isValue(), andnot, type.generics()))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      $(__, output.java, type.$$package(), $(type.name(), &quot;Repository&quot;), type.element, new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;      @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        $(__, type.sourceHeader());</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        $(__, generateRepository, type);</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }});
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+&nbsp;      
+&nbsp;    } else {
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      $(__, output.error, new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;      @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;Use @Mongo.Repository to annotate @Value.Immutable abstract value types with no type variables&quot;).ln();</b>
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }});
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateRepository() { return generateRepository; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateRepository = new FragmentDispatch(1, 1);</b>
+&nbsp;void _t1__generateRepository(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.$$package())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;package &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.$$package());</b>
+<b class="nc">&nbsp;    __.out(&quot;;&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import com.mongodb.DBCollection;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import com.mongodb.DBObject;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.mongo.repository.Repositories;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.mongo.repository.RepositorySetup;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.mongo.concurrent.FluentFuture;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.mongo.repository.internal.Constraints;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.mongo.repository.internal.Support;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.bson.codecs.Encoder;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.bson.codecs.configuration.CodecRegistry;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.bson.conversions.Bson;&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final java.lang.String starImport : $in(type.getRequiredSourceStarImports())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;import &quot;);</b>
+<b class="nc">&nbsp;    $(__, starImport);</b>
+<b class="nc">&nbsp;    __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * A {@code &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository} provides type-safe access for storing and retrieving documents&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * from the MongoDB collection {@code \&quot;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.getDocumentName());</b>
+<b class="nc">&nbsp;  __.out(&quot;\&quot;}.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.getRepository().readonly())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; *&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * This repository was marked as readonly and therefore write operations have been disabled.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; &quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.generatedSuppressWarnings())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@SuppressWarnings({&quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final java.lang.String k : $in(type.generatedSuppressWarnings())) {</b>
+<b class="nc">&nbsp;    __.dl();__.dl();</b>
+<b class="nc">&nbsp;      if ($if($(not, _it1.first))) {</b>
+<b class="nc">&nbsp;        __.dl();__.out(&quot;, &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();$(__, literal, k);</b>
+<b class="nc">&nbsp;      __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;      _it1.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;})&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.ParametersAreNonnullByDefault&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.ParametersAreNonnullByDefault&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;javax.annotation.processing.Generated&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@javax.annotation.processing.Generated(\&quot;org.immutables.processor.ProxyProcessor\&quot;)&quot;).ln();</b>
+<b class="nc">&nbsp;    } else if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.Generated&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.Generated(\&quot;org.immutables.processor.ProxyProcessor\&quot;)&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.concurrent.ThreadSafe&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.concurrent.ThreadSafe&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument().access());</b>
+<b class="nc">&nbsp;  __.out(&quot;class &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository extends Repositories.Repository&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private static final String DOCUMENT_COLLECTION_NAME = \&quot;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.getDocumentName());</b>
+<b class="nc">&nbsp;  __.out(&quot;\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Serialization serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Criteria anyCriteria;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * Constructs a {@link &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;} repository using {@link RepositorySetup configuration}.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * @param configuration The repository configuration&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository(RepositorySetup configuration) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    super(configuration, DOCUMENT_COLLECTION_NAME, &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;.class);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.serialization = new Serialization(codecRegistry(), fieldNamingStrategy());&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.anyCriteria = new Criteria(this.serialization, Constraints.nilConstraint());&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * Inserts a single document into the collection.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * @param document The &quot;);</b>
+<b class="nc">&nbsp;    $(__, toLower, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot; to insert&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * @return A future representing the number of inserted documents (1) if WriteConcern allows the insertion.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  public FluentFuture&lt;Integer&gt; insert(&quot;);</b>
+<b class="nc">&nbsp;    $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;    __.out(&quot; document) {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    return super.doInsert(com.google.common.collect.ImmutableList.of(document));&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * Insert documents into the collection.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * @param documents The documents to insert&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * @return A future representing the number of inserted documents if WriteConcern allows the insertion.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  public FluentFuture&lt;Integer&gt; insert(Iterable&lt;? extends &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;    __.out(&quot;&gt; documents) {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    return super.doInsert(com.google.common.collect.ImmutableList.copyOf(documents));&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * Finds all documents. Use the returned {@link Finder} object to complete&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * {@link Finder#fetchAll() fetch all} or other operations.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * @return A finder object used to complete operations&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public Finder findAll() {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    return find(criteria());&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * Find documents by the criteria expressed as a JSON string. Use the returned {@link Finder} object to complete&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * {@link Finder#fetchAll() fetch} or {@link Finder#fetchFirst() fetch} operations.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * @param jsonCriteria A JSON string for native criteria&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   * @return A finder object used to complete operations&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public Finder find(String jsonCriteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    return new Finder(this, Support.jsonQuery(jsonCriteria));&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  final org.immutables.value.processor.meta.ValueAttribute a = $cast(type.getIdAttribute());</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if(a)) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Find documents by the {@link &quot;);</b>
+<b class="nc">&nbsp;      $(__, type.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.names.get);</b>
+<b class="nc">&nbsp;      __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} identity attribute. Use the returned {@link Finder} object to complete&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * {@link Finder#fetchFirst() fetch} or {@link Finder#fetchAll() fetchAll} read operations.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * You can also use {@link Finder#andModifyFirst() modify}, {@link Finder#andReplaceFirst(&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typeDocument().relativeRaw());</b>
+<b class="nc">&nbsp;        __.out(&quot;) replace}&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * or {@link Finder#deleteFirst() delete} operations to update / delete the document.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @param &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot; The exact {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} value&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @return A finder object used to complete operations&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;          $(__, jaxarta());</b>
+<b class="nc">&nbsp;          __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Finder findBy&quot;);</b>
+<b class="nc">&nbsp;      $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.getType());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return find(criteria().&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Update or insert a document, matched by the identifier value of the \&#39;&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;\&#39; attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @param document The &quot;);</b>
+<b class="nc">&nbsp;        $(__, toLower, type.name());</b>
+<b class="nc">&nbsp;        __.out(&quot; to upsert&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @return A future representing the of number of inserted documents (1) if WriteConcern allows the insertion.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public FluentFuture&lt;Integer&gt; upsert(&quot;);</b>
+<b class="nc">&nbsp;        $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;        __.out(&quot; document) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    Criteria byId = criteria().&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;(document.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.names.get);</b>
+<b class="nc">&nbsp;        __.out(&quot;());&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return super.doUpsert(byId.constraint, document);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, generateFinder, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, generateUpdater, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, generateModifier, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, generateReplacer, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.getRepository().index())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, generateIndexer, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, generateCriteria, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, generateSerializationHelpers, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateOrderingAndExcludes() { return generateOrderingAndExcludes; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateOrderingAndExcludes = new FragmentDispatch(2, 2);</b>
+&nbsp;void _t2__generateOrderingAndExcludes(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final java.lang.String tT = __.param(1).toString();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueAttribute a : $in(type.allMarshalingAttributes())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * Order by {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;} in the ascending direction.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * Specify that the next attribute to sort will be the {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;} attribute using ascending order&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * in the the chain of comparisons performed to sort results.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;    $(__, toLower, tT);</b>
+<b class="nc">&nbsp;    __.out(&quot; for use in a chained invocation&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;public &quot;);</b>
+<b class="nc">&nbsp;    $(__, tT);</b>
+<b class="nc">&nbsp;    __.out(&quot; orderBy&quot;);</b>
+<b class="nc">&nbsp;    $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  ordering = ordering.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Name, false, 1);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  return this;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * Order by {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;} in the descending direction.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * Specify that the next attribute to sort will be the {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;} attribute using descending order&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * in the the chain of comparisons performed to sort results.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;    $(__, toLower, tT);</b>
+<b class="nc">&nbsp;    __.out(&quot; for use in a chained invocation&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;public &quot;);</b>
+<b class="nc">&nbsp;    $(__, tT);</b>
+<b class="nc">&nbsp;    __.out(&quot; orderBy&quot;);</b>
+<b class="nc">&nbsp;    $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Desceding() {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  ordering = ordering.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Name, false, -1);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  return this;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueAttribute a : $in(type.getExcludableAttributes())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * Exclude the {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;} attribute from each document in the results.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;    $(__, toLower, tT);</b>
+<b class="nc">&nbsp;    __.out(&quot; for use in a chained invocation&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;public &quot;);</b>
+<b class="nc">&nbsp;    $(__, tT);</b>
+<b class="nc">&nbsp;    __.out(&quot; exclude&quot;);</b>
+<b class="nc">&nbsp;    $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  exclusion = exclusion.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Name, false, -1);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  return this;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateFinder() { return generateFinder; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateFinder = new FragmentDispatch(1, 3);</b>
+&nbsp;void _t3__generateFinder(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Find a document by the given {@link &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository#criteria() criteria}. Use the returned {@link Finder} object to complete&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * {@link Finder#fetchAll() fetch}  operations.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * You can also use {@link Finder#andModifyFirst() modify} or {@link Finder#deleteFirst() delete}&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; * operations to update / delete the document(s).&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot; &quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @param criteria The search criteria&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @return A finder object used to complete operations&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public Finder find(Criteria criteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return new Finder(this, criteria.constraint);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * The finder object used to proceed with find operations via the&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * {@link Finder#fetchAll()}, {@link Finder#fetchFirst()}&quot;);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;, {@link Finder#andModifyFirst()}, or {@link Finder#deleteFirst()}&quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.out(&quot; methods.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Configure exclusion and sort ordering for results using the family of {@code exclude*()} and {@code orderBy*()} attribute-specific methods.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @see &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository#find(Criteria)&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atNotThreadSafe, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public static final class Finder extends Repositories.&quot;);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.getRepository().readonly())) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;Finder&quot;);</b>
+&nbsp;    
+&nbsp;  } else {
+<b class="nc">&nbsp;    __.dl();__.out(&quot;FinderWithDelete&quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.out(&quot;&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;, Finder&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Serialization serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private Finder(&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository repository, Constraints.ConstraintHost criteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    super(repository);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.criteria = criteria;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.serialization = repository.serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  $(__, generateOrderingAndExcludes, type, &quot;Finder&quot;);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(not, type.getRepository().readonly()))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, generateAndModifyFirst, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, generateAndReplaceFirst, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateAndReplaceFirst() { return generateAndReplaceFirst; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateAndReplaceFirst = new FragmentDispatch(1, 4);</b>
+&nbsp;void _t4__generateAndReplaceFirst(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Used to replace in-place existing version of the document&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public Replacer andReplaceFirst(&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot; document) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return new Replacer((&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository) repository, document, criteria, ordering);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateAndModifyFirst() { return generateAndModifyFirst; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateAndModifyFirst = new FragmentDispatch(1, 5);</b>
+&nbsp;void _t5__generateAndModifyFirst(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Turn a find operation into an atomic {@link DBCollection#findAndModify(DBObject, DBObject, DBObject, boolean, DBObject, boolean, boolean) findAndModify}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * operation. Use the family of {@code set*()}, {@code unset*()}, {@code add*()}, {@code remove*()}, {@code put*()}m and {@code init*()}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * (and other attribute-specific) methods to describe the modification.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @return A modifier object to complete the {@code findAndModify} operation&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public Modifier andModifyFirst() {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return new Modifier((&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository) repository, criteria, ordering, exclusion);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateIndexer() { return generateIndexer; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateIndexer = new FragmentDispatch(1, 6);</b>
+&nbsp;void _t6__generateIndexer(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * {@link DBCollection#createIndex(DBObject, DBObject) Ensure an index} on collection &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.getDocumentName());</b>
+<b class="nc">&nbsp;  __.out(&quot; by one or&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * more attributes using the family of {@code with*()} attribute-specific methods.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * While indexes will usually be maintained by special administration scripts, for simple cases it is convenient&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * to ensure an index on application startup.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @see Indexer#named(String)&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @see Indexer#unique()&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @return An indexer object to be completed with the {@link Indexer#ensure()} operation.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public Indexer index() {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return new Indexer(this);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * An indexer used to create an index on the {@code \&quot;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.getDocumentName());</b>
+<b class="nc">&nbsp;  __.out(&quot;\&quot;} collection if it does not exist by one or more attributes.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @see DBCollection#createIndex(DBObject, DBObject)&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atNotThreadSafe, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public static final class Indexer extends Repositories.Indexer&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;, Indexer&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Serialization serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private Indexer(&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository repository) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    super(repository);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.serialization = repository.serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueAttribute a : $in(type.allMarshalingAttributes())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * Specify that the next attribute to index will be {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;}, in the ascending direction.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * @return {@code this} indexer for use in a chained invocation&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  public Indexer with&quot;);</b>
+<b class="nc">&nbsp;    $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    fields = fields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Name, false, 1);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * Specify that the next attribute to index will be {@link &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;#&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.names.get);</b>
+<b class="nc">&nbsp;    __.out(&quot;() &quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;}, in the descending direction.&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   * @return {@code this} indexer for use in a chained invocation&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  public Indexer with&quot;);</b>
+<b class="nc">&nbsp;    $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Desceding() {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    fields = fields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Name, false, -1);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateUpdater() { return generateUpdater; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateUpdater = new FragmentDispatch(1, 7);</b>
+&nbsp;void _t7__generateUpdater(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Update the set of {@code \&quot;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.getDocumentName());</b>
+<b class="nc">&nbsp;  __.out(&quot;\&quot;} documents.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @param criteria The search criteria for update&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @return An updater object that will be used to complete the update.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.value.processor.meta.HasStyleInfo s_atCheckReturnValue_1439785051 = $cast(type);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(s_atCheckReturnValue_1439785051, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;      __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;      $(__, jaxarta());</b>
+<b class="nc">&nbsp;      __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public Updater update(Criteria criteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return new Updater(this, criteria);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * {@link #update(Criteria) Given} the criteria updater describes how to perform&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * update operations on sets of documents.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atNotThreadSafe, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public static final class Updater extends Repositories.Updater&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Serialization serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private Updater(&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository repository, Criteria criteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    super(repository);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.criteria = criteria.constraint;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.serialization = repository.serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, generateUpdatingMethods, type, &quot;Updater&quot;);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateReplacer() { return generateReplacer; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateReplacer = new FragmentDispatch(1, 8);</b>
+&nbsp;void _t8__generateReplacer(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atNotThreadSafe, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public static final class Replacer extends Repositories.Replacer&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;, Replacer&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  protected Replacer(&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository repository, &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot; document, Constraints.ConstraintHost criteria, Constraints.Constraint ordering) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    super(repository, document, criteria, ordering);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateModifier() { return generateModifier; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateModifier = new FragmentDispatch(1, 9);</b>
+&nbsp;void _t9__generateModifier(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  $(__, atNotThreadSafe, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public static final class Modifier extends Repositories.Modifier&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;, Modifier&gt; {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Serialization serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private Modifier(&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;      &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository repository,&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;      Constraints.ConstraintHost criteria,&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;      Constraints.Constraint ordering,&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;      Constraints.Constraint exclusion) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    super(repository);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.serialization = repository.serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.criteria = criteria;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.ordering = ordering;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.exclusion = exclusion;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, generateUpdatingMethods, type, &quot;Modifier&quot;);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateUpdatingMethods() { return generateUpdatingMethods; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateUpdatingMethods = new FragmentDispatch(2, 10);</b>
+&nbsp;void _t10__generateUpdatingMethods(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final java.lang.String tT = __.param(1).toString();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueAttribute a : $in(type.allMarshalingAttributes())) {</b>
+<b class="nc">&nbsp;  final java.lang.String wW = $cast(a.getWrappedElementType());</b>
+<b class="nc">&nbsp;  final java.lang.String uU = $cast(a.getUnwrappedElementType());</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if(a.isCollectionType())) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Clear the {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, a.getRawCollectionType());</b>
+<b class="nc">&nbsp;      __.out(&quot; attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isForcedEmpty())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $set} operator resetting to empty array&quot;).ln();</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $unset} operator&quot;).ln();</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;      $(__, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; clear&quot;);</b>
+<b class="nc">&nbsp;      $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isForcedEmpty())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    setFields = setFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, com.google.common.collect.ImmutableList.&lt;Object&gt;of());&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    unsetFields = unsetFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, 1);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Remove a value from the {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, a.getRawCollectionType());</b>
+<b class="nc">&nbsp;      __.out(&quot; attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Corresponds to the MongoDB {@code $pull} operator.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @param value The value to remove&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;      $(__, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; remove&quot;);</b>
+<b class="nc">&nbsp;      $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;      $(__, uU);</b>
+<b class="nc">&nbsp;      __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    pullFields = pullFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Encoder, &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Add a value to the {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, a.getRawCollectionType());</b>
+<b class="nc">&nbsp;      __.out(&quot; attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isSetType())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $addToSet} operator.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $push} operator.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @param value The value to add&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;      $(__, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; add&quot;);</b>
+<b class="nc">&nbsp;      $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;      $(__, uU);</b>
+<b class="nc">&nbsp;      __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isSetType())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    addToSetFields = addToSetFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    pushFields = pushFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Override all values of {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, a.getRawCollectionType());</b>
+<b class="nc">&nbsp;      __.out(&quot; attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   *&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * &lt;p&gt;Corresponds to the MongoDB {@code $set} operator on the array field.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @param values The values to set&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   public &quot;);</b>
+<b class="nc">&nbsp;      $(__, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; set&quot;);</b>
+<b class="nc">&nbsp;      $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(Iterable&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.getConsumedElementType());</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; values) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;     java.util.List&lt;Object&gt; wrappedValues = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;      $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;      __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;     for (&quot;);</b>
+<b class="nc">&nbsp;      $(__, wW);</b>
+<b class="nc">&nbsp;      __.out(&quot; value : values) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;       wrappedValues.add(&quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Encoder, &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;     }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;     setFields = setFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, false, wrappedValues);&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;     return this;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * Add all of the given values to the {@code &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, a.getRawCollectionType());</b>
+<b class="nc">&nbsp;      __.out(&quot; attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isSetType())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $addToSet} operator with the {@code $each} modifier.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $push} operator with the {@code $each} modifier.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @param values The values to add&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;      $(__, toLower, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;      $(__, tT);</b>
+<b class="nc">&nbsp;      __.out(&quot; addAll&quot;);</b>
+<b class="nc">&nbsp;      $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(Iterable&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.getConsumedElementType());</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; values) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    java.util.List&lt;Object&gt; wrappedValues = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;      $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;      __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    for (&quot;);</b>
+<b class="nc">&nbsp;      $(__, wW);</b>
+<b class="nc">&nbsp;      __.out(&quot; value : values) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      wrappedValues.add(&quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Encoder, &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    if (wrappedValues.isEmpty()) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      return this;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    Object v = wrappedValues.size() == 1&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;        ? wrappedValues.get(0)&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;        : Support.bsonObjectAttribute(\&quot;$each\&quot;, wrappedValues);&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isSetType())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    addToSetFields = addToSetFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, v);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    pushFields = pushFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, v);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(not, a.isCollectionType()))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isMapType())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Clear the {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} map attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $set} operator, used to reset to empty object&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;        $(__, toLower, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;        $(__, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; clear&quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    setFields = setFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, Support.emptyBsonObject());&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Put the given key and value into the {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} map attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $set} operator for nested objects&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @param key The key&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @param value The value&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;        $(__, toLower, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;        $(__, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; put&quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; key, &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.getUnwrappedSecondaryElementType());</b>
+<b class="nc">&nbsp;        __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    setFields = setFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name + \&quot;.\&quot; + key, false, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapSecondaryMarshalable_1909006601 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapSecondaryMarshalable_1909006601.isRequiresMarshalingSecondaryAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapSecondaryMarshalable_1909006601.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;SecondaryEncoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Remove the key to value mapping from the {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} map attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to MongoDB {@code $unset} operator for nested objects&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @param key The key&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;        $(__, toLower, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;        $(__, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; remove&quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; key) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    unsetFields = unsetFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name + \&quot;.\&quot; + key, false, 1);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a.isOptionalType())) {</b>
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * Clear the optional {@code &quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;} attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;          __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a.isForcedEmpty())) {</b>
+<b class="nc">&nbsp;            __.dl();__.ln();</b>
+<b class="nc">&nbsp;            __.out(&quot;   * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}&quot;).ln();</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.ln();</b>
+<b class="nc">&nbsp;            __.out(&quot;   * Corresponds to the MongoDB {@code $unset} operator&quot;).ln();</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;          $(__, toLower, tT);</b>
+<b class="nc">&nbsp;          __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;          $(__, tT);</b>
+<b class="nc">&nbsp;          __.out(&quot; empty&quot;);</b>
+<b class="nc">&nbsp;          $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;() {&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;      &quot;);</b>
+<b class="nc">&nbsp;          __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a.isForcedEmpty())) {</b>
+<b class="nc">&nbsp;            __.dl();__.ln();</b>
+<b class="nc">&nbsp;            __.out(&quot;    setFields = setFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Name, false, null);&quot;).ln();</b>
+<b class="nc">&nbsp;            __.out(&quot;      &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.ln();</b>
+<b class="nc">&nbsp;            __.out(&quot;    unsetFields = unsetFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Name, false, 1);&quot;).ln();</b>
+<b class="nc">&nbsp;            __.out(&quot;      &quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    &quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Specify a new value for the {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} attribute.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $set} operator.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @param value A new value for the {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} attribute&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;        $(__, toLower, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;        $(__, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; set&quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    setFields = setFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Specify an initial value for the {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} attribute. The value will be used if the document is&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * to be inserted. If one or more documents are found for an update, this value will not be used.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * Corresponds to the MongoDB {@code $setOnInsert} operator.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @param value The {@code &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;} value for an insert.&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;        $(__, toLower, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;        $(__, tT);</b>
+<b class="nc">&nbsp;        __.out(&quot; init&quot;);</b>
+<b class="nc">&nbsp;        $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    setOnInsertFields = setOnInsertFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a.isNumberType())) {</b>
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  /**&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * Specify an increment amount for the {@code &quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;} attribute. If the document is to inserted&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * &lt;p&gt;&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * Corresponds to the MongoDB {@code $inc} operator.&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * @param increment An amount by which to increment the {@code &quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;} attribute (may be negative)&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   * @return {@code this} &quot;);</b>
+<b class="nc">&nbsp;          $(__, toLower, tT);</b>
+<b class="nc">&nbsp;          __.out(&quot; to be used to complete the update operation&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;   */&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;          $(__, tT);</b>
+<b class="nc">&nbsp;          __.out(&quot; increment&quot;);</b>
+<b class="nc">&nbsp;          $(__, toUpper, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;          $(__, uU);</b>
+<b class="nc">&nbsp;          __.out(&quot; increment) {&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    incrementFields = incrementFields.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Name, false, increment);&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    return this;&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;      &quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateCriteria() { return generateCriteria; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateCriteria = new FragmentDispatch(1, 11);</b>
+&nbsp;void _t11__generateCriteria(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Search criteria.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Returns an initial object to create criteria by invoking methods that describe attribute specific constraints.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * @return An empty immutable criteria&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public Criteria criteria() {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return anyCriteria;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;@com.google.common.annotations.Beta&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;Bson toBson(Criteria criteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  return Support.convertToBson(criteria.constraint);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * {@code &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository.Criteria} is a &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot; document search query.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * Call methods on the criteria to add constraints for search queries.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;  $(__, jaxarta());</b>
+<b class="nc">&nbsp;  __.out(&quot;.annotation.concurrent.Immutable&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;@SuppressWarnings(\&quot;unchecked\&quot;)&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;public static final class Criteria extends Repositories.Criteria {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Constraints.Constraint constraint;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Serialization serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  Criteria(Serialization serialization, Constraints.Constraint constraint) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.constraint = constraint;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.serialization = serialization;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueAttribute a : $in(type.allMarshalingAttributes())) {</b>
+<b class="nc">&nbsp;  final java.lang.String wW = $cast(a.getWrappedElementType());</b>
+<b class="nc">&nbsp;  final java.lang.String uU = $cast(a.getUnwrappedElementType());</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if(a.isCollectionType())) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Empty() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return new Criteria(serialization, constraint.size(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, false, 0));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;NonEmpty() {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return new Criteria(serialization, constraint.size(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, true, 0));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Size(int size) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return new Criteria(serialization, constraint.size(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, false, size));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Contains(&quot;);</b>
+<b class="nc">&nbsp;      $(__, uU);</b>
+<b class="nc">&nbsp;      __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return new Criteria(serialization, constraint.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Encoder, &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;value)));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;ContainsAll(Iterable&lt;&quot;);</b>
+<b class="nc">&nbsp;      $(__, wW);</b>
+<b class="nc">&nbsp;      __.out(&quot;&gt; values) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    java.util.List&lt;Object&gt; wrappedValues = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;      $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;      __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    for (&quot;);</b>
+<b class="nc">&nbsp;      $(__, wW);</b>
+<b class="nc">&nbsp;      __.out(&quot; value : values) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;      wrappedValues.add(&quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Encoder, &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return new Criteria(serialization, constraint.nested(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, Constraints.nilConstraint().equal(\&quot;$all\&quot;, false, wrappedValues)));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(wW, eq, &quot;java.lang.String&quot;))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;AnyStartsWith(String prefix) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.match(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, Constraints.prefixPatternOf(prefix)));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;AnyMatches(java.util.regex.Pattern pattern) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.match(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, pattern));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(not, a.isCollectionType()))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;      $(__, uU);</b>
+<b class="nc">&nbsp;      __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    return new Criteria(serialization, constraint.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;      {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;        if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Encoder, &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      __.out(&quot;value)));&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(uU, ne, &quot;boolean&quot;))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Not(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; value) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, true, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value)));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(Iterable&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, wW);</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; values) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    java.util.List&lt;Object&gt; wrappedValues = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;        $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;        __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    for (&quot;);</b>
+<b class="nc">&nbsp;        $(__, wW);</b>
+<b class="nc">&nbsp;        __.out(&quot; value : values) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      wrappedValues.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.in(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, wrappedValues));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; first, &quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; second, &quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot;... rest) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    java.util.List&lt;Object&gt; values = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;        $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;        __.out(&quot;(2 + rest.length);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    values.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;first));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    values.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;second));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    for (&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; value : rest) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      values.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.in(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, values));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;NotIn(Iterable&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, wW);</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; values) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    java.util.List&lt;Object&gt; wrappedValues = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;        $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;        __.out(&quot;();&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    for (&quot;);</b>
+<b class="nc">&nbsp;        $(__, wW);</b>
+<b class="nc">&nbsp;        __.out(&quot; value : values) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      wrappedValues.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.in(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, true, wrappedValues));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;NotIn(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; first, &quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; second, &quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot;... rest) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    java.util.List&lt;Object&gt; values = new java.util.ArrayList&quot;);</b>
+<b class="nc">&nbsp;        $(__, asDiamond, &quot;Object&quot;);</b>
+<b class="nc">&nbsp;        __.out(&quot;(2 + rest.length);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    values.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;first));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    values.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;second));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    for (&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; value : rest) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;      values.add(&quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;value));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.in(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, true, values));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if($(a.isStringType(), or, $(a.isOptionalType(), and, $(uU, eq, &quot;java.lang.String&quot;))))) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;StartsWith(String prefix) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.match(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, Constraints.prefixPatternOf(prefix)));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Matches(java.util.regex.Pattern pattern) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.match(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, pattern));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;NotMatches(java.util.regex.Pattern pattern) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.match(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, true, pattern));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isOptionalType())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Present() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;        if ($if(type.isUseConstructorOnly())) {</b>
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    return new Criteria(serialization, constraint.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Name, true, null));&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    return new Criteria(serialization, constraint.present(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Name, false));&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  &quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Absent() {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;        if ($if(type.isUseConstructorOnly())) {</b>
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    return new Criteria(serialization, constraint.equal(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Name, false, null));&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  &quot;);</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();__.ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;    return new Criteria(serialization, constraint.present(serialization.&quot;);</b>
+<b class="nc">&nbsp;          $(__, a.name());</b>
+<b class="nc">&nbsp;          __.out(&quot;Name, true));&quot;).ln();</b>
+<b class="nc">&nbsp;          __.out(&quot;  &quot;);</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isComparable())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;GreaterThan(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; lower) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(com.google.common.collect.Range.greaterThan(lower));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;LessThan(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; upper) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(com.google.common.collect.Range.lessThan(upper));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;AtMost(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; upperInclusive) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(com.google.common.collect.Range.atMost(upperInclusive));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;AtLeast(&quot;);</b>
+<b class="nc">&nbsp;        $(__, uU);</b>
+<b class="nc">&nbsp;        __.out(&quot; lowerInclusive) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(com.google.common.collect.Range.atLeast(lowerInclusive));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;In(com.google.common.collect.Range&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, wW);</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; range) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.range(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, false, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;range)));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  public Criteria &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;NotIn(com.google.common.collect.Range&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, wW);</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; range) {&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    return new Criteria(serialization, constraint.range(serialization.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name, true, &quot;);</b>
+<b class="nc">&nbsp;        {final org.immutables.value.processor.meta.ValueAttribute a_wrapMarshalable_702369119 = $cast(a);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;          if ($if(a_wrapMarshalable_702369119.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;            $(__, a_wrapMarshalable_702369119.name());</b>
+<b class="nc">&nbsp;            __.out(&quot;Encoder, &quot;);</b>
+&nbsp;            
+&nbsp;          } else {
+<b class="nc">&nbsp;            __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;            
+&nbsp;          }
+<b class="nc">&nbsp;          __.dl();</b>
+&nbsp;        }
+<b class="nc">&nbsp;        __.out(&quot;range)));&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  }&quot;).ln();</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public Criteria or() {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    return new Criteria(serialization, constraint.disjunction());&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public Criteria with(Criteria criteria) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    return new Criteria(serialization, criteria.constraint.accept(constraint));&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public String toString() {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    return \&quot;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository.criteria(\&quot; + Support.stringify(constraint) + \&quot;)\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateSerializationHelpers() { return generateSerializationHelpers; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateSerializationHelpers = new FragmentDispatch(1, 12);</b>
+&nbsp;void _t12__generateSerializationHelpers(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  final java.util.List&lt;org.immutables.value.processor.meta.ValueAttribute&gt; allAttributes = $cast(type.allMarshalingAttributes());</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;private static class Serialization {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.ValueAttribute a : $in(allAttributes)) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  final Encoder&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.getUnwrapperOrRawElementType());</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Encoder;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isRequiresMarshalingSecondaryAdapter())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;  final Encoder&lt;&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.getUnwrapperOrRawSecondaryElementType());</b>
+<b class="nc">&nbsp;        __.out(&quot;&gt; &quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;SecondaryEncoder;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;      _it2.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  final CodecRegistry registry;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.ValueAttribute a : $in(allAttributes)) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  final String &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;Name;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;      _it2.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  Serialization(CodecRegistry registry, RepositorySetup.FieldNamingStrategy fieldNamingStrategy) {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    this.registry = registry;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.ValueAttribute a : $in(allAttributes)) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;        $(__, getEncoder, a, $$false);</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.isRequiresMarshalingSecondaryAdapter())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;        $(__, getEncoder, a, $$true);</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;      _it2.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.ValueAttribute a : $in(allAttributes)) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(a.getSerializedName())) {</b>
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    this.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name = \&quot;&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.getSerializedName());</b>
+<b class="nc">&nbsp;        __.out(&quot;\&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    this.&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;Name = translateName(fieldNamingStrategy, \&quot;&quot;);</b>
+<b class="nc">&nbsp;        $(__, a.name());</b>
+<b class="nc">&nbsp;        __.out(&quot;\&quot;);&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;    &quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;      _it2.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    $(__, atGenerated, type);</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  static final class &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;NamingFields&quot;);</b>
+<b class="nc">&nbsp;    $(__, type.generics());</b>
+<b class="nc">&nbsp;    __.out(&quot; {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.ValueAttribute a : $in(allAttributes)) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    public &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.getType());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;      __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;      _it2.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  private static String translateName(RepositorySetup.FieldNamingStrategy fieldNamingStrategy, String fieldName) {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    try {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;      return fieldNamingStrategy.translateName(&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;          &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;NamingFields.class.getField(fieldName));&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    } catch (NoSuchFieldException noSuchField) {&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;      throw new AssertionError(noSuchField);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable getEncoder() { return getEncoder; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable getEncoder = new FragmentDispatch(2, 13);</b>
+&nbsp;void _t13__getEncoder(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueAttribute a = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  final java.lang.Boolean secondary = $if(__.param(1));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  final java.util.List&lt;java.lang.String&gt; subs = $cast(a.getExpectedSubtypes());</b>
+<b class="nc">&nbsp;  final java.lang.Boolean suppotedSubs = $cast($($(a.typeKind().isMapKind(), and, secondary), ornot, a.typeKind().isMapKind()));</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(subs, and, suppotedSubs))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      $(__, output.error, a.originalElement(), new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;      @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;        __.dl();__.out(&quot;Repositories do not support inline @Gson.ExpectedSubtypes, please put this annotations&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;on the interface nested in class covered with @Gson.TypeAdapters. Or manually register on GsonBuilder following adapter:&quot;).ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;org.immutables.gson.adapter.ExpectedSubtypesAdapter.create(gson, &quot;);</b>
+<b class="nc">&nbsp;        __.dl();</b>
+<b class="nc">&nbsp;        if ($if(secondary)) {</b>
+<b class="nc">&nbsp;          __.dl();$(__, a.getUnwrapperOrRawSecondaryElementType());</b>
+&nbsp;          
+&nbsp;        } else {
+<b class="nc">&nbsp;          __.dl();$(__, a.getUnwrapperOrRawElementType());</b>
+&nbsp;          
+&nbsp;        }
+<b class="nc">&nbsp;        __.dl();{final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;        for (final java.lang.String s : $in(subs)) {</b>
+<b class="nc">&nbsp;        __.dl();__.out(&quot;, TypeToken.get(&quot;);</b>
+<b class="nc">&nbsp;          $(__, s);</b>
+<b class="nc">&nbsp;          __.out(&quot;.class)&quot;);</b>
+<b class="nc">&nbsp;          __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;          _it2.first = false;</b>
+<b class="nc">&nbsp;        }}</b>
+<b class="nc">&nbsp;        __.dl();__.out(&quot;)&quot;).ln();</b>
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }});
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+&nbsp;      
+&nbsp;    } else {
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;this.&quot;);</b>
+<b class="nc">&nbsp;      $(__, a.name());</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(secondary)) {</b>
+<b class="nc">&nbsp;        __.dl();__.out(&quot;Secondary&quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.out(&quot;Encoder = this.registry.get(&quot;);</b>
+<b class="nc">&nbsp;      __.dl();</b>
+<b class="nc">&nbsp;      if ($if(secondary)) {</b>
+<b class="nc">&nbsp;        __.dl();$(__, a.getUnwrapperOrRawSecondaryElementType());</b>
+<b class="nc">&nbsp;        __.out(&quot;.class&quot;);</b>
+&nbsp;        
+&nbsp;      } else {
+<b class="nc">&nbsp;        __.dl();$(__, a.getUnwrapperOrRawElementType());</b>
+<b class="nc">&nbsp;        __.out(&quot;.class&quot;);</b>
+&nbsp;        
+&nbsp;      }
+<b class="nc">&nbsp;      __.dl();__.out(&quot;);&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  &quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable wrapMarshalable() { return wrapMarshalable; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable wrapMarshalable = new FragmentDispatch(1, 14);</b>
+&nbsp;void _t14__wrapMarshalable(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueAttribute a = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(a.isRequiresMarshalingAdapter())) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;Encoder, &quot;);</b>
+&nbsp;    
+&nbsp;  } else {
+<b class="nc">&nbsp;    __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable wrapSecondaryMarshalable() { return wrapSecondaryMarshalable; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable wrapSecondaryMarshalable = new FragmentDispatch(1, 15);</b>
+&nbsp;void _t15__wrapSecondaryMarshalable(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueAttribute a = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(a.isRequiresMarshalingSecondaryAdapter())) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;Support.writable(serialization.&quot;);</b>
+<b class="nc">&nbsp;    $(__, a.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;SecondaryEncoder, &quot;);</b>
+&nbsp;    
+&nbsp;  } else {
+<b class="nc">&nbsp;    __.dl();__.out(&quot;Support.writable(&quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable atCheckReturnValue() { return atCheckReturnValue; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable atCheckReturnValue = new FragmentDispatch(1, 16);</b>
+&nbsp;void _t16__atCheckReturnValue(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.HasStyleInfo s = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(s, allowsClasspathAnnotation, &quot;[jaxarta].annotation.CheckReturnValue&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.CheckReturnValue&quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable atNotThreadSafe() { return atNotThreadSafe; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable atNotThreadSafe = new FragmentDispatch(1, 17);</b>
+&nbsp;void _t17__atNotThreadSafe(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.concurrent.NotThreadSafe&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.concurrent.NotThreadSafe&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable atGenerated() { return atGenerated; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable atGenerated = new FragmentDispatch(1, 18);</b>
+&nbsp;void _t18__atGenerated(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;org.immutables.value.Generated&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@org.immutables.value.Generated(from = \&quot;&quot;);</b>
+<b class="nc">&nbsp;    $(__, type.typeAbstract().relativeRaw());</b>
+<b class="nc">&nbsp;    __.out(&quot;\&quot;, generator = \&quot;Repositories\&quot;)&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;private class FragmentDispatch extends org.immutables.generator.Templates.Fragment{
+&nbsp;private final int index;
+<b class="nc">&nbsp;FragmentDispatch(int arity, int index){</b>
+<b class="nc">&nbsp;super(arity);</b>
+<b class="nc">&nbsp;this.index = index;</b>
+&nbsp;}
+&nbsp;@Override public void run(org.immutables.generator.Templates.Invokation invokation){
+<b class="nc">&nbsp;  switch (index){</b>
+<b class="nc">&nbsp;  case 0: _t0__generate(invokation); break;</b>
+<b class="nc">&nbsp;  case 1: _t1__generateRepository(invokation); break;</b>
+<b class="nc">&nbsp;  case 2: _t2__generateOrderingAndExcludes(invokation); break;</b>
+<b class="nc">&nbsp;  case 3: _t3__generateFinder(invokation); break;</b>
+<b class="nc">&nbsp;  case 4: _t4__generateAndReplaceFirst(invokation); break;</b>
+<b class="nc">&nbsp;  case 5: _t5__generateAndModifyFirst(invokation); break;</b>
+<b class="nc">&nbsp;  case 6: _t6__generateIndexer(invokation); break;</b>
+<b class="nc">&nbsp;  case 7: _t7__generateUpdater(invokation); break;</b>
+<b class="nc">&nbsp;  case 8: _t8__generateReplacer(invokation); break;</b>
+<b class="nc">&nbsp;  case 9: _t9__generateModifier(invokation); break;</b>
+<b class="nc">&nbsp;  case 10: _t10__generateUpdatingMethods(invokation); break;</b>
+<b class="nc">&nbsp;  case 11: _t11__generateCriteria(invokation); break;</b>
+<b class="nc">&nbsp;  case 12: _t12__generateSerializationHelpers(invokation); break;</b>
+<b class="nc">&nbsp;  case 13: _t13__getEncoder(invokation); break;</b>
+<b class="nc">&nbsp;  case 14: _t14__wrapMarshalable(invokation); break;</b>
+<b class="nc">&nbsp;  case 15: _t15__wrapSecondaryMarshalable(invokation); break;</b>
+<b class="nc">&nbsp;  case 16: _t16__atCheckReturnValue(invokation); break;</b>
+<b class="nc">&nbsp;  case 17: _t17__atNotThreadSafe(invokation); break;</b>
+<b class="nc">&nbsp;  case 18: _t18__atGenerated(invokation); break;</b>
+&nbsp;  default: break;
+&nbsp;}}}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

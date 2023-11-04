@@ -1,0 +1,415 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNoOriginalFieldCopyMethodConflict</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNoOriginalFieldCopyMethodConflict (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNoOriginalFieldCopyMethodConflict$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NoOriginalFieldCopyMethodConflict}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNoOriginalFieldCopyMethodConflict.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableNoOriginalFieldCopyMethodConflict.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NoOriginalFieldCopyMethodConflict&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableNoOriginalFieldCopyMethodConflict
+&nbsp;    implements NoOriginalFieldCopyMethodConflict {
+&nbsp;  private final int original;
+&nbsp;  private final @Nullable Integer hh;
+&nbsp;  private final ImmutableList&lt;String&gt; a;
+&nbsp;
+&nbsp;  private ImmutableNoOriginalFieldCopyMethodConflict(int original, @Nullable Integer hh, Iterable&lt;String&gt; a) {
+&nbsp;    this.original = original;
+&nbsp;    this.hh = hh;
+&nbsp;    this.a = ImmutableList.copyOf(a);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNoOriginalFieldCopyMethodConflict(
+&nbsp;      ImmutableNoOriginalFieldCopyMethodConflict original$$,
+&nbsp;      int original,
+&nbsp;      @Nullable Integer hh,
+&nbsp;      ImmutableList&lt;String&gt; a) {
+&nbsp;    this.original = original;
+&nbsp;    this.hh = hh;
+&nbsp;    this.a = a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code original} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int original() {
+&nbsp;    return original;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code hh} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Integer hh() {
+&nbsp;    return hh;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoOriginalFieldCopyMethodConflict#original() original} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for original
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoOriginalFieldCopyMethodConflict withOriginal(int value) {
+&nbsp;    if (this.original == value) return this;
+&nbsp;    return new ImmutableNoOriginalFieldCopyMethodConflict(this, value, this.hh, this.a);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoOriginalFieldCopyMethodConflict#hh() hh} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for hh (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoOriginalFieldCopyMethodConflict withHh(@Nullable Integer value) {
+&nbsp;    if (Objects.equals(this.hh, value)) return this;
+&nbsp;    return new ImmutableNoOriginalFieldCopyMethodConflict(this, this.original, value, this.a);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoOriginalFieldCopyMethodConflict#a() a}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoOriginalFieldCopyMethodConflict withA(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNoOriginalFieldCopyMethodConflict(this, this.original, this.hh, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoOriginalFieldCopyMethodConflict#a() a}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of a elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoOriginalFieldCopyMethodConflict withA(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.a == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableNoOriginalFieldCopyMethodConflict(this, this.original, this.hh, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNoOriginalFieldCopyMethodConflict} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNoOriginalFieldCopyMethodConflict
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNoOriginalFieldCopyMethodConflict) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNoOriginalFieldCopyMethodConflict another) {
+&nbsp;    return original == another.original
+&nbsp;        &amp;&amp; Objects.equals(hh, another.hh)
+&nbsp;        &amp;&amp; a.equals(another.a);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code original}, {@code hh}, {@code a}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + original;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(hh);
+&nbsp;    h += (h &lt;&lt; 5) + a.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NoOriginalFieldCopyMethodConflict} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NoOriginalFieldCopyMethodConflict&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;original&quot;, original)
+&nbsp;        .add(&quot;hh&quot;, hh)
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code NoOriginalFieldCopyMethodConflict} instance.
+&nbsp;   * @param original The value for the {@code original} attribute
+&nbsp;   * @param hh The value for the {@code hh} attribute
+&nbsp;   * @param a The value for the {@code a} attribute
+&nbsp;   * @return An immutable NoOriginalFieldCopyMethodConflict instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoOriginalFieldCopyMethodConflict of(int original, @Nullable Integer hh, List&lt;String&gt; a) {
+&nbsp;    return of(original, hh, (Iterable&lt;String&gt;) a);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code NoOriginalFieldCopyMethodConflict} instance.
+&nbsp;   * @param original The value for the {@code original} attribute
+&nbsp;   * @param hh The value for the {@code hh} attribute
+&nbsp;   * @param a The value for the {@code a} attribute
+&nbsp;   * @return An immutable NoOriginalFieldCopyMethodConflict instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoOriginalFieldCopyMethodConflict of(int original, @Nullable Integer hh, Iterable&lt;String&gt; a) {
+&nbsp;    return new ImmutableNoOriginalFieldCopyMethodConflict(original, hh, a);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NoOriginalFieldCopyMethodConflict} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NoOriginalFieldCopyMethodConflict instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoOriginalFieldCopyMethodConflict copyOf(NoOriginalFieldCopyMethodConflict instance) {
+&nbsp;    if (instance instanceof ImmutableNoOriginalFieldCopyMethodConflict) {
+&nbsp;      return (ImmutableNoOriginalFieldCopyMethodConflict) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNoOriginalFieldCopyMethodConflict.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNoOriginalFieldCopyMethodConflict ImmutableNoOriginalFieldCopyMethodConflict}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNoOriginalFieldCopyMethodConflict.builder()
+&nbsp;   *    .original(int) // required {@link NoOriginalFieldCopyMethodConflict#original() original}
+&nbsp;   *    .hh(Integer | null) // nullable {@link NoOriginalFieldCopyMethodConflict#hh() hh}
+&nbsp;   *    .addA|addAllA(String) // {@link NoOriginalFieldCopyMethodConflict#a() a} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNoOriginalFieldCopyMethodConflict builder
+&nbsp;   */
+&nbsp;  public static ImmutableNoOriginalFieldCopyMethodConflict.Builder builder() {
+&nbsp;    return new ImmutableNoOriginalFieldCopyMethodConflict.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNoOriginalFieldCopyMethodConflict ImmutableNoOriginalFieldCopyMethodConflict}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NoOriginalFieldCopyMethodConflict&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ORIGINAL = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private int original;
+&nbsp;    private @Nullable Integer hh;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; a = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NoOriginalFieldCopyMethodConflict} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NoOriginalFieldCopyMethodConflict instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      original(instance.original());
+&nbsp;      @Nullable Integer hhValue = instance.hh();
+&nbsp;      if (hhValue != null) {
+&nbsp;        hh(hhValue);
+&nbsp;      }
+&nbsp;      addAllA(instance.a());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoOriginalFieldCopyMethodConflict#original() original} attribute.
+&nbsp;     * @param original The value for original 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder original(int original) {
+&nbsp;      this.original = original;
+&nbsp;      initBits &amp;= ~INIT_BIT_ORIGINAL;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoOriginalFieldCopyMethodConflict#hh() hh} attribute.
+&nbsp;     * @param hh The value for hh (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder hh(@Nullable Integer hh) {
+&nbsp;      this.hh = hh;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NoOriginalFieldCopyMethodConflict#a() a} list.
+&nbsp;     * @param element A a element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addA(String element) {
+&nbsp;      this.a.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoOriginalFieldCopyMethodConflict#a() a} list.
+&nbsp;     * @param elements An array of a elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addA(String... elements) {
+&nbsp;      this.a.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NoOriginalFieldCopyMethodConflict#a() a} list.
+&nbsp;     * @param elements An iterable of a elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(Iterable&lt;String&gt; elements) {
+&nbsp;      this.a = ImmutableList.builder();
+&nbsp;      return addAllA(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoOriginalFieldCopyMethodConflict#a() a} list.
+&nbsp;     * @param elements An iterable of a elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllA(Iterable&lt;String&gt; elements) {
+&nbsp;      this.a.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNoOriginalFieldCopyMethodConflict ImmutableNoOriginalFieldCopyMethodConflict}.
+&nbsp;     * @return An immutable instance of NoOriginalFieldCopyMethodConflict
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNoOriginalFieldCopyMethodConflict build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableNoOriginalFieldCopyMethodConflict(null, original, hh, a.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ORIGINAL) != 0) attributes.add(&quot;original&quot;);
+&nbsp;      return &quot;Cannot build NoOriginalFieldCopyMethodConflict, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

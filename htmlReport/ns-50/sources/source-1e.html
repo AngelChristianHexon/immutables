@@ -1,0 +1,390 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableDatatypeTypes</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableDatatypeTypes (org.immutables.value.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableDatatypeTypes$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableDatatypeTypes$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;import org.immutables.value.processor.meta.Proto;
+&nbsp;import org.immutables.value.processor.meta.ValueType;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Datatypes.DatatypeTypes}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableDatatypeTypes.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Datatypes.DatatypeTypes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableDatatypeTypes extends Datatypes.DatatypeTypes {
+&nbsp;  private final Proto.AbstractDeclaring definedBy;
+&nbsp;  private final String packageGenerated;
+&nbsp;  private final ImmutableList&lt;ValueType&gt; types;
+&nbsp;
+&nbsp;  private ImmutableDatatypeTypes(
+&nbsp;      Proto.AbstractDeclaring definedBy,
+&nbsp;      String packageGenerated,
+&nbsp;      ImmutableList&lt;ValueType&gt; types) {
+&nbsp;    this.definedBy = definedBy;
+&nbsp;    this.packageGenerated = packageGenerated;
+&nbsp;    this.types = types;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code definedBy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Proto.AbstractDeclaring definedBy() {
+&nbsp;    return definedBy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code packageGenerated} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String packageGenerated() {
+&nbsp;    return packageGenerated;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code types} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;ValueType&gt; types() {
+&nbsp;    return types;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Datatypes.DatatypeTypes#definedBy() definedBy} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for definedBy
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDatatypeTypes withDefinedBy(Proto.AbstractDeclaring value) {
+&nbsp;    if (this.definedBy == value) return this;
+&nbsp;    Proto.AbstractDeclaring newValue = Objects.requireNonNull(value, &quot;definedBy&quot;);
+&nbsp;    return new ImmutableDatatypeTypes(newValue, this.packageGenerated, this.types);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Datatypes.DatatypeTypes#packageGenerated() packageGenerated} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for packageGenerated
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDatatypeTypes withPackageGenerated(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;packageGenerated&quot;);
+&nbsp;    if (this.packageGenerated.equals(newValue)) return this;
+&nbsp;    return new ImmutableDatatypeTypes(this.definedBy, newValue, this.types);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Datatypes.DatatypeTypes#types() types}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDatatypeTypes withTypes(ValueType... elements) {
+&nbsp;    ImmutableList&lt;ValueType&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDatatypeTypes(this.definedBy, this.packageGenerated, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Datatypes.DatatypeTypes#types() types}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of types elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDatatypeTypes withTypes(Iterable&lt;? extends ValueType&gt; elements) {
+&nbsp;    if (this.types == elements) return this;
+&nbsp;    ImmutableList&lt;ValueType&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableDatatypeTypes(this.definedBy, this.packageGenerated, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableDatatypeTypes} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableDatatypeTypes
+&nbsp;        &amp;&amp; equalTo((ImmutableDatatypeTypes) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableDatatypeTypes another) {
+&nbsp;    return definedBy.equals(another.definedBy)
+&nbsp;        &amp;&amp; packageGenerated.equals(another.packageGenerated)
+&nbsp;        &amp;&amp; types.equals(another.types);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code definedBy}, {@code packageGenerated}, {@code types}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + definedBy.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + packageGenerated.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + types.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code DatatypeTypes} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;DatatypeTypes&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;definedBy&quot;, definedBy)
+&nbsp;        .add(&quot;packageGenerated&quot;, packageGenerated)
+&nbsp;        .add(&quot;types&quot;, types)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Datatypes.DatatypeTypes} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable DatatypeTypes instance
+&nbsp;   */
+&nbsp;  public static ImmutableDatatypeTypes copyOf(Datatypes.DatatypeTypes instance) {
+&nbsp;    if (instance instanceof ImmutableDatatypeTypes) {
+&nbsp;      return (ImmutableDatatypeTypes) instance;
+&nbsp;    }
+&nbsp;    return ImmutableDatatypeTypes.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableDatatypeTypes ImmutableDatatypeTypes}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableDatatypeTypes.builder()
+&nbsp;   *    .definedBy(org.immutables.value.processor.meta.Proto.AbstractDeclaring) // required {@link Datatypes.DatatypeTypes#definedBy() definedBy}
+&nbsp;   *    .packageGenerated(String) // required {@link Datatypes.DatatypeTypes#packageGenerated() packageGenerated}
+&nbsp;   *    .addTypes|addAllTypes(org.immutables.value.processor.meta.ValueType) // {@link Datatypes.DatatypeTypes#types() types} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableDatatypeTypes builder
+&nbsp;   */
+&nbsp;  public static ImmutableDatatypeTypes.Builder builder() {
+&nbsp;    return new ImmutableDatatypeTypes.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableDatatypeTypes ImmutableDatatypeTypes}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Datatypes.DatatypeTypes&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_DEFINED_BY = 0x1L;
+&nbsp;    private static final long INIT_BIT_PACKAGE_GENERATED = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable Proto.AbstractDeclaring definedBy;
+&nbsp;    private @Nullable String packageGenerated;
+&nbsp;    private ImmutableList.Builder&lt;ValueType&gt; types = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code DatatypeTypes} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Datatypes.DatatypeTypes instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      definedBy(instance.definedBy());
+&nbsp;      packageGenerated(instance.packageGenerated());
+&nbsp;      addAllTypes(instance.types());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Datatypes.DatatypeTypes#definedBy() definedBy} attribute.
+&nbsp;     * @param definedBy The value for definedBy 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder definedBy(Proto.AbstractDeclaring definedBy) {
+&nbsp;      this.definedBy = Objects.requireNonNull(definedBy, &quot;definedBy&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_DEFINED_BY;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Datatypes.DatatypeTypes#packageGenerated() packageGenerated} attribute.
+&nbsp;     * @param packageGenerated The value for packageGenerated 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder packageGenerated(String packageGenerated) {
+&nbsp;      this.packageGenerated = Objects.requireNonNull(packageGenerated, &quot;packageGenerated&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PACKAGE_GENERATED;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Datatypes.DatatypeTypes#types() types} list.
+&nbsp;     * @param element A types element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addTypes(ValueType element) {
+&nbsp;      this.types.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Datatypes.DatatypeTypes#types() types} list.
+&nbsp;     * @param elements An array of types elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addTypes(ValueType... elements) {
+&nbsp;      this.types.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Datatypes.DatatypeTypes#types() types} list.
+&nbsp;     * @param elements An iterable of types elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder types(Iterable&lt;? extends ValueType&gt; elements) {
+&nbsp;      this.types = ImmutableList.builder();
+&nbsp;      return addAllTypes(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Datatypes.DatatypeTypes#types() types} list.
+&nbsp;     * @param elements An iterable of types elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllTypes(Iterable&lt;? extends ValueType&gt; elements) {
+&nbsp;      this.types.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableDatatypeTypes ImmutableDatatypeTypes}.
+&nbsp;     * @return An immutable instance of DatatypeTypes
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableDatatypeTypes build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableDatatypeTypes(definedBy, packageGenerated, types.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_DEFINED_BY) != 0) attributes.add(&quot;definedBy&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_PACKAGE_GENERATED) != 0) attributes.add(&quot;packageGenerated&quot;);
+&nbsp;      return &quot;Cannot build DatatypeTypes, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

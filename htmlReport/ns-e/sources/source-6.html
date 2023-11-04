@@ -1,0 +1,359 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GeodeQueryVisitor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: GeodeQueryVisitor (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">GeodeQueryVisitor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/96)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/96)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.expression.AbstractExpressionVisitor;
+&nbsp;import org.immutables.criteria.expression.Call;
+&nbsp;import org.immutables.criteria.expression.ComparableOperators;
+&nbsp;import org.immutables.criteria.expression.Constant;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Expressions;
+&nbsp;import org.immutables.criteria.expression.IterableOperators;
+&nbsp;import org.immutables.criteria.expression.Operator;
+&nbsp;import org.immutables.criteria.expression.Operators;
+&nbsp;import org.immutables.criteria.expression.OptionalOperators;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.StringOperators;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Generates &lt;a href=&quot;https://geode.apache.org/docs/guide/16/developing/querying_basics/query_basics.html&quot;&gt;Geode OQL&lt;/a&gt;
+&nbsp; * based on existing expression.
+&nbsp; */
+&nbsp;class GeodeQueryVisitor extends AbstractExpressionVisitor&lt;Oql&gt; {
+&nbsp;
+&nbsp;  private final PathNaming pathNaming;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Bind variables. Remains empty if variables are not used
+&nbsp;   */
+&nbsp;  private final List&lt;Object&gt; variables;
+&nbsp;
+&nbsp;  private final boolean useBindVariables;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param useBindVariables wherever query should be generated with bind variables or not
+&nbsp;   */
+&nbsp;  GeodeQueryVisitor(boolean useBindVariables, PathNaming pathNaming) {
+<b class="nc">&nbsp;    super(e -&gt; { throw new UnsupportedOperationException(); });</b>
+<b class="nc">&nbsp;    this.pathNaming = Objects.requireNonNull(pathNaming, &quot;pathFn&quot;);</b>
+<b class="nc">&nbsp;    this.variables = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    this.useBindVariables = useBindVariables;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Oql visit(Call call) {
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    final List&lt;Expression&gt; args = call.arguments();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.NOT_IN || op == IterableOperators.NOT_EMPTY) {</b>
+&nbsp;      // geode doesn&#39;t understand syntax foo not in [1, 2, 3]
+&nbsp;      // convert &quot;foo not in [1, 2, 3]&quot; into &quot;not (foo in [1, 2, 3])&quot;
+<b class="nc">&nbsp;      return visit(Expressions.not(Expressions.call(inverseOp(op), call.arguments())));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.AND || op == Operators.OR) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(!args.isEmpty(), &quot;Size should be &gt;=1 for %s but was %s&quot;, op, args.size());</b>
+<b class="nc">&nbsp;      final String join = &quot;) &quot; + op.name() + &quot; (&quot;;</b>
+<b class="nc">&nbsp;      final String newOql = &quot;(&quot; + args.stream().map(a -&gt; a.accept(this)).map(Oql::oql).collect(Collectors.joining(join)) + &quot;)&quot;;</b>
+<b class="nc">&nbsp;      return new Oql(variables, newOql);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op.arity() == Operator.Arity.BINARY) {</b>
+<b class="nc">&nbsp;      return binaryOperator(call);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op.arity() == Operator.Arity.UNARY) {</b>
+<b class="nc">&nbsp;      return unaryOperator(call);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Don&#39;t know how to handle &quot; + call);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static Operator inverseOp(Operator op) {
+<b class="nc">&nbsp;    if (op == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;      return Operators.IN;</b>
+<b class="nc">&nbsp;    } else if (op == IterableOperators.NOT_EMPTY) {</b>
+<b class="nc">&nbsp;      return IterableOperators.IS_EMPTY;</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      throw new IllegalArgumentException(&quot;Don&#39;t know inverse operator of &quot; + op);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Operator with single operator: {@code NOT}, {@code IS_PRESENT}
+&nbsp;   */
+&nbsp;  private Oql unaryOperator(Call call) {
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    final List&lt;Expression&gt; args = call.arguments();</b>
+&nbsp;
+<b class="nc">&nbsp;    Preconditions.checkArgument(args.size() == 1,</b>
+<b class="nc">&nbsp;            &quot;Size should be == 1 for unary operator %s but was %s&quot;, op, args.size());</b>
+&nbsp;
+<b class="nc">&nbsp;    Expression arg0 = args.get(0);</b>
+<b class="nc">&nbsp;    String path = arg0.accept(this).oql();</b>
+<b class="nc">&nbsp;    if (op instanceof OptionalOperators) {</b>
+&nbsp;      // use IS_DEFINED / IS_UNDEFINED functions
+&nbsp;      String expr;
+<b class="nc">&nbsp;      if (op == OptionalOperators.IS_PRESENT) {</b>
+<b class="nc">&nbsp;        expr = String.format(&quot;is_defined(%s) AND %s != null&quot;, path, path);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        expr = String.format(&quot;is_undefined(%s) OR %s = null&quot;, path, path);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return oql(expr);</b>
+<b class="nc">&nbsp;    } else if (op == Operators.NOT) {</b>
+<b class="nc">&nbsp;      return oql(String.format(&quot;NOT (%s)&quot;, path));</b>
+<b class="nc">&nbsp;    } else if (op == IterableOperators.IS_EMPTY || op == StringOperators.TO_LOWER_CASE || op == StringOperators.TO_UPPER_CASE) {</b>
+<b class="nc">&nbsp;      return oql(String.format(&quot;%s.%s()&quot;, path, toMethodName(op)));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Unknown unary operator &quot; + call);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used for operators with two arguments like {@code =}, {@code IN} etc.
+&nbsp;   */
+&nbsp;  private Oql binaryOperator(Call call) {
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    final List&lt;Expression&gt; args = call.arguments();</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(args.size() == 2, &quot;Size should be 2 for %s but was %s on call %s&quot;, op, args.size(), call);</b>
+&nbsp;
+<b class="nc">&nbsp;    Expression left = args.get(0); // left node</b>
+<b class="nc">&nbsp;    Expression right = args.get(1); // right node</b>
+<b class="nc">&nbsp;    if (op == IterableOperators.CONTAINS || op == StringOperators.MATCHES</b>
+&nbsp;            || op == StringOperators.CONTAINS || op == StringOperators.STARTS_WITH
+&nbsp;            || op == StringOperators.ENDS_WITH) {
+<b class="nc">&nbsp;      return oql(String.format(&quot;%s.%s(%s)&quot;, left.accept(this).oql(), toMethodName(op), right.accept(this).oql()));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == StringOperators.HAS_LENGTH || op == IterableOperators.HAS_SIZE) {</b>
+<b class="nc">&nbsp;      return oql(String.format(&quot;%s.%s = %s&quot;, left.accept(this).oql(), toMethodName(op), right.accept(this).oql()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    final String operator;
+<b class="nc">&nbsp;    if (op == Operators.EQUAL || op == Operators.NOT_EQUAL) {</b>
+<b class="nc">&nbsp;      operator = op == Operators.EQUAL ? &quot;=&quot; : &quot;!=&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == Operators.IN || op == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;      if (right instanceof Constant) {</b>
+&nbsp;        // optimization for IN / NOT IN operators
+&nbsp;        // make constant value(s) distinct using Set
+<b class="nc">&nbsp;        Set&lt;Object&gt; newValues = ImmutableSet.copyOf(Visitors.toConstant(right).values());</b>
+<b class="nc">&nbsp;        right = Expressions.constant(newValues);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      operator = op == Operators.IN ? &quot;IN&quot; : &quot;NOT IN&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == ComparableOperators.GREATER_THAN) {</b>
+<b class="nc">&nbsp;      operator = &quot;&gt;&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == ComparableOperators.GREATER_THAN_OR_EQUAL) {</b>
+<b class="nc">&nbsp;      operator = &quot;&gt;=&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == ComparableOperators.LESS_THAN) {</b>
+<b class="nc">&nbsp;      operator = &quot;&lt;&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == ComparableOperators.LESS_THAN_OR_EQUAL) {</b>
+<b class="nc">&nbsp;      operator = &quot;&lt;=&quot;;</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      throw new IllegalArgumentException(&quot;Unknown binary operator &quot; + call);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return oql(String.format(&quot;%s %s %s&quot;, left.accept(this).oql(), operator, right.accept(this).oql()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Oql visit(Path path) {
+<b class="nc">&nbsp;    String name = pathNaming.name(path);</b>
+<b class="nc">&nbsp;    Type type = path.returnType();</b>
+<b class="nc">&nbsp;    if (!useBindVariables &amp;&amp; (type instanceof Class&lt;?&gt;) &amp;&amp; ((Class&lt;?&gt;) type).isEnum()) {</b>
+&nbsp;      // for enums we need to add &quot;.name&quot; function (queries without bind variables)
+&nbsp;      // OQL should be &quot;enum.name = &#39;VALUE&#39;&quot;
+<b class="nc">&nbsp;      name = name + &quot;.name&quot;;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return oql(name);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Oql visit(Constant constant) {
+&nbsp;    String oqlAsString;
+<b class="nc">&nbsp;    if (useBindVariables) {</b>
+<b class="nc">&nbsp;      variables.add(constant.value());</b>
+<b class="nc">&nbsp;      oqlAsString = &quot;$&quot; + variables.size();</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      oqlAsString = valueToString(constant.value());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return oql(oqlAsString);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Return new query but with same variables
+&nbsp;   */
+&nbsp;  private Oql oql(String oql) {
+<b class="nc">&nbsp;    return new Oql(variables, oql);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static String toMethodName(Operator op) {
+<b class="nc">&nbsp;    if (op == IterableOperators.IS_EMPTY) {</b>
+<b class="nc">&nbsp;      return &quot;isEmpty&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.TO_LOWER_CASE) {</b>
+<b class="nc">&nbsp;      return &quot;toLowerCase&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.TO_UPPER_CASE) {</b>
+<b class="nc">&nbsp;      return &quot;toUpperCase&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.HAS_LENGTH) {</b>
+<b class="nc">&nbsp;      return &quot;length&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == IterableOperators.HAS_SIZE) {</b>
+<b class="nc">&nbsp;      return &quot;size&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.CONTAINS || op == IterableOperators.CONTAINS) {</b>
+<b class="nc">&nbsp;      return &quot;contains&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.STARTS_WITH) {</b>
+<b class="nc">&nbsp;      return &quot;startsWith&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.ENDS_WITH) {</b>
+<b class="nc">&nbsp;      return &quot;endsWith&quot;;</b>
+<b class="nc">&nbsp;    } else if (op == StringOperators.MATCHES) {</b>
+<b class="nc">&nbsp;      return &quot;matches&quot;;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Don&#39;t know how to handle Operator &quot; + op);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static String valueToString(Object value) {
+<b class="nc">&nbsp;    return OqlLiterals.fromObject(value);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,487 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > BsonReader</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mongo.bson4gson</a>
+</div>
+
+<h1>Coverage Summary for Class: BsonReader (org.immutables.mongo.bson4gson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BsonReader</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/85)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">BsonReader$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">BsonReader$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/27)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/90)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mongo.bson4gson;
+&nbsp;
+&nbsp;import com.google.gson.internal.LazilyParsedNumber;
+&nbsp;import com.google.gson.stream.JsonReader;
+&nbsp;import com.google.gson.stream.JsonToken;
+&nbsp;import org.bson.AbstractBsonReader;
+&nbsp;import org.bson.AbstractBsonReader.State;
+&nbsp;import org.bson.BsonType;
+&nbsp;import org.immutables.mongo.Wrapper;
+&nbsp;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import java.io.IOException;
+&nbsp;import java.io.Reader;
+&nbsp;
+&nbsp;import static com.google.common.base.Preconditions.checkNotNull;
+&nbsp;
+&nbsp;/**
+&nbsp; * Adapter of {@link JsonReader GSON Reader} reading directly from
+&nbsp; * &lt;a href=&quot;http://bsonspec.org/&quot;&gt;BSON encoded&lt;/a&gt; documents.
+&nbsp; * It delegates most of the calls to {@link org.bson.BsonReader} which understands binary JSON
+&nbsp; * representation (default wire protocol
+&nbsp; * between mongo server and client). This class allows to instantiate immutable objects directly
+&nbsp; * from binary stream (eg. {@code byte[]}) bypassing intermediate
+&nbsp; * object instantiation (typically {@code byte[] -&gt; DBObject-&gt; Immutable} ). Internally generated
+&nbsp; * GSON {@link com.google.gson.TypeAdapter} will
+&nbsp; * read incoming bytes as stream API.
+&nbsp; * @see BsonWriter
+&nbsp; * @see &lt;a href=&quot;http://mongodb.github.io/mongo-java-driver/3.5/bson/&quot;&gt;Mongo Driver (BSON)&lt;/a&gt;
+&nbsp; * @see &lt;a href=&quot;http://bsonspec.org/&quot;&gt;BSON spec&lt;/a&gt;
+&nbsp; */
+&nbsp;@NotThreadSafe
+&nbsp;public class BsonReader extends JsonReader implements Wrapper&lt;org.bson.BsonReader&gt; {
+&nbsp;
+<b class="nc">&nbsp;  private static final Reader UNREADABLE_READER = new Reader() {</b>
+&nbsp;    @Override
+&nbsp;    public int read(char[] buffer, int offset, int count) throws IOException {
+<b class="nc">&nbsp;      throw new AssertionError();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void close() throws IOException {
+<b class="nc">&nbsp;      throw new AssertionError();</b>
+&nbsp;    }
+&nbsp;  };
+&nbsp;
+&nbsp;  private final AbstractBsonReader delegate;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * In order to be able to get current location of the BSON &quot;cursor&quot; (document or array start/end)
+&nbsp;   * enforcing clients to
+&nbsp;   * provide {@link AbstractBsonReader} which exposes this information via {@code getState()}
+&nbsp;   * method, instead of more generic interface {@link BsonReader}.
+&nbsp;   * @param delegate
+&nbsp;   * @see AbstractBsonReader#getState()
+&nbsp;   */
+&nbsp;  BsonReader(org.bson.AbstractBsonReader delegate) {
+<b class="nc">&nbsp;    super(UNREADABLE_READER);</b>
+<b class="nc">&nbsp;    this.delegate = checkNotNull(delegate, &quot;delegate&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public org.bson.BsonReader unwrap() {
+<b class="nc">&nbsp;    return this.delegate;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private BsonType advance() {
+<b class="nc">&nbsp;    return delegate.readBsonType();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void beginArray() throws IOException {
+<b class="nc">&nbsp;    delegate.readStartArray();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void endArray() throws IOException {
+<b class="nc">&nbsp;    delegate.readEndArray();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void beginObject() throws IOException {
+<b class="nc">&nbsp;    delegate.readStartDocument();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void endObject() throws IOException {
+<b class="nc">&nbsp;    delegate.readEndDocument();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean hasNext() throws IOException {
+<b class="nc">&nbsp;    if (!hasMoreElements()) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    advance();</b>
+<b class="nc">&nbsp;    return hasMoreElements();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean hasMoreElements() {
+<b class="nc">&nbsp;    switch (state()) {</b>
+&nbsp;    case END_OF_DOCUMENT:
+&nbsp;    case END_OF_ARRAY:
+&nbsp;    case DONE:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public JsonToken peek() throws IOException {
+<b class="nc">&nbsp;    switch (state()) {</b>
+&nbsp;    case INITIAL:
+&nbsp;    case SCOPE_DOCUMENT:
+&nbsp;    case TYPE:
+<b class="nc">&nbsp;      advance();</b>
+<b class="nc">&nbsp;      return peek();</b>
+&nbsp;    case NAME:
+<b class="nc">&nbsp;      return JsonToken.NAME;</b>
+&nbsp;    case END_OF_DOCUMENT:
+<b class="nc">&nbsp;      return JsonToken.END_OBJECT;</b>
+&nbsp;    case END_OF_ARRAY:
+<b class="nc">&nbsp;      return JsonToken.END_ARRAY;</b>
+&nbsp;    case DONE:
+<b class="nc">&nbsp;      return JsonToken.END_DOCUMENT;</b>
+&nbsp;    case VALUE:
+<b class="nc">&nbsp;      return toGsonToken(delegate.getCurrentBsonType());</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Unexpected state: &quot; + state() + &quot; currentType:&quot; +</b>
+<b class="nc">&nbsp;          delegate.getCurrentBsonType());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private State state() {
+<b class="nc">&nbsp;    return delegate.getState();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static JsonToken toGsonToken(BsonType type) {
+<b class="nc">&nbsp;    switch (type) {</b>
+&nbsp;    case END_OF_DOCUMENT:
+<b class="nc">&nbsp;      return JsonToken.END_DOCUMENT;</b>
+&nbsp;    case DOCUMENT:
+<b class="nc">&nbsp;      return JsonToken.BEGIN_OBJECT;</b>
+&nbsp;    case ARRAY:
+<b class="nc">&nbsp;      return JsonToken.BEGIN_ARRAY;</b>
+&nbsp;    case BOOLEAN:
+<b class="nc">&nbsp;      return JsonToken.BOOLEAN;</b>
+&nbsp;    case STRING:
+&nbsp;    case SYMBOL:
+&nbsp;    case OBJECT_ID:
+&nbsp;    case BINARY:
+&nbsp;    case REGULAR_EXPRESSION:
+<b class="nc">&nbsp;      return JsonToken.STRING;</b>
+&nbsp;    case DATE_TIME:
+&nbsp;    case DOUBLE:
+&nbsp;    case INT32:
+&nbsp;    case INT64:
+&nbsp;    case TIMESTAMP:
+&nbsp;    case DECIMAL128:
+<b class="nc">&nbsp;      return JsonToken.NUMBER;</b>
+&nbsp;    case NULL:
+&nbsp;    case UNDEFINED:
+<b class="nc">&nbsp;      return JsonToken.NULL;</b>
+&nbsp;    default:
+&nbsp;      // not really sure what to do with this type
+<b class="nc">&nbsp;      return JsonToken.NULL;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String nextName() throws IOException {
+<b class="nc">&nbsp;    return delegate.readName();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String nextString() throws IOException {
+<b class="nc">&nbsp;    return scalarToString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Gson library reads numbers lazily when using generic
+&nbsp;   * {@link com.google.gson.internal.bind.TypeAdapters#JSON_ELEMENT} type adapter.
+&nbsp;   * Number is read as string and then wrapped inside {@link LazilyParsedNumber}. This inefficiency
+&nbsp;   * should only occur if reading numbers with generic JSON element API
+&nbsp;   * and not using generated type adapters.
+&nbsp;   * @see LazilyParsedNumber
+&nbsp;   * @see com.google.gson.internal.bind.TypeAdapters#JSON_ELEMENT
+&nbsp;   */
+&nbsp;  private String scalarToString() {
+<b class="nc">&nbsp;    final BsonType type = delegate.getCurrentBsonType();</b>
+<b class="nc">&nbsp;    switch (type) {</b>
+&nbsp;    case STRING:
+<b class="nc">&nbsp;      return delegate.readString();</b>
+&nbsp;    case SYMBOL:
+<b class="nc">&nbsp;      return delegate.readSymbol();</b>
+&nbsp;    case INT32:
+<b class="nc">&nbsp;      return Integer.toString(delegate.readInt32());</b>
+&nbsp;    case INT64:
+<b class="nc">&nbsp;      return Long.toString(delegate.readInt64());</b>
+&nbsp;    case DOUBLE:
+<b class="nc">&nbsp;      return Double.toString(delegate.readDouble());</b>
+&nbsp;    case DECIMAL128:
+<b class="nc">&nbsp;      return delegate.readDecimal128().toString();</b>
+&nbsp;    case REGULAR_EXPRESSION:
+<b class="nc">&nbsp;      return delegate.readRegularExpression().getPattern();</b>
+&nbsp;    case OBJECT_ID:
+<b class="nc">&nbsp;      return delegate.readObjectId().toHexString();</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Unknown scalar type to be converted to string: &quot; + type);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean nextBoolean() throws IOException {
+<b class="nc">&nbsp;    return delegate.readBoolean();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void nextNull() throws IOException {
+<b class="nc">&nbsp;    BsonType type = delegate.getCurrentBsonType();</b>
+<b class="nc">&nbsp;    if (type == BsonType.NULL) {</b>
+<b class="nc">&nbsp;      delegate.readNull();</b>
+<b class="nc">&nbsp;    } else if (type == BsonType.UNDEFINED) {</b>
+<b class="nc">&nbsp;      delegate.readUndefined();</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      throw new IllegalStateException(String.format(&quot;Expected bson type %s or %s but got %s&quot;, BsonType.NULL, BsonType.UNDEFINED, type));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public double nextDouble() throws IOException {
+<b class="nc">&nbsp;    final BsonType type = delegate.getCurrentBsonType();</b>
+<b class="nc">&nbsp;    switch (type) {</b>
+&nbsp;    case DOUBLE:
+<b class="nc">&nbsp;      return delegate.readDouble();</b>
+&nbsp;    case INT32:
+<b class="nc">&nbsp;      return delegate.readInt32();</b>
+&nbsp;    case INT64:
+<b class="nc">&nbsp;      return delegate.readInt64();</b>
+&nbsp;    case DECIMAL128:
+<b class="nc">&nbsp;      return delegate.readDecimal128().bigDecimalValue().doubleValue();</b>
+&nbsp;    case DATE_TIME:
+<b class="nc">&nbsp;      return delegate.readDateTime();</b>
+&nbsp;    case TIMESTAMP:
+<b class="nc">&nbsp;      return delegate.readTimestamp().getValue();</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      throw new IllegalStateException(String.format(&quot;Expected numeric bson type (double) but got %s (as json:%s)&quot;, type, toGsonToken(type)));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public long nextLong() throws IOException {
+<b class="nc">&nbsp;    BsonType type = delegate.getCurrentBsonType();</b>
+<b class="nc">&nbsp;    switch (type) {</b>
+&nbsp;    case INT64:
+<b class="nc">&nbsp;      return delegate.readInt64();</b>
+&nbsp;    case INT32:
+<b class="nc">&nbsp;      return delegate.readInt32();</b>
+&nbsp;    case DOUBLE:
+<b class="nc">&nbsp;      return (long) delegate.readDouble();</b>
+&nbsp;    case DECIMAL128:
+<b class="nc">&nbsp;      return delegate.readDecimal128().bigDecimalValue().longValueExact();</b>
+&nbsp;    case DATE_TIME:
+<b class="nc">&nbsp;      return delegate.readDateTime();</b>
+&nbsp;    case TIMESTAMP:
+<b class="nc">&nbsp;      return delegate.readTimestamp().getValue();</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      throw new IllegalStateException(String.format(&quot;Expected numeric bson type (long) but got %s (as json:%s)&quot;, type, toGsonToken(type)));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int nextInt() throws IOException {
+<b class="nc">&nbsp;    final BsonType type = delegate.getCurrentBsonType();</b>
+<b class="nc">&nbsp;    switch (type) {</b>
+&nbsp;    case INT32:
+<b class="nc">&nbsp;     return delegate.readInt32();</b>
+&nbsp;    case INT64:
+<b class="nc">&nbsp;      return (int) delegate.readInt64();</b>
+&nbsp;    case DOUBLE:
+<b class="nc">&nbsp;      return (int) delegate.readDouble();</b>
+&nbsp;    case DECIMAL128:
+<b class="nc">&nbsp;      return delegate.readDecimal128().bigDecimalValue().intValueExact();</b>
+&nbsp;    case DATE_TIME:
+<b class="nc">&nbsp;      return (int) delegate.readDateTime();</b>
+&nbsp;    case TIMESTAMP:
+<b class="nc">&nbsp;      return (int) delegate.readTimestamp().getValue();</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      throw new IllegalStateException(String.format(&quot;Expected numeric bson type (int) but got %s (as json:%s)&quot;, type, toGsonToken(type)));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void close() throws IOException {
+<b class="nc">&nbsp;    delegate.close();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void skipValue() throws IOException {
+<b class="nc">&nbsp;    delegate.skipValue();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

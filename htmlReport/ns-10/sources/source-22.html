@@ -1,0 +1,253 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > StringMatcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: StringMatcher (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StringMatcher</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">StringMatcher$1Local</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">StringMatcher$Self</td>
+  </tr>
+  <tr>
+    <td class="name">StringMatcher$Template</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import org.immutables.criteria.expression.Expressions;
+&nbsp;import org.immutables.criteria.expression.StringOperators;
+&nbsp;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;
+&nbsp;/**
+&nbsp; * String specific predicates like {@code startsWith}, {@code contains} etc.
+&nbsp; * @param &lt;R&gt; root criteria type
+&nbsp; */
+&nbsp;public interface StringMatcher&lt;R&gt; extends ComparableMatcher&lt;R, String&gt; {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check for empty string (equivalent to {@code string.length() == 0})
+&nbsp;   */
+&nbsp;  default R isEmpty() {
+<b class="nc">&nbsp;    return is(&quot;&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check for NON-empty string (equivalent to {@code string.length() &gt; 0})
+&nbsp;   */
+&nbsp;  default R notEmpty() {
+<b class="nc">&nbsp;    return isNot(&quot;&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Apply upper case function to current expression (equivalent to {@code $this.toUpperCase()})
+&nbsp;   */
+&nbsp;  default StringMatcher&lt;R&gt; toUpperCase() {
+<b class="nc">&nbsp;    return Matchers.extract(this).applyRaw(e -&gt; Expressions.unaryCall(StringOperators.TO_UPPER_CASE, e)).create();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Apply lower case function to current expression (equivalent to {@code $this.toLowerCase()})
+&nbsp;   */
+&nbsp;  default StringMatcher&lt;R&gt; toLowerCase() {
+<b class="nc">&nbsp;    return Matchers.extract(this).applyRaw(e -&gt; Expressions.unaryCall(StringOperators.TO_LOWER_CASE, e)).create();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   *  Check that attribute contains {@code other}
+&nbsp;   */
+&nbsp;  default R contains(CharSequence other) {
+<b class="nc">&nbsp;    Objects.requireNonNull(other, &quot;other&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(StringOperators.CONTAINS, e, Expressions.constant(other.toString())));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that string attribute starts with {@code prefix} prefix
+&nbsp;   */
+&nbsp;  default R startsWith(CharSequence prefix) {
+<b class="nc">&nbsp;    Objects.requireNonNull(prefix, &quot;prefix&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(StringOperators.STARTS_WITH, e, Expressions.constant(prefix.toString())));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that string attribute ends with {@code suffix} suffix
+&nbsp;   */
+&nbsp;  default R endsWith(CharSequence suffix) {
+<b class="nc">&nbsp;    Objects.requireNonNull(suffix, &quot;suffix&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(StringOperators.ENDS_WITH, e, Expressions.constant(suffix.toString())));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Checks wherever string matches regular expression
+&nbsp;   * @param regex pattern to match for
+&nbsp;   */
+&nbsp;  default R matches(Pattern regex) {
+<b class="nc">&nbsp;    Objects.requireNonNull(regex, &quot;regexp&quot;);</b>
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(StringOperators.MATCHES, e, Expressions.constant(regex)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Predicate for length of a string
+&nbsp;   */
+&nbsp;  default R hasLength(int length) {
+<b class="nc">&nbsp;    return Matchers.extract(this).applyAndCreateRoot(e -&gt; Expressions.binaryCall(StringOperators.HAS_LENGTH, e, Expressions.constant(length)));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Self-type for this matcher
+&nbsp;   */
+&nbsp;  interface Self extends Template&lt;Self&gt;, Disjunction&lt;StringMatcher&lt;Self&gt;&gt; {}
+&nbsp;
+&nbsp;  interface Template&lt;R&gt; extends StringMatcher&lt;R&gt;, WithMatcher&lt;R, Self&gt;, NotMatcher&lt;R, Self&gt;, Projection&lt;String&gt;, Aggregation.ComparableTemplate&lt;String&gt; {}
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  static &lt;R&gt; CriteriaCreator&lt;R&gt; creator() {
+&nbsp;    class Local extends AbstractContextHolder implements Self {
+&nbsp;      private Local(CriteriaContext context) {
+<b class="nc">&nbsp;        super(context);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return ctx -&gt; (R) new Local(ctx);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

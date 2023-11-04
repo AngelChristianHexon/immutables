@@ -1,0 +1,383 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNullableDefault</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNullableDefault (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNullableDefault$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableNullableDefault$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NullableDefault}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNullableDefault.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NullableDefault&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNullableDefault implements NullableDefault {
+&nbsp;  private final @Nullable String str;
+&nbsp;  private final @Nullable Integer intr;
+&nbsp;
+&nbsp;  private ImmutableNullableDefault(ImmutableNullableDefault.Builder builder) {
+&nbsp;    if (builder.strIsSet()) {
+&nbsp;      initShim.str(builder.str);
+&nbsp;    }
+&nbsp;    if (builder.intrIsSet()) {
+&nbsp;      initShim.intr(builder.intr);
+&nbsp;    }
+&nbsp;    this.str = initShim.str();
+&nbsp;    this.intr = initShim.intr();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNullableDefault(@Nullable String str, @Nullable Integer intr) {
+&nbsp;    this.str = str;
+&nbsp;    this.intr = intr;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;NullableDefault&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte strBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String str;
+&nbsp;
+&nbsp;    String str() {
+&nbsp;      if (strBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (strBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        strBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.str = strInitialize();
+&nbsp;        strBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.str;
+&nbsp;    }
+&nbsp;
+&nbsp;    void str(String str) {
+&nbsp;      this.str = str;
+&nbsp;      strBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte intrBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private Integer intr;
+&nbsp;
+&nbsp;    Integer intr() {
+&nbsp;      if (intrBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (intrBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        intrBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.intr = intrInitialize();
+&nbsp;        intrBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.intr;
+&nbsp;    }
+&nbsp;
+&nbsp;    void intr(Integer intr) {
+&nbsp;      this.intr = intr;
+&nbsp;      intrBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (strBuildStage == STAGE_INITIALIZING) attributes.add(&quot;str&quot;);
+&nbsp;      if (intrBuildStage == STAGE_INITIALIZING) attributes.add(&quot;intr&quot;);
+&nbsp;      return &quot;Cannot build NullableDefault, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable String strInitialize() {
+&nbsp;    return NullableDefault.super.str();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable Integer intrInitialize() {
+&nbsp;    return NullableDefault.super.intr();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code str} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable String str() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.str()
+&nbsp;        : this.str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code intr} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Integer intr() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.intr()
+&nbsp;        : this.intr;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NullableDefault#str() str} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for str (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableDefault withStr(@Nullable String value) {
+&nbsp;    if (Objects.equals(this.str, value)) return this;
+&nbsp;    return new ImmutableNullableDefault(value, this.intr);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NullableDefault#intr() intr} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for intr (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNullableDefault withIntr(@Nullable Integer value) {
+&nbsp;    if (Objects.equals(this.intr, value)) return this;
+&nbsp;    return new ImmutableNullableDefault(this.str, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNullableDefault} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNullableDefault
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNullableDefault) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNullableDefault another) {
+&nbsp;    return Objects.equals(str, another.str)
+&nbsp;        &amp;&amp; Objects.equals(intr, another.intr);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code str}, {@code intr}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(str);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(intr);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NullableDefault} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;NullableDefault&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;str&quot;, str)
+&nbsp;        .add(&quot;intr&quot;, intr)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NullableDefault} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NullableDefault instance
+&nbsp;   */
+&nbsp;  public static ImmutableNullableDefault copyOf(NullableDefault instance) {
+&nbsp;    if (instance instanceof ImmutableNullableDefault) {
+&nbsp;      return (ImmutableNullableDefault) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNullableDefault.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNullableDefault ImmutableNullableDefault}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNullableDefault.builder()
+&nbsp;   *    .str(String | null) // nullable {@link NullableDefault#str() str}
+&nbsp;   *    .intr(Integer | null) // nullable {@link NullableDefault#intr() intr}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNullableDefault builder
+&nbsp;   */
+&nbsp;  public static ImmutableNullableDefault.Builder builder() {
+&nbsp;    return new ImmutableNullableDefault.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNullableDefault ImmutableNullableDefault}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NullableDefault&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_STR = 0x1L;
+&nbsp;    private static final long OPT_BIT_INTR = 0x2L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable String str;
+&nbsp;    private @Nullable Integer intr;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NullableDefault} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NullableDefault instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable String strValue = instance.str();
+&nbsp;      if (strValue != null) {
+&nbsp;        str(strValue);
+&nbsp;      }
+&nbsp;      @Nullable Integer intrValue = instance.intr();
+&nbsp;      if (intrValue != null) {
+&nbsp;        intr(intrValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableDefault#str() str} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link NullableDefault#str() str}.&lt;/em&gt;
+&nbsp;     * @param str The value for str (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder str(@Nullable String str) {
+&nbsp;      this.str = str;
+&nbsp;      optBits |= OPT_BIT_STR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NullableDefault#intr() intr} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link NullableDefault#intr() intr}.&lt;/em&gt;
+&nbsp;     * @param intr The value for intr (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder intr(@Nullable Integer intr) {
+&nbsp;      this.intr = intr;
+&nbsp;      optBits |= OPT_BIT_INTR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNullableDefault ImmutableNullableDefault}.
+&nbsp;     * @return An immutable instance of NullableDefault
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNullableDefault build() {
+&nbsp;      return new ImmutableNullableDefault(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean strIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_STR) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean intrIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_INTR) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

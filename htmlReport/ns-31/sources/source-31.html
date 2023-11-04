@@ -1,0 +1,1139 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableBeanFriendly</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableBeanFriendly (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableBeanFriendly$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableBeanFriendly$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link BeanFriendly}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableBeanFriendly.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;BeanFriendly&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableBeanFriendly implements BeanFriendly {
+&nbsp;  private final boolean primary;
+&nbsp;  private final int id;
+&nbsp;  private final String description;
+&nbsp;  private final ImmutableSet&lt;String&gt; names;
+&nbsp;  private final ImmutableMap&lt;String, String&gt; options;
+&nbsp;  private final @Nullable ImmutableMod mod;
+&nbsp;  private final ImmutableMod defaultMod;
+&nbsp;  private final @Nullable ImmutableMod defaultNullableMod;
+&nbsp;  private transient final ImmutableMod derivedMod;
+&nbsp;  private transient final @Nullable ImmutableMod derivedNullableMod;
+&nbsp;  private final @Nullable ImmutableList&lt;Integer&gt; extra;
+&nbsp;
+&nbsp;  private ImmutableBeanFriendly(ImmutableBeanFriendly.Builder builder) {
+&nbsp;    this.primary = builder.primary;
+&nbsp;    this.id = builder.id;
+&nbsp;    this.description = builder.description;
+&nbsp;    this.names = builder.names.build();
+&nbsp;    this.options = builder.options.build();
+&nbsp;    this.mod = builder.mod == null ? null : ImmutableMod.copyOf(builder.mod);
+&nbsp;    this.extra = builder.extra == null ? null : builder.extra.build();
+&nbsp;    if (builder.defaultMod != null) {
+&nbsp;      initShim.defaultMod(ImmutableMod.copyOf(builder.defaultMod));
+&nbsp;    }
+&nbsp;    if (builder.defaultNullableModIsSet()) {
+&nbsp;      initShim.defaultNullableMod(builder.defaultNullableMod == null ? null : ImmutableMod.copyOf(builder.defaultNullableMod));
+&nbsp;    }
+&nbsp;    this.defaultMod = initShim.getDefaultMod();
+&nbsp;    this.defaultNullableMod = initShim.getDefaultNullableMod();
+&nbsp;    this.derivedMod = initShim.getDerivedMod();
+&nbsp;    this.derivedNullableMod = initShim.getDerivedNullableMod();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableBeanFriendly(
+&nbsp;      boolean primary,
+&nbsp;      int id,
+&nbsp;      String description,
+&nbsp;      ImmutableSet&lt;String&gt; names,
+&nbsp;      ImmutableMap&lt;String, String&gt; options,
+&nbsp;      @Nullable ImmutableMod mod,
+&nbsp;      ImmutableMod defaultMod,
+&nbsp;      @Nullable ImmutableMod defaultNullableMod,
+&nbsp;      @Nullable ImmutableList&lt;Integer&gt; extra) {
+&nbsp;    this.primary = primary;
+&nbsp;    this.id = id;
+&nbsp;    this.description = description;
+&nbsp;    this.names = names;
+&nbsp;    this.options = options;
+&nbsp;    this.mod = mod;
+&nbsp;    initShim.defaultMod(defaultMod);
+&nbsp;    initShim.defaultNullableMod(defaultNullableMod);
+&nbsp;    this.extra = extra;
+&nbsp;    this.defaultMod = initShim.getDefaultMod();
+&nbsp;    this.defaultNullableMod = initShim.getDefaultNullableMod();
+&nbsp;    this.derivedMod = initShim.getDerivedMod();
+&nbsp;    this.derivedNullableMod = initShim.getDerivedNullableMod();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;BeanFriendly&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte defaultModBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableMod defaultMod;
+&nbsp;
+&nbsp;    ImmutableMod getDefaultMod() {
+&nbsp;      if (defaultModBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (defaultModBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        defaultModBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.defaultMod = ImmutableMod.copyOf(getDefaultModInitialize());
+&nbsp;        defaultModBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.defaultMod;
+&nbsp;    }
+&nbsp;
+&nbsp;    void defaultMod(ImmutableMod defaultMod) {
+&nbsp;      this.defaultMod = defaultMod;
+&nbsp;      defaultModBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte defaultNullableModBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableMod defaultNullableMod;
+&nbsp;
+&nbsp;    ImmutableMod getDefaultNullableMod() {
+&nbsp;      if (defaultNullableModBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (defaultNullableModBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        defaultNullableModBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.defaultNullableMod = getDefaultNullableModInitialize() == null ? null : ImmutableMod.copyOf(getDefaultNullableModInitialize());
+&nbsp;        defaultNullableModBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.defaultNullableMod;
+&nbsp;    }
+&nbsp;
+&nbsp;    void defaultNullableMod(ImmutableMod defaultNullableMod) {
+&nbsp;      this.defaultNullableMod = defaultNullableMod;
+&nbsp;      defaultNullableModBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte derivedModBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableMod derivedMod;
+&nbsp;
+&nbsp;    ImmutableMod getDerivedMod() {
+&nbsp;      if (derivedModBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (derivedModBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        derivedModBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.derivedMod = ImmutableMod.copyOf(getDerivedModInitialize());
+&nbsp;        derivedModBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.derivedMod;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte derivedNullableModBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableMod derivedNullableMod;
+&nbsp;
+&nbsp;    ImmutableMod getDerivedNullableMod() {
+&nbsp;      if (derivedNullableModBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (derivedNullableModBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        derivedNullableModBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.derivedNullableMod = getDerivedNullableModInitialize() == null ? null : ImmutableMod.copyOf(getDerivedNullableModInitialize());
+&nbsp;        derivedNullableModBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.derivedNullableMod;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (defaultModBuildStage == STAGE_INITIALIZING) attributes.add(&quot;defaultMod&quot;);
+&nbsp;      if (defaultNullableModBuildStage == STAGE_INITIALIZING) attributes.add(&quot;defaultNullableMod&quot;);
+&nbsp;      if (derivedModBuildStage == STAGE_INITIALIZING) attributes.add(&quot;derivedMod&quot;);
+&nbsp;      if (derivedNullableModBuildStage == STAGE_INITIALIZING) attributes.add(&quot;derivedNullableMod&quot;);
+&nbsp;      return &quot;Cannot build BeanFriendly, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private BeanFriendly.Mod getDefaultModInitialize() {
+&nbsp;    return BeanFriendly.super.getDefaultMod();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable BeanFriendly.Mod getDefaultNullableModInitialize() {
+&nbsp;    return BeanFriendly.super.getDefaultNullableMod();
+&nbsp;  }
+&nbsp;
+&nbsp;  private BeanFriendly.Mod getDerivedModInitialize() {
+&nbsp;    return BeanFriendly.super.getDerivedMod();
+&nbsp;  }
+&nbsp;
+&nbsp;  private @Nullable BeanFriendly.Mod getDerivedNullableModInitialize() {
+&nbsp;    return BeanFriendly.super.getDerivedNullableMod();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code primary} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean isPrimary() {
+&nbsp;    return primary;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int getId() {
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code description} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getDescription() {
+&nbsp;    return description;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code names} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;String&gt; getNames() {
+&nbsp;    return names;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code options} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, String&gt; getOptions() {
+&nbsp;    return options;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code mod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableMod getMod() {
+&nbsp;    return mod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code defaultMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMod getDefaultMod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.getDefaultMod()
+&nbsp;        : this.defaultMod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code defaultNullableMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableMod getDefaultNullableMod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.getDefaultNullableMod()
+&nbsp;        : this.defaultNullableMod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code derivedMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMod getDerivedMod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.getDerivedMod()
+&nbsp;        : this.derivedMod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code derivedNullableMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableMod getDerivedNullableMod() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.getDerivedNullableMod()
+&nbsp;        : this.derivedNullableMod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code extra} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;Integer&gt; getExtra() {
+&nbsp;    return extra;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link BeanFriendly#isPrimary() primary} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for primary
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withPrimary(boolean value) {
+&nbsp;    if (this.primary == value) return this;
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        value,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link BeanFriendly#getId() id} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for id
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withId(int value) {
+&nbsp;    if (this.id == value) return this;
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        value,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link BeanFriendly#getDescription() description} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for description
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withDescription(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;description&quot;);
+&nbsp;    if (this.description.equals(newValue)) return this;
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        newValue,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link BeanFriendly#getNames() names}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withNames(String... elements) {
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        newValue,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link BeanFriendly#getNames() names}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of names elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withNames(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.names == elements) return this;
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        newValue,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link BeanFriendly#getOptions() options} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the options map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withOptions(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.options == entries) return this;
+&nbsp;    ImmutableMap&lt;String, String&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        newValue,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link BeanFriendly#getMod() mod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for mod (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withMod(@Nullable BeanFriendly.Mod value) {
+&nbsp;    if (this.mod == value) return this;
+&nbsp;    @Nullable ImmutableMod newValue = value == null ? null : ImmutableMod.copyOf(value);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        newValue,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link BeanFriendly#getDefaultMod() defaultMod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for defaultMod
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withDefaultMod(BeanFriendly.Mod value) {
+&nbsp;    if (this.defaultMod == value) return this;
+&nbsp;    ImmutableMod newValue = ImmutableMod.copyOf(value);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        newValue,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for defaultNullableMod (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withDefaultNullableMod(@Nullable BeanFriendly.Mod value) {
+&nbsp;    if (this.defaultNullableMod == value) return this;
+&nbsp;    @Nullable ImmutableMod newValue = value == null ? null : ImmutableMod.copyOf(value);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        newValue,
+&nbsp;        this.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link BeanFriendly#getExtra() extra}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withExtra(@Nullable int... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableBeanFriendly(
+&nbsp;          this.primary,
+&nbsp;          this.id,
+&nbsp;          this.description,
+&nbsp;          this.names,
+&nbsp;          this.options,
+&nbsp;          this.mod,
+&nbsp;          this.defaultMod,
+&nbsp;          this.defaultNullableMod,
+&nbsp;          null);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;Integer&gt; newValue = Ints.asList(elements) == null ? null : ImmutableList.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link BeanFriendly#getExtra() extra}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of extra elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly withExtra(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.extra == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;Integer&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableBeanFriendly(
+&nbsp;        this.primary,
+&nbsp;        this.id,
+&nbsp;        this.description,
+&nbsp;        this.names,
+&nbsp;        this.options,
+&nbsp;        this.mod,
+&nbsp;        this.defaultMod,
+&nbsp;        this.defaultNullableMod,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableBeanFriendly} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableBeanFriendly
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableBeanFriendly) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableBeanFriendly another) {
+&nbsp;    return primary == another.primary
+&nbsp;        &amp;&amp; id == another.id
+&nbsp;        &amp;&amp; description.equals(another.description)
+&nbsp;        &amp;&amp; names.equals(another.names)
+&nbsp;        &amp;&amp; options.equals(another.options)
+&nbsp;        &amp;&amp; Objects.equals(mod, another.mod)
+&nbsp;        &amp;&amp; defaultMod.equals(another.defaultMod)
+&nbsp;        &amp;&amp; Objects.equals(defaultNullableMod, another.defaultNullableMod)
+&nbsp;        &amp;&amp; derivedMod.equals(another.derivedMod)
+&nbsp;        &amp;&amp; Objects.equals(derivedNullableMod, another.derivedNullableMod)
+&nbsp;        &amp;&amp; Objects.equals(extra, another.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code primary}, {@code id}, {@code description}, {@code names}, {@code options}, {@code mod}, {@code defaultMod}, {@code defaultNullableMod}, {@code derivedMod}, {@code derivedNullableMod}, {@code extra}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(primary);
+&nbsp;    h += (h &lt;&lt; 5) + id;
+&nbsp;    h += (h &lt;&lt; 5) + description.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + names.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + options.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(mod);
+&nbsp;    h += (h &lt;&lt; 5) + defaultMod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(defaultNullableMod);
+&nbsp;    h += (h &lt;&lt; 5) + derivedMod.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(derivedNullableMod);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(extra);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code BeanFriendly} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;BeanFriendly&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;primary&quot;, primary)
+&nbsp;        .add(&quot;id&quot;, id)
+&nbsp;        .add(&quot;description&quot;, description)
+&nbsp;        .add(&quot;names&quot;, names)
+&nbsp;        .add(&quot;options&quot;, options)
+&nbsp;        .add(&quot;mod&quot;, mod)
+&nbsp;        .add(&quot;defaultMod&quot;, defaultMod)
+&nbsp;        .add(&quot;defaultNullableMod&quot;, defaultNullableMod)
+&nbsp;        .add(&quot;derivedMod&quot;, derivedMod)
+&nbsp;        .add(&quot;derivedNullableMod&quot;, derivedNullableMod)
+&nbsp;        .add(&quot;extra&quot;, extra)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long LAZY_MOD_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient BeanFriendly.Mod lazyMod;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link BeanFriendly#getLazyMod() lazyMod} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code lazyMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public BeanFriendly.Mod getLazyMod() {
+&nbsp;    if ((lazyInitBitmap &amp; LAZY_MOD_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; LAZY_MOD_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.lazyMod = Objects.requireNonNull(BeanFriendly.super.getLazyMod(), &quot;lazyMod&quot;);
+&nbsp;          lazyInitBitmap |= LAZY_MOD_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return lazyMod;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long LAZY_NULLABLE_MOD_LAZY_INIT_BIT = 0x2L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient BeanFriendly.Mod lazyNullableMod;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link BeanFriendly#getLazyNullableMod() lazyNullableMod} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code lazyNullableMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public BeanFriendly.Mod getLazyNullableMod() {
+&nbsp;    if ((lazyInitBitmap &amp; LAZY_NULLABLE_MOD_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; LAZY_NULLABLE_MOD_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.lazyNullableMod = BeanFriendly.super.getLazyNullableMod();
+&nbsp;          lazyInitBitmap |= LAZY_NULLABLE_MOD_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return lazyNullableMod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link BeanFriendly} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable BeanFriendly instance
+&nbsp;   */
+&nbsp;  public static ImmutableBeanFriendly copyOf(BeanFriendly instance) {
+&nbsp;    if (instance instanceof ImmutableBeanFriendly) {
+&nbsp;      return (ImmutableBeanFriendly) instance;
+&nbsp;    }
+&nbsp;    return ImmutableBeanFriendly.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableBeanFriendly ImmutableBeanFriendly}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableBeanFriendly.builder()
+&nbsp;   *    .primary(boolean) // required {@link BeanFriendly#isPrimary() primary}
+&nbsp;   *    .id(int) // required {@link BeanFriendly#getId() id}
+&nbsp;   *    .description(String) // required {@link BeanFriendly#getDescription() description}
+&nbsp;   *    .addNames|addAllNames(String) // {@link BeanFriendly#getNames() names} elements
+&nbsp;   *    .putOptions|putAllOptions(String =&amp;gt; String) // {@link BeanFriendly#getOptions() options} mappings
+&nbsp;   *    .mod(org.immutables.fixture.modifiable.BeanFriendly.Mod | null) // nullable {@link BeanFriendly#getMod() mod}
+&nbsp;   *    .defaultMod(org.immutables.fixture.modifiable.BeanFriendly.Mod) // optional {@link BeanFriendly#getDefaultMod() defaultMod}
+&nbsp;   *    .defaultNullableMod(org.immutables.fixture.modifiable.BeanFriendly.Mod | null) // nullable {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod}
+&nbsp;   *    .extra(List&amp;amp;lt;Integer&amp;amp;gt; | null) // nullable {@link BeanFriendly#getExtra() extra}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableBeanFriendly builder
+&nbsp;   */
+&nbsp;  public static ImmutableBeanFriendly.Builder builder() {
+&nbsp;    return new ImmutableBeanFriendly.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableBeanFriendly ImmutableBeanFriendly}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;BeanFriendly&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_PRIMARY = 0x1L;
+&nbsp;    private static final long INIT_BIT_ID = 0x2L;
+&nbsp;    private static final long INIT_BIT_DESCRIPTION = 0x4L;
+&nbsp;    private static final long OPT_BIT_DEFAULT_NULLABLE_MOD = 0x1L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private boolean primary;
+&nbsp;    private int id;
+&nbsp;    private @Nullable String description;
+&nbsp;    private ImmutableSet.Builder&lt;String&gt; names = ImmutableSet.builder();
+&nbsp;    private ImmutableMap.Builder&lt;String, String&gt; options = ImmutableMap.builder();
+&nbsp;    private @Nullable BeanFriendly.Mod mod;
+&nbsp;    private @Nullable BeanFriendly.Mod defaultMod;
+&nbsp;    private @Nullable BeanFriendly.Mod defaultNullableMod;
+&nbsp;    private ImmutableList.Builder&lt;Integer&gt; extra = null;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableBeanFriendly} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableBeanFriendly instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance.primaryIsSet()) {
+&nbsp;        primary(instance.isPrimary());
+&nbsp;      }
+&nbsp;      if (instance.idIsSet()) {
+&nbsp;        id(instance.getId());
+&nbsp;      }
+&nbsp;      if (instance.descriptionIsSet()) {
+&nbsp;        description(instance.getDescription());
+&nbsp;      }
+&nbsp;      addAllNames(instance.getNames());
+&nbsp;      putAllOptions(instance.getOptions());
+&nbsp;      @Nullable BeanFriendly.Mod modValue = instance.getMod();
+&nbsp;      if (modValue != null) {
+&nbsp;        mod(modValue);
+&nbsp;      }
+&nbsp;      defaultMod(instance.getDefaultMod());
+&nbsp;      @Nullable BeanFriendly.Mod defaultNullableModValue = instance.getDefaultNullableMod();
+&nbsp;      if (defaultNullableModValue != null) {
+&nbsp;        defaultNullableMod(defaultNullableModValue);
+&nbsp;      }
+&nbsp;      @Nullable List&lt;Integer&gt; extraValue = instance.getExtra();
+&nbsp;      if (extraValue != null) {
+&nbsp;        addAllExtra(extraValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.modifiable.Identifiable} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Identifiable instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.modifiable.BeanFriendly} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(BeanFriendly instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      if (object instanceof ModifiableBeanFriendly) {
+&nbsp;        from((ModifiableBeanFriendly) object);
+&nbsp;        return;
+&nbsp;      }
+&nbsp;      @Var long bits = 0;
+&nbsp;      if (object instanceof Identifiable) {
+&nbsp;        Identifiable instance = (Identifiable) object;
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          id(instance.getId());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;      }
+&nbsp;      if (object instanceof BeanFriendly) {
+&nbsp;        BeanFriendly instance = (BeanFriendly) object;
+&nbsp;        defaultMod(instance.getDefaultMod());
+&nbsp;        @Nullable BeanFriendly.Mod modValue = instance.getMod();
+&nbsp;        if (modValue != null) {
+&nbsp;          mod(modValue);
+&nbsp;        }
+&nbsp;        addAllNames(instance.getNames());
+&nbsp;        @Nullable List&lt;Integer&gt; extraValue = instance.getExtra();
+&nbsp;        if (extraValue != null) {
+&nbsp;          addAllExtra(extraValue);
+&nbsp;        }
+&nbsp;        putAllOptions(instance.getOptions());
+&nbsp;        description(instance.getDescription());
+&nbsp;        @Nullable BeanFriendly.Mod defaultNullableModValue = instance.getDefaultNullableMod();
+&nbsp;        if (defaultNullableModValue != null) {
+&nbsp;          defaultNullableMod(defaultNullableModValue);
+&nbsp;        }
+&nbsp;        if ((bits &amp; 0x1L) == 0) {
+&nbsp;          id(instance.getId());
+&nbsp;          bits |= 0x1L;
+&nbsp;        }
+&nbsp;        primary(instance.isPrimary());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link BeanFriendly#isPrimary() primary} attribute.
+&nbsp;     * @param primary The value for primary 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder primary(boolean primary) {
+&nbsp;      this.primary = primary;
+&nbsp;      initBits &amp;= ~INIT_BIT_PRIMARY;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link BeanFriendly#getId() id} attribute.
+&nbsp;     * @param id The value for id 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder id(int id) {
+&nbsp;      this.id = id;
+&nbsp;      initBits &amp;= ~INIT_BIT_ID;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link BeanFriendly#getDescription() description} attribute.
+&nbsp;     * @param description The value for description 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder description(String description) {
+&nbsp;      this.description = Objects.requireNonNull(description, &quot;description&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_DESCRIPTION;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link BeanFriendly#getNames() names} set.
+&nbsp;     * @param element A names element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNames(String element) {
+&nbsp;      this.names.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link BeanFriendly#getNames() names} set.
+&nbsp;     * @param elements An array of names elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNames(String... elements) {
+&nbsp;      this.names.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link BeanFriendly#getNames() names} set.
+&nbsp;     * @param elements An iterable of names elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder names(Iterable&lt;String&gt; elements) {
+&nbsp;      this.names = ImmutableSet.builder();
+&nbsp;      return addAllNames(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link BeanFriendly#getNames() names} set.
+&nbsp;     * @param elements An iterable of names elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNames(Iterable&lt;String&gt; elements) {
+&nbsp;      this.names.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link BeanFriendly#getOptions() options} map.
+&nbsp;     * @param key The key in the options map
+&nbsp;     * @param value The associated value in the options map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putOptions(String key, String value) {
+&nbsp;      this.options.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link BeanFriendly#getOptions() options} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putOptions(Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      this.options.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link BeanFriendly#getOptions() options} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the options map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder options(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.options = ImmutableMap.builder();
+&nbsp;      return putAllOptions(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link BeanFriendly#getOptions() options} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the options map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllOptions(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      this.options.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link BeanFriendly#getMod() mod} attribute.
+&nbsp;     * @param mod The value for mod (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder mod(@Nullable BeanFriendly.Mod mod) {
+&nbsp;      this.mod = mod == null ? null : ImmutableMod.copyOf(mod);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link BeanFriendly#getDefaultMod() defaultMod} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link BeanFriendly#getDefaultMod() defaultMod}.&lt;/em&gt;
+&nbsp;     * @param defaultMod The value for defaultMod 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder defaultMod(BeanFriendly.Mod defaultMod) {
+&nbsp;      this.defaultMod = ImmutableMod.copyOf(defaultMod);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod}.&lt;/em&gt;
+&nbsp;     * @param defaultNullableMod The value for defaultNullableMod (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder defaultNullableMod(@Nullable BeanFriendly.Mod defaultNullableMod) {
+&nbsp;      this.defaultNullableMod = defaultNullableMod == null ? null : ImmutableMod.copyOf(defaultNullableMod);
+&nbsp;      optBits |= OPT_BIT_DEFAULT_NULLABLE_MOD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link BeanFriendly#getExtra() extra} list.
+&nbsp;     * @param element A extra element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addExtra(int element) {
+&nbsp;      if (this.extra == null) {
+&nbsp;        this.extra = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.extra.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link BeanFriendly#getExtra() extra} list.
+&nbsp;     * @param elements An array of extra elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addExtra(int... elements) {
+&nbsp;      if (this.extra == null) {
+&nbsp;        this.extra = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.extra.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link BeanFriendly#getExtra() extra} list.
+&nbsp;     * @param elements An iterable of extra elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder extra(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.extra = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.extra = ImmutableList.builder();
+&nbsp;      return addAllExtra(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link BeanFriendly#getExtra() extra} list.
+&nbsp;     * @param elements An iterable of extra elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllExtra(Iterable&lt;Integer&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;extra element&quot;);
+&nbsp;      if (this.extra == null) {
+&nbsp;        this.extra = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.extra.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableBeanFriendly ImmutableBeanFriendly}.
+&nbsp;     * @return An immutable instance of BeanFriendly
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableBeanFriendly build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableBeanFriendly(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean defaultNullableModIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_DEFAULT_NULLABLE_MOD) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_PRIMARY) != 0) attributes.add(&quot;primary&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ID) != 0) attributes.add(&quot;id&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_DESCRIPTION) != 0) attributes.add(&quot;description&quot;);
+&nbsp;      return &quot;Cannot build BeanFriendly, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

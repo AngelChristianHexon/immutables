@@ -1,0 +1,670 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > StyleInfo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: StyleInfo (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StyleInfo</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/107)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import org.immutables.value.Value;
+&nbsp;import org.immutables.value.processor.meta.Proto.ToImmutableInfo;
+&nbsp;
+&nbsp;/**
+&nbsp; * We copy styles to StyleInfo to safely cache styles between rounds etc and prevent any memory
+&nbsp; * leaks by unnecessary retaining compiler internal structures.
+&nbsp; */
+&nbsp;@SuppressWarnings(&quot;all&quot;)
+&nbsp;@Value.Immutable(intern = true, builder = false)
+&nbsp;@Value.Style(get = &quot;*&quot;)
+<b class="nc">&nbsp;public abstract class StyleInfo implements ValueMirrors.Style {</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt; annotationType() {
+<b class="nc">&nbsp;    return ValueMirrors.Style.class;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract String[] get();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String init();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String with();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String withUnaryOperator();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String add();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String addAll();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String put();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String putAll();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String copyOf();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String of();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String instance();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String builder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String newBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String from();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String build();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String buildOrThrow();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String canBuild();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String toBuilder();
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String underrideHashCode();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String underrideEquals();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String underrideToString();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String delegateToString();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String includeHashCode();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String isInitialized();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String isSet();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String set();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String unset();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String clear();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String create();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String toImmutable();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeInnerBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String[] typeAbstract();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeImmutable();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeImmutableEnclosing();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeImmutableNested();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeModifiable();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeInnerModifiable();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String typeWith();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String packageGenerated();
+&nbsp;
+&nbsp;  @Override
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract ValueImmutableInfo defaults();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean strictBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean strictModifiable();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract ValidationMethod validationMethod();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean allParameters();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean defaultAsDefault();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean headerComments();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean jdkOnly();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean jdk9Collections();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract ImmutableSet&lt;String&gt; passAnnotationsNames();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract ImmutableSet&lt;String&gt; additionalJsonAnnotationsNames();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract ImplementationVisibility visibility();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String visibilityString();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean optionalAcceptNullable();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean generateSuppressAllWarnings();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean privateNoargConstructor();
+&nbsp;  
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean protectedNoargConstructor();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean attributelessSingleton();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean unsafeDefaultAndDerived();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean clearBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean deferCollectionAllocation();
+&nbsp;
+&nbsp;  @Override
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract boolean deepImmutablesDetection();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean overshadowImplementation();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean implementationNestedInBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean forceJacksonPropertyNames();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean forceJacksonIgnoreFields();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean forceEqualsInWithers();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean jacksonIntegration();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean weakInterning();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean alwaysPublicInitializers();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract BuilderVisibility builderVisibility();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String builderVisibilityString();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract String throwForInvalidImmutableStateName();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract String throwForNullPointerName();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean depluralize();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String[] depluralizeDictionary();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract ImmutableSet&lt;String&gt; immutableCopyOfRoutinesNames();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean stagedBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean builtinContainerAttributes();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean beanFriendlyModifiables();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean allMandatoryParameters();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean transientDerivedFields();
+&nbsp;  
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean finalInstanceFields();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String redactedMask();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean attributeBuilderDetection();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String[] attributeBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String getBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String setBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String addBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String addAllBuilder();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String getBuilders();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract String nullableAnnotation();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract ImmutableSet&lt;String&gt; allowedClasspathAnnotationsNames();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  public abstract String fallbackNullableAnnotationName();
+&nbsp;
+&nbsp;  @Value.Lazy
+&nbsp;  public Styles getStyles() {
+<b class="nc">&nbsp;    return new Styles(this);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.passAnnotationsNames() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt;[] passAnnotations() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.passAnnotationsNames() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.additionalJsonAnnotationsNames() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt;[] additionalJsonAnnotations() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.additionalJsonAnnotationsNames() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.throwForInvalidImmutableStateName() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Exception&gt; throwForInvalidImmutableState() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.throwForInvalidImmutableStateName() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.throwForNullPointerName() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Exception&gt; throwForNullPointer() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.throwForNullPointerName() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.immutableCopyOfRoutinesNames() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;?&gt;[] immutableCopyOfRoutines() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.immutableCopyOfRoutinesNames() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.allowedClasspathAnnotationsNames() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt;[] allowedClasspathAnnotations() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.allowedClasspathAnnotationsNames() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /** @deprecated no runtime classes, use StyleInfo.fallbackNullableAnnotationName() instead */
+&nbsp;  @Deprecated
+&nbsp;  @Override
+&nbsp;  public Class&lt;? extends Annotation&gt; fallbackNullableAnnotation() {
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Use StyleInfo.fallbackNullableAnnotationName() instead&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract int limitStringLengthInToString();
+&nbsp;
+&nbsp;  @Value.Parameter
+&nbsp;  @Override
+&nbsp;  public abstract boolean jakarta();
+&nbsp;
+&nbsp;  static StyleInfo infoFrom(StyleMirror input) {
+<b class="nc">&nbsp;    return ImmutableStyleInfo.of(</b>
+<b class="nc">&nbsp;        input.get(),</b>
+<b class="nc">&nbsp;        input.init(),</b>
+<b class="nc">&nbsp;        input.with(),</b>
+<b class="nc">&nbsp;        input.withUnaryOperator(),</b>
+<b class="nc">&nbsp;        input.add(),</b>
+<b class="nc">&nbsp;        input.addAll(),</b>
+<b class="nc">&nbsp;        input.put(),</b>
+<b class="nc">&nbsp;        input.putAll(),</b>
+<b class="nc">&nbsp;        input.copyOf(),</b>
+<b class="nc">&nbsp;        input.of(),</b>
+<b class="nc">&nbsp;        input.instance(),</b>
+<b class="nc">&nbsp;        input.builder(),</b>
+<b class="nc">&nbsp;        input.newBuilder(),</b>
+<b class="nc">&nbsp;        input.from(),</b>
+<b class="nc">&nbsp;        input.build(),</b>
+<b class="nc">&nbsp;        input.buildOrThrow(),</b>
+<b class="nc">&nbsp;        input.canBuild(),</b>
+<b class="nc">&nbsp;        input.toBuilder(),</b>
+<b class="nc">&nbsp;        input.underrideHashCode(),</b>
+<b class="nc">&nbsp;        input.underrideEquals(),</b>
+<b class="nc">&nbsp;        input.underrideToString(),</b>
+<b class="nc">&nbsp;        input.delegateToString(),</b>
+<b class="nc">&nbsp;        input.includeHashCode(),</b>
+<b class="nc">&nbsp;        input.isInitialized(),</b>
+<b class="nc">&nbsp;        input.isSet(),</b>
+<b class="nc">&nbsp;        input.set(),</b>
+<b class="nc">&nbsp;        input.unset(),</b>
+<b class="nc">&nbsp;        input.clear(),</b>
+<b class="nc">&nbsp;        input.create(),</b>
+<b class="nc">&nbsp;        input.toImmutable(),</b>
+<b class="nc">&nbsp;        input.typeBuilder(),</b>
+<b class="nc">&nbsp;        input.typeInnerBuilder(),</b>
+<b class="nc">&nbsp;        input.typeAbstract(),</b>
+<b class="nc">&nbsp;        input.typeImmutable(),</b>
+<b class="nc">&nbsp;        input.typeImmutableEnclosing(),</b>
+<b class="nc">&nbsp;        input.typeImmutableNested(),</b>
+<b class="nc">&nbsp;        input.typeModifiable(),</b>
+<b class="nc">&nbsp;        input.typeInnerModifiable(),</b>
+<b class="nc">&nbsp;        input.typeWith(),</b>
+<b class="nc">&nbsp;        input.packageGenerated(),</b>
+<b class="nc">&nbsp;        ToImmutableInfo.FUNCTION.apply(input.defaults()),</b>
+<b class="nc">&nbsp;        input.strictBuilder(),</b>
+<b class="nc">&nbsp;        input.strictModifiable(),</b>
+<b class="nc">&nbsp;        input.validationMethod(),</b>
+<b class="nc">&nbsp;        input.allParameters(),</b>
+<b class="nc">&nbsp;        input.defaultAsDefault(),</b>
+<b class="nc">&nbsp;        input.headerComments(),</b>
+<b class="nc">&nbsp;        input.jdkOnly(),</b>
+<b class="nc">&nbsp;        input.jdk9Collections(),</b>
+<b class="nc">&nbsp;        ImmutableSet.copyOf(input.passAnnotationsName()),</b>
+<b class="nc">&nbsp;        ImmutableSet.copyOf(input.additionalJsonAnnotationsName()),</b>
+<b class="nc">&nbsp;        input.visibility(),</b>
+<b class="nc">&nbsp;        input.visibilityString(),</b>
+<b class="nc">&nbsp;        input.optionalAcceptNullable(),</b>
+<b class="nc">&nbsp;        input.generateSuppressAllWarnings(),</b>
+<b class="nc">&nbsp;        input.privateNoargConstructor(),</b>
+<b class="nc">&nbsp;        input.protectedNoargConstructor(),</b>
+<b class="nc">&nbsp;        input.attributelessSingleton(),</b>
+<b class="nc">&nbsp;        input.unsafeDefaultAndDerived(),</b>
+<b class="nc">&nbsp;        input.clearBuilder(),</b>
+<b class="nc">&nbsp;        input.deferCollectionAllocation(),</b>
+<b class="nc">&nbsp;        input.deepImmutablesDetection(),</b>
+<b class="nc">&nbsp;        input.overshadowImplementation(),</b>
+<b class="nc">&nbsp;        input.implementationNestedInBuilder(),</b>
+<b class="nc">&nbsp;        input.forceJacksonPropertyNames(),</b>
+<b class="nc">&nbsp;        input.forceJacksonIgnoreFields(),</b>
+<b class="nc">&nbsp;        input.forceEqualsInWithers(),</b>
+<b class="nc">&nbsp;        input.jacksonIntegration(),</b>
+<b class="nc">&nbsp;        input.weakInterning(),</b>
+<b class="nc">&nbsp;        input.alwaysPublicInitializers(),</b>
+<b class="nc">&nbsp;        input.builderVisibility(),</b>
+<b class="nc">&nbsp;        input.builderVisibilityString(),</b>
+<b class="nc">&nbsp;        input.throwForInvalidImmutableStateName(),</b>
+<b class="nc">&nbsp;        input.throwForNullPointerName(),</b>
+<b class="nc">&nbsp;        input.depluralize(),</b>
+<b class="nc">&nbsp;        input.depluralizeDictionary(),</b>
+<b class="nc">&nbsp;        ImmutableSet.copyOf(input.immutableCopyOfRoutinesName()),</b>
+<b class="nc">&nbsp;        input.stagedBuilder(),</b>
+<b class="nc">&nbsp;        input.builtinContainerAttributes(),</b>
+<b class="nc">&nbsp;        input.beanFriendlyModifiables(),</b>
+<b class="nc">&nbsp;        input.allMandatoryParameters(),</b>
+<b class="nc">&nbsp;        input.transientDerivedFields(),</b>
+<b class="nc">&nbsp;        input.finalInstanceFields(),</b>
+<b class="nc">&nbsp;        input.redactedMask(),</b>
+<b class="nc">&nbsp;        input.attributeBuilderDetection(),</b>
+<b class="nc">&nbsp;        input.attributeBuilder(),</b>
+<b class="nc">&nbsp;        input.getBuilder(),</b>
+<b class="nc">&nbsp;        input.setBuilder(),</b>
+<b class="nc">&nbsp;        input.addBuilder(),</b>
+<b class="nc">&nbsp;        input.addAllBuilder(),</b>
+<b class="nc">&nbsp;        input.getBuilders(),</b>
+<b class="nc">&nbsp;        input.nullableAnnotation(),</b>
+<b class="nc">&nbsp;        ImmutableSet.copyOf(input.allowedClasspathAnnotationsName()),</b>
+<b class="nc">&nbsp;        input.fallbackNullableAnnotationName(),</b>
+<b class="nc">&nbsp;        input.limitStringLengthInToString(),</b>
+<b class="nc">&nbsp;        input.jakarta());</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AInterfaceBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: AInterfaceBuilder (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">AInterfaceBuilder$ImmutableAInterface</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Builds instances of type {@link AInterfaceBuilder.ImmutableAInterface ImmutableAInterface}.
+&nbsp; * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp; * immutable instance.
+&nbsp; * &lt;p&gt;&lt;em&gt;{@code AInterfaceBuilder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp; * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;AInterface&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@NotThreadSafe
+&nbsp;final class AInterfaceBuilder {
+&nbsp;  private static final long INIT_BIT_STRING = 0x1L;
+&nbsp;  private long initBits = 0x1L;
+&nbsp;
+&nbsp;  private @Nullable String string;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link AInterfaceBuilder.ImmutableAInterface ImmutableAInterface} instances.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * new AInterfaceBuilder()
+&nbsp;   *    .string(String) // required {@link AInterface#getString() string}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  AInterfaceBuilder() {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill a builder with attribute values from the provided {@code AInterface} instance.
+&nbsp;   * Regular attribute values will be replaced with those from the given instance.
+&nbsp;   * Absent optional values will not replace present values.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final AInterfaceBuilder from(AInterface instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    string(instance.getString());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the value for the {@link AInterface#getString() string} attribute.
+&nbsp;   * @param string The value for string 
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final AInterfaceBuilder string(String string) {
+&nbsp;    this.string = Objects.requireNonNull(string, &quot;string&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_STRING;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds a new {@link AInterfaceBuilder.ImmutableAInterface ImmutableAInterface}.
+&nbsp;   * @return An immutable instance of AInterface
+&nbsp;   * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;   */
+&nbsp;  public ImmutableAInterface build() {
+&nbsp;    if (initBits != 0) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;    return new AInterfaceBuilder.ImmutableAInterface(string);
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if ((initBits &amp; INIT_BIT_STRING) != 0) attributes.add(&quot;string&quot;);
+&nbsp;    return &quot;Cannot build AInterface, some of required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link AInterface}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code new AInterfaceBuilder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AInterface&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class ImmutableAInterface implements AInterface {
+&nbsp;    private final String string;
+&nbsp;
+&nbsp;    private ImmutableAInterface(String string) {
+&nbsp;      this.string = string;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code string} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String getString() {
+&nbsp;      return string;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AInterface#getString() string} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for string
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final AInterfaceBuilder.ImmutableAInterface withString(String value) {
+&nbsp;      String newValue = Objects.requireNonNull(value, &quot;string&quot;);
+&nbsp;      if (this.string.equals(newValue)) return this;
+&nbsp;      return new AInterfaceBuilder.ImmutableAInterface(newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ImmutableAInterface} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof AInterfaceBuilder.ImmutableAInterface
+&nbsp;          &amp;&amp; equalTo(0, (AInterfaceBuilder.ImmutableAInterface) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, AInterfaceBuilder.ImmutableAInterface another) {
+&nbsp;      return string.equals(another.string);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code string}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + string.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code AInterface} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;AInterface&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;string&quot;, string)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link AInterface} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable AInterface instance
+&nbsp;     */
+&nbsp;    public static AInterfaceBuilder.ImmutableAInterface copyOf(AInterface instance) {
+&nbsp;      if (instance instanceof AInterfaceBuilder.ImmutableAInterface) {
+&nbsp;        return (AInterfaceBuilder.ImmutableAInterface) instance;
+&nbsp;      }
+&nbsp;      return new AInterfaceBuilder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

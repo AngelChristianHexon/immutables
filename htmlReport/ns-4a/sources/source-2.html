@@ -1,0 +1,640 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Support</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mongo.repository.internal</a>
+</div>
+
+<h1>Coverage Summary for Class: Support (org.immutables.mongo.repository.internal)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Support</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/45)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Support$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Support$Adapted</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Support$ConstraintBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/17)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/34)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/65)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Support$ConvertToIndex</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Support$JsonQuery</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/42)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/66)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/140)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mongo.repository.internal;
+&nbsp;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.BoundType;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import com.google.common.collect.LinkedHashMultimap;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import com.google.common.collect.Range;
+&nbsp;import com.mongodb.QueryOperators;
+&nbsp;import org.bson.BsonDocument;
+&nbsp;import org.bson.BsonDocumentWriter;
+&nbsp;import org.bson.BsonValue;
+&nbsp;import org.bson.Document;
+&nbsp;import org.bson.codecs.Encoder;
+&nbsp;import org.bson.codecs.EncoderContext;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.bson.conversions.Bson;
+&nbsp;import org.immutables.mongo.repository.Repositories;
+&nbsp;import org.immutables.mongo.repository.internal.Constraints.ConstraintVisitor;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Map.Entry;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;import static com.google.common.base.Preconditions.checkNotNull;
+&nbsp;
+&nbsp;/**
+&nbsp; * Routines and classes used by generated code and bridging code in {@link Repositories}
+&nbsp; */
+&nbsp;public final class Support {
+&nbsp;  private Support() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Given a query / ordering clause will convert it to Bson representation.
+&nbsp;   */
+&nbsp;  public static Bson convertToBson(final Constraints.ConstraintHost fields) {
+<b class="nc">&nbsp;    if (fields instanceof JsonQuery) {</b>
+<b class="nc">&nbsp;      return (Bson) fields;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return fields.accept(new ConstraintBuilder(&quot;&quot;)).asDocument();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds bson with index definition. The difference with
+&nbsp;   * {@link #convertToBson(Constraints.ConstraintHost)} is that this method fails on duplicate
+&nbsp;   * fields. Currently only one index is allowed per field.
+&nbsp;   * @see &lt;a href=&quot;https://docs.mongodb.com/manual/indexes/&quot;&gt;Mongo Indexes&lt;/a&gt;
+&nbsp;   */
+&nbsp;  public static Bson convertToIndex(final Constraints.ConstraintHost fields) {
+<b class="nc">&nbsp;    final Document document = new Document();</b>
+<b class="nc">&nbsp;    fields.accept(new ConvertToIndex(document));</b>
+<b class="nc">&nbsp;    return document;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static String stringify(final Constraints.ConstraintHost constraints) {
+<b class="nc">&nbsp;    if (constraints instanceof JsonQuery) {</b>
+<b class="nc">&nbsp;      return constraints.toString();</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return convertToBson(constraints).toString();</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static final class ConvertToIndex</b>
+&nbsp;      extends Constraints.AbstractConstraintVisitor&lt;ConvertToIndex&gt; {
+&nbsp;    private final Document document;
+&nbsp;
+<b class="nc">&nbsp;    private ConvertToIndex(Document document) {</b>
+<b class="nc">&nbsp;      this.document = document;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConvertToIndex equal(String name, boolean negate, @Nullable Object value) {
+<b class="nc">&nbsp;      if (document.containsKey(name)) {</b>
+<b class="nc">&nbsp;        throw new IllegalArgumentException(</b>
+<b class="nc">&nbsp;            String.format(&quot;Attribute %s is not unique: %s&quot;, name, document.get(name)));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      document.put(name, value);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @NotThreadSafe
+<b class="nc">&nbsp;  public static class ConstraintBuilder extends Constraints.AbstractConstraintVisitor&lt;ConstraintBuilder&gt; {</b>
+&nbsp;
+&nbsp;    private final String keyPrefix;
+&nbsp;
+&nbsp;    private List&lt;Document&gt; conjunctions; // $and
+&nbsp;    private final List&lt;Document&gt; disjunctions; // $or
+&nbsp;
+<b class="nc">&nbsp;    private ConstraintBuilder(String keyPrefix) {</b>
+<b class="nc">&nbsp;      this.keyPrefix = Preconditions.checkNotNull(keyPrefix, &quot;keyPrefix&quot;);</b>
+<b class="nc">&nbsp;      this.conjunctions = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      this.disjunctions = new ArrayList&lt;&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private ConstraintBuilder newBuilderForKey(String key) {
+<b class="nc">&nbsp;      return new ConstraintBuilder(keyPrefix + &quot;.&quot; + key);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private void addContraint(String name, Object constraint) {
+<b class="nc">&nbsp;      final String path = keyPrefix.concat(name);</b>
+<b class="nc">&nbsp;      conjunctions.add(new Document(path, constraint));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder in(String name, boolean negate, Iterable&lt;?&gt; values) {
+<b class="nc">&nbsp;      addContraint(name,</b>
+&nbsp;          new Document(
+<b class="nc">&nbsp;              negate ? QueryOperators.NIN : QueryOperators.IN,</b>
+<b class="nc">&nbsp;              ImmutableSet.copyOf(unwrapBsonableIterable(values))));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder equal(String name, boolean negate, @Nullable Object value) {
+<b class="nc">&nbsp;      addContraint(name, negate ? new Document(QueryOperators.NE, unwrapBsonable(value)) : unwrapBsonable(value));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder range(String name, boolean negate, Range&lt;?&gt; range) {
+&nbsp;
+<b class="nc">&nbsp;      if (range.hasLowerBound() &amp;&amp; range.hasUpperBound()) {</b>
+<b class="nc">&nbsp;        if (range.lowerEndpoint().equals(range.upperEndpoint()) &amp;&amp; !range.isEmpty()) {</b>
+<b class="nc">&nbsp;          equal(name, negate, range.lowerEndpoint());</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          Document rangeObject = new Document()</b>
+<b class="nc">&nbsp;              .append(boundToOperator(true, false, range.lowerBoundType()), unwrapBsonable(range.lowerEndpoint()))</b>
+<b class="nc">&nbsp;              .append(boundToOperator(false, false, range.upperBoundType()), unwrapBsonable(range.upperEndpoint()));</b>
+&nbsp;
+<b class="nc">&nbsp;          addContraint(name, negateConstraint(negate, rangeObject));</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;      } else if (range.hasLowerBound()) {</b>
+<b class="nc">&nbsp;        Document rangeObject =</b>
+&nbsp;            new Document(
+<b class="nc">&nbsp;                boundToOperator(true, negate, range.lowerBoundType()),</b>
+<b class="nc">&nbsp;                unwrapBsonable(range.lowerEndpoint()));</b>
+&nbsp;
+<b class="nc">&nbsp;        addContraint(name, rangeObject);</b>
+&nbsp;
+<b class="nc">&nbsp;      } else if (range.hasUpperBound()) {</b>
+<b class="nc">&nbsp;        Document rangeObject =</b>
+&nbsp;            new Document(
+<b class="nc">&nbsp;                boundToOperator(false, negate, range.upperBoundType()),</b>
+<b class="nc">&nbsp;                unwrapBsonable(range.upperEndpoint()));</b>
+&nbsp;
+<b class="nc">&nbsp;        addContraint(name, rangeObject);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private String boundToOperator(boolean lower, boolean negate, BoundType lowerBoundType) {
+<b class="nc">&nbsp;      boolean closedBound = lowerBoundType == BoundType.CLOSED;</b>
+<b class="nc">&nbsp;      return comparisonOperators[lower ^ negate ? 1 : 0][closedBound ^ negate ? 1 : 0];</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    private static final String[][] comparisonOperators = {</b>
+&nbsp;        {QueryOperators.LT, QueryOperators.LTE},
+&nbsp;        {QueryOperators.GT, QueryOperators.GTE}
+&nbsp;    };
+&nbsp;
+&nbsp;    private Object negateConstraint(boolean negate, Object constraint) {
+<b class="nc">&nbsp;      return negate ? new Document(QueryOperators.NOT, constraint) : constraint;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Document asDocument() {
+<b class="nc">&nbsp;      final List&lt;Document&gt; result = new ArrayList&lt;&gt;(disjunctions);</b>
+<b class="nc">&nbsp;      result.add(mergeConjunctions(conjunctions));</b>
+&nbsp;
+<b class="nc">&nbsp;      return result.size() == 1 ? result.get(0) : new Document(QueryOperators.OR, result);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    private Document mergeConjunctions(List&lt;Document&gt; conjunctions) {
+<b class="nc">&nbsp;      final Multimap&lt;String, Document&gt; merged = LinkedHashMultimap.create();</b>
+&nbsp;
+<b class="nc">&nbsp;      for (Document doc : conjunctions) {</b>
+<b class="nc">&nbsp;        Preconditions.checkState(doc.keySet().size() == 1, &quot;Invalid constraint %s&quot;, doc);</b>
+<b class="nc">&nbsp;        final String key = doc.keySet().iterator().next();</b>
+<b class="nc">&nbsp;        merged.put(key, doc);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      final Document result = new Document();</b>
+&nbsp;
+<b class="nc">&nbsp;      for (Map.Entry&lt;String, Collection&lt;Document&gt;&gt; entry : merged.asMap().entrySet()) {</b>
+<b class="nc">&nbsp;        Preconditions.checkState(!entry.getValue().isEmpty(), &quot;empty constraint: %s&quot;, entry);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (entry.getValue().size() == 1) {</b>
+<b class="nc">&nbsp;          result.putAll(entry.getValue().iterator().next());</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          result.putAll(new Document(QueryOperators.AND, entry.getValue()));</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder size(String name, boolean negate, int size) {
+<b class="nc">&nbsp;      addContraint(name, negateConstraint(negate, new Document(QueryOperators.SIZE, size)));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder present(String name, boolean negate) {
+<b class="nc">&nbsp;      addContraint(name, new Document(QueryOperators.EXISTS, !negate));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder match(String name, boolean negate, Pattern pattern) {
+<b class="nc">&nbsp;      addContraint(name, negateConstraint(negate, pattern));</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder nested(String name, Constraints.ConstraintHost nestedConstraints) {
+<b class="nc">&nbsp;      conjunctions.add(nestedConstraints.accept(newBuilderForKey(name)).asDocument());</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ConstraintBuilder disjunction() {
+<b class="nc">&nbsp;      disjunctions.add(mergeConjunctions(conjunctions));</b>
+<b class="nc">&nbsp;      conjunctions = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Constraints.ConstraintHost jsonQuery(String query) {
+<b class="nc">&nbsp;    return new JsonQuery(Document.parse(query));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static &lt;T&gt; Object writable(Encoder&lt;T&gt; encoder, T value) {
+<b class="nc">&nbsp;    return new Adapted&lt;&gt;(encoder, value);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Object writable(Object value) {
+<b class="nc">&nbsp;    return value;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  public static &lt;T extends Comparable&lt;? super T&gt;&gt; Range&lt;Comparable&lt;Object&gt;&gt; writable(
+&nbsp;      Encoder&lt;T&gt; encoder,
+&nbsp;      Range&lt;T&gt; range) {
+<b class="nc">&nbsp;    if (range.hasLowerBound() &amp;&amp; range.hasUpperBound()) {</b>
+<b class="nc">&nbsp;      return Range.range(</b>
+<b class="nc">&nbsp;          (Comparable&lt;Object&gt;) writable(encoder, range.lowerEndpoint()),</b>
+<b class="nc">&nbsp;          range.lowerBoundType(),</b>
+<b class="nc">&nbsp;          (Comparable&lt;Object&gt;) writable(encoder, range.upperEndpoint()),</b>
+<b class="nc">&nbsp;          range.upperBoundType());</b>
+<b class="nc">&nbsp;    } else if (range.hasLowerBound()) {</b>
+<b class="nc">&nbsp;      return Range.downTo(</b>
+<b class="nc">&nbsp;          (Comparable&lt;Object&gt;) writable(encoder, range.lowerEndpoint()),</b>
+<b class="nc">&nbsp;          range.lowerBoundType());</b>
+<b class="nc">&nbsp;    } else if (range.hasUpperBound()) {</b>
+<b class="nc">&nbsp;      return Range.upTo(</b>
+<b class="nc">&nbsp;          (Comparable&lt;Object&gt;) writable(encoder, range.upperEndpoint()),</b>
+<b class="nc">&nbsp;          range.upperBoundType());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    throw new AssertionError();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  public static &lt;T extends Comparable&lt;? super T&gt;&gt; Range&lt;Comparable&lt;Object&gt;&gt; writable(Range&lt;T&gt; range) {
+<b class="nc">&nbsp;    return (Range&lt;Comparable&lt;Object&gt;&gt;) writable((Object) range);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Object unwrapBsonable(Object value) {
+<b class="nc">&nbsp;    if (value instanceof Document) {</b>
+<b class="nc">&nbsp;      for (Entry&lt;String, Object&gt; entry : ((Document) value).entrySet()) {</b>
+<b class="nc">&nbsp;        entry.setValue(unwrapBsonable(entry.getValue()));</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (value instanceof Iterable&lt;?&gt;) {</b>
+<b class="nc">&nbsp;      return ImmutableList.copyOf(unwrapBsonableIterable((Iterable&lt;?&gt;) value));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (value instanceof Constraints.ConstraintHost) {</b>
+<b class="nc">&nbsp;      return convertToBson((Constraints.ConstraintHost) value);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (value == null</b>
+&nbsp;        || value instanceof Number
+&nbsp;        || value instanceof Boolean
+&nbsp;        || value instanceof String) {
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (value instanceof Adapted&lt;?&gt;) {</b>
+<b class="nc">&nbsp;      return ((Adapted&lt;?&gt;) value).toBson();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return String.valueOf(value);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class JsonQuery implements Constraints.ConstraintHost, Bson {
+&nbsp;    private final Document value;
+&nbsp;
+<b class="nc">&nbsp;    JsonQuery(Document value) {</b>
+<b class="nc">&nbsp;      this.value = checkNotNull(value, &quot;value&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      return value.toJson();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;V extends ConstraintVisitor&lt;V&gt;&gt; V accept(V visitor) {
+<b class="nc">&nbsp;      throw new UnsupportedOperationException(</b>
+&nbsp;          &quot;Satisfied ConstraintSupport.ConstraintHost only for technical reasons and don&#39;t implements accept&quot;);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public &lt;TDocument&gt; BsonDocument toBsonDocument(Class&lt;TDocument&gt; tDocumentClass, CodecRegistry codecRegistry) {
+<b class="nc">&nbsp;      return value.toBsonDocument(tDocumentClass, codecRegistry);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static final class Adapted&lt;T&gt; implements Comparable&lt;Adapted&lt;T&gt;&gt; {
+&nbsp;    final T value;
+&nbsp;    final Encoder&lt;T&gt; encoder;
+&nbsp;
+<b class="nc">&nbsp;    Adapted(Encoder&lt;T&gt; encoder, T value) {</b>
+<b class="nc">&nbsp;      this.encoder = encoder;</b>
+<b class="nc">&nbsp;      this.value = value;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    BsonValue toBson() {
+<b class="nc">&nbsp;      BsonDocument bson = new BsonDocument();</b>
+<b class="nc">&nbsp;      org.bson.BsonWriter writer = new BsonDocumentWriter(bson);</b>
+&nbsp;      // Bson doesn&#39;t allow to write directly scalars / primitives, they have to be embedded in a
+&nbsp;      // document.
+<b class="nc">&nbsp;      writer.writeStartDocument();</b>
+<b class="nc">&nbsp;      writer.writeName(&quot;$&quot;);</b>
+<b class="nc">&nbsp;      encoder.encode(writer, value, EncoderContext.builder().build());</b>
+<b class="nc">&nbsp;      writer.writeEndDocument();</b>
+<b class="nc">&nbsp;      writer.flush();</b>
+<b class="nc">&nbsp;      return bson.get(&quot;$&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;    @Override
+&nbsp;    public int compareTo(Adapted&lt;T&gt; o) {
+<b class="nc">&nbsp;      return ((Comparable&lt;T&gt;) value).compareTo(o.value);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="nc">&nbsp;      return MoreObjects.toStringHelper(this)</b>
+<b class="nc">&nbsp;          .addValue(value)</b>
+<b class="nc">&nbsp;          .toString();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  static Iterable&lt;?&gt; unwrapBsonableIterable(Iterable&lt;?&gt; values) {
+<b class="nc">&nbsp;    return Iterables.transform(values, new Function&lt;Object, Object&gt;() {</b>
+&nbsp;      @Override
+&nbsp;      public Object apply(Object input) {
+<b class="nc">&nbsp;        return unwrapBsonable(input);</b>
+&nbsp;      }
+&nbsp;    });
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Object emptyBsonObject() {
+<b class="nc">&nbsp;    return new Document();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Object bsonObjectAttribute(String name, Object value) {
+<b class="nc">&nbsp;    return new Document(name, value);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

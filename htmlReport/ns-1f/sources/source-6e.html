@@ -1,0 +1,939 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableAttributeOrdering</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableAttributeOrdering (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableAttributeOrdering$D</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeOrdering$D$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeOrdering$SourceOrderingEntity</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableAttributeOrdering$SourceOrderingEntity$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code ImmutableAttributeOrdering} contains immutable implementation classes generated from
+&nbsp; * abstract value types defined as nested inside {@link AttributeOrdering}.
+&nbsp; * @see ImmutableAttributeOrdering.D
+&nbsp; * @see ImmutableAttributeOrdering.SourceOrderingEntity
+&nbsp; */
+&nbsp;@Generated(from = &quot;AttributeOrdering&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;public final class ImmutableAttributeOrdering {
+&nbsp;  private ImmutableAttributeOrdering() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link AttributeOrdering.D}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableAttributeOrdering.D.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AttributeOrdering.D&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class D implements AttributeOrdering.D {
+&nbsp;    private final int a1;
+&nbsp;    private final int a2;
+&nbsp;    private final int b1;
+&nbsp;    private final int b2;
+&nbsp;    private final int c1;
+&nbsp;    private final int c2;
+&nbsp;    private final int d;
+&nbsp;
+&nbsp;    private D(int a1, int a2, int b1, int b2, int c1, int c2, int d) {
+&nbsp;      this.a1 = a1;
+&nbsp;      this.a2 = a2;
+&nbsp;      this.b1 = b1;
+&nbsp;      this.b2 = b2;
+&nbsp;      this.c1 = c1;
+&nbsp;      this.c2 = c2;
+&nbsp;      this.d = d;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code a1} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int a1() {
+&nbsp;      return a1;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code a2} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int a2() {
+&nbsp;      return a2;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code b1} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int b1() {
+&nbsp;      return b1;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code b2} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int b2() {
+&nbsp;      return b2;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code c1} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int c1() {
+&nbsp;      return c1;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code c2} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int c2() {
+&nbsp;      return c2;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code d} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int d() {
+&nbsp;      return d;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#a1() a1} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for a1
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withA1(int value) {
+&nbsp;      if (this.a1 == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(value, this.a2, this.b1, this.b2, this.c1, this.c2, this.d);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#a2() a2} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for a2
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withA2(int value) {
+&nbsp;      if (this.a2 == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(this.a1, value, this.b1, this.b2, this.c1, this.c2, this.d);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#b1() b1} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for b1
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withB1(int value) {
+&nbsp;      if (this.b1 == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(this.a1, this.a2, value, this.b2, this.c1, this.c2, this.d);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#b2() b2} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for b2
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withB2(int value) {
+&nbsp;      if (this.b2 == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(this.a1, this.a2, this.b1, value, this.c1, this.c2, this.d);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#c1() c1} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for c1
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withC1(int value) {
+&nbsp;      if (this.c1 == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(this.a1, this.a2, this.b1, this.b2, value, this.c2, this.d);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#c2() c2} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for c2
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withC2(int value) {
+&nbsp;      if (this.c2 == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(this.a1, this.a2, this.b1, this.b2, this.c1, value, this.d);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.D#d() d} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for d
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.D withD(int value) {
+&nbsp;      if (this.d == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.D(this.a1, this.a2, this.b1, this.b2, this.c1, this.c2, value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code D} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableAttributeOrdering.D
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableAttributeOrdering.D) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableAttributeOrdering.D another) {
+&nbsp;      return a1 == another.a1
+&nbsp;          &amp;&amp; a2 == another.a2
+&nbsp;          &amp;&amp; b1 == another.b1
+&nbsp;          &amp;&amp; b2 == another.b2
+&nbsp;          &amp;&amp; c1 == another.c1
+&nbsp;          &amp;&amp; c2 == another.c2
+&nbsp;          &amp;&amp; d == another.d;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code a1}, {@code a2}, {@code b1}, {@code b2}, {@code c1}, {@code c2}, {@code d}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + a1;
+&nbsp;      h += (h &lt;&lt; 5) + a2;
+&nbsp;      h += (h &lt;&lt; 5) + b1;
+&nbsp;      h += (h &lt;&lt; 5) + b2;
+&nbsp;      h += (h &lt;&lt; 5) + c1;
+&nbsp;      h += (h &lt;&lt; 5) + c2;
+&nbsp;      h += (h &lt;&lt; 5) + d;
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code D} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;D&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;a1&quot;, a1)
+&nbsp;          .add(&quot;a2&quot;, a2)
+&nbsp;          .add(&quot;b1&quot;, b1)
+&nbsp;          .add(&quot;b2&quot;, b2)
+&nbsp;          .add(&quot;c1&quot;, c1)
+&nbsp;          .add(&quot;c2&quot;, c2)
+&nbsp;          .add(&quot;d&quot;, d)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link AttributeOrdering.D} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable D instance
+&nbsp;     */
+&nbsp;    public static ImmutableAttributeOrdering.D copyOf(AttributeOrdering.D instance) {
+&nbsp;      if (instance instanceof ImmutableAttributeOrdering.D) {
+&nbsp;        return (ImmutableAttributeOrdering.D) instance;
+&nbsp;      }
+&nbsp;      return ImmutableAttributeOrdering.D.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableAttributeOrdering.D D}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableAttributeOrdering.D.builder()
+&nbsp;     *    .a1(int) // required {@link AttributeOrdering.D#a1() a1}
+&nbsp;     *    .a2(int) // required {@link AttributeOrdering.D#a2() a2}
+&nbsp;     *    .b1(int) // required {@link AttributeOrdering.D#b1() b1}
+&nbsp;     *    .b2(int) // required {@link AttributeOrdering.D#b2() b2}
+&nbsp;     *    .c1(int) // required {@link AttributeOrdering.D#c1() c1}
+&nbsp;     *    .c2(int) // required {@link AttributeOrdering.D#c2() c2}
+&nbsp;     *    .d(int) // required {@link AttributeOrdering.D#d() d}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new D builder
+&nbsp;     */
+&nbsp;    public static ImmutableAttributeOrdering.D.Builder builder() {
+&nbsp;      return new ImmutableAttributeOrdering.D.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableAttributeOrdering.D D}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;AttributeOrdering.D&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_A1 = 0x1L;
+&nbsp;      private static final long INIT_BIT_A2 = 0x2L;
+&nbsp;      private static final long INIT_BIT_B1 = 0x4L;
+&nbsp;      private static final long INIT_BIT_B2 = 0x8L;
+&nbsp;      private static final long INIT_BIT_C1 = 0x10L;
+&nbsp;      private static final long INIT_BIT_C2 = 0x20L;
+&nbsp;      private static final long INIT_BIT_D = 0x40L;
+&nbsp;      private long initBits = 0x7fL;
+&nbsp;
+&nbsp;      private int a1;
+&nbsp;      private int a2;
+&nbsp;      private int b1;
+&nbsp;      private int b2;
+&nbsp;      private int c1;
+&nbsp;      private int c2;
+&nbsp;      private int d;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code org.immutables.fixture.AttributeOrdering.D} instance.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(AttributeOrdering.D instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        from((short) 0, (Object) instance);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code org.immutables.fixture.AttributeOrdering.B} instance.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(AttributeOrdering.B instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        from((short) 0, (Object) instance);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code org.immutables.fixture.AttributeOrdering.C} instance.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(AttributeOrdering.C instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        from((short) 0, (Object) instance);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code org.immutables.fixture.AttributeOrdering.A} instance.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(AttributeOrdering.A instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        from((short) 0, (Object) instance);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      private void from(short _unused, Object object) {
+&nbsp;        @Var long bits = 0;
+&nbsp;        if (object instanceof AttributeOrdering.D) {
+&nbsp;          AttributeOrdering.D instance = (AttributeOrdering.D) object;
+&nbsp;          if ((bits &amp; 0x8L) == 0) {
+&nbsp;            a1(instance.a1());
+&nbsp;            bits |= 0x8L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x10L) == 0) {
+&nbsp;            b2(instance.b2());
+&nbsp;            bits |= 0x10L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x20L) == 0) {
+&nbsp;            a2(instance.a2());
+&nbsp;            bits |= 0x20L;
+&nbsp;          }
+&nbsp;          d(instance.d());
+&nbsp;          if ((bits &amp; 0x1L) == 0) {
+&nbsp;            c1(instance.c1());
+&nbsp;            bits |= 0x1L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x2L) == 0) {
+&nbsp;            b1(instance.b1());
+&nbsp;            bits |= 0x2L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x4L) == 0) {
+&nbsp;            c2(instance.c2());
+&nbsp;            bits |= 0x4L;
+&nbsp;          }
+&nbsp;        }
+&nbsp;        if (object instanceof AttributeOrdering.B) {
+&nbsp;          AttributeOrdering.B instance = (AttributeOrdering.B) object;
+&nbsp;          if ((bits &amp; 0x8L) == 0) {
+&nbsp;            a1(instance.a1());
+&nbsp;            bits |= 0x8L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x10L) == 0) {
+&nbsp;            b2(instance.b2());
+&nbsp;            bits |= 0x10L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x20L) == 0) {
+&nbsp;            a2(instance.a2());
+&nbsp;            bits |= 0x20L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x2L) == 0) {
+&nbsp;            b1(instance.b1());
+&nbsp;            bits |= 0x2L;
+&nbsp;          }
+&nbsp;        }
+&nbsp;        if (object instanceof AttributeOrdering.C) {
+&nbsp;          AttributeOrdering.C instance = (AttributeOrdering.C) object;
+&nbsp;          if ((bits &amp; 0x8L) == 0) {
+&nbsp;            a1(instance.a1());
+&nbsp;            bits |= 0x8L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x20L) == 0) {
+&nbsp;            a2(instance.a2());
+&nbsp;            bits |= 0x20L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x1L) == 0) {
+&nbsp;            c1(instance.c1());
+&nbsp;            bits |= 0x1L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x4L) == 0) {
+&nbsp;            c2(instance.c2());
+&nbsp;            bits |= 0x4L;
+&nbsp;          }
+&nbsp;        }
+&nbsp;        if (object instanceof AttributeOrdering.A) {
+&nbsp;          AttributeOrdering.A instance = (AttributeOrdering.A) object;
+&nbsp;          if ((bits &amp; 0x8L) == 0) {
+&nbsp;            a1(instance.a1());
+&nbsp;            bits |= 0x8L;
+&nbsp;          }
+&nbsp;          if ((bits &amp; 0x20L) == 0) {
+&nbsp;            a2(instance.a2());
+&nbsp;            bits |= 0x20L;
+&nbsp;          }
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#a1() a1} attribute.
+&nbsp;       * @param a1 The value for a1 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder a1(int a1) {
+&nbsp;        this.a1 = a1;
+&nbsp;        initBits &amp;= ~INIT_BIT_A1;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#a2() a2} attribute.
+&nbsp;       * @param a2 The value for a2 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder a2(int a2) {
+&nbsp;        this.a2 = a2;
+&nbsp;        initBits &amp;= ~INIT_BIT_A2;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#b1() b1} attribute.
+&nbsp;       * @param b1 The value for b1 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder b1(int b1) {
+&nbsp;        this.b1 = b1;
+&nbsp;        initBits &amp;= ~INIT_BIT_B1;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#b2() b2} attribute.
+&nbsp;       * @param b2 The value for b2 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder b2(int b2) {
+&nbsp;        this.b2 = b2;
+&nbsp;        initBits &amp;= ~INIT_BIT_B2;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#c1() c1} attribute.
+&nbsp;       * @param c1 The value for c1 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder c1(int c1) {
+&nbsp;        this.c1 = c1;
+&nbsp;        initBits &amp;= ~INIT_BIT_C1;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#c2() c2} attribute.
+&nbsp;       * @param c2 The value for c2 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder c2(int c2) {
+&nbsp;        this.c2 = c2;
+&nbsp;        initBits &amp;= ~INIT_BIT_C2;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.D#d() d} attribute.
+&nbsp;       * @param d The value for d 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder d(int d) {
+&nbsp;        this.d = d;
+&nbsp;        initBits &amp;= ~INIT_BIT_D;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableAttributeOrdering.D D}.
+&nbsp;       * @return An immutable instance of D
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableAttributeOrdering.D build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableAttributeOrdering.D(a1, a2, b1, b2, c1, c2, d);
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_A1) != 0) attributes.add(&quot;a1&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_A2) != 0) attributes.add(&quot;a2&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_B1) != 0) attributes.add(&quot;b1&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_B2) != 0) attributes.add(&quot;b2&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_C1) != 0) attributes.add(&quot;c1&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_C2) != 0) attributes.add(&quot;c2&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_D) != 0) attributes.add(&quot;d&quot;);
+&nbsp;        return &quot;Cannot build D, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link AttributeOrdering.SourceOrderingEntity}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code ImmutableAttributeOrdering.SourceOrderingEntity.builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;AttributeOrdering.SourceOrderingEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  public static final class SourceOrderingEntity
+&nbsp;      extends AttributeOrdering.SourceOrderingEntity {
+&nbsp;    private final int b;
+&nbsp;    private final int a;
+&nbsp;    private final int z;
+&nbsp;    private final int y;
+&nbsp;
+&nbsp;    private SourceOrderingEntity(int b, int a, int z, int y) {
+&nbsp;      this.b = b;
+&nbsp;      this.a = a;
+&nbsp;      this.z = z;
+&nbsp;      this.y = y;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code b} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int b() {
+&nbsp;      return b;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code a} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int a() {
+&nbsp;      return a;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code z} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int z() {
+&nbsp;      return z;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code y} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int y() {
+&nbsp;      return y;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.SourceOrderingEntity#b() b} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for b
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.SourceOrderingEntity withB(int value) {
+&nbsp;      if (this.b == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.SourceOrderingEntity(value, this.a, this.z, this.y);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.SourceOrderingEntity#a() a} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for a
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.SourceOrderingEntity withA(int value) {
+&nbsp;      if (this.a == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.SourceOrderingEntity(this.b, value, this.z, this.y);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.SourceOrderingEntity#z() z} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for z
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.SourceOrderingEntity withZ(int value) {
+&nbsp;      if (this.z == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.SourceOrderingEntity(this.b, this.a, value, this.y);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link AttributeOrdering.SourceOrderingEntity#y() y} attribute.
+&nbsp;     * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for y
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableAttributeOrdering.SourceOrderingEntity withY(int value) {
+&nbsp;      if (this.y == value) return this;
+&nbsp;      return new ImmutableAttributeOrdering.SourceOrderingEntity(this.b, this.a, this.z, value);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code SourceOrderingEntity} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableAttributeOrdering.SourceOrderingEntity
+&nbsp;          &amp;&amp; equalTo(0, (ImmutableAttributeOrdering.SourceOrderingEntity) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, ImmutableAttributeOrdering.SourceOrderingEntity another) {
+&nbsp;      return b == another.b
+&nbsp;          &amp;&amp; a == another.a
+&nbsp;          &amp;&amp; z == another.z
+&nbsp;          &amp;&amp; y == another.y;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code b}, {@code a}, {@code z}, {@code y}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + b;
+&nbsp;      h += (h &lt;&lt; 5) + a;
+&nbsp;      h += (h &lt;&lt; 5) + z;
+&nbsp;      h += (h &lt;&lt; 5) + y;
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code SourceOrderingEntity} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;SourceOrderingEntity&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;b&quot;, b)
+&nbsp;          .add(&quot;a&quot;, a)
+&nbsp;          .add(&quot;z&quot;, z)
+&nbsp;          .add(&quot;y&quot;, y)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link AttributeOrdering.SourceOrderingEntity} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable SourceOrderingEntity instance
+&nbsp;     */
+&nbsp;    public static ImmutableAttributeOrdering.SourceOrderingEntity copyOf(AttributeOrdering.SourceOrderingEntity instance) {
+&nbsp;      if (instance instanceof ImmutableAttributeOrdering.SourceOrderingEntity) {
+&nbsp;        return (ImmutableAttributeOrdering.SourceOrderingEntity) instance;
+&nbsp;      }
+&nbsp;      return ImmutableAttributeOrdering.SourceOrderingEntity.builder()
+&nbsp;          .from(instance)
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableAttributeOrdering.SourceOrderingEntity SourceOrderingEntity}.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * ImmutableAttributeOrdering.SourceOrderingEntity.builder()
+&nbsp;     *    .b(int) // required {@link AttributeOrdering.SourceOrderingEntity#b() b}
+&nbsp;     *    .a(int) // required {@link AttributeOrdering.SourceOrderingEntity#a() a}
+&nbsp;     *    .z(int) // required {@link AttributeOrdering.SourceOrderingEntity#z() z}
+&nbsp;     *    .y(int) // required {@link AttributeOrdering.SourceOrderingEntity#y() y}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * @return A new SourceOrderingEntity builder
+&nbsp;     */
+&nbsp;    public static ImmutableAttributeOrdering.SourceOrderingEntity.Builder builder() {
+&nbsp;      return new ImmutableAttributeOrdering.SourceOrderingEntity.Builder();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link ImmutableAttributeOrdering.SourceOrderingEntity SourceOrderingEntity}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;AttributeOrdering.SourceOrderingEntity&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static final class Builder {
+&nbsp;      private static final long INIT_BIT_B = 0x1L;
+&nbsp;      private static final long INIT_BIT_A = 0x2L;
+&nbsp;      private static final long INIT_BIT_Z = 0x4L;
+&nbsp;      private static final long INIT_BIT_Y = 0x8L;
+&nbsp;      private long initBits = 0xfL;
+&nbsp;
+&nbsp;      private int b;
+&nbsp;      private int a;
+&nbsp;      private int z;
+&nbsp;      private int y;
+&nbsp;
+&nbsp;      private Builder() {
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code org.immutables.fixture.AttributeOrdering.SourceOrderingEntity} instance.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(AttributeOrdering.SourceOrderingEntity instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        from((short) 0, (Object) instance);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Fill a builder with attribute values from the provided {@code org.immutables.fixture.AttributeOrdering.InheritedInterface} instance.
+&nbsp;       * @param instance The instance from which to copy values
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder from(AttributeOrdering.InheritedInterface instance) {
+&nbsp;        Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;        from((short) 0, (Object) instance);
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      private void from(short _unused, Object object) {
+&nbsp;        if (object instanceof AttributeOrdering.SourceOrderingEntity) {
+&nbsp;          AttributeOrdering.SourceOrderingEntity instance = (AttributeOrdering.SourceOrderingEntity) object;
+&nbsp;          z(instance.z());
+&nbsp;        }
+&nbsp;        if (object instanceof AttributeOrdering.InheritedInterface) {
+&nbsp;          AttributeOrdering.InheritedInterface instance = (AttributeOrdering.InheritedInterface) object;
+&nbsp;          a(instance.a());
+&nbsp;          y(instance.y());
+&nbsp;          b(instance.b());
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.SourceOrderingEntity#b() b} attribute.
+&nbsp;       * @param b The value for b 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder b(int b) {
+&nbsp;        this.b = b;
+&nbsp;        initBits &amp;= ~INIT_BIT_B;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.SourceOrderingEntity#a() a} attribute.
+&nbsp;       * @param a The value for a 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder a(int a) {
+&nbsp;        this.a = a;
+&nbsp;        initBits &amp;= ~INIT_BIT_A;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.SourceOrderingEntity#z() z} attribute.
+&nbsp;       * @param z The value for z 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder z(int z) {
+&nbsp;        this.z = z;
+&nbsp;        initBits &amp;= ~INIT_BIT_Z;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link AttributeOrdering.SourceOrderingEntity#y() y} attribute.
+&nbsp;       * @param y The value for y 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Builder y(int y) {
+&nbsp;        this.y = y;
+&nbsp;        initBits &amp;= ~INIT_BIT_Y;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link ImmutableAttributeOrdering.SourceOrderingEntity SourceOrderingEntity}.
+&nbsp;       * @return An immutable instance of SourceOrderingEntity
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public ImmutableAttributeOrdering.SourceOrderingEntity build() {
+&nbsp;        if (initBits != 0) {
+&nbsp;          throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;        }
+&nbsp;        return new ImmutableAttributeOrdering.SourceOrderingEntity(b, a, z, y);
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatRequiredAttributesMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_Z) != 0) attributes.add(&quot;z&quot;);
+&nbsp;        if ((initBits &amp; INIT_BIT_Y) != 0) attributes.add(&quot;y&quot;);
+&nbsp;        return &quot;Cannot build SourceOrderingEntity, some of required attributes are not set &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

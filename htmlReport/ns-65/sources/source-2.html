@@ -1,0 +1,133 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Bar</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.strict</a>
+</div>
+
+<h1>Coverage Summary for Class: Bar (org.immutables.fixture.strict)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">Bar</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.fixture.strict;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.BoundType;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import java.util.EnumMap;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.SortedMap;
+&nbsp;import java.util.SortedSet;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;interface Aar {
+&nbsp;  boolean bl();
+&nbsp;
+&nbsp;  Integer integer();
+&nbsp;}
+&nbsp;
+&nbsp;@Value.Immutable
+&nbsp;interface Bar {
+&nbsp;  List&lt;Integer&gt; nums();
+&nbsp;
+&nbsp;  Map&lt;String, Integer&gt; map();
+&nbsp;
+&nbsp;  ImmutableMap&lt;String, Integer&gt; immutableMap();
+&nbsp;
+&nbsp;  SortedMap&lt;String, Integer&gt; sortedMap();
+&nbsp;
+&nbsp;  ImmutableSortedMap&lt;String, Integer&gt; immutableSortedMap();
+&nbsp;
+&nbsp;  Set&lt;String&gt; set();
+&nbsp;
+&nbsp;  ImmutableSet&lt;String&gt; immutableSet();
+&nbsp;
+&nbsp;  SortedSet&lt;String&gt; sortedSet();
+&nbsp;
+&nbsp;  ImmutableSortedSet&lt;String&gt; immutableSortedSet();
+&nbsp;
+&nbsp;  Optional&lt;Integer&gt; opt();
+&nbsp;
+&nbsp;  EnumMap&lt;BoundType, Integer&gt; enumMap();
+&nbsp;
+&nbsp;  EnumSet&lt;BoundType&gt; enumSet();
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

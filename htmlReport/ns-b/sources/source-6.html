@@ -1,0 +1,322 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > KeyExtractor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: KeyExtractor (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">KeyExtractor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/23)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">KeyExtractor$Factory</td>
+  </tr>
+  <tr>
+    <td class="name">KeyExtractor$KeyMetadata</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import org.immutables.criteria.Criteria;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.reflect.ClassScanner;
+&nbsp;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.lang.reflect.AnnotatedElement;
+&nbsp;import java.lang.reflect.Member;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.function.Predicate;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Strategy to find and extract key value and metadata about this key from a class (or instance)
+&nbsp; *
+&nbsp; * Key can be single or composite (eg. derived from multiple attributes).
+&nbsp; */
+&nbsp;public interface KeyExtractor {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates extractor for a concrete type
+&nbsp;   */
+&nbsp;  interface Factory {
+&nbsp;    KeyExtractor create(Class&lt;?&gt; entity);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Extract key from current instance. For composite keys will return a list of values.
+&nbsp;   */
+&nbsp;  Object extract(Object instance);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Expose key metadata for current entity
+&nbsp;   */
+&nbsp;  KeyMetadata metadata();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Metadata about key(s) for a class. Entity can have zero (no key), one (single key) or more keys (composite key).
+&nbsp;   */
+&nbsp;  interface KeyMetadata {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Wherever key(s) can be resolved to a known AST (as in {@link Expression}).
+&nbsp;     * If key expression is known at runtime, further query optimizations can be
+&nbsp;     * made.
+&nbsp;     *
+&nbsp;     * If key is provided as java lambda function then this method will return {@code false}
+&nbsp;     */
+&nbsp;    boolean isExpression();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Is there a key (at all) for current entity ? Most this method will return {@code true}
+&nbsp;     * but for entities without a key {@code false} is expected
+&nbsp;     */
+&nbsp;    default boolean isKeyDefined() {
+<b class="nc">&nbsp;      return !keys().isEmpty();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Lists available keys as {@link Expression}. For single key will have a list with single
+&nbsp;     * element. For composite keys list will have several elements.
+&nbsp;     *
+&nbsp;     * @throws UnsupportedOperationException if current key is not an expression (see {@link #isExpression()}
+&nbsp;     */
+&nbsp;    List&lt;Expression&gt; keys();
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Factory which extracts key information by scanning class for {@link org.immutables.criteria.Criteria.Id} annotation.
+&nbsp;   */
+&nbsp;  static KeyExtractor.Factory defaultFactory() {
+<b class="nc">&nbsp;    return fromAnnotation(Criteria.Id.class);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Extract key information based by scanning a class for a particular annotation. Presence
+&nbsp;   * of annotation is required otherwise exception will be thrown.
+&nbsp;   *
+&nbsp;   * @throws NullPointerException if argument is null
+&nbsp;   * @throws IllegalArgumentException if annotation is not present on entity class
+&nbsp;   */
+&nbsp;  static KeyExtractor.Factory fromAnnotation(Class&lt;? extends Annotation&gt; annotation) {
+<b class="nc">&nbsp;    Objects.requireNonNull(annotation, &quot;annotation&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    Predicate&lt;Member&gt; predicate = m -&gt; m instanceof AnnotatedElement</b>
+<b class="nc">&nbsp;            &amp;&amp; ((AnnotatedElement) m).isAnnotationPresent(annotation);</b>
+&nbsp;
+&nbsp;    // there can be multiple members with the same annotation
+<b class="nc">&nbsp;    Function&lt;Class&lt;?&gt;, List&lt;Member&gt;&gt; membersFn = type -&gt; ClassScanner.of(type)</b>
+<b class="nc">&nbsp;            .stream()</b>
+<b class="nc">&nbsp;            .filter(predicate)</b>
+<b class="nc">&nbsp;            .collect(Collectors.toList());</b>
+&nbsp;
+<b class="nc">&nbsp;    return entityType -&gt; {</b>
+<b class="nc">&nbsp;      Objects.requireNonNull(entityType, &quot;entityType&quot;);</b>
+<b class="nc">&nbsp;      List&lt;Member&gt; members = membersFn.apply(entityType);</b>
+<b class="nc">&nbsp;      if (members.isEmpty()) {</b>
+&nbsp;        // be strict and don&#39;t allow entities without a key
+<b class="nc">&nbsp;        throw new IllegalArgumentException(String.format(&quot;Annotation %s not found in members of %s&quot;, annotation.getName(), entityType));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (members.size() == 1) {</b>
+<b class="nc">&nbsp;        return new KeyExtractors.SingleMember(entityType, members.get(0));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return new KeyExtractors.MultipleMembers(entityType, members);</b>
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Factory to extract key information using just one member (field or method) of a class.
+&nbsp;   * In this case it will be a single key extractor using reflection.
+&nbsp;   *
+&nbsp;   * @param keyLookupFn function extracting single member representing a key from a entity
+&nbsp;   */
+&nbsp;  static KeyExtractor.Factory forSingleMember(Function&lt;Class&lt;?&gt;, Member&gt; keyLookupFn) {
+<b class="nc">&nbsp;    Objects.requireNonNull(keyLookupFn, &quot;keyLookupFn&quot;);</b>
+<b class="nc">&nbsp;    return entityType -&gt; new KeyExtractors.SingleMember(entityType, keyLookupFn.apply(entityType));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Factory to extract composite key using multiple members of a class.
+&nbsp;   *
+&nbsp;   * @param keyLookupFn function extracting multiple members from a entity representing composite key
+&nbsp;   */
+&nbsp;  static KeyExtractor.Factory forMultipleMembers(Function&lt;Class&lt;?&gt;, List&lt;Member&gt;&gt; keyLookupFn) {
+<b class="nc">&nbsp;    Objects.requireNonNull(keyLookupFn, &quot;keyLookupFn&quot;);</b>
+<b class="nc">&nbsp;    return entityType -&gt; new KeyExtractors.MultipleMembers(entityType, keyLookupFn.apply(entityType));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates extractor from a generic java function. Metadata on keys will not be available.
+&nbsp;   */
+&nbsp;  static KeyExtractor.Factory generic(UnaryOperator&lt;Object&gt; extractor) {
+<b class="nc">&nbsp;    Objects.requireNonNull(extractor, &quot;extractor&quot;);</b>
+<b class="nc">&nbsp;    return entityType -&gt; new KeyExtractors.Generic(entityType, extractor);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Similar to &lt;a href=&quot;https://en.wikipedia.org/wiki/Null_object_pattern&quot;&gt;Null Object Pattern&lt;/a&gt;
+&nbsp;   * creates an extractor without any key. Throws exception on any extract method call. Useful when
+&nbsp;   * entity doesn&#39;t have any key.
+&nbsp;   */
+&nbsp;  static KeyExtractor.Factory noKey() {
+<b class="nc">&nbsp;    return KeyExtractors.NoKey::new;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

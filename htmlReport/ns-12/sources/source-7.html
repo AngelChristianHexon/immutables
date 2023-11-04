@@ -1,0 +1,212 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > JacksonPathNaming</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.mongo.bson4jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: JacksonPathNaming (org.immutables.criteria.mongo.bson4jackson)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">JacksonPathNaming</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2023 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.mongo.bson4jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.BeanDescription;
+&nbsp;import com.fasterxml.jackson.databind.JavaType;
+&nbsp;import com.fasterxml.jackson.databind.ObjectMapper;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+&nbsp;import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+&nbsp;import com.fasterxml.jackson.databind.util.Annotations;
+&nbsp;import com.google.common.annotations.Beta;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;
+&nbsp;import java.lang.reflect.Field;
+&nbsp;import java.lang.reflect.Member;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.stream.Stream;
+&nbsp;
+&nbsp;/**
+&nbsp; * Leverages Jackson Introspection API (like {@link com.fasterxml.jackson.databind.SerializationConfig}) to
+&nbsp; * derive correct names for each path element be it field or method.
+&nbsp; *
+&nbsp; * &lt;p&gt;This feature is experimental. The location of this class might change in future.&lt;/p&gt;
+&nbsp; */
+&nbsp;@Beta
+&nbsp;public class JacksonPathNaming implements PathNaming {
+&nbsp;  private final ObjectMapper mapper;
+&nbsp;
+<b class="nc">&nbsp;  public JacksonPathNaming(ObjectMapper mapper) {</b>
+<b class="nc">&nbsp;    this.mapper = Objects.requireNonNull(mapper, &quot;mapper&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String name(Path path) {
+<b class="nc">&nbsp;    List&lt;String&gt; names = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    Type enclosingType = (Class&lt;?&gt;) path.root().element();</b>
+<b class="nc">&nbsp;    for (Member member : path.members()) {</b>
+<b class="nc">&nbsp;      JavaType javaType = mapper.getTypeFactory().constructType(enclosingType);</b>
+<b class="nc">&nbsp;      if (javaType.isCollectionLikeType() || javaType.isTypeOrSubTypeOf(Optional.class)) {</b>
+&nbsp;        // Get element type (T) from Optional&lt;T&gt; or List&lt;T&gt;
+<b class="nc">&nbsp;        javaType = javaType.getBindings().getTypeParameters().get(0);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      BeanDescription description = mapper.getSerializationConfig().introspect(javaType);</b>
+<b class="nc">&nbsp;      if (description.findProperties().isEmpty()) {</b>
+<b class="nc">&nbsp;        description = findImmutableClassDefinition(javaType);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      Optional&lt;BeanPropertyDefinition&gt; def = Stream.of(description)</b>
+<b class="nc">&nbsp;              .flatMap(x -&gt; x.findProperties().stream())</b>
+<b class="nc">&nbsp;              .filter(x -&gt; x.getPrimaryMember() != null &amp;&amp; member.equals(x.getPrimaryMember().getMember()))</b>
+<b class="nc">&nbsp;              .findAny();</b>
+&nbsp;
+<b class="nc">&nbsp;      String name = def.map(BeanPropertyDefinition::getName).orElse(member.getName());</b>
+<b class="nc">&nbsp;      names.add(name);</b>
+<b class="nc">&nbsp;      if (member instanceof Field) {</b>
+<b class="nc">&nbsp;        enclosingType = ((Field) member).getGenericType();</b>
+<b class="nc">&nbsp;      } else if (member instanceof Method) {</b>
+<b class="nc">&nbsp;        enclosingType = ((Method) member).getGenericReturnType();</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        enclosingType = member.getDeclaringClass();</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    return String.join(&quot;.&quot;, names);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Uses {@link JsonSerialize} annotation to find actual immutable class implementation.
+&nbsp;   */
+&nbsp;  BeanDescription findImmutableClassDefinition(JavaType type) {
+<b class="nc">&nbsp;    Annotations annot = mapper.getSerializationConfig().introspect(type).getClassAnnotations();</b>
+<b class="nc">&nbsp;    JsonSerialize ser = annot.get(JsonSerialize.class);</b>
+<b class="nc">&nbsp;    JavaType newType = mapper.getTypeFactory().constructType(ser.as());</b>
+<b class="nc">&nbsp;    return mapper.getSerializationConfig().introspect(newType);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

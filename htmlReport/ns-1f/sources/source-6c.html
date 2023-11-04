@@ -1,0 +1,824 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutablePrimitiveOptionals</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutablePrimitiveOptionals (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutablePrimitiveOptionals$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.OptionalLong;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link PrimitiveOptionals}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutablePrimitiveOptionals.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutablePrimitiveOptionals.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;PrimitiveOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutablePrimitiveOptionals implements PrimitiveOptionals {
+&nbsp;  private final Optional&lt;Integer&gt; v1;
+&nbsp;  private final Optional&lt;Double&gt; v2;
+&nbsp;  private final @Nullable Integer v3;
+&nbsp;  private final @Nullable Boolean v4;
+&nbsp;  private final @Nullable String v5;
+&nbsp;  private final Optional&lt;String&gt; v6;
+&nbsp;  private final @Nullable Integer v7;
+&nbsp;  private final @Nullable Double v8;
+&nbsp;  private final @Nullable Long v9;
+&nbsp;
+&nbsp;  private ImmutablePrimitiveOptionals(
+&nbsp;      Optional&lt;Integer&gt; v1,
+&nbsp;      Optional&lt;Double&gt; v2,
+&nbsp;      java.util.Optional&lt;Integer&gt; v3) {
+&nbsp;    this.v1 = v1;
+&nbsp;    this.v2 = v2;
+&nbsp;    this.v3 = v3.orElse(null);
+&nbsp;    this.v4 = null;
+&nbsp;    this.v5 = null;
+&nbsp;    this.v6 = Optional.absent();
+&nbsp;    this.v7 = null;
+&nbsp;    this.v8 = null;
+&nbsp;    this.v9 = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutablePrimitiveOptionals(
+&nbsp;      Optional&lt;Integer&gt; v1,
+&nbsp;      Optional&lt;Double&gt; v2,
+&nbsp;      @Nullable Integer v3,
+&nbsp;      @Nullable Boolean v4,
+&nbsp;      @Nullable String v5,
+&nbsp;      Optional&lt;String&gt; v6,
+&nbsp;      @Nullable Integer v7,
+&nbsp;      @Nullable Double v8,
+&nbsp;      @Nullable Long v9) {
+&nbsp;    this.v1 = v1;
+&nbsp;    this.v2 = v2;
+&nbsp;    this.v3 = v3;
+&nbsp;    this.v4 = v4;
+&nbsp;    this.v5 = v5;
+&nbsp;    this.v6 = v6;
+&nbsp;    this.v7 = v7;
+&nbsp;    this.v8 = v8;
+&nbsp;    this.v9 = v9;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; v1() {
+&nbsp;    return v1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Double&gt; v2() {
+&nbsp;    return v2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;Integer&gt; v3() {
+&nbsp;    return java.util.Optional.ofNullable(v3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v4} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;Boolean&gt; v4() {
+&nbsp;    return java.util.Optional.ofNullable(v4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v5} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;String&gt; v5() {
+&nbsp;    return java.util.Optional.ofNullable(v5);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v6} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; v6() {
+&nbsp;    return v6;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v7} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt v7() {
+&nbsp;    return v7 != null
+&nbsp;        ? OptionalInt.of(v7)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v8} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalDouble v8() {
+&nbsp;    return v8 != null
+&nbsp;        ? OptionalDouble.of(v8)
+&nbsp;        : OptionalDouble.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code v9} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalLong v9() {
+&nbsp;    return v9 != null
+&nbsp;        ? OptionalLong.of(v9)
+&nbsp;        : OptionalLong.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v1() v1} attribute.
+&nbsp;   * @param value The value for v1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV1(int value) {
+&nbsp;    Optional&lt;Integer&gt; newValue = Optional.of(value);
+&nbsp;    if (this.v1.equals(newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(newValue, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v1() v1} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v1
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV1(Optional&lt;Integer&gt; optional) {
+&nbsp;    Optional&lt;Integer&gt; value = optional;
+&nbsp;    if (this.v1.equals(value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(value, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v2() v2} attribute.
+&nbsp;   * @param value The value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV2(double value) {
+&nbsp;    Optional&lt;Double&gt; newValue = Optional.of(value);
+&nbsp;    if (this.v2.equals(newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, newValue, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v2() v2} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v2
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV2(Optional&lt;Double&gt; optional) {
+&nbsp;    Optional&lt;Double&gt; value = optional;
+&nbsp;    if (this.v2.equals(value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, value, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v3() v3} attribute.
+&nbsp;   * @param value The value for v3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV3(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.v3, newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, newValue, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v3() v3} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV3(java.util.Optional&lt;Integer&gt; optional) {
+&nbsp;    @Nullable Integer value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.v3, value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, value, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v4() v4} attribute.
+&nbsp;   * @param value The value for v4
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV4(boolean value) {
+&nbsp;    @Nullable Boolean newValue = value;
+&nbsp;    if (Objects.equals(this.v4, newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, newValue, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v4() v4} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v4
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV4(java.util.Optional&lt;Boolean&gt; optional) {
+&nbsp;    @Nullable Boolean value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.v4, value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, value, this.v5, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v5() v5} attribute.
+&nbsp;   * @param value The value for v5
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV5(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;v5&quot;);
+&nbsp;    if (Objects.equals(this.v5, newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, newValue, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v5() v5} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v5
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV5(java.util.Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.v5, value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, value, this.v6, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v6() v6} attribute.
+&nbsp;   * @param value The value for v6
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV6(String value) {
+&nbsp;    Optional&lt;String&gt; newValue = Optional.of(value);
+&nbsp;    if (this.v6.equals(newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, newValue, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v6() v6} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v6
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV6(Optional&lt;String&gt; optional) {
+&nbsp;    Optional&lt;String&gt; value = optional;
+&nbsp;    if (this.v6.equals(value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, value, this.v7, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v7() v7} attribute.
+&nbsp;   * @param value The value for v7
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV7(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.v7, newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, newValue, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v7() v7} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v7
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV7(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.v7, value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, value, this.v8, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v8() v8} attribute.
+&nbsp;   * @param value The value for v8
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV8(double value) {
+&nbsp;    @Nullable Double newValue = value;
+&nbsp;    if (Objects.equals(this.v8, newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, newValue, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v8() v8} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v8
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV8(OptionalDouble optional) {
+&nbsp;    @Nullable Double value = optional.isPresent() ? optional.getAsDouble() : null;
+&nbsp;    if (Objects.equals(this.v8, value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, value, this.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link PrimitiveOptionals#v9() v9} attribute.
+&nbsp;   * @param value The value for v9
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV9(long value) {
+&nbsp;    @Nullable Long newValue = value;
+&nbsp;    if (Objects.equals(this.v9, newValue)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link PrimitiveOptionals#v9() v9} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for v9
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrimitiveOptionals withV9(OptionalLong optional) {
+&nbsp;    @Nullable Long value = optional.isPresent() ? optional.getAsLong() : null;
+&nbsp;    if (Objects.equals(this.v9, value)) return this;
+&nbsp;    return new ImmutablePrimitiveOptionals(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutablePrimitiveOptionals} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutablePrimitiveOptionals
+&nbsp;        &amp;&amp; equalTo(0, (ImmutablePrimitiveOptionals) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutablePrimitiveOptionals another) {
+&nbsp;    return v1.equals(another.v1)
+&nbsp;        &amp;&amp; v2.equals(another.v2)
+&nbsp;        &amp;&amp; Objects.equals(v3, another.v3)
+&nbsp;        &amp;&amp; Objects.equals(v4, another.v4)
+&nbsp;        &amp;&amp; Objects.equals(v5, another.v5)
+&nbsp;        &amp;&amp; v6.equals(another.v6)
+&nbsp;        &amp;&amp; Objects.equals(v7, another.v7)
+&nbsp;        &amp;&amp; Objects.equals(v8, another.v8)
+&nbsp;        &amp;&amp; Objects.equals(v9, another.v9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code v1}, {@code v2}, {@code v3}, {@code v4}, {@code v5}, {@code v6}, {@code v7}, {@code v8}, {@code v9}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + v1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + v2.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v3);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v4);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v5);
+&nbsp;    h += (h &lt;&lt; 5) + v6.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v7);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v8);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(v9);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code PrimitiveOptionals} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;PrimitiveOptionals&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;v1&quot;, v1.orNull())
+&nbsp;        .add(&quot;v2&quot;, v2.orNull())
+&nbsp;        .add(&quot;v3&quot;, v3)
+&nbsp;        .add(&quot;v4&quot;, v4)
+&nbsp;        .add(&quot;v5&quot;, v5)
+&nbsp;        .add(&quot;v6&quot;, v6.orNull())
+&nbsp;        .add(&quot;v7&quot;, v7)
+&nbsp;        .add(&quot;v8&quot;, v8)
+&nbsp;        .add(&quot;v9&quot;, v9)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code PrimitiveOptionals} instance.
+&nbsp;   * @param v1 The value for the {@code v1} attribute
+&nbsp;   * @param v2 The value for the {@code v2} attribute
+&nbsp;   * @param v3 The value for the {@code v3} attribute
+&nbsp;   * @return An immutable PrimitiveOptionals instance
+&nbsp;   */
+&nbsp;  public static ImmutablePrimitiveOptionals of(Optional&lt;Integer&gt; v1, Optional&lt;Double&gt; v2, java.util.Optional&lt;Integer&gt; v3) {
+&nbsp;    return new ImmutablePrimitiveOptionals(v1, v2, v3);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link PrimitiveOptionals} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable PrimitiveOptionals instance
+&nbsp;   */
+&nbsp;  public static ImmutablePrimitiveOptionals copyOf(PrimitiveOptionals instance) {
+&nbsp;    if (instance instanceof ImmutablePrimitiveOptionals) {
+&nbsp;      return (ImmutablePrimitiveOptionals) instance;
+&nbsp;    }
+&nbsp;    return ImmutablePrimitiveOptionals.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutablePrimitiveOptionals ImmutablePrimitiveOptionals}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutablePrimitiveOptionals.builder()
+&nbsp;   *    .v1(Integer) // optional {@link PrimitiveOptionals#v1() v1}
+&nbsp;   *    .v2(Double) // optional {@link PrimitiveOptionals#v2() v2}
+&nbsp;   *    .v3(Integer) // optional {@link PrimitiveOptionals#v3() v3}
+&nbsp;   *    .v4(Boolean) // optional {@link PrimitiveOptionals#v4() v4}
+&nbsp;   *    .v5(String) // optional {@link PrimitiveOptionals#v5() v5}
+&nbsp;   *    .v6(String) // optional {@link PrimitiveOptionals#v6() v6}
+&nbsp;   *    .v7(int) // optional {@link PrimitiveOptionals#v7() v7}
+&nbsp;   *    .v8(double) // optional {@link PrimitiveOptionals#v8() v8}
+&nbsp;   *    .v9(long) // optional {@link PrimitiveOptionals#v9() v9}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutablePrimitiveOptionals builder
+&nbsp;   */
+&nbsp;  public static ImmutablePrimitiveOptionals.Builder builder() {
+&nbsp;    return new ImmutablePrimitiveOptionals.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutablePrimitiveOptionals ImmutablePrimitiveOptionals}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;PrimitiveOptionals&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private Optional&lt;Integer&gt; v1 = Optional.absent();
+&nbsp;    private Optional&lt;Double&gt; v2 = Optional.absent();
+&nbsp;    private @Nullable Integer v3;
+&nbsp;    private @Nullable Boolean v4;
+&nbsp;    private @Nullable String v5;
+&nbsp;    private Optional&lt;String&gt; v6 = Optional.absent();
+&nbsp;    private @Nullable Integer v7;
+&nbsp;    private @Nullable Double v8;
+&nbsp;    private @Nullable Long v9;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code PrimitiveOptionals} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(PrimitiveOptionals instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      Optional&lt;Integer&gt; v1Optional = instance.v1();
+&nbsp;      if (v1Optional.isPresent()) {
+&nbsp;        v1(v1Optional);
+&nbsp;      }
+&nbsp;      Optional&lt;Double&gt; v2Optional = instance.v2();
+&nbsp;      if (v2Optional.isPresent()) {
+&nbsp;        v2(v2Optional);
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;Integer&gt; v3Optional = instance.v3();
+&nbsp;      if (v3Optional.isPresent()) {
+&nbsp;        v3(v3Optional);
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;Boolean&gt; v4Optional = instance.v4();
+&nbsp;      if (v4Optional.isPresent()) {
+&nbsp;        v4(v4Optional);
+&nbsp;      }
+&nbsp;      java.util.Optional&lt;String&gt; v5Optional = instance.v5();
+&nbsp;      if (v5Optional.isPresent()) {
+&nbsp;        v5(v5Optional);
+&nbsp;      }
+&nbsp;      Optional&lt;String&gt; v6Optional = instance.v6();
+&nbsp;      if (v6Optional.isPresent()) {
+&nbsp;        v6(v6Optional);
+&nbsp;      }
+&nbsp;      OptionalInt v7Optional = instance.v7();
+&nbsp;      if (v7Optional.isPresent()) {
+&nbsp;        v7(v7Optional);
+&nbsp;      }
+&nbsp;      OptionalDouble v8Optional = instance.v8();
+&nbsp;      if (v8Optional.isPresent()) {
+&nbsp;        v8(v8Optional);
+&nbsp;      }
+&nbsp;      OptionalLong v9Optional = instance.v9();
+&nbsp;      if (v9Optional.isPresent()) {
+&nbsp;        v9(v9Optional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v1() v1} to v1.
+&nbsp;     * @param v1 The value for v1
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v1(int v1) {
+&nbsp;      this.v1 = Optional.of(v1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v1() v1} to v1.
+&nbsp;     * @param v1 The value for v1
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v1(Optional&lt;Integer&gt; v1) {
+&nbsp;      this.v1 = v1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v2() v2} to v2.
+&nbsp;     * @param v2 The value for v2
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v2(double v2) {
+&nbsp;      this.v2 = Optional.of(v2);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v2() v2} to v2.
+&nbsp;     * @param v2 The value for v2
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v2(Optional&lt;Double&gt; v2) {
+&nbsp;      this.v2 = v2;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v3() v3} to v3.
+&nbsp;     * @param v3 The value for v3
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v3(int v3) {
+&nbsp;      this.v3 = v3;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v3() v3} to v3.
+&nbsp;     * @param v3 The value for v3
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v3(java.util.Optional&lt;Integer&gt; v3) {
+&nbsp;      this.v3 = v3.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v4() v4} to v4.
+&nbsp;     * @param v4 The value for v4
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v4(boolean v4) {
+&nbsp;      this.v4 = v4;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v4() v4} to v4.
+&nbsp;     * @param v4 The value for v4
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v4(java.util.Optional&lt;Boolean&gt; v4) {
+&nbsp;      this.v4 = v4.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v5() v5} to v5.
+&nbsp;     * @param v5 The value for v5
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v5(String v5) {
+&nbsp;      this.v5 = Objects.requireNonNull(v5, &quot;v5&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v5() v5} to v5.
+&nbsp;     * @param v5 The value for v5
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v5(java.util.Optional&lt;String&gt; v5) {
+&nbsp;      this.v5 = v5.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v6() v6} to v6.
+&nbsp;     * @param v6 The value for v6
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v6(String v6) {
+&nbsp;      this.v6 = Optional.of(v6);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v6() v6} to v6.
+&nbsp;     * @param v6 The value for v6
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v6(Optional&lt;String&gt; v6) {
+&nbsp;      this.v6 = v6;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v7() v7} to v7.
+&nbsp;     * @param v7 The value for v7
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v7(int v7) {
+&nbsp;      this.v7 = v7;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v7() v7} to v7.
+&nbsp;     * @param v7 The value for v7
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v7(OptionalInt v7) {
+&nbsp;      this.v7 = v7.isPresent() ? v7.getAsInt() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v8() v8} to v8.
+&nbsp;     * @param v8 The value for v8
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v8(double v8) {
+&nbsp;      this.v8 = v8;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v8() v8} to v8.
+&nbsp;     * @param v8 The value for v8
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v8(OptionalDouble v8) {
+&nbsp;      this.v8 = v8.isPresent() ? v8.getAsDouble() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v9() v9} to v9.
+&nbsp;     * @param v9 The value for v9
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v9(long v9) {
+&nbsp;      this.v9 = v9;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link PrimitiveOptionals#v9() v9} to v9.
+&nbsp;     * @param v9 The value for v9
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder v9(OptionalLong v9) {
+&nbsp;      this.v9 = v9.isPresent() ? v9.getAsLong() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutablePrimitiveOptionals ImmutablePrimitiveOptionals}.
+&nbsp;     * @return An immutable instance of PrimitiveOptionals
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutablePrimitiveOptionals build() {
+&nbsp;      return new ImmutablePrimitiveOptionals(v1, v2, v3, v4, v5, v6, v7, v8, v9);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

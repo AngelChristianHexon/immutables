@@ -1,0 +1,252 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Spacing</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Spacing (org.immutables.generator.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Spacing</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Spacing$1Normalizer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator.processor;
+&nbsp;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import java.util.ArrayList;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Newline;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Template;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.TextBlock;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.TextFragment;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.TextLine;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Unit;
+&nbsp;import org.immutables.generator.processor.Trees.TextPart;
+&nbsp;
+&nbsp;/**
+&nbsp; * Spacing trimming and redistribution should be run before balancing
+&nbsp; */
+&nbsp;final class Spacing extends TreesTransformer {
+<b class="nc">&nbsp;  private Spacing() {}</b>
+&nbsp;
+&nbsp;  static Unit normalize(Unit unit) {
+<b class="nc">&nbsp;    return new Spacing().toUnit(unit);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Template toTemplate(final Template template) {
+<b class="nc">&nbsp;    final ArrayList&lt;Trees.TemplatePart&gt; results = Lists.newArrayList();</b>
+<b class="nc">&nbsp;    class Normalizer {</b>
+&nbsp;      private @Nullable TextFragment fragment;
+&nbsp;
+&nbsp;      void collect() {
+<b class="nc">&nbsp;        for (Trees.TemplatePart part : template.parts()) {</b>
+<b class="nc">&nbsp;          if (part instanceof TextBlock) {</b>
+<b class="nc">&nbsp;            collectTextParts(((TextBlock) part).parts());</b>
+&nbsp;          } else {
+<b class="nc">&nbsp;            flushFragment();</b>
+<b class="nc">&nbsp;            results.add(part);</b>
+&nbsp;          }
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        flushFragment();</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      void collectTextParts(Iterable&lt;TextPart&gt; parts) {
+<b class="nc">&nbsp;        for (Trees.TextPart text : parts) {</b>
+<b class="nc">&nbsp;          if (text instanceof TextFragment) {</b>
+<b class="nc">&nbsp;            if (fragment != null) {</b>
+<b class="nc">&nbsp;              fragment = joinFraments(fragment, (TextFragment) text);</b>
+&nbsp;            } else {
+<b class="nc">&nbsp;              flushFragment();</b>
+<b class="nc">&nbsp;              fragment = (TextFragment) text;</b>
+&nbsp;            }
+&nbsp;          }
+<b class="nc">&nbsp;          if (text instanceof Newline) {</b>
+<b class="nc">&nbsp;            flushNewline();</b>
+&nbsp;          }
+<b class="nc">&nbsp;        }</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      void flushFragment() {
+<b class="nc">&nbsp;        if (fragment != null &amp;&amp; !fragment.value().isEmpty()) {</b>
+<b class="nc">&nbsp;          results.add(TextLine.builder()</b>
+<b class="nc">&nbsp;              .fragment(fragment)</b>
+<b class="nc">&nbsp;              .build());</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        fragment = null;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      void flushNewline() {
+<b class="nc">&nbsp;        results.add(TextLine.builder()</b>
+<b class="nc">&nbsp;            .fragment(fragment != null ? fragment : TextFragment.of(&quot;&quot;))</b>
+<b class="nc">&nbsp;            .newline(true)</b>
+<b class="nc">&nbsp;            .build());</b>
+&nbsp;
+<b class="nc">&nbsp;        fragment = null;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      TextFragment joinFraments(TextFragment left, TextFragment right) {
+<b class="nc">&nbsp;        return TextFragment.of(left.value().concat(right.value()));</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    new Normalizer().collect();</b>
+&nbsp;
+<b class="nc">&nbsp;    return template.withParts(results);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

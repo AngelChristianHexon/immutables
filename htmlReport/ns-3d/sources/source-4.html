@@ -1,0 +1,512 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillySubstructure</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.subpack</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillySubstructure (org.immutables.fixture.subpack)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSillySubstructure$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.subpack;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import com.google.common.primitives.Floats;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillySubstructure}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSillySubstructure.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillySubstructure&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillySubstructure extends SillySubstructure {
+&nbsp;  private final RetentionPolicy enum1;
+&nbsp;  private final ImmutableSet&lt;ElementType&gt; set2;
+&nbsp;  private final ImmutableSet&lt;Integer&gt; set3;
+&nbsp;  private final ImmutableList&lt;Float&gt; floats4;
+&nbsp;
+&nbsp;  private ImmutableSillySubstructure(ImmutableSillySubstructure.Builder builder) {
+&nbsp;    this.set2 = Sets.immutableEnumSet(builder.set2.build());
+&nbsp;    this.set3 = builder.set3.build();
+&nbsp;    this.floats4 = builder.floats4.build();
+&nbsp;    this.enum1 = builder.enum1 != null
+&nbsp;        ? builder.enum1
+&nbsp;        : Objects.requireNonNull(super.enum1(), &quot;enum1&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableSillySubstructure(
+&nbsp;      RetentionPolicy enum1,
+&nbsp;      ImmutableSet&lt;ElementType&gt; set2,
+&nbsp;      ImmutableSet&lt;Integer&gt; set3,
+&nbsp;      ImmutableList&lt;Float&gt; floats4) {
+&nbsp;    this.enum1 = enum1;
+&nbsp;    this.set2 = set2;
+&nbsp;    this.set3 = set3;
+&nbsp;    this.floats4 = floats4;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code enum1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RetentionPolicy enum1() {
+&nbsp;    return enum1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;ElementType&gt; set2() {
+&nbsp;    return set2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;Integer&gt; set3() {
+&nbsp;    return set3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code floats4} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Float&gt; floats4() {
+&nbsp;    return floats4;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillySubstructure#enum1() enum1} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for enum1
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withEnum1(RetentionPolicy value) {
+&nbsp;    RetentionPolicy newValue = Objects.requireNonNull(value, &quot;enum1&quot;);
+&nbsp;    if (this.enum1 == newValue) return this;
+&nbsp;    return new ImmutableSillySubstructure(newValue, this.set2, this.set3, this.floats4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillySubstructure#set2() set2}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withSet2(ElementType... elements) {
+&nbsp;    ImmutableSet&lt;ElementType&gt; newValue = Sets.immutableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableSillySubstructure(this.enum1, newValue, this.set3, this.floats4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillySubstructure#set2() set2}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set2 elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withSet2(Iterable&lt;ElementType&gt; elements) {
+&nbsp;    if (this.set2 == elements) return this;
+&nbsp;    ImmutableSet&lt;ElementType&gt; newValue = Sets.immutableEnumSet(elements);
+&nbsp;    return new ImmutableSillySubstructure(this.enum1, newValue, this.set3, this.floats4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillySubstructure#set3() set3}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withSet3(int... elements) {
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableSillySubstructure(this.enum1, this.set2, newValue, this.floats4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillySubstructure#set3() set3}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set3 elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withSet3(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.set3 == elements) return this;
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableSillySubstructure(this.enum1, this.set2, newValue, this.floats4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillySubstructure#floats4() floats4}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withFloats4(float... elements) {
+&nbsp;    ImmutableList&lt;Float&gt; newValue = ImmutableList.copyOf(Floats.asList(elements));
+&nbsp;    return new ImmutableSillySubstructure(this.enum1, this.set2, this.set3, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillySubstructure#floats4() floats4}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of floats4 elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillySubstructure withFloats4(Iterable&lt;Float&gt; elements) {
+&nbsp;    if (this.floats4 == elements) return this;
+&nbsp;    ImmutableList&lt;Float&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSillySubstructure(this.enum1, this.set2, this.set3, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillySubstructure} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillySubstructure
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillySubstructure) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillySubstructure another) {
+&nbsp;    return enum1.equals(another.enum1)
+&nbsp;        &amp;&amp; set2.equals(another.set2)
+&nbsp;        &amp;&amp; set3.equals(another.set3)
+&nbsp;        &amp;&amp; floats4.equals(another.floats4);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code enum1}, {@code set2}, {@code set3}, {@code floats4}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + enum1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + set2.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + set3.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + floats4.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillySubstructure} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillySubstructure&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;enum1&quot;, enum1)
+&nbsp;        .add(&quot;set2&quot;, set2)
+&nbsp;        .add(&quot;set3&quot;, set3)
+&nbsp;        .add(&quot;floats4&quot;, floats4)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillySubstructure} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillySubstructure instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillySubstructure copyOf(SillySubstructure instance) {
+&nbsp;    if (instance instanceof ImmutableSillySubstructure) {
+&nbsp;      return (ImmutableSillySubstructure) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillySubstructure.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSillySubstructure ImmutableSillySubstructure}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSillySubstructure.builder()
+&nbsp;   *    .enum1(annotation.RetentionPolicy) // optional {@link SillySubstructure#enum1() enum1}
+&nbsp;   *    .addSet2|addAllSet2(annotation.ElementType) // {@link SillySubstructure#set2() set2} elements
+&nbsp;   *    .addSet3|addAllSet3(int) // {@link SillySubstructure#set3() set3} elements
+&nbsp;   *    .addFloats4|addAllFloats4(float) // {@link SillySubstructure#floats4() floats4} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSillySubstructure builder
+&nbsp;   */
+&nbsp;  public static ImmutableSillySubstructure.Builder builder() {
+&nbsp;    return new ImmutableSillySubstructure.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSillySubstructure ImmutableSillySubstructure}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillySubstructure&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @Nullable RetentionPolicy enum1;
+&nbsp;    private ImmutableSet.Builder&lt;ElementType&gt; set2 = ImmutableSet.builder();
+&nbsp;    private ImmutableSet.Builder&lt;Integer&gt; set3 = ImmutableSet.builder();
+&nbsp;    private ImmutableList.Builder&lt;Float&gt; floats4 = ImmutableList.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SillySubstructure} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SillySubstructure instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      enum1(instance.enum1());
+&nbsp;      addAllSet2(instance.set2());
+&nbsp;      addAllSet3(instance.set3());
+&nbsp;      addAllFloats4(instance.floats4());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillySubstructure#enum1() enum1} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link SillySubstructure#enum1() enum1}.&lt;/em&gt;
+&nbsp;     * @param enum1 The value for enum1 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder enum1(RetentionPolicy enum1) {
+&nbsp;      this.enum1 = Objects.requireNonNull(enum1, &quot;enum1&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SillySubstructure#set2() set2} set.
+&nbsp;     * @param element A set2 element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet2(ElementType element) {
+&nbsp;      this.set2.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillySubstructure#set2() set2} set.
+&nbsp;     * @param elements An array of set2 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet2(ElementType... elements) {
+&nbsp;      this.set2.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SillySubstructure#set2() set2} set.
+&nbsp;     * @param elements An iterable of set2 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder set2(Iterable&lt;ElementType&gt; elements) {
+&nbsp;      this.set2 = ImmutableSet.builder();
+&nbsp;      return addAllSet2(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillySubstructure#set2() set2} set.
+&nbsp;     * @param elements An iterable of set2 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSet2(Iterable&lt;ElementType&gt; elements) {
+&nbsp;      this.set2.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SillySubstructure#set3() set3} set.
+&nbsp;     * @param element A set3 element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet3(int element) {
+&nbsp;      this.set3.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillySubstructure#set3() set3} set.
+&nbsp;     * @param elements An array of set3 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet3(int... elements) {
+&nbsp;      this.set3.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SillySubstructure#set3() set3} set.
+&nbsp;     * @param elements An iterable of set3 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder set3(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.set3 = ImmutableSet.builder();
+&nbsp;      return addAllSet3(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillySubstructure#set3() set3} set.
+&nbsp;     * @param elements An iterable of set3 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSet3(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.set3.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SillySubstructure#floats4() floats4} list.
+&nbsp;     * @param element A floats4 element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addFloats4(float element) {
+&nbsp;      this.floats4.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillySubstructure#floats4() floats4} list.
+&nbsp;     * @param elements An array of floats4 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addFloats4(float... elements) {
+&nbsp;      this.floats4.addAll(Floats.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SillySubstructure#floats4() floats4} list.
+&nbsp;     * @param elements An iterable of floats4 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder floats4(Iterable&lt;Float&gt; elements) {
+&nbsp;      this.floats4 = ImmutableList.builder();
+&nbsp;      return addAllFloats4(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillySubstructure#floats4() floats4} list.
+&nbsp;     * @param elements An iterable of floats4 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllFloats4(Iterable&lt;Float&gt; elements) {
+&nbsp;      this.floats4.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSillySubstructure ImmutableSillySubstructure}.
+&nbsp;     * @return An immutable instance of SillySubstructure
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSillySubstructure build() {
+&nbsp;      return new ImmutableSillySubstructure(this);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

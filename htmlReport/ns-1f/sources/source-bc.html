@@ -1,0 +1,2374 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SillyStructureWithIdRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: SillyStructureWithIdRepository (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Criteria</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Finder</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Indexer</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Modifier</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Replacer</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Serialization</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Serialization$SillyStructureWithIdNamingFields</td>
+  </tr>
+  <tr>
+    <td class="name">SillyStructureWithIdRepository$Updater</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.annotations.Beta;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Range;
+&nbsp;import com.mongodb.DBCollection;
+&nbsp;import com.mongodb.DBObject;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.annotation.concurrent.ThreadSafe;
+&nbsp;import org.bson.codecs.Encoder;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.bson.conversions.Bson;
+&nbsp;import org.immutables.fixture.subpack.SillySubstructure;
+&nbsp;import org.immutables.mongo.concurrent.FluentFuture;
+&nbsp;import org.immutables.mongo.repository.Repositories;
+&nbsp;import org.immutables.mongo.repository.RepositorySetup;
+&nbsp;import org.immutables.mongo.repository.internal.Constraints;
+&nbsp;import org.immutables.mongo.repository.internal.Support;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code SillyStructureWithIdRepository} provides type-safe access for storing and retrieving documents
+&nbsp; * from the MongoDB collection {@code &quot;sillyStructureWithId&quot;}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@ThreadSafe
+&nbsp;public class SillyStructureWithIdRepository extends Repositories.Repository&lt;SillyStructureWithId&gt; {
+&nbsp;  private static final String DOCUMENT_COLLECTION_NAME = &quot;sillyStructureWithId&quot;;
+&nbsp;
+&nbsp;  private final Serialization serialization;
+&nbsp;  private final Criteria anyCriteria;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Constructs a {@link SillyStructureWithId} repository using {@link RepositorySetup configuration}.
+&nbsp;   * @param configuration The repository configuration
+&nbsp;   */
+&nbsp;  public SillyStructureWithIdRepository(RepositorySetup configuration) {
+&nbsp;    super(configuration, DOCUMENT_COLLECTION_NAME, SillyStructureWithId.class);
+&nbsp;    this.serialization = new Serialization(codecRegistry(), fieldNamingStrategy());
+&nbsp;    this.anyCriteria = new Criteria(this.serialization, Constraints.nilConstraint());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Inserts a single document into the collection.
+&nbsp;   * @param document The sillyStructureWithId to insert
+&nbsp;   * @return A future representing the number of inserted documents (1) if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; insert(SillyStructureWithId document) {
+&nbsp;    return super.doInsert(ImmutableList.of(document));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Insert documents into the collection.
+&nbsp;   * @param documents The documents to insert
+&nbsp;   * @return A future representing the number of inserted documents if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; insert(Iterable&lt;? extends SillyStructureWithId&gt; documents) {
+&nbsp;    return super.doInsert(ImmutableList.copyOf(documents));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Finds all documents. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch all} or other operations.
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder findAll() {
+&nbsp;    return find(criteria());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find documents by the criteria expressed as a JSON string. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch} or {@link Finder#fetchFirst() fetch} operations.
+&nbsp;   * @param jsonCriteria A JSON string for native criteria
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder find(String jsonCriteria) {
+&nbsp;    return new Finder(this, Support.jsonQuery(jsonCriteria));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find documents by the {@link SillyStructureWithId#id() id} identity attribute. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchFirst() fetch} or {@link Finder#fetchAll() fetchAll} read operations.
+&nbsp;   * You can also use {@link Finder#andModifyFirst() modify}, {@link Finder#andReplaceFirst(SillyStructureWithId) replace}
+&nbsp;   * or {@link Finder#deleteFirst() delete} operations to update / delete the document.
+&nbsp;   * @param id The exact {@code id} value
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder findById(java.lang.String id) {
+&nbsp;    return find(criteria().id(id));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Update or insert a document, matched by the identifier value of the &#39;id&#39; attribute.
+&nbsp;   * @param document The sillyStructureWithId to upsert
+&nbsp;   * @return A future representing the of number of inserted documents (1) if WriteConcern allows the insertion.
+&nbsp;   */
+&nbsp;  public FluentFuture&lt;Integer&gt; upsert(SillyStructureWithId document) {
+&nbsp;    Criteria byId = criteria().id(document.id());
+&nbsp;    return super.doUpsert(byId.constraint, document);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Find a document by the given {@link SillyStructureWithIdRepository#criteria() criteria}. Use the returned {@link Finder} object to complete
+&nbsp;   * {@link Finder#fetchAll() fetch}  operations.
+&nbsp;   * You can also use {@link Finder#andModifyFirst() modify} or {@link Finder#deleteFirst() delete}
+&nbsp;   * operations to update / delete the document(s).
+&nbsp;   * @param criteria The search criteria
+&nbsp;   * @return A finder object used to complete operations
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Finder find(Criteria criteria) {
+&nbsp;    return new Finder(this, criteria.constraint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * The finder object used to proceed with find operations via the
+&nbsp;   * {@link Finder#fetchAll()}, {@link Finder#fetchFirst()}, {@link Finder#andModifyFirst()}, or {@link Finder#deleteFirst()} methods.
+&nbsp;   * Configure exclusion and sort ordering for results using the family of {@code exclude*()} and {@code orderBy*()} attribute-specific methods.
+&nbsp;   * @see SillyStructureWithIdRepository#find(Criteria)
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Finder extends Repositories.FinderWithDelete&lt;SillyStructureWithId, Finder&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Finder(SillyStructureWithIdRepository repository, Constraints.ConstraintHost criteria) {
+&nbsp;      super(repository);
+&nbsp;      this.criteria = criteria;
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#id() id} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#id() id} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderById() {
+&nbsp;      ordering = ordering.equal(serialization.idName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#id() id} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#id() id} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByIdDesceding() {
+&nbsp;      ordering = ordering.equal(serialization.idName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#attr1() attr1} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#attr1() attr1} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByAttr1() {
+&nbsp;      ordering = ordering.equal(serialization.attr1Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#attr1() attr1} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#attr1() attr1} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByAttr1Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.attr1Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#flag2() flag2} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#flag2() flag2} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByFlag2() {
+&nbsp;      ordering = ordering.equal(serialization.flag2Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#flag2() flag2} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#flag2() flag2} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByFlag2Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.flag2Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#opt3() opt3} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#opt3() opt3} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByOpt3() {
+&nbsp;      ordering = ordering.equal(serialization.opt3Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#opt3() opt3} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#opt3() opt3} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByOpt3Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.opt3Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#opt5() opt5} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#opt5() opt5} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByOpt5() {
+&nbsp;      ordering = ordering.equal(serialization.opt5Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#opt5() opt5} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#opt5() opt5} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByOpt5Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.opt5Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#very4() very4} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#very4() very4} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByVery4() {
+&nbsp;      ordering = ordering.equal(serialization.very4Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#very4() very4} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#very4() very4} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByVery4Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.very4Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#wet5() wet5} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#wet5() wet5} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByWet5() {
+&nbsp;      ordering = ordering.equal(serialization.wet5Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#wet5() wet5} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#wet5() wet5} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByWet5Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.wet5Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#subs6() subs6} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#subs6() subs6} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderBySubs6() {
+&nbsp;      ordering = ordering.equal(serialization.subs6Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#subs6() subs6} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#subs6() subs6} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderBySubs6Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.subs6Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#nest7() nest7} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#nest7() nest7} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByNest7() {
+&nbsp;      ordering = ordering.equal(serialization.nest7Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#nest7() nest7} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#nest7() nest7} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByNest7Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.nest7Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#tup3() tup3} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#tup3() tup3} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByTup3() {
+&nbsp;      ordering = ordering.equal(serialization.tup3Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#tup3() tup3} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#tup3() tup3} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByTup3Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.tup3Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#int9() int9} in the ascending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#int9() int9} attribute using ascending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByInt9() {
+&nbsp;      ordering = ordering.equal(serialization.int9Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Order by {@link SillyStructureWithId#int9() int9} in the descending direction.
+&nbsp;     * Specify that the next attribute to sort will be the {@link SillyStructureWithId#int9() int9} attribute using descending order
+&nbsp;     * in the the chain of comparisons performed to sort results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder orderByInt9Desceding() {
+&nbsp;      ordering = ordering.equal(serialization.int9Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Exclude the {@link SillyStructureWithId#opt3() opt3} attribute from each document in the results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder excludeOpt3() {
+&nbsp;      exclusion = exclusion.equal(serialization.opt3Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Exclude the {@link SillyStructureWithId#opt5() opt5} attribute from each document in the results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder excludeOpt5() {
+&nbsp;      exclusion = exclusion.equal(serialization.opt5Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Exclude the {@link SillyStructureWithId#subs6() subs6} attribute from each document in the results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder excludeSubs6() {
+&nbsp;      exclusion = exclusion.equal(serialization.subs6Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Exclude the {@link SillyStructureWithId#tup3() tup3} attribute from each document in the results.
+&nbsp;     * @return {@code this} finder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Finder excludeTup3() {
+&nbsp;      exclusion = exclusion.equal(serialization.tup3Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Turn a find operation into an atomic {@link DBCollection#findAndModify(DBObject, DBObject, DBObject, boolean, DBObject, boolean, boolean) findAndModify}
+&nbsp;     * operation. Use the family of {@code set*()}, {@code unset*()}, {@code add*()}, {@code remove*()}, {@code put*()}m and {@code init*()}
+&nbsp;     * (and other attribute-specific) methods to describe the modification.
+&nbsp;     * @return A modifier object to complete the {@code findAndModify} operation
+&nbsp;     */
+&nbsp;    @CheckReturnValue
+&nbsp;    public Modifier andModifyFirst() {
+&nbsp;      return new Modifier((SillyStructureWithIdRepository) repository, criteria, ordering, exclusion);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Used to replace in-place existing version of the document
+&nbsp;     */
+&nbsp;    @CheckReturnValue
+&nbsp;    public Replacer andReplaceFirst(SillyStructureWithId document) {
+&nbsp;      return new Replacer((SillyStructureWithIdRepository) repository, document, criteria, ordering);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Update the set of {@code &quot;sillyStructureWithId&quot;} documents.
+&nbsp;   * @param criteria The search criteria for update
+&nbsp;   * @return An updater object that will be used to complete the update.
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Updater update(Criteria criteria) {
+&nbsp;    return new Updater(this, criteria);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@link #update(Criteria) Given} the criteria updater describes how to perform
+&nbsp;   * update operations on sets of documents.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Updater extends Repositories.Updater&lt;SillyStructureWithId&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Updater(SillyStructureWithIdRepository repository, Criteria criteria) {
+&nbsp;      super(repository);
+&nbsp;      this.criteria = criteria.constraint;
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code id} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code id} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setId(java.lang.String value) {
+&nbsp;      setFields = setFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code id} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code id} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initId(java.lang.String value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code attr1} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code attr1} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setAttr1(java.lang.String value) {
+&nbsp;      setFields = setFields.equal(serialization.attr1Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code attr1} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code attr1} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initAttr1(java.lang.String value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.attr1Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code flag2} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code flag2} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setFlag2(boolean value) {
+&nbsp;      setFields = setFields.equal(serialization.flag2Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code flag2} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code flag2} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initFlag2(boolean value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.flag2Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the optional {@code opt3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater emptyOpt3() {
+&nbsp;      setFields = setFields.equal(serialization.opt3Name, false, null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code opt3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code opt3} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setOpt3(int value) {
+&nbsp;      setFields = setFields.equal(serialization.opt3Name, false, Support.writable(serialization.opt3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code opt3} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code opt3} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initOpt3(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.opt3Name, false, Support.writable(serialization.opt3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the optional {@code opt5} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater emptyOpt5() {
+&nbsp;      setFields = setFields.equal(serialization.opt5Name, false, null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code opt5} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code opt5} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setOpt5(int value) {
+&nbsp;      setFields = setFields.equal(serialization.opt5Name, false, Support.writable(serialization.opt5Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code opt5} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code opt5} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initOpt5(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.opt5Name, false, Support.writable(serialization.opt5Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code very4} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code very4} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setVery4(long value) {
+&nbsp;      setFields = setFields.equal(serialization.very4Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code very4} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code very4} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initVery4(long value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.very4Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code very4} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code very4} attribute (may be negative)
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater incrementVery4(long increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.very4Name, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code wet5} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code wet5} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setWet5(double value) {
+&nbsp;      setFields = setFields.equal(serialization.wet5Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code wet5} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code wet5} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initWet5(double value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.wet5Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code wet5} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code wet5} attribute (may be negative)
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater incrementWet5(double increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.wet5Name, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to empty array
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater clearSubs6() {
+&nbsp;      setFields = setFields.equal(serialization.subs6Name, false, ImmutableList.&lt;Object&gt;of());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Remove a value from the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $pull} operator.
+&nbsp;     * @param value The value to remove
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater removeSubs6(SillySubstructure value) {
+&nbsp;      pullFields = pullFields.equal(serialization.subs6Name, false, Support.writable(serialization.subs6Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add a value to the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator.
+&nbsp;     * @param value The value to add
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater addSubs6(SillySubstructure value) {
+&nbsp;      pushFields = pushFields.equal(serialization.subs6Name, false, Support.writable(serialization.subs6Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Override all values of {@code subs6} list attribute.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;Corresponds to the MongoDB {@code $set} operator on the array field.
+&nbsp;     * @param values The values to set
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;     public Updater setSubs6(Iterable&lt;? extends SillySubstructure&gt; values) {
+&nbsp;       List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;       for (SillySubstructure value : values) {
+&nbsp;         wrappedValues.add(Support.writable(serialization.subs6Encoder, value));
+&nbsp;       }
+&nbsp;
+&nbsp;       setFields = setFields.equal(serialization.subs6Name, false, wrappedValues);
+&nbsp;       return this;
+&nbsp;     }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add all of the given values to the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator with the {@code $each} modifier.
+&nbsp;     * @param values The values to add
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater addAllSubs6(Iterable&lt;? extends SillySubstructure&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillySubstructure value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.subs6Encoder, value));
+&nbsp;      }
+&nbsp;      if (wrappedValues.isEmpty()) {
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      Object v = wrappedValues.size() == 1
+&nbsp;          ? wrappedValues.get(0)
+&nbsp;          : Support.bsonObjectAttribute(&quot;$each&quot;, wrappedValues);
+&nbsp;
+&nbsp;      pushFields = pushFields.equal(serialization.subs6Name, false, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code nest7} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code nest7} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setNest7(SillySubstructure value) {
+&nbsp;      setFields = setFields.equal(serialization.nest7Name, false, Support.writable(serialization.nest7Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code nest7} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code nest7} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initNest7(SillySubstructure value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.nest7Name, false, Support.writable(serialization.nest7Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the optional {@code tup3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater emptyTup3() {
+&nbsp;      setFields = setFields.equal(serialization.tup3Name, false, null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code tup3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code tup3} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setTup3(SillyTuplie value) {
+&nbsp;      setFields = setFields.equal(serialization.tup3Name, false, Support.writable(serialization.tup3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code tup3} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code tup3} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initTup3(SillyTuplie value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.tup3Name, false, Support.writable(serialization.tup3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code int9} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code int9} attribute
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater setInt9(int value) {
+&nbsp;      setFields = setFields.equal(serialization.int9Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code int9} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code int9} value for an insert.
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater initInt9(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.int9Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code int9} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code int9} attribute (may be negative)
+&nbsp;     * @return {@code this} updater to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Updater incrementInt9(int increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.int9Name, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Modifier extends Repositories.Modifier&lt;SillyStructureWithId, Modifier&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Modifier(
+&nbsp;        SillyStructureWithIdRepository repository,
+&nbsp;        Constraints.ConstraintHost criteria,
+&nbsp;        Constraints.Constraint ordering,
+&nbsp;        Constraints.Constraint exclusion) {
+&nbsp;      super(repository);
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;      this.criteria = criteria;
+&nbsp;      this.ordering = ordering;
+&nbsp;      this.exclusion = exclusion;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code id} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code id} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setId(java.lang.String value) {
+&nbsp;      setFields = setFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code id} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code id} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initId(java.lang.String value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.idName, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code attr1} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code attr1} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setAttr1(java.lang.String value) {
+&nbsp;      setFields = setFields.equal(serialization.attr1Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code attr1} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code attr1} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initAttr1(java.lang.String value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.attr1Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code flag2} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code flag2} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setFlag2(boolean value) {
+&nbsp;      setFields = setFields.equal(serialization.flag2Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code flag2} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code flag2} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initFlag2(boolean value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.flag2Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the optional {@code opt3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier emptyOpt3() {
+&nbsp;      setFields = setFields.equal(serialization.opt3Name, false, null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code opt3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code opt3} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setOpt3(int value) {
+&nbsp;      setFields = setFields.equal(serialization.opt3Name, false, Support.writable(serialization.opt3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code opt3} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code opt3} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initOpt3(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.opt3Name, false, Support.writable(serialization.opt3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the optional {@code opt5} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier emptyOpt5() {
+&nbsp;      setFields = setFields.equal(serialization.opt5Name, false, null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code opt5} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code opt5} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setOpt5(int value) {
+&nbsp;      setFields = setFields.equal(serialization.opt5Name, false, Support.writable(serialization.opt5Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code opt5} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code opt5} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initOpt5(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.opt5Name, false, Support.writable(serialization.opt5Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code very4} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code very4} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setVery4(long value) {
+&nbsp;      setFields = setFields.equal(serialization.very4Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code very4} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code very4} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initVery4(long value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.very4Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code very4} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code very4} attribute (may be negative)
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier incrementVery4(long increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.very4Name, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code wet5} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code wet5} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setWet5(double value) {
+&nbsp;      setFields = setFields.equal(serialization.wet5Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code wet5} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code wet5} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initWet5(double value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.wet5Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code wet5} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code wet5} attribute (may be negative)
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier incrementWet5(double increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.wet5Name, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to empty array
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier clearSubs6() {
+&nbsp;      setFields = setFields.equal(serialization.subs6Name, false, ImmutableList.&lt;Object&gt;of());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Remove a value from the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $pull} operator.
+&nbsp;     * @param value The value to remove
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier removeSubs6(SillySubstructure value) {
+&nbsp;      pullFields = pullFields.equal(serialization.subs6Name, false, Support.writable(serialization.subs6Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add a value to the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator.
+&nbsp;     * @param value The value to add
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier addSubs6(SillySubstructure value) {
+&nbsp;      pushFields = pushFields.equal(serialization.subs6Name, false, Support.writable(serialization.subs6Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Override all values of {@code subs6} list attribute.
+&nbsp;     *
+&nbsp;     * &lt;p&gt;Corresponds to the MongoDB {@code $set} operator on the array field.
+&nbsp;     * @param values The values to set
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;     public Modifier setSubs6(Iterable&lt;? extends SillySubstructure&gt; values) {
+&nbsp;       List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;       for (SillySubstructure value : values) {
+&nbsp;         wrappedValues.add(Support.writable(serialization.subs6Encoder, value));
+&nbsp;       }
+&nbsp;
+&nbsp;       setFields = setFields.equal(serialization.subs6Name, false, wrappedValues);
+&nbsp;       return this;
+&nbsp;     }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add all of the given values to the {@code subs6} list attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $push} operator with the {@code $each} modifier.
+&nbsp;     * @param values The values to add
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier addAllSubs6(Iterable&lt;? extends SillySubstructure&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillySubstructure value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.subs6Encoder, value));
+&nbsp;      }
+&nbsp;      if (wrappedValues.isEmpty()) {
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      Object v = wrappedValues.size() == 1
+&nbsp;          ? wrappedValues.get(0)
+&nbsp;          : Support.bsonObjectAttribute(&quot;$each&quot;, wrappedValues);
+&nbsp;
+&nbsp;      pushFields = pushFields.equal(serialization.subs6Name, false, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code nest7} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code nest7} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setNest7(SillySubstructure value) {
+&nbsp;      setFields = setFields.equal(serialization.nest7Name, false, Support.writable(serialization.nest7Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code nest7} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code nest7} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initNest7(SillySubstructure value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.nest7Name, false, Support.writable(serialization.nest7Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the optional {@code tup3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator resetting to {@code null}
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier emptyTup3() {
+&nbsp;      setFields = setFields.equal(serialization.tup3Name, false, null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code tup3} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code tup3} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setTup3(SillyTuplie value) {
+&nbsp;      setFields = setFields.equal(serialization.tup3Name, false, Support.writable(serialization.tup3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code tup3} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code tup3} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initTup3(SillyTuplie value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.tup3Name, false, Support.writable(serialization.tup3Encoder, value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify a new value for the {@code int9} attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $set} operator.
+&nbsp;     * @param value A new value for the {@code int9} attribute
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier setInt9(int value) {
+&nbsp;      setFields = setFields.equal(serialization.int9Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an initial value for the {@code int9} attribute. The value will be used if the document is
+&nbsp;     * to be inserted. If one or more documents are found for an update, this value will not be used.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $setOnInsert} operator.
+&nbsp;     * @param value The {@code int9} value for an insert.
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier initInt9(int value) {
+&nbsp;      setOnInsertFields = setOnInsertFields.equal(serialization.int9Name, false, Support.writable(value));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify an increment amount for the {@code int9} attribute. If the document is to inserted
+&nbsp;     * and no initial value has been provided, then {@code 0} will be the default value and the increment will adjust it.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Corresponds to the MongoDB {@code $inc} operator.
+&nbsp;     * @param increment An amount by which to increment the {@code int9} attribute (may be negative)
+&nbsp;     * @return {@code this} modifier to be used to complete the update operation
+&nbsp;     */
+&nbsp;    public Modifier incrementInt9(int increment) {
+&nbsp;      incrementFields = incrementFields.equal(serialization.int9Name, false, increment);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Replacer extends Repositories.Replacer&lt;SillyStructureWithId, Replacer&gt; {
+&nbsp;    protected Replacer(SillyStructureWithIdRepository repository, SillyStructureWithId document, Constraints.ConstraintHost criteria, Constraints.Constraint ordering) {
+&nbsp;      super(repository, document, criteria, ordering);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@link DBCollection#createIndex(DBObject, DBObject) Ensure an index} on collection sillyStructureWithId by one or
+&nbsp;   * more attributes using the family of {@code with*()} attribute-specific methods.
+&nbsp;   * While indexes will usually be maintained by special administration scripts, for simple cases it is convenient
+&nbsp;   * to ensure an index on application startup.
+&nbsp;   * @see Indexer#named(String)
+&nbsp;   * @see Indexer#unique()
+&nbsp;   * @return An indexer object to be completed with the {@link Indexer#ensure()} operation.
+&nbsp;   */
+&nbsp;  @CheckReturnValue
+&nbsp;  public Indexer index() {
+&nbsp;    return new Indexer(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * An indexer used to create an index on the {@code &quot;sillyStructureWithId&quot;} collection if it does not exist by one or more attributes.
+&nbsp;   * @see DBCollection#createIndex(DBObject, DBObject)
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Indexer extends Repositories.Indexer&lt;SillyStructureWithId, Indexer&gt; {
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    private Indexer(SillyStructureWithIdRepository repository) {
+&nbsp;      super(repository);
+&nbsp;      this.serialization = repository.serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#id() id}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withId() {
+&nbsp;      fields = fields.equal(serialization.idName, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#id() id}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withIdDesceding() {
+&nbsp;      fields = fields.equal(serialization.idName, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#attr1() attr1}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withAttr1() {
+&nbsp;      fields = fields.equal(serialization.attr1Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#attr1() attr1}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withAttr1Desceding() {
+&nbsp;      fields = fields.equal(serialization.attr1Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#flag2() flag2}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withFlag2() {
+&nbsp;      fields = fields.equal(serialization.flag2Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#flag2() flag2}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withFlag2Desceding() {
+&nbsp;      fields = fields.equal(serialization.flag2Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#opt3() opt3}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withOpt3() {
+&nbsp;      fields = fields.equal(serialization.opt3Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#opt3() opt3}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withOpt3Desceding() {
+&nbsp;      fields = fields.equal(serialization.opt3Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#opt5() opt5}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withOpt5() {
+&nbsp;      fields = fields.equal(serialization.opt5Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#opt5() opt5}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withOpt5Desceding() {
+&nbsp;      fields = fields.equal(serialization.opt5Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#very4() very4}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withVery4() {
+&nbsp;      fields = fields.equal(serialization.very4Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#very4() very4}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withVery4Desceding() {
+&nbsp;      fields = fields.equal(serialization.very4Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#wet5() wet5}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withWet5() {
+&nbsp;      fields = fields.equal(serialization.wet5Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#wet5() wet5}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withWet5Desceding() {
+&nbsp;      fields = fields.equal(serialization.wet5Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#subs6() subs6}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withSubs6() {
+&nbsp;      fields = fields.equal(serialization.subs6Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#subs6() subs6}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withSubs6Desceding() {
+&nbsp;      fields = fields.equal(serialization.subs6Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#nest7() nest7}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withNest7() {
+&nbsp;      fields = fields.equal(serialization.nest7Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#nest7() nest7}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withNest7Desceding() {
+&nbsp;      fields = fields.equal(serialization.nest7Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#tup3() tup3}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withTup3() {
+&nbsp;      fields = fields.equal(serialization.tup3Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#tup3() tup3}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withTup3Desceding() {
+&nbsp;      fields = fields.equal(serialization.tup3Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#int9() int9}, in the ascending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withInt9() {
+&nbsp;      fields = fields.equal(serialization.int9Name, false, 1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify that the next attribute to index will be {@link SillyStructureWithId#int9() int9}, in the descending direction.
+&nbsp;     * @return {@code this} indexer for use in a chained invocation
+&nbsp;     */
+&nbsp;    public Indexer withInt9Desceding() {
+&nbsp;      fields = fields.equal(serialization.int9Name, false, -1);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Search criteria.
+&nbsp;   * Returns an initial object to create criteria by invoking methods that describe attribute specific constraints.
+&nbsp;   * @return An empty immutable criteria
+&nbsp;   */
+&nbsp;  public Criteria criteria() {
+&nbsp;    return anyCriteria;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Beta
+&nbsp;  Bson toBson(Criteria criteria) {
+&nbsp;    return Support.convertToBson(criteria.constraint);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@code SillyStructureWithIdRepository.Criteria} is a SillyStructureWithId document search query.
+&nbsp;   * Call methods on the criteria to add constraints for search queries.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  @Immutable
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  public static final class Criteria extends Repositories.Criteria {
+&nbsp;    private final Constraints.Constraint constraint;
+&nbsp;    private final Serialization serialization;
+&nbsp;
+&nbsp;    Criteria(Serialization serialization, Constraints.Constraint constraint) {
+&nbsp;      this.constraint = constraint;
+&nbsp;      this.serialization = serialization;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria id(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.idName, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNot(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.idName, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.idName, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idStartsWith(String prefix) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.idName, false, Constraints.prefixPatternOf(prefix)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idMatches(Pattern pattern) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.idName, false, pattern));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotMatches(Pattern pattern) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.idName, true, pattern));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idGreaterThan(java.lang.String lower) {
+&nbsp;      return idIn(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idLessThan(java.lang.String upper) {
+&nbsp;      return idIn(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idAtMost(java.lang.String upperInclusive) {
+&nbsp;      return idIn(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idAtLeast(java.lang.String lowerInclusive) {
+&nbsp;      return idIn(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idIn(Range&lt;java.lang.String&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.idName, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria idNotIn(Range&lt;java.lang.String&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.idName, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.attr1Name, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1Not(java.lang.String value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.attr1Name, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1In(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.attr1Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1In(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.attr1Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1NotIn(Iterable&lt;java.lang.String&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.String value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.attr1Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1NotIn(java.lang.String first, java.lang.String second, java.lang.String... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (java.lang.String value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.attr1Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1StartsWith(String prefix) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.attr1Name, false, Constraints.prefixPatternOf(prefix)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1Matches(Pattern pattern) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.attr1Name, false, pattern));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1NotMatches(Pattern pattern) {
+&nbsp;      return new Criteria(serialization, constraint.match(serialization.attr1Name, true, pattern));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1GreaterThan(java.lang.String lower) {
+&nbsp;      return attr1In(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1LessThan(java.lang.String upper) {
+&nbsp;      return attr1In(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1AtMost(java.lang.String upperInclusive) {
+&nbsp;      return attr1In(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1AtLeast(java.lang.String lowerInclusive) {
+&nbsp;      return attr1In(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1In(Range&lt;java.lang.String&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.attr1Name, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria attr1NotIn(Range&lt;java.lang.String&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.attr1Name, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria flag2(boolean value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.flag2Name, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.opt3Name, false, Support.writable(serialization.opt3Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3Not(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.opt3Name, true, Support.writable(serialization.opt3Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3In(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.opt3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt3Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3In(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.opt3Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.opt3Encoder, second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(serialization.opt3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt3Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3NotIn(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.opt3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt3Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3NotIn(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.opt3Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.opt3Encoder, second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(serialization.opt3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt3Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3Present() {
+&nbsp;      return new Criteria(serialization, constraint.present(serialization.opt3Name, false));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3Absent() {
+&nbsp;      return new Criteria(serialization, constraint.present(serialization.opt3Name, true));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3GreaterThan(int lower) {
+&nbsp;      return opt3In(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3LessThan(int upper) {
+&nbsp;      return opt3In(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3AtMost(int upperInclusive) {
+&nbsp;      return opt3In(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3AtLeast(int lowerInclusive) {
+&nbsp;      return opt3In(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3In(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.opt3Name, false, Support.writable(serialization.opt3Encoder, range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt3NotIn(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.opt3Name, true, Support.writable(serialization.opt3Encoder, range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.opt5Name, false, Support.writable(serialization.opt5Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5Not(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.opt5Name, true, Support.writable(serialization.opt5Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5In(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.opt5Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt5Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5In(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.opt5Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.opt5Encoder, second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(serialization.opt5Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt5Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5NotIn(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.opt5Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt5Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5NotIn(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.opt5Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.opt5Encoder, second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(serialization.opt5Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.opt5Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5Present() {
+&nbsp;      return new Criteria(serialization, constraint.present(serialization.opt5Name, false));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5Absent() {
+&nbsp;      return new Criteria(serialization, constraint.present(serialization.opt5Name, true));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5GreaterThan(int lower) {
+&nbsp;      return opt5In(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5LessThan(int upper) {
+&nbsp;      return opt5In(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5AtMost(int upperInclusive) {
+&nbsp;      return opt5In(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5AtLeast(int lowerInclusive) {
+&nbsp;      return opt5In(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5In(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.opt5Name, false, Support.writable(serialization.opt5Encoder, range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria opt5NotIn(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.opt5Name, true, Support.writable(serialization.opt5Encoder, range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4(long value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.very4Name, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4Not(long value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.very4Name, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4In(Iterable&lt;Long&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (Long value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.very4Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4In(long first, long second, long... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (long value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.very4Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4NotIn(Iterable&lt;Long&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (Long value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.very4Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4NotIn(long first, long second, long... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (long value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.very4Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4GreaterThan(long lower) {
+&nbsp;      return very4In(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4LessThan(long upper) {
+&nbsp;      return very4In(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4AtMost(long upperInclusive) {
+&nbsp;      return very4In(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4AtLeast(long lowerInclusive) {
+&nbsp;      return very4In(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4In(Range&lt;Long&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.very4Name, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria very4NotIn(Range&lt;Long&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.very4Name, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5(double value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.wet5Name, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5Not(double value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.wet5Name, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5In(Iterable&lt;Double&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (Double value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.wet5Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5In(double first, double second, double... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (double value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.wet5Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5NotIn(Iterable&lt;Double&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (Double value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.wet5Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5NotIn(double first, double second, double... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (double value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.wet5Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5GreaterThan(double lower) {
+&nbsp;      return wet5In(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5LessThan(double upper) {
+&nbsp;      return wet5In(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5AtMost(double upperInclusive) {
+&nbsp;      return wet5In(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5AtLeast(double lowerInclusive) {
+&nbsp;      return wet5In(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5In(Range&lt;Double&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.wet5Name, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria wet5NotIn(Range&lt;Double&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.wet5Name, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria subs6Empty() {
+&nbsp;      return new Criteria(serialization, constraint.size(serialization.subs6Name, false, 0));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria subs6NonEmpty() {
+&nbsp;      return new Criteria(serialization, constraint.size(serialization.subs6Name, true, 0));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria subs6Size(int size) {
+&nbsp;      return new Criteria(serialization, constraint.size(serialization.subs6Name, false, size));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria subs6Contains(SillySubstructure value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.subs6Name, false, Support.writable(serialization.subs6Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria subs6ContainsAll(Iterable&lt;SillySubstructure&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillySubstructure value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.subs6Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.nested(serialization.subs6Name, Constraints.nilConstraint().equal(&quot;$all&quot;, false, wrappedValues)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria nest7(SillySubstructure value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.nest7Name, false, Support.writable(serialization.nest7Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria nest7Not(SillySubstructure value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.nest7Name, true, Support.writable(serialization.nest7Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria nest7In(Iterable&lt;SillySubstructure&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillySubstructure value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.nest7Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.nest7Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria nest7In(SillySubstructure first, SillySubstructure second, SillySubstructure... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.nest7Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.nest7Encoder, second));
+&nbsp;      for (SillySubstructure value : rest) {
+&nbsp;        values.add(Support.writable(serialization.nest7Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.nest7Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria nest7NotIn(Iterable&lt;SillySubstructure&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillySubstructure value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.nest7Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.nest7Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria nest7NotIn(SillySubstructure first, SillySubstructure second, SillySubstructure... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.nest7Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.nest7Encoder, second));
+&nbsp;      for (SillySubstructure value : rest) {
+&nbsp;        values.add(Support.writable(serialization.nest7Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.nest7Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3(SillyTuplie value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.tup3Name, false, Support.writable(serialization.tup3Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3Not(SillyTuplie value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.tup3Name, true, Support.writable(serialization.tup3Encoder, value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3In(Iterable&lt;SillyTuplie&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillyTuplie value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.tup3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.tup3Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3In(SillyTuplie first, SillyTuplie second, SillyTuplie... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.tup3Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.tup3Encoder, second));
+&nbsp;      for (SillyTuplie value : rest) {
+&nbsp;        values.add(Support.writable(serialization.tup3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.tup3Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3NotIn(Iterable&lt;SillyTuplie&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (SillyTuplie value : values) {
+&nbsp;        wrappedValues.add(Support.writable(serialization.tup3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.tup3Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3NotIn(SillyTuplie first, SillyTuplie second, SillyTuplie... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(serialization.tup3Encoder, first));
+&nbsp;      values.add(Support.writable(serialization.tup3Encoder, second));
+&nbsp;      for (SillyTuplie value : rest) {
+&nbsp;        values.add(Support.writable(serialization.tup3Encoder, value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.tup3Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3Present() {
+&nbsp;      return new Criteria(serialization, constraint.present(serialization.tup3Name, false));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria tup3Absent() {
+&nbsp;      return new Criteria(serialization, constraint.present(serialization.tup3Name, true));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.int9Name, false, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9Not(int value) {
+&nbsp;      return new Criteria(serialization, constraint.equal(serialization.int9Name, true, Support.writable(value)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9In(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.int9Name, false, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9In(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.int9Name, false, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9NotIn(Iterable&lt;java.lang.Integer&gt; values) {
+&nbsp;      List&lt;Object&gt; wrappedValues = new ArrayList&lt;&gt;();
+&nbsp;      for (java.lang.Integer value : values) {
+&nbsp;        wrappedValues.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.int9Name, true, wrappedValues));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9NotIn(int first, int second, int... rest) {
+&nbsp;      List&lt;Object&gt; values = new ArrayList&lt;&gt;(2 + rest.length);
+&nbsp;      values.add(Support.writable(first));
+&nbsp;      values.add(Support.writable(second));
+&nbsp;      for (int value : rest) {
+&nbsp;        values.add(Support.writable(value));
+&nbsp;      }
+&nbsp;      return new Criteria(serialization, constraint.in(serialization.int9Name, true, values));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9GreaterThan(int lower) {
+&nbsp;      return int9In(Range.greaterThan(lower));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9LessThan(int upper) {
+&nbsp;      return int9In(Range.lessThan(upper));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9AtMost(int upperInclusive) {
+&nbsp;      return int9In(Range.atMost(upperInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9AtLeast(int lowerInclusive) {
+&nbsp;      return int9In(Range.atLeast(lowerInclusive));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9In(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.int9Name, false, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria int9NotIn(Range&lt;java.lang.Integer&gt; range) {
+&nbsp;      return new Criteria(serialization, constraint.range(serialization.int9Name, true, Support.writable(range)));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Criteria or() {
+&nbsp;      return new Criteria(serialization, constraint.disjunction());
+&nbsp;    }
+&nbsp;
+&nbsp;    public Criteria with(Criteria criteria) {
+&nbsp;      return new Criteria(serialization, criteria.constraint.accept(constraint));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;SillyStructureWithIdRepository.criteria(&quot; + Support.stringify(constraint) + &quot;)&quot;;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;  private static class Serialization {
+&nbsp;    final Encoder&lt;java.lang.Integer&gt; opt3Encoder;
+&nbsp;    final Encoder&lt;java.lang.Integer&gt; opt5Encoder;
+&nbsp;    final Encoder&lt;SillySubstructure&gt; subs6Encoder;
+&nbsp;    final Encoder&lt;SillySubstructure&gt; nest7Encoder;
+&nbsp;    final Encoder&lt;SillyTuplie&gt; tup3Encoder;
+&nbsp;    final CodecRegistry registry;
+&nbsp;    final String idName;
+&nbsp;    final String attr1Name;
+&nbsp;    final String flag2Name;
+&nbsp;    final String opt3Name;
+&nbsp;    final String opt5Name;
+&nbsp;    final String very4Name;
+&nbsp;    final String wet5Name;
+&nbsp;    final String subs6Name;
+&nbsp;    final String nest7Name;
+&nbsp;    final String tup3Name;
+&nbsp;    final String int9Name;
+&nbsp;
+&nbsp;    Serialization(CodecRegistry registry, RepositorySetup.FieldNamingStrategy fieldNamingStrategy) {
+&nbsp;      this.registry = registry;
+&nbsp;      this.opt3Encoder = this.registry.get(java.lang.Integer.class);
+&nbsp;      this.opt5Encoder = this.registry.get(java.lang.Integer.class);
+&nbsp;      this.subs6Encoder = this.registry.get(SillySubstructure.class);
+&nbsp;      this.nest7Encoder = this.registry.get(SillySubstructure.class);
+&nbsp;      this.tup3Encoder = this.registry.get(SillyTuplie.class);
+&nbsp;      this.idName = &quot;_id&quot;;
+&nbsp;      this.attr1Name = translateName(fieldNamingStrategy, &quot;attr1&quot;);
+&nbsp;      this.flag2Name = translateName(fieldNamingStrategy, &quot;flag2&quot;);
+&nbsp;      this.opt3Name = translateName(fieldNamingStrategy, &quot;opt3&quot;);
+&nbsp;      this.opt5Name = translateName(fieldNamingStrategy, &quot;opt5&quot;);
+&nbsp;      this.very4Name = translateName(fieldNamingStrategy, &quot;very4&quot;);
+&nbsp;      this.wet5Name = translateName(fieldNamingStrategy, &quot;wet5&quot;);
+&nbsp;      this.subs6Name = translateName(fieldNamingStrategy, &quot;subs6&quot;);
+&nbsp;      this.nest7Name = translateName(fieldNamingStrategy, &quot;nest7&quot;);
+&nbsp;      this.tup3Name = translateName(fieldNamingStrategy, &quot;tup3&quot;);
+&nbsp;      this.int9Name = translateName(fieldNamingStrategy, &quot;int9&quot;);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Repositories&quot;)
+&nbsp;    static final class SillyStructureWithIdNamingFields {
+&nbsp;      public java.lang.String id;
+&nbsp;      public java.lang.String attr1;
+&nbsp;      public boolean flag2;
+&nbsp;      public Optional&lt;java.lang.Integer&gt; opt3;
+&nbsp;      public Option&lt;java.lang.Integer&gt; opt5;
+&nbsp;      public long very4;
+&nbsp;      public double wet5;
+&nbsp;      public List&lt;SillySubstructure&gt; subs6;
+&nbsp;      public SillySubstructure nest7;
+&nbsp;      public Optional&lt;SillyTuplie&gt; tup3;
+&nbsp;      public int int9;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static String translateName(RepositorySetup.FieldNamingStrategy fieldNamingStrategy, String fieldName) {
+&nbsp;      try {
+&nbsp;        return fieldNamingStrategy.translateName(
+&nbsp;            SillyStructureWithIdNamingFields.class.getField(fieldName));
+&nbsp;      } catch (NoSuchFieldException noSuchField) {
+&nbsp;        throw new AssertionError(noSuchField);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Path</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.expression</a>
+</div>
+
+<h1>Coverage Summary for Class: Path (org.immutables.criteria.expression)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Path</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.expression;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import java.lang.reflect.AnnotatedElement;
+&nbsp;import java.lang.reflect.Field;
+&nbsp;import java.lang.reflect.Member;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Access to a property or entity (class) possibly via several paths like {@code foo.bar.qux}.
+&nbsp; *
+&nbsp; * &lt;p&gt;Path always starts with an entity (class) which is root. Each subsequent {@link Member} is appended
+&nbsp; * as child. So {@code foo.bar.qux} starts with root which is class of {@code foo} then
+&nbsp; * member {@code foo}, member {@code bar} and member {@code qux}.
+&nbsp; *
+&nbsp; * &lt;p&gt;This class is immutable
+&nbsp; */
+&nbsp;@Immutable
+&nbsp;public class Path implements Expression {
+&nbsp;
+&nbsp;  private final Path parent;
+&nbsp;  private final AnnotatedElement annotatedElement;
+&nbsp;  private final Type returnType;
+&nbsp;  private final int hashCode;
+&nbsp;
+<b class="nc">&nbsp;  private Path(Path parent, AnnotatedElement annotatedElement) {</b>
+<b class="nc">&nbsp;    this.parent = parent;</b>
+<b class="nc">&nbsp;    this.annotatedElement = Objects.requireNonNull(annotatedElement, &quot;annotatedElement&quot;);</b>
+<b class="nc">&nbsp;    this.returnType = extractReturnType(annotatedElement);</b>
+<b class="nc">&nbsp;    this.hashCode = Objects.hash(parent, annotatedElement);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static Type extractReturnType(AnnotatedElement element) {
+<b class="nc">&nbsp;    if (element instanceof Field)  {</b>
+<b class="nc">&nbsp;      return ((Field) element).getGenericType();</b>
+<b class="nc">&nbsp;    } else if (element instanceof Method) {</b>
+<b class="nc">&nbsp;      return ((Method) element).getGenericReturnType();</b>
+<b class="nc">&nbsp;    } else if (element instanceof Class) {</b>
+<b class="nc">&nbsp;      return (Class&lt;?&gt;) element;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new IllegalArgumentException(String.format(&quot;%s should be %s or %s but was %s&quot;, element.getClass().getName(), Field.class.getSimpleName(), Method.class.getSimpleName(), element));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Optional&lt;Path&gt; parent() {
+<b class="nc">&nbsp;    return Optional.ofNullable(parent);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public AnnotatedElement element() {
+<b class="nc">&nbsp;    return annotatedElement;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Means current path represents an entity (class) not necessarily a member like field or method.
+&nbsp;   */
+&nbsp;  public boolean isRoot() {
+<b class="nc">&nbsp;    return parent == null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Path root() {
+<b class="nc">&nbsp;    return parent != null ? parent.root() : this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Return list of path members starting with root (excluded) to current element (included).
+&nbsp;   * For root path returns empty list.
+&nbsp;   */
+&nbsp;  public List&lt;Member&gt; members() {
+<b class="nc">&nbsp;    ImmutableList.Builder&lt;Member&gt; parents = ImmutableList.builder();</b>
+<b class="nc">&nbsp;    Path current = this;</b>
+<b class="nc">&nbsp;    while (!current.isRoot()) {</b>
+<b class="nc">&nbsp;      parents.add((Member) current.element());</b>
+<b class="nc">&nbsp;      current = current.parent;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return parents.build().reverse();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Create new instance of path with {@code member} appended
+&nbsp;   */
+&nbsp;  public Path append(Member member) {
+<b class="nc">&nbsp;    Objects.requireNonNull(member, &quot;member&quot;);</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(member instanceof AnnotatedElement, &quot;Expected %s to implement %s&quot;, member.getClass(), AnnotatedElement.class);</b>
+<b class="nc">&nbsp;    return new Path(this, (AnnotatedElement) member);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Path ofMember(Member member) {
+<b class="nc">&nbsp;    Objects.requireNonNull(member, &quot;member&quot;);</b>
+<b class="nc">&nbsp;    return ofClass(member.getDeclaringClass()).append(member);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Path ofClass(Class&lt;?&gt; type) {
+<b class="nc">&nbsp;    return new Path(null, type);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns current path in java bean format: {@code foo.bar.qux}. For root path returns
+&nbsp;   * empty list ({@code &quot;&quot;}).
+&nbsp;   */
+&nbsp;  public String toStringPath() {
+<b class="nc">&nbsp;    return members().stream().map(Member::getName).collect(Collectors.joining(&quot;.&quot;));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return toStringPath();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  @Override
+&nbsp;  public &lt;R, C&gt; R accept(ExpressionBiVisitor&lt;R, C&gt; visitor, @Nullable C context) {
+<b class="nc">&nbsp;    return visitor.visit(this, context);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Type returnType() {
+<b class="nc">&nbsp;    return returnType;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    return hashCode;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean equals(Object o) {
+<b class="nc">&nbsp;    if (this == o) return true;</b>
+<b class="nc">&nbsp;    if (o == null || getClass() != o.getClass()) return false;</b>
+<b class="nc">&nbsp;    Path path = (Path) o;</b>
+<b class="nc">&nbsp;    if (hashCode != path.hashCode) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return Objects.equals(annotatedElement, path.annotatedElement)</b>
+<b class="nc">&nbsp;            &amp;&amp; Objects.equals(parent, path.parent);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

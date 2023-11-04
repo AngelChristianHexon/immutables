@@ -1,0 +1,749 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableEncodingInfo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableEncodingInfo (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableEncodingInfo$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodingInfo$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableEncodingInfo$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link EncodingInfo}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new EncodingInfo.Builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;EncodingInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableEncodingInfo extends EncodingInfo {
+&nbsp;  private final String name;
+&nbsp;  private final ImmutableSet&lt;String&gt; imports;
+&nbsp;  private final Type.Parameters typeParameters;
+&nbsp;  private final Type.Factory typeFactory;
+&nbsp;  private final ImmutableList&lt;EncodedElement&gt; element;
+&nbsp;  private transient final @Nullable EncodedElement builderCopy;
+&nbsp;  private transient final @Nullable EncodedElement isWasInit;
+&nbsp;  private transient final EncodedElement from;
+&nbsp;  private transient final EncodedElement impl;
+&nbsp;  private transient final EncodedElement build;
+&nbsp;  private transient final EncodedElement equals;
+&nbsp;  private transient final EncodedElement hash;
+&nbsp;  private transient final EncodedElement string;
+&nbsp;  private transient final ImmutableSet&lt;String&gt; crossReferencedMethods;
+&nbsp;
+&nbsp;  private ImmutableEncodingInfo(
+&nbsp;      String name,
+&nbsp;      ImmutableSet&lt;String&gt; imports,
+&nbsp;      Type.Parameters typeParameters,
+&nbsp;      Type.Factory typeFactory,
+&nbsp;      ImmutableList&lt;EncodedElement&gt; element) {
+&nbsp;    this.name = name;
+&nbsp;    this.imports = imports;
+&nbsp;    this.typeParameters = typeParameters;
+&nbsp;    this.typeFactory = typeFactory;
+&nbsp;    this.element = element;
+&nbsp;    this.builderCopy = initShim.builderCopy();
+&nbsp;    this.isWasInit = initShim.isWasInit();
+&nbsp;    this.from = initShim.from();
+&nbsp;    this.impl = initShim.impl();
+&nbsp;    this.build = initShim.build();
+&nbsp;    this.equals = initShim.equals();
+&nbsp;    this.hash = initShim.hash();
+&nbsp;    this.string = initShim.string();
+&nbsp;    this.crossReferencedMethods = initShim.crossReferencedMethods();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;EncodingInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte builderCopyBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement builderCopy;
+&nbsp;
+&nbsp;    EncodedElement builderCopy() {
+&nbsp;      if (builderCopyBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (builderCopyBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        builderCopyBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.builderCopy = ImmutableEncodingInfo.super.builderCopy();
+&nbsp;        builderCopyBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.builderCopy;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte isWasInitBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement isWasInit;
+&nbsp;
+&nbsp;    EncodedElement isWasInit() {
+&nbsp;      if (isWasInitBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (isWasInitBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        isWasInitBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.isWasInit = ImmutableEncodingInfo.super.isWasInit();
+&nbsp;        isWasInitBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.isWasInit;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte fromBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement from;
+&nbsp;
+&nbsp;    EncodedElement from() {
+&nbsp;      if (fromBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (fromBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        fromBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.from = Objects.requireNonNull(ImmutableEncodingInfo.super.from(), &quot;from&quot;);
+&nbsp;        fromBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.from;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte implBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement impl;
+&nbsp;
+&nbsp;    EncodedElement impl() {
+&nbsp;      if (implBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (implBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        implBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.impl = Objects.requireNonNull(ImmutableEncodingInfo.super.impl(), &quot;impl&quot;);
+&nbsp;        implBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.impl;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte buildBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement build;
+&nbsp;
+&nbsp;    EncodedElement build() {
+&nbsp;      if (buildBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (buildBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        buildBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.build = Objects.requireNonNull(ImmutableEncodingInfo.super.build(), &quot;build&quot;);
+&nbsp;        buildBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.build;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte equalsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement equals;
+&nbsp;
+&nbsp;    EncodedElement equals() {
+&nbsp;      if (equalsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (equalsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        equalsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.equals = Objects.requireNonNull(ImmutableEncodingInfo.super.equals(), &quot;equals&quot;);
+&nbsp;        equalsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.equals;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte hashBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement hash;
+&nbsp;
+&nbsp;    EncodedElement hash() {
+&nbsp;      if (hashBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (hashBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        hashBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.hash = Objects.requireNonNull(ImmutableEncodingInfo.super.hash(), &quot;hash&quot;);
+&nbsp;        hashBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.hash;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte stringBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private EncodedElement string;
+&nbsp;
+&nbsp;    EncodedElement string() {
+&nbsp;      if (stringBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (stringBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        stringBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.string = Objects.requireNonNull(ImmutableEncodingInfo.super.string(), &quot;string&quot;);
+&nbsp;        stringBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.string;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte crossReferencedMethodsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSet&lt;String&gt; crossReferencedMethods;
+&nbsp;
+&nbsp;    ImmutableSet&lt;String&gt; crossReferencedMethods() {
+&nbsp;      if (crossReferencedMethodsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (crossReferencedMethodsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        crossReferencedMethodsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.crossReferencedMethods = Objects.requireNonNull(ImmutableEncodingInfo.super.crossReferencedMethods(), &quot;crossReferencedMethods&quot;);
+&nbsp;        crossReferencedMethodsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.crossReferencedMethods;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (builderCopyBuildStage == STAGE_INITIALIZING) attributes.add(&quot;builderCopy&quot;);
+&nbsp;      if (isWasInitBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isWasInit&quot;);
+&nbsp;      if (fromBuildStage == STAGE_INITIALIZING) attributes.add(&quot;from&quot;);
+&nbsp;      if (implBuildStage == STAGE_INITIALIZING) attributes.add(&quot;impl&quot;);
+&nbsp;      if (buildBuildStage == STAGE_INITIALIZING) attributes.add(&quot;build&quot;);
+&nbsp;      if (equalsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;equals&quot;);
+&nbsp;      if (hashBuildStage == STAGE_INITIALIZING) attributes.add(&quot;hash&quot;);
+&nbsp;      if (stringBuildStage == STAGE_INITIALIZING) attributes.add(&quot;string&quot;);
+&nbsp;      if (crossReferencedMethodsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;crossReferencedMethods&quot;);
+&nbsp;      return &quot;Cannot build EncodingInfo, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code name} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String name() {
+&nbsp;    return name;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code imports} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableSet&lt;String&gt; imports() {
+&nbsp;    return imports;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code typeParameters} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Type.Parameters typeParameters() {
+&nbsp;    return typeParameters;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code typeFactory} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  Type.Factory typeFactory() {
+&nbsp;    return typeFactory;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code element} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableList&lt;EncodedElement&gt; element() {
+&nbsp;    return element;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code builderCopy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable EncodedElement builderCopy() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.builderCopy()
+&nbsp;        : this.builderCopy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code isWasInit} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable EncodedElement isWasInit() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.isWasInit()
+&nbsp;        : this.isWasInit;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code from} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EncodedElement from() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.from()
+&nbsp;        : this.from;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code impl} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EncodedElement impl() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.impl()
+&nbsp;        : this.impl;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code build} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EncodedElement build() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.build()
+&nbsp;        : this.build;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code equals} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EncodedElement equals() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.equals()
+&nbsp;        : this.equals;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code hash} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EncodedElement hash() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.hash()
+&nbsp;        : this.hash;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code string} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public EncodedElement string() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.string()
+&nbsp;        : this.string;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code crossReferencedMethods} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableSet&lt;String&gt; crossReferencedMethods() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.crossReferencedMethods()
+&nbsp;        : this.crossReferencedMethods;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodingInfo#name() name} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for name
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;    if (this.name.equals(newValue)) return this;
+&nbsp;    return new ImmutableEncodingInfo(newValue, this.imports, this.typeParameters, this.typeFactory, this.element);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodingInfo#imports() imports}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withImports(String... elements) {
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableEncodingInfo(this.name, newValue, this.typeParameters, this.typeFactory, this.element);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodingInfo#imports() imports}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of imports elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withImports(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.imports == elements) return this;
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableEncodingInfo(this.name, newValue, this.typeParameters, this.typeFactory, this.element);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodingInfo#typeParameters() typeParameters} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for typeParameters
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withTypeParameters(Type.Parameters value) {
+&nbsp;    if (this.typeParameters == value) return this;
+&nbsp;    Type.Parameters newValue = Objects.requireNonNull(value, &quot;typeParameters&quot;);
+&nbsp;    return new ImmutableEncodingInfo(this.name, this.imports, newValue, this.typeFactory, this.element);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link EncodingInfo#typeFactory() typeFactory} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for typeFactory
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withTypeFactory(Type.Factory value) {
+&nbsp;    if (this.typeFactory == value) return this;
+&nbsp;    Type.Factory newValue = Objects.requireNonNull(value, &quot;typeFactory&quot;);
+&nbsp;    return new ImmutableEncodingInfo(this.name, this.imports, this.typeParameters, newValue, this.element);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodingInfo#element() element}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withElement(EncodedElement... elements) {
+&nbsp;    ImmutableList&lt;EncodedElement&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodingInfo(this.name, this.imports, this.typeParameters, this.typeFactory, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link EncodingInfo#element() element}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of element elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableEncodingInfo withElement(Iterable&lt;? extends EncodedElement&gt; elements) {
+&nbsp;    if (this.element == elements) return this;
+&nbsp;    ImmutableList&lt;EncodedElement&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableEncodingInfo(this.name, this.imports, this.typeParameters, this.typeFactory, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableEncodingInfo} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableEncodingInfo
+&nbsp;        &amp;&amp; equalTo((ImmutableEncodingInfo) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableEncodingInfo another) {
+&nbsp;    return name.equals(another.name);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code name}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code EncodingInfo} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;EncodingInfo&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;name&quot;, name)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link EncodingInfo} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable EncodingInfo instance
+&nbsp;   */
+&nbsp;  public static EncodingInfo copyOf(EncodingInfo instance) {
+&nbsp;    if (instance instanceof ImmutableEncodingInfo) {
+&nbsp;      return (ImmutableEncodingInfo) instance;
+&nbsp;    }
+&nbsp;    return new EncodingInfo.Builder()
+&nbsp;        .name(instance.name())
+&nbsp;        .addAllImports(instance.imports())
+&nbsp;        .typeParameters(instance.typeParameters())
+&nbsp;        .typeFactory(instance.typeFactory())
+&nbsp;        .addAllElement(instance.element())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link EncodingInfo EncodingInfo}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;EncodingInfo&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private static final long INIT_BIT_NAME = 0x1L;
+&nbsp;    private static final long INIT_BIT_TYPE_PARAMETERS = 0x2L;
+&nbsp;    private static final long INIT_BIT_TYPE_FACTORY = 0x4L;
+&nbsp;    private long initBits = 0x7L;
+&nbsp;
+&nbsp;    private @Nullable String name;
+&nbsp;    private final ImmutableSet.Builder&lt;String&gt; imports = ImmutableSet.builder();
+&nbsp;    private @Nullable Type.Parameters typeParameters;
+&nbsp;    private @Nullable Type.Factory typeFactory;
+&nbsp;    private final ImmutableList.Builder&lt;EncodedElement&gt; element = ImmutableList.builder();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link EncodingInfo EncodingInfo} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new EncodingInfo.Builder()
+&nbsp;     *    .name(String) // required {@link EncodingInfo#name() name}
+&nbsp;     *    .addImports|addAllImports(String) // {@link EncodingInfo#imports() imports} elements
+&nbsp;     *    .typeParameters(org.immutables.value.processor.encode.Type.Parameters) // required {@link EncodingInfo#typeParameters() typeParameters}
+&nbsp;     *    .typeFactory(org.immutables.value.processor.encode.Type.Factory) // required {@link EncodingInfo#typeFactory() typeFactory}
+&nbsp;     *    .addElement|addAllElement(org.immutables.value.processor.encode.EncodedElement) // {@link EncodingInfo#element() element} elements
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof EncodingInfo.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new EncodingInfo.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodingInfo#name() name} attribute.
+&nbsp;     * @param name The value for name 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder name(String name) {
+&nbsp;      checkNotIsSet(nameIsSet(), &quot;name&quot;);
+&nbsp;      this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_NAME;
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodingInfo#imports() imports} set.
+&nbsp;     * @param element A imports element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder addImports(String element) {
+&nbsp;      this.imports.add(element);
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodingInfo#imports() imports} set.
+&nbsp;     * @param elements An array of imports elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder addImports(String... elements) {
+&nbsp;      this.imports.add(elements);
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodingInfo#imports() imports} set.
+&nbsp;     * @param elements An iterable of imports elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder addAllImports(Iterable&lt;String&gt; elements) {
+&nbsp;      this.imports.addAll(elements);
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodingInfo#typeParameters() typeParameters} attribute.
+&nbsp;     * @param typeParameters The value for typeParameters 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder typeParameters(Type.Parameters typeParameters) {
+&nbsp;      checkNotIsSet(typeParametersIsSet(), &quot;typeParameters&quot;);
+&nbsp;      this.typeParameters = Objects.requireNonNull(typeParameters, &quot;typeParameters&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE_PARAMETERS;
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link EncodingInfo#typeFactory() typeFactory} attribute.
+&nbsp;     * @param typeFactory The value for typeFactory 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder typeFactory(Type.Factory typeFactory) {
+&nbsp;      checkNotIsSet(typeFactoryIsSet(), &quot;typeFactory&quot;);
+&nbsp;      this.typeFactory = Objects.requireNonNull(typeFactory, &quot;typeFactory&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TYPE_FACTORY;
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link EncodingInfo#element() element} list.
+&nbsp;     * @param element A element element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder addElement(EncodedElement element) {
+&nbsp;      this.element.add(element);
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodingInfo#element() element} list.
+&nbsp;     * @param elements An array of element elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder addElement(EncodedElement... elements) {
+&nbsp;      this.element.add(elements);
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link EncodingInfo#element() element} list.
+&nbsp;     * @param elements An iterable of element elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final EncodingInfo.Builder addAllElement(Iterable&lt;? extends EncodedElement&gt; elements) {
+&nbsp;      this.element.addAll(elements);
+&nbsp;      return (EncodingInfo.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link EncodingInfo EncodingInfo}.
+&nbsp;     * @return An immutable instance of EncodingInfo
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public EncodingInfo build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableEncodingInfo(name, imports.build(), typeParameters, typeFactory, element.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean nameIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_NAME) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean typeParametersIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_TYPE_PARAMETERS) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean typeFactoryIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_TYPE_FACTORY) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of EncodingInfo is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!nameIsSet()) attributes.add(&quot;name&quot;);
+&nbsp;      if (!typeParametersIsSet()) attributes.add(&quot;typeParameters&quot;);
+&nbsp;      if (!typeFactoryIsSet()) attributes.add(&quot;typeFactory&quot;);
+&nbsp;      return &quot;Cannot build EncodingInfo, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

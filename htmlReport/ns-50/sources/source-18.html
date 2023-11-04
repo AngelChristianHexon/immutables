@@ -1,0 +1,370 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Processor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Processor (org.immutables.value.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Processor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Processor$1</td>
+  </tr>
+  <tr>
+    <td class="name">Processor$RestrictingIncrementalProcessingEnvironment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Processor$RestrictingIncrementalProcessingEnvironment$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/56)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014-2019 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor;
+&nbsp;
+&nbsp;import com.google.common.collect.FluentIterable;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Multimap;
+&nbsp;import org.immutables.generator.AbstractGenerator;
+&nbsp;import org.immutables.generator.ForwardingFiler;
+&nbsp;import org.immutables.generator.ForwardingProcessingEnvironment;
+&nbsp;import org.immutables.value.processor.encode.EncodingMirror;
+&nbsp;import org.immutables.value.processor.encode.Generator_Encodings;
+&nbsp;import org.immutables.value.processor.meta.CriteriaMirror;
+&nbsp;import org.immutables.value.processor.meta.CriteriaRepositoryMirror;
+&nbsp;import org.immutables.value.processor.meta.CustomImmutableAnnotations;
+&nbsp;import org.immutables.value.processor.meta.EnclosingMirror;
+&nbsp;import org.immutables.value.processor.meta.FConstructorMirror;
+&nbsp;import org.immutables.value.processor.meta.FIncludeMirror;
+&nbsp;import org.immutables.value.processor.meta.FactoryMirror;
+&nbsp;import org.immutables.value.processor.meta.ImmutableMirror;
+&nbsp;import org.immutables.value.processor.meta.ImmutableRound;
+&nbsp;import org.immutables.value.processor.meta.IncludeMirror;
+&nbsp;import org.immutables.value.processor.meta.ModifiableMirror;
+&nbsp;import org.immutables.value.processor.meta.Proto.DeclaringPackage;
+&nbsp;import org.immutables.value.processor.meta.Round;
+&nbsp;import org.immutables.value.processor.meta.UnshadeGuava;
+&nbsp;import org.immutables.value.processor.meta.ValueType;
+&nbsp;import org.immutables.value.processor.meta.ValueUmbrellaMirror;
+&nbsp;
+&nbsp;import javax.annotation.processing.Filer;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.annotation.processing.SupportedAnnotationTypes;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.tools.Diagnostic.Kind;
+&nbsp;import javax.tools.FileObject;
+&nbsp;import javax.tools.JavaFileManager.Location;
+&nbsp;import java.io.FileNotFoundException;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.Set;
+&nbsp;
+&nbsp;@SupportedAnnotationTypes({
+&nbsp;    ImmutableMirror.QUALIFIED_NAME,
+&nbsp;    EnclosingMirror.QUALIFIED_NAME,
+&nbsp;    IncludeMirror.QUALIFIED_NAME,
+&nbsp;    ModifiableMirror.QUALIFIED_NAME,
+&nbsp;    ValueUmbrellaMirror.QUALIFIED_NAME,
+&nbsp;    FactoryMirror.QUALIFIED_NAME,
+&nbsp;    FConstructorMirror.QUALIFIED_NAME,
+&nbsp;    FIncludeMirror.QUALIFIED_NAME,
+&nbsp;    EncodingMirror.QUALIFIED_NAME,
+&nbsp;    CriteriaMirror.QUALIFIED_NAME,
+&nbsp;    CriteriaRepositoryMirror.QUALIFIED_NAME
+&nbsp;})
+<b class="nc">&nbsp;public final class Processor extends AbstractGenerator {</b>
+&nbsp;  @Override
+&nbsp;  protected void process() {
+<b class="nc">&nbsp;    prepareOptions();</b>
+&nbsp;
+<b class="nc">&nbsp;    Round round = ImmutableRound.builder()</b>
+<b class="nc">&nbsp;        .addAllAnnotations(annotations())</b>
+<b class="nc">&nbsp;        .processing(processing())</b>
+<b class="nc">&nbsp;        .addAllCustomImmutableAnnotations(CustomImmutableAnnotations.annotations())</b>
+<b class="nc">&nbsp;        .round(round())</b>
+<b class="nc">&nbsp;        .build();</b>
+&nbsp;
+<b class="nc">&nbsp;    Multimap&lt;DeclaringPackage, ValueType&gt; values = round.collectValues();</b>
+&nbsp;
+<b class="nc">&nbsp;    invoke(new Generator_Immutables().usingValues(values).generate());</b>
+<b class="nc">&nbsp;    invoke(new Generator_Modifiables().usingValues(values).generate());</b>
+&nbsp;
+<b class="nc">&nbsp;    if (round.environment().hasGsonLib()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Gsons().usingValues(values).generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasCriteriaModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Criteria().usingValues(values).generate());</b>
+<b class="nc">&nbsp;      invoke(new Generator_CriteriaRepository().usingValues(values).generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasMongoModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Repositories().usingValues(values).generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasFuncModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Funcs().usingValues(values).generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasTreesModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Transformers().usingValues(values).generate());</b>
+<b class="nc">&nbsp;      invoke(new Generator_Visitors().usingValues(values).generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasAstModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Asts().usingValues(values).generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasEncodeModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Encodings().generate());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (round.environment().hasDatatypesModule()) {</b>
+<b class="nc">&nbsp;      invoke(new Generator_Datatypes().usingValues(values).generate());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void prepareOptions() {
+<b class="nc">&nbsp;    UnshadeGuava.overridePrefix(processing().getOptions().get(GUAVA_PREFIX));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getSupportedAnnotationTypes() {
+<b class="nc">&nbsp;    return FluentIterable.from(super.getSupportedAnnotationTypes())</b>
+<b class="nc">&nbsp;        .append(CustomImmutableAnnotations.annotations())</b>
+<b class="nc">&nbsp;        .toSet();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final String GRADLE_INCREMENTAL = &quot;immutables.gradle.incremental&quot;;
+&nbsp;  private static final String GUAVA_PREFIX = &quot;immutables.guava.prefix&quot;;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getSupportedOptions() {
+<b class="nc">&nbsp;    ImmutableSet.Builder&lt;String&gt; options = ImmutableSet.builder();</b>
+<b class="nc">&nbsp;    options.add(GRADLE_INCREMENTAL);</b>
+<b class="nc">&nbsp;    if (processingEnv.getOptions().containsKey(GRADLE_INCREMENTAL)) {</b>
+<b class="nc">&nbsp;      options.add(&quot;org.gradle.annotation.processing.isolating&quot;);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    options.add(GUAVA_PREFIX);</b>
+<b class="nc">&nbsp;    return options.build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public synchronized void init(final ProcessingEnvironment processingEnv) {
+<b class="nc">&nbsp;    super.init(new RestrictingIncrementalProcessingEnvironment(processingEnv));</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private final class RestrictingIncrementalProcessingEnvironment extends ForwardingProcessingEnvironment {</b>
+&nbsp;    private final ProcessingEnvironment processingEnv;
+&nbsp;    boolean incrementalRestrictions;
+&nbsp;    private Filer restrictedFiler;
+&nbsp;
+<b class="nc">&nbsp;    private RestrictingIncrementalProcessingEnvironment(ProcessingEnvironment processingEnv) {</b>
+<b class="nc">&nbsp;      this.processingEnv = processingEnv;</b>
+<b class="nc">&nbsp;      this.incrementalRestrictions = processingEnv.getOptions().containsKey(GRADLE_INCREMENTAL);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected ProcessingEnvironment delegate() {
+<b class="nc">&nbsp;      return processingEnv;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Filer getFiler() {
+<b class="nc">&nbsp;      final Filer filer = super.getFiler();</b>
+<b class="nc">&nbsp;      if (incrementalRestrictions) {</b>
+<b class="nc">&nbsp;        if (restrictedFiler == null) {</b>
+<b class="nc">&nbsp;          restrictedFiler = new ForwardingFiler() {</b>
+&nbsp;            @Override
+&nbsp;            protected Filer delegate() {
+<b class="nc">&nbsp;              return filer;</b>
+&nbsp;            }
+&nbsp;
+&nbsp;            @Override
+&nbsp;            public FileObject createResource(
+&nbsp;                Location location,
+&nbsp;                CharSequence pkg,
+&nbsp;                CharSequence relativeName,
+&nbsp;                Element... originatingElements)
+&nbsp;                throws IOException {
+<b class="nc">&nbsp;              String message = String.format(&quot;Suppressed writing of resource %s/%s/%s (triggered by enabling -A%s)&quot;,</b>
+&nbsp;                  location,
+&nbsp;                  pkg,
+&nbsp;                  relativeName,
+&nbsp;                  GRADLE_INCREMENTAL);
+<b class="nc">&nbsp;              getMessager().printMessage(Kind.MANDATORY_WARNING, message);</b>
+<b class="nc">&nbsp;              throw new FileNotFoundException(message);</b>
+&nbsp;            }
+&nbsp;          };
+&nbsp;        }
+<b class="nc">&nbsp;        return restrictedFiler;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return filer;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

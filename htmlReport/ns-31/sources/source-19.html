@@ -1,0 +1,721 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableBeanFriendly</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableBeanFriendly (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableBeanFriendly</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link BeanFriendly BeanFriendly} type.
+&nbsp; * &lt;p&gt;Use the constructor to create new modifiable instances. You may even extend this class to
+&nbsp; * add some convenience methods, however most of the methods in this class are final
+&nbsp; * to preserve safety and predictable invariants.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableBeanFriendly is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableBeanFriendly
+&nbsp; */
+&nbsp;@Generated(from = &quot;BeanFriendly&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;BeanFriendly&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public class ModifiableBeanFriendly implements BeanFriendly {
+&nbsp;  private static final long INIT_BIT_PRIMARY = 0x1L;
+&nbsp;  private static final long INIT_BIT_ID = 0x2L;
+&nbsp;  private static final long INIT_BIT_DESCRIPTION = 0x4L;
+&nbsp;  private static final long OPT_BIT_DEFAULT_NULLABLE_MOD = 0x1L;
+&nbsp;  private long initBits = 0x7L;
+&nbsp;  private long optBits;
+&nbsp;
+&nbsp;  private boolean primary;
+&nbsp;  private int id;
+&nbsp;  private String description;
+&nbsp;  private Set&lt;String&gt; names = new LinkedHashSet&lt;String&gt;();
+&nbsp;  private Map&lt;String, String&gt; options = new LinkedHashMap&lt;String, String&gt;();
+&nbsp;  private @Nullable BeanFriendly.Mod mod;
+&nbsp;  private BeanFriendly.Mod defaultMod;
+&nbsp;  private @Nullable BeanFriendly.Mod defaultNullableMod;
+&nbsp;  private @Nullable List&lt;Integer&gt; extra = null;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code primary} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean isPrimary() {
+&nbsp;    if (!primaryIsSet()) checkRequiredAttributes();
+&nbsp;    return primary;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int getId() {
+&nbsp;    if (!idIsSet()) checkRequiredAttributes();
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code description} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getDescription() {
+&nbsp;    if (!descriptionIsSet()) checkRequiredAttributes();
+&nbsp;    return description;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable set {@code names}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getNames() {
+&nbsp;    return names;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code options} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; getOptions() {
+&nbsp;    return options;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code mod} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable BeanFriendly.Mod getMod() {
+&nbsp;    return mod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code defaultMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public BeanFriendly.Mod getDefaultMod() {
+&nbsp;    if (defaultModIsSet()) {
+&nbsp;      return defaultMod;
+&nbsp;    } else {
+&nbsp;      BeanFriendly.Mod defaultMod = BeanFriendly.super.getDefaultMod();
+&nbsp;      return defaultMod instanceof ModifiableMod
+&nbsp;          ? (ModifiableMod) defaultMod
+&nbsp;          : new ModifiableMod().from(defaultMod);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code defaultNullableMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable BeanFriendly.Mod getDefaultNullableMod() {
+&nbsp;    if (defaultNullableModIsSet()) {
+&nbsp;      return defaultNullableMod;
+&nbsp;    } else {
+&nbsp;      BeanFriendly.Mod defaultNullableMod = BeanFriendly.super.getDefaultNullableMod();
+&nbsp;      return defaultNullableMod instanceof ModifiableMod
+&nbsp;          ? (ModifiableMod) defaultNullableMod
+&nbsp;          : new ModifiableMod().from(defaultNullableMod);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return newly computed, not cached value of {@code derivedMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public BeanFriendly.Mod getDerivedMod() {
+&nbsp;    BeanFriendly.Mod derivedMod = BeanFriendly.super.getDerivedMod();
+&nbsp;    return derivedMod instanceof ModifiableMod
+&nbsp;        ? (ModifiableMod) derivedMod
+&nbsp;        : new ModifiableMod().from(derivedMod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return newly computed, not cached value of {@code derivedNullableMod} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable BeanFriendly.Mod getDerivedNullableMod() {
+&nbsp;    BeanFriendly.Mod derivedNullableMod = BeanFriendly.super.getDerivedNullableMod();
+&nbsp;    return derivedNullableMod instanceof ModifiableMod
+&nbsp;        ? (ModifiableMod) derivedNullableMod
+&nbsp;        : new ModifiableMod().from(derivedNullableMod);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code extra}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable List&lt;Integer&gt; getExtra() {
+&nbsp;    return extra;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   */
+&nbsp;  public void clear() {
+&nbsp;    initBits = 0x7L;
+&nbsp;    optBits = 0;
+&nbsp;    primary = false;
+&nbsp;    id = 0;
+&nbsp;    description = null;
+&nbsp;    names.clear();
+&nbsp;    options.clear();
+&nbsp;    mod = null;
+&nbsp;    defaultMod = null;
+&nbsp;    defaultNullableMod = null;
+&nbsp;    extra = null;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.modifiable.Identifiable} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   */
+&nbsp;  public ModifiableBeanFriendly from(Identifiable instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.modifiable.BeanFriendly} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   */
+&nbsp;  public ModifiableBeanFriendly from(BeanFriendly instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link BeanFriendly} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableBeanFriendly from(ModifiableBeanFriendly instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void from(Object object) {
+&nbsp;    if (object instanceof ModifiableBeanFriendly) {
+&nbsp;      ModifiableBeanFriendly instance = (ModifiableBeanFriendly) object;
+&nbsp;      if (instance.primaryIsSet()) {
+&nbsp;        setPrimary(instance.isPrimary());
+&nbsp;      }
+&nbsp;      if (instance.idIsSet()) {
+&nbsp;        setId(instance.getId());
+&nbsp;      }
+&nbsp;      if (instance.descriptionIsSet()) {
+&nbsp;        setDescription(instance.getDescription());
+&nbsp;      }
+&nbsp;      addAllNames(instance.getNames());
+&nbsp;      putAllOptions(instance.getOptions());
+&nbsp;      @Nullable BeanFriendly.Mod modValue = instance.getMod();
+&nbsp;      if (modValue != null) {
+&nbsp;        setMod(modValue);
+&nbsp;      }
+&nbsp;      setDefaultMod(instance.getDefaultMod());
+&nbsp;      @Nullable BeanFriendly.Mod defaultNullableModValue = instance.getDefaultNullableMod();
+&nbsp;      if (defaultNullableModValue != null) {
+&nbsp;        setDefaultNullableMod(defaultNullableModValue);
+&nbsp;      }
+&nbsp;      @Nullable List&lt;Integer&gt; extraValue = instance.getExtra();
+&nbsp;      if (extraValue != null) {
+&nbsp;        addAllExtra(extraValue);
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;    long bits = 0;
+&nbsp;    if (object instanceof Identifiable) {
+&nbsp;      Identifiable instance = (Identifiable) object;
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setId(instance.getId());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;    if (object instanceof BeanFriendly) {
+&nbsp;      BeanFriendly instance = (BeanFriendly) object;
+&nbsp;      setDefaultMod(instance.getDefaultMod());
+&nbsp;      @Nullable BeanFriendly.Mod modValue = instance.getMod();
+&nbsp;      if (modValue != null) {
+&nbsp;        setMod(modValue);
+&nbsp;      }
+&nbsp;      addAllNames(instance.getNames());
+&nbsp;      @Nullable List&lt;Integer&gt; extraValue = instance.getExtra();
+&nbsp;      if (extraValue != null) {
+&nbsp;        addAllExtra(extraValue);
+&nbsp;      }
+&nbsp;      putAllOptions(instance.getOptions());
+&nbsp;      setDescription(instance.getDescription());
+&nbsp;      @Nullable BeanFriendly.Mod defaultNullableModValue = instance.getDefaultNullableMod();
+&nbsp;      if (defaultNullableModValue != null) {
+&nbsp;        setDefaultNullableMod(defaultNullableModValue);
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setId(instance.getId());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      setPrimary(instance.isPrimary());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BeanFriendly#isPrimary() primary} attribute.
+&nbsp;   * @param primary The value for primary
+&nbsp;   */
+&nbsp;  public void setPrimary(boolean primary) {
+&nbsp;    this.primary = primary;
+&nbsp;    initBits &amp;= ~INIT_BIT_PRIMARY;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BeanFriendly#getId() id} attribute.
+&nbsp;   * @param id The value for id
+&nbsp;   */
+&nbsp;  public void setId(int id) {
+&nbsp;    this.id = id;
+&nbsp;    initBits &amp;= ~INIT_BIT_ID;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BeanFriendly#getDescription() description} attribute.
+&nbsp;   * @param description The value for description
+&nbsp;   */
+&nbsp;  public void setDescription(String description) {
+&nbsp;    this.description = Objects.requireNonNull(description, &quot;description&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_DESCRIPTION;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link BeanFriendly#getNames() names} set.
+&nbsp;   * @param element The names element
+&nbsp;   */
+&nbsp;  public void addNames(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;names element&quot;);
+&nbsp;    this.names.add(element);
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link BeanFriendly#getNames() names} set.
+&nbsp;   * @param elements An array of names elements
+&nbsp;   */
+&nbsp;  public final void addNames(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addNames(e);
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link BeanFriendly#getNames() names} set.
+&nbsp;   * @param elements An iterable of names elements
+&nbsp;   */
+&nbsp;  public void setNames(Set&lt;String&gt; elements) {
+&nbsp;    this.names = Objects.requireNonNull(elements, &quot;elements&quot;);
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link BeanFriendly#getNames() names} set.
+&nbsp;   * @param elements An iterable of names elements
+&nbsp;   */
+&nbsp;  public void addAllNames(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addNames(e);
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put one entry to the {@link BeanFriendly#getOptions() options} map.
+&nbsp;   * @param key The key in options map
+&nbsp;   * @param value The associated value in the options map
+&nbsp;   */
+&nbsp;  public void putOptions(String key, String value) {
+&nbsp;    this.options.put(
+&nbsp;        Objects.requireNonNull(key, &quot;options key&quot;),
+&nbsp;        Objects.requireNonNull(value, &quot;options value&quot;));
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all mappings from the specified map as entries for the {@link BeanFriendly#getOptions() options} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries The entries that will be added to the options map
+&nbsp;   */
+&nbsp;  public void setOptions(Map&lt;String, String&gt; entries) {
+&nbsp;    this.options.clear();
+&nbsp;    for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.options.put(
+&nbsp;          Objects.requireNonNull(k, &quot;options key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;options value&quot;));
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Put all mappings from the specified map as entries to the {@link BeanFriendly#getOptions() options} map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * @param entries to be added to options map
+&nbsp;   */
+&nbsp;  public void putAllOptions(Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    for (Map.Entry&lt;String, ? extends String&gt; e : entries.entrySet()) {
+&nbsp;      String k = e.getKey();
+&nbsp;      String v = e.getValue();
+&nbsp;      this.options.put(
+&nbsp;          Objects.requireNonNull(k, &quot;options key&quot;),
+&nbsp;          Objects.requireNonNull(v, &quot;options value&quot;));
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BeanFriendly#getMod() mod} attribute.
+&nbsp;   * @param mod The value for mod, can be {@code null}
+&nbsp;   */
+&nbsp;  public void setMod(@Nullable BeanFriendly.Mod mod) {
+&nbsp;    this.mod = mod == null ? null : (mod instanceof ModifiableMod ? (ModifiableMod) mod : new ModifiableMod().from(mod));
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BeanFriendly#getDefaultMod() defaultMod} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value returned by the initializer of {@link BeanFriendly#getDefaultMod() defaultMod}.&lt;/em&gt;
+&nbsp;   * @param defaultMod The value for defaultMod
+&nbsp;   */
+&nbsp;  public void setDefaultMod(BeanFriendly.Mod defaultMod) {
+&nbsp;    this.defaultMod = (defaultMod instanceof ModifiableMod ? (ModifiableMod) defaultMod : new ModifiableMod().from(defaultMod));
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value returned by the initializer of {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod}.&lt;/em&gt;
+&nbsp;   * @param defaultNullableMod The value for defaultNullableMod, can be {@code null}
+&nbsp;   */
+&nbsp;  public void setDefaultNullableMod(@Nullable BeanFriendly.Mod defaultNullableMod) {
+&nbsp;    this.defaultNullableMod = defaultNullableMod == null ? null : (defaultNullableMod instanceof ModifiableMod ? (ModifiableMod) defaultNullableMod : new ModifiableMod().from(defaultNullableMod));
+&nbsp;    optBits |= OPT_BIT_DEFAULT_NULLABLE_MOD;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link BeanFriendly#getExtra() extra} list.
+&nbsp;   * @param element The extra element
+&nbsp;   */
+&nbsp;  public void addExtra(int element) {
+&nbsp;    if (this.extra == null) {
+&nbsp;      this.extra = new ArrayList&lt;Integer&gt;();
+&nbsp;    }
+&nbsp;    this.extra.add(element);
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link BeanFriendly#getExtra() extra} list.
+&nbsp;   * @param elements An array of extra elements
+&nbsp;   */
+&nbsp;  public final void addExtra(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addExtra(Objects.requireNonNull(e, &quot;extra element&quot;));
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link BeanFriendly#getExtra() extra} list.
+&nbsp;   * @param elements An iterable of extra elements, can be {@code null}
+&nbsp;   */
+&nbsp;  public void setExtra(@Nullable List&lt;Integer&gt; elements) {
+&nbsp;    this.extra = elements;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link BeanFriendly#getExtra() extra} list.
+&nbsp;   * @param elements An iterable of extra elements
+&nbsp;   */
+&nbsp;  public void addAllExtra(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (elements == null) return;
+&nbsp;    if (this.extra == null) {
+&nbsp;      this.extra = new ArrayList&lt;Integer&gt;();
+&nbsp;    }
+&nbsp;    for (int e : elements) {
+&nbsp;      addExtra(e);
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link BeanFriendly#isPrimary() primary} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean primaryIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_PRIMARY) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link BeanFriendly#getId() id} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean idIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_ID) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link BeanFriendly#getDescription() description} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean descriptionIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_DESCRIPTION) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link BeanFriendly#getDefaultNullableMod() defaultNullableMod} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean defaultNullableModIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_DEFAULT_NULLABLE_MOD) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link BeanFriendly#getDefaultMod() defaultMod} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean defaultModIsSet() {
+&nbsp;    return defaultMod != null;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   */
+&nbsp;  public final void unsetPrimary() {
+&nbsp;    initBits |= INIT_BIT_PRIMARY;
+&nbsp;    primary = false;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   */
+&nbsp;  public final void unsetId() {
+&nbsp;    initBits |= INIT_BIT_ID;
+&nbsp;    id = 0;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   */
+&nbsp;  public final void unsetDescription() {
+&nbsp;    initBits |= INIT_BIT_DESCRIPTION;
+&nbsp;    description = null;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   */
+&nbsp;  public final void unsetDefaultNullableMod() {
+&nbsp;    optBits |= 0;
+&nbsp;    defaultNullableMod = null;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!primaryIsSet()) attributes.add(&quot;primary&quot;);
+&nbsp;    if (!idIsSet()) attributes.add(&quot;id&quot;);
+&nbsp;    if (!descriptionIsSet()) attributes.add(&quot;description&quot;);
+&nbsp;    return &quot;BeanFriendly is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableBeanFriendly ImmutableBeanFriendly}.
+&nbsp;   * @return An immutable instance of BeanFriendly
+&nbsp;   */
+&nbsp;  public final ImmutableBeanFriendly toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableBeanFriendly.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableBeanFriendly} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableBeanFriendly)) return false;
+&nbsp;    ModifiableBeanFriendly other = (ModifiableBeanFriendly) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableBeanFriendly another) {
+&nbsp;    BeanFriendly.Mod defaultMod = getDefaultMod();
+&nbsp;    BeanFriendly.Mod defaultNullableMod = getDefaultNullableMod();
+&nbsp;    BeanFriendly.Mod derivedMod = getDerivedMod();
+&nbsp;    BeanFriendly.Mod derivedNullableMod = getDerivedNullableMod();
+&nbsp;    return primary == another.primary
+&nbsp;        &amp;&amp; id == another.id
+&nbsp;        &amp;&amp; description.equals(another.description)
+&nbsp;        &amp;&amp; names.equals(another.names)
+&nbsp;        &amp;&amp; options.equals(another.options)
+&nbsp;        &amp;&amp; Objects.equals(mod, another.mod)
+&nbsp;        &amp;&amp; defaultMod.equals(another.getDefaultMod())
+&nbsp;        &amp;&amp; Objects.equals(defaultNullableMod, another.getDefaultNullableMod())
+&nbsp;        &amp;&amp; derivedMod.equals(another.getDerivedMod())
+&nbsp;        &amp;&amp; Objects.equals(derivedNullableMod, another.getDerivedNullableMod())
+&nbsp;        &amp;&amp; Objects.equals(extra, another.extra);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code primary}, {@code id}, {@code description}, {@code names}, {@code options}, {@code mod}, {@code defaultMod}, {@code defaultNullableMod}, {@code derivedMod}, {@code derivedNullableMod}, {@code extra}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(primary);
+&nbsp;    h += (h &lt;&lt; 5) + id;
+&nbsp;    h += (h &lt;&lt; 5) + description.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + names.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + options.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(mod);
+&nbsp;    BeanFriendly.Mod defaultMod = getDefaultMod();
+&nbsp;    h += (h &lt;&lt; 5) + defaultMod.hashCode();
+&nbsp;    BeanFriendly.Mod defaultNullableMod = getDefaultNullableMod();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(defaultNullableMod);
+&nbsp;    BeanFriendly.Mod derivedMod = getDerivedMod();
+&nbsp;    h += (h &lt;&lt; 5) + derivedMod.hashCode();
+&nbsp;    BeanFriendly.Mod derivedNullableMod = getDerivedNullableMod();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(derivedNullableMod);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(extra);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code BeanFriendly}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableBeanFriendly&quot;)
+&nbsp;        .add(&quot;primary&quot;, primaryIsSet() ? isPrimary() : &quot;?&quot;)
+&nbsp;        .add(&quot;id&quot;, idIsSet() ? getId() : &quot;?&quot;)
+&nbsp;        .add(&quot;description&quot;, descriptionIsSet() ? getDescription() : &quot;?&quot;)
+&nbsp;        .add(&quot;names&quot;, getNames())
+&nbsp;        .add(&quot;options&quot;, getOptions())
+&nbsp;        .add(&quot;mod&quot;, getMod())
+&nbsp;        .add(&quot;defaultMod&quot;, getDefaultMod())
+&nbsp;        .add(&quot;defaultNullableMod&quot;, getDefaultNullableMod())
+&nbsp;        .add(&quot;extra&quot;, getExtra())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

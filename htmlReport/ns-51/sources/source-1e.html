@@ -1,0 +1,906 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableStructurizer</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableStructurizer (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableStructurizer$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStructurizer$Statement</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStructurizer$Statement$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableStructurizer$Statement$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@code ImmutableStructurizer} contains immutable implementation classes generated from
+&nbsp; * abstract value types defined as nested inside {@link Structurizer}.
+&nbsp; * @see Structurizer.Statement
+&nbsp; */
+&nbsp;@Generated(from = &quot;Structurizer&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;final class ImmutableStructurizer {
+&nbsp;  private ImmutableStructurizer() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link Structurizer.Statement}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code new Structurizer.Statement.Builder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Structurizer.Statement&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  static final class Statement extends Structurizer.Statement {
+&nbsp;    private final ImmutableList&lt;Code.Term&gt; annotations;
+&nbsp;    private final ImmutableList&lt;Code.Term&gt; signature;
+&nbsp;    private final ImmutableList&lt;Code.Term&gt; parameters;
+&nbsp;    private final ImmutableList&lt;Code.Term&gt; expression;
+&nbsp;    private final ImmutableList&lt;Code.Term&gt; block;
+&nbsp;    private final ImmutableList&lt;Structurizer.Statement&gt; definitions;
+&nbsp;    private transient final boolean isClassOrInterface;
+&nbsp;    private final Optional&lt;String&gt; name;
+&nbsp;
+&nbsp;    private Statement(ImmutableStructurizer.Statement.Builder builder) {
+&nbsp;      this.annotations = builder.annotations.build();
+&nbsp;      this.signature = builder.signature.build();
+&nbsp;      this.parameters = builder.parameters.build();
+&nbsp;      this.expression = builder.expression.build();
+&nbsp;      this.block = builder.block.build();
+&nbsp;      this.definitions = builder.definitions.build();
+&nbsp;      if (builder.nameIsSet()) {
+&nbsp;        initShim.name(builder.name);
+&nbsp;      }
+&nbsp;      this.isClassOrInterface = initShim.isClassOrInterface();
+&nbsp;      this.name = initShim.name();
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private Statement(
+&nbsp;        ImmutableList&lt;Code.Term&gt; annotations,
+&nbsp;        ImmutableList&lt;Code.Term&gt; signature,
+&nbsp;        ImmutableList&lt;Code.Term&gt; parameters,
+&nbsp;        ImmutableList&lt;Code.Term&gt; expression,
+&nbsp;        ImmutableList&lt;Code.Term&gt; block,
+&nbsp;        ImmutableList&lt;Structurizer.Statement&gt; definitions,
+&nbsp;        Optional&lt;String&gt; name) {
+&nbsp;      this.annotations = annotations;
+&nbsp;      this.signature = signature;
+&nbsp;      this.parameters = parameters;
+&nbsp;      this.expression = expression;
+&nbsp;      this.block = block;
+&nbsp;      this.definitions = definitions;
+&nbsp;      initShim.name(name);
+&nbsp;      this.isClassOrInterface = initShim.isClassOrInterface();
+&nbsp;      this.name = initShim.name();
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static final byte STAGE_INITIALIZING = -1;
+&nbsp;    private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;    private static final byte STAGE_INITIALIZED = 1;
+&nbsp;    @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;    private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;    @Generated(from = &quot;Structurizer.Statement&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    private final class InitShim {
+&nbsp;      private byte isClassOrInterfaceBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private boolean isClassOrInterface;
+&nbsp;
+&nbsp;      boolean isClassOrInterface() {
+&nbsp;        if (isClassOrInterfaceBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (isClassOrInterfaceBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          isClassOrInterfaceBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.isClassOrInterface = Statement.super.isClassOrInterface();
+&nbsp;          isClassOrInterfaceBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.isClassOrInterface;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte nameBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private Optional&lt;String&gt; name;
+&nbsp;
+&nbsp;      Optional&lt;String&gt; name() {
+&nbsp;        if (nameBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (nameBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          nameBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.name = Objects.requireNonNull(Statement.super.name(), &quot;name&quot;);
+&nbsp;          nameBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.name;
+&nbsp;      }
+&nbsp;
+&nbsp;      void name(Optional&lt;String&gt; name) {
+&nbsp;        this.name = name;
+&nbsp;        nameBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatInitCycleMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (isClassOrInterfaceBuildStage == STAGE_INITIALIZING) attributes.add(&quot;isClassOrInterface&quot;);
+&nbsp;        if (nameBuildStage == STAGE_INITIALIZING) attributes.add(&quot;name&quot;);
+&nbsp;        return &quot;Cannot build Statement, attribute initializers form cycle &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code annotations} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Code.Term&gt; annotations() {
+&nbsp;      return annotations;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code signature} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Code.Term&gt; signature() {
+&nbsp;      return signature;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code parameters} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Code.Term&gt; parameters() {
+&nbsp;      return parameters;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code expression} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Code.Term&gt; expression() {
+&nbsp;      return expression;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code block} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Code.Term&gt; block() {
+&nbsp;      return block;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code definitions} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    ImmutableList&lt;Structurizer.Statement&gt; definitions() {
+&nbsp;      return definitions;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The computed-at-construction value of the {@code isClassOrInterface} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    boolean isClassOrInterface() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.isClassOrInterface()
+&nbsp;          : this.isClassOrInterface;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code name} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    Optional&lt;String&gt; name() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.name()
+&nbsp;          : this.name;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#annotations() annotations}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withAnnotations(Code.Term... elements) {
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          newValue,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#annotations() annotations}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of annotations elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withAnnotations(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;      if (this.annotations == elements) return this;
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          newValue,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#signature() signature}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withSignature(Code.Term... elements) {
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          newValue,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#signature() signature}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of signature elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withSignature(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;      if (this.signature == elements) return this;
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          newValue,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#parameters() parameters}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withParameters(Code.Term... elements) {
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          newValue,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#parameters() parameters}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of parameters elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withParameters(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;      if (this.parameters == elements) return this;
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          newValue,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#expression() expression}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withExpression(Code.Term... elements) {
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          newValue,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#expression() expression}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of expression elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withExpression(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;      if (this.expression == elements) return this;
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          newValue,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#block() block}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withBlock(Code.Term... elements) {
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          newValue,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#block() block}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of block elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withBlock(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;      if (this.block == elements) return this;
+&nbsp;      ImmutableList&lt;Code.Term&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          newValue,
+&nbsp;          this.definitions,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#definitions() definitions}.
+&nbsp;     * @param elements The elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withDefinitions(Structurizer.Statement... elements) {
+&nbsp;      ImmutableList&lt;Structurizer.Statement&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          newValue,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object with elements that replace the content of {@link Structurizer.Statement#definitions() definitions}.
+&nbsp;     * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param elements An iterable of definitions elements to set
+&nbsp;     * @return A modified copy of {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withDefinitions(Iterable&lt;? extends Structurizer.Statement&gt; elements) {
+&nbsp;      if (this.definitions == elements) return this;
+&nbsp;      ImmutableList&lt;Structurizer.Statement&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          newValue,
+&nbsp;          this.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy the current immutable object by setting a value for the {@link Structurizer.Statement#name() name} attribute.
+&nbsp;     * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;     * @param value A new value for name
+&nbsp;     * @return A modified copy of the {@code this} object
+&nbsp;     */
+&nbsp;    public final ImmutableStructurizer.Statement withName(Optional&lt;String&gt; value) {
+&nbsp;      Optional&lt;String&gt; newValue = Objects.requireNonNull(value, &quot;name&quot;);
+&nbsp;      if (this.name.equals(newValue)) return this;
+&nbsp;      return new ImmutableStructurizer.Statement(
+&nbsp;          this.annotations,
+&nbsp;          this.signature,
+&nbsp;          this.parameters,
+&nbsp;          this.expression,
+&nbsp;          this.block,
+&nbsp;          this.definitions,
+&nbsp;          newValue);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code Statement} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof ImmutableStructurizer.Statement
+&nbsp;          &amp;&amp; equalTo((ImmutableStructurizer.Statement) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(ImmutableStructurizer.Statement another) {
+&nbsp;      return annotations.equals(another.annotations)
+&nbsp;          &amp;&amp; signature.equals(another.signature)
+&nbsp;          &amp;&amp; parameters.equals(another.parameters)
+&nbsp;          &amp;&amp; expression.equals(another.expression)
+&nbsp;          &amp;&amp; block.equals(another.block)
+&nbsp;          &amp;&amp; definitions.equals(another.definitions)
+&nbsp;          &amp;&amp; isClassOrInterface == another.isClassOrInterface
+&nbsp;          &amp;&amp; name.equals(another.name);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code annotations}, {@code signature}, {@code parameters}, {@code expression}, {@code block}, {@code definitions}, {@code isClassOrInterface}, {@code name}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + annotations.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + signature.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + parameters.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + expression.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + block.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + definitions.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + Booleans.hashCode(isClassOrInterface);
+&nbsp;      h += (h &lt;&lt; 5) + name.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code Statement} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return MoreObjects.toStringHelper(&quot;Statement&quot;)
+&nbsp;          .omitNullValues()
+&nbsp;          .add(&quot;annotations&quot;, annotations)
+&nbsp;          .add(&quot;signature&quot;, signature)
+&nbsp;          .add(&quot;parameters&quot;, parameters)
+&nbsp;          .add(&quot;expression&quot;, expression)
+&nbsp;          .add(&quot;block&quot;, block)
+&nbsp;          .add(&quot;definitions&quot;, definitions)
+&nbsp;          .add(&quot;isClassOrInterface&quot;, isClassOrInterface)
+&nbsp;          .add(&quot;name&quot;, name)
+&nbsp;          .toString();
+&nbsp;    }
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;    private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;    private static final long RETURN_TYPE_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;    @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;    private transient List&lt;Code.Term&gt; returnType;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * {@inheritDoc}
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Returns a lazily initialized value of the {@link Structurizer.Statement#returnType() returnType} attribute.
+&nbsp;     * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;     * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;     * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;     * will be attempted again.
+&nbsp;     * @return A lazily initialized value of the {@code returnType} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    List&lt;Code.Term&gt; returnType() {
+&nbsp;      if ((lazyInitBitmap &amp; RETURN_TYPE_LAZY_INIT_BIT) == 0) {
+&nbsp;        synchronized (this) {
+&nbsp;          if ((lazyInitBitmap &amp; RETURN_TYPE_LAZY_INIT_BIT) == 0) {
+&nbsp;            this.returnType = Objects.requireNonNull(super.returnType(), &quot;returnType&quot;);
+&nbsp;            lazyInitBitmap |= RETURN_TYPE_LAZY_INIT_BIT;
+&nbsp;          }
+&nbsp;        }
+&nbsp;      }
+&nbsp;      return returnType;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates an immutable copy of a {@link Structurizer.Statement} value.
+&nbsp;     * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;     * If an instance is already immutable, it is returned as is.
+&nbsp;     * @param instance The instance to copy
+&nbsp;     * @return A copied immutable Statement instance
+&nbsp;     */
+&nbsp;    public static Structurizer.Statement copyOf(Structurizer.Statement instance) {
+&nbsp;      if (instance instanceof ImmutableStructurizer.Statement) {
+&nbsp;        return (ImmutableStructurizer.Statement) instance;
+&nbsp;      }
+&nbsp;      return new Structurizer.Statement.Builder()
+&nbsp;          .addAllAnnotations(instance.annotations())
+&nbsp;          .addAllSignature(instance.signature())
+&nbsp;          .addAllParameters(instance.parameters())
+&nbsp;          .addAllExpression(instance.expression())
+&nbsp;          .addAllBlock(instance.block())
+&nbsp;          .addAllDefinitions(instance.definitions())
+&nbsp;          .name(instance.name())
+&nbsp;          .build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds instances of type {@link Structurizer.Statement Statement}.
+&nbsp;     * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;     * immutable instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;     * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;     */
+&nbsp;    @Generated(from = &quot;Structurizer.Statement&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    @NotThreadSafe
+&nbsp;    public static class Builder {
+&nbsp;      private static final long OPT_BIT_NAME = 0x1L;
+&nbsp;      private long optBits;
+&nbsp;
+&nbsp;      private final ImmutableList.Builder&lt;Code.Term&gt; annotations = ImmutableList.builder();
+&nbsp;      private final ImmutableList.Builder&lt;Code.Term&gt; signature = ImmutableList.builder();
+&nbsp;      private final ImmutableList.Builder&lt;Code.Term&gt; parameters = ImmutableList.builder();
+&nbsp;      private final ImmutableList.Builder&lt;Code.Term&gt; expression = ImmutableList.builder();
+&nbsp;      private final ImmutableList.Builder&lt;Code.Term&gt; block = ImmutableList.builder();
+&nbsp;      private final ImmutableList.Builder&lt;Structurizer.Statement&gt; definitions = ImmutableList.builder();
+&nbsp;      private @Nullable Optional&lt;String&gt; name;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Creates a builder for {@link Structurizer.Statement Statement} instances.
+&nbsp;       * &lt;pre&gt;
+&nbsp;       * new Structurizer.Statement.Builder()
+&nbsp;       *    .addAnnotations|addAllAnnotations(org.immutables.value.processor.encode.Code.Term) // {@link Structurizer.Statement#annotations() annotations} elements
+&nbsp;       *    .addSignature|addAllSignature(org.immutables.value.processor.encode.Code.Term) // {@link Structurizer.Statement#signature() signature} elements
+&nbsp;       *    .addParameters|addAllParameters(org.immutables.value.processor.encode.Code.Term) // {@link Structurizer.Statement#parameters() parameters} elements
+&nbsp;       *    .addExpression|addAllExpression(org.immutables.value.processor.encode.Code.Term) // {@link Structurizer.Statement#expression() expression} elements
+&nbsp;       *    .addBlock|addAllBlock(org.immutables.value.processor.encode.Code.Term) // {@link Structurizer.Statement#block() block} elements
+&nbsp;       *    .addDefinitions|addAllDefinitions(org.immutables.value.processor.encode.Structurizer.Statement) // {@link Structurizer.Statement#definitions() definitions} elements
+&nbsp;       *    .name(com.google.common.base.Optional&amp;amp;lt;String&amp;amp;gt;) // optional {@link Structurizer.Statement#name() name}
+&nbsp;       *    .build();
+&nbsp;       * &lt;/pre&gt;
+&nbsp;       */
+&nbsp;      public Builder() {
+&nbsp;        if (!(this instanceof Structurizer.Statement.Builder)) {
+&nbsp;          throw new UnsupportedOperationException(&quot;Use: new Structurizer.Statement.Builder()&quot;);
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link Structurizer.Statement#annotations() annotations} list.
+&nbsp;       * @param element A annotations element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAnnotations(Code.Term element) {
+&nbsp;        this.annotations.add(element);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#annotations() annotations} list.
+&nbsp;       * @param elements An array of annotations elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAnnotations(Code.Term... elements) {
+&nbsp;        this.annotations.add(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#annotations() annotations} list.
+&nbsp;       * @param elements An iterable of annotations elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAllAnnotations(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;        this.annotations.addAll(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link Structurizer.Statement#signature() signature} list.
+&nbsp;       * @param element A signature element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addSignature(Code.Term element) {
+&nbsp;        this.signature.add(element);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#signature() signature} list.
+&nbsp;       * @param elements An array of signature elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addSignature(Code.Term... elements) {
+&nbsp;        this.signature.add(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#signature() signature} list.
+&nbsp;       * @param elements An iterable of signature elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAllSignature(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;        this.signature.addAll(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link Structurizer.Statement#parameters() parameters} list.
+&nbsp;       * @param element A parameters element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addParameters(Code.Term element) {
+&nbsp;        this.parameters.add(element);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#parameters() parameters} list.
+&nbsp;       * @param elements An array of parameters elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addParameters(Code.Term... elements) {
+&nbsp;        this.parameters.add(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#parameters() parameters} list.
+&nbsp;       * @param elements An iterable of parameters elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAllParameters(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;        this.parameters.addAll(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link Structurizer.Statement#expression() expression} list.
+&nbsp;       * @param element A expression element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addExpression(Code.Term element) {
+&nbsp;        this.expression.add(element);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#expression() expression} list.
+&nbsp;       * @param elements An array of expression elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addExpression(Code.Term... elements) {
+&nbsp;        this.expression.add(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#expression() expression} list.
+&nbsp;       * @param elements An iterable of expression elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAllExpression(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;        this.expression.addAll(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link Structurizer.Statement#block() block} list.
+&nbsp;       * @param element A block element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addBlock(Code.Term element) {
+&nbsp;        this.block.add(element);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#block() block} list.
+&nbsp;       * @param elements An array of block elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addBlock(Code.Term... elements) {
+&nbsp;        this.block.add(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#block() block} list.
+&nbsp;       * @param elements An iterable of block elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAllBlock(Iterable&lt;? extends Code.Term&gt; elements) {
+&nbsp;        this.block.addAll(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds one element to {@link Structurizer.Statement#definitions() definitions} list.
+&nbsp;       * @param element A definitions element
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addDefinitions(Structurizer.Statement element) {
+&nbsp;        this.definitions.add(element);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#definitions() definitions} list.
+&nbsp;       * @param elements An array of definitions elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addDefinitions(Structurizer.Statement... elements) {
+&nbsp;        this.definitions.add(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Adds elements to {@link Structurizer.Statement#definitions() definitions} list.
+&nbsp;       * @param elements An iterable of definitions elements
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder addAllDefinitions(Iterable&lt;? extends Structurizer.Statement&gt; elements) {
+&nbsp;        this.definitions.addAll(elements);
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Initializes the value for the {@link Structurizer.Statement#name() name} attribute.
+&nbsp;       * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link Structurizer.Statement#name() name}.&lt;/em&gt;
+&nbsp;       * @param name The value for name 
+&nbsp;       * @return {@code this} builder for use in a chained invocation
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final Structurizer.Statement.Builder name(Optional&lt;String&gt; name) {
+&nbsp;        checkNotIsSet(nameIsSet(), &quot;name&quot;);
+&nbsp;        this.name = Objects.requireNonNull(name, &quot;name&quot;);
+&nbsp;        optBits |= OPT_BIT_NAME;
+&nbsp;        return (Structurizer.Statement.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Builds a new {@link Structurizer.Statement Statement}.
+&nbsp;       * @return An immutable instance of Statement
+&nbsp;       * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;       */
+&nbsp;      public Structurizer.Statement build() {
+&nbsp;        return new ImmutableStructurizer.Statement(this);
+&nbsp;      }
+&nbsp;
+&nbsp;      private boolean nameIsSet() {
+&nbsp;        return (optBits &amp; OPT_BIT_NAME) != 0;
+&nbsp;      }
+&nbsp;
+&nbsp;      private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;        if (isSet) throw new IllegalStateException(&quot;Builder of Statement is strict, attribute is already set: &quot;.concat(name));
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

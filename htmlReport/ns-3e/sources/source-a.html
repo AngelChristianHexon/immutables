@@ -1,0 +1,235 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > WithWithMapUnary</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.with</a>
+</div>
+
+<h1>Coverage Summary for Class: WithWithMapUnary (org.immutables.fixture.with)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">WithWithMapUnary</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.with;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;@Generated(from = &quot;WithMapUnary&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;public interface WithWithMapUnary {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link WithMapUnary#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withA(int value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming value of {@link WithMapUnary#a() a}
+&nbsp;   * using the provided {@code UnaryOperator}. It always returns a new copy.
+&nbsp;   * @param operator Unary operator to transform value of a
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapA(UnaryOperator&lt;Integer&gt; operator);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link WithMapUnary#b() b} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withB(String value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming value of {@link WithMapUnary#b() b}
+&nbsp;   * using the provided {@code UnaryOperator}. It always returns a new copy.
+&nbsp;   * @param operator Unary operator to transform value of b
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapB(UnaryOperator&lt;String&gt; operator);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithMapUnary#o() o} attribute.
+&nbsp;   * @param value The value for o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withO(String value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithMapUnary#o() o} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withO(Optional&lt;String&gt; optional);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithMapUnary#o() o}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapO(UnaryOperator&lt;String&gt; operator);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link WithMapUnary#l() l}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withL(String... elements);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link WithMapUnary#l() l}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of l elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withL(Iterable&lt;String&gt; elements);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link WithMapUnary#l() l},
+&nbsp;   * transformed by passing each element to the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy unless collection is empty.
+&nbsp;   * @param operator Unary operator to transform each element of l
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapL(UnaryOperator&lt;String&gt; operator);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithMapUnary#i() i} attribute.
+&nbsp;   * @param value The value for i
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withI(int value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithMapUnary#i() i} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for i
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withI(OptionalInt optional);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithMapUnary#i() i}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of i
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapI(UnaryOperator&lt;Integer&gt; operator);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithMapUnary#d() d} attribute.
+&nbsp;   * @param value The value for d
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withD(double value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithMapUnary#d() d} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for d
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withD(OptionalDouble optional);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithMapUnary#d() d}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of d
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapD(UnaryOperator&lt;Double&gt; operator);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithMapUnary#oi() oi} attribute.
+&nbsp;   * @param value The value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withOi(int value);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithMapUnary#oi() oi} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary withOi(com.google.common.base.Optional&lt;Integer&gt; optional);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithMapUnary#oi() oi}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  WithMapUnary mapOi(UnaryOperator&lt;Integer&gt; operator);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableDefaultArray</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableDefaultArray (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableDefaultArray$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableDefaultArray$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link DefaultArray}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableDefaultArray.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;DefaultArray&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableDefaultArray extends DefaultArray {
+&nbsp;  private final int[] prop;
+&nbsp;  private final ImmutableSet&lt;Integer&gt; ints;
+&nbsp;
+&nbsp;  private ImmutableDefaultArray(ImmutableDefaultArray.Builder builder) {
+&nbsp;    if (builder.prop != null) {
+&nbsp;      initShim.prop(builder.prop);
+&nbsp;    }
+&nbsp;    if (builder.intsIsSet()) {
+&nbsp;      initShim.ints(builder.ints.build());
+&nbsp;    }
+&nbsp;    this.prop = initShim.prop();
+&nbsp;    this.ints = initShim.ints();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableDefaultArray(int[] prop, ImmutableSet&lt;Integer&gt; ints) {
+&nbsp;    this.prop = prop;
+&nbsp;    this.ints = ints;
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;DefaultArray&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte propBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private int[] prop;
+&nbsp;
+&nbsp;    int[] prop() {
+&nbsp;      if (propBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (propBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        propBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.prop = ImmutableDefaultArray.super.prop().clone();
+&nbsp;        propBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.prop;
+&nbsp;    }
+&nbsp;
+&nbsp;    void prop(int[] prop) {
+&nbsp;      this.prop = prop;
+&nbsp;      propBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte intsBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private ImmutableSet&lt;Integer&gt; ints;
+&nbsp;
+&nbsp;    ImmutableSet&lt;Integer&gt; ints() {
+&nbsp;      if (intsBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (intsBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        intsBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.ints = Objects.requireNonNull(ImmutableDefaultArray.super.ints(), &quot;ints&quot;);
+&nbsp;        intsBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.ints;
+&nbsp;    }
+&nbsp;
+&nbsp;    void ints(ImmutableSet&lt;Integer&gt; ints) {
+&nbsp;      this.ints = ints;
+&nbsp;      intsBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (propBuildStage == STAGE_INITIALIZING) attributes.add(&quot;prop&quot;);
+&nbsp;      if (intsBuildStage == STAGE_INITIALIZING) attributes.add(&quot;ints&quot;);
+&nbsp;      return &quot;Cannot build DefaultArray, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code prop} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  int[] prop() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;      ? shim.prop().clone()
+&nbsp;      : this.prop.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ints} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ImmutableSet&lt;Integer&gt; ints() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.ints()
+&nbsp;        : this.ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultArray#prop() prop}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for prop
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultArray withProp(int... elements) {
+&nbsp;    int[] newValue = elements.clone();
+&nbsp;    return new ImmutableDefaultArray(newValue, this.ints);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultArray#ints() ints}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultArray withInts(int... elements) {
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableDefaultArray(this.prop, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link DefaultArray#ints() ints}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ints elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultArray withInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ints == elements) return this;
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableDefaultArray(this.prop, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableDefaultArray} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableDefaultArray
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableDefaultArray) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableDefaultArray another) {
+&nbsp;    return Arrays.equals(prop, another.prop)
+&nbsp;        &amp;&amp; ints.equals(another.ints);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code prop}, {@code ints}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(prop);
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code DefaultArray} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;DefaultArray{&quot;
+&nbsp;        + &quot;prop=&quot; + Arrays.toString(prop)
+&nbsp;        + &quot;, ints=&quot; + ints
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link DefaultArray} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable DefaultArray instance
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultArray copyOf(DefaultArray instance) {
+&nbsp;    if (instance instanceof ImmutableDefaultArray) {
+&nbsp;      return (ImmutableDefaultArray) instance;
+&nbsp;    }
+&nbsp;    return ImmutableDefaultArray.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableDefaultArray ImmutableDefaultArray}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableDefaultArray.builder()
+&nbsp;   *    .prop(int) // optional {@link DefaultArray#prop() prop}
+&nbsp;   *    .addInts|addAllInts(int) // {@link DefaultArray#ints() ints} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableDefaultArray builder
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultArray.Builder builder() {
+&nbsp;    return new ImmutableDefaultArray.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableDefaultArray ImmutableDefaultArray}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;DefaultArray&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_INTS = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable int[] prop;
+&nbsp;    private ImmutableSet.Builder&lt;Integer&gt; ints = ImmutableSet.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code DefaultArray} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(DefaultArray instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      prop(instance.prop());
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link DefaultArray#prop() prop} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as defined by {@link DefaultArray#prop() prop}.&lt;/em&gt;
+&nbsp;     * @param prop The elements for prop
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder prop(int... prop) {
+&nbsp;      this.prop = prop.clone();
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link DefaultArray#ints() ints} set.
+&nbsp;     * @param element A ints element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int element) {
+&nbsp;      this.ints.add(element);
+&nbsp;      optBits |= OPT_BIT_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultArray#ints() ints} set.
+&nbsp;     * @param elements An array of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int... elements) {
+&nbsp;      this.ints.addAll(Ints.asList(elements));
+&nbsp;      optBits |= OPT_BIT_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link DefaultArray#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ints(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints = ImmutableSet.builder();
+&nbsp;      return addAllInts(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link DefaultArray#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableDefaultArray ImmutableDefaultArray}.
+&nbsp;     * @return An immutable instance of DefaultArray
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableDefaultArray build() {
+&nbsp;      return new ImmutableDefaultArray(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean intsIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_INTS) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

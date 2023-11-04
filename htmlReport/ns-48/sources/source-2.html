@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > FluentFuture</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.mongo.concurrent</a>
+</div>
+
+<h1>Coverage Summary for Class: FluentFuture (org.immutables.mongo.concurrent)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">FluentFuture</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2013-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.mongo.concurrent;
+&nbsp;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.util.concurrent.AsyncFunction;
+&nbsp;import com.google.common.util.concurrent.ExecutionError;
+&nbsp;import com.google.common.util.concurrent.FutureCallback;
+&nbsp;import com.google.common.util.concurrent.Futures;
+&nbsp;import com.google.common.util.concurrent.ListenableFuture;
+&nbsp;import com.google.common.util.concurrent.UncheckedExecutionException;
+&nbsp;import java.util.concurrent.CancellationException;
+&nbsp;import java.util.concurrent.Executor;
+&nbsp;
+&nbsp;/**
+&nbsp; * {@link ListenableFuture} that is enhanced with ability to invoke several operations from
+&nbsp; * {@link Futures} as instance methods rather than static methods.
+&nbsp; * @param &lt;V&gt; The result type returned by this Future&#39;s &lt;tt&gt;get&lt;/tt&gt; method
+&nbsp; */
+&nbsp;public interface FluentFuture&lt;V&gt; extends ListenableFuture&lt;V&gt; {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Get value or throw unchecked exception. This method blocks till value is computed or exception
+&nbsp;   * is thrown.
+&nbsp;   * @see Futures#getUnchecked(java.util.concurrent.Future)
+&nbsp;   * @return result value
+&nbsp;   * @throws UncheckedExecutionException if {@code get} throws an {@code ExecutionException} with an
+&nbsp;   *           {@code Exception} as its cause
+&nbsp;   * @throws ExecutionError if {@code get} throws an {@code ExecutionException} with an
+&nbsp;   *           {@code Error} as its cause
+&nbsp;   * @throws CancellationException if {@code get} throws a {@code CancellationException}
+&nbsp;   */
+&nbsp;  V getUnchecked();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Add callback
+&nbsp;   * @see Futures#addCallback(ListenableFuture, FutureCallback)
+&nbsp;   * @param callback The callback to invoke when {@code future} is completed.
+&nbsp;   * @return {@code this} future
+&nbsp;   */
+&nbsp;  FluentFuture&lt;V&gt; addCallback(FutureCallback&lt;V&gt; callback);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * With fallback that computes value.
+&nbsp;   * @see Futures#catching(ListenableFuture, Class, Function)
+&nbsp;   * @param fallback the fallback
+&nbsp;   * @return derived fluent future
+&nbsp;   */
+&nbsp;  FluentFuture&lt;V&gt; catching(Function&lt;Throwable, V&gt; fallback);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * With fallback value.
+&nbsp;   * @see Futures#immediateFuture(Object)
+&nbsp;   * @param value the value
+&nbsp;   * @return derived fluent future
+&nbsp;   */
+&nbsp;  FluentFuture&lt;V&gt; withFallbackValue(V value);
+&nbsp;
+&nbsp;  FluentFuture&lt;V&gt; withExecutor(Executor executor);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Transform future using supplied function.
+&nbsp;   * @see Futures#transform(ListenableFuture, Function)
+&nbsp;   * @param &lt;T&gt; transformed type
+&nbsp;   * @param function A Function to transform the results of the provided future
+&nbsp;   *          to the results of the returned future. This will be run in the thread
+&nbsp;   *          that notifies input it is complete.
+&nbsp;   * @return A derived future that holds result of the transformation.
+&nbsp;   */
+&nbsp;  &lt;T&gt; FluentFuture&lt;T&gt; transform(Function&lt;? super V, ? extends T&gt; function);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Asynchronous transform using supplied async-function.
+&nbsp;   * @see Futures#transform(ListenableFuture, AsyncFunction)
+&nbsp;   * @param &lt;T&gt; transformed type
+&nbsp;   * @param function A function to transform the result of the input future
+&nbsp;   *          to the result of the output future
+&nbsp;   * @return A derived future that holds result of the function (if the input succeeded)
+&nbsp;   *         or the original input&#39;s failure (if not)
+&nbsp;   * @see Futures#transform(ListenableFuture, AsyncFunction)
+&nbsp;   */
+&nbsp;  &lt;T&gt; FluentFuture&lt;T&gt; asyncTransform(AsyncFunction&lt;? super V, ? extends T&gt; function);
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Lazily transformed future value.
+&nbsp;   * @see Futures#lazyTransform(java.util.concurrent.Future, Function)
+&nbsp;   * @param &lt;T&gt; transformed type
+&nbsp;   * @param function A function to transform the result of the input future
+&nbsp;   *          to the result of the output future
+&nbsp;   * @return A derived future that holds result of the function (if the input succeeded)
+&nbsp;   *         or the original input&#39;s failure (if not)
+&nbsp;   * @see Futures#transform(ListenableFuture, AsyncFunction)
+&nbsp;   */
+&nbsp;  &lt;T&gt; FluentFuture&lt;T&gt; lazyTransform(Function&lt;? super V, ? extends T&gt; function);
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -19,6 +19,7 @@ import org.immutables.generator.Naming.Preference;
 import org.junit.Test;
 
 import static org.immutables.check.Checkers.check;
+import static org.junit.Assert.assertEquals;
 
 public class NamingTest {
   @Test(expected = IllegalArgumentException.class)
@@ -201,4 +202,21 @@ public class NamingTest {
     check(get.detect("getAB")).is("");
     check(get.detect("getABC")).is("");
   }
+  @Test
+  public void testFromAll() {
+    String[] templates = {
+            "templateExample1",
+            "templateExample2",
+            "templateExample3"
+    };
+
+    Naming[] namings = Naming.fromAll(templates);
+
+    assertEquals(templates.length, namings.length);
+
+    for (int i = 0; i < templates.length; i++) {
+      assertEquals(templates[i], namings[i].apply("input"));
+    }
+  }
+
 }

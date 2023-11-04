@@ -1,0 +1,366 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableWithEnums</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.with</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableWithEnums (org.immutables.fixture.with)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableWithEnums$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.with;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.math.RoundingMode;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link WithEnums}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableWithEnums.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;WithEnums&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableWithEnums extends WithEnums {
+&nbsp;  private final RoundingMode roundingMode;
+&nbsp;  private final @Nullable RoundingMode nullableRoundingMode;
+&nbsp;  private final @Nullable RoundingMode maybeRoundingMode;
+&nbsp;
+&nbsp;  private ImmutableWithEnums(
+&nbsp;      RoundingMode roundingMode,
+&nbsp;      @Nullable RoundingMode nullableRoundingMode,
+&nbsp;      @Nullable RoundingMode maybeRoundingMode) {
+&nbsp;    this.roundingMode = roundingMode;
+&nbsp;    this.nullableRoundingMode = nullableRoundingMode;
+&nbsp;    this.maybeRoundingMode = maybeRoundingMode;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code roundingMode} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RoundingMode getRoundingMode() {
+&nbsp;    return roundingMode;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nullableRoundingMode} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable RoundingMode getNullableRoundingMode() {
+&nbsp;    return nullableRoundingMode;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code maybeRoundingMode} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;RoundingMode&gt; getMaybeRoundingMode() {
+&nbsp;    return Optional.ofNullable(maybeRoundingMode);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link WithEnums#getRoundingMode() roundingMode} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for roundingMode
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithEnums withRoundingMode(RoundingMode value) {
+&nbsp;    RoundingMode newValue = Objects.requireNonNull(value, &quot;roundingMode&quot;);
+&nbsp;    if (this.roundingMode == newValue) return this;
+&nbsp;    return new ImmutableWithEnums(newValue, this.nullableRoundingMode, this.maybeRoundingMode);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link WithEnums#getNullableRoundingMode() nullableRoundingMode} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for nullableRoundingMode (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithEnums withNullableRoundingMode(@Nullable RoundingMode value) {
+&nbsp;    if (this.nullableRoundingMode == value) return this;
+&nbsp;    return new ImmutableWithEnums(this.roundingMode, value, this.maybeRoundingMode);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithEnums#getMaybeRoundingMode() maybeRoundingMode} attribute.
+&nbsp;   * @param value The value for maybeRoundingMode
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithEnums withMaybeRoundingMode(RoundingMode value) {
+&nbsp;    RoundingMode newValue = Objects.requireNonNull(value, &quot;maybeRoundingMode&quot;);
+&nbsp;    if (this.maybeRoundingMode == newValue) return this;
+&nbsp;    return new ImmutableWithEnums(this.roundingMode, this.nullableRoundingMode, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithEnums#getMaybeRoundingMode() maybeRoundingMode} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for maybeRoundingMode
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableWithEnums withMaybeRoundingMode(Optional&lt;? extends RoundingMode&gt; optional) {
+&nbsp;    @Nullable RoundingMode value = optional.orElse(null);
+&nbsp;    if (this.maybeRoundingMode == value) return this;
+&nbsp;    return new ImmutableWithEnums(this.roundingMode, this.nullableRoundingMode, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableWithEnums} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableWithEnums
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableWithEnums) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableWithEnums another) {
+&nbsp;    return roundingMode.equals(another.roundingMode)
+&nbsp;        &amp;&amp; Objects.equals(nullableRoundingMode, another.nullableRoundingMode)
+&nbsp;        &amp;&amp; Objects.equals(maybeRoundingMode, another.maybeRoundingMode);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code roundingMode}, {@code nullableRoundingMode}, {@code maybeRoundingMode}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + roundingMode.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(nullableRoundingMode);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(maybeRoundingMode);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code WithEnums} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;WithEnums&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;roundingMode&quot;, roundingMode)
+&nbsp;        .add(&quot;nullableRoundingMode&quot;, nullableRoundingMode)
+&nbsp;        .add(&quot;maybeRoundingMode&quot;, maybeRoundingMode)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link WithEnums} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable WithEnums instance
+&nbsp;   */
+&nbsp;  public static ImmutableWithEnums copyOf(WithEnums instance) {
+&nbsp;    if (instance instanceof ImmutableWithEnums) {
+&nbsp;      return (ImmutableWithEnums) instance;
+&nbsp;    }
+&nbsp;    return ImmutableWithEnums.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableWithEnums ImmutableWithEnums}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableWithEnums.builder()
+&nbsp;   *    .roundingMode(java.math.RoundingMode) // required {@link WithEnums#getRoundingMode() roundingMode}
+&nbsp;   *    .nullableRoundingMode(java.math.RoundingMode | null) // nullable {@link WithEnums#getNullableRoundingMode() nullableRoundingMode}
+&nbsp;   *    .maybeRoundingMode(java.math.RoundingMode) // optional {@link WithEnums#getMaybeRoundingMode() maybeRoundingMode}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableWithEnums builder
+&nbsp;   */
+&nbsp;  public static ImmutableWithEnums.Builder builder() {
+&nbsp;    return new ImmutableWithEnums.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableWithEnums ImmutableWithEnums}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;WithEnums&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ROUNDING_MODE = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable RoundingMode roundingMode;
+&nbsp;    private @Nullable RoundingMode nullableRoundingMode;
+&nbsp;    private @Nullable RoundingMode maybeRoundingMode;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code WithEnums} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(WithEnums instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      roundingMode(instance.getRoundingMode());
+&nbsp;      @Nullable RoundingMode nullableRoundingModeValue = instance.getNullableRoundingMode();
+&nbsp;      if (nullableRoundingModeValue != null) {
+&nbsp;        nullableRoundingMode(nullableRoundingModeValue);
+&nbsp;      }
+&nbsp;      Optional&lt;RoundingMode&gt; maybeRoundingModeOptional = instance.getMaybeRoundingMode();
+&nbsp;      if (maybeRoundingModeOptional.isPresent()) {
+&nbsp;        maybeRoundingMode(maybeRoundingModeOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link WithEnums#getRoundingMode() roundingMode} attribute.
+&nbsp;     * @param roundingMode The value for roundingMode 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder roundingMode(RoundingMode roundingMode) {
+&nbsp;      this.roundingMode = Objects.requireNonNull(roundingMode, &quot;roundingMode&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ROUNDING_MODE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link WithEnums#getNullableRoundingMode() nullableRoundingMode} attribute.
+&nbsp;     * @param nullableRoundingMode The value for nullableRoundingMode (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder nullableRoundingMode(@Nullable RoundingMode nullableRoundingMode) {
+&nbsp;      this.nullableRoundingMode = nullableRoundingMode;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithEnums#getMaybeRoundingMode() maybeRoundingMode} to maybeRoundingMode.
+&nbsp;     * @param maybeRoundingMode The value for maybeRoundingMode
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder maybeRoundingMode(RoundingMode maybeRoundingMode) {
+&nbsp;      this.maybeRoundingMode = Objects.requireNonNull(maybeRoundingMode, &quot;maybeRoundingMode&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithEnums#getMaybeRoundingMode() maybeRoundingMode} to maybeRoundingMode.
+&nbsp;     * @param maybeRoundingMode The value for maybeRoundingMode
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder maybeRoundingMode(Optional&lt;? extends RoundingMode&gt; maybeRoundingMode) {
+&nbsp;      this.maybeRoundingMode = maybeRoundingMode.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableWithEnums ImmutableWithEnums}.
+&nbsp;     * @return An immutable instance of WithEnums
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableWithEnums build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableWithEnums(roundingMode, nullableRoundingMode, maybeRoundingMode);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ROUNDING_MODE) != 0) attributes.add(&quot;roundingMode&quot;);
+&nbsp;      return &quot;Cannot build WithEnums, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

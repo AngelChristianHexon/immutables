@@ -1,0 +1,294 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Scrolling</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: Scrolling (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Scrolling</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Scrolling$AccumulatedResult</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/37)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.databind.node.ObjectNode;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import hu.akarnokd.rxjava2.operators.FlowableTransformers;
+&nbsp;import io.reactivex.Completable;
+&nbsp;import io.reactivex.Flowable;
+&nbsp;import io.reactivex.FlowableTransformer;
+&nbsp;
+&nbsp;import java.time.Duration;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;
+&nbsp;/**
+&nbsp; * Uses &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-scroll.html&quot;&gt;Scroll API&lt;/a&gt;
+&nbsp; * to fetch results recursively and asynchronously.
+&nbsp; */
+&nbsp;class Scrolling&lt;T&gt; {
+&nbsp;
+&nbsp;  private final ElasticsearchOps ops;
+&nbsp;
+&nbsp;  private final JsonConverter&lt;T&gt; converter;
+&nbsp;
+&nbsp;  private final int scrollSize;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Duration to keep scroll context alive.
+&nbsp;   */
+<b class="nc">&nbsp;  private final Duration keepAlive = Duration.ofMinutes(1);</b>
+&nbsp;
+<b class="nc">&nbsp;  Scrolling(ElasticsearchOps ops, JsonConverter&lt;T&gt; converter) {</b>
+<b class="nc">&nbsp;    this.ops = ops;</b>
+<b class="nc">&nbsp;    this.converter = converter;</b>
+<b class="nc">&nbsp;    this.scrollSize = ops.scrollSize;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Flowable&lt;T&gt; scroll(ObjectNode query) {
+<b class="nc">&nbsp;    final Map&lt;String, String&gt; params = Collections.singletonMap(&quot;scroll&quot;, keepAlive.getSeconds() + &quot;s&quot;);</b>
+<b class="nc">&nbsp;    final boolean hasLimit = query.has(&quot;size&quot;);</b>
+<b class="nc">&nbsp;    final long limit = hasLimit ? query.get(&quot;size&quot;).asLong() : Long.MAX_VALUE;</b>
+&nbsp;
+<b class="nc">&nbsp;    if (scrollSize &gt; limit) {</b>
+&nbsp;      // don&#39;t use scrolling when batch size is greater than limit
+<b class="nc">&nbsp;      return ops.search(query, converter);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // override size during scrolling
+<b class="nc">&nbsp;    query.put(&quot;size&quot;, scrollSize);</b>
+&nbsp;
+<b class="nc">&nbsp;    return ops.searchRaw(query, params)</b>
+<b class="nc">&nbsp;            .toFlowable()</b>
+<b class="nc">&nbsp;            .scan(AccumulatedResult.empty(limit), AccumulatedResult::next)</b>
+<b class="nc">&nbsp;            .skip(1)// skip first empty accumulator</b>
+<b class="nc">&nbsp;            .compose(transformer())</b>
+<b class="nc">&nbsp;            .map(AccumulatedResult::result)</b>
+<b class="nc">&nbsp;            .flatMapIterable(r -&gt; r.searchHits().hits())</b>
+<b class="nc">&nbsp;            .compose(f -&gt; hasLimit ? f.limit(limit) : f) // limit number of elements</b>
+<b class="nc">&nbsp;            .map(hit -&gt; converter.convert(hit.source()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private FlowableTransformer&lt;AccumulatedResult, AccumulatedResult&gt; transformer() {
+<b class="nc">&nbsp;    return FlowableTransformers.expand(r -&gt; r.isLast() ?</b>
+<b class="nc">&nbsp;            maybeClearScroll(r.result).toFlowable() :</b>
+<b class="nc">&nbsp;            ops.nextScroll(r.result.scrollId().get()).toFlowable().map(r::next));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * If scrollId is available will close scroll context
+&nbsp;   */
+&nbsp;  private Completable maybeClearScroll(Json.Result result) {
+<b class="nc">&nbsp;    Objects.requireNonNull(result, &quot;result&quot;);</b>
+<b class="nc">&nbsp;    return result.scrollId().map(scrollId -&gt; ops.closeScroll(Collections.singleton(scrollId)))</b>
+<b class="nc">&nbsp;            .orElse(Completable.complete());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used to track number of SearchHits seen so far (to know when to finish fetching)
+&nbsp;   */
+<b class="nc">&nbsp;  private static class AccumulatedResult {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Number of documents fetched so far
+&nbsp;     */
+&nbsp;    private final long count;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Max number of documents to fetch
+&nbsp;     */
+&nbsp;    private final long limit;
+&nbsp;
+&nbsp;    private final Json.Result result;
+&nbsp;
+<b class="nc">&nbsp;    private AccumulatedResult(long count, long limit, Json.Result result) {</b>
+<b class="nc">&nbsp;      this.count = count;</b>
+<b class="nc">&nbsp;      this.limit = limit;</b>
+<b class="nc">&nbsp;      this.result = result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean isLast() {
+<b class="nc">&nbsp;      Preconditions.checkState(result != null, &quot;result not supposed to be null&quot;);</b>
+<b class="nc">&nbsp;      return result.isEmpty() || count &gt;= limit;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Json.Result result() {
+<b class="nc">&nbsp;      return result;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    static AccumulatedResult empty(long limit) {
+<b class="nc">&nbsp;      return new AccumulatedResult(0, limit, null);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    AccumulatedResult next(Json.Result next) {
+<b class="nc">&nbsp;      Objects.requireNonNull(next, &quot;next&quot;);</b>
+<b class="nc">&nbsp;      return new AccumulatedResult(count + next.searchHits().hits().size(), limit, next);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

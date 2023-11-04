@@ -1,0 +1,226 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > SyncSelect</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: SyncSelect (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SyncSelect</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import org.apache.geode.cache.query.QueryService;
+&nbsp;import org.apache.geode.cache.query.Struct;
+&nbsp;import org.immutables.criteria.backend.ProjectedTuple;
+&nbsp;import org.immutables.criteria.backend.StandardOperations;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.concurrent.Callable;
+&nbsp;import java.util.function.Function;
+&nbsp;import java.util.logging.Level;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;class SyncSelect implements Callable&lt;Iterable&lt;Object&gt;&gt; {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Convert Geode specific {@link QueryService#UNDEFINED} value to null
+&nbsp;   */
+<b class="nc">&nbsp;  private static final Function&lt;Object, Object&gt; UNDEFINED_TO_NULL = value -&gt; QueryService.UNDEFINED.equals(value) ? null : value;</b>
+<b class="nc">&nbsp;  private static final Function&lt;Object, Object&gt; BIND_VARIABLE_CONVERTER = new BindVariableConverter();</b>
+&nbsp;
+&nbsp;  private final GeodeBackend.Session session;
+&nbsp;  private final StandardOperations.Select operation;
+&nbsp;
+<b class="nc">&nbsp;  SyncSelect(GeodeBackend.Session session, StandardOperations.Select operation) {</b>
+<b class="nc">&nbsp;    this.session = session;</b>
+<b class="nc">&nbsp;    this.operation = operation;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ProjectedTuple toTuple(Query query, Object value) {
+<b class="nc">&nbsp;    if (!(value instanceof Struct)) {</b>
+&nbsp;      // most likely single projection
+<b class="nc">&nbsp;      Preconditions.checkArgument(query.projections().size() == 1, &quot;Expected single projection got %s&quot;, query.projections().size());</b>
+<b class="nc">&nbsp;      Expression projection = query.projections().get(0);</b>
+<b class="nc">&nbsp;      return ProjectedTuple.ofSingle(projection, UNDEFINED_TO_NULL.apply(value));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Struct struct = (Struct) value;</b>
+<b class="nc">&nbsp;    List&lt;Object&gt; values = Arrays.stream(struct.getFieldValues()).map(UNDEFINED_TO_NULL).collect(Collectors.toList());</b>
+<b class="nc">&nbsp;    return ProjectedTuple.of(query.projections(), values);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Iterable&lt;Object&gt; call() throws Exception {
+&nbsp;
+<b class="nc">&nbsp;    Query query = operation.query();</b>
+<b class="nc">&nbsp;    Oql oql = session.oqlGenerator().generate(query);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (GeodeBackend.logger.isLoggable(Level.FINE)) {</b>
+<b class="nc">&nbsp;      GeodeBackend.logger.log(Level.FINE, &quot;Querying Geode with {0}&quot;, oql);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // fast-path for &quot;region.getAll&quot; use-case. ie get values for list of keys
+&nbsp;    // assumes no projections / aggregations / sort / count etc.
+&nbsp;    // plain get by key lookup
+&nbsp;    // also assumes idProperty is resolved (see IdResolver)
+<b class="nc">&nbsp;    boolean maybeGetById = query.filter().isPresent()</b>
+<b class="nc">&nbsp;            &amp;&amp; !query.hasAggregations()</b>
+<b class="nc">&nbsp;            &amp;&amp; !query.hasProjections()</b>
+<b class="nc">&nbsp;            &amp;&amp; !query.count()</b>
+<b class="nc">&nbsp;            &amp;&amp; query.collations().isEmpty();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (maybeGetById) {</b>
+<b class="nc">&nbsp;      KeyLookupAnalyzer.Result result = session.keyLookupAnalyzer.analyze(query.filter().get());</b>
+<b class="nc">&nbsp;      if (result.isOptimizable()) {</b>
+<b class="nc">&nbsp;        return new SyncGetByKey(session, result.values()).call();</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    // for projections use tuple function
+&nbsp;    Function&lt;Object, Object&gt; tupleFn;
+<b class="nc">&nbsp;    if (query.count()) {</b>
+&nbsp;      // geode will return integer for count(*)
+<b class="nc">&nbsp;      tupleFn = x -&gt; Geodes.convert(x, Long.class);</b>
+<b class="nc">&nbsp;    } else if (query.hasProjections()) {</b>
+<b class="nc">&nbsp;      tupleFn =  x -&gt; Geodes.castNumbers(toTuple(query, x));</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      tupleFn = Function.identity();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // convert existing collections to JDK-only implementations (eg. ImmutableList -&gt; ArrayList)
+<b class="nc">&nbsp;    Object[] variables = oql.variables().stream().map(BIND_VARIABLE_CONVERTER).toArray(Object[]::new);</b>
+<b class="nc">&nbsp;    Iterable&lt;Object&gt; result = (Iterable&lt;Object&gt;) session.queryService.newQuery(oql.oql()).execute(variables);</b>
+&nbsp;    // lazy transform
+<b class="nc">&nbsp;    return Iterables.transform(result, tupleFn::apply);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,603 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TypeStringProvider</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: TypeStringProvider (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TypeStringProvider</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/123)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/186)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TypeStringProvider$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TypeStringProvider$SourceExtractionCache</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/123)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/187)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Ascii;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map.Entry;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.AnnotationMirror;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.type.ArrayType;
+&nbsp;import javax.lang.model.type.DeclaredType;
+&nbsp;import javax.lang.model.type.TypeKind;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import javax.lang.model.type.TypeVariable;
+&nbsp;import javax.lang.model.type.WildcardType;
+&nbsp;import org.immutables.generator.AnnotationMirrors;
+&nbsp;import org.immutables.generator.SourceExtraction;
+&nbsp;import org.immutables.generator.SourceTypes;
+&nbsp;import org.immutables.value.processor.encode.SourceStructureGet;
+&nbsp;import org.immutables.value.processor.meta.ValueAttribute.NullElements;
+&nbsp;import static com.google.common.base.Preconditions.checkArgument;
+&nbsp;
+&nbsp;/**
+&nbsp; * Encapsulates routines and various hacks for get relevant strings for the raw types and type
+&nbsp; * parameters, while attempting to resolve unresolved types using source imports.
+&nbsp; */
+&nbsp;class TypeStringProvider {
+&nbsp;  // All this is grotesque ugly, cannot get any worse probably
+&nbsp;  interface SourceExtractionCache {
+&nbsp;    @Nullable
+&nbsp;    SourceStructureGet readCachedSourceGet();
+&nbsp;  }
+&nbsp;
+&nbsp;  private final TypeMirror startType;
+&nbsp;  private final Element element;
+<b class="nc">&nbsp;  private final List&lt;String&gt; typeParameterStrings = Lists.newArrayListWithCapacity(2);</b>
+&nbsp;  private StringBuilder buffer;
+&nbsp;  boolean unresolvedTypeHasOccured;
+&nbsp;  boolean hasMaybeUnresolvedYetAfter;
+&nbsp;  boolean hasTypeVariables;
+&nbsp;
+&nbsp;  private String rawTypeName;
+&nbsp;  private String returnTypeName;
+&nbsp;  private boolean ended;
+&nbsp;
+&nbsp;  private @Nullable List&lt;String&gt; workaroundTypeParameters;
+&nbsp;  private @Nullable String workaroundTypeString;
+&nbsp;  private final Reporter reporter;
+&nbsp;  private final String[] allowedTypevars;
+&nbsp;  private final @Nullable String[] typevarArguments;
+&nbsp;  private final ImportsTypeStringResolver importsResolver;
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  String elementTypeAnnotations;
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  String secondaryElementTypeAnnotation;
+&nbsp;  boolean processNestedTypeUseAnnotations;
+<b class="nc">&nbsp;  boolean forAttribute = false;</b>
+<b class="nc">&nbsp;  NullElements nullElements = NullElements.BAN;</b>
+&nbsp;  boolean nullableTypeAnnotation;
+&nbsp;  @Nullable
+&nbsp;  SourceExtractionCache sourceExtractionCache;
+&nbsp;
+&nbsp;  TypeStringProvider(
+&nbsp;      Reporter reporter,
+&nbsp;      Element element,
+&nbsp;      TypeMirror startType,
+&nbsp;      ImportsTypeStringResolver importsResolver,
+&nbsp;      String[] allowedTypevars,
+<b class="nc">&nbsp;      @Nullable String[] typevarArguments) {</b>
+&nbsp;
+<b class="nc">&nbsp;    this.reporter = reporter;</b>
+<b class="nc">&nbsp;    this.startType = startType;</b>
+<b class="nc">&nbsp;    this.element = element;</b>
+<b class="nc">&nbsp;    this.allowedTypevars = allowedTypevars;</b>
+<b class="nc">&nbsp;    this.typevarArguments = typevarArguments;</b>
+<b class="nc">&nbsp;    this.importsResolver = importsResolver;</b>
+<b class="nc">&nbsp;    checkArgument(typevarArguments == null || allowedTypevars.length == typevarArguments.length,</b>
+&nbsp;        &quot;Element %s, mismatching type variables, allowed: %s, given: %s&quot;,
+<b class="nc">&nbsp;        element.getSimpleName(),</b>
+<b class="nc">&nbsp;        Arrays.asList(allowedTypevars),</b>
+<b class="nc">&nbsp;        typevarArguments == null ? null : Arrays.asList(typevarArguments));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  String rawTypeName() {
+<b class="nc">&nbsp;    return rawTypeName;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  String returnTypeName() {
+<b class="nc">&nbsp;    return returnTypeName;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  boolean hasSomeUnresovedTypes() {
+<b class="nc">&nbsp;    return hasMaybeUnresolvedYetAfter;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  ImmutableList&lt;String&gt; typeParameters() {
+<b class="nc">&nbsp;    return ImmutableList.copyOf(workaroundTypeParameters != null</b>
+<b class="nc">&nbsp;        ? workaroundTypeParameters</b>
+<b class="nc">&nbsp;        : typeParameterStrings);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  void process() {
+<b class="nc">&nbsp;    if (startType.getKind().isPrimitive()) {</b>
+&nbsp;      // taking a shortcut for primitives
+<b class="nc">&nbsp;      String typeName = Ascii.toLowerCase(startType.getKind().name());</b>
+<b class="nc">&nbsp;      this.rawTypeName = typeName;</b>
+<b class="nc">&nbsp;      this.returnTypeName = typeName;</b>
+<b class="nc">&nbsp;      List&lt;? extends AnnotationMirror&gt; annotations = AnnotationMirrors.from(startType);</b>
+<b class="nc">&nbsp;      if (!annotations.isEmpty()) {</b>
+<b class="nc">&nbsp;        returnTypeName = typeAnnotationsToBuffer(annotations, false).append(typeName).toString();</b>
+&nbsp;      }
+<b class="nc">&nbsp;    } else {</b>
+<b class="nc">&nbsp;      this.buffer = new StringBuilder(100);</b>
+<b class="nc">&nbsp;      caseType(startType);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (workaroundTypeString != null) {</b>
+&nbsp;        // to not mix the mess, we just replace buffer with workaround produced type string
+<b class="nc">&nbsp;        this.buffer = new StringBuilder(workaroundTypeString);</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      // It seems that array type annotations are not exposed in javac
+&nbsp;      // Nested type argument&#39;s type annotations are not exposed as well (in javac)
+&nbsp;      // So currently we insert only for top level, declared type (here),
+&nbsp;      // and primitives (see above)
+<b class="nc">&nbsp;      TypeKind k = startType.getKind();</b>
+<b class="nc">&nbsp;      if (k == TypeKind.DECLARED || k == TypeKind.ERROR) {</b>
+<b class="nc">&nbsp;        insertTypeAnnotationsIfPresent(startType, 0, rawTypeName.length());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      this.returnTypeName = buffer.toString();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void appendResolved(DeclaredType type) {
+<b class="nc">&nbsp;    TypeElement typeElement = (TypeElement) type.asElement();</b>
+<b class="nc">&nbsp;    String typeName = typeElement.getQualifiedName().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (unresolvedTypeHasOccured) {</b>
+<b class="nc">&nbsp;      if (type == startType &amp;&amp; forAttribute) {</b>
+&nbsp;        // special routine for top level type, opportunistically
+&nbsp;        // resolving not yet generated type assuming it can be found in imports
+<b class="nc">&nbsp;        typeName = importsResolver.resolveTopForAttribute(typeName);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        typeName = importsResolver.apply(typeName);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (type != startType &amp;&amp; importsResolver.unresolved &amp;&amp; unresolvedYetArguments != null) {</b>
+<b class="nc">&nbsp;        unresolvedYetArguments.add(typeName);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      hasMaybeUnresolvedYetAfter |= importsResolver.unresolved;</b>
+<b class="nc">&nbsp;    } else if (typeName.startsWith(&quot;java.lang.&quot;)) {// saves on concat &amp; other ops</b>
+&nbsp;      // Because java.lang is automatically imported,
+&nbsp;      // you can have type names that are &quot;resolved,&quot;
+&nbsp;      // but aren&#39;t the names that are actually imported in the source file
+<b class="nc">&nbsp;      String simpleName = typeElement.getSimpleName().toString();</b>
+&nbsp;      // The only problem I might worry about is
+&nbsp;      // if we have java.lang.Something.Inner.InThere, however unlikely,
+&nbsp;      // and my brain is unable to understand if that is relevant or not for this case
+<b class="nc">&nbsp;      if (typeName.equals(&quot;java.lang.&quot; + simpleName)) {</b>
+<b class="nc">&nbsp;        String guessedName = importsResolver.apply(simpleName);</b>
+<b class="nc">&nbsp;        if (!importsResolver.unresolved) {</b>
+<b class="nc">&nbsp;          typeName = guessedName;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    buffer.append(typeName);</b>
+<b class="nc">&nbsp;    if (startType == type) {</b>
+<b class="nc">&nbsp;      rawTypeName = typeName;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void insertTypeAnnotationsIfPresent(TypeMirror type, int typeStart, int typeEnd) {
+<b class="nc">&nbsp;    List&lt;? extends AnnotationMirror&gt; annotations = AnnotationMirrors.from(type);</b>
+<b class="nc">&nbsp;    if (!annotations.isEmpty()) {</b>
+<b class="nc">&nbsp;      StringBuilder annotationBuffer = typeAnnotationsToBuffer(annotations, false);</b>
+<b class="nc">&nbsp;      int insertionIndex = typeStart + buffer.substring(typeStart, typeEnd).lastIndexOf(&#39;.&#39;) + 1;</b>
+<b class="nc">&nbsp;      buffer.insert(insertionIndex, annotationBuffer);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private StringBuilder typeAnnotationsToBuffer(List&lt;? extends AnnotationMirror&gt; annotations, boolean nestedTypeUse) {
+<b class="nc">&nbsp;    StringBuilder annotationBuffer = new StringBuilder(100);</b>
+<b class="nc">&nbsp;    for (AnnotationMirror annotationMirror : annotations) {</b>
+<b class="nc">&nbsp;      boolean canBeAppliedToMethodAsWell = !nestedTypeUse // just to short circuit computation early</b>
+<b class="nc">&nbsp;          &amp;&amp; Annotations.annotationMatchesTarget(annotationMirror.getAnnotationType().asElement(), ElementType.METHOD);</b>
+<b class="nc">&nbsp;      if (canBeAppliedToMethodAsWell) {</b>
+&nbsp;        // skip this type annotation on top type
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      CharSequence sequence = AnnotationMirrors.toCharSequence(annotationMirror, importsResolver);</b>
+<b class="nc">&nbsp;      if (!nullableTypeAnnotation &amp;&amp; sequence.toString().endsWith(EPHEMERAL_ANNOTATION_NULLABLE)) {</b>
+<b class="nc">&nbsp;        this.nullableTypeAnnotation = true;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      annotationBuffer</b>
+<b class="nc">&nbsp;          .append(sequence)</b>
+<b class="nc">&nbsp;          .append(&#39; &#39;);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return annotationBuffer;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean tryToUseSourceAsAWorkaround() {
+<b class="nc">&nbsp;    if (element.getKind() != ElementKind.METHOD) {</b>
+&nbsp;      // we don&#39;t bother with non-method attributes
+&nbsp;      // (like factory builder, where attributes are parameters)
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    CharSequence returnTypeString = SourceExtraction.getReturnTypeString((ExecutableElement) element);</b>
+<b class="nc">&nbsp;    if (returnTypeString.length() == 0 &amp;&amp; sourceExtractionCache != null) {</b>
+&nbsp;      try {
+<b class="nc">&nbsp;        SourceStructureGet sourceStructure = sourceExtractionCache.readCachedSourceGet();</b>
+&nbsp;
+<b class="nc">&nbsp;        if (sourceStructure != null) {</b>
+<b class="nc">&nbsp;          String accessorPath = computePath((ExecutableElement) element);</b>
+<b class="nc">&nbsp;          returnTypeString = sourceStructure.getReturnType(accessorPath);</b>
+&nbsp;        }
+<b class="nc">&nbsp;      } catch (Error | RuntimeException bestEffortsMiserablyFailed) {</b>
+<b class="nc">&nbsp;        return false;</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (returnTypeString.length() == 0) {</b>
+&nbsp;      // no source could be extracted for some reason, workaround will not work
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    Entry&lt;String, List&lt;String&gt;&gt; extractedTypes = SourceTypes.extract(returnTypeString);</b>
+&nbsp;
+&nbsp;    // forces source imports based resolution,
+&nbsp;    // we should not rely that types would be fully qualified
+<b class="nc">&nbsp;    Entry&lt;String, List&lt;String&gt;&gt; resolvedTypes = resolveTypes(extractedTypes);</b>
+&nbsp;
+<b class="nc">&nbsp;    this.rawTypeName = resolvedTypes.getKey();</b>
+<b class="nc">&nbsp;    this.workaroundTypeParameters = resolvedTypes.getValue();</b>
+<b class="nc">&nbsp;    this.workaroundTypeString = SourceTypes.stringify(resolvedTypes);</b>
+&nbsp;
+&nbsp;    // workaround may have successed, need to continue with whatever we have
+<b class="nc">&nbsp;    return true;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String computePath(ExecutableElement element) {
+<b class="nc">&nbsp;    String path = element.getSimpleName().toString();</b>
+<b class="nc">&nbsp;    for (Element e = element.getEnclosingElement(); //</b>
+<b class="nc">&nbsp;        e.getKind().isClass() || e.getKind().isInterface(); //</b>
+<b class="nc">&nbsp;        e = e.getEnclosingElement()) {</b>
+<b class="nc">&nbsp;      path = e.getSimpleName() + &quot;.&quot; + path;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (element.getModifiers().contains(Modifier.ABSTRACT)) {</b>
+<b class="nc">&nbsp;      return path;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return path + &quot;()&quot;;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Entry&lt;String, List&lt;String&gt;&gt; resolveTypes(Entry&lt;String, List&lt;String&gt;&gt; sourceTypes) {
+<b class="nc">&nbsp;    String typeName = sourceTypes.getKey();</b>
+<b class="nc">&nbsp;    typeName = importsResolver.apply(typeName);</b>
+<b class="nc">&nbsp;    hasMaybeUnresolvedYetAfter |= importsResolver.unresolved;</b>
+&nbsp;
+<b class="nc">&nbsp;    List&lt;String&gt; typeArguments = Lists.newArrayListWithCapacity(sourceTypes.getValue().size());</b>
+<b class="nc">&nbsp;    for (String typeArgument : sourceTypes.getValue()) {</b>
+<b class="nc">&nbsp;      String resolvedTypeArgument = SourceTypes.stringify(resolveTypes(SourceTypes.extract(typeArgument)));</b>
+<b class="nc">&nbsp;      typeArguments.add(resolvedTypeArgument);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return Maps.immutableEntry(typeName, typeArguments);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  void caseType(TypeMirror type) {
+<b class="nc">&nbsp;    if (ended) {</b>
+&nbsp;      // to prevent additional recursive effects when using workaround
+&nbsp;      return;
+&nbsp;    }
+<b class="nc">&nbsp;    switch (type.getKind()) {</b>
+&nbsp;    case ERROR:
+<b class="nc">&nbsp;      unresolvedTypeHasOccured = true;</b>
+&nbsp;      //$FALL-THROUGH$
+&nbsp;    case DECLARED:
+<b class="nc">&nbsp;      DeclaredType declaredType = (DeclaredType) type;</b>
+<b class="nc">&nbsp;      appendResolved(declaredType);</b>
+<b class="nc">&nbsp;      appendTypeArguments(type, declaredType);</b>
+<b class="nc">&nbsp;      break;</b>
+&nbsp;    case ARRAY:
+<b class="nc">&nbsp;      TypeMirror componentType = ((ArrayType) type).getComponentType();</b>
+<b class="nc">&nbsp;      int mark = buffer.length();</b>
+<b class="nc">&nbsp;      caseType(componentType);</b>
+<b class="nc">&nbsp;      cutTypeArgument(type, mark);</b>
+<b class="nc">&nbsp;      buffer.append(&#39;[&#39;).append(&#39;]&#39;);</b>
+<b class="nc">&nbsp;      break;</b>
+&nbsp;    case WILDCARD:
+<b class="nc">&nbsp;      WildcardType wildcard = (WildcardType) type;</b>
+<b class="nc">&nbsp;      @Nullable TypeMirror extendsBound = wildcard.getExtendsBound();</b>
+<b class="nc">&nbsp;      @Nullable TypeMirror superBound = wildcard.getSuperBound();</b>
+<b class="nc">&nbsp;      if (extendsBound != null) {</b>
+<b class="nc">&nbsp;        buffer.append(&quot;? extends &quot;);</b>
+<b class="nc">&nbsp;        caseType(extendsBound);</b>
+<b class="nc">&nbsp;      } else if (superBound != null) {</b>
+<b class="nc">&nbsp;        buffer.append(&quot;? super &quot;);</b>
+<b class="nc">&nbsp;        caseType(superBound);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        buffer.append(&#39;?&#39;);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      break;</b>
+&nbsp;    case TYPEVAR:
+<b class="nc">&nbsp;      if (allowedTypevars.length != 0) {</b>
+<b class="nc">&nbsp;        TypeVariable typeVariable = (TypeVariable) type;</b>
+<b class="nc">&nbsp;        String var = typeVariable.toString();</b>
+<b class="nc">&nbsp;        int indexOfVar = Arrays.asList(allowedTypevars).indexOf(var);</b>
+<b class="nc">&nbsp;        if (indexOfVar &gt;= 0) {</b>
+<b class="nc">&nbsp;          if (typevarArguments != null) {</b>
+<b class="nc">&nbsp;            buffer.append(typevarArguments[indexOfVar]);</b>
+&nbsp;          } else {
+<b class="nc">&nbsp;            hasTypeVariables = true;</b>
+<b class="nc">&nbsp;            buffer.append(var);</b>
+&nbsp;          }
+<b class="nc">&nbsp;          break;</b>
+&nbsp;        }
+&nbsp;        // If we don&#39;t have such parameter we consider this is the quirk
+&nbsp;        // that was witnessed in Eclipse, we let the code below deal with it.
+&nbsp;      }
+&nbsp;
+&nbsp;      // this workaround breaks this recursive flow, so we set up
+&nbsp;      // ended flag
+<b class="nc">&nbsp;      if (tryToUseSourceAsAWorkaround()) {</b>
+<b class="nc">&nbsp;        ended = true;</b>
+<b class="nc">&nbsp;        break;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      reporter.withElement(element)</b>
+<b class="nc">&nbsp;          .error(&quot;It is a compiler/annotation processing bug to receive type variable &#39;%s&#39; here.&quot;</b>
+&nbsp;              + &quot; To avoid it — do not use not yet generated types in %s attribute&quot;,
+&nbsp;              type,
+<b class="nc">&nbsp;              element.getSimpleName());</b>
+&nbsp;
+&nbsp;      // just append as toString whatever we have
+<b class="nc">&nbsp;      buffer.append(type);</b>
+<b class="nc">&nbsp;      break;</b>
+&nbsp;    case BOOLEAN:
+&nbsp;    case CHAR:
+&nbsp;    case INT:
+&nbsp;    case DOUBLE:
+&nbsp;    case FLOAT:
+&nbsp;    case SHORT:
+&nbsp;    case LONG:
+&nbsp;    case BYTE:
+<b class="nc">&nbsp;      String typeName = Ascii.toLowerCase(type.getKind().name());</b>
+<b class="nc">&nbsp;      buffer.append(typeName);</b>
+&nbsp;      /* Just skip type annotations with primitives (for now?) too many problems/breakages
+&nbsp;      List&lt;? extends AnnotationMirror&gt; annotations = null;
+&nbsp;      if (processNestedTypeUseAnnotations
+&nbsp;          &amp;&amp; startType != type
+&nbsp;          &amp;&amp; !(annotations = AnnotationMirrors.from(type)).isEmpty()) {
+&nbsp;        buffer.append(typeAnnotationsToBuffer(annotations, true)).append(typeName);
+&nbsp;      } else {
+&nbsp;        buffer.append(typeName);
+&nbsp;      }*/
+<b class="nc">&nbsp;      break;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      buffer.append(type);</b>
+&nbsp;    }
+&nbsp;    // workaround for Javac problem
+<b class="nc">&nbsp;    if (unresolvedTypeHasOccured &amp;&amp; buffer.toString().contains(&quot;&lt;any&gt;&quot;)) {</b>
+<b class="nc">&nbsp;      if (tryToUseSourceAsAWorkaround()) {</b>
+<b class="nc">&nbsp;        ended = true;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void appendTypeArguments(TypeMirror type, DeclaredType declaredType) {
+<b class="nc">&nbsp;    List&lt;? extends TypeMirror&gt; arguments = declaredType.getTypeArguments();</b>
+<b class="nc">&nbsp;    if (!arguments.isEmpty()) {</b>
+<b class="nc">&nbsp;      buffer.append(&#39;&lt;&#39;);</b>
+<b class="nc">&nbsp;      boolean notFirst = false;</b>
+<b class="nc">&nbsp;      for (TypeMirror argument : arguments) {</b>
+<b class="nc">&nbsp;        typeAnnotationHandle(argument);</b>
+<b class="nc">&nbsp;        if (notFirst) {</b>
+<b class="nc">&nbsp;          buffer.append(&#39;,&#39;).append(&#39; &#39;);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        notFirst = true;</b>
+<b class="nc">&nbsp;        int mark = buffer.length();</b>
+<b class="nc">&nbsp;        caseType(argument);</b>
+<b class="nc">&nbsp;        cutTypeArgument(type, mark);</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      buffer.append(&#39;&gt;&#39;);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void typeAnnotationHandle(TypeMirror argument) {
+<b class="nc">&nbsp;    if (!processNestedTypeUseAnnotations) {</b>
+&nbsp;      return;
+&nbsp;    }
+<b class="nc">&nbsp;    List&lt;? extends AnnotationMirror&gt; annotations = AnnotationMirrors.from(argument);</b>
+<b class="nc">&nbsp;    if (!annotations.isEmpty()) {</b>
+<b class="nc">&nbsp;      String typeAnnotations = typeAnnotationsToBuffer(annotations, true).toString();</b>
+<b class="nc">&nbsp;      assignElementNullness(typeAnnotations);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void assignElementNullness(String annotationString) {
+<b class="nc">&nbsp;    if (annotationString != null) {</b>
+<b class="nc">&nbsp;      if (annotationString.contains(EPHEMERAL_ANNOTATION_NULLABLE)</b>
+<b class="nc">&nbsp;          || annotationString.contains(EPHEMERAL_ANNOTATION_ALLOW_NULLS)) {</b>
+<b class="nc">&nbsp;        nullElements = NullElements.ALLOW;</b>
+<b class="nc">&nbsp;      } else if (annotationString.contains(EPHEMERAL_ANNOTATION_SKIP_NULLS)) {</b>
+<b class="nc">&nbsp;        nullElements = NullElements.SKIP;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private void cutTypeArgument(TypeMirror type, int mark) {
+<b class="nc">&nbsp;    if (startType == type) {</b>
+<b class="nc">&nbsp;      typeParameterStrings.add(buffer.substring(mark));</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private Set&lt;String&gt; unresolvedYetArguments;
+&nbsp;
+&nbsp;  void collectUnresolvedYetArgumentsTo(Set&lt;String&gt; unresolvedYetArguments) {
+<b class="nc">&nbsp;    this.unresolvedYetArguments = unresolvedYetArguments;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static final String EPHEMERAL_ANNOTATION_NULLABLE = &quot;Nullable&quot;;
+&nbsp;  static final String EPHEMERAL_ANNOTATION_ALLOW_NULLS = &quot;AllowNulls&quot;;
+&nbsp;  static final String EPHEMERAL_ANNOTATION_SKIP_NULLS = &quot;SkipNulls&quot;;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

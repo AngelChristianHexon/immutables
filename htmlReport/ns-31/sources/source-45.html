@@ -1,0 +1,727 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableClearBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableClearBuilder (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableClearBuilder$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ClearBuilder}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableClearBuilder.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ClearBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableClearBuilder implements ClearBuilder {
+&nbsp;  private final boolean a;
+&nbsp;  private final String b;
+&nbsp;  private final List&lt;String&gt; l;
+&nbsp;  private final int d;
+&nbsp;  private final Set&lt;RetentionPolicy&gt; r;
+&nbsp;  private final Map&lt;String, Integer&gt; m;
+&nbsp;
+&nbsp;  private ImmutableClearBuilder(ImmutableClearBuilder.Builder builder) {
+&nbsp;    this.a = builder.a;
+&nbsp;    this.b = builder.b;
+&nbsp;    this.l = createUnmodifiableList(true, builder.l);
+&nbsp;    this.r = createUnmodifiableEnumSet(builder.r);
+&nbsp;    this.m = createUnmodifiableMap(false, false, builder.m);
+&nbsp;    this.d = builder.dIsSet()
+&nbsp;        ? builder.d
+&nbsp;        : ClearBuilder.super.d();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableClearBuilder(
+&nbsp;      boolean a,
+&nbsp;      String b,
+&nbsp;      List&lt;String&gt; l,
+&nbsp;      int d,
+&nbsp;      Set&lt;RetentionPolicy&gt; r,
+&nbsp;      Map&lt;String, Integer&gt; m) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;    this.l = l;
+&nbsp;    this.d = d;
+&nbsp;    this.r = r;
+&nbsp;    this.m = m;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; l() {
+&nbsp;    return l;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int d() {
+&nbsp;    return d;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code r} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;RetentionPolicy&gt; r() {
+&nbsp;    return r;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code m} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, Integer&gt; m() {
+&nbsp;    return m;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClearBuilder#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withA(boolean value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    return new ImmutableClearBuilder(value, this.b, this.l, this.d, this.r, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClearBuilder#b() b} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withB(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;b&quot;);
+&nbsp;    if (this.b.equals(newValue)) return this;
+&nbsp;    return new ImmutableClearBuilder(this.a, newValue, this.l, this.d, this.r, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ClearBuilder#l() l}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withL(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
+&nbsp;    return new ImmutableClearBuilder(this.a, this.b, newValue, this.d, this.r, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ClearBuilder#l() l}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of l elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withL(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.l == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
+&nbsp;    return new ImmutableClearBuilder(this.a, this.b, newValue, this.d, this.r, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ClearBuilder#d() d} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for d
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withD(int value) {
+&nbsp;    if (this.d == value) return this;
+&nbsp;    return new ImmutableClearBuilder(this.a, this.b, this.l, value, this.r, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ClearBuilder#r() r}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withR(RetentionPolicy... elements) {
+&nbsp;    Set&lt;RetentionPolicy&gt; newValue = createUnmodifiableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableClearBuilder(this.a, this.b, this.l, this.d, newValue, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ClearBuilder#r() r}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of r elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withR(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.r == elements) return this;
+&nbsp;    Set&lt;RetentionPolicy&gt; newValue = createUnmodifiableEnumSet(elements);
+&nbsp;    return new ImmutableClearBuilder(this.a, this.b, this.l, this.d, newValue, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link ClearBuilder#m() m} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the m map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableClearBuilder withM(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.m == entries) return this;
+&nbsp;    Map&lt;String, Integer&gt; newValue = createUnmodifiableMap(true, false, entries);
+&nbsp;    return new ImmutableClearBuilder(this.a, this.b, this.l, this.d, this.r, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableClearBuilder} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableClearBuilder
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableClearBuilder) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableClearBuilder another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; b.equals(another.b)
+&nbsp;        &amp;&amp; l.equals(another.l)
+&nbsp;        &amp;&amp; d == another.d
+&nbsp;        &amp;&amp; r.equals(another.r)
+&nbsp;        &amp;&amp; m.equals(another.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code l}, {@code d}, {@code r}, {@code m}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Boolean.hashCode(a);
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + l.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + d;
+&nbsp;    h += (h &lt;&lt; 5) + r.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + m.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ClearBuilder} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;ClearBuilder{&quot;
+&nbsp;        + &quot;a=&quot; + a
+&nbsp;        + &quot;, b=&quot; + b
+&nbsp;        + &quot;, l=&quot; + l
+&nbsp;        + &quot;, d=&quot; + d
+&nbsp;        + &quot;, r=&quot; + r
+&nbsp;        + &quot;, m=&quot; + m
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ClearBuilder} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ClearBuilder instance
+&nbsp;   */
+&nbsp;  public static ImmutableClearBuilder copyOf(ClearBuilder instance) {
+&nbsp;    if (instance instanceof ImmutableClearBuilder) {
+&nbsp;      return (ImmutableClearBuilder) instance;
+&nbsp;    }
+&nbsp;    return ImmutableClearBuilder.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableClearBuilder ImmutableClearBuilder}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableClearBuilder.builder()
+&nbsp;   *    .a(boolean) // required {@link ClearBuilder#a() a}
+&nbsp;   *    .b(String) // required {@link ClearBuilder#b() b}
+&nbsp;   *    .addL|addAllL(String) // {@link ClearBuilder#l() l} elements
+&nbsp;   *    .d(int) // optional {@link ClearBuilder#d() d}
+&nbsp;   *    .addR|addAllR(annotation.RetentionPolicy) // {@link ClearBuilder#r() r} elements
+&nbsp;   *    .putM|putAllM(String =&amp;gt; int) // {@link ClearBuilder#m() m} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableClearBuilder builder
+&nbsp;   */
+&nbsp;  public static ImmutableClearBuilder.Builder builder() {
+&nbsp;    return new ImmutableClearBuilder.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableClearBuilder ImmutableClearBuilder}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ClearBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private static final long OPT_BIT_D = 0x1L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private boolean a;
+&nbsp;    private @Nullable String b;
+&nbsp;    private List&lt;String&gt; l = new ArrayList&lt;String&gt;();
+&nbsp;    private int d;
+&nbsp;    private EnumSet&lt;RetentionPolicy&gt; r = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;    private Map&lt;String, Integer&gt; m = new LinkedHashMap&lt;String, Integer&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ClearBuilder} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ClearBuilder instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      a(instance.a());
+&nbsp;      b(instance.b());
+&nbsp;      addAllL(instance.l());
+&nbsp;      d(instance.d());
+&nbsp;      addAllR(instance.r());
+&nbsp;      putAllM(instance.m());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClearBuilder#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(boolean a) {
+&nbsp;      this.a = a;
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClearBuilder#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(String b) {
+&nbsp;      this.b = Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ClearBuilder#l() l} list.
+&nbsp;     * @param element A l element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(String element) {
+&nbsp;      this.l.add(Objects.requireNonNull(element, &quot;l element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ClearBuilder#l() l} list.
+&nbsp;     * @param elements An array of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.l.add(Objects.requireNonNull(element, &quot;l element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ClearBuilder#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l(Iterable&lt;String&gt; elements) {
+&nbsp;      this.l.clear();
+&nbsp;      return addAllL(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ClearBuilder#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllL(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.l.add(Objects.requireNonNull(element, &quot;l element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ClearBuilder#d() d} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ClearBuilder#d() d}.&lt;/em&gt;
+&nbsp;     * @param d The value for d 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(int d) {
+&nbsp;      this.d = d;
+&nbsp;      optBits |= OPT_BIT_D;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ClearBuilder#r() r} set.
+&nbsp;     * @param element A r element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addR(RetentionPolicy element) {
+&nbsp;      this.r.add(Objects.requireNonNull(element, &quot;r element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ClearBuilder#r() r} set.
+&nbsp;     * @param elements An array of r elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addR(RetentionPolicy... elements) {
+&nbsp;      for (RetentionPolicy element : elements) {
+&nbsp;        this.r.add(Objects.requireNonNull(element, &quot;r element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ClearBuilder#r() r} set.
+&nbsp;     * @param elements An iterable of r elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder r(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.r.clear();
+&nbsp;      return addAllR(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ClearBuilder#r() r} set.
+&nbsp;     * @param elements An iterable of r elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllR(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      for (RetentionPolicy element : elements) {
+&nbsp;        this.r.add(Objects.requireNonNull(element, &quot;r element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ClearBuilder#m() m} map.
+&nbsp;     * @param key The key in the m map
+&nbsp;     * @param value The associated value in the m map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putM(String key, int value) {
+&nbsp;      this.m.put(
+&nbsp;          Objects.requireNonNull(key, &quot;m key&quot;),
+&nbsp;          value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link ClearBuilder#m() m} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putM(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      Integer v = entry.getValue();
+&nbsp;      this.m.put(
+&nbsp;          Objects.requireNonNull(k, &quot;m key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;m value for key: &quot; + k : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link ClearBuilder#m() m} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the m map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder m(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.m.clear();
+&nbsp;      return putAllM(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link ClearBuilder#m() m} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the m map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllM(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        Integer v = e.getValue();
+&nbsp;        this.m.put(
+&nbsp;            Objects.requireNonNull(k, &quot;m key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;m value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear the builder to the initial state.
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public Builder clear() {
+&nbsp;      initBits = 0x3L;
+&nbsp;      optBits = 0;
+&nbsp;      this.a = false;
+&nbsp;      this.b = null;
+&nbsp;      this.l.clear();
+&nbsp;      this.d = 0;
+&nbsp;      this.r.clear();
+&nbsp;      this.m.clear();
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableClearBuilder ImmutableClearBuilder}.
+&nbsp;     * @return An immutable instance of ClearBuilder
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableClearBuilder build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableClearBuilder(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean dIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_D) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      return &quot;Cannot build ClearBuilder, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  private static &lt;T extends Enum&lt;T&gt;&gt; Set&lt;T&gt; createUnmodifiableEnumSet(Iterable&lt;T&gt; iterable) {
+&nbsp;    if (iterable instanceof EnumSet&lt;?&gt;) {
+&nbsp;      return Collections.unmodifiableSet(EnumSet.copyOf((EnumSet&lt;T&gt;) iterable));
+&nbsp;    }
+&nbsp;    List&lt;T&gt; list = createSafeList(iterable, true, false);
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default: return Collections.unmodifiableSet(EnumSet.copyOf(list));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

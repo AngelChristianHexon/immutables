@@ -1,0 +1,165 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > IncludeTypes</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: IncludeTypes (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">IncludeTypes</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import java.io.Serializable;
+&nbsp;import java.lang.annotation.ElementType;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;/**
+&nbsp; * Feature combination
+&nbsp; * &lt;ul&gt;
+&nbsp; * &lt;li&gt;Included on types and packages
+&nbsp; * &lt;li&gt;Included as nested types
+&nbsp; * &lt;li&gt;Package style application
+&nbsp; * &lt;/ul&gt;
+&nbsp; */
+&nbsp;@Value.Include(Serializable.class)
+&nbsp;@Value.Immutable
+<b class="nc">&nbsp;public class IncludeTypes {</b>
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;CheckReturnValue&quot;)
+&nbsp;  void use() {
+&nbsp;    // this immutable type (package style used)
+<b class="nc">&nbsp;    ImIncludeTypes.builder().build();</b>
+&nbsp;    // included on this type (package style used)
+<b class="nc">&nbsp;    ImSerializable.builder().build();</b>
+&nbsp;    // included on package (package style used)
+<b class="nc">&nbsp;    ImTicker.builder().read(1).build();</b>
+&nbsp;
+&nbsp;    // included in IncludeNestedTypes
+&nbsp;    ImmutableIncludeNestedTypes.Retention retention =
+<b class="nc">&nbsp;        ImmutableIncludeNestedTypes.Retention.builder()</b>
+<b class="nc">&nbsp;            .value(RetentionPolicy.CLASS)</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;
+&nbsp;    // included in IncludeNestedTypes
+&nbsp;    ImmutableIncludeNestedTypes.Target target =
+<b class="nc">&nbsp;        ImmutableIncludeNestedTypes.Target.builder()</b>
+<b class="nc">&nbsp;            .value(ElementType.CONSTRUCTOR, ElementType.ANNOTATION_TYPE)</b>
+<b class="nc">&nbsp;            .build();</b>
+&nbsp;
+&nbsp;    // package applied style &quot;copyWith*&quot; test
+&nbsp;    // see PackageStyle
+<b class="nc">&nbsp;    retention.copyWithValue(RetentionPolicy.RUNTIME);</b>
+<b class="nc">&nbsp;    target.copyWithValue(ElementType.CONSTRUCTOR, ElementType.LOCAL_VARIABLE);</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

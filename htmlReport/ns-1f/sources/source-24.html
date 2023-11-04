@@ -1,0 +1,244 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableProperInitInternNoBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableProperInitInternNoBuilder (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableProperInitInternNoBuilder$InternerHolder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableProperInitInternNoBuilder$InternProxy</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.Interner;
+&nbsp;import com.google.common.collect.Interners;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ProperInitInternNoBuilder}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to get the default singleton instance:
+&nbsp; * {@code ImmutableProperInitInternNoBuilder.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ProperInitInternNoBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableProperInitInternNoBuilder
+&nbsp;    implements ProperInitInternNoBuilder {
+&nbsp;  private final int x;
+&nbsp;
+&nbsp;  private ImmutableProperInitInternNoBuilder() {
+&nbsp;    this.x = ProperInitInternNoBuilder.super.x();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableProperInitInternNoBuilder(int x) {
+&nbsp;    this.x = x;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code x} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int x() {
+&nbsp;    return x;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ProperInitInternNoBuilder#x() x} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for x
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableProperInitInternNoBuilder withX(int value) {
+&nbsp;    if (this.x == value) return this;
+&nbsp;    return validate(new ImmutableProperInitInternNoBuilder(value));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableProperInitInternNoBuilder} that have equal attribute values.
+&nbsp;   * As instances of the {@code ImmutableProperInitInternNoBuilder} class are interned, the {@code equals} method is implemented
+&nbsp;   * as an efficient reference equality check.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    return this == another;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableProperInitInternNoBuilder another) {
+&nbsp;    return x == another.x;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code x}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + x;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ProperInitInternNoBuilder} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ProperInitInternNoBuilder&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;x&quot;, x)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Generated(from = &quot;ProperInitInternNoBuilder&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private static class InternProxy {
+&nbsp;    final ImmutableProperInitInternNoBuilder instance;
+&nbsp;
+&nbsp;    InternProxy(ImmutableProperInitInternNoBuilder instance) {
+&nbsp;      this.instance = instance;
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      return another != null &amp;&amp; instance.equalTo(0, ((InternProxy) another).instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      return instance.hashCode();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final class InternerHolder {
+<b class="nc">&nbsp;    static final Interner&lt;InternProxy&gt; INTERNER = Interners.newStrongInterner();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final ImmutableProperInitInternNoBuilder INSTANCE = validate(new ImmutableProperInitInternNoBuilder());
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the default immutable singleton value of {@code ProperInitInternNoBuilder}
+&nbsp;   * @return An immutable instance of ProperInitInternNoBuilder
+&nbsp;   */
+&nbsp;  public static ImmutableProperInitInternNoBuilder of() {
+&nbsp;    return INSTANCE;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableProperInitInternNoBuilder validate(ImmutableProperInitInternNoBuilder instance) {
+&nbsp;    return InternerHolder.INTERNER.intern(new InternProxy(instance)).instance;
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

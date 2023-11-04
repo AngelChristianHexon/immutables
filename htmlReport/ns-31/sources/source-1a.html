@@ -1,0 +1,406 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableGenericMods</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableGenericMods (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableGenericMods</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link GenericMods GenericMods} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableGenericMods is not thread-safe&lt;/em&gt;
+&nbsp; * @param &lt;T&gt; generic parameter T
+&nbsp; * @see ImmutableGenericMods
+&nbsp; */
+&nbsp;@Generated(from = &quot;GenericMods&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;GenericMods&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableGenericMods&lt;T&gt; implements GenericMods&lt;T&gt; {
+&nbsp;  private static final long INIT_BIT_A = 0x1L;
+&nbsp;  private static final long INIT_BIT_B = 0x2L;
+&nbsp;  private static final long INIT_BIT_C = 0x4L;
+&nbsp;  private long initBits = 0x7L;
+&nbsp;
+&nbsp;  private int a;
+&nbsp;  private T b;
+&nbsp;  private int c;
+&nbsp;
+&nbsp;  private ModifiableGenericMods() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code GenericMods}.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static &lt;T&gt; ModifiableGenericMods&lt;T&gt; create() {
+&nbsp;    return new ModifiableGenericMods&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int a() {
+&nbsp;    if (!aIsSet()) checkRequiredAttributes();
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final T b() {
+&nbsp;    if (!bIsSet()) checkRequiredAttributes();
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int c() {
+&nbsp;    if (!cIsSet()) checkRequiredAttributes();
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericMods&lt;T&gt; clear() {
+&nbsp;    initBits = 0x7L;
+&nbsp;    a = 0;
+&nbsp;    b = null;
+&nbsp;    c = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.modifiable.Supertype} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericMods&lt;T&gt; from(Supertype instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.fixture.modifiable.GenericMods} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericMods&lt;T&gt; from(GenericMods&lt;T&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link GenericMods} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableGenericMods&lt;T&gt; from(ModifiableGenericMods&lt;T&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  private void from(Object object) {
+&nbsp;    if (object instanceof ModifiableGenericMods&lt;?&gt;) {
+&nbsp;      ModifiableGenericMods&lt;T&gt; instance = (ModifiableGenericMods&lt;T&gt;) object;
+&nbsp;      if (instance.aIsSet()) {
+&nbsp;        setA(instance.a());
+&nbsp;      }
+&nbsp;      if (instance.bIsSet()) {
+&nbsp;        setB(instance.b());
+&nbsp;      }
+&nbsp;      if (instance.cIsSet()) {
+&nbsp;        setC(instance.c());
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;    long bits = 0;
+&nbsp;    if (object instanceof Supertype) {
+&nbsp;      Supertype instance = (Supertype) object;
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setA(instance.a());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x2L) == 0) {
+&nbsp;        setC(instance.c());
+&nbsp;        bits |= 0x2L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;    if (object instanceof GenericMods&lt;?&gt;) {
+&nbsp;      GenericMods&lt;T&gt; instance = (GenericMods&lt;T&gt;) object;
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        setA(instance.a());
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      setB(instance.b());
+&nbsp;      if ((bits &amp; 0x2L) == 0) {
+&nbsp;        setC(instance.c());
+&nbsp;        bits |= 0x2L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link GenericMods#a() a} attribute.
+&nbsp;   * @param a The value for a
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericMods&lt;T&gt; setA(int a) {
+&nbsp;    this.a = a;
+&nbsp;    initBits &amp;= ~INIT_BIT_A;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link GenericMods#b() b} attribute.
+&nbsp;   * @param b The value for b
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericMods&lt;T&gt; setB(T b) {
+&nbsp;    this.b = Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_B;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link GenericMods#c() c} attribute.
+&nbsp;   * @param c The value for c
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableGenericMods&lt;T&gt; setC(int c) {
+&nbsp;    this.c = c;
+&nbsp;    initBits &amp;= ~INIT_BIT_C;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link GenericMods#a() a} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean aIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_A) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link GenericMods#b() b} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean bIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_B) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link GenericMods#c() c} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean cIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_C) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableGenericMods&lt;T&gt; unsetA() {
+&nbsp;    initBits |= INIT_BIT_A;
+&nbsp;    a = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableGenericMods&lt;T&gt; unsetB() {
+&nbsp;    initBits |= INIT_BIT_B;
+&nbsp;    b = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableGenericMods&lt;T&gt; unsetC() {
+&nbsp;    initBits |= INIT_BIT_C;
+&nbsp;    c = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!aIsSet()) attributes.add(&quot;a&quot;);
+&nbsp;    if (!bIsSet()) attributes.add(&quot;b&quot;);
+&nbsp;    if (!cIsSet()) attributes.add(&quot;c&quot;);
+&nbsp;    return &quot;GenericMods is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableGenericMods ImmutableGenericMods}.
+&nbsp;   * @return An immutable instance of GenericMods
+&nbsp;   */
+&nbsp;  public final ImmutableGenericMods&lt;T&gt; toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableGenericMods.&lt;T&gt;copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableGenericMods&lt;?&gt;} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableGenericMods&lt;?&gt;)) return false;
+&nbsp;    ModifiableGenericMods&lt;?&gt; other = (ModifiableGenericMods&lt;?&gt;) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableGenericMods&lt;?&gt; another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; b.equals(another.b)
+&nbsp;        &amp;&amp; c == another.c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code c}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + c;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code GenericMods}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableGenericMods&quot;)
+&nbsp;        .add(&quot;a&quot;, aIsSet() ? a() : &quot;?&quot;)
+&nbsp;        .add(&quot;b&quot;, bIsSet() ? b() : &quot;?&quot;)
+&nbsp;        .add(&quot;c&quot;, cIsSet() ? c() : &quot;?&quot;)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

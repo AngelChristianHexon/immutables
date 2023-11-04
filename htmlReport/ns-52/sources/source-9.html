@@ -1,0 +1,553 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AttributeTypeKind</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: AttributeTypeKind (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AttributeTypeKind</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/43)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/141)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/136)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AttributeTypeKind$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/44)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/141)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/137)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;
+<b class="nc">&nbsp;public enum AttributeTypeKind {</b>
+<b class="nc">&nbsp;  REGULAR(&quot;&quot;),</b>
+&nbsp;  // TODO support encoding which might count as collection
+&nbsp;  // or do this only for marshalers
+<b class="nc">&nbsp;  ENCODING(&quot;&quot;),</b>
+<b class="nc">&nbsp;  ARRAY(&quot;&quot;),</b>
+<b class="nc">&nbsp;  LIST(&quot;List&quot;,</b>
+<b class="nc">&nbsp;      java.util.List.class.getName(),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableList&quot;)),</b>
+<b class="nc">&nbsp;  SET(&quot;Set&quot;,</b>
+<b class="nc">&nbsp;      java.util.Set.class.getName(),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableSet&quot;)),</b>
+<b class="nc">&nbsp;  ENUM_SET(&quot;Set&quot;),</b>
+<b class="nc">&nbsp;  SORTED_SET(</b>
+&nbsp;      &quot;SortedSet&quot;,
+<b class="nc">&nbsp;      java.util.SortedSet.class.getName(),</b>
+<b class="nc">&nbsp;      java.util.NavigableSet.class.getName(),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableSortedSet&quot;)),</b>
+<b class="nc">&nbsp;  MAP(&quot;Map&quot;,</b>
+<b class="nc">&nbsp;      java.util.Map.class.getName(),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableMap&quot;)),</b>
+<b class="nc">&nbsp;  ENUM_MAP(&quot;Map&quot;),</b>
+<b class="nc">&nbsp;  SORTED_MAP(</b>
+&nbsp;      &quot;SortedMap&quot;,
+<b class="nc">&nbsp;      java.util.SortedMap.class.getName(),</b>
+<b class="nc">&nbsp;      java.util.NavigableMap.class.getName(),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableSortedMap&quot;)),</b>
+<b class="nc">&nbsp;  MULTISET(</b>
+&nbsp;      &quot;Multiset&quot;,
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.Multiset&quot;),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableMultiset&quot;)),</b>
+<b class="nc">&nbsp;  SORTED_MULTISET(</b>
+&nbsp;      &quot;SortedMultiset&quot;,
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.SortedMultiset&quot;),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableSortedMultiset&quot;)),</b>
+<b class="nc">&nbsp;  MULTIMAP(</b>
+&nbsp;      &quot;Multimap&quot;,
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.Multimap&quot;),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableMultimap&quot;)),</b>
+<b class="nc">&nbsp;  LIST_MULTIMAP(</b>
+&nbsp;      &quot;ListMultimap&quot;,
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ListMultimap&quot;),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableListMultimap&quot;)),</b>
+<b class="nc">&nbsp;  SET_MULTIMAP(</b>
+&nbsp;      &quot;SetMultimap&quot;,
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.SetMultimap&quot;),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableSetMultimap&quot;)),</b>
+<b class="nc">&nbsp;  BI_MAP(&quot;BiMap&quot;,</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.BiMap&quot;),</b>
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;collect.ImmutableBiMap&quot;)),</b>
+<b class="nc">&nbsp;  OPTIONAL_JDK(</b>
+&nbsp;      &quot;Optional&quot;,
+&nbsp;      &quot;java.util.Optional&quot;),
+<b class="nc">&nbsp;  OPTIONAL_INT_JDK(</b>
+&nbsp;      &quot;OptionalInt&quot;,
+&nbsp;      &quot;java.util.OptionalInt&quot;),
+<b class="nc">&nbsp;  OPTIONAL_LONG_JDK(</b>
+&nbsp;      &quot;OptionalLong&quot;,
+&nbsp;      &quot;java.util.OptionalLong&quot;),
+<b class="nc">&nbsp;  OPTIONAL_DOUBLE_JDK(</b>
+&nbsp;      &quot;OptionalDouble&quot;,
+&nbsp;      &quot;java.util.OptionalDouble&quot;),
+<b class="nc">&nbsp;  OPTIONAL_GUAVA(</b>
+&nbsp;      &quot;Optional&quot;,
+<b class="nc">&nbsp;      UnshadeGuava.typeString(&quot;base.Optional&quot;)),</b>
+<b class="nc">&nbsp;  OPTION_FUGUE(</b>
+&nbsp;      &quot;Option&quot;,
+&nbsp;      &quot;com.atlassian.fugue.Option&quot;,
+&nbsp;      &quot;io.atlassian.fugue.Option&quot;),
+<b class="nc">&nbsp;  OPTION_JAVASLANG(</b>
+&nbsp;      &quot;Option&quot;,
+&nbsp;      &quot;javaslang.control.Option&quot;),
+<b class="nc">&nbsp;  CUSTOM_COLLECTION(&quot;&quot;, &quot;&quot;);</b>
+&nbsp;
+&nbsp;  private final String[] rawTypes;
+&nbsp;  private final String rawSimpleName;
+&nbsp;
+<b class="nc">&nbsp;  AttributeTypeKind(String rawSimpleName, String... rawTypes) {</b>
+<b class="nc">&nbsp;    this.rawSimpleName = rawSimpleName;</b>
+<b class="nc">&nbsp;    this.rawTypes = rawTypes;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public String rawSimpleName(String rawType) {
+<b class="nc">&nbsp;    if (isCustomCollection()) {</b>
+<b class="nc">&nbsp;      int lastDot = rawType.lastIndexOf(&#39;.&#39;);</b>
+<b class="nc">&nbsp;      return lastDot &lt; 0 ? rawType : rawType.substring(lastDot + 1);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return rawSimpleName;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static AttributeTypeKind forRawType(String rawType) {
+<b class="nc">&nbsp;    return MoreObjects.firstNonNull(</b>
+<b class="nc">&nbsp;        rawTypeMapping.get(rawType),</b>
+&nbsp;        REGULAR);
+&nbsp;  }
+&nbsp;
+&nbsp;  AttributeTypeKind havingEnumFirstTypeParameter(boolean isEnum) {
+<b class="nc">&nbsp;    if (isEnum) {</b>
+<b class="nc">&nbsp;      switch (this) {</b>
+&nbsp;      case SET:
+<b class="nc">&nbsp;        return ENUM_SET;</b>
+&nbsp;      case MAP:
+<b class="nc">&nbsp;        return ENUM_MAP;</b>
+&nbsp;      default:
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final ImmutableMap&lt;String, AttributeTypeKind&gt; rawTypeMapping;
+&nbsp;  static {
+<b class="nc">&nbsp;    ImmutableMap.Builder&lt;String, AttributeTypeKind&gt; builder = ImmutableMap.builder();</b>
+<b class="nc">&nbsp;    for (AttributeTypeKind k : values()) {</b>
+<b class="nc">&nbsp;      if (k.isCustomCollection()) {</b>
+<b class="nc">&nbsp;        for (String c : CustomImmutableCollections.collections()) {</b>
+<b class="nc">&nbsp;          builder.put(c, k);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        for (String r : k.rawTypes) {</b>
+<b class="nc">&nbsp;          builder.put(r, k);</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    rawTypeMapping = builder.build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSortedKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case SORTED_MAP:
+&nbsp;    case SORTED_SET:
+&nbsp;    case SORTED_MULTISET:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSetKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case SET:
+&nbsp;    case ENUM_SET:
+&nbsp;    case SORTED_SET:
+&nbsp;    case MULTISET:
+&nbsp;    case SORTED_MULTISET:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isContainerKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case REGULAR:
+&nbsp;    case ENCODING:
+&nbsp;    case ARRAY:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isCollectionKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case LIST:
+&nbsp;    case SET:
+&nbsp;    case ENUM_SET:
+&nbsp;    case SORTED_SET:
+&nbsp;    case MULTISET:
+&nbsp;    case SORTED_MULTISET:
+&nbsp;    case CUSTOM_COLLECTION:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMapKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case MAP:
+&nbsp;    case ENUM_MAP:
+&nbsp;    case SORTED_MAP:
+&nbsp;    case BI_MAP:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMappingKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case MAP:
+&nbsp;    case ENUM_MAP:
+&nbsp;    case SORTED_MAP:
+&nbsp;    case MULTIMAP:
+&nbsp;    case LIST_MULTIMAP:
+&nbsp;    case SET_MULTIMAP:
+&nbsp;    case BI_MAP:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isKeyedKind() {
+<b class="nc">&nbsp;    return isMappingKind() || isSetKind();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isJdkOnlyContainerKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case OPTIONAL_JDK:
+&nbsp;    case OPTIONAL_INT_JDK:
+&nbsp;    case OPTIONAL_LONG_JDK:
+&nbsp;    case OPTIONAL_DOUBLE_JDK:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isGuavaContainerKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case MULTISET:
+&nbsp;    case SORTED_MULTISET:
+&nbsp;    case MULTIMAP:
+&nbsp;    case LIST_MULTIMAP:
+&nbsp;    case SET_MULTIMAP:
+&nbsp;    case BI_MAP:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isOptionalJdk() {
+<b class="nc">&nbsp;    return this == OPTIONAL_JDK;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isOptionalSpecializedJdk() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case OPTIONAL_INT_JDK:
+&nbsp;    case OPTIONAL_LONG_JDK:
+&nbsp;    case OPTIONAL_DOUBLE_JDK:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isOptionalGuava() {
+<b class="nc">&nbsp;    return this == OPTIONAL_GUAVA;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isOptionFugue() {
+<b class="nc">&nbsp;    return this == OPTION_FUGUE;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isOptionJavaslang() {
+<b class="nc">&nbsp;    return this == OPTION_JAVASLANG;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isOptionalKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case OPTIONAL_GUAVA:
+&nbsp;    case OPTIONAL_JDK:
+&nbsp;    case OPTIONAL_INT_JDK:
+&nbsp;    case OPTIONAL_LONG_JDK:
+&nbsp;    case OPTIONAL_DOUBLE_JDK:
+&nbsp;    case OPTION_FUGUE:
+&nbsp;    case OPTION_JAVASLANG:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isEnumKeyed() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case ENUM_MAP:
+&nbsp;    case ENUM_SET:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isCollectionOrMapping() {
+<b class="nc">&nbsp;    return isCollectionKind() || isMappingKind();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMultisetKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case MULTISET:
+&nbsp;    case SORTED_MULTISET:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMultimapKind() {
+<b class="nc">&nbsp;    switch (this) {</b>
+&nbsp;    case MULTIMAP:
+&nbsp;    case LIST_MULTIMAP:
+&nbsp;    case SET_MULTIMAP:
+<b class="nc">&nbsp;      return true;</b>
+&nbsp;    default:
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isCustomCollection() {
+<b class="nc">&nbsp;    return this == CUSTOM_COLLECTION;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSet() {
+<b class="nc">&nbsp;    return this == SET;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isEnumSet() {
+<b class="nc">&nbsp;    return this == ENUM_SET;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSortedSet() {
+<b class="nc">&nbsp;    return this == SORTED_SET;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isList() {
+<b class="nc">&nbsp;    return this == LIST;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMap() {
+<b class="nc">&nbsp;    return this == MAP;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isPlainMapKind() {
+<b class="nc">&nbsp;    return this == MAP</b>
+&nbsp;        || this == ENUM_MAP;
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isBiMap() {
+<b class="nc">&nbsp;    return this == BI_MAP;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSortedMap() {
+<b class="nc">&nbsp;    return this == SORTED_MAP;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isArray() {
+<b class="nc">&nbsp;    return this == ARRAY;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isRegular() {
+<b class="nc">&nbsp;    return this == REGULAR;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isEncoding() {
+<b class="nc">&nbsp;    return this == ENCODING;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMultiset() {
+<b class="nc">&nbsp;    return this == MULTISET;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSortedMultiset() {
+<b class="nc">&nbsp;    return this == SORTED_MULTISET;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isMultimap() {
+<b class="nc">&nbsp;    return this == MULTIMAP;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isSetMultimap() {
+<b class="nc">&nbsp;    return this == SET_MULTIMAP;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isListMultimap() {
+<b class="nc">&nbsp;    return this == LIST_MULTIMAP;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public boolean isEnumMap() {
+<b class="nc">&nbsp;    return this == ENUM_MAP;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

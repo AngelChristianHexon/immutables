@@ -1,0 +1,321 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > PayloadOne</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson.poly2</a>
+</div>
+
+<h1>Coverage Summary for Class: PayloadOne (org.immutables.fixture.jackson.poly2)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">PayloadOne$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">PayloadOne$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson.poly2;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link _PayloadOne}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code PayloadOne.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;_PayloadOne&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class PayloadOne extends org.immutables.fixture.jackson.poly2._PayloadOne {
+&nbsp;  private final String propertyOne;
+&nbsp;  private final String propertyTwo;
+&nbsp;
+&nbsp;  private PayloadOne(PayloadOne.Builder builder) {
+&nbsp;    this.propertyOne = builder.propertyOne;
+&nbsp;    this.propertyTwo = builder.propertyTwo;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Some property
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;propertyOne&quot;)
+&nbsp;  @Override
+&nbsp;  public String getPropertyOne() {
+&nbsp;    return propertyOne;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Another property
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;propertyTwo&quot;)
+&nbsp;  @Override
+&nbsp;  public String getPropertyTwo() {
+&nbsp;    return propertyTwo;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code PayloadOne} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof PayloadOne
+&nbsp;        &amp;&amp; equalTo(0, (PayloadOne) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, PayloadOne another) {
+&nbsp;    return propertyOne.equals(another.propertyOne)
+&nbsp;        &amp;&amp; propertyTwo.equals(another.propertyTwo);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code propertyOne}, {@code propertyTwo}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + propertyOne.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + propertyTwo.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code PayloadOne} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;PayloadOne&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;propertyOne&quot;, propertyOne)
+&nbsp;        .add(&quot;propertyTwo&quot;, propertyTwo)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;_PayloadOne&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json extends org.immutables.fixture.jackson.poly2._PayloadOne {
+&nbsp;    @Nullable String propertyOne;
+&nbsp;    @Nullable String propertyTwo;
+&nbsp;    @JsonProperty(&quot;propertyOne&quot;)
+&nbsp;    public void setPropertyOne(String propertyOne) {
+&nbsp;      this.propertyOne = propertyOne;
+&nbsp;    }
+&nbsp;    @JsonProperty(&quot;propertyTwo&quot;)
+&nbsp;    public void setPropertyTwo(String propertyTwo) {
+&nbsp;      this.propertyTwo = propertyTwo;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public String getPropertyOne() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public String getPropertyTwo() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static PayloadOne fromJson(Json json) {
+&nbsp;    PayloadOne.Builder builder = PayloadOne.builder();
+&nbsp;    if (json.propertyOne != null) {
+&nbsp;      builder.propertyOne(json.propertyOne);
+&nbsp;    }
+&nbsp;    if (json.propertyTwo != null) {
+&nbsp;      builder.propertyTwo(json.propertyTwo);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link PayloadOne PayloadOne}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * PayloadOne.builder()
+&nbsp;   *    .propertyOne(String) // required {@link PayloadOne#getPropertyOne() propertyOne}
+&nbsp;   *    .propertyTwo(String) // required {@link PayloadOne#getPropertyTwo() propertyTwo}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new PayloadOne builder
+&nbsp;   */
+&nbsp;  public static PayloadOne.Builder builder() {
+&nbsp;    return new PayloadOne.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link PayloadOne PayloadOne}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;_PayloadOne&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_PROPERTY_ONE = 0x1L;
+&nbsp;    private static final long INIT_BIT_PROPERTY_TWO = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable String propertyOne;
+&nbsp;    private @Nullable String propertyTwo;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code PayloadOne} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder from(PayloadOne instance) {
+&nbsp;      return from((_PayloadOne) instance);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy abstract value type {@code _PayloadOne} instance into builder.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    final Builder from(_PayloadOne instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      propertyOne(instance.getPropertyOne());
+&nbsp;      propertyTwo(instance.getPropertyTwo());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PayloadOne#getPropertyOne() propertyOne} attribute.
+&nbsp;     * @param propertyOne The value for propertyOne 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;propertyOne&quot;)
+&nbsp;    public final Builder propertyOne(String propertyOne) {
+&nbsp;      this.propertyOne = Objects.requireNonNull(propertyOne, &quot;propertyOne&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PROPERTY_ONE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PayloadOne#getPropertyTwo() propertyTwo} attribute.
+&nbsp;     * @param propertyTwo The value for propertyTwo 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;propertyTwo&quot;)
+&nbsp;    public final Builder propertyTwo(String propertyTwo) {
+&nbsp;      this.propertyTwo = Objects.requireNonNull(propertyTwo, &quot;propertyTwo&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PROPERTY_TWO;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link PayloadOne PayloadOne}.
+&nbsp;     * @return An immutable instance of PayloadOne
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public PayloadOne build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new PayloadOne(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_PROPERTY_ONE) != 0) attributes.add(&quot;propertyOne&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_PROPERTY_TWO) != 0) attributes.add(&quot;propertyTwo&quot;);
+&nbsp;      return &quot;Cannot build PayloadOne, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,531 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonProviderOptionsBuilder</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.gson.stream</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonProviderOptionsBuilder (org.immutables.gson.stream)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonProviderOptionsBuilder$1</td>
+  </tr>
+  <tr>
+    <td class="name">GsonProviderOptionsBuilder$ImmutableGsonProviderOptions</td>
+  </tr>
+  <tr>
+    <td class="name">GsonProviderOptionsBuilder$ImmutableGsonProviderOptions$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.gson.stream;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import com.google.gson.Gson;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.ws.rs.core.MediaType;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Builds instances of type {@link GsonMessageBodyProvider.GsonProviderOptions GsonProviderOptions}.
+&nbsp; * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp; * immutable instance.
+&nbsp; * &lt;p&gt;&lt;em&gt;{@code GsonProviderOptionsBuilder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp; * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;GsonMessageBodyProvider.GsonProviderOptions&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;resource&quot;, &quot;unused&quot;, &quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@NotThreadSafe
+&nbsp;public final class GsonProviderOptionsBuilder {
+&nbsp;  private static final long OPT_BIT_ALLOW_JACKSON = 0x1L;
+&nbsp;  private static final long OPT_BIT_LENIENT = 0x2L;
+&nbsp;  private long optBits;
+&nbsp;
+&nbsp;  private @Nullable Gson gson;
+&nbsp;  private boolean allowJackson;
+&nbsp;  private boolean lenient;
+&nbsp;  private @Nullable GsonMessageBodyProvider.ExceptionHandler exceptionHandler;
+&nbsp;  private List&lt;MediaType&gt; mediaTypes = new ArrayList&lt;MediaType&gt;();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link GsonMessageBodyProvider.GsonProviderOptions GsonProviderOptions} instances.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * new GsonProviderOptionsBuilder()
+&nbsp;   *    .gson(com.google.gson.Gson) // optional {@link GsonMessageBodyProvider.GsonProviderOptions#gson() gson}
+&nbsp;   *    .allowJackson(boolean) // optional {@link GsonMessageBodyProvider.GsonProviderOptions#allowJackson() allowJackson}
+&nbsp;   *    .lenient(boolean) // optional {@link GsonMessageBodyProvider.GsonProviderOptions#lenient() lenient}
+&nbsp;   *    .exceptionHandler(org.immutables.gson.stream.GsonMessageBodyProvider.ExceptionHandler) // optional {@link GsonMessageBodyProvider.GsonProviderOptions#exceptionHandler() exceptionHandler}
+&nbsp;   *    .addMediaTypes|addAllMediaTypes(javax.ws.rs.core.MediaType) // {@link GsonMessageBodyProvider.GsonProviderOptions#mediaTypes() mediaTypes} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  public GsonProviderOptionsBuilder() {
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill a builder with attribute values from the provided {@code GsonProviderOptions} instance.
+&nbsp;   * Regular attribute values will be replaced with those from the given instance.
+&nbsp;   * Absent optional values will not replace present values.
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder from(GsonMessageBodyProvider.GsonProviderOptions instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    gson(instance.gson());
+&nbsp;    allowJackson(instance.allowJackson());
+&nbsp;    lenient(instance.lenient());
+&nbsp;    exceptionHandler(instance.exceptionHandler());
+&nbsp;    addAllMediaTypes(instance.mediaTypes());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the value for the {@link GsonMessageBodyProvider.GsonProviderOptions#gson() gson} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link GsonMessageBodyProvider.GsonProviderOptions#gson() gson}.&lt;/em&gt;
+&nbsp;   * @param gson The value for gson 
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder gson(Gson gson) {
+&nbsp;    this.gson = Objects.requireNonNull(gson, &quot;gson&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the value for the {@link GsonMessageBodyProvider.GsonProviderOptions#allowJackson() allowJackson} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link GsonMessageBodyProvider.GsonProviderOptions#allowJackson() allowJackson}.&lt;/em&gt;
+&nbsp;   * @param allowJackson The value for allowJackson 
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder allowJackson(boolean allowJackson) {
+&nbsp;    this.allowJackson = allowJackson;
+&nbsp;    optBits |= OPT_BIT_ALLOW_JACKSON;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the value for the {@link GsonMessageBodyProvider.GsonProviderOptions#lenient() lenient} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link GsonMessageBodyProvider.GsonProviderOptions#lenient() lenient}.&lt;/em&gt;
+&nbsp;   * @param lenient The value for lenient 
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder lenient(boolean lenient) {
+&nbsp;    this.lenient = lenient;
+&nbsp;    optBits |= OPT_BIT_LENIENT;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Initializes the value for the {@link GsonMessageBodyProvider.GsonProviderOptions#exceptionHandler() exceptionHandler} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link GsonMessageBodyProvider.GsonProviderOptions#exceptionHandler() exceptionHandler}.&lt;/em&gt;
+&nbsp;   * @param exceptionHandler The value for exceptionHandler 
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder exceptionHandler(GsonMessageBodyProvider.ExceptionHandler exceptionHandler) {
+&nbsp;    this.exceptionHandler = Objects.requireNonNull(exceptionHandler, &quot;exceptionHandler&quot;);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link GsonMessageBodyProvider.GsonProviderOptions#mediaTypes() mediaTypes} list.
+&nbsp;   * @param element A mediaTypes element
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder addMediaTypes(MediaType element) {
+&nbsp;    this.mediaTypes.add(Objects.requireNonNull(element, &quot;mediaTypes element&quot;));
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link GsonMessageBodyProvider.GsonProviderOptions#mediaTypes() mediaTypes} list.
+&nbsp;   * @param elements An array of mediaTypes elements
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder addMediaTypes(MediaType... elements) {
+&nbsp;    for (MediaType element : elements) {
+&nbsp;      this.mediaTypes.add(Objects.requireNonNull(element, &quot;mediaTypes element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link GsonMessageBodyProvider.GsonProviderOptions#mediaTypes() mediaTypes} list.
+&nbsp;   * @param elements An iterable of mediaTypes elements
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder mediaTypes(Iterable&lt;? extends MediaType&gt; elements) {
+&nbsp;    this.mediaTypes.clear();
+&nbsp;    return addAllMediaTypes(elements);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link GsonMessageBodyProvider.GsonProviderOptions#mediaTypes() mediaTypes} list.
+&nbsp;   * @param elements An iterable of mediaTypes elements
+&nbsp;   * @return {@code this} builder for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue 
+&nbsp;  public final GsonProviderOptionsBuilder addAllMediaTypes(Iterable&lt;? extends MediaType&gt; elements) {
+&nbsp;    for (MediaType element : elements) {
+&nbsp;      this.mediaTypes.add(Objects.requireNonNull(element, &quot;mediaTypes element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds a new {@link GsonMessageBodyProvider.GsonProviderOptions GsonProviderOptions}.
+&nbsp;   * @return An immutable instance of GsonProviderOptions
+&nbsp;   * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;   */
+&nbsp;  public GsonMessageBodyProvider.GsonProviderOptions build() {
+&nbsp;    return new GsonProviderOptionsBuilder.ImmutableGsonProviderOptions(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean allowJacksonIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_ALLOW_JACKSON) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean lenientIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_LENIENT) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Immutable implementation of {@link GsonMessageBodyProvider.GsonProviderOptions}.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Use the builder to create immutable instances:
+&nbsp;   * {@code new GsonProviderOptionsBuilder()}.
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;GsonMessageBodyProvider.GsonProviderOptions&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Immutable
+&nbsp;  @CheckReturnValue
+&nbsp;  private static final class ImmutableGsonProviderOptions
+&nbsp;      extends GsonMessageBodyProvider.GsonProviderOptions {
+&nbsp;    private final Gson gson;
+&nbsp;    private final boolean allowJackson;
+&nbsp;    private final boolean lenient;
+&nbsp;    private final GsonMessageBodyProvider.ExceptionHandler exceptionHandler;
+&nbsp;    private final List&lt;MediaType&gt; mediaTypes;
+&nbsp;
+&nbsp;    private ImmutableGsonProviderOptions(GsonProviderOptionsBuilder builder) {
+&nbsp;      this.mediaTypes = createUnmodifiableList(true, builder.mediaTypes);
+&nbsp;      if (builder.gson != null) {
+&nbsp;        initShim.gson(builder.gson);
+&nbsp;      }
+&nbsp;      if (builder.allowJacksonIsSet()) {
+&nbsp;        initShim.allowJackson(builder.allowJackson);
+&nbsp;      }
+&nbsp;      if (builder.lenientIsSet()) {
+&nbsp;        initShim.lenient(builder.lenient);
+&nbsp;      }
+&nbsp;      if (builder.exceptionHandler != null) {
+&nbsp;        initShim.exceptionHandler(builder.exceptionHandler);
+&nbsp;      }
+&nbsp;      this.gson = initShim.gson();
+&nbsp;      this.allowJackson = initShim.allowJackson();
+&nbsp;      this.lenient = initShim.lenient();
+&nbsp;      this.exceptionHandler = initShim.exceptionHandler();
+&nbsp;      this.initShim = null;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static final byte STAGE_INITIALIZING = -1;
+&nbsp;    private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;    private static final byte STAGE_INITIALIZED = 1;
+&nbsp;    @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;    private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;    @Generated(from = &quot;GsonMessageBodyProvider.GsonProviderOptions&quot;, generator = &quot;Immutables&quot;)
+&nbsp;    private final class InitShim {
+&nbsp;      private byte gsonBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private Gson gson;
+&nbsp;
+&nbsp;      Gson gson() {
+&nbsp;        if (gsonBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (gsonBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          gsonBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.gson = Objects.requireNonNull(ImmutableGsonProviderOptions.super.gson(), &quot;gson&quot;);
+&nbsp;          gsonBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.gson;
+&nbsp;      }
+&nbsp;
+&nbsp;      void gson(Gson gson) {
+&nbsp;        this.gson = gson;
+&nbsp;        gsonBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte allowJacksonBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private boolean allowJackson;
+&nbsp;
+&nbsp;      boolean allowJackson() {
+&nbsp;        if (allowJacksonBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (allowJacksonBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          allowJacksonBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.allowJackson = ImmutableGsonProviderOptions.super.allowJackson();
+&nbsp;          allowJacksonBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.allowJackson;
+&nbsp;      }
+&nbsp;
+&nbsp;      void allowJackson(boolean allowJackson) {
+&nbsp;        this.allowJackson = allowJackson;
+&nbsp;        allowJacksonBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte lenientBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private boolean lenient;
+&nbsp;
+&nbsp;      boolean lenient() {
+&nbsp;        if (lenientBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (lenientBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          lenientBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.lenient = ImmutableGsonProviderOptions.super.lenient();
+&nbsp;          lenientBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.lenient;
+&nbsp;      }
+&nbsp;
+&nbsp;      void lenient(boolean lenient) {
+&nbsp;        this.lenient = lenient;
+&nbsp;        lenientBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private byte exceptionHandlerBuildStage = STAGE_UNINITIALIZED;
+&nbsp;      private GsonMessageBodyProvider.ExceptionHandler exceptionHandler;
+&nbsp;
+&nbsp;      GsonMessageBodyProvider.ExceptionHandler exceptionHandler() {
+&nbsp;        if (exceptionHandlerBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;        if (exceptionHandlerBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;          exceptionHandlerBuildStage = STAGE_INITIALIZING;
+&nbsp;          this.exceptionHandler = Objects.requireNonNull(ImmutableGsonProviderOptions.super.exceptionHandler(), &quot;exceptionHandler&quot;);
+&nbsp;          exceptionHandlerBuildStage = STAGE_INITIALIZED;
+&nbsp;        }
+&nbsp;        return this.exceptionHandler;
+&nbsp;      }
+&nbsp;
+&nbsp;      void exceptionHandler(GsonMessageBodyProvider.ExceptionHandler exceptionHandler) {
+&nbsp;        this.exceptionHandler = exceptionHandler;
+&nbsp;        exceptionHandlerBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;
+&nbsp;      private String formatInitCycleMessage() {
+&nbsp;        List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;        if (gsonBuildStage == STAGE_INITIALIZING) attributes.add(&quot;gson&quot;);
+&nbsp;        if (allowJacksonBuildStage == STAGE_INITIALIZING) attributes.add(&quot;allowJackson&quot;);
+&nbsp;        if (lenientBuildStage == STAGE_INITIALIZING) attributes.add(&quot;lenient&quot;);
+&nbsp;        if (exceptionHandlerBuildStage == STAGE_INITIALIZING) attributes.add(&quot;exceptionHandler&quot;);
+&nbsp;        return &quot;Cannot build GsonProviderOptions, attribute initializers form cycle &quot; + attributes;
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code gson} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public Gson gson() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.gson()
+&nbsp;          : this.gson;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code allowJackson} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean allowJackson() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.allowJackson()
+&nbsp;          : this.allowJackson;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code lenient} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean lenient() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.lenient()
+&nbsp;          : this.lenient;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code exceptionHandler} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public GsonMessageBodyProvider.ExceptionHandler exceptionHandler() {
+&nbsp;      InitShim shim = this.initShim;
+&nbsp;      return shim != null
+&nbsp;          ? shim.exceptionHandler()
+&nbsp;          : this.exceptionHandler;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return The value of the {@code mediaTypes} attribute
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public List&lt;MediaType&gt; mediaTypes() {
+&nbsp;      return mediaTypes;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This instance is equal to all instances of {@code ImmutableGsonProviderOptions} that have equal attribute values.
+&nbsp;     * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public boolean equals(@Nullable Object another) {
+&nbsp;      if (this == another) return true;
+&nbsp;      return another instanceof GsonProviderOptionsBuilder.ImmutableGsonProviderOptions
+&nbsp;          &amp;&amp; equalTo(0, (GsonProviderOptionsBuilder.ImmutableGsonProviderOptions) another);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean equalTo(int synthetic, GsonProviderOptionsBuilder.ImmutableGsonProviderOptions another) {
+&nbsp;      return gson.equals(another.gson)
+&nbsp;          &amp;&amp; allowJackson == another.allowJackson
+&nbsp;          &amp;&amp; lenient == another.lenient
+&nbsp;          &amp;&amp; exceptionHandler.equals(another.exceptionHandler)
+&nbsp;          &amp;&amp; mediaTypes.equals(another.mediaTypes);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Computes a hash code from attributes: {@code gson}, {@code allowJackson}, {@code lenient}, {@code exceptionHandler}, {@code mediaTypes}.
+&nbsp;     * @return hashCode value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+&nbsp;      @Var int h = 5381;
+&nbsp;      h += (h &lt;&lt; 5) + gson.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + Boolean.hashCode(allowJackson);
+&nbsp;      h += (h &lt;&lt; 5) + Boolean.hashCode(lenient);
+&nbsp;      h += (h &lt;&lt; 5) + exceptionHandler.hashCode();
+&nbsp;      h += (h &lt;&lt; 5) + mediaTypes.hashCode();
+&nbsp;      return h;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Prints the immutable value {@code GsonProviderOptions} with attribute values.
+&nbsp;     * @return A string representation of the value
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    public String toString() {
+&nbsp;      return &quot;GsonProviderOptions{&quot;
+&nbsp;          + &quot;gson=&quot; + gson
+&nbsp;          + &quot;, allowJackson=&quot; + allowJackson
+&nbsp;          + &quot;, lenient=&quot; + lenient
+&nbsp;          + &quot;, exceptionHandler=&quot; + exceptionHandler
+&nbsp;          + &quot;, mediaTypes=&quot; + mediaTypes
+&nbsp;          + &quot;}&quot;;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

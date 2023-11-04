@@ -1,0 +1,742 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableWithUnaryOperator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.with</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableWithUnaryOperator (org.immutables.fixture.with)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableWithUnaryOperator$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.with;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import java.util.OptionalInt;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link WithUnaryOperator}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableWithUnaryOperator.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;WithUnaryOperator&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableWithUnaryOperator implements WithUnaryOperator {
+&nbsp;  private final int a;
+&nbsp;  private final String b;
+&nbsp;  private final @Nullable String o;
+&nbsp;  private final ImmutableList&lt;String&gt; l;
+&nbsp;  private final @Nullable Integer i;
+&nbsp;  private final @Nullable Double d;
+&nbsp;  private final Optional&lt;Integer&gt; oi;
+&nbsp;
+&nbsp;  private ImmutableWithUnaryOperator(
+&nbsp;      int a,
+&nbsp;      String b,
+&nbsp;      @Nullable String o,
+&nbsp;      ImmutableList&lt;String&gt; l,
+&nbsp;      @Nullable Integer i,
+&nbsp;      @Nullable Double d,
+&nbsp;      Optional&lt;Integer&gt; oi) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;    this.o = o;
+&nbsp;    this.l = l;
+&nbsp;    this.i = i;
+&nbsp;    this.d = d;
+&nbsp;    this.oi = oi;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code o} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;String&gt; o() {
+&nbsp;    return java.util.Optional.ofNullable(o);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; l() {
+&nbsp;    return l;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalInt i() {
+&nbsp;    return i != null
+&nbsp;        ? OptionalInt.of(i)
+&nbsp;        : OptionalInt.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalDouble d() {
+&nbsp;    return d != null
+&nbsp;        ? OptionalDouble.of(d)
+&nbsp;        : OptionalDouble.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code oi} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; oi() {
+&nbsp;    return oi;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link WithUnaryOperator#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withA(int value) {
+&nbsp;    if (this.a == value) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(value, this.b, this.o, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming value of {@link WithUnaryOperator#a() a}
+&nbsp;   * using the provided {@code UnaryOperator}. It always returns a new copy.
+&nbsp;   * @param operator Unary operator to transform value of a
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapA(UnaryOperator&lt;Integer&gt; operator) {
+&nbsp;    int value = operator.apply(this.a);
+&nbsp;    return new ImmutableWithUnaryOperator(value, this.b, this.o, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link WithUnaryOperator#b() b} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withB(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;b&quot;);
+&nbsp;    if (this.b.equals(newValue)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, newValue, this.o, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming value of {@link WithUnaryOperator#b() b}
+&nbsp;   * using the provided {@code UnaryOperator}. It always returns a new copy.
+&nbsp;   * @param operator Unary operator to transform value of b
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapB(UnaryOperator&lt;String&gt; operator) {
+&nbsp;    String value = operator.apply(this.b);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, value, this.o, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithUnaryOperator#o() o} attribute.
+&nbsp;   * @param value The value for o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withO(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;o&quot;);
+&nbsp;    if (Objects.equals(this.o, newValue)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, newValue, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithUnaryOperator#o() o} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withO(java.util.Optional&lt;String&gt; optional) {
+&nbsp;    @Nullable String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.o, value)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, value, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithUnaryOperator#o() o}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of o
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapO(UnaryOperator&lt;String&gt; operator) {
+&nbsp;    if (this.o == null) return this;
+&nbsp;    @Nullable String value = operator.apply(this.o);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, value, this.l, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link WithUnaryOperator#l() l}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withL(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, newValue, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link WithUnaryOperator#l() l}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of l elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withL(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.l == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, newValue, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link WithUnaryOperator#l() l},
+&nbsp;   * transformed by passing each element to the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy unless collection is empty.
+&nbsp;   * @param operator Unary operator to transform each element of l
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapL(UnaryOperator&lt;String&gt; operator) {
+&nbsp;    if (this.l.isEmpty()) return this;
+&nbsp;    List&lt;String&gt; elements = this.l.stream().map(operator)
+&nbsp;        .collect(Collectors.toList());
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, newValue, this.i, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithUnaryOperator#i() i} attribute.
+&nbsp;   * @param value The value for i
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withI(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.i, newValue)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, newValue, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithUnaryOperator#i() i} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for i
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withI(OptionalInt optional) {
+&nbsp;    @Nullable Integer value = optional.isPresent() ? optional.getAsInt() : null;
+&nbsp;    if (Objects.equals(this.i, value)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, value, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithUnaryOperator#i() i}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of i
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapI(UnaryOperator&lt;Integer&gt; operator) {
+&nbsp;    if (this.i == null) return this;
+&nbsp;    @Nullable Integer value = operator.apply(this.i);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, value, this.d, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithUnaryOperator#d() d} attribute.
+&nbsp;   * @param value The value for d
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withD(double value) {
+&nbsp;    @Nullable Double newValue = value;
+&nbsp;    if (Objects.equals(this.d, newValue)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, this.i, newValue, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithUnaryOperator#d() d} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for d
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withD(OptionalDouble optional) {
+&nbsp;    @Nullable Double value = optional.isPresent() ? optional.getAsDouble() : null;
+&nbsp;    if (Objects.equals(this.d, value)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, this.i, value, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithUnaryOperator#d() d}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of d
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapD(UnaryOperator&lt;Double&gt; operator) {
+&nbsp;    if (this.d == null) return this;
+&nbsp;    @Nullable Double value = operator.apply(this.d);
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, this.i, value, this.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link WithUnaryOperator#oi() oi} attribute.
+&nbsp;   * @param value The value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withOi(int value) {
+&nbsp;    Optional&lt;Integer&gt; newValue = Optional.of(value);
+&nbsp;    if (this.oi.equals(newValue)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, this.i, this.d, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link WithUnaryOperator#oi() oi} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator withOi(Optional&lt;Integer&gt; optional) {
+&nbsp;    Optional&lt;Integer&gt; value = optional;
+&nbsp;    if (this.oi.equals(value)) return this;
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, this.i, this.d, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by transforming optional value of {@link WithUnaryOperator#oi() oi}
+&nbsp;   * using the provided {@code UnaryOperator}.
+&nbsp;   * It always returns a new copy if optional is present, otherwise {@code this} is returned.
+&nbsp;   * @param operator Unary operator to transform optional value of oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableWithUnaryOperator mapOi(UnaryOperator&lt;Integer&gt; operator) {
+&nbsp;    if (!this.oi.isPresent()) return this;
+&nbsp;    Optional&lt;Integer&gt; value = Optional.of(operator.apply(this.oi.get()));
+&nbsp;    return new ImmutableWithUnaryOperator(this.a, this.b, this.o, this.l, this.i, this.d, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableWithUnaryOperator} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableWithUnaryOperator
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableWithUnaryOperator) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableWithUnaryOperator another) {
+&nbsp;    return a == another.a
+&nbsp;        &amp;&amp; b.equals(another.b)
+&nbsp;        &amp;&amp; Objects.equals(o, another.o)
+&nbsp;        &amp;&amp; l.equals(another.l)
+&nbsp;        &amp;&amp; Objects.equals(i, another.i)
+&nbsp;        &amp;&amp; Objects.equals(d, another.d)
+&nbsp;        &amp;&amp; oi.equals(another.oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code o}, {@code l}, {@code i}, {@code d}, {@code oi}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + a;
+&nbsp;    h += (h &lt;&lt; 5) + b.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(o);
+&nbsp;    h += (h &lt;&lt; 5) + l.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(i);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(d);
+&nbsp;    h += (h &lt;&lt; 5) + oi.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code WithUnaryOperator} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;WithUnaryOperator&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;a&quot;, a)
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .add(&quot;o&quot;, o)
+&nbsp;        .add(&quot;l&quot;, l)
+&nbsp;        .add(&quot;i&quot;, i)
+&nbsp;        .add(&quot;d&quot;, d)
+&nbsp;        .add(&quot;oi&quot;, oi.orNull())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link WithUnaryOperator} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable WithUnaryOperator instance
+&nbsp;   */
+&nbsp;  public static ImmutableWithUnaryOperator copyOf(WithUnaryOperator instance) {
+&nbsp;    if (instance instanceof ImmutableWithUnaryOperator) {
+&nbsp;      return (ImmutableWithUnaryOperator) instance;
+&nbsp;    }
+&nbsp;    return ImmutableWithUnaryOperator.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableWithUnaryOperator ImmutableWithUnaryOperator}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableWithUnaryOperator.builder()
+&nbsp;   *    .a(int) // required {@link WithUnaryOperator#a() a}
+&nbsp;   *    .b(String) // required {@link WithUnaryOperator#b() b}
+&nbsp;   *    .o(String) // optional {@link WithUnaryOperator#o() o}
+&nbsp;   *    .addL|addAllL(String) // {@link WithUnaryOperator#l() l} elements
+&nbsp;   *    .i(int) // optional {@link WithUnaryOperator#i() i}
+&nbsp;   *    .d(double) // optional {@link WithUnaryOperator#d() d}
+&nbsp;   *    .oi(Integer) // optional {@link WithUnaryOperator#oi() oi}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableWithUnaryOperator builder
+&nbsp;   */
+&nbsp;  public static ImmutableWithUnaryOperator.Builder builder() {
+&nbsp;    return new ImmutableWithUnaryOperator.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableWithUnaryOperator ImmutableWithUnaryOperator}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;WithUnaryOperator&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int a;
+&nbsp;    private @Nullable String b;
+&nbsp;    private @Nullable String o;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; l = ImmutableList.builder();
+&nbsp;    private @Nullable Integer i;
+&nbsp;    private @Nullable Double d;
+&nbsp;    private Optional&lt;Integer&gt; oi = Optional.absent();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code WithUnaryOperator} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(WithUnaryOperator instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      a(instance.a());
+&nbsp;      b(instance.b());
+&nbsp;      java.util.Optional&lt;String&gt; oOptional = instance.o();
+&nbsp;      if (oOptional.isPresent()) {
+&nbsp;        o(oOptional);
+&nbsp;      }
+&nbsp;      addAllL(instance.l());
+&nbsp;      OptionalInt iOptional = instance.i();
+&nbsp;      if (iOptional.isPresent()) {
+&nbsp;        i(iOptional);
+&nbsp;      }
+&nbsp;      OptionalDouble dOptional = instance.d();
+&nbsp;      if (dOptional.isPresent()) {
+&nbsp;        d(dOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;Integer&gt; oiOptional = instance.oi();
+&nbsp;      if (oiOptional.isPresent()) {
+&nbsp;        oi(oiOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link WithUnaryOperator#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(int a) {
+&nbsp;      this.a = a;
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link WithUnaryOperator#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(String b) {
+&nbsp;      this.b = Objects.requireNonNull(b, &quot;b&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#o() o} to o.
+&nbsp;     * @param o The value for o
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder o(String o) {
+&nbsp;      this.o = Objects.requireNonNull(o, &quot;o&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#o() o} to o.
+&nbsp;     * @param o The value for o
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder o(java.util.Optional&lt;String&gt; o) {
+&nbsp;      this.o = o.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link WithUnaryOperator#l() l} list.
+&nbsp;     * @param element A l element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(String element) {
+&nbsp;      this.l.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link WithUnaryOperator#l() l} list.
+&nbsp;     * @param elements An array of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(String... elements) {
+&nbsp;      this.l.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link WithUnaryOperator#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l(Iterable&lt;String&gt; elements) {
+&nbsp;      this.l = ImmutableList.builder();
+&nbsp;      return addAllL(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link WithUnaryOperator#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllL(Iterable&lt;String&gt; elements) {
+&nbsp;      this.l.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#i() i} to i.
+&nbsp;     * @param i The value for i
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i(int i) {
+&nbsp;      this.i = i;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#i() i} to i.
+&nbsp;     * @param i The value for i
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i(OptionalInt i) {
+&nbsp;      this.i = i.isPresent() ? i.getAsInt() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#d() d} to d.
+&nbsp;     * @param d The value for d
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(double d) {
+&nbsp;      this.d = d;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#d() d} to d.
+&nbsp;     * @param d The value for d
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(OptionalDouble d) {
+&nbsp;      this.d = d.isPresent() ? d.getAsDouble() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#oi() oi} to oi.
+&nbsp;     * @param oi The value for oi
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder oi(int oi) {
+&nbsp;      this.oi = Optional.of(oi);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link WithUnaryOperator#oi() oi} to oi.
+&nbsp;     * @param oi The value for oi
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder oi(Optional&lt;Integer&gt; oi) {
+&nbsp;      this.oi = oi;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableWithUnaryOperator ImmutableWithUnaryOperator}.
+&nbsp;     * @return An immutable instance of WithUnaryOperator
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableWithUnaryOperator build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableWithUnaryOperator(a, b, o, l.build(), i, d, oi);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      return &quot;Cannot build WithUnaryOperator, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

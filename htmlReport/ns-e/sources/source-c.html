@@ -1,0 +1,256 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OqlGenerator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: OqlGenerator (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OqlGenerator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/42)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/51)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.expression.Call;
+&nbsp;import org.immutables.criteria.expression.Collation;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Ordering;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Generates geode specific query (OQL) out of {@link Query} and some strategies like {@link PathNaming}
+&nbsp; */
+&nbsp;@Value.Immutable
+<b class="nc">&nbsp;abstract class OqlGenerator {</b>
+&nbsp;
+&nbsp;  abstract PathNaming pathNaming();
+&nbsp;
+&nbsp;  abstract String regionName();
+&nbsp;
+&nbsp;  static OqlGenerator of(String regionName, PathNaming pathNaming) {
+<b class="nc">&nbsp;    return ImmutableOqlGenerator.builder().regionName(regionName).pathNaming(pathNaming).build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Default
+&nbsp;  boolean useBindVariables() {
+<b class="nc">&nbsp;    return true;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Don&#39;t generate queries with bind variables, use literals instead (careful with OQL injection)
+&nbsp;   */
+&nbsp;  OqlGenerator withoutBindVariables() {
+<b class="nc">&nbsp;    return ImmutableOqlGenerator.copyOf(this).withUseBindVariables(false);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  Oql generate(Query query) {
+<b class="nc">&nbsp;    if (query.count() &amp;&amp; (query.hasAggregations() || !query.groupBy().isEmpty())) {</b>
+<b class="nc">&nbsp;      throw new UnsupportedOperationException(&quot;Aggregations / Group By and count(*) are not yet supported&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // wherever to rewrite query as &quot;select count(*) from (select [distinct] ... from ... where ... limit ?)&quot;
+<b class="nc">&nbsp;    boolean addOuterCountQuery = query.count() &amp;&amp; (query.distinct() || query.hasProjections() || query.limit().isPresent());</b>
+&nbsp;
+<b class="nc">&nbsp;    final StringBuilder oql = new StringBuilder(&quot;SELECT&quot;);</b>
+<b class="nc">&nbsp;    if (query.distinct()) {</b>
+<b class="nc">&nbsp;      oql.append(&quot; DISTINCT&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (query.hasProjections()) {</b>
+&nbsp;      // explicitly add list of projections
+<b class="nc">&nbsp;      List&lt;String&gt; paths = query.projections().stream()</b>
+<b class="nc">&nbsp;              .map(this::toProjection)</b>
+<b class="nc">&nbsp;              .collect(Collectors.toList());</b>
+<b class="nc">&nbsp;      String projections = query.count() &amp;&amp; !addOuterCountQuery ? &quot; COUNT(*) &quot; : String.join(&quot;, &quot;, paths);</b>
+<b class="nc">&nbsp;      oql.append(&quot; &quot;);</b>
+<b class="nc">&nbsp;      oql.append(projections);</b>
+<b class="nc">&nbsp;    } else {</b>
+&nbsp;      // no projections
+<b class="nc">&nbsp;      oql.append(query.count() &amp;&amp; !addOuterCountQuery ? &quot; COUNT(*)&quot; : &quot; *&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    oql.append(&quot; FROM &quot;).append(regionName());</b>
+<b class="nc">&nbsp;    final List&lt;Object&gt; variables = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    if (query.filter().isPresent()) {</b>
+<b class="nc">&nbsp;      Oql withVars = Geodes.converter(useBindVariables(), pathNaming()).convert(query.filter().get());</b>
+<b class="nc">&nbsp;      oql.append(&quot; WHERE &quot;).append(withVars.oql());</b>
+<b class="nc">&nbsp;      variables.addAll(withVars.variables());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (!query.groupBy().isEmpty()) {</b>
+<b class="nc">&nbsp;      oql.append(&quot; GROUP BY &quot;);</b>
+<b class="nc">&nbsp;      oql.append(query.groupBy().stream().map(this::toProjection).collect(Collectors.joining(&quot;, &quot;)));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (!query.collations().isEmpty()) {</b>
+<b class="nc">&nbsp;      oql.append(&quot; ORDER BY &quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;      final String ascending = isMultiDirectionCollation(query) ? &quot; ASC&quot; : &quot;&quot;;</b>
+<b class="nc">&nbsp;      final String orderBy = query.collations().stream()</b>
+<b class="nc">&nbsp;              .map(c -&gt; pathNaming().name(c.path()) + (c.direction().isAscending() ? ascending : &quot; DESC&quot;))</b>
+<b class="nc">&nbsp;              .collect(Collectors.joining(&quot;, &quot;));</b>
+&nbsp;
+<b class="nc">&nbsp;      oql.append(orderBy);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    query.limit().ifPresent(limit -&gt; oql.append(&quot; LIMIT &quot;).append(limit));</b>
+<b class="nc">&nbsp;    query.offset().ifPresent(offset -&gt; oql.append(&quot; OFFSET &quot;).append(offset));</b>
+&nbsp;
+<b class="nc">&nbsp;    if (addOuterCountQuery) {</b>
+&nbsp;      // rewrite query as &quot;SELECT COUNT(*) FROM ($oql)&quot;
+&nbsp;      // Example: select count(*) from (select distinct a, b, c from /region)
+<b class="nc">&nbsp;      oql.insert(0, &quot;SELECT COUNT(*) FROM (&quot;);</b>
+<b class="nc">&nbsp;      oql.append(&quot;)&quot;);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return new Oql(variables, oql.toString());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean isMultiDirectionCollation(Query query) {
+<b class="nc">&nbsp;    final long directionCount = query.collations().stream()</b>
+<b class="nc">&nbsp;            .map(Collation::direction)</b>
+<b class="nc">&nbsp;            .distinct()</b>
+<b class="nc">&nbsp;            .limit(Ordering.Direction.values().length)</b>
+<b class="nc">&nbsp;            .count();</b>
+<b class="nc">&nbsp;    return directionCount &gt; 1;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String toProjection(Expression expression) {
+<b class="nc">&nbsp;    if (Visitors.isAggregationCall(expression)) {</b>
+<b class="nc">&nbsp;      Call aggregation = Visitors.toCall(expression);</b>
+<b class="nc">&nbsp;      return String.format(&quot;%s(%s)&quot;, aggregation.operator().name(), toProjection(aggregation.arguments().get(0)));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return pathNaming().name((Path) expression);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

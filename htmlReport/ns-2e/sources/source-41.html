@@ -1,0 +1,393 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJacksonUsingMeta</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJacksonUsingMeta (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJacksonUsingMeta$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableJacksonUsingMeta$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAnyGetter;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAnySetter;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.JsonNode;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link JacksonUsingMeta}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableJacksonUsingMeta.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;JacksonUsingMeta&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableJacksonUsingMeta implements JacksonUsingMeta {
+&nbsp;  private final ImmutableMap&lt;String, JsonNode&gt; any;
+&nbsp;  private final int y;
+&nbsp;
+&nbsp;  private ImmutableJacksonUsingMeta(
+&nbsp;      ImmutableMap&lt;String, JsonNode&gt; any,
+&nbsp;      int y) {
+&nbsp;    this.any = any;
+&nbsp;    this.y = y;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code any} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;any&quot;)
+&nbsp;  @JsonAnyGetter
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, JsonNode&gt; any() {
+&nbsp;    return any;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code y} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;X&quot;)
+&nbsp;  @Override
+&nbsp;  public int y() {
+&nbsp;    return y;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link JacksonUsingMeta#any() any} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the any map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJacksonUsingMeta withAny(Map&lt;String, ? extends JsonNode&gt; entries) {
+&nbsp;    if (this.any == entries) return this;
+&nbsp;    ImmutableMap&lt;String, JsonNode&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableJacksonUsingMeta(newValue, this.y);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link JacksonUsingMeta#y() y} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for y
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJacksonUsingMeta withY(int value) {
+&nbsp;    if (this.y == value) return this;
+&nbsp;    return new ImmutableJacksonUsingMeta(this.any, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJacksonUsingMeta} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableJacksonUsingMeta
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableJacksonUsingMeta) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJacksonUsingMeta another) {
+&nbsp;    return any.equals(another.any)
+&nbsp;        &amp;&amp; y == another.y;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code any}, {@code y}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + any.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + y;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code JacksonUsingMeta} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;JacksonUsingMeta&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;any&quot;, any)
+&nbsp;        .add(&quot;y&quot;, y)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JacksonUsingMeta&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements JacksonUsingMeta {
+&nbsp;    int y;
+&nbsp;    boolean yIsSet;
+&nbsp;    final Map&lt;String, JsonNode&gt; any = new HashMap&lt;String, JsonNode&gt;();
+&nbsp;    @JsonProperty(&quot;X&quot;)
+&nbsp;    public void setY(int y) {
+&nbsp;      this.y = y;
+&nbsp;      this.yIsSet = true;
+&nbsp;    }
+&nbsp;
+&nbsp;    @JsonAnySetter
+&nbsp;    public void setAny(String key, JsonNode value) {
+&nbsp;      this.any.put(key, value);
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public Map&lt;String, JsonNode&gt; any() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public int y() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableJacksonUsingMeta fromJson(Json json) {
+&nbsp;    ImmutableJacksonUsingMeta.Builder builder = ImmutableJacksonUsingMeta.builder();
+&nbsp;    if (json.any != null) {
+&nbsp;      builder.putAllAny(json.any);
+&nbsp;    }
+&nbsp;    if (json.yIsSet) {
+&nbsp;      builder.y(json.y);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link JacksonUsingMeta} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable JacksonUsingMeta instance
+&nbsp;   */
+&nbsp;  public static ImmutableJacksonUsingMeta copyOf(JacksonUsingMeta instance) {
+&nbsp;    if (instance instanceof ImmutableJacksonUsingMeta) {
+&nbsp;      return (ImmutableJacksonUsingMeta) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJacksonUsingMeta.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableJacksonUsingMeta ImmutableJacksonUsingMeta}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableJacksonUsingMeta.builder()
+&nbsp;   *    .putAny|putAllAny(String =&amp;gt; com.fasterxml.jackson.databind.JsonNode) // {@link JacksonUsingMeta#any() any} mappings
+&nbsp;   *    .y(int) // required {@link JacksonUsingMeta#y() y}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableJacksonUsingMeta builder
+&nbsp;   */
+&nbsp;  public static ImmutableJacksonUsingMeta.Builder builder() {
+&nbsp;    return new ImmutableJacksonUsingMeta.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableJacksonUsingMeta ImmutableJacksonUsingMeta}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JacksonUsingMeta&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_Y = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private ImmutableMap.Builder&lt;String, JsonNode&gt; any = ImmutableMap.builder();
+&nbsp;    private int y;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code JacksonUsingMeta} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(JacksonUsingMeta instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      putAllAny(instance.any());
+&nbsp;      y(instance.y());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link JacksonUsingMeta#any() any} map.
+&nbsp;     * @param key The key in the any map
+&nbsp;     * @param value The associated value in the any map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonAnySetter
+&nbsp;    public final Builder putAny(String key, JsonNode value) {
+&nbsp;      this.any.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link JacksonUsingMeta#any() any} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAny(Map.Entry&lt;String, ? extends JsonNode&gt; entry) {
+&nbsp;      this.any.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link JacksonUsingMeta#any() any} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the any map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder any(Map&lt;String, ? extends JsonNode&gt; entries) {
+&nbsp;      this.any = ImmutableMap.builder();
+&nbsp;      return putAllAny(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link JacksonUsingMeta#any() any} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the any map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllAny(Map&lt;String, ? extends JsonNode&gt; entries) {
+&nbsp;      this.any.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link JacksonUsingMeta#y() y} attribute.
+&nbsp;     * @param y The value for y 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder y(int y) {
+&nbsp;      this.y = y;
+&nbsp;      initBits &amp;= ~INIT_BIT_Y;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableJacksonUsingMeta ImmutableJacksonUsingMeta}.
+&nbsp;     * @return An immutable instance of JacksonUsingMeta
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableJacksonUsingMeta build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableJacksonUsingMeta(any.build(), y);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_Y) != 0) attributes.add(&quot;y&quot;);
+&nbsp;      return &quot;Cannot build JacksonUsingMeta, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

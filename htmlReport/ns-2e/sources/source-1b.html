@@ -1,0 +1,303 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableHashCodeAbstract</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableHashCodeAbstract (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableHashCodeAbstract$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableHashCodeAbstract$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link HashCodeAbstract}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableHashCodeAbstract.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;HashCodeAbstract&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableHashCodeAbstract extends HashCodeAbstract {
+&nbsp;  private final int someAttributeHaveToBeDefined;
+&nbsp;
+&nbsp;  private ImmutableHashCodeAbstract(int someAttributeHaveToBeDefined) {
+&nbsp;    this.someAttributeHaveToBeDefined = someAttributeHaveToBeDefined;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code someAttributeHaveToBeDefined} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty(&quot;someAttributeHaveToBeDefined&quot;)
+&nbsp;  @Override
+&nbsp;  public int someAttributeHaveToBeDefined() {
+&nbsp;    return someAttributeHaveToBeDefined;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link HashCodeAbstract#someAttributeHaveToBeDefined() someAttributeHaveToBeDefined} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for someAttributeHaveToBeDefined
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableHashCodeAbstract withSomeAttributeHaveToBeDefined(int value) {
+&nbsp;    if (this.someAttributeHaveToBeDefined == value) return this;
+&nbsp;    return new ImmutableHashCodeAbstract(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableHashCodeAbstract} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableHashCodeAbstract
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableHashCodeAbstract) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableHashCodeAbstract another) {
+&nbsp;    return someAttributeHaveToBeDefined == another.someAttributeHaveToBeDefined;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code someAttributeHaveToBeDefined}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + someAttributeHaveToBeDefined;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code HashCodeAbstract} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;HashCodeAbstract&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;someAttributeHaveToBeDefined&quot;, someAttributeHaveToBeDefined)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;HashCodeAbstract&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json extends HashCodeAbstract {
+&nbsp;    int someAttributeHaveToBeDefined;
+&nbsp;    boolean someAttributeHaveToBeDefinedIsSet;
+&nbsp;    @JsonProperty(&quot;someAttributeHaveToBeDefined&quot;)
+&nbsp;    public void setSomeAttributeHaveToBeDefined(int someAttributeHaveToBeDefined) {
+&nbsp;      this.someAttributeHaveToBeDefined = someAttributeHaveToBeDefined;
+&nbsp;      this.someAttributeHaveToBeDefinedIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public int hashCode() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object obj) { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public int someAttributeHaveToBeDefined() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableHashCodeAbstract fromJson(Json json) {
+&nbsp;    ImmutableHashCodeAbstract.Builder builder = ImmutableHashCodeAbstract.builder();
+&nbsp;    if (json.someAttributeHaveToBeDefinedIsSet) {
+&nbsp;      builder.someAttributeHaveToBeDefined(json.someAttributeHaveToBeDefined);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link HashCodeAbstract} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable HashCodeAbstract instance
+&nbsp;   */
+&nbsp;  public static ImmutableHashCodeAbstract copyOf(HashCodeAbstract instance) {
+&nbsp;    if (instance instanceof ImmutableHashCodeAbstract) {
+&nbsp;      return (ImmutableHashCodeAbstract) instance;
+&nbsp;    }
+&nbsp;    return ImmutableHashCodeAbstract.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableHashCodeAbstract ImmutableHashCodeAbstract}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableHashCodeAbstract.builder()
+&nbsp;   *    .someAttributeHaveToBeDefined(int) // required {@link HashCodeAbstract#someAttributeHaveToBeDefined() someAttributeHaveToBeDefined}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableHashCodeAbstract builder
+&nbsp;   */
+&nbsp;  public static ImmutableHashCodeAbstract.Builder builder() {
+&nbsp;    return new ImmutableHashCodeAbstract.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableHashCodeAbstract ImmutableHashCodeAbstract}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;HashCodeAbstract&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_SOME_ATTRIBUTE_HAVE_TO_BE_DEFINED = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private int someAttributeHaveToBeDefined;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code HashCodeAbstract} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(HashCodeAbstract instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      someAttributeHaveToBeDefined(instance.someAttributeHaveToBeDefined());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link HashCodeAbstract#someAttributeHaveToBeDefined() someAttributeHaveToBeDefined} attribute.
+&nbsp;     * @param someAttributeHaveToBeDefined The value for someAttributeHaveToBeDefined 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty(&quot;someAttributeHaveToBeDefined&quot;)
+&nbsp;    public final Builder someAttributeHaveToBeDefined(int someAttributeHaveToBeDefined) {
+&nbsp;      this.someAttributeHaveToBeDefined = someAttributeHaveToBeDefined;
+&nbsp;      initBits &amp;= ~INIT_BIT_SOME_ATTRIBUTE_HAVE_TO_BE_DEFINED;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableHashCodeAbstract ImmutableHashCodeAbstract}.
+&nbsp;     * @return An immutable instance of HashCodeAbstract
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableHashCodeAbstract build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableHashCodeAbstract(someAttributeHaveToBeDefined);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_SOME_ATTRIBUTE_HAVE_TO_BE_DEFINED) != 0) attributes.add(&quot;someAttributeHaveToBeDefined&quot;);
+&nbsp;      return &quot;Cannot build HashCodeAbstract, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

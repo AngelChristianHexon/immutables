@@ -1,0 +1,353 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > CriteriaContext</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: CriteriaContext (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CriteriaContext</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/55)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CriteriaContext$State</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/56)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Expressions;
+&nbsp;import org.immutables.criteria.expression.ImmutableQuery;
+&nbsp;import org.immutables.criteria.expression.IterableOperators;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.expression.Queryable;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import java.lang.reflect.Member;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;
+&nbsp;/**
+&nbsp; * Expression holder
+&nbsp; *
+&nbsp; * Internally keeps two expressions {@code current} and {@code partial} which
+&nbsp; * are combined using different functions depending on current context.
+&nbsp; */
+&nbsp;public final class CriteriaContext implements Queryable {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Singleton which stores class metadata for faster lookups
+&nbsp;   */
+<b class="nc">&nbsp;  private static final MemberLookupCache MEMBER_LOOKUP_SINGLETON = new MemberLookupCache();</b>
+&nbsp;
+&nbsp;  private final CriteriaContext previous;
+&nbsp;  private final ImmutableState state;
+&nbsp;  private final MemberLookupCache memberLookup;
+&nbsp;
+&nbsp;  public CriteriaContext(Class&lt;?&gt; entityType, CriteriaCreator&lt;?&gt; creator) {
+<b class="nc">&nbsp;    this(null,</b>
+<b class="nc">&nbsp;            ImmutableState.builder()</b>
+<b class="nc">&nbsp;                    .combiner(Combiner.and())</b>
+<b class="nc">&nbsp;                    .creator(creator)</b>
+<b class="nc">&nbsp;                    .entityType(entityType)</b>
+<b class="nc">&nbsp;                    .build()</b>
+&nbsp;    );
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  CriteriaContext(CriteriaContext previous, ImmutableState state) {</b>
+<b class="nc">&nbsp;    this.previous = previous;</b>
+<b class="nc">&nbsp;    this.state = Objects.requireNonNull(state, &quot;state&quot;);</b>
+<b class="nc">&nbsp;    this.memberLookup = MEMBER_LOOKUP_SINGLETON;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Value.Immutable
+&nbsp;  interface State {
+&nbsp;    @Nullable Expression current();
+&nbsp;    @Nullable Expression partial();
+&nbsp;    Combiner combiner();
+&nbsp;    CriteriaCreator&lt;?&gt; creator();
+&nbsp;    Class&lt;?&gt; entityType();
+&nbsp;
+&nbsp;    @Value.Default
+&nbsp;    @Nullable
+&nbsp;    default Expression defaultPartial() {
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public Path path() {
+<b class="nc">&nbsp;    return Visitors.toPath(state.partial());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  ImmutableState state() {
+<b class="nc">&nbsp;    return state;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public Expression expression() {
+<b class="nc">&nbsp;    if (state.current() != null) {</b>
+<b class="nc">&nbsp;      return state.current();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return state.partial();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private CriteriaContext first() {
+<b class="nc">&nbsp;    return previous != null ? previous.first() : this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  &lt;R&gt; R create() {
+<b class="nc">&nbsp;    return (R) createWith(state.creator());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  &lt;R&gt; CriteriaCreator&lt;R&gt; creator() {
+<b class="nc">&nbsp;    return (CriteriaCreator&lt;R&gt;) state.creator();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   *  adds an intermediate path to partial expression
+&nbsp;   */
+&nbsp;  public &lt;T&gt; CriteriaContext appendPath(Class&lt;?&gt; type, String pathAsString, CriteriaCreator&lt;T&gt; creator) {
+<b class="nc">&nbsp;    final Member member = memberLookup.find(type, pathAsString)</b>
+<b class="nc">&nbsp;            .orElseThrow(() -&gt; new IllegalArgumentException(String.format(&quot;Path %s not found in %s&quot;, pathAsString, type)));</b>
+&nbsp;
+&nbsp;    Path newPath;
+<b class="nc">&nbsp;    Expression partial = state.partial();</b>
+<b class="nc">&nbsp;    if (partial == null) {</b>
+<b class="nc">&nbsp;      newPath = Path.ofMember(member);</b>
+<b class="nc">&nbsp;    } else if (partial instanceof Path) {</b>
+<b class="nc">&nbsp;      newPath = Visitors.toPath(partial).append(member);</b>
+&nbsp;    } else {
+<b class="nc">&nbsp;      throw new IllegalStateException(&quot;Partial expression is not a path: &quot; + partial);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return new CriteriaContext(this, state.withPartial(newPath).withCreator(creator));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Create nested context for lambdas used in {@link WithMatcher} or {@link NotMatcher}.
+&nbsp;   * It is considered new root expression
+&nbsp;   */
+&nbsp;  CriteriaContext nested() {
+&nbsp;    // return new CriteriaContext(entityClass, new DnfExpression(), path, creator, null);
+<b class="nc">&nbsp;    ImmutableState newState = state.withCurrent(null).withDefaultPartial(state.partial()).withCombiner(Combiner.dnfAnd());</b>
+<b class="nc">&nbsp;    return new CriteriaContext(null, newState);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public CriteriaContext or() {
+<b class="nc">&nbsp;    return new CriteriaContext(previous, state.withCombiner(Combiner.or()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Build {@link IterableMatcher#any()} sub-matcher.
+&nbsp;   */
+&nbsp;  public CriteriaContext any() {
+<b class="nc">&nbsp;    Path path = path();</b>
+&nbsp;    Class&lt;?&gt; newType; // new path starts at this root
+&nbsp;    try {
+<b class="nc">&nbsp;      newType = (Class&lt;?&gt;) Matchers.iterableTypeArgument(path.returnType());</b>
+<b class="nc">&nbsp;    } catch (IllegalArgumentException|ClassCastException e) {</b>
+<b class="nc">&nbsp;      throw new IllegalArgumentException(String.format(&quot;At path %s for %s&quot;,</b>
+<b class="nc">&nbsp;              path.toStringPath(), path.returnType()), e);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    Path newPath = Path.ofClass(newType);</b>
+<b class="nc">&nbsp;    Combiner combiner = ((left, right) -&gt; Expressions.binaryCall(IterableOperators.ANY, path, right));</b>
+<b class="nc">&nbsp;    return new CriteriaContext(previous, state.withCombiner(combiner).withPartial(newPath));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Query query() {
+<b class="nc">&nbsp;    ImmutableQuery query = Query.of(state.entityType());</b>
+<b class="nc">&nbsp;    if (state.current() != null) {</b>
+<b class="nc">&nbsp;      query = query.withFilter(state.current());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return query;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  &lt;R&gt; R createWith(CriteriaCreator&lt;R&gt; creator) {
+<b class="nc">&nbsp;    return creator.create(this);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used by Aggregator Matchers (sum / count / avg etc.)
+&nbsp;   */
+&nbsp;  CriteriaContext applyRaw(UnaryOperator&lt;Expression&gt; fn) {
+<b class="nc">&nbsp;    return new CriteriaContext(previous, state.withPartial(fn.apply(state.partial())));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  &lt;R&gt; R applyAndCreateRoot(UnaryOperator&lt;Expression&gt; fn, Combiner nextCombiner) {
+<b class="nc">&nbsp;    Expression newPartial = fn.apply(state.partial());</b>
+<b class="nc">&nbsp;    Expression newExpression = state.combiner().combine(state.current(), newPartial);</b>
+&nbsp;
+&nbsp;    // use initial creator
+<b class="nc">&nbsp;    CriteriaCreator&lt;?&gt; creator = first().state.creator();</b>
+&nbsp;
+<b class="nc">&nbsp;    ImmutableState newState = state.withCombiner(nextCombiner)</b>
+<b class="nc">&nbsp;            .withCreator(creator)</b>
+<b class="nc">&nbsp;            .withCurrent(newExpression)</b>
+<b class="nc">&nbsp;            .withPartial(state.defaultPartial());</b>
+&nbsp;
+<b class="nc">&nbsp;    return new CriteriaContext(null, newState).create();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  &lt;R&gt; R applyAndCreateRoot(UnaryOperator&lt;Expression&gt; fn) {
+<b class="nc">&nbsp;    return applyAndCreateRoot(fn, Combiner.dnfAnd());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

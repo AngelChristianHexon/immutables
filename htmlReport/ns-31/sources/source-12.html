@@ -1,0 +1,353 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableVoidSetters</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableVoidSetters (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableVoidSetters</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link VoidSetters VoidSetters} type.
+&nbsp; * &lt;p&gt;Use the constructor to create new modifiable instances. You may even extend this class to
+&nbsp; * add some convenience methods, however most of the methods in this class are final
+&nbsp; * to preserve safety and predictable invariants.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableVoidSetters is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableVoidSetters
+&nbsp; */
+&nbsp;@Generated(from = &quot;VoidSetters&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;VoidSetters&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public class ModifiableVoidSetters implements VoidSetters {
+&nbsp;  private static final long INIT_BIT_AA = 0x1L;
+&nbsp;  private static final long INIT_BIT_BB = 0x2L;
+&nbsp;  private long initBits = 0x3L;
+&nbsp;
+&nbsp;  private int aa;
+&nbsp;  private String bb;
+&nbsp;  private List&lt;Double&gt; cc = new ArrayList&lt;Double&gt;();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code aa} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int getAa() {
+&nbsp;    if (!aaIsSet()) checkRequiredAttributes();
+&nbsp;    return aa;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code bb} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String getBb() {
+&nbsp;    if (!bbIsSet()) checkRequiredAttributes();
+&nbsp;    return bb;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code cc}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;Double&gt; getCc() {
+&nbsp;    return cc;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   */
+&nbsp;  public void clear() {
+&nbsp;    initBits = 0x3L;
+&nbsp;    aa = 0;
+&nbsp;    bb = null;
+&nbsp;    cc.clear();
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link VoidSetters} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableVoidSetters from(VoidSetters instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableVoidSetters) {
+&nbsp;      from((ModifiableVoidSetters) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setAa(instance.getAa());
+&nbsp;    setBb(instance.getBb());
+&nbsp;    addAllCc(instance.getCc());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link VoidSetters} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableVoidSetters from(ModifiableVoidSetters instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.aaIsSet()) {
+&nbsp;      setAa(instance.getAa());
+&nbsp;    }
+&nbsp;    if (instance.bbIsSet()) {
+&nbsp;      setBb(instance.getBb());
+&nbsp;    }
+&nbsp;    addAllCc(instance.getCc());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link VoidSetters#getAa() aa} attribute.
+&nbsp;   * @param aa The value for aa
+&nbsp;   */
+&nbsp;  public void setAa(int aa) {
+&nbsp;    this.aa = aa;
+&nbsp;    initBits &amp;= ~INIT_BIT_AA;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link VoidSetters#getBb() bb} attribute.
+&nbsp;   * @param bb The value for bb
+&nbsp;   */
+&nbsp;  public void setBb(String bb) {
+&nbsp;    this.bb = Objects.requireNonNull(bb, &quot;bb&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_BB;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link VoidSetters#getCc() cc} list.
+&nbsp;   * @param element The cc element
+&nbsp;   */
+&nbsp;  public void addCc(double element) {
+&nbsp;    this.cc.add(element);
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link VoidSetters#getCc() cc} list.
+&nbsp;   * @param elements An array of cc elements
+&nbsp;   */
+&nbsp;  public final void addCc(double... elements) {
+&nbsp;    for (double e : elements) {
+&nbsp;      addCc(Objects.requireNonNull(e, &quot;cc element&quot;));
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link VoidSetters#getCc() cc} list.
+&nbsp;   * @param elements An iterable of cc elements
+&nbsp;   */
+&nbsp;  public void setCc(List&lt;Double&gt; elements) {
+&nbsp;    this.cc = Objects.requireNonNull(elements, &quot;elements&quot;);
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link VoidSetters#getCc() cc} list.
+&nbsp;   * @param elements An iterable of cc elements
+&nbsp;   */
+&nbsp;  public void addAllCc(Iterable&lt;Double&gt; elements) {
+&nbsp;    for (double e : elements) {
+&nbsp;      addCc(e);
+&nbsp;    }
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link VoidSetters#getAa() aa} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean aaIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_AA) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link VoidSetters#getBb() bb} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean bbIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_BB) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   */
+&nbsp;  public final void unsetAa() {
+&nbsp;    initBits |= INIT_BIT_AA;
+&nbsp;    aa = 0;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   */
+&nbsp;  public final void unsetBb() {
+&nbsp;    initBits |= INIT_BIT_BB;
+&nbsp;    bb = null;
+&nbsp;    return;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!aaIsSet()) attributes.add(&quot;aa&quot;);
+&nbsp;    if (!bbIsSet()) attributes.add(&quot;bb&quot;);
+&nbsp;    return &quot;VoidSetters is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableVoidSetters ImmutableVoidSetters}.
+&nbsp;   * @return An immutable instance of VoidSetters
+&nbsp;   */
+&nbsp;  public final ImmutableVoidSetters toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableVoidSetters.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableVoidSetters} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableVoidSetters)) return false;
+&nbsp;    ModifiableVoidSetters other = (ModifiableVoidSetters) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableVoidSetters another) {
+&nbsp;    return aa == another.aa
+&nbsp;        &amp;&amp; bb.equals(another.bb)
+&nbsp;        &amp;&amp; cc.equals(another.cc);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code aa}, {@code bb}, {@code cc}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + aa;
+&nbsp;    h += (h &lt;&lt; 5) + bb.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + cc.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code VoidSetters}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableVoidSetters&quot;)
+&nbsp;        .add(&quot;aa&quot;, aaIsSet() ? getAa() : &quot;?&quot;)
+&nbsp;        .add(&quot;bb&quot;, bbIsSet() ? getBb() : &quot;?&quot;)
+&nbsp;        .add(&quot;cc&quot;, getCc())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

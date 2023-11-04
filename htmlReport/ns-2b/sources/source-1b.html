@@ -1,0 +1,338 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableFirstie</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.generics</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableFirstie (org.immutables.fixture.generics)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableFirstie</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.generics;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.io.Serializable;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Firstie Firstie} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableFirstie is not thread-safe&lt;/em&gt;
+&nbsp; * @param &lt;T&gt; generic parameter T
+&nbsp; * @param &lt;V&gt; generic parameter V
+&nbsp; * @see ImmutableFirstie
+&nbsp; */
+&nbsp;@Generated(from = &quot;Firstie&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Firstie&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableFirstie&lt;T, V extends Runnable &amp; Serializable&gt;
+&nbsp;    implements Firstie&lt;T, V&gt; {
+&nbsp;  private static final long INIT_BIT_REF = 0x1L;
+&nbsp;  private long initBits = 0x1L;
+&nbsp;
+&nbsp;  private T ref;
+&nbsp;  private final ArrayList&lt;V&gt; commands = new ArrayList&lt;V&gt;();
+&nbsp;
+&nbsp;  private ModifiableFirstie() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Firstie}.
+&nbsp;   * @param &lt;T&gt; generic parameter T
+&nbsp;   * @param &lt;V&gt; generic parameter V
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static &lt;T, V extends Runnable &amp; Serializable&gt; ModifiableFirstie&lt;T, V&gt; create() {
+&nbsp;    return new ModifiableFirstie&lt;&gt;();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code ref} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final T ref() {
+&nbsp;    if (!refIsSet()) checkRequiredAttributes();
+&nbsp;    return ref;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code commands}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;V&gt; commands() {
+&nbsp;    return commands;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; clear() {
+&nbsp;    initBits = 0x1L;
+&nbsp;    ref = null;
+&nbsp;    commands.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Firstie} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; from(Firstie&lt;T, V&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableFirstie&lt;?, ?&gt;) {
+&nbsp;      from((ModifiableFirstie&lt;T, V&gt;) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setRef(instance.ref());
+&nbsp;    addAllCommands(instance.commands());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Firstie} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; from(ModifiableFirstie&lt;T, V&gt; instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.refIsSet()) {
+&nbsp;      setRef(instance.ref());
+&nbsp;    }
+&nbsp;    addAllCommands(instance.commands());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Firstie#ref() ref} attribute.
+&nbsp;   * @param ref The value for ref
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; setRef(T ref) {
+&nbsp;    this.ref = Objects.requireNonNull(ref, &quot;ref&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_REF;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Firstie#commands() commands} list.
+&nbsp;   * @param element The commands element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; addCommands(V element) {
+&nbsp;    Objects.requireNonNull(element, &quot;commands element&quot;);
+&nbsp;    this.commands.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Firstie#commands() commands} list.
+&nbsp;   * @param elements An array of commands elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @SafeVarargs
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableFirstie&lt;T, V&gt; addCommands(V... elements) {
+&nbsp;    for (V e : elements) {
+&nbsp;      addCommands(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Firstie#commands() commands} list.
+&nbsp;   * @param elements An iterable of commands elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; setCommands(Iterable&lt;? extends V&gt; elements) {
+&nbsp;    this.commands.clear();
+&nbsp;    addAllCommands(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Firstie#commands() commands} list.
+&nbsp;   * @param elements An iterable of commands elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableFirstie&lt;T, V&gt; addAllCommands(Iterable&lt;? extends V&gt; elements) {
+&nbsp;    for (V e : elements) {
+&nbsp;      addCommands(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Firstie#ref() ref} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean refIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_REF) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableFirstie&lt;T, V&gt; unsetRef() {
+&nbsp;    initBits |= INIT_BIT_REF;
+&nbsp;    ref = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!refIsSet()) attributes.add(&quot;ref&quot;);
+&nbsp;    return &quot;Firstie is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableFirstie ImmutableFirstie}.
+&nbsp;   * @return An immutable instance of Firstie
+&nbsp;   */
+&nbsp;  public final ImmutableFirstie&lt;T, V&gt; toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableFirstie.&lt;T, V&gt;copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableFirstie&lt;?, ?&gt;} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableFirstie&lt;?, ?&gt;)) return false;
+&nbsp;    ModifiableFirstie&lt;?, ?&gt; other = (ModifiableFirstie&lt;?, ?&gt;) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableFirstie&lt;?, ?&gt; another) {
+&nbsp;    return ref.equals(another.ref)
+&nbsp;        &amp;&amp; commands.equals(another.commands);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code ref}, {@code commands}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + ref.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + commands.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Firstie}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableFirstie&quot;)
+&nbsp;        .add(&quot;ref&quot;, refIsSet() ? ref() : &quot;?&quot;)
+&nbsp;        .add(&quot;commands&quot;, commands())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

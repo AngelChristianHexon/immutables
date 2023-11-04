@@ -1,0 +1,499 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOptionalCast</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOptionalCast (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOptionalCast$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OptionalCast}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOptionalCast.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableOptionalCast.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OptionalCast&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableOptionalCast implements OptionalCast {
+&nbsp;  private final Optional&lt;String&gt; bar;
+&nbsp;  private final Optional&lt;Object&gt; object;
+&nbsp;  private final Optional&lt;String[]&gt; stringArray;
+&nbsp;  private final Optional&lt;List&lt;Long&gt;&gt; list;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  private ImmutableOptionalCast(
+&nbsp;      Optional&lt;String&gt; bar,
+&nbsp;      Optional&lt;? extends Object&gt; object,
+&nbsp;      Optional&lt;? extends String[]&gt; stringArray,
+&nbsp;      Optional&lt;? extends List&lt;Long&gt;&gt; list) {
+&nbsp;    this.bar = bar;
+&nbsp;    this.object = (Optional&lt;Object&gt;) object;
+&nbsp;    this.stringArray = (Optional&lt;String[]&gt;) stringArray;
+&nbsp;    this.list = (Optional&lt;List&lt;Long&gt;&gt;) list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableOptionalCast(
+&nbsp;      ImmutableOptionalCast original,
+&nbsp;      Optional&lt;String&gt; bar,
+&nbsp;      Optional&lt;Object&gt; object,
+&nbsp;      Optional&lt;String[]&gt; stringArray,
+&nbsp;      Optional&lt;List&lt;Long&gt;&gt; list) {
+&nbsp;    this.bar = bar;
+&nbsp;    this.object = object;
+&nbsp;    this.stringArray = stringArray;
+&nbsp;    this.list = list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code bar} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; getBar() {
+&nbsp;    return bar;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code object} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Object&gt; getObject() {
+&nbsp;    return object;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code stringArray} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String[]&gt; getStringArray() {
+&nbsp;    return stringArray;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;List&lt;Long&gt;&gt; getList() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalCast#getBar() bar} attribute.
+&nbsp;   * @param value The value for bar
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalCast withBar(String value) {
+&nbsp;    Optional&lt;String&gt; newValue = Optional.of(value);
+&nbsp;    if (this.bar.equals(newValue)) return this;
+&nbsp;    return new ImmutableOptionalCast(this, newValue, this.object, this.stringArray, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalCast#getBar() bar} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for bar
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalCast withBar(Optional&lt;String&gt; optional) {
+&nbsp;    Optional&lt;String&gt; value = optional;
+&nbsp;    if (this.bar.equals(value)) return this;
+&nbsp;    return new ImmutableOptionalCast(this, value, this.object, this.stringArray, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalCast#getObject() object} attribute.
+&nbsp;   * @param value The value for object
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalCast withObject(Object value) {
+&nbsp;    Optional&lt;Object&gt; newValue = Optional.of(value);
+&nbsp;    if (this.object.isPresent() &amp;&amp; this.object.get() == value) return this;
+&nbsp;    return new ImmutableOptionalCast(this, this.bar, newValue, this.stringArray, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalCast#getObject() object} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for object
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableOptionalCast withObject(Optional&lt;? extends Object&gt; optional) {
+&nbsp;    Optional&lt;Object&gt; value = (Optional&lt;Object&gt;) optional;
+&nbsp;    if (!this.object.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.object.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.object.get() == value.get()) return this;
+&nbsp;    return new ImmutableOptionalCast(this, this.bar, value, this.stringArray, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalCast#getStringArray() stringArray} attribute.
+&nbsp;   * @param value The value for stringArray
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalCast withStringArray(String[] value) {
+&nbsp;    Optional&lt;String[]&gt; newValue = Optional.of(value);
+&nbsp;    if (this.stringArray.isPresent() &amp;&amp; this.stringArray.get() == value) return this;
+&nbsp;    return new ImmutableOptionalCast(this, this.bar, this.object, newValue, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalCast#getStringArray() stringArray} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for stringArray
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableOptionalCast withStringArray(Optional&lt;? extends String[]&gt; optional) {
+&nbsp;    Optional&lt;String[]&gt; value = (Optional&lt;String[]&gt;) optional;
+&nbsp;    if (!this.stringArray.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.stringArray.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.stringArray.get() == value.get()) return this;
+&nbsp;    return new ImmutableOptionalCast(this, this.bar, this.object, value, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link OptionalCast#getList() list} attribute.
+&nbsp;   * @param value The value for list
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOptionalCast withList(List&lt;Long&gt; value) {
+&nbsp;    Optional&lt;List&lt;Long&gt;&gt; newValue = Optional.of(value);
+&nbsp;    if (this.list.isPresent() &amp;&amp; this.list.get() == value) return this;
+&nbsp;    return new ImmutableOptionalCast(this, this.bar, this.object, this.stringArray, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link OptionalCast#getList() list} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for list
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableOptionalCast withList(Optional&lt;? extends List&lt;Long&gt;&gt; optional) {
+&nbsp;    Optional&lt;List&lt;Long&gt;&gt; value = (Optional&lt;List&lt;Long&gt;&gt;) optional;
+&nbsp;    if (!this.list.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.list.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.list.get() == value.get()) return this;
+&nbsp;    return new ImmutableOptionalCast(this, this.bar, this.object, this.stringArray, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOptionalCast} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOptionalCast
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOptionalCast) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOptionalCast another) {
+&nbsp;    return bar.equals(another.bar)
+&nbsp;        &amp;&amp; object.equals(another.object)
+&nbsp;        &amp;&amp; stringArray.equals(another.stringArray)
+&nbsp;        &amp;&amp; list.equals(another.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code bar}, {@code object}, {@code stringArray}, {@code list}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + bar.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + object.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + stringArray.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + list.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OptionalCast} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OptionalCast&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;bar&quot;, bar.orNull())
+&nbsp;        .add(&quot;object&quot;, object.orNull())
+&nbsp;        .add(&quot;stringArray&quot;, stringArray.orNull())
+&nbsp;        .add(&quot;list&quot;, list.orNull())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code OptionalCast} instance.
+&nbsp;   * @param bar The value for the {@code bar} attribute
+&nbsp;   * @param object The value for the {@code object} attribute
+&nbsp;   * @param stringArray The value for the {@code stringArray} attribute
+&nbsp;   * @param list The value for the {@code list} attribute
+&nbsp;   * @return An immutable OptionalCast instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalCast of(Optional&lt;String&gt; bar, Optional&lt;? extends Object&gt; object, Optional&lt;? extends String[]&gt; stringArray, Optional&lt;? extends List&lt;Long&gt;&gt; list) {
+&nbsp;    return new ImmutableOptionalCast(bar, object, stringArray, list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OptionalCast} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OptionalCast instance
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalCast copyOf(OptionalCast instance) {
+&nbsp;    if (instance instanceof ImmutableOptionalCast) {
+&nbsp;      return (ImmutableOptionalCast) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOptionalCast.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOptionalCast ImmutableOptionalCast}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOptionalCast.builder()
+&nbsp;   *    .bar(String) // optional {@link OptionalCast#getBar() bar}
+&nbsp;   *    .object(Object) // optional {@link OptionalCast#getObject() object}
+&nbsp;   *    .stringArray(String[]) // optional {@link OptionalCast#getStringArray() stringArray}
+&nbsp;   *    .list(List&amp;amp;lt;Long&amp;amp;gt;) // optional {@link OptionalCast#getList() list}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableOptionalCast builder
+&nbsp;   */
+&nbsp;  public static ImmutableOptionalCast.Builder builder() {
+&nbsp;    return new ImmutableOptionalCast.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOptionalCast ImmutableOptionalCast}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OptionalCast&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private Optional&lt;String&gt; bar = Optional.absent();
+&nbsp;    private Optional&lt;Object&gt; object = Optional.absent();
+&nbsp;    private Optional&lt;String[]&gt; stringArray = Optional.absent();
+&nbsp;    private Optional&lt;List&lt;Long&gt;&gt; list = Optional.absent();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code OptionalCast} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(OptionalCast instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      Optional&lt;String&gt; barOptional = instance.getBar();
+&nbsp;      if (barOptional.isPresent()) {
+&nbsp;        bar(barOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;Object&gt; objectOptional = instance.getObject();
+&nbsp;      if (objectOptional.isPresent()) {
+&nbsp;        object(objectOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;String[]&gt; stringArrayOptional = instance.getStringArray();
+&nbsp;      if (stringArrayOptional.isPresent()) {
+&nbsp;        stringArray(stringArrayOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;List&lt;Long&gt;&gt; listOptional = instance.getList();
+&nbsp;      if (listOptional.isPresent()) {
+&nbsp;        list(listOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getBar() bar} to bar.
+&nbsp;     * @param bar The value for bar
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bar(String bar) {
+&nbsp;      this.bar = Optional.of(bar);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getBar() bar} to bar.
+&nbsp;     * @param bar The value for bar
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bar(Optional&lt;String&gt; bar) {
+&nbsp;      this.bar = bar;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getObject() object} to object.
+&nbsp;     * @param object The value for object
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder object(Object object) {
+&nbsp;      this.object = Optional.of(object);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getObject() object} to object.
+&nbsp;     * @param object The value for object
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder object(Optional&lt;? extends Object&gt; object) {
+&nbsp;      this.object = (Optional&lt;Object&gt;) object;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getStringArray() stringArray} to stringArray.
+&nbsp;     * @param stringArray The value for stringArray
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder stringArray(String[] stringArray) {
+&nbsp;      this.stringArray = Optional.of(stringArray);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getStringArray() stringArray} to stringArray.
+&nbsp;     * @param stringArray The value for stringArray
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder stringArray(Optional&lt;? extends String[]&gt; stringArray) {
+&nbsp;      this.stringArray = (Optional&lt;String[]&gt;) stringArray;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getList() list} to list.
+&nbsp;     * @param list The value for list
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder list(List&lt;Long&gt; list) {
+&nbsp;      this.list = Optional.of(list);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link OptionalCast#getList() list} to list.
+&nbsp;     * @param list The value for list
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder list(Optional&lt;? extends List&lt;Long&gt;&gt; list) {
+&nbsp;      this.list = (Optional&lt;List&lt;Long&gt;&gt;) list;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOptionalCast ImmutableOptionalCast}.
+&nbsp;     * @return An immutable instance of OptionalCast
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOptionalCast build() {
+&nbsp;      return new ImmutableOptionalCast(null, bar, object, stringArray, list);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,376 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableCreator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableCreator (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableCreator</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link AttributeBuilderThirdPartyModel.Creator Creator} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableCreator is not thread-safe&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;AttributeBuilderThirdPartyModel.Creator&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;AttributeBuilderThirdPartyModel.Creator&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;final class ModifiableCreator
+&nbsp;    extends AttributeBuilderThirdPartyModel.Creator {
+&nbsp;  private @Nullable ExecutableElement buildMethod;
+&nbsp;  private @Nullable ExecutableElement copyMethod;
+&nbsp;  private @Nullable ExecutableElement builderMethod;
+&nbsp;  private @Nullable TypeElement builderType;
+&nbsp;
+&nbsp;  private ModifiableCreator() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Creator}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableCreator create() {
+&nbsp;    return new ModifiableCreator();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code buildMethod} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected final @Nullable ExecutableElement buildMethod() {
+&nbsp;    return buildMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code copyMethod} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected final @Nullable ExecutableElement copyMethod() {
+&nbsp;    return copyMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code builderMethod} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected final @Nullable ExecutableElement builderMethod() {
+&nbsp;    return builderMethod;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code builderType} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected final @Nullable TypeElement builderType() {
+&nbsp;    return builderType;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator clear() {
+&nbsp;    buildMethod = null;
+&nbsp;    copyMethod = null;
+&nbsp;    builderMethod = null;
+&nbsp;    builderType = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.value.processor.meta.AttributeBuilderThirdPartyModel} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator from(AttributeBuilderThirdPartyModel instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link org.immutables.value.processor.meta.AttributeBuilderThirdPartyModel.Creator} instance.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator from(AttributeBuilderThirdPartyModel.Creator instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link AttributeBuilderThirdPartyModel.Creator} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableCreator from(ModifiableCreator instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    from((Object) instance);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void from(Object object) {
+&nbsp;    if (object instanceof ModifiableCreator) {
+&nbsp;      ModifiableCreator instance = (ModifiableCreator) object;
+&nbsp;      @Nullable ExecutableElement buildMethodValue = instance.buildMethod();
+&nbsp;      if (buildMethodValue != null) {
+&nbsp;        buildMethod(buildMethodValue);
+&nbsp;      }
+&nbsp;      @Nullable ExecutableElement copyMethodValue = instance.copyMethod();
+&nbsp;      if (copyMethodValue != null) {
+&nbsp;        copyMethod(copyMethodValue);
+&nbsp;      }
+&nbsp;      @Nullable ExecutableElement builderMethodValue = instance.builderMethod();
+&nbsp;      if (builderMethodValue != null) {
+&nbsp;        builderMethod(builderMethodValue);
+&nbsp;      }
+&nbsp;      @Nullable TypeElement builderTypeValue = instance.builderType();
+&nbsp;      if (builderTypeValue != null) {
+&nbsp;        builderType(builderTypeValue);
+&nbsp;      }
+&nbsp;      return;
+&nbsp;    }
+&nbsp;    long bits = 0;
+&nbsp;    if (object instanceof AttributeBuilderThirdPartyModel) {
+&nbsp;      AttributeBuilderThirdPartyModel instance = (AttributeBuilderThirdPartyModel) object;
+&nbsp;      if ((bits &amp; 0x4L) == 0) {
+&nbsp;        @Nullable ExecutableElement buildMethodValue = instance.buildMethod();
+&nbsp;        if (buildMethodValue != null) {
+&nbsp;          buildMethod(buildMethodValue);
+&nbsp;        }
+&nbsp;        bits |= 0x4L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        @Nullable TypeElement builderTypeValue = instance.builderType();
+&nbsp;        if (builderTypeValue != null) {
+&nbsp;          builderType(builderTypeValue);
+&nbsp;        }
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x8L) == 0) {
+&nbsp;        @Nullable ExecutableElement builderMethodValue = instance.builderMethod();
+&nbsp;        if (builderMethodValue != null) {
+&nbsp;          builderMethod(builderMethodValue);
+&nbsp;        }
+&nbsp;        bits |= 0x8L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x2L) == 0) {
+&nbsp;        @Nullable ExecutableElement copyMethodValue = instance.copyMethod();
+&nbsp;        if (copyMethodValue != null) {
+&nbsp;          copyMethod(copyMethodValue);
+&nbsp;        }
+&nbsp;        bits |= 0x2L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;    if (object instanceof AttributeBuilderThirdPartyModel.Creator) {
+&nbsp;      AttributeBuilderThirdPartyModel.Creator instance = (AttributeBuilderThirdPartyModel.Creator) object;
+&nbsp;      if ((bits &amp; 0x4L) == 0) {
+&nbsp;        @Nullable ExecutableElement buildMethodValue = instance.buildMethod();
+&nbsp;        if (buildMethodValue != null) {
+&nbsp;          buildMethod(buildMethodValue);
+&nbsp;        }
+&nbsp;        bits |= 0x4L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x1L) == 0) {
+&nbsp;        @Nullable TypeElement builderTypeValue = instance.builderType();
+&nbsp;        if (builderTypeValue != null) {
+&nbsp;          builderType(builderTypeValue);
+&nbsp;        }
+&nbsp;        bits |= 0x1L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x8L) == 0) {
+&nbsp;        @Nullable ExecutableElement builderMethodValue = instance.builderMethod();
+&nbsp;        if (builderMethodValue != null) {
+&nbsp;          builderMethod(builderMethodValue);
+&nbsp;        }
+&nbsp;        bits |= 0x8L;
+&nbsp;      }
+&nbsp;      if ((bits &amp; 0x2L) == 0) {
+&nbsp;        @Nullable ExecutableElement copyMethodValue = instance.copyMethod();
+&nbsp;        if (copyMethodValue != null) {
+&nbsp;          copyMethod(copyMethodValue);
+&nbsp;        }
+&nbsp;        bits |= 0x2L;
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code buildMethod} attribute.
+&nbsp;   * @param buildMethod The value for buildMethod, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator buildMethod(@Nullable ExecutableElement buildMethod) {
+&nbsp;    this.buildMethod = buildMethod;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code copyMethod} attribute.
+&nbsp;   * @param copyMethod The value for copyMethod, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator copyMethod(@Nullable ExecutableElement copyMethod) {
+&nbsp;    this.copyMethod = copyMethod;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code builderMethod} attribute.
+&nbsp;   * @param builderMethod The value for builderMethod, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator builderMethod(@Nullable ExecutableElement builderMethod) {
+&nbsp;    this.builderMethod = builderMethod;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code builderType} attribute.
+&nbsp;   * @param builderType The value for builderType, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableCreator builderType(@Nullable TypeElement builderType) {
+&nbsp;    this.builderType = builderType;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableCreator} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableCreator)) return false;
+&nbsp;    ModifiableCreator other = (ModifiableCreator) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableCreator another) {
+&nbsp;    return Objects.equals(buildMethod, another.buildMethod)
+&nbsp;        &amp;&amp; Objects.equals(copyMethod, another.copyMethod)
+&nbsp;        &amp;&amp; Objects.equals(builderMethod, another.builderMethod)
+&nbsp;        &amp;&amp; Objects.equals(builderType, another.builderType);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code buildMethod}, {@code copyMethod}, {@code builderMethod}, {@code builderType}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(buildMethod);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(copyMethod);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(builderMethod);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(builderType);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Creator}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableCreator&quot;)
+&nbsp;        .add(&quot;buildMethod&quot;, buildMethod())
+&nbsp;        .add(&quot;copyMethod&quot;, copyMethod())
+&nbsp;        .add(&quot;builderMethod&quot;, builderMethod())
+&nbsp;        .add(&quot;builderType&quot;, builderType())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

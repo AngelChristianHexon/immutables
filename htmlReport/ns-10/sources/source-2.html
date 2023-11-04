@@ -1,0 +1,310 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Aggregation</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: Aggregation (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Aggregation</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Aggregation$1Local</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$Avg</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$ComparableTemplate</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$Count</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$Max</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$Min</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$NumberTemplate</td>
+  </tr>
+  <tr>
+    <td class="name">Aggregation$Sum</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import org.immutables.criteria.expression.AggregationOperators;
+&nbsp;import org.immutables.criteria.expression.Expressions;
+&nbsp;
+&nbsp;public interface Aggregation&lt;T&gt; extends Projection&lt;T&gt; {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used to provide aggregation template for comparable types ({@link Comparable}).
+&nbsp;   * @param &lt;MINMAX&gt; type of min/max value(s). Can be optional type.
+&nbsp;   */
+&nbsp;  interface ComparableTemplate&lt;MINMAX&gt; extends Count, Min&lt;MINMAX&gt;, Max&lt;MINMAX&gt; {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Used to provide aggregation template for numeric types (eg. {@link Number}).
+&nbsp;   * @param &lt;MINMAX&gt; type of min/max value(s). Can be optional type.
+&nbsp;   * @param &lt;SUM&gt; type of the sum computation. Can be optional type.
+&nbsp;   * @param &lt;AVG&gt; type of the average computation. Can be optional type.
+&nbsp;   */
+&nbsp;  interface NumberTemplate&lt;MINMAX, SUM, AVG&gt; extends Count, ComparableTemplate&lt;MINMAX&gt;, Sum&lt;SUM&gt;, Avg&lt;AVG&gt; {}
+&nbsp;
+&nbsp;  interface Min&lt;T&gt; {
+&nbsp;    default Aggregation&lt;T&gt; min() {
+<b class="nc">&nbsp;      return Matchers.extract((Matcher) this).applyRaw(e -&gt; Expressions.aggregation(AggregationOperators.MIN, Matchers.aggregationType(getClass(), Min.class, &quot;min&quot;, e), e)).createWith(creator());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Max&lt;T&gt;  {
+&nbsp;    default Aggregation&lt;T&gt; max() {
+<b class="nc">&nbsp;      return Matchers.extract((Matcher) this).applyRaw(e -&gt; Expressions.aggregation(AggregationOperators.MAX, Matchers.aggregationType(getClass(), Max.class, &quot;max&quot;, e), e)).createWith(creator());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Count  {
+&nbsp;    default Aggregation&lt;Long&gt; count() {
+<b class="nc">&nbsp;      return Matchers.extract((Matcher) this).applyRaw(e -&gt; Expressions.aggregation(AggregationOperators.COUNT, Long.class, e)).createWith(creator());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Avg&lt;T&gt; {
+&nbsp;    default Aggregation&lt;T&gt; avg() {
+<b class="nc">&nbsp;      return Matchers.extract((Matcher) this).applyRaw(e -&gt; Expressions.aggregation(AggregationOperators.AVG, Matchers.aggregationType(getClass(), Avg.class, &quot;avg&quot;, e), e)).createWith(creator());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Sum&lt;T&gt; {
+&nbsp;    default Aggregation&lt;T&gt; sum() {
+<b class="nc">&nbsp;      return Matchers.extract((Matcher) this).applyRaw(e -&gt; Expressions.aggregation(AggregationOperators.SUM, Matchers.aggregationType(getClass(), Sum.class, &quot;sum&quot;, e), e)).createWith(creator());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  static &lt;T&gt; CriteriaCreator&lt;T&gt; creator() {
+&nbsp;    class Local extends AbstractContextHolder implements Aggregation&lt;T&gt;, Matcher {
+&nbsp;      private Local(CriteriaContext context) {
+<b class="nc">&nbsp;        super(context);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return ctx -&gt; (T) new Local(ctx);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

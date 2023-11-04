@@ -1,0 +1,1795 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableParcVal</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.parcelable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableParcVal (org.immutables.fixture.parcelable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableParcVal$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableParcVal$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.parcelable;
+&nbsp;
+&nbsp;import android.os.Parcel;
+&nbsp;import android.os.Parcelable;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.OptionalDouble;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ParcVal}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableParcVal.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ParcVal&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableParcVal implements ParcVal {
+&nbsp;  private final String a;
+&nbsp;  private final byte b;
+&nbsp;  private final char c;
+&nbsp;  private final double d;
+&nbsp;  private final boolean e;
+&nbsp;  private final float f;
+&nbsp;  private final long g;
+&nbsp;  private final short h;
+&nbsp;  private final int i;
+&nbsp;  private final String[] aa;
+&nbsp;  private final byte[] ab;
+&nbsp;  private final char[] ac;
+&nbsp;  private final double[] ad;
+&nbsp;  private final boolean[] ae;
+&nbsp;  private final float[] af;
+&nbsp;  private final long[] ag;
+&nbsp;  private final short[] ah;
+&nbsp;  private final int[] ai;
+&nbsp;  private final Object[] ao;
+&nbsp;  private final @Nullable Integer oi;
+&nbsp;  private final @Nullable Double od;
+&nbsp;
+&nbsp;  private ImmutableParcVal(
+&nbsp;      String a,
+&nbsp;      byte b,
+&nbsp;      char c,
+&nbsp;      double d,
+&nbsp;      boolean e,
+&nbsp;      float f,
+&nbsp;      long g,
+&nbsp;      short h,
+&nbsp;      int i,
+&nbsp;      String[] aa,
+&nbsp;      byte[] ab,
+&nbsp;      char[] ac,
+&nbsp;      double[] ad,
+&nbsp;      boolean[] ae,
+&nbsp;      float[] af,
+&nbsp;      long[] ag,
+&nbsp;      short[] ah,
+&nbsp;      int[] ai,
+&nbsp;      Object[] ao,
+&nbsp;      @Nullable Integer oi,
+&nbsp;      @Nullable Double od) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;    this.c = c;
+&nbsp;    this.d = d;
+&nbsp;    this.e = e;
+&nbsp;    this.f = f;
+&nbsp;    this.g = g;
+&nbsp;    this.h = h;
+&nbsp;    this.i = i;
+&nbsp;    this.aa = aa;
+&nbsp;    this.ab = ab;
+&nbsp;    this.ac = ac;
+&nbsp;    this.ad = ad;
+&nbsp;    this.ae = ae;
+&nbsp;    this.af = af;
+&nbsp;    this.ag = ag;
+&nbsp;    this.ah = ah;
+&nbsp;    this.ai = ai;
+&nbsp;    this.ao = ao;
+&nbsp;    this.oi = oi;
+&nbsp;    this.od = od;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public byte b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public char c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public double d() {
+&nbsp;    return d;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code e} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean e() {
+&nbsp;    return e;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code f} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public float f() {
+&nbsp;    return f;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code g} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public long g() {
+&nbsp;    return g;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code h} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public short h() {
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int i() {
+&nbsp;    return i;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code aa} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String[] aa() {
+&nbsp;    return aa.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ab} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public byte[] ab() {
+&nbsp;    return ab.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ac} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public char[] ac() {
+&nbsp;    return ac.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ad} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public double[] ad() {
+&nbsp;    return ad.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ae} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean[] ae() {
+&nbsp;    return ae.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code af} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public float[] af() {
+&nbsp;    return af.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ag} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public long[] ag() {
+&nbsp;    return ag.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ah} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public short[] ah() {
+&nbsp;    return ah.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ai} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int[] ai() {
+&nbsp;    return ai.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code ao} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Object[] ao() {
+&nbsp;    return ao.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code oi} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; oi() {
+&nbsp;    return Optional.ofNullable(oi);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code od} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public OptionalDouble od() {
+&nbsp;    return od != null
+&nbsp;        ? OptionalDouble.of(od)
+&nbsp;        : OptionalDouble.empty();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#a() a} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withA(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;a&quot;);
+&nbsp;    if (this.a.equals(newValue)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        newValue,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#b() b} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withB(byte value) {
+&nbsp;    if (this.b == value) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        value,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#c() c} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withC(char value) {
+&nbsp;    if (this.c == value) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        value,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#d() d} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for d
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withD(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.d) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        value,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#e() e} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for e
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withE(boolean value) {
+&nbsp;    if (this.e == value) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        value,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#f() f} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for f
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withF(float value) {
+&nbsp;    if (Float.floatToIntBits(this.f) == Float.floatToIntBits(value)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        value,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#g() g} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for g
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withG(long value) {
+&nbsp;    if (this.g == value) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        value,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#h() h} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for h
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withH(short value) {
+&nbsp;    if (this.h == value) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        value,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ParcVal#i() i} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for i
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withI(int value) {
+&nbsp;    if (this.i == value) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        value,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#aa() aa}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for aa
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAa(String... elements) {
+&nbsp;    String[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        newValue,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ab() ab}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ab
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAb(byte... elements) {
+&nbsp;    byte[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        newValue,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ac() ac}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ac
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAc(char... elements) {
+&nbsp;    char[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        newValue,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ad() ad}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ad
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAd(double... elements) {
+&nbsp;    double[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        newValue,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ae() ae}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ae
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAe(boolean... elements) {
+&nbsp;    boolean[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        newValue,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#af() af}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for af
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAf(float... elements) {
+&nbsp;    float[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        newValue,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ag() ag}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ag
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAg(long... elements) {
+&nbsp;    long[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        newValue,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ah() ah}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ah
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAh(short... elements) {
+&nbsp;    short[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        newValue,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ai() ai}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ai
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAi(int... elements) {
+&nbsp;    int[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        newValue,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ParcVal#ao() ao}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for ao
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withAo(Object... elements) {
+&nbsp;    Object[] newValue = elements.clone();
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        newValue,
+&nbsp;        this.oi,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ParcVal#oi() oi} attribute.
+&nbsp;   * @param value The value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withOi(int value) {
+&nbsp;    @Nullable Integer newValue = value;
+&nbsp;    if (Objects.equals(this.oi, newValue)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        newValue,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ParcVal#oi() oi} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for oi
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withOi(Optional&lt;Integer&gt; optional) {
+&nbsp;    @Nullable Integer value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.oi, value)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        value,
+&nbsp;        this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link ParcVal#od() od} attribute.
+&nbsp;   * @param value The value for od
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withOd(double value) {
+&nbsp;    @Nullable Double newValue = value;
+&nbsp;    if (Objects.equals(this.od, newValue)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link ParcVal#od() od} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for od
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableParcVal withOd(OptionalDouble optional) {
+&nbsp;    @Nullable Double value = optional.isPresent() ? optional.getAsDouble() : null;
+&nbsp;    if (Objects.equals(this.od, value)) return this;
+&nbsp;    return new ImmutableParcVal(
+&nbsp;        this.a,
+&nbsp;        this.b,
+&nbsp;        this.c,
+&nbsp;        this.d,
+&nbsp;        this.e,
+&nbsp;        this.f,
+&nbsp;        this.g,
+&nbsp;        this.h,
+&nbsp;        this.i,
+&nbsp;        this.aa,
+&nbsp;        this.ab,
+&nbsp;        this.ac,
+&nbsp;        this.ad,
+&nbsp;        this.ae,
+&nbsp;        this.af,
+&nbsp;        this.ag,
+&nbsp;        this.ah,
+&nbsp;        this.ai,
+&nbsp;        this.ao,
+&nbsp;        this.oi,
+&nbsp;        value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableParcVal} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableParcVal
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableParcVal) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableParcVal another) {
+&nbsp;    return a.equals(another.a)
+&nbsp;        &amp;&amp; b == another.b
+&nbsp;        &amp;&amp; c == another.c
+&nbsp;        &amp;&amp; Double.doubleToLongBits(d) == Double.doubleToLongBits(another.d)
+&nbsp;        &amp;&amp; e == another.e
+&nbsp;        &amp;&amp; Float.floatToIntBits(f) == Float.floatToIntBits(another.f)
+&nbsp;        &amp;&amp; g == another.g
+&nbsp;        &amp;&amp; h == another.h
+&nbsp;        &amp;&amp; i == another.i
+&nbsp;        &amp;&amp; Arrays.equals(aa, another.aa)
+&nbsp;        &amp;&amp; Arrays.equals(ab, another.ab)
+&nbsp;        &amp;&amp; Arrays.equals(ac, another.ac)
+&nbsp;        &amp;&amp; Arrays.equals(ad, another.ad)
+&nbsp;        &amp;&amp; Arrays.equals(ae, another.ae)
+&nbsp;        &amp;&amp; Arrays.equals(af, another.af)
+&nbsp;        &amp;&amp; Arrays.equals(ag, another.ag)
+&nbsp;        &amp;&amp; Arrays.equals(ah, another.ah)
+&nbsp;        &amp;&amp; Arrays.equals(ai, another.ai)
+&nbsp;        &amp;&amp; Arrays.equals(ao, another.ao)
+&nbsp;        &amp;&amp; Objects.equals(oi, another.oi)
+&nbsp;        &amp;&amp; Objects.equals(od, another.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code c}, {@code d}, {@code e}, {@code f}, {@code g}, {@code h}, {@code i}, {@code aa}, {@code ab}, {@code ac}, {@code ad}, {@code ae}, {@code af}, {@code ag}, {@code ah}, {@code ai}, {@code ao}, {@code oi}, {@code od}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h$$ = 5381;
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + a.hashCode();
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Byte.hashCode(b);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Character.hashCode(c);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Double.hashCode(d);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Boolean.hashCode(e);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Float.hashCode(f);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Long.hashCode(g);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Short.hashCode(h);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + i;
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(aa);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ab);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ac);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ad);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ae);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(af);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ag);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ah);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ai);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Arrays.hashCode(ao);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Objects.hashCode(oi);
+&nbsp;    h$$ += (h$$ &lt;&lt; 5) + Objects.hashCode(od);
+&nbsp;    return h$$;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ParcVal} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    StringBuilder builder = new StringBuilder(&quot;ParcVal{&quot;);
+&nbsp;    builder.append(&quot;a=&quot;).append(a);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;b=&quot;).append(b);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;c=&quot;).append(c);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;d=&quot;).append(d);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;e=&quot;).append(e);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;f=&quot;).append(f);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;g=&quot;).append(g);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;h=&quot;).append(h);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;i=&quot;).append(i);
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;aa=&quot;).append(Arrays.toString(aa));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ab=&quot;).append(Arrays.toString(ab));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ac=&quot;).append(Arrays.toString(ac));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ad=&quot;).append(Arrays.toString(ad));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ae=&quot;).append(Arrays.toString(ae));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;af=&quot;).append(Arrays.toString(af));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ag=&quot;).append(Arrays.toString(ag));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ah=&quot;).append(Arrays.toString(ah));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ai=&quot;).append(Arrays.toString(ai));
+&nbsp;    builder.append(&quot;, &quot;);
+&nbsp;    builder.append(&quot;ao=&quot;).append(Arrays.toString(ao));
+&nbsp;    if (oi != null) {
+&nbsp;      builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;oi=&quot;).append(oi);
+&nbsp;    }
+&nbsp;    if (od != null) {
+&nbsp;      builder.append(&quot;, &quot;);
+&nbsp;      builder.append(&quot;od=&quot;).append(od);
+&nbsp;    }
+&nbsp;    return builder.append(&quot;}&quot;).toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /** */
+&nbsp;  public static final Parcelable.ClassLoaderCreator&lt;ImmutableParcVal&gt; CREATOR =
+<b class="nc">&nbsp;      new Parcelable.ClassLoaderCreator&lt;ImmutableParcVal&gt;() {</b>
+&nbsp;        public ImmutableParcVal createFromParcel(Parcel in) {
+<b class="nc">&nbsp;          return createFromParcel(in, this.getClass().getClassLoader());</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        @SuppressWarnings(&quot;unchecked&quot;) 
+&nbsp;        public ImmutableParcVal createFromParcel(Parcel in, ClassLoader classLoader) {
+<b class="nc">&nbsp;          ImmutableParcVal.Builder builder = ImmutableParcVal.builder();</b>
+<b class="nc">&nbsp;          builder.a(in.readString());</b>
+<b class="nc">&nbsp;          builder.b(in.readByte());</b>
+<b class="nc">&nbsp;          builder.c((char) in.readInt());</b>
+<b class="nc">&nbsp;          builder.d(in.readDouble());</b>
+<b class="nc">&nbsp;          builder.e(in.readByte() != 0);</b>
+<b class="nc">&nbsp;          builder.f(in.readFloat());</b>
+<b class="nc">&nbsp;          builder.g(in.readLong());</b>
+<b class="nc">&nbsp;          builder.h((short) in.readInt());</b>
+<b class="nc">&nbsp;          builder.i(in.readInt());</b>
+<b class="nc">&nbsp;          builder.aa(in.createStringArray());</b>
+<b class="nc">&nbsp;          builder.ab(in.createByteArray());</b>
+<b class="nc">&nbsp;          builder.ac(in.createCharArray());</b>
+<b class="nc">&nbsp;          builder.ad(in.createDoubleArray());</b>
+<b class="nc">&nbsp;          builder.ae(in.createBooleanArray());</b>
+<b class="nc">&nbsp;          builder.af(in.createFloatArray());</b>
+<b class="nc">&nbsp;          builder.ag(in.createLongArray());</b>
+<b class="nc">&nbsp;          builder.ah(null/* FIXME: Do something with short arrays */);</b>
+<b class="nc">&nbsp;          builder.ai(in.createIntArray());</b>
+<b class="nc">&nbsp;          builder.ao((Object[]) in.readArray(classLoader));</b>
+<b class="nc">&nbsp;          @Nullable Integer oiValue = (Integer) in.readValue(classLoader);</b>
+<b class="nc">&nbsp;          if (oiValue != null) {</b>
+<b class="nc">&nbsp;            builder.oi(oiValue);</b>
+&nbsp;          }
+<b class="nc">&nbsp;          @Nullable Double odValue = (Double) in.readValue(classLoader);</b>
+<b class="nc">&nbsp;          if (odValue != null) {</b>
+<b class="nc">&nbsp;            builder.od(odValue);</b>
+&nbsp;          }
+<b class="nc">&nbsp;          return builder.build();</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        public ImmutableParcVal[] newArray(int size) {
+<b class="nc">&nbsp;          return new ImmutableParcVal[size];</b>
+&nbsp;        }
+&nbsp;      };
+&nbsp;
+&nbsp;  /** */
+&nbsp;  @Override
+&nbsp;  public int describeContents() {
+&nbsp;    return 0; //??
+&nbsp;  }
+&nbsp;
+&nbsp;  /** */
+&nbsp;  @Override
+&nbsp;  public void writeToParcel(Parcel out, int flags) {
+&nbsp;    out.writeString(this.a);
+&nbsp;    out.writeByte(this.b);
+&nbsp;    out.writeInt(this.c);
+&nbsp;    out.writeDouble(this.d);
+&nbsp;    out.writeByte(this.e ? (byte) 1 : (byte) 0);
+&nbsp;    out.writeFloat(this.f);
+&nbsp;    out.writeLong(this.g);
+&nbsp;    out.writeInt(this.h);
+&nbsp;    out.writeInt(this.i);
+&nbsp;    out.writeStringArray(this.aa);
+&nbsp;    out.writeByteArray(this.ab);
+&nbsp;    out.writeCharArray(this.ac);
+&nbsp;    out.writeDoubleArray(this.ad);
+&nbsp;    out.writeBooleanArray(this.ae);
+&nbsp;    out.writeFloatArray(this.af);
+&nbsp;    out.writeLongArray(this.ag);
+&nbsp;    // Do something with short arrays, just for completeness
+&nbsp;    // copy it as int array, I dunno
+&nbsp;    out.writeIntArray(this.ai);
+&nbsp;    out.writeArray(this.ao);
+&nbsp;    out.writeValue(this.oi);
+&nbsp;    out.writeValue(this.od);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ParcVal} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ParcVal instance
+&nbsp;   */
+&nbsp;  public static ImmutableParcVal copyOf(ParcVal instance) {
+&nbsp;    if (instance instanceof ImmutableParcVal) {
+&nbsp;      return (ImmutableParcVal) instance;
+&nbsp;    }
+&nbsp;    return ImmutableParcVal.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableParcVal ImmutableParcVal}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableParcVal.builder()
+&nbsp;   *    .a(String) // required {@link ParcVal#a() a}
+&nbsp;   *    .b(byte) // required {@link ParcVal#b() b}
+&nbsp;   *    .c(char) // required {@link ParcVal#c() c}
+&nbsp;   *    .d(double) // required {@link ParcVal#d() d}
+&nbsp;   *    .e(boolean) // required {@link ParcVal#e() e}
+&nbsp;   *    .f(float) // required {@link ParcVal#f() f}
+&nbsp;   *    .g(long) // required {@link ParcVal#g() g}
+&nbsp;   *    .h(short) // required {@link ParcVal#h() h}
+&nbsp;   *    .i(int) // required {@link ParcVal#i() i}
+&nbsp;   *    .aa(String) // required {@link ParcVal#aa() aa}
+&nbsp;   *    .ab(byte) // required {@link ParcVal#ab() ab}
+&nbsp;   *    .ac(char) // required {@link ParcVal#ac() ac}
+&nbsp;   *    .ad(double) // required {@link ParcVal#ad() ad}
+&nbsp;   *    .ae(boolean) // required {@link ParcVal#ae() ae}
+&nbsp;   *    .af(float) // required {@link ParcVal#af() af}
+&nbsp;   *    .ag(long) // required {@link ParcVal#ag() ag}
+&nbsp;   *    .ah(short) // required {@link ParcVal#ah() ah}
+&nbsp;   *    .ai(int) // required {@link ParcVal#ai() ai}
+&nbsp;   *    .ao(Object) // required {@link ParcVal#ao() ao}
+&nbsp;   *    .oi(Integer) // optional {@link ParcVal#oi() oi}
+&nbsp;   *    .od(double) // optional {@link ParcVal#od() od}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableParcVal builder
+&nbsp;   */
+&nbsp;  public static ImmutableParcVal.Builder builder() {
+&nbsp;    return new ImmutableParcVal.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableParcVal ImmutableParcVal}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ParcVal&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private static final long INIT_BIT_C = 0x4L;
+&nbsp;    private static final long INIT_BIT_D = 0x8L;
+&nbsp;    private static final long INIT_BIT_E = 0x10L;
+&nbsp;    private static final long INIT_BIT_F = 0x20L;
+&nbsp;    private static final long INIT_BIT_G = 0x40L;
+&nbsp;    private static final long INIT_BIT_H = 0x80L;
+&nbsp;    private static final long INIT_BIT_I = 0x100L;
+&nbsp;    private static final long INIT_BIT_AA = 0x200L;
+&nbsp;    private static final long INIT_BIT_AB = 0x400L;
+&nbsp;    private static final long INIT_BIT_AC = 0x800L;
+&nbsp;    private static final long INIT_BIT_AD = 0x1000L;
+&nbsp;    private static final long INIT_BIT_AE = 0x2000L;
+&nbsp;    private static final long INIT_BIT_AF = 0x4000L;
+&nbsp;    private static final long INIT_BIT_AG = 0x8000L;
+&nbsp;    private static final long INIT_BIT_AH = 0x10000L;
+&nbsp;    private static final long INIT_BIT_AI = 0x20000L;
+&nbsp;    private static final long INIT_BIT_AO = 0x40000L;
+&nbsp;    private long initBits = 0x7ffffL;
+&nbsp;
+&nbsp;    private @Nullable String a;
+&nbsp;    private byte b;
+&nbsp;    private char c;
+&nbsp;    private double d;
+&nbsp;    private boolean e;
+&nbsp;    private float f;
+&nbsp;    private long g;
+&nbsp;    private short h;
+&nbsp;    private int i;
+&nbsp;    private @Nullable String[] aa;
+&nbsp;    private @Nullable byte[] ab;
+&nbsp;    private @Nullable char[] ac;
+&nbsp;    private @Nullable double[] ad;
+&nbsp;    private @Nullable boolean[] ae;
+&nbsp;    private @Nullable float[] af;
+&nbsp;    private @Nullable long[] ag;
+&nbsp;    private @Nullable short[] ah;
+&nbsp;    private @Nullable int[] ai;
+&nbsp;    private @Nullable Object[] ao;
+&nbsp;    private @Nullable Integer oi;
+&nbsp;    private @Nullable Double od;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ParcVal} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ParcVal instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      a(instance.a());
+&nbsp;      b(instance.b());
+&nbsp;      c(instance.c());
+&nbsp;      d(instance.d());
+&nbsp;      e(instance.e());
+&nbsp;      f(instance.f());
+&nbsp;      g(instance.g());
+&nbsp;      h(instance.h());
+&nbsp;      i(instance.i());
+&nbsp;      aa(instance.aa());
+&nbsp;      ab(instance.ab());
+&nbsp;      ac(instance.ac());
+&nbsp;      ad(instance.ad());
+&nbsp;      ae(instance.ae());
+&nbsp;      af(instance.af());
+&nbsp;      ag(instance.ag());
+&nbsp;      ah(instance.ah());
+&nbsp;      ai(instance.ai());
+&nbsp;      ao(instance.ao());
+&nbsp;      Optional&lt;Integer&gt; oiOptional = instance.oi();
+&nbsp;      if (oiOptional.isPresent()) {
+&nbsp;        oi(oiOptional);
+&nbsp;      }
+&nbsp;      OptionalDouble odOptional = instance.od();
+&nbsp;      if (odOptional.isPresent()) {
+&nbsp;        od(odOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(String a) {
+&nbsp;      this.a = Objects.requireNonNull(a, &quot;a&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_A;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(byte b) {
+&nbsp;      this.b = b;
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#c() c} attribute.
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(char c) {
+&nbsp;      this.c = c;
+&nbsp;      initBits &amp;= ~INIT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#d() d} attribute.
+&nbsp;     * @param d The value for d 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(double d) {
+&nbsp;      this.d = d;
+&nbsp;      initBits &amp;= ~INIT_BIT_D;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#e() e} attribute.
+&nbsp;     * @param e The value for e 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder e(boolean e) {
+&nbsp;      this.e = e;
+&nbsp;      initBits &amp;= ~INIT_BIT_E;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#f() f} attribute.
+&nbsp;     * @param f The value for f 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder f(float f) {
+&nbsp;      this.f = f;
+&nbsp;      initBits &amp;= ~INIT_BIT_F;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#g() g} attribute.
+&nbsp;     * @param g The value for g 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder g(long g) {
+&nbsp;      this.g = g;
+&nbsp;      initBits &amp;= ~INIT_BIT_G;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#h() h} attribute.
+&nbsp;     * @param h The value for h 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder h(short h) {
+&nbsp;      this.h = h;
+&nbsp;      initBits &amp;= ~INIT_BIT_H;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#i() i} attribute.
+&nbsp;     * @param i The value for i 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i(int i) {
+&nbsp;      this.i = i;
+&nbsp;      initBits &amp;= ~INIT_BIT_I;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#aa() aa} attribute.
+&nbsp;     * @param aa The elements for aa
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder aa(String... aa) {
+&nbsp;      this.aa = aa.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ab() ab} attribute.
+&nbsp;     * @param ab The elements for ab
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ab(byte... ab) {
+&nbsp;      this.ab = ab.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AB;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ac() ac} attribute.
+&nbsp;     * @param ac The elements for ac
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ac(char... ac) {
+&nbsp;      this.ac = ac.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AC;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ad() ad} attribute.
+&nbsp;     * @param ad The elements for ad
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ad(double... ad) {
+&nbsp;      this.ad = ad.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AD;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ae() ae} attribute.
+&nbsp;     * @param ae The elements for ae
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ae(boolean... ae) {
+&nbsp;      this.ae = ae.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#af() af} attribute.
+&nbsp;     * @param af The elements for af
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder af(float... af) {
+&nbsp;      this.af = af.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AF;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ag() ag} attribute.
+&nbsp;     * @param ag The elements for ag
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ag(long... ag) {
+&nbsp;      this.ag = ag.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AG;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ah() ah} attribute.
+&nbsp;     * @param ah The elements for ah
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ah(short... ah) {
+&nbsp;      this.ah = ah.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AH;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ai() ai} attribute.
+&nbsp;     * @param ai The elements for ai
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ai(int... ai) {
+&nbsp;      this.ai = ai.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AI;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ParcVal#ao() ao} attribute.
+&nbsp;     * @param ao The elements for ao
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ao(Object... ao) {
+&nbsp;      this.ao = ao.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_AO;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ParcVal#oi() oi} to oi.
+&nbsp;     * @param oi The value for oi
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder oi(int oi) {
+&nbsp;      this.oi = oi;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ParcVal#oi() oi} to oi.
+&nbsp;     * @param oi The value for oi
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder oi(Optional&lt;Integer&gt; oi) {
+&nbsp;      this.oi = oi.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ParcVal#od() od} to od.
+&nbsp;     * @param od The value for od
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder od(double od) {
+&nbsp;      this.od = od;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link ParcVal#od() od} to od.
+&nbsp;     * @param od The value for od
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder od(OptionalDouble od) {
+&nbsp;      this.od = od.isPresent() ? od.getAsDouble() : null;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableParcVal ImmutableParcVal}.
+&nbsp;     * @return An immutable instance of ParcVal
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableParcVal build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableParcVal(a, b, c, d, e, f, g, h, i, aa, ab, ac, ad, ae, af, ag, ah, ai, ao, oi, od);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_C) != 0) attributes.add(&quot;c&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_D) != 0) attributes.add(&quot;d&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_E) != 0) attributes.add(&quot;e&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_F) != 0) attributes.add(&quot;f&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_G) != 0) attributes.add(&quot;g&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_H) != 0) attributes.add(&quot;h&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_I) != 0) attributes.add(&quot;i&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AA) != 0) attributes.add(&quot;aa&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AB) != 0) attributes.add(&quot;ab&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AC) != 0) attributes.add(&quot;ac&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AD) != 0) attributes.add(&quot;ad&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AE) != 0) attributes.add(&quot;ae&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AF) != 0) attributes.add(&quot;af&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AG) != 0) attributes.add(&quot;ag&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AH) != 0) attributes.add(&quot;ah&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AI) != 0) attributes.add(&quot;ai&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_AO) != 0) attributes.add(&quot;ao&quot;);
+&nbsp;      return &quot;Cannot build ParcVal, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableLightOnAnnotations</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableLightOnAnnotations (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ModifiableLightOnAnnotations</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/62)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link LightOnAnnotations LightOnAnnotations} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableLightOnAnnotations is not thread-safe&lt;/em&gt;
+&nbsp; * @param &lt;X&gt; generic parameter X
+&nbsp; * @see ImmutableLightOnAnnotations
+&nbsp; */
+&nbsp;public final class ModifiableLightOnAnnotations&lt;X&gt;
+&nbsp;    implements LightOnAnnotations&lt;X&gt; {
+&nbsp;  private static final long INIT_BIT_A = 0x1L;
+<b class="nc">&nbsp;  private long initBits = 0x1L;</b>
+&nbsp;
+&nbsp;  private int a;
+<b class="nc">&nbsp;  private Optional&lt;X&gt; x = Optional.empty();</b>
+&nbsp;
+<b class="nc">&nbsp;  private ModifiableLightOnAnnotations() {}</b>
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code LightOnAnnotations}.
+&nbsp;   * @param &lt;X&gt; generic parameter X
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static &lt;X&gt; ModifiableLightOnAnnotations&lt;X&gt; create() {
+<b class="nc">&nbsp;    return new ModifiableLightOnAnnotations&lt;&gt;();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int a() {
+<b class="nc">&nbsp;    if (!aIsSet()) checkRequiredAttributes();</b>
+<b class="nc">&nbsp;    return a;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code x} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Optional&lt;X&gt; x() {
+<b class="nc">&nbsp;    return x;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLightOnAnnotations&lt;X&gt; clear() {
+<b class="nc">&nbsp;    initBits = 0x1L;</b>
+<b class="nc">&nbsp;    a = 0;</b>
+<b class="nc">&nbsp;    x = Optional.empty();</b>
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link LightOnAnnotations} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLightOnAnnotations&lt;X&gt; from(LightOnAnnotations&lt;X&gt; instance) {
+<b class="nc">&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+<b class="nc">&nbsp;    if (instance instanceof ModifiableLightOnAnnotations&lt;?&gt;) {</b>
+<b class="nc">&nbsp;      from((ModifiableLightOnAnnotations&lt;X&gt;) instance);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    setA(instance.a());</b>
+<b class="nc">&nbsp;    Optional&lt;X&gt; xOptional = instance.x();</b>
+<b class="nc">&nbsp;    if (xOptional.isPresent()) {</b>
+<b class="nc">&nbsp;      setX(xOptional);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link LightOnAnnotations} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLightOnAnnotations&lt;X&gt; from(ModifiableLightOnAnnotations&lt;X&gt; instance) {
+<b class="nc">&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+<b class="nc">&nbsp;    if (instance.aIsSet()) {</b>
+<b class="nc">&nbsp;      setA(instance.a());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    Optional&lt;X&gt; xOptional = instance.x();</b>
+<b class="nc">&nbsp;    if (xOptional.isPresent()) {</b>
+<b class="nc">&nbsp;      setX(xOptional);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link LightOnAnnotations#a() a} attribute.
+&nbsp;   * @param a The value for a
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLightOnAnnotations&lt;X&gt; setA(int a) {
+<b class="nc">&nbsp;    this.a = a;</b>
+<b class="nc">&nbsp;    initBits &amp;= ~INIT_BIT_A;</b>
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a &lt;i&gt;present&lt;/i&gt; value for the optional {@link LightOnAnnotations#x() x} attribute.
+&nbsp;   * @param x A value for x
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLightOnAnnotations&lt;X&gt; setX(X x) {
+<b class="nc">&nbsp;    this.x = Optional.of(x);</b>
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns an optional value for {@link LightOnAnnotations#x() x}.
+&nbsp;   * @param x A value for x
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableLightOnAnnotations&lt;X&gt; setX(Optional&lt;X&gt; x) {
+<b class="nc">&nbsp;    this.x = Objects.requireNonNull(x, &quot;x&quot;);</b>
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link LightOnAnnotations#a() a} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean aIsSet() {
+<b class="nc">&nbsp;    return (initBits &amp; INIT_BIT_A) == 0;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public final ModifiableLightOnAnnotations&lt;X&gt; unsetA() {
+<b class="nc">&nbsp;    initBits |= INIT_BIT_A;</b>
+<b class="nc">&nbsp;    a = 0;</b>
+<b class="nc">&nbsp;    return this;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+<b class="nc">&nbsp;    return initBits == 0;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+<b class="nc">&nbsp;    if (!isInitialized()) {</b>
+<b class="nc">&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+<b class="nc">&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;    if (!aIsSet()) attributes.add(&quot;a&quot;);</b>
+<b class="nc">&nbsp;    return &quot;LightOnAnnotations is not initialized, some of the required attributes are not set &quot; + attributes;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableLightOnAnnotations ImmutableLightOnAnnotations}.
+&nbsp;   * @return An immutable instance of LightOnAnnotations
+&nbsp;   */
+&nbsp;  public final ImmutableLightOnAnnotations&lt;X&gt; toImmutable() {
+<b class="nc">&nbsp;    checkRequiredAttributes();</b>
+<b class="nc">&nbsp;    return ImmutableLightOnAnnotations.&lt;X&gt;copyOf(this);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableLightOnAnnotations&lt;?&gt;} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(Object another) {
+<b class="nc">&nbsp;    if (this == another) return true;</b>
+<b class="nc">&nbsp;    if (!(another instanceof ModifiableLightOnAnnotations&lt;?&gt;)) return false;</b>
+<b class="nc">&nbsp;    ModifiableLightOnAnnotations&lt;?&gt; other = (ModifiableLightOnAnnotations&lt;?&gt;) another;</b>
+<b class="nc">&nbsp;    if (!isInitialized() || !other.isInitialized()) {</b>
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return equalTo(other);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableLightOnAnnotations&lt;?&gt; another) {
+<b class="nc">&nbsp;    return a == another.a</b>
+<b class="nc">&nbsp;        &amp;&amp; Objects.equals(x, another.x);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code x}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    int h = 5381;</b>
+<b class="nc">&nbsp;    h += (h &lt;&lt; 5) + a;</b>
+<b class="nc">&nbsp;    h += (h &lt;&lt; 5) + x.hashCode();</b>
+<b class="nc">&nbsp;    return h;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code LightOnAnnotations}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableLightOnAnnotations&quot;)</b>
+<b class="nc">&nbsp;        .add(&quot;a&quot;, aIsSet() ? a() : &quot;?&quot;)</b>
+<b class="nc">&nbsp;        .add(&quot;x&quot;, x())</b>
+<b class="nc">&nbsp;        .toString();</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

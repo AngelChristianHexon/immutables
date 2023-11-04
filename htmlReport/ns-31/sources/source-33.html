@@ -1,0 +1,894 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableNullableAndDefault</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableNullableAndDefault (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableNullableAndDefault</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.NavigableSet;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.SortedSet;
+&nbsp;import java.util.TreeSet;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Companion.NullableAndDefault NullableAndDefault} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableNullableAndDefault is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableNullableAndDefault
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion.NullableAndDefault&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Companion.NullableAndDefault&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableNullableAndDefault
+&nbsp;    implements Companion.NullableAndDefault {
+&nbsp;  private static final long OPT_BIT_STR = 0x1L;
+&nbsp;  private static final long OPT_BIT_INTS = 0x2L;
+&nbsp;  private static final long OPT_BIT_ORDS = 0x4L;
+&nbsp;  private static final long OPT_BIT_POLS = 0x8L;
+&nbsp;  private static final long OPT_BIT_NAVS = 0x10L;
+&nbsp;  private long optBits;
+&nbsp;
+&nbsp;  private ArrayList&lt;String&gt; lst = null;
+&nbsp;  private @Nullable ArrayList&lt;String&gt; str = null;
+&nbsp;  private LinkedHashSet&lt;Integer&gt; ints = null;
+&nbsp;  private int[] arrayInts;
+&nbsp;  private @Nullable TreeSet&lt;Integer&gt; ords = null;
+&nbsp;  private EnumSet&lt;RetentionPolicy&gt; pols = null;
+&nbsp;  private TreeSet&lt;Integer&gt; navs = null;
+&nbsp;
+&nbsp;  private ModifiableNullableAndDefault() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code NullableAndDefault}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableNullableAndDefault create() {
+&nbsp;    return new ModifiableNullableAndDefault();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code lst}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;String&gt; lst() {
+&nbsp;    if (lst == null) {
+&nbsp;      lst = new ArrayList&lt;String&gt;(0);
+&nbsp;    }
+&nbsp;    return lst;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code str} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable List&lt;String&gt; str() {
+&nbsp;    if (strIsSet()) {
+&nbsp;      return str;
+&nbsp;    } else {
+&nbsp;      return Companion.NullableAndDefault.super.str();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code ints} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Set&lt;Integer&gt; ints() {
+&nbsp;    if (intsIsSet()) {
+&nbsp;      return ints;
+&nbsp;    } else {
+&nbsp;      return Companion.NullableAndDefault.super.ints();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned modifiable {@code arrayInts} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int[] arrayInts() {
+&nbsp;    if (arrayIntsIsSet()) {
+&nbsp;      return arrayInts;
+&nbsp;    } else {
+&nbsp;      return Companion.NullableAndDefault.super.arrayInts();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code ords} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable SortedSet&lt;Integer&gt; ords() {
+&nbsp;    if (ordsIsSet()) {
+&nbsp;      return ords;
+&nbsp;    } else {
+&nbsp;      return Companion.NullableAndDefault.super.ords();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code pols} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Set&lt;RetentionPolicy&gt; pols() {
+&nbsp;    if (polsIsSet()) {
+&nbsp;      return pols;
+&nbsp;    } else {
+&nbsp;      return Companion.NullableAndDefault.super.pols();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned or, otherwise, newly computed, not cached value of {@code navs} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final NavigableSet&lt;Integer&gt; navs() {
+&nbsp;    if (navsIsSet()) {
+&nbsp;      return navs;
+&nbsp;    } else {
+&nbsp;      return Companion.NullableAndDefault.super.navs();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault clear() {
+&nbsp;    optBits = 0;
+&nbsp;    if (lst != null) {
+&nbsp;      lst.clear();
+&nbsp;    }
+&nbsp;    str = null;
+&nbsp;    if (ints != null) {
+&nbsp;      ints.clear();
+&nbsp;    }
+&nbsp;    arrayInts = null;
+&nbsp;    ords = null;
+&nbsp;    if (pols != null) {
+&nbsp;      pols.clear();
+&nbsp;    }
+&nbsp;    if (navs != null) {
+&nbsp;      navs.clear();
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.NullableAndDefault} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableNullableAndDefault from(Companion.NullableAndDefault instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableNullableAndDefault) {
+&nbsp;      from((ModifiableNullableAndDefault) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    addAllLst(instance.lst());
+&nbsp;    @Nullable List&lt;String&gt; strValue = instance.str();
+&nbsp;    if (strValue != null) {
+&nbsp;      addAllStr(strValue);
+&nbsp;    }
+&nbsp;    addAllInts(instance.ints());
+&nbsp;    setArrayInts(instance.arrayInts());
+&nbsp;    @Nullable SortedSet&lt;Integer&gt; ordsValue = instance.ords();
+&nbsp;    if (ordsValue != null) {
+&nbsp;      addAllOrds(ordsValue);
+&nbsp;    }
+&nbsp;    addAllPols(instance.pols());
+&nbsp;    addAllNavs(instance.navs());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.NullableAndDefault} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableNullableAndDefault from(ModifiableNullableAndDefault instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    addAllLst(instance.lst());
+&nbsp;    @Nullable List&lt;String&gt; strValue = instance.str();
+&nbsp;    if (strValue != null) {
+&nbsp;      addAllStr(strValue);
+&nbsp;    }
+&nbsp;    addAllInts(instance.ints());
+&nbsp;    setArrayInts(instance.arrayInts());
+&nbsp;    @Nullable SortedSet&lt;Integer&gt; ordsValue = instance.ords();
+&nbsp;    if (ordsValue != null) {
+&nbsp;      addAllOrds(ordsValue);
+&nbsp;    }
+&nbsp;    addAllPols(instance.pols());
+&nbsp;    addAllNavs(instance.navs());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;   * @param element The lst element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addLst(String element) {
+&nbsp;    if (this.lst == null) {
+&nbsp;      this.lst = new ArrayList&lt;String&gt;();
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;lst element&quot;);
+&nbsp;    this.lst.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;   * @param elements An array of lst elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault addLst(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addLst(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;   * @param elements An iterable of lst elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault setLst(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.lst == null) {
+&nbsp;      this.lst = new ArrayList&lt;String&gt;();
+&nbsp;    } else {
+&nbsp;      this.lst.clear();
+&nbsp;    }
+&nbsp;    addAllLst(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#lst() lst} list.
+&nbsp;   * @param elements An iterable of lst elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addAllLst(Iterable&lt;String&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.lst == null) {
+&nbsp;      this.lst = new ArrayList&lt;String&gt;();
+&nbsp;    }
+&nbsp;    for (String e : elements) {
+&nbsp;      addLst(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;   * @param element The str element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addStr(String element) {
+&nbsp;    if (this.str == null) {
+&nbsp;      this.str = new ArrayList&lt;String&gt;();
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;str element&quot;);
+&nbsp;    this.str.add(element);
+&nbsp;    optBits |= OPT_BIT_STR;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;   * @param elements An array of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault addStr(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addStr(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_STR;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;   * @param elements An iterable of str elements, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault setStr(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      this.str = null;
+&nbsp;      optBits |= OPT_BIT_STR;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.str == null) {
+&nbsp;      this.str = new ArrayList&lt;String&gt;();
+&nbsp;    } else {
+&nbsp;      this.str.clear();
+&nbsp;    }
+&nbsp;    addAllStr(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#str() str} list.
+&nbsp;   * @param elements An iterable of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addAllStr(Iterable&lt;String&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.str == null) {
+&nbsp;      this.str = new ArrayList&lt;String&gt;();
+&nbsp;    }
+&nbsp;    for (String e : elements) {
+&nbsp;      addStr(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_STR;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;   * @param element The ints element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addInts(int element) {
+&nbsp;    if (this.ints == null) {
+&nbsp;      this.ints = new LinkedHashSet&lt;Integer&gt;();
+&nbsp;    }
+&nbsp;    this.ints.add(element);
+&nbsp;    optBits |= OPT_BIT_INTS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;   * @param elements An array of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault addInts(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addInts(Objects.requireNonNull(e, &quot;ints element&quot;));
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_INTS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;   * @param elements An iterable of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault setInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ints == null) {
+&nbsp;      this.ints = new LinkedHashSet&lt;Integer&gt;();
+&nbsp;    } else {
+&nbsp;      this.ints.clear();
+&nbsp;    }
+&nbsp;    addAllInts(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#ints() ints} set.
+&nbsp;   * @param elements An iterable of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.ints == null) {
+&nbsp;      this.ints = new LinkedHashSet&lt;Integer&gt;();
+&nbsp;    }
+&nbsp;    for (int e : elements) {
+&nbsp;      addInts(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_INTS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion.NullableAndDefault#arrayInts() arrayInts} attribute.
+&nbsp;   * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as defined by {@link Companion.NullableAndDefault#arrayInts() arrayInts}.&lt;/em&gt;
+&nbsp;   * @param elements The elements for arrayInts
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault setArrayInts(int... elements) {
+&nbsp;    this.arrayInts = elements.clone();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;   * @param element The ords element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addOrds(int element) {
+&nbsp;    if (this.ords == null) {
+&nbsp;      this.ords = new TreeSet&lt;Integer&gt;();
+&nbsp;    }
+&nbsp;    this.ords.add(element);
+&nbsp;    optBits |= OPT_BIT_ORDS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;   * @param elements An array of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault addOrds(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addOrds(Objects.requireNonNull(e, &quot;ords element&quot;));
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_ORDS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;   * @param elements An iterable of ords elements, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault setOrds(@Nullable Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      this.ords = null;
+&nbsp;      optBits |= OPT_BIT_ORDS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    if (this.ords == null) {
+&nbsp;      this.ords = new TreeSet&lt;Integer&gt;();
+&nbsp;    } else {
+&nbsp;      this.ords.clear();
+&nbsp;    }
+&nbsp;    addAllOrds(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#ords() ords} sortedSet.
+&nbsp;   * @param elements An iterable of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addAllOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.ords == null) {
+&nbsp;      this.ords = new TreeSet&lt;Integer&gt;();
+&nbsp;    }
+&nbsp;    for (int e : elements) {
+&nbsp;      addOrds(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_ORDS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;   * @param element The pols element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addPols(RetentionPolicy element) {
+&nbsp;    if (this.pols == null) {
+&nbsp;      this.pols = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;    }
+&nbsp;    Objects.requireNonNull(element, &quot;pols element&quot;);
+&nbsp;    this.pols.add(element);
+&nbsp;    optBits |= OPT_BIT_POLS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;   * @param elements An array of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault addPols(RetentionPolicy... elements) {
+&nbsp;    for (RetentionPolicy e : elements) {
+&nbsp;      addPols(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_POLS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;   * @param elements An iterable of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault setPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.pols == null) {
+&nbsp;      this.pols = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;    } else {
+&nbsp;      this.pols.clear();
+&nbsp;    }
+&nbsp;    addAllPols(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#pols() pols} set.
+&nbsp;   * @param elements An iterable of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addAllPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.pols == null) {
+&nbsp;      this.pols = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;    }
+&nbsp;    for (RetentionPolicy e : elements) {
+&nbsp;      addPols(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_POLS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;   * @param element The navs element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addNavs(int element) {
+&nbsp;    if (this.navs == null) {
+&nbsp;      this.navs = new TreeSet&lt;Integer&gt;(Collections.&lt;Integer&gt;reverseOrder());
+&nbsp;    }
+&nbsp;    this.navs.add(element);
+&nbsp;    optBits |= OPT_BIT_NAVS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;   * @param elements An array of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault addNavs(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addNavs(Objects.requireNonNull(e, &quot;navs element&quot;));
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_NAVS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;   * @param elements An iterable of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault setNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.navs == null) {
+&nbsp;      this.navs = new TreeSet&lt;Integer&gt;(Collections.&lt;Integer&gt;reverseOrder());
+&nbsp;    } else {
+&nbsp;      this.navs.clear();
+&nbsp;    }
+&nbsp;    addAllNavs(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.NullableAndDefault#navs() navs} sortedSet.
+&nbsp;   * @param elements An iterable of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableNullableAndDefault addAllNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (elements == null) return this;
+&nbsp;    if (this.navs == null) {
+&nbsp;      this.navs = new TreeSet&lt;Integer&gt;(Collections.&lt;Integer&gt;reverseOrder());
+&nbsp;    }
+&nbsp;    for (int e : elements) {
+&nbsp;      addNavs(e);
+&nbsp;    }
+&nbsp;    optBits |= OPT_BIT_NAVS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Companion.NullableAndDefault#str() str} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean strIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_STR) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Companion.NullableAndDefault#ints() ints} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean intsIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_INTS) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Companion.NullableAndDefault#ords() ords} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean ordsIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_ORDS) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Companion.NullableAndDefault#pols() pols} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean polsIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_POLS) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Companion.NullableAndDefault#navs() navs} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean navsIsSet() {
+&nbsp;    return (optBits &amp; OPT_BIT_NAVS) != 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the {@link Companion.NullableAndDefault#lst() lst} has not been initialized
+&nbsp;   * and will default to an empty list.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean lstIsSet() {
+&nbsp;    return lst != null;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the default attribute {@link Companion.NullableAndDefault#arrayInts() arrayInts} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean arrayIntsIsSet() {
+&nbsp;    return arrayInts != null;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault unsetStr() {
+&nbsp;    optBits |= 0;
+&nbsp;    str = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault unsetInts() {
+&nbsp;    optBits |= 0;
+&nbsp;    if (ints != null) {
+&nbsp;      ints.clear();
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault unsetOrds() {
+&nbsp;    optBits |= 0;
+&nbsp;    ords = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault unsetPols() {
+&nbsp;    optBits |= 0;
+&nbsp;    if (pols != null) {
+&nbsp;      pols.clear();
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableNullableAndDefault unsetNavs() {
+&nbsp;    optBits |= 0;
+&nbsp;    if (navs != null) {
+&nbsp;      navs.clear();
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableNullableAndDefault ImmutableNullableAndDefault}.
+&nbsp;   * @return An immutable instance of NullableAndDefault
+&nbsp;   */
+&nbsp;  public final ImmutableNullableAndDefault toImmutable() {
+&nbsp;    return ImmutableNullableAndDefault.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableNullableAndDefault} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableNullableAndDefault)) return false;
+&nbsp;    ModifiableNullableAndDefault other = (ModifiableNullableAndDefault) another;
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableNullableAndDefault another) {
+&nbsp;    List&lt;String&gt; lst = this.lst != null
+&nbsp;        ? this.lst
+&nbsp;        : Collections.&lt;String&gt;emptyList();
+&nbsp;    List&lt;String&gt; str = str();
+&nbsp;    Set&lt;Integer&gt; ints = ints();
+&nbsp;    int[] arrayInts = arrayInts();
+&nbsp;    SortedSet&lt;Integer&gt; ords = ords();
+&nbsp;    Set&lt;RetentionPolicy&gt; pols = pols();
+&nbsp;    NavigableSet&lt;Integer&gt; navs = navs();
+&nbsp;    return lst.equals(another.lst())
+&nbsp;        &amp;&amp; Objects.equals(str, another.str())
+&nbsp;        &amp;&amp; ints.equals(another.ints())
+&nbsp;        &amp;&amp; Arrays.equals(arrayInts, another.arrayInts())
+&nbsp;        &amp;&amp; Objects.equals(ords, another.ords())
+&nbsp;        &amp;&amp; pols.equals(another.pols())
+&nbsp;        &amp;&amp; navs.equals(another.navs());
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code lst}, {@code str}, {@code ints}, {@code arrayInts}, {@code ords}, {@code pols}, {@code navs}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + (lst == null ? 1 : lst.hashCode());
+&nbsp;    List&lt;String&gt; str = str();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(str);
+&nbsp;    Set&lt;Integer&gt; ints = ints();
+&nbsp;    h += (h &lt;&lt; 5) + (ints == null ? 0 : ints.hashCode());
+&nbsp;    int[] arrayInts = arrayInts();
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayInts);
+&nbsp;    SortedSet&lt;Integer&gt; ords = ords();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(ords);
+&nbsp;    Set&lt;RetentionPolicy&gt; pols = pols();
+&nbsp;    h += (h &lt;&lt; 5) + (pols == null ? 0 : pols.hashCode());
+&nbsp;    NavigableSet&lt;Integer&gt; navs = navs();
+&nbsp;    h += (h &lt;&lt; 5) + (navs == null ? 0 : navs.hashCode());
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code NullableAndDefault}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableNullableAndDefault&quot;)
+&nbsp;        .add(&quot;lst&quot;, lst())
+&nbsp;        .add(&quot;str&quot;, str())
+&nbsp;        .add(&quot;ints&quot;, ints())
+&nbsp;        .add(&quot;arrayInts&quot;, Arrays.toString(arrayInts()))
+&nbsp;        .add(&quot;ords&quot;, ords())
+&nbsp;        .add(&quot;pols&quot;, pols())
+&nbsp;        .add(&quot;navs&quot;, navs())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

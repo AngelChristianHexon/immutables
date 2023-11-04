@@ -1,0 +1,379 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableHasTypeAnnotation</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableHasTypeAnnotation (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableHasTypeAnnotation$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link HasTypeAnnotation}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableHasTypeAnnotation.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;HasTypeAnnotation&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableHasTypeAnnotation extends HasTypeAnnotation {
+&nbsp;  private final @Nullable java.lang.@TypeA @TypeB String str;
+&nbsp;  private final @Nullable byte[] bte;
+&nbsp;  private final @Nullable ImmutableMap&lt;String, String&gt; map;
+&nbsp;
+&nbsp;  private ImmutableHasTypeAnnotation(
+&nbsp;      @Nullable java.lang.@TypeA @TypeB String str,
+&nbsp;      @Nullable byte[] bte,
+&nbsp;      @Nullable ImmutableMap&lt;String, String&gt; map) {
+&nbsp;    this.str = str;
+&nbsp;    this.bte = bte;
+&nbsp;    this.map = map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code str} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable java.lang.@TypeA @TypeB String str() {
+&nbsp;    return str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code bte} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable byte[] bte() {
+&nbsp;    return bte;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableMap&lt;String, String&gt; map() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link HasTypeAnnotation#str() str} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for str (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableHasTypeAnnotation withStr(@Nullable java.lang.@TypeA @TypeB String value) {
+&nbsp;    if (Objects.equals(this.str, value)) return this;
+&nbsp;    return new ImmutableHasTypeAnnotation(value, this.bte, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link HasTypeAnnotation#bte() bte}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for bte
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableHasTypeAnnotation withBte(@Nullable byte... elements) {
+&nbsp;    @Nullable byte[] newValue = elements == null ? null : elements.clone();
+&nbsp;    return new ImmutableHasTypeAnnotation(this.str, newValue, this.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link HasTypeAnnotation#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableHasTypeAnnotation withMap(@Nullable java.util.Map&lt;String, ? extends String&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    @Nullable ImmutableMap&lt;String, String&gt; newValue = entries == null ? null : ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableHasTypeAnnotation(this.str, this.bte, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableHasTypeAnnotation} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableHasTypeAnnotation
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableHasTypeAnnotation) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableHasTypeAnnotation another) {
+&nbsp;    return Objects.equals(str, another.str)
+&nbsp;        &amp;&amp; Arrays.equals(bte, another.bte)
+&nbsp;        &amp;&amp; Objects.equals(map, another.map);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code str}, {@code bte}, {@code map}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(str);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(bte);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(map);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code HasTypeAnnotation} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;HasTypeAnnotation&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;str&quot;, str)
+&nbsp;        .add(&quot;bte&quot;, Arrays.toString(bte))
+&nbsp;        .add(&quot;map&quot;, map)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link HasTypeAnnotation} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable HasTypeAnnotation instance
+&nbsp;   */
+&nbsp;  public static ImmutableHasTypeAnnotation copyOf(HasTypeAnnotation instance) {
+&nbsp;    if (instance instanceof ImmutableHasTypeAnnotation) {
+&nbsp;      return (ImmutableHasTypeAnnotation) instance;
+&nbsp;    }
+&nbsp;    return ImmutableHasTypeAnnotation.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableHasTypeAnnotation ImmutableHasTypeAnnotation}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableHasTypeAnnotation.builder()
+&nbsp;   *    .str(@org.immutables.fixture.TypeA @org.immutables.fixture.TypeB String | null) // nullable {@link HasTypeAnnotation#str() str}
+&nbsp;   *    .bte(byte[] | null) // nullable {@link HasTypeAnnotation#bte() bte}
+&nbsp;   *    .map(@org.immutables.fixture.TypeA @org.immutables.fixture.TypeB Map&amp;amp;lt;String, String&amp;amp;gt; | null) // nullable {@link HasTypeAnnotation#map() map}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableHasTypeAnnotation builder
+&nbsp;   */
+&nbsp;  public static ImmutableHasTypeAnnotation.Builder builder() {
+&nbsp;    return new ImmutableHasTypeAnnotation.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableHasTypeAnnotation ImmutableHasTypeAnnotation}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;HasTypeAnnotation&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @Nullable java.lang.@TypeA @TypeB String str;
+&nbsp;    private @Nullable byte[] bte;
+&nbsp;    private ImmutableMap.Builder&lt;String, String&gt; map = null;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code HasTypeAnnotation} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(HasTypeAnnotation instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable java.lang.@TypeA @TypeB String strValue = instance.str();
+&nbsp;      if (strValue != null) {
+&nbsp;        str(strValue);
+&nbsp;      }
+&nbsp;      @Nullable byte[] bteValue = instance.bte();
+&nbsp;      if (bteValue != null) {
+&nbsp;        bte(bteValue);
+&nbsp;      }
+&nbsp;      @Nullable java.util.@TypeA @TypeB Map&lt;String, String&gt; mapValue = instance.map();
+&nbsp;      if (mapValue != null) {
+&nbsp;        putAllMap(mapValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link HasTypeAnnotation#str() str} attribute.
+&nbsp;     * @param str The value for str (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder str(@Nullable java.lang.@TypeA @TypeB String str) {
+&nbsp;      this.str = str;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link HasTypeAnnotation#bte() bte} attribute.
+&nbsp;     * @param bte The elements for bte
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bte(byte... bte) {
+&nbsp;      this.bte = bte;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link HasTypeAnnotation#map() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(String key, String value) {
+&nbsp;      if (this.map == null) {
+&nbsp;        this.map = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link HasTypeAnnotation#map() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(java.util.Map.Entry&lt;String, ? extends String&gt; entry) {
+&nbsp;      if (this.map == null) {
+&nbsp;        this.map = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.map.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link HasTypeAnnotation#map() map} map. Nulls are not permitted as keys or values, but parameter itself can be null
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder map(@Nullable java.util.Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      if (entries == null) {
+&nbsp;        this.map = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.map = ImmutableMap.builder();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link HasTypeAnnotation#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(java.util.Map&lt;String, ? extends String&gt; entries) {
+&nbsp;      if (this.map == null) {
+&nbsp;        this.map = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.map.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableHasTypeAnnotation ImmutableHasTypeAnnotation}.
+&nbsp;     * @return An immutable instance of HasTypeAnnotation
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableHasTypeAnnotation build() {
+&nbsp;      return new ImmutableHasTypeAnnotation(str, bte, map == null ? null : map.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

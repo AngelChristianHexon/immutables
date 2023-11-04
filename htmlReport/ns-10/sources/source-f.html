@@ -1,0 +1,267 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Matchers</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.matcher</a>
+</div>
+
+<h1>Coverage Summary for Class: Matchers (org.immutables.criteria.matcher)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Matchers</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/52)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.matcher;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.reflect.TypeToken;
+&nbsp;import org.immutables.criteria.Criterion;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Operator;
+&nbsp;import org.immutables.criteria.expression.Operators;
+&nbsp;
+&nbsp;import java.lang.reflect.Method;
+&nbsp;import java.lang.reflect.ParameterizedType;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.lang.reflect.TypeVariable;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.UnaryOperator;
+&nbsp;
+&nbsp;/**
+&nbsp; * Util functions for matchers
+&nbsp; */
+&nbsp;public final class Matchers {
+&nbsp;
+&nbsp;  private Matchers() {}
+&nbsp;
+&nbsp;  static &lt;R extends Criterion&lt;?&gt;&gt; R combine(R left, R right, Operator operator) {
+<b class="nc">&nbsp;    Preconditions.checkArgument(operator == Operators.AND || operator == Operators.OR, &quot;Invalid operator %s&quot;, operator);</b>
+<b class="nc">&nbsp;    CriteriaContext context = extract(left);</b>
+<b class="nc">&nbsp;    Expression leftExpression = context.expression();</b>
+<b class="nc">&nbsp;    Expression rightExpression = extract(right).expression();</b>
+<b class="nc">&nbsp;    Combiner combiner = operator == Operators.AND ? Combiner.and() : Combiner.or();</b>
+<b class="nc">&nbsp;    Expression expression = combiner.combine(leftExpression, rightExpression);</b>
+<b class="nc">&nbsp;    CriteriaCreator&lt;R&gt; creator = context.creator();</b>
+<b class="nc">&nbsp;    ImmutableState state = context.state();</b>
+<b class="nc">&nbsp;    return creator.create(new CriteriaContext(null, state.withCurrent(expression).withPartial(state.defaultPartial())));</b>
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Argument/component type of {@code Iterable&lt;String&gt;} or {@code String[]} will be {@code String}.
+&nbsp;   */
+&nbsp;  static Type iterableTypeArgument(Type type) {
+<b class="nc">&nbsp;    Objects.requireNonNull(type, &quot;type&quot;);</b>
+<b class="nc">&nbsp;    if (type instanceof ParameterizedType) {</b>
+<b class="nc">&nbsp;      return ((ParameterizedType) type).getActualTypeArguments()[0];</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (type instanceof Class) {</b>
+<b class="nc">&nbsp;      Class&lt;?&gt; clazz = (Class&lt;?&gt;) type;</b>
+&nbsp;      // for arrays
+<b class="nc">&nbsp;      if (clazz.isArray()) {</b>
+<b class="nc">&nbsp;        return clazz.getComponentType();</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new IllegalArgumentException(&quot;Invalid type &quot; + type + &quot;. Not iterable/array.&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Gets generic type variable of aggregation interface.
+&nbsp;   */
+&nbsp;  static Type aggregationType(Class&lt;?&gt; from, Class&lt;?&gt; searchFor, String methodName, Expression fallback) {
+&nbsp;    try {
+<b class="nc">&nbsp;      final Method method = searchFor.getMethod(methodName);</b>
+<b class="nc">&nbsp;      Type type = TypeToken.of(from).resolveType(method.getGenericReturnType()).getType();</b>
+<b class="nc">&nbsp;      if (!(type instanceof ParameterizedType)) {</b>
+<b class="nc">&nbsp;        throw new IllegalArgumentException(String.format(&quot;Expected %s for method %s but got %s&quot;, ParameterizedType.class.getSimpleName(), searchFor.getSimpleName() + &quot;.&quot; + methodName, type));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      ParameterizedType parameterized = (ParameterizedType) type;</b>
+<b class="nc">&nbsp;      if (parameterized.getRawType() != Aggregation.class) {</b>
+<b class="nc">&nbsp;        throw new IllegalArgumentException(String.format(&quot;Expected %s but got %s&quot;, Aggregation.class, parameterized.getRawType()));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (parameterized.getActualTypeArguments().length != 1) {</b>
+<b class="nc">&nbsp;        throw new IllegalArgumentException(String.format(&quot;Expected single type parameter for %s got %d&quot;, parameterized, parameterized.getActualTypeArguments().length));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      Type resolved = parameterized.getActualTypeArguments()[0];</b>
+<b class="nc">&nbsp;      if (resolved instanceof TypeVariable) {</b>
+&nbsp;        // still unresolved
+&nbsp;        // resolve manually using provided Expression returnType
+<b class="nc">&nbsp;        return TypeToken.of(searchFor).resolveType(fallback.returnType()).getType();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return resolved;</b>
+<b class="nc">&nbsp;    } catch (NoSuchMethodException e) {</b>
+<b class="nc">&nbsp;      throw new RuntimeException(e);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  public static Expression toExpression(Projection&lt;?&gt; projection) {
+<b class="nc">&nbsp;    Objects.requireNonNull(projection, &quot;projection&quot;);</b>
+<b class="nc">&nbsp;    CriteriaContext context = extract((Matcher) projection);</b>
+<b class="nc">&nbsp;    return context.expression();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static Expression toExpression(Aggregation&lt;?&gt; aggregation) {
+<b class="nc">&nbsp;    Objects.requireNonNull(aggregation, &quot;aggregation&quot;);</b>
+<b class="nc">&nbsp;    return extract((Matcher) aggregation).expression();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static CriteriaContext extract(Criterion&lt;?&gt; criterion) {
+<b class="nc">&nbsp;    Objects.requireNonNull(criterion, &quot;criterion&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (criterion instanceof AbstractContextHolder) {</b>
+<b class="nc">&nbsp;      return ((AbstractContextHolder) criterion).context();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new IllegalArgumentException(String.format(&quot;%s does not implement %s&quot;, criterion.getClass().getName(),</b>
+<b class="nc">&nbsp;            AbstractContextHolder.class.getSimpleName()));</b>
+&nbsp;  }
+&nbsp;  /**
+&nbsp;   * Extracts criteria context from an arbitrary object.
+&nbsp;   * @see AbstractContextHolder
+&nbsp;   */
+&nbsp;  public static CriteriaContext extract(Matcher object) {
+<b class="nc">&nbsp;    Objects.requireNonNull(object, &quot;object&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;    if (object instanceof AbstractContextHolder) {</b>
+<b class="nc">&nbsp;      return ((AbstractContextHolder) object).context();</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new IllegalArgumentException(String.format(&quot;%s does not implement %s&quot;, object.getClass().getName(),</b>
+<b class="nc">&nbsp;            AbstractContextHolder.class.getSimpleName()));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  static &lt;C&gt; UnaryOperator&lt;Expression&gt; toInnerExpression(CriteriaContext context, UnaryOperator&lt;C&gt; expr) {
+<b class="nc">&nbsp;    return expression -&gt; {</b>
+<b class="nc">&nbsp;      final CriteriaContext newContext = context.nested();</b>
+&nbsp;      @SuppressWarnings(&quot;unchecked&quot;)
+<b class="nc">&nbsp;      final C initial = (C) newContext.creator().create(newContext);</b>
+<b class="nc">&nbsp;      final C changed = expr.apply(initial);</b>
+<b class="nc">&nbsp;      return Matchers.extract((Matcher) changed).expression();</b>
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

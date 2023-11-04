@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AbstractGenerator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator</a>
+</div>
+
+<h1>Coverage Summary for Class: AbstractGenerator (org.immutables.generator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AbstractGenerator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator;
+&nbsp;
+&nbsp;import com.google.common.base.Throwables;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.processing.AbstractProcessor;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.annotation.processing.RoundEnvironment;
+&nbsp;import javax.annotation.processing.SupportedSourceVersion;
+&nbsp;import javax.lang.model.SourceVersion;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.tools.Diagnostic;
+&nbsp;import org.immutables.generator.Generator.SupportedAnnotations;
+&nbsp;
+&nbsp;/**
+&nbsp; * Extend this abstract processor to properly initalize and call templates.
+&nbsp; * @see #process()
+&nbsp; */
+<b class="nc">&nbsp;public abstract class AbstractGenerator extends AbstractProcessor {</b>
+<b class="nc">&nbsp;  private final EnvironmentState env = new EnvironmentState();</b>
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Override process method and call {@link #invoke(org.immutables.generator.Templates.Invokable)}
+&nbsp;   * from inside it passing invokable fragments from generated template instances.
+&nbsp;   */
+&nbsp;  protected abstract void process();
+&nbsp;
+&nbsp;  protected final ProcessingEnvironment processing() {
+<b class="nc">&nbsp;    return EnvironmentState.processing();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  protected final RoundEnvironment round() {
+<b class="nc">&nbsp;    return EnvironmentState.round();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  protected final Set&lt;TypeElement&gt; annotations() {
+<b class="nc">&nbsp;    return EnvironmentState.annotations();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  protected final void invoke(Templates.Invokable invokable) {
+<b class="nc">&nbsp;    invokable.invoke(Templates.Invokation.initial());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public SourceVersion getSupportedSourceVersion() {
+<b class="nc">&nbsp;    @Nullable SupportedSourceVersion sourceVersion = this.getClass().getAnnotation(SupportedSourceVersion.class);</b>
+<b class="nc">&nbsp;    if (sourceVersion != null) {</b>
+<b class="nc">&nbsp;      return sourceVersion.value();</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return SourceVersion.latestSupported();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getSupportedAnnotationTypes() {
+<b class="nc">&nbsp;    @Nullable SupportedAnnotations annotations = getClass().getAnnotation(Generator.SupportedAnnotations.class);</b>
+<b class="nc">&nbsp;    if (annotations != null) {</b>
+<b class="nc">&nbsp;      Set&lt;String&gt; annotationNames = Sets.newHashSet();</b>
+<b class="nc">&nbsp;      for (Class&lt;?&gt; c : annotations.value()) {</b>
+<b class="nc">&nbsp;        annotationNames.add(c.getCanonicalName());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return ImmutableSet.copyOf(annotationNames);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return super.getSupportedAnnotationTypes();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public synchronized void init(ProcessingEnvironment processingEnv) {
+<b class="nc">&nbsp;    env.initProcessing(processingEnv);</b>
+<b class="nc">&nbsp;    super.init(processingEnv);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public final boolean process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment round) {
+&nbsp;    try {
+<b class="nc">&nbsp;      env.initRound(annotations, round);</b>
+<b class="nc">&nbsp;      if (!round.processingOver() &amp;&amp; !round.errorRaised()) { // idk if we should ignore errorRaised</b>
+<b class="nc">&nbsp;        process();</b>
+&nbsp;      }
+<b class="nc">&nbsp;      env.completeRound();</b>
+<b class="nc">&nbsp;      if (round.processingOver()) {</b>
+<b class="nc">&nbsp;        env.completeProcessing();</b>
+&nbsp;      }
+<b class="nc">&nbsp;    } catch (Exception ex) {</b>
+<b class="nc">&nbsp;      processingEnv.getMessager()</b>
+<b class="nc">&nbsp;          .printMessage(Diagnostic.Kind.ERROR,</b>
+<b class="nc">&nbsp;              getClass().getName() + &quot; threw &quot; + Throwables.getStackTraceAsString(ex));</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

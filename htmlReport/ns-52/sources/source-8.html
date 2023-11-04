@@ -1,0 +1,282 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AttributeBuilderThirdPartyModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: AttributeBuilderThirdPartyModel (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AttributeBuilderThirdPartyModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AttributeBuilderThirdPartyModel$Creator</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/38)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/39)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.type.DeclaredType;
+&nbsp;import org.immutables.value.Value.Immutable;
+&nbsp;import org.immutables.value.Value.Modifiable;
+&nbsp;import org.immutables.value.Value.Style;
+&nbsp;
+&nbsp;@Immutable
+<b class="nc">&nbsp;abstract class AttributeBuilderThirdPartyModel {</b>
+&nbsp;  // Must be instance
+&nbsp;  protected abstract ExecutableElement buildMethod();
+&nbsp;
+&nbsp;  // Constructor, Static, or Instance
+&nbsp;  protected abstract ExecutableElement copyMethod();
+&nbsp;
+&nbsp;  // Constructor or Static
+&nbsp;  protected abstract ExecutableElement builderMethod();
+&nbsp;
+&nbsp;  protected abstract TypeElement builderType();
+&nbsp;
+&nbsp;  @Modifiable
+&nbsp;  @Style(set = &quot;*&quot;)
+<b class="nc">&nbsp;  abstract static class Creator extends AttributeBuilderThirdPartyModel {</b>
+&nbsp;
+&nbsp;    @Override
+&nbsp;    @Nullable
+&nbsp;    protected abstract ExecutableElement buildMethod();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    @Nullable
+&nbsp;    protected abstract ExecutableElement copyMethod();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    @Nullable
+&nbsp;    protected abstract ExecutableElement builderMethod();
+&nbsp;
+&nbsp;    @Override
+&nbsp;    @Nullable
+&nbsp;    protected abstract TypeElement builderType();
+&nbsp;
+&nbsp;    protected abstract AttributeBuilderThirdPartyModel buildMethod(ExecutableElement buildMethod);
+&nbsp;
+&nbsp;    protected abstract AttributeBuilderThirdPartyModel copyMethod(ExecutableElement copyMethod);
+&nbsp;
+&nbsp;    protected abstract AttributeBuilderThirdPartyModel builderMethod(ExecutableElement buildMethod);
+&nbsp;
+&nbsp;    protected abstract AttributeBuilderThirdPartyModel builderType(TypeElement builderType);
+&nbsp;
+&nbsp;    @Nullable
+&nbsp;    public TypeElement findBuilderType() {
+<b class="nc">&nbsp;      if (buildMethod() != null) {</b>
+<b class="nc">&nbsp;        return getBuilderTypeFromBuildMethod();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (copyMethod() != null) {</b>
+<b class="nc">&nbsp;        return getBuilderTypeFromCopyMethod();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (builderMethod() != null) {</b>
+<b class="nc">&nbsp;        return getBuilderTypeFromBuilderMethod();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (builderType() != null) {</b>
+<b class="nc">&nbsp;        return builderType();</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return null;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void mergeFrom(AttributeBuilderThirdPartyModel toCopyFrom) {
+<b class="nc">&nbsp;      if (buildMethod() == null) {</b>
+<b class="nc">&nbsp;        buildMethod(toCopyFrom.buildMethod());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (copyMethod() == null) {</b>
+<b class="nc">&nbsp;        copyMethod(toCopyFrom.copyMethod());</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (builderMethod() == null) {</b>
+<b class="nc">&nbsp;        builderMethod(toCopyFrom.builderMethod());</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private TypeElement getBuilderTypeFromBuilderMethod() {
+<b class="nc">&nbsp;      return builderMethod().getKind() == ElementKind.CONSTRUCTOR</b>
+<b class="nc">&nbsp;          ? (TypeElement) builderMethod().getEnclosingElement()</b>
+<b class="nc">&nbsp;          : (TypeElement) ((DeclaredType) builderMethod().getReturnType()).asElement();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private TypeElement getBuilderTypeFromBuildMethod() {
+<b class="nc">&nbsp;      return (TypeElement) buildMethod().getEnclosingElement();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private TypeElement getBuilderTypeFromCopyMethod() {
+<b class="nc">&nbsp;      return copyMethod().getKind() == ElementKind.CONSTRUCTOR</b>
+<b class="nc">&nbsp;          ? (TypeElement) copyMethod().getEnclosingElement()</b>
+<b class="nc">&nbsp;          : (TypeElement) ((DeclaredType) copyMethod().getReturnType()).asElement();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean complete() {
+<b class="nc">&nbsp;      if (builderMethod() != null &amp;&amp; buildMethod() != null &amp;&amp; copyMethod() != null) {</b>
+<b class="nc">&nbsp;        boolean transitiveEquality = getBuilderTypeFromBuilderMethod()</b>
+<b class="nc">&nbsp;            .equals(getBuilderTypeFromBuildMethod());</b>
+<b class="nc">&nbsp;        transitiveEquality = transitiveEquality</b>
+<b class="nc">&nbsp;            &amp;&amp; getBuilderTypeFromBuildMethod()</b>
+<b class="nc">&nbsp;                .equals(getBuilderTypeFromCopyMethod());</b>
+<b class="nc">&nbsp;        if (builderType() != null) {</b>
+<b class="nc">&nbsp;          transitiveEquality =</b>
+<b class="nc">&nbsp;              transitiveEquality &amp;&amp; getBuilderTypeFromCopyMethod().equals(builderType());</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (!transitiveEquality) {</b>
+<b class="nc">&nbsp;          throw new AssertionError();</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return true;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return false;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // Should this be auto-genned? Though we still have to set the builder type.
+&nbsp;    public AttributeBuilderThirdPartyModel toImmutable() {
+<b class="nc">&nbsp;      builderType(findBuilderType());</b>
+<b class="nc">&nbsp;      return ImmutableAttributeBuilderThirdPartyModel.copyOf(this);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,759 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJdkColl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdkonly</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJdkColl (org.immutables.fixture.jdkonly)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJdkColl$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdkonly;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.NavigableSet;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.SortedSet;
+&nbsp;import java.util.TreeSet;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link JdkColl}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableJdkColl.builder()}.
+&nbsp; * Use the static factory method to get the default singleton instance:
+&nbsp; * {@code ImmutableJdkColl.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;JdkColl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableJdkColl implements JdkColl {
+&nbsp;  private final List&lt;String&gt; str;
+&nbsp;  private final Set&lt;Integer&gt; ints;
+&nbsp;  private final SortedSet&lt;Integer&gt; ords;
+&nbsp;  private final Set&lt;RetentionPolicy&gt; pols;
+&nbsp;  private final NavigableSet&lt;Integer&gt; navs;
+&nbsp;
+&nbsp;  private ImmutableJdkColl() {
+&nbsp;    this.str = Collections.emptyList();
+&nbsp;    this.ints = Collections.emptySet();
+&nbsp;    this.ords = createUnmodifiableSortedSet(false, Collections.&lt;Integer&gt;emptyList());
+&nbsp;    this.pols = Collections.emptySet();
+&nbsp;    this.navs = createUnmodifiableSortedSet(true, Collections.&lt;Integer&gt;emptyList());
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableJdkColl(
+&nbsp;      List&lt;String&gt; str,
+&nbsp;      Set&lt;Integer&gt; ints,
+&nbsp;      SortedSet&lt;Integer&gt; ords,
+&nbsp;      Set&lt;RetentionPolicy&gt; pols,
+&nbsp;      NavigableSet&lt;Integer&gt; navs) {
+&nbsp;    this.str = str;
+&nbsp;    this.ints = ints;
+&nbsp;    this.ords = ords;
+&nbsp;    this.pols = pols;
+&nbsp;    this.navs = navs;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code str} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; str() {
+&nbsp;    return str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ints} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;Integer&gt; ints() {
+&nbsp;    return ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ords} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public SortedSet&lt;Integer&gt; ords() {
+&nbsp;    return ords;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code pols} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;RetentionPolicy&gt; pols() {
+&nbsp;    return pols;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code navs} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public NavigableSet&lt;Integer&gt; navs() {
+&nbsp;    return navs;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#str() str}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withStr(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), true, false));
+&nbsp;    return validate(new ImmutableJdkColl(newValue, this.ints, this.ords, this.pols, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#str() str}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of str elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withStr(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.str == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, true, false));
+&nbsp;    return validate(new ImmutableJdkColl(newValue, this.ints, this.ords, this.pols, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#ints() ints}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withInts(int... elements) {
+&nbsp;    ArrayList&lt;Integer&gt; wrappedList = new ArrayList&lt;&gt;(elements.length);
+&nbsp;    for (int element : elements) {
+&nbsp;      wrappedList.add(element);
+&nbsp;    }
+&nbsp;    Set&lt;Integer&gt; newValue = createUnmodifiableSet(wrappedList);
+&nbsp;    return validate(new ImmutableJdkColl(this.str, newValue, this.ords, this.pols, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#ints() ints}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ints elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ints == elements) return this;
+&nbsp;    Set&lt;Integer&gt; newValue = createUnmodifiableSet(createSafeList(elements, true, false));
+&nbsp;    return validate(new ImmutableJdkColl(this.str, newValue, this.ords, this.pols, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#ords() ords}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withOrds(int... elements) {
+&nbsp;    ArrayList&lt;Integer&gt; wrappedList = new ArrayList&lt;&gt;(elements.length);
+&nbsp;    for (int element : elements) {
+&nbsp;      wrappedList.add(element);
+&nbsp;    }
+&nbsp;    SortedSet&lt;Integer&gt; newValue = createUnmodifiableSortedSet(false, wrappedList);
+&nbsp;    return validate(new ImmutableJdkColl(this.str, this.ints, newValue, this.pols, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#ords() ords}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ords elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ords == elements) return this;
+&nbsp;    SortedSet&lt;Integer&gt; newValue = createUnmodifiableSortedSet(false, createSafeList(elements, true, false));
+&nbsp;    return validate(new ImmutableJdkColl(this.str, this.ints, newValue, this.pols, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#pols() pols}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withPols(RetentionPolicy... elements) {
+&nbsp;    Set&lt;RetentionPolicy&gt; newValue = createUnmodifiableEnumSet(Arrays.asList(elements));
+&nbsp;    return validate(new ImmutableJdkColl(this.str, this.ints, this.ords, newValue, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#pols() pols}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of pols elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.pols == elements) return this;
+&nbsp;    Set&lt;RetentionPolicy&gt; newValue = createUnmodifiableEnumSet(elements);
+&nbsp;    return validate(new ImmutableJdkColl(this.str, this.ints, this.ords, newValue, this.navs));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#navs() navs}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withNavs(int... elements) {
+&nbsp;    ArrayList&lt;Integer&gt; wrappedList = new ArrayList&lt;&gt;(elements.length);
+&nbsp;    for (int element : elements) {
+&nbsp;      wrappedList.add(element);
+&nbsp;    }
+&nbsp;    NavigableSet&lt;Integer&gt; newValue = createUnmodifiableSortedSet(true, wrappedList);
+&nbsp;    return validate(new ImmutableJdkColl(this.str, this.ints, this.ords, this.pols, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link JdkColl#navs() navs}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of navs elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdkColl withNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.navs == elements) return this;
+&nbsp;    NavigableSet&lt;Integer&gt; newValue = createUnmodifiableSortedSet(true, createSafeList(elements, true, false));
+&nbsp;    return validate(new ImmutableJdkColl(this.str, this.ints, this.ords, this.pols, newValue));
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJdkColl} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableJdkColl
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableJdkColl) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJdkColl another) {
+&nbsp;    return str.equals(another.str)
+&nbsp;        &amp;&amp; ints.equals(another.ints)
+&nbsp;        &amp;&amp; ords.equals(another.ords)
+&nbsp;        &amp;&amp; pols.equals(another.pols)
+&nbsp;        &amp;&amp; navs.equals(another.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code str}, {@code ints}, {@code ords}, {@code pols}, {@code navs}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + str.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ords.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + pols.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navs.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code JdkColl} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;JdkColl{&quot;
+&nbsp;        + &quot;str=&quot; + str
+&nbsp;        + &quot;, ints=&quot; + ints
+&nbsp;        + &quot;, ords=&quot; + ords
+&nbsp;        + &quot;, pols=&quot; + pols
+&nbsp;        + &quot;, navs=&quot; + navs
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final ImmutableJdkColl INSTANCE = validate(new ImmutableJdkColl());
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns the default immutable singleton value of {@code JdkColl}
+&nbsp;   * @return An immutable instance of JdkColl
+&nbsp;   */
+&nbsp;  public static ImmutableJdkColl of() {
+&nbsp;    return INSTANCE;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static ImmutableJdkColl validate(ImmutableJdkColl instance) {
+&nbsp;    return INSTANCE != null &amp;&amp; INSTANCE.equalTo(0, instance) ? INSTANCE : instance;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link JdkColl} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable JdkColl instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdkColl copyOf(JdkColl instance) {
+&nbsp;    if (instance instanceof ImmutableJdkColl) {
+&nbsp;      return (ImmutableJdkColl) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJdkColl.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableJdkColl ImmutableJdkColl}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableJdkColl.builder()
+&nbsp;   *    .addStr|addAllStr(String) // {@link JdkColl#str() str} elements
+&nbsp;   *    .addInts|addAllInts(int) // {@link JdkColl#ints() ints} elements
+&nbsp;   *    .addOrds|addAllOrds(int) // {@link JdkColl#ords() ords} elements
+&nbsp;   *    .addPols|addAllPols(annotation.RetentionPolicy) // {@link JdkColl#pols() pols} elements
+&nbsp;   *    .addNavs|addAllNavs(int) // {@link JdkColl#navs() navs} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableJdkColl builder
+&nbsp;   */
+&nbsp;  public static ImmutableJdkColl.Builder builder() {
+&nbsp;    return new ImmutableJdkColl.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableJdkColl ImmutableJdkColl}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;JdkColl&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private List&lt;String&gt; str = new ArrayList&lt;String&gt;();
+&nbsp;    private List&lt;Integer&gt; ints = new ArrayList&lt;Integer&gt;();
+&nbsp;    private List&lt;Integer&gt; ords = new ArrayList&lt;Integer&gt;();
+&nbsp;    private EnumSet&lt;RetentionPolicy&gt; pols = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;    private List&lt;Integer&gt; navs = new ArrayList&lt;Integer&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code JdkColl} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(JdkColl instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllStr(instance.str());
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      addAllOrds(instance.ords());
+&nbsp;      addAllPols(instance.pols());
+&nbsp;      addAllNavs(instance.navs());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link JdkColl#str() str} list.
+&nbsp;     * @param element A str element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addStr(String element) {
+&nbsp;      this.str.add(Objects.requireNonNull(element, &quot;str element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#str() str} list.
+&nbsp;     * @param elements An array of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addStr(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.str.add(Objects.requireNonNull(element, &quot;str element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link JdkColl#str() str} list.
+&nbsp;     * @param elements An iterable of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder str(Iterable&lt;String&gt; elements) {
+&nbsp;      this.str.clear();
+&nbsp;      return addAllStr(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#str() str} list.
+&nbsp;     * @param elements An iterable of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllStr(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.str.add(Objects.requireNonNull(element, &quot;str element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link JdkColl#ints() ints} set.
+&nbsp;     * @param element A ints element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int element) {
+&nbsp;      this.ints.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#ints() ints} set.
+&nbsp;     * @param elements An array of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int... elements) {
+&nbsp;      for (int element : elements) {
+&nbsp;        this.ints.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link JdkColl#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ints(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints.clear();
+&nbsp;      return addAllInts(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;      for (Integer element : elements) {
+&nbsp;        this.ints.add(Objects.requireNonNull(element, &quot;ints element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link JdkColl#ords() ords} sortedSet.
+&nbsp;     * @param element A ords element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addOrds(int element) {
+&nbsp;      this.ords.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#ords() ords} sortedSet.
+&nbsp;     * @param elements An array of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addOrds(int... elements) {
+&nbsp;      for (int element : elements) {
+&nbsp;        this.ords.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link JdkColl#ords() ords} sortedSet.
+&nbsp;     * @param elements An iterable of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ords(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ords.clear();
+&nbsp;      return addAllOrds(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#ords() ords} sortedSet.
+&nbsp;     * @param elements An iterable of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;      for (Integer element : elements) {
+&nbsp;        this.ords.add(Objects.requireNonNull(element, &quot;ords element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link JdkColl#pols() pols} set.
+&nbsp;     * @param element A pols element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPols(RetentionPolicy element) {
+&nbsp;      this.pols.add(Objects.requireNonNull(element, &quot;pols element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#pols() pols} set.
+&nbsp;     * @param elements An array of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPols(RetentionPolicy... elements) {
+&nbsp;      for (RetentionPolicy element : elements) {
+&nbsp;        this.pols.add(Objects.requireNonNull(element, &quot;pols element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link JdkColl#pols() pols} set.
+&nbsp;     * @param elements An iterable of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder pols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.pols.clear();
+&nbsp;      return addAllPols(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#pols() pols} set.
+&nbsp;     * @param elements An iterable of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      for (RetentionPolicy element : elements) {
+&nbsp;        this.pols.add(Objects.requireNonNull(element, &quot;pols element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link JdkColl#navs() navs} sortedSet.
+&nbsp;     * @param element A navs element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNavs(int element) {
+&nbsp;      this.navs.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#navs() navs} sortedSet.
+&nbsp;     * @param elements An array of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNavs(int... elements) {
+&nbsp;      for (int element : elements) {
+&nbsp;        this.navs.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link JdkColl#navs() navs} sortedSet.
+&nbsp;     * @param elements An iterable of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder navs(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.navs.clear();
+&nbsp;      return addAllNavs(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link JdkColl#navs() navs} sortedSet.
+&nbsp;     * @param elements An iterable of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;      for (Integer element : elements) {
+&nbsp;        this.navs.add(Objects.requireNonNull(element, &quot;navs element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableJdkColl ImmutableJdkColl}.
+&nbsp;     * @return An immutable instance of JdkColl
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableJdkColl build() {
+&nbsp;      return ImmutableJdkColl.validate(new ImmutableJdkColl(
+&nbsp;          createUnmodifiableList(true, str),
+&nbsp;          createUnmodifiableSet(ints),
+&nbsp;          createUnmodifiableSortedSet(false, createSafeList(ords, false, false)),
+&nbsp;          createUnmodifiableEnumSet(pols),
+&nbsp;          createUnmodifiableSortedSet(true, createSafeList(navs, false, false))));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /** Unmodifiable set constructed from list to avoid rehashing. */
+&nbsp;  private static &lt;T&gt; Set&lt;T&gt; createUnmodifiableSet(List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default:
+&nbsp;      Set&lt;T&gt; set = new LinkedHashSet&lt;&gt;(list.size() * 4 / 3 + 1);
+&nbsp;      set.addAll(list);
+&nbsp;      return Collections.unmodifiableSet(set);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  private static &lt;T extends Enum&lt;T&gt;&gt; Set&lt;T&gt; createUnmodifiableEnumSet(Iterable&lt;T&gt; iterable) {
+&nbsp;    if (iterable instanceof EnumSet&lt;?&gt;) {
+&nbsp;      return Collections.unmodifiableSet(EnumSet.copyOf((EnumSet&lt;T&gt;) iterable));
+&nbsp;    }
+&nbsp;    List&lt;T&gt; list = createSafeList(iterable, true, false);
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default: return Collections.unmodifiableSet(EnumSet.copyOf(list));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T extends Comparable&lt;T&gt;&gt; NavigableSet&lt;T&gt; createUnmodifiableSortedSet(boolean reverse, List&lt;T&gt; list) {
+&nbsp;    TreeSet&lt;T&gt; set = reverse
+&nbsp;        ? new TreeSet&lt;T&gt;(Collections.&lt;T&gt;reverseOrder())
+&nbsp;        : new TreeSet&lt;T&gt;();
+&nbsp;    set.addAll(list);
+&nbsp;    return Collections.unmodifiableNavigableSet(set);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

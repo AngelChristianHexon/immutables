@@ -1,0 +1,491 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > AnnotationInjections</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: AnnotationInjections (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AnnotationInjections</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">AnnotationInjections$1</td>
+  </tr>
+  <tr>
+    <td class="name">AnnotationInjections$AnnotationInjection</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AnnotationInjections$InjectAnnotation</td>
+  </tr>
+  <tr>
+    <td class="name">AnnotationInjections$InjectAnnotation$Where</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AnnotationInjections$InjectionInfo</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">AnnotationInjections$InjectManyAnnotations</td>
+  </tr>
+  <tr>
+    <td class="name">AnnotationInjections$ToLiteral</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/48)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/99)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.base.Joiner;
+&nbsp;import com.google.common.base.Joiner.MapJoiner;
+&nbsp;import com.google.common.collect.FluentIterable;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import java.lang.annotation.Annotation;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.HashMap;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Map.Entry;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.AnnotationMirror;
+&nbsp;import javax.lang.model.element.AnnotationValue;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import org.immutables.generator.AnnotationMirrors;
+&nbsp;import org.immutables.generator.StringLiterals;
+&nbsp;import org.immutables.mirror.Mirror;
+&nbsp;import org.immutables.value.processor.meta.AnnotationInjections.InjectAnnotation.Where;
+&nbsp;import org.immutables.value.processor.meta.Proto.Environment;
+&nbsp;
+<b class="nc">&nbsp;public final class AnnotationInjections {</b>
+&nbsp;  private static final String P_ANNOTATION = &quot;@&quot;;
+&nbsp;  private static final String P_R = &quot;]]&quot;;
+&nbsp;  private static final String P_L = &quot;[[&quot;;
+&nbsp;  private static final String P_ALL = &quot;[[*]]&quot;;
+&nbsp;  private static final String P_SIMPLE_NAME = &quot;[[!name]]&quot;;
+&nbsp;  private static final String P_ALL_NAMES = &quot;[[*names]]&quot;;
+<b class="nc">&nbsp;  private static final Joiner COMMA_JOINER = Joiner.on(&quot;, &quot;);</b>
+<b class="nc">&nbsp;  private static final MapJoiner ATTR_JOINER = COMMA_JOINER.withKeyValueSeparator(&quot; = &quot;);</b>
+&nbsp;
+&nbsp;  private AnnotationInjections() {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.annotate.InjectAnnotation&quot;)
+&nbsp;  public @interface InjectAnnotation {
+&nbsp;    String code() default &quot;&quot;;
+&nbsp;
+&nbsp;    Class&lt;? extends Annotation&gt; type() default InjectAnnotation.class;
+&nbsp;
+&nbsp;    boolean ifPresent() default false;
+&nbsp;
+&nbsp;    Where[] target();
+&nbsp;
+&nbsp;    String deduplicationKey() default &quot;&quot;;
+&nbsp;
+<b class="nc">&nbsp;    enum Where {</b>
+<b class="nc">&nbsp;      FIELD,</b>
+<b class="nc">&nbsp;      ACCESSOR,</b>
+<b class="nc">&nbsp;      SYNTHETIC_FIELDS,</b>
+<b class="nc">&nbsp;      CONSTRUCTOR_PARAMETER,</b>
+<b class="nc">&nbsp;      INITIALIZER,</b>
+<b class="nc">&nbsp;      ELEMENT_INITIALIZER,</b>
+<b class="nc">&nbsp;      BUILDER_TYPE,</b>
+<b class="nc">&nbsp;      IMMUTABLE_TYPE,</b>
+<b class="nc">&nbsp;      MODIFIABLE_TYPE,</b>
+<b class="nc">&nbsp;      CONSTRUCTOR</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;  
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.annotate.InjectManyAnnotations&quot;)
+&nbsp;  public @interface InjectManyAnnotations {
+&nbsp;    InjectAnnotation[] value();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static String emptyIfDefault(String annotationType) {
+<b class="nc">&nbsp;    if (annotationType.equals(&quot;org.immutables.annotate.InjectAnnotation&quot;) // original default</b>
+<b class="nc">&nbsp;        || annotationType.equals(InjectAnnotation.class.getName())) { // default from the mirror</b>
+<b class="nc">&nbsp;      return &quot;&quot;;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return annotationType;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static InjectionInfo infoFrom(InjectAnnotationMirror mirror) {
+<b class="nc">&nbsp;    return new InjectionInfo(</b>
+<b class="nc">&nbsp;        mirror.code(),</b>
+<b class="nc">&nbsp;        emptyIfDefault(mirror.typeName()),</b>
+<b class="nc">&nbsp;        mirror.deduplicationKey(),</b>
+<b class="nc">&nbsp;        mirror.ifPresent(),</b>
+<b class="nc">&nbsp;        mirror.target());</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SafeVarargs
+&nbsp;  public static Collection&lt;String&gt; collectInjections(
+&nbsp;      Element element,
+&nbsp;      Where target,
+&nbsp;      Collection&lt;String&gt; attributeNames,
+&nbsp;      Iterable&lt;AnnotationInjection&gt;... injections) {
+<b class="nc">&nbsp;    Map&lt;String, String&gt; injectionCode = new HashMap&lt;&gt;();</b>
+<b class="nc">&nbsp;    for (Iterable&lt;AnnotationInjection&gt; inj : injections) {</b>
+<b class="nc">&nbsp;      for (AnnotationInjection a : inj) {</b>
+<b class="nc">&nbsp;        a.addIfApplicable(element, target, attributeNames, injectionCode);</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return injectionCode.values();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static final class AnnotationInjection {
+&nbsp;    private final InjectionInfo info;
+&nbsp;    private final ImmutableMap&lt;String, String&gt; literals;
+&nbsp;
+<b class="nc">&nbsp;    AnnotationInjection(InjectionInfo info, ImmutableMap&lt;String, String&gt; literals) {</b>
+<b class="nc">&nbsp;      this.info = info;</b>
+<b class="nc">&nbsp;      this.literals = literals;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    void addIfApplicable(
+&nbsp;        Element element,
+&nbsp;        Where target,
+&nbsp;        Collection&lt;String&gt; attributeNames,
+&nbsp;        Map&lt;String, String&gt; annotationCode) {
+<b class="nc">&nbsp;      String simpleName = element.getSimpleName().toString();</b>
+&nbsp;
+<b class="nc">&nbsp;      if (annotationCode.containsKey(info.deduplicationKey)) {</b>
+&nbsp;        return;
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!info.targets.contains(target)) {</b>
+&nbsp;        return;
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (info.ifPresent &amp;&amp; !info.annotationType.isEmpty()) {</b>
+<b class="nc">&nbsp;        @Nullable AnnotationMirror presentAnnotation =</b>
+<b class="nc">&nbsp;            AnnotationMirrors.findAnnotation(element.getAnnotationMirrors(), info.annotationType);</b>
+&nbsp;
+<b class="nc">&nbsp;        if (presentAnnotation == null) {</b>
+&nbsp;          // annotation not present, not applicable
+&nbsp;          return;
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (info.code.isEmpty()) {</b>
+<b class="nc">&nbsp;          annotationCode.put(</b>
+&nbsp;              info.deduplicationKey,
+<b class="nc">&nbsp;              AnnotationMirrors.toCharSequence(presentAnnotation).toString());</b>
+&nbsp;          // No code, then we just copy present annotation
+&nbsp;          // otherwise we handle code as usual
+&nbsp;          return;
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      String code = info.hasPlaceholders</b>
+<b class="nc">&nbsp;          ? interpolateCode(simpleName, attributeNames)</b>
+<b class="nc">&nbsp;          : info.code;</b>
+&nbsp;
+<b class="nc">&nbsp;      annotationCode.put(</b>
+&nbsp;          info.deduplicationKey,
+<b class="nc">&nbsp;          prependAnnotationTypeIfNecessary(code));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private String interpolateCode(String simpleName, Collection&lt;String&gt; attributeNames) {
+&nbsp;      // The implementation is pretty dumb, sorry: no regex, parsing or fancy libraries
+<b class="nc">&nbsp;      String c = info.code;</b>
+&nbsp;
+<b class="nc">&nbsp;      if (c.isEmpty()) {</b>
+<b class="nc">&nbsp;        return &quot;(&quot; + ATTR_JOINER.join(literals) + &quot;)&quot;;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (c.contains(P_ALL)) {</b>
+<b class="nc">&nbsp;        c = c.replace(P_ALL, ATTR_JOINER.join(literals));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      c = c.replace(P_SIMPLE_NAME, simpleName);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (c.contains(P_ALL_NAMES)) {</b>
+<b class="nc">&nbsp;        String literals = FluentIterable.from(attributeNames)</b>
+<b class="nc">&nbsp;            .transform(ToLiteral.FUNCTION)</b>
+<b class="nc">&nbsp;            .join(COMMA_JOINER);</b>
+&nbsp;
+<b class="nc">&nbsp;        c = c.replace(P_ALL_NAMES, &quot;{&quot; + literals + &quot;}&quot;);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      for (Entry&lt;String, String&gt; e : literals.entrySet()) {</b>
+<b class="nc">&nbsp;        c = c.replace(P_L + e.getKey() + P_R, e.getValue());</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return c;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private String prependAnnotationTypeIfNecessary(String code) {
+<b class="nc">&nbsp;      if (!info.annotationType.isEmpty() &amp;&amp; !code.startsWith(P_ANNOTATION)) {</b>
+<b class="nc">&nbsp;        return P_ANNOTATION + info.annotationType + code;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return code;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  public static final class InjectionInfo {</b>
+&nbsp;    final String code;
+&nbsp;    /** empty if injected annotations. */
+&nbsp;    final String annotationType;
+&nbsp;    final boolean ifPresent;
+&nbsp;    final String deduplicationKey;
+&nbsp;    final EnumSet&lt;Where&gt; targets;
+&nbsp;    final boolean hasPlaceholders;
+&nbsp;
+&nbsp;    private InjectionInfo(
+&nbsp;        String code,
+&nbsp;        String annotationType,
+&nbsp;        String deduplicationKey,
+&nbsp;        boolean ifPresent,
+<b class="nc">&nbsp;        Where[] targets) {</b>
+<b class="nc">&nbsp;      this.code = code.trim();</b>
+<b class="nc">&nbsp;      this.annotationType = annotationType;</b>
+<b class="nc">&nbsp;      this.ifPresent = ifPresent;</b>
+<b class="nc">&nbsp;      this.targets = targets.length == 0</b>
+<b class="nc">&nbsp;          ? EnumSet.allOf(Where.class)</b>
+<b class="nc">&nbsp;          : EnumSet.copyOf(Arrays.asList(targets));</b>
+<b class="nc">&nbsp;      this.hasPlaceholders = hasPlaceholders(code);</b>
+<b class="nc">&nbsp;      this.deduplicationKey = deduplicationKeyFor(deduplicationKey, annotationType, code);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean hasPlaceholders(String code) {
+<b class="nc">&nbsp;      return code.contains(P_L) &amp;&amp; code.contains(P_R);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    AnnotationInjection injectionFor(AnnotationMirror annotation, Environment environment) {
+<b class="nc">&nbsp;      return new AnnotationInjection(</b>
+&nbsp;          this,
+<b class="nc">&nbsp;          hasPlaceholders</b>
+<b class="nc">&nbsp;              ? extractPlaceholderValues(annotation, environment)</b>
+<b class="nc">&nbsp;              : ImmutableMap.&lt;String, String&gt;of());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private ImmutableMap&lt;String, String&gt; extractPlaceholderValues(
+&nbsp;        AnnotationMirror annotation,
+&nbsp;        Environment environment) {
+<b class="nc">&nbsp;      ImmutableMap.Builder&lt;String, String&gt; literals = ImmutableMap.builder();</b>
+<b class="nc">&nbsp;      for (Entry&lt;? extends ExecutableElement, ? extends AnnotationValue&gt; e : environment.processing()</b>
+<b class="nc">&nbsp;          .getElementUtils()</b>
+<b class="nc">&nbsp;          .getElementValuesWithDefaults(CachingElements.getDelegate(annotation))</b>
+<b class="nc">&nbsp;          .entrySet()) {</b>
+<b class="nc">&nbsp;        String key = e.getKey().getSimpleName().toString();</b>
+<b class="nc">&nbsp;        String value = AnnotationMirrors.toCharSequence(e.getValue()).toString();</b>
+<b class="nc">&nbsp;        literals.put(key, value);</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return literals.build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private static String deduplicationKeyFor(String deduplicationKey, String annotationType, String code) {
+<b class="nc">&nbsp;      if (!deduplicationKey.isEmpty()) {</b>
+<b class="nc">&nbsp;        return deduplicationKey;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (!annotationType.isEmpty()) {</b>
+<b class="nc">&nbsp;        return annotationType;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return code;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private enum ToLiteral implements Function&lt;String, String&gt; {</b>
+<b class="nc">&nbsp;    FUNCTION;</b>
+&nbsp;    @Override
+&nbsp;    public String apply(String input) {
+<b class="nc">&nbsp;      return StringLiterals.toLiteral(input);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

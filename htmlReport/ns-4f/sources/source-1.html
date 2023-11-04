@@ -1,0 +1,1876 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Value</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value</a>
+</div>
+
+<h1>Coverage Summary for Class: Value (org.immutables.value)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+  <tr>
+    <td class="name">Value$Auxiliary</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Check</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Default</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Derived</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Enclosing</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Immutable</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Include</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Lazy</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Modifiable</td>
+  </tr>
+  <tr>
+    <td class="name">Value$NaturalOrder</td>
+  </tr>
+  <tr>
+    <td class="name">Value$NonAttribute</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Parameter</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Redacted</td>
+  </tr>
+  <tr>
+    <td class="name">Value$ReverseOrder</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Style</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Style$BuilderVisibility</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Style$Depluralize</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Style$ImplementationVisibility</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Value$Style$ValidationMethod</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value;
+&nbsp;
+&nbsp;import java.io.Serializable;
+&nbsp;import java.lang.annotation.*;
+&nbsp;import java.lang.ref.WeakReference;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;/**
+&nbsp; * This annotation provides namespace for annotations for immutable value object generation.
+&nbsp; * Use one of the nested annotation.
+&nbsp; * @see Value.Immutable
+&nbsp; * @see Value.Include
+&nbsp; * @see Value.Enclosing
+&nbsp; */
+&nbsp;public @interface Value {
+&nbsp;  /**
+&nbsp;   * Instruct processor to generate immutable implementation of abstract value type.
+&nbsp;   * Classes, Interface and Annotation types are supported including top level and non-private
+&nbsp;   * static inner types.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Annotation has attributes to configure generation of immutable implementation classes, which
+&nbsp;   * are usually configured per-type: should the builder ({@link #builder()}) be generated or
+&nbsp;   * instances interned ({@link #intern()}). You can use {@link Style} or custom style annotation to
+&nbsp;   * tune naming conventions and other settings of code-generation, along with default value for
+&nbsp;   * per-type attributes ({@link Style#defaults()})
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Generated accessor methods have annotation copied from original accessor method. However
+&nbsp;   * {@code org.immutables.*} and {@code java.lang.*} are not copied.
+&nbsp;   * &lt;em&gt;Be warned that such immutable object may contain attributes with types that are not
+&nbsp;   * guaranteed to be immutable, thus not every object will be recursively immutable.
+&nbsp;   * While this may be useful in some cases,
+&nbsp;   * one should generally avoid creating immutable object with attribute values that could be
+&nbsp;   * mutated.&lt;/em&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * @see Style
+&nbsp;   * @see Include
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  @interface Immutable {
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code singleton=true}, generates internal singleton object constructed without any
+&nbsp;     * specified parameters. Default is {@literal false}. To access singleton instance use
+&nbsp;     * {@code .of()} static accessor method.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This requires that all attributes have default value (including collections which can be left
+&nbsp;     * empty). If some required attributes exist it will result in compilation error. Note that in
+&nbsp;     * case object does not have attributes, singleton instance will be generated automatically.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Note that {@code singleton=true} does not imply that only one instance of given abstract
+&nbsp;     * type. But it does mean that only one &quot;default&quot; instance of the immutable implementation type
+&nbsp;     * exist.
+&nbsp;     * @return if generate singleton default instance
+&nbsp;     */
+&nbsp;    boolean singleton() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code intern=true} then instances will be strong interned on construction.
+&nbsp;     * Default is {@literal false}.
+&nbsp;     * @return if generate strongly interned instances
+&nbsp;     */
+&nbsp;    boolean intern() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code copy=false} then generation of copying methods will be disabled.
+&nbsp;     * This applies to static &quot;copyOf&quot; methods as well as modify-by-copy &quot;withAttributeName&quot; methods
+&nbsp;     * which return modified copy using structural sharing where possible.
+&nbsp;     * Default value is {@literal true}, i.e generate copy methods.
+&nbsp;     * @return if generate copy methods
+&nbsp;     */
+&nbsp;    boolean copy() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code prehash=true} then {@code hashCode} will be precomputed during construction.
+&nbsp;     * This could speed up map/set lookups for objects with lots of attributes and nested
+&nbsp;     * objects.
+&nbsp;     * In general, use this when {@code hashCode} computation is expensive and will be used a lot.
+&nbsp;     * Note that if {@link Style#privateNoargConstructor()} == &lt;code&gt;true&lt;/code&gt; this option will be
+&nbsp;     * ignored.
+&nbsp;     * For lazy (deferred) {@code hashCode} computation use {@link #lazyhash()}
+&nbsp;     * @return if generate hash code precomputing
+&nbsp;     */
+&nbsp;    boolean prehash() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code lazyhash=true} then internal {@code hashCode} will be computed (and cached) on
+&nbsp;     * first {@code hashCode()}
+&nbsp;     * method call.
+&nbsp;     * For eager {@code hashCode} computation (in constructor) use {@link #prehash()}.
+&nbsp;     * @return to lazily compute the {@code hashCode}
+&nbsp;     */
+&nbsp;    boolean lazyhash() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code builder=false}, disables generation of {@code builder()}. Default is
+&nbsp;     * {@literal true}.
+&nbsp;     * @return if generate builder
+&nbsp;     */
+&nbsp;    boolean builder() default true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Includes specified abstract value types into generation of processing.
+&nbsp;   * This is usually used to generate immutable implementation of classes from different
+&nbsp;   * packages that source code cannot be changed to place {@literal @}{@code Value.Immutable}.
+&nbsp;   * Only public types of suppored kinds is supported (see {@link Value.Immutable}).
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.TYPE, ElementType.PACKAGE})
+&nbsp;  @interface Include {
+&nbsp;    Class&lt;?&gt;[] value();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This annotation could be applied to top level class which contains nested abstract
+&nbsp;   * value types to provide namespacing for the generated implementation classes.
+&nbsp;   * Immutable implementation classes will be generated as classes enclosed into special &quot;umbrella&quot;
+&nbsp;   * top level class, essentialy named after annotated class with &quot;Immutable&quot; prefix (prefix could
+&nbsp;   * be customized using {@link Style#typeImmutableEnclosing()}). This could mix
+&nbsp;   * with {@link Value.Immutable} annotation, so immutable implementation class will contains
+&nbsp;   * nested immutable implementation classes.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Implementation classes nested under top level class with &quot;Immutable&quot; prefix
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;Have simple names without &quot;Immutable&quot; prefix
+&nbsp;   * &lt;li&gt;Could be star-imported for easy clutter-free usage.
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   *
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * {@literal @}Value.Enclosing
+&nbsp;   * class GraphPrimitives {
+&nbsp;   *   {@literal @}Value.Immutable
+&nbsp;   *   interface Vertex {}
+&nbsp;   *   {@literal @}Value.Immutable
+&nbsp;   *   static class Edge {}
+&nbsp;   * }
+&nbsp;   * ...
+&nbsp;   * import ...ImmutableGraphPrimitives.*;
+&nbsp;   * ...
+&nbsp;   * Edge.builder().build();
+&nbsp;   * Vertex.builder().build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  @interface Enclosing {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This kind of attribute cannot be set during building, but they are eagerly computed from other
+&nbsp;   * attributes and stored in field. Should be applied to non-abstract method - attribute value
+&nbsp;   * initializer.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface Derived {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Annotates accessor that should be turned in set-able generated attribute. However, it is
+&nbsp;   * non-mandatory to set it via builder. Default value will be assigned to attribute if none
+&nbsp;   * supplied, this value will be obtained by calling method annotated this annotation.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface Default {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Annotate attribute as &lt;em&gt;auxiliary&lt;/em&gt; and it will be stored and will be accessible, but will
+&nbsp;   * be excluded from generated {@code equals}, {@code hashCode} and {@code toString} methods.
+&nbsp;   * {@link Lazy Lazy} attributes are always &lt;em&gt;auxiliary&lt;/em&gt;.
+&nbsp;   * @see Value.Immutable
+&nbsp;   * @see Value.Derived
+&nbsp;   * @see Value.Default
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface Auxiliary {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Lazy attributes cannot be set, defined as method that computes value, which is invoke lazily
+&nbsp;   * once and only once in a thread safe manner.
+&nbsp;   *
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * {@literal @}Value.Immutable
+&nbsp;   * public abstract class Order {
+&nbsp;   *
+&nbsp;   *   public abstract List&amp;lt;Item&amp;gt; items();
+&nbsp;   *
+&nbsp;   *   {@literal @}Value.Lazy
+&nbsp;   *   public int totalCost() {
+&nbsp;   *     int cost = 0;
+&nbsp;   *
+&nbsp;   *     for (Item i : items())
+&nbsp;   *       cost += i.count() * i.price();
+&nbsp;   *
+&nbsp;   *     return cost;
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * This kind of attribute cannot be set during building, but they are lazily computed from other
+&nbsp;   * attributes and stored in non-final field, but initialization is guarded by synchronization with
+&nbsp;   * volatile field check. Should be applied to non-abstract method - attribute value initializer.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * In general, lazy attribute initializer is more safe than using {@link Derived} attributes, lazy
+&nbsp;   * attribute&#39;s initializer method body can refer to abstract mandatory and container attributes as
+&nbsp;   * well as to other lazy attributes. Though lazy attributes act as {@link Auxiliary}.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface Lazy {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Works with {@link Value.Immutable} classes to mark abstract accessor method be included as
+&nbsp;   * &quot;{@code of(..)}&quot; constructor parameter.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Following rules applies:
+&nbsp;   * &lt;ul&gt;
+&nbsp;   * &lt;li&gt;No constructor generated if none of methods have {@link Value.Parameter} annotation&lt;/li&gt;
+&nbsp;   * &lt;li&gt;For object to be constructable with a constructor - all non-default and non-derived
+&nbsp;   * attributes should be annotated with {@link Value.Parameter}.
+&nbsp;   * &lt;/ul&gt;
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.METHOD, ElementType.PARAMETER})
+&nbsp;  @interface Parameter {
+&nbsp;    /**
+&nbsp;     * Used to specify order of constructor argument. It defaults to zero and allows for
+&nbsp;     * non-contiguous order values (arguments are sorted ascending by this order value).
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;This attribute was introduced as potentially not all annotation processors could use
+&nbsp;     * source order of elements, i.e. order of declaration appearance in a source file.
+&nbsp;     * To support portable constructor argument definitions,
+&nbsp;     * developer should supply argument order explicitly.
+&nbsp;     * As of version 1.0, we implemented workaround for
+&nbsp;     * the Eclipse compiler, so it is not strictly needed to specify order,
+&nbsp;     * but it still might be needed if you wish to reorder arguments&lt;/em&gt;
+&nbsp;     * &lt;em&gt;
+&nbsp;     * Since 2.5.6 the default value was changed to -1 to signify unspecified order, but the logic
+&nbsp;     * behind should not result in any practical incompatibilities.
+&nbsp;     * &lt;/em&gt;
+&nbsp;     * @return order
+&nbsp;     */
+&nbsp;    int order() default -1;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify as {@code false} to cancel out parameter: an attribute would not be considered as a
+&nbsp;     * parameter. This is useful to override the effect of {@link Style#allParameters()} flag.
+&nbsp;     * By default it is {@code true} and should be omitted.
+&nbsp;     * @return {@code false} if not a parameter
+&nbsp;     */
+&nbsp;    boolean value() default true;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Annotates method that should be invoked internally to validate invariants after instance had
+&nbsp;   * been created, but before returned to a client. Annotated method must be parameter-less
+&nbsp;   * (non-private) method and have a {@code void} return type, which also should not throw a checked
+&nbsp;   * exceptions.
+&nbsp;   * &lt;/p&gt;
+&nbsp;   *
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * {@literal @}Value.Immutable
+&nbsp;   * public abstract class NumberContainer {
+&nbsp;   *   public abstract List&lt;Number&gt; nonEmptyNumbers();
+&nbsp;   *
+&nbsp;   *   {@literal @}Value.Check
+&nbsp;   *   protected void check() {
+&nbsp;   *     Preconditions.checkState(!nonEmptyNumbers().isEmpty(),
+&nbsp;   *         &quot;&#39;nonEmptyNumbers&#39; should have at least one number&quot;);
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   *
+&nbsp;   * // will throw IllegalStateException(&quot;&#39;nonEmptyNumbers&#39; should have at least one number&quot;)
+&nbsp;   * ImmutableNumberContainer.builder().build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Precondition checking should not be used to validate against context dependent business rules,
+&nbsp;   * but to preserve consistency and guarantee that instances will be usable. Precondition check
+&nbsp;   * methods runs when immutable object &lt;em&gt;instantiated and all attributes are initialized&lt;/em&gt;,
+&nbsp;   * but &lt;em&gt;before returned to caller&lt;/em&gt;. Any instance that failed precondition check is
+&nbsp;   * unreachable to caller due to runtime exception.
+&nbsp;   * &lt;/p&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * There&#39;s additional variant of using this annotation to compute normalized value. This should be
+&nbsp;   * a last-resort solution as implementation might be brittle and error-prone. If you declare
+&nbsp;   * return type of validation method with return type specified as abstract value type, this
+&nbsp;   * validation method will also be able to return substitute instance. Normalized instance should
+&nbsp;   * always be of the immutable implementations type, otherwise {@link ClassCastException} will
+&nbsp;   * occur during construction.
+&nbsp;   * &lt;em&gt;Be warned that it&#39;s easy introduce unresolvable recursion if normalization is implemented
+&nbsp;   * without
+&nbsp;   * proper or with conflicting checks. Always return {@code this} if value do not require
+&nbsp;   * normalization.&lt;/em&gt;
+&nbsp;   * &lt;/p&gt;
+&nbsp;   *
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * {@literal @}Value.Immutable
+&nbsp;   * public interface Normalize {
+&nbsp;   *   int value();
+&nbsp;   *
+&nbsp;   *   {@literal @}Value.Check
+&nbsp;   *   default Normalize normalize() {
+&nbsp;   *     if (value() == Integer.MIN_VALUE) {
+&nbsp;   *       return ImmutableNormalize.builder()
+&nbsp;   *           .value(0)
+&nbsp;   *           .build();
+&nbsp;   *     }
+&nbsp;   *     if (value() &amp;lt; 0) {
+&nbsp;   *       return ImmutableNormalize.builder()
+&nbsp;   *           .value(-value())
+&nbsp;   *           .build();
+&nbsp;   *     }
+&nbsp;   *     return this;
+&nbsp;   *   }
+&nbsp;   * }
+&nbsp;   *
+&nbsp;   * int shouldBePositive2 = ImmutableNormalize.builder()
+&nbsp;   *     .value(-2)
+&nbsp;   *     .build()
+&nbsp;   *     .value();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface Check {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Specified natural ordering for the implemented {@link SortedSet}, {@link NavigableSet} or
+&nbsp;   * {@link SortedMap}, {@link NavigableMap}. It an error to annotate
+&nbsp;   * sorted collection of elements which are not implementing {@link Comparable}.
+&nbsp;   * Non-annotated special collection will be
+&nbsp;   * generated/implemented as &quot;nothing-special&quot; attributes.
+&nbsp;   * @see ReverseOrder
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target({ElementType.METHOD, ElementType.PARAMETER})
+&nbsp;  @interface NaturalOrder {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Specified reversed natural ordering for the implemented {@link SortedSet}, {@link NavigableSet}
+&nbsp;   * or {@link SortedMap}, {@link NavigableMap}. It an error to annotate
+&nbsp;   * sorted collection of elements which are not implementing {@link Comparable}.
+&nbsp;   * Non-annotated special collection will be
+&nbsp;   * generated/implemented as &quot;nothing-special&quot; attributes.
+&nbsp;   * @see Collections#reverseOrder()
+&nbsp;   * @see NaturalOrder
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface ReverseOrder {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generate modifiable implementation of abstract value class. Modifiable implementation class
+&nbsp;   * might be useful when you either need over-flexible builder or, alternatively, partially built
+&nbsp;   * representation of value type.
+&nbsp;   * This annotation could be used as companion to {@link Immutable} to
+&nbsp;   * provide modifiable variant that is convertible back and forth to immutable form. When it is
+&nbsp;   * used in a standalone manner, i.e. without using
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Generated class will have name with &quot;Modifiable&quot; prefix by default which can be customizable
+&nbsp;   * using {@link Style#typeModifiable() &quot;typeModifiable&quot; style}. Use {@code create()} factory
+&nbsp;   * method to create instances or using &quot;new&quot; operator which is also depends on
+&nbsp;   * {@link Style#create() &quot;create&quot; style} . Generated modifiable class will have setter methods
+&nbsp;   * that return {@code this} for chained invocation. Getters will be of the same shape as defined
+&nbsp;   * by abstract value types.
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;Note: unlike {@literal @}{@link Immutable}, this annotation has very little of additional
+&nbsp;   * &quot;magic&quot;
+&nbsp;   * and customisations implemented. Annotation like {@link Include}, {@link Enclosing},
+&nbsp;   * {@link Lazy} do not work with
+&nbsp;   * modifiable implementation&lt;/em&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;This is beta functionality that is likely to change&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.TYPE)
+&nbsp;  @interface Modifiable {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Marks attribute for exclusion from auto-generated {@code toString} method. It will
+&nbsp;   * be just excluded by default. However you can choose to put special masking characters next to
+&nbsp;   * the attribute instead of value, like 3 stars or 4 pound signs, this replacement string
+&nbsp;   * can be set using {@link Style#redactedMask()} style attribute.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface Redacted {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Can be used to mark some abstract no-argument methods in supertypes (about to be implemented/extended by
+&nbsp;   * abstract value types) as regular, non-attribute methods, i.e. annotation processor will not generate field,
+&nbsp;   * accessor, and builder initialized for it, but instead leave it for developer to implement in abstract
+&nbsp;   * value type (and there will be compilation error for generated class about not implementing all abstract
+&nbsp;   * methods as one can expect). This annotation is needed only for methods matching an accessor with zero
+&nbsp;   * parameters, which are to be turned into generated immutable attribute if no annotation specified. In
+&nbsp;   * addition, if you place it on many arguments method it will not be validated and will just hang there unused.
+&nbsp;   */
+&nbsp;  @Documented
+&nbsp;  @Target(ElementType.METHOD)
+&nbsp;  @interface NonAttribute {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Naming and structural style could be used to customize convention of the generated
+&nbsp;   * immutable implementations and companion classes. It could be placed on a class or package
+&nbsp;   * directly or serve as meta annotation. When used as meta-annotation, then annotation could
+&nbsp;   * be placed on a class, surrounding top level class or even a package (declared in
+&nbsp;   * {@code package-info.java}). This
+&nbsp;   * annotation more of example of how to define your own styles as meta-annotation rather than a
+&nbsp;   * useful annotation. When using meta-annotation
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;
+&nbsp;   * Be careful to not use keywords or inappropriate characters as parts of naming templates.
+&nbsp;   * Some sneaky collisions may only manifest as compilation errors in generated code.&lt;/em&gt;
+&nbsp;   * &lt;p&gt;
+&nbsp;   * &lt;em&gt;Specific styles will be ignored for a immutable type enclosed with class which is annotated
+&nbsp;   * as {@literal @}{@link Value.Enclosing}. So define styles on the enclosing class.
+&nbsp;   * In this way there will be no issues with the naming and structural conventions
+&nbsp;   * mismatch on enclosing and nested types.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Target({ElementType.TYPE, ElementType.PACKAGE, ElementType.ANNOTATION_TYPE})
+&nbsp;  @interface Style {
+&nbsp;    /**
+&nbsp;     * Patterns to recognize accessors. For example &lt;code&gt;get = {&quot;is*&quot;, &quot;get*&quot;}&lt;/code&gt; will
+&nbsp;     * mimick style of bean getters. If none specified or if none matches, then raw accessor name
+&nbsp;     * will be taken literally.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * By default, only {@code get*} prefix is recognized, along with falling back to use accessor
+&nbsp;     * name literally. It is up to you if you want to use &quot;get&quot; prefixes or not. Original author is
+&nbsp;     * leaning towards not using noisy prefixes for attributes in immutable objects, drawing
+&nbsp;     * similarity with annotation attributes, however usage of &quot;get&quot; is neither recommended, nor
+&nbsp;     * discouraged.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;This is detection pattern, not formatting pattern. It defines how to recognize name, not
+&nbsp;     * how to derive name&lt;/em&gt;
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String[] get() default &quot;get*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builder initialization method. i.e. &quot;setter&quot; in builder.
+&nbsp;     * Do not confuse with {@link #set()}
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String init() default &quot;*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modify-by-copy &quot;with&quot; method.
+&nbsp;     * @see #init()
+&nbsp;     * @see #set()
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String with() default &quot;with*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modify-by-copy method which receives {@link java.util.function.UnaryOperator}
+&nbsp;     * to transform an attribute before constructing a copy of immutable object.
+&nbsp;     * This feature is disabled by default, unless you specify a naming template for this method.
+&nbsp;     * A template can be something like {@code &quot;with*Mapped&quot;}, {@code &quot;update*&quot;},
+&nbsp;     * or {@code &quot;transform*&quot;} – the choice is yours.
+&nbsp;     * Can even be {@code &quot;with*&quot;} or {@code &quot;*&quot;} in hope there will be no overload  collisions.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Unary operator transforms values, optional values and collection elements. (currently JDK Optional only, use Encodings for custom optional and containers).
+&nbsp;     * @return naming template. By default, it is empty and feature is disabled.
+&nbsp;     */
+&nbsp;    String withUnaryOperator() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add value to collection attribute from iterable
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String add() default &quot;add*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Add all values to collection attribute from iterable
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String addAll() default &quot;addAll*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Puts entry to a map attribute
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String put() default &quot;put*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Puts all entries to a map attribute
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String putAll() default &quot;putAll*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Copy constructor method name.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String copyOf() default &quot;copyOf&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Constructor method name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Since version {@code 2.1.5} you can also use &quot;new&quot; template string to generate public
+&nbsp;     * constructor instead of factory. The public constructor functionality is experimental. Note
+&nbsp;     * that having public constructor configured will not work if {@link Check} or
+&nbsp;     * {@link Immutable#singleton()} is used and certain other functionality. In such cases compile
+&nbsp;     * error would be raised.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String of() default &quot;of&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Singleton accessor method name
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String instance() default &quot;of&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builder creator method. This naming allow special keyword &quot;new&quot; value.
+&nbsp;     * This will customize builder to be created using constructor rather than
+&nbsp;     * factory method.
+&nbsp;     * @see #newBuilder()
+&nbsp;     * @see #build()
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String builder() default &quot;builder&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builder creator method, it differs from {@link #builder()} in that this naming is used for
+&nbsp;     * builders that are external to immutable objects, such as top level builders for values or
+&nbsp;     * factories. This naming allow special keyword &quot;new&quot; value, which is the default.
+&nbsp;     * &quot;new&quot; will customize builder to be created using constructor rather than
+&nbsp;     * factory method.
+&nbsp;     * @see #build()
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String newBuilder() default &quot;new&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Method to initialize builder with values from instance. Can be set to empty
+&nbsp;     * string to disable &quot;from&quot; method generation.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String from() default &quot;from&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Instance creation method on builder.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String build() default &quot;build&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for the {@code buildOrThrow} method which accept exception factory function
+&nbsp;     * for throwing in case not all mandatory properties are set. Non-default (i.e. not empty)
+&nbsp;     * template will essentially enable generation of this method, acting both as a naming template
+&nbsp;     * and as a feature flag.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Generation of build or throws method requires presence of a function type on the classpath,
+&nbsp;     * provided either by Java 8 or Guava on Java 7. If used on java 7 without Guava, this style
+&nbsp;     * will have no effect: no method will be generated.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: This attribute-style is experimental and may be changed in near releases.
+&nbsp;     * You should not rely on it if don&#39;t ready to change code on minor updates of the annotation
+&nbsp;     * processor&lt;/em&gt;
+&nbsp;     * @return naming template, if default/empty it will not be generated
+&nbsp;     */
+&nbsp;    String buildOrThrow() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for the {@code canBuild} method on a builder that return boolean if it can
+&nbsp;     * &quot;safely&quot; build an object, i.e. all attributes are set and instance would be returned by
+&nbsp;     * calling {@code .build()} method without throwing {@link IllegalStateException}.
+&nbsp;     * &lt;em&gt;Note: By default this method is not generated, unless a naming is provided. For example,
+&nbsp;     * set it to {@code canBuild=&quot;canBuild&quot;} and {@code boolean canBuild()} method will be
+&nbsp;     * generated on builder.&lt;/em&gt;
+&nbsp;     * &lt;em&gt;Note: when using encoding, building of attributes is delegated to encoding specific
+&nbsp;     * routines, so that general builder infrastructure may not know if attribute can be safely
+&nbsp;     * constructed, in this case, canBuild method might give wrong answer.&lt;/em&gt;
+&nbsp;     * @return naming template, if default/empty it will not be generated
+&nbsp;     */
+&nbsp;    String canBuild() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for the {@code toBuilder} method on a immutable instance that returns new builder on which
+&nbsp;     * merge method is already called on this instance {@code builder.from(this)}. By default, this naming template
+&nbsp;     * is empty, and this method is not generated. To enable generation of this method, you must specify naming template,
+&nbsp;     * {@code (toBuilder=&quot;toBuilder&quot;)}. Naming template can insert type name for an asterisk, but in most cases you
+&nbsp;     * would just use method name verbatim.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: This attribute-style is experimental and may be changed in near releases.
+&nbsp;     * This is not compatible with strict builders and will not be generated if {@link #strictBuilder()} is {@code true}.
+&nbsp;     * Also, when enabled, this will not be considered an attribute if defined as {@code abstract Builder toBuilder()}
+&nbsp;     * in abstract value type.
+&nbsp;     * &lt;/em&gt;
+&nbsp;     * @return naming template, if default/empty it will not be generated
+&nbsp;     */
+&nbsp;    String toBuilder() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Detects and use method named as specified to customize generated {@code hashCode}.
+&nbsp;     * Abstract value types defined as interfaces cannot implement {@code default} methods of {@code java.lang.Object},
+&nbsp;     * such as {@link Object#hashCode()} implemented as {@code default} interface methods and so cannot override
+&nbsp;     * (actually &quot;underride&quot; if that is the right term) the default {@code hashCode} which is generated on immutable
+&nbsp;     * implementation. So in order to customize and replace default generated code, you can now declare {@code default}
+&nbsp;     * or {@code static} method named, say {@code hash}({@code underwriteInterfaceHashCode=&quot;hash&quot;}),
+&nbsp;     * will be used in generated {@code hashCode} method.
+&nbsp;     * The signature of the {@code default}/{@code static} should be compatible to the ones
+&nbsp;     * of {@link Object}, static methods suppose to take instances of the abstract value type as parameter
+&nbsp;     * instead of a plain {@link Object}.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;&lt;/em&gt;Wiring of the custom method will only occur if found by the name and
+&nbsp;     * matched by signature.
+&nbsp;     * &lt;/em&gt;
+&nbsp;     * @return method name, if empty (the {@code default}) it will not be detected and wired in generation.
+&nbsp;     */
+&nbsp;    String underrideHashCode() default &quot;&quot;;
+&nbsp;
+&nbsp;    String underrideEquals() default &quot;&quot;;
+&nbsp;
+&nbsp;    String underrideToString() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Delegates {@code toString} implementation completely to a fully qualified path to a method name, example {@code delegateToString=&quot;com.whatever.packg.ToStringer.stringify&quot;}. The path will be used literally in generated code, and a single parameter will be passed to it, {@code this} immutable object instance.
+&nbsp;     * &lt;p&gt;&lt;em&gt;Note: If specified, it will take precedence over any other {@code toString} customization mechanism&lt;/em&gt;
+&nbsp;     * @return fully qualified static method name, if empty (by default) will not be used
+&nbsp;     */
+&nbsp;    String delegateToString() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code includeHashCode} is not empty it will be used as part of generated `hashCode`. This will be a verbatim
+&nbsp;     * line of code used with the tag-placeholder {@code [[type]]} will be replaced with the simple
+&nbsp;     * (or relative to top level) name of the abstract value type.
+&nbsp;     * It&#39;s the responsibility of the user to put well-formed code to be put in context, including parenthesis, etc.
+&nbsp;     * use try-see-fix approach here. Other fields will be included as usual, coming after this custom value.
+&nbsp;     * &lt;p&gt;Examples might give you better ideas how to use it:
+&nbsp;     * &lt;pre&gt;
+&nbsp;     *   includeHashCode = &quot;this.baseHashCode()&quot;
+&nbsp;     *   includeHashCode = &quot;super.hashCode()&quot;
+&nbsp;     *   includeHashCode = &quot;getClass().hashCode()&quot;
+&nbsp;     *   includeHashCode = &quot;[[type]].class.hashCode()&quot;
+&nbsp;     *   includeHashCode = &quot;(\&quot;[[type]]\&quot;.length() + 1)&quot;
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * &lt;p&gt;&lt;em&gt;Note: this will be ignored if `hashCode` will be manually written in the abstract value class or {@link #underrideHashCode()} will be used for the same purpose&lt;/em&gt;
+&nbsp;     * @return interpolated code snippet, by default empty and have no effect
+&nbsp;     */
+&nbsp;    String includeHashCode() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Method to determine if all required attributes are set.
+&nbsp;     * Default method name choice for this is mostly random.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String isInitialized() default &quot;isInitialized&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Method to determine if attribute is set
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String isSet() default &quot;*IsSet&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modifiable object &quot;setter&quot; method. Used for mutable implementations.
+&nbsp;     * Do not confuse with {@link #init()}
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String set() default &quot;set*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Unset attribute method. Used for mutable implementations.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String unset() default &quot;unset*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Clear all collection attributes and unset(or other container). Used for mutable
+&nbsp;     * implementations.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String clear() default &quot;clear&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Factory method for modifiable implementation, could be &quot;new&quot; to create objects using
+&nbsp;     * constructor.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String create() default &quot;create&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Method to convert to instance of modifiable type to &quot;canonical&quot; immutable instance.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String toImmutable() default &quot;toImmutable&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Generated builder class name.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeBuilder() default &quot;Builder&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Inner builder class name which will be matched to be extend/super for generated builder.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeInnerBuilder() default &quot;Builder&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming templates to detect base/raw type name from provided abstract value type name.
+&nbsp;     * If none specified or if none matches, then raw type name will be taken literally the same as
+&nbsp;     * abstract value type name.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;This is detection pattern, not formatting pattern. It defines how to recognize name, not
+&nbsp;     * how to derive name&lt;/em&gt;
+&nbsp;     * @return naming templates
+&nbsp;     */
+&nbsp;    String[] typeAbstract() default &quot;Abstract*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Name template to generate immutable implementation type by using base/raw type name.
+&nbsp;     * Use {@link #typeAbstract()} to customize base/raw name inference.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeImmutable() default &quot;Immutable*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Umbrella nesting class name generated using {@link Enclosing}.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeImmutableEnclosing() default &quot;Immutable*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Immutable class name when generated under umbrella class using {@link Enclosing} annotation.
+&nbsp;     * @see #typeImmutable()
+&nbsp;     * @see #typeImmutableEnclosing()
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeImmutableNested() default &quot;*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Modifiable companion class name template
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeModifiable() default &quot;Modifiable*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Inner builder class name which will be matched to be extend/super for generated Modifiable
+&nbsp;     * class.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeInnerModifiable() default &quot;Modifiable&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Generated &quot;with&quot; interface name. Used to detect a demand and generate &quot;with&quot; interface.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String typeWith() default &quot;With*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Naming template {@code packageGenerated} used to derive name of the package where the
+&nbsp;     * annotation processor should put generated classes for corresponding immutable values. By
+&nbsp;     * default it equals to {@code &quot;*&quot;} which means to use the same package as abstract value type.
+&nbsp;     * It can be configured to a specific package name, like {@code &quot;com.acme.specific&quot;}, or used to
+&nbsp;     * specify pattern, like &quot;*.gen&quot; or &quot;*.immutable.impl&quot;.
+&nbsp;     * &lt;/p&gt;
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: It is expected that most generators will honor this style attribute, but it&#39;s not
+&nbsp;     * guaranteed.
+&nbsp;     * When you generate derived classes in the same package (by default), then implementation could
+&nbsp;     * access
+&nbsp;     * and/or override package-private methods. If using a different package make sure to use public
+&nbsp;     * or protected access where needed, otherwise illegal access compilation errors will be flagged
+&nbsp;     * in the generated code.&lt;/em&gt;
+&nbsp;     * &lt;/p&gt;
+&nbsp;     * @return generated package naming template
+&nbsp;     */
+&nbsp;    String packageGenerated() default &quot;*&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify default options for the generated immutable objects.
+&nbsp;     * If at least one attribute is specified in inline {@literal @}{@link Immutable} annotation,
+&nbsp;     * then this default will not be taken into account, objects will be generated using attributes
+&nbsp;     * from inline annotation.
+&nbsp;     * @return default configuration
+&nbsp;     */
+&nbsp;    Immutable defaults() default @Immutable;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code true} &amp;mdash; forces to generate code which use only JDK 7+ standard library
+&nbsp;     * classes. It is {@code false} by default, however usage of JDK-only classes will be turned on
+&nbsp;     * automatically if &lt;em&gt;Google Guava&lt;/em&gt; library is not found in classpath. The generated code
+&nbsp;     * will have subtle differences, but nevertheless will be functionally equivalent.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note that some additional annotation processors (for example mongo repository generator)
+&nbsp;     * may not work without Guava being accessible to the generated classes,
+&nbsp;     * and thus will not honor this attribute&lt;/em&gt;
+&nbsp;     * @return if forced JDK-only class usage
+&nbsp;     */
+&nbsp;    boolean jdkOnly() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code true} &amp;mdash; will use JDK 9+ immutable collections to implement
+&nbsp;     * {@link List}/{@link Set}/{@link Map} attributes.
+&nbsp;     * In JDK 9+, immutable collections are instantiated via {@code of}/{@code copyOf}
+&nbsp;     * static methods on {@code List}, {@code Set}, {@code Map} interfaces:
+&nbsp;     * {@link List#of()}, {@link Set#copyOf(Collection)}, etc.
+&nbsp;     * Please note that these collections do not support {@code null} elements,
+&nbsp;     * also Sets and Maps do not maintain insertion order, so the order is arbitrary
+&nbsp;     * and cannot be relied upon.
+&nbsp;     * @return if {@code true} use JDK 9+ immutable {@code List}, {@code Set}, or {@code Map}
+&nbsp;     */
+&nbsp;    boolean jdk9Collections() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code true} &amp;mdash; forces to generate strict builder code. Strict builders are forward
+&nbsp;     * only. For collections and maps, there&#39;s no set/reset methods are generated in
+&nbsp;     * favor of using additive only initializers. For regular attributes, initializers could be
+&nbsp;     * called only once, subsequent reinitialization with throw exception.
+&nbsp;     * Also, &quot;from&quot; method (named by {@link #from()}) will not be generated on builder: it
+&nbsp;     * becomes error-inviting to reinitialize builder values. {@code Nullable} and {@code Default}
+&nbsp;     * container attributes are not supported when {@code strictBuilder = true}.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Usage of strict builders helps to prevent initialization mistakes early on.
+&nbsp;     * @return if strict builder enabled
+&nbsp;     */
+&nbsp;    boolean strictBuilder() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Strict modifiable will refuse any accessor value (by throwing {@link IllegalStateException})
+&nbsp;     * which is mandatory. Enabled by default. Set it to {@code false} and it will allow to get
+&nbsp;     * current field value even if not initialized ({@code null} for references, {@code 0}, {@code false} &amp;mdash; for primitives).
+&nbsp;     * @return default is {@code true}, enabling strict modifiable
+&nbsp;     */
+&nbsp;    boolean strictModifiable() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code true} &amp;mdash; disables check that all required attributes have been provided to a
+&nbsp;     * builder.
+&nbsp;     */
+&nbsp;    ValidationMethod validationMethod() default ValidationMethod.SIMPLE;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * &lt;p&gt;
+&nbsp;     * When {@code true} &amp;mdash; all settable attributes are considered as they are annotated with
+&nbsp;     * {@link Value.Parameter}. Use {@code Value.Parameter(false)} annotation on an attribute to
+&nbsp;     * cancel the effect of {@code allParameters = true}.
+&nbsp;     * &lt;/p&gt;
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This style could be used to create special tuple-style annotations:
+&nbsp;     * &lt;/p&gt;
+&nbsp;     *
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * {@literal @}Value.Style(
+&nbsp;     *     typeImmutable = &quot;*Tuple&quot;,
+&nbsp;     *     allParameters = true,
+&nbsp;     *     defaults = {@literal @}Value.Immutable(builder = false))
+&nbsp;     * public @interface Tuple {}
+&nbsp;     *
+&nbsp;     * {@literal @}Tuple
+&nbsp;     * {@literal @}Value.Immutable
+&nbsp;     * interface Color {
+&nbsp;     *   int red();
+&nbsp;     *   int green();
+&nbsp;     *   int blue();
+&nbsp;     *   {@literal @}Value.Parameter(false)
+&nbsp;     *   List&lt;Info&gt; auxiliaryInfo();
+&nbsp;     * }
+&nbsp;     *
+&nbsp;     * ColorTuple.of(0xFF, 0x00, 0xFE);
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     *
+&nbsp;     * @return if all attributes will be considered parameters
+&nbsp;     */
+&nbsp;    boolean allParameters() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * This funny-named named attribute, when enabled makes default accessor methods defined in
+&nbsp;     * interfaces/traits behave as if they annotated as {@literal @}{@link Value.Default}.
+&nbsp;     * This is not a default behaviour to preserve compatibility and also to have a choice to not
+&nbsp;     * opt-in for this new functionality when not needed.
+&nbsp;     * @return if consider default method accessors as {@literal @}{@code Value.Default}
+&nbsp;     */
+&nbsp;    boolean defaultAsDefault() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Enable if you needed to copy header comments from an originating source file with abstract
+&nbsp;     * types to generated (derived) implementation classes. Header comments are comments preceeding
+&nbsp;     * package declaration statement. It could be used to copy license headers or even special
+&nbsp;     * pragma comments (such as {@code //-no-import-rewrite}).
+&nbsp;     * It is off by default because not often needed (as generated files are transient and not
+&nbsp;     * stored in version control), but adds up to the processing time.
+&nbsp;     * @return if copy header comments to generated classes.
+&nbsp;     */
+&nbsp;    boolean headerComments() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * List type of annotations to copy over from abstract value type to immutable implementation
+&nbsp;     * class. Very often this functionality is not needed when annotations are declared as
+&nbsp;     * {@link Inherited}, but there are cases where you need to pass specific non-inherited
+&nbsp;     * annotations to the implementation class. In general, copying all type-level annotations is
+&nbsp;     * not very safe for annotation processing and some other annotation consumers. By default, no
+&nbsp;     * annotations are copied unless you specify non-empty annotation type list as value
+&nbsp;     * for {@code passAnnotations} attribute. However there are some special annotations which are
+&nbsp;     * copied using special logic, such as {@code Nullable} annotations (and Jackson annotations)
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This style parameter is experimental and may change in future.
+&nbsp;     * @return types of annotations to pass to an immutable implementation class and its
+&nbsp;     *         attributes.
+&nbsp;     */
+&nbsp;    Class&lt;? extends Annotation&gt;[] passAnnotations() default {};
+&nbsp;
+&nbsp;    /**
+&nbsp;     * List of additional annotations to pass through for any jackson json object.
+&nbsp;     * Soft-deprecated this is no longer necessary.
+&nbsp;     * @return types of annotations to pass to the json methods on an immutable implementation class
+&nbsp;     */
+&nbsp;    Class&lt;? extends Annotation&gt;[] additionalJsonAnnotations() default {};
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify the mode in which visibility of generated value type is derived from abstract value
+&nbsp;     * type. It is a good idea to not specify such attributes inline with immutable values, but
+&nbsp;     * rather create style annotation (@see Style).
+&nbsp;     * @return implementation visibility
+&nbsp;     */
+&nbsp;    ImplementationVisibility visibility() default ImplementationVisibility.SAME;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify the mode in which visibility of generated value type is derived from abstract value
+&nbsp;     * type. Specifying this will override {@link #visibility()} and the reason why this option as a string exists,
+&nbsp;     * is to avoid javac warnings mentioned in &lt;a href=&quot;https://github.com/immutables/immutables/issues/291&quot;&gt;#291&lt;/a&gt;.
+&nbsp;     * @return implementation visibility as string
+&nbsp;     */
+&nbsp;    String visibilityString() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify whether init, copy and factory methods and constructors for an unwrapped {@code X} of
+&nbsp;     * {@code Optional&lt;X&gt;}
+&nbsp;     * should accept {@code null} values as empty value. By default nulls are rejected in favor of
+&nbsp;     * explicit conversion using {@code Optional.ofNullable}. Please note that initializers that
+&nbsp;     * take explicit {@code Optional} value always reject nulls regardless of this setting.
+&nbsp;     * @return optional elements accept nullables
+&nbsp;     */
+&nbsp;    boolean optionalAcceptNullable() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Generate {@code SuppressWarnings(&quot;all&quot;)} in generated code. Set this to {@code false} to
+&nbsp;     * expose all warnings in a generated code. To suppress other warnings issued by Immutables use
+&nbsp;     * explicit annotations {@literal @}{@code SuppressWarning(&quot;immutables&quot;)} or {@literal @}
+&nbsp;     * {@code SuppressWarning(&quot;all&quot;)}
+&nbsp;     * @return {@code true} if will generate suppress all warnings, enabled by default.
+&nbsp;     */
+&nbsp;    boolean generateSuppressAllWarnings() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Generate a private no-argument constructor in generated code. Note that this property will
+&nbsp;     * be ignored if {@link Immutable#singleton()} returns &lt;code&gt;true&lt;/code&gt;.
+&nbsp;     * @return {@code true} if will generate a default no argument constructor, disabled by default.
+&nbsp;     */
+&nbsp;    boolean privateNoargConstructor() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Generate a protected no-argument constructor, mainly for reflective usage by advanced
+&nbsp;     * toolkits.
+&nbsp;     * Note that this one overrides {@link #privateNoargConstructor()} if both are set to
+&nbsp;     * {@code true}. This property will be ignored if {@link Immutable#singleton()} returns
+&nbsp;     * &lt;code&gt;true&lt;/code&gt;.
+&nbsp;     * @return {@code true} if will generate a no argument constructor with protected visibility,
+&nbsp;     *         disabled by default.
+&nbsp;     */
+&nbsp;    boolean protectedNoargConstructor() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Enabling {@code attributelessSingleton} switches to old behavior of 2.0.x version when
+&nbsp;     * immutable instances which had no attributes defined we automatically generated as singleton having
+&nbsp;     * {@link #instance()} accessor.
+&nbsp;     * As of 2.1 we are more strict and explicit with singletons and are not generating it by
+&nbsp;     * default, only when {@link Immutable#singleton()} is explicitly enabled.
+&nbsp;     * @return {@code true} if auto singleton on new attributes (default is {@code false})
+&nbsp;     */
+&nbsp;    boolean attributelessSingleton() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * As of 2.1 we are switching to safe generation of derived and default values when there are
+&nbsp;     * more than one such attribute. This {@code unsafeDefaultAndDerived} style could be enabled to
+&nbsp;     * revert to old, unsafe behavior.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * In order to initialize default and derived attributes method bodies (initializers) will be
+&nbsp;     * invoked. Initializers could refer to other attributes, some of which might be also derived or
+&nbsp;     * uninitialized default values. As it&#39;s extremely difficult to reliably inspect initializer
+&nbsp;     * methods bodies and compute proper ordering, we use some special generated code which figures
+&nbsp;     * it out in runtime. If there will be a cycle in initializers, then
+&nbsp;     * {@link IllegalStateException} will be thrown.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * If you set {@code unsafeDefaultAndDerived} to {@code true}, then simpler, unsafe code will be
+&nbsp;     * generated. With the unsafe code you cannot refer to other default or derived attributes in
+&nbsp;     * initializers as otherwise result will be undefined as order of initialization is not
+&nbsp;     * guaranteed.
+&nbsp;     * @return {@code true} if old unsafe (but potentially with less overhead) generation should be
+&nbsp;     *         used.
+&nbsp;     */
+&nbsp;    boolean unsafeDefaultAndDerived() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When enabled: {@code clear} method will be generated on builder to reset state of a builder.
+&nbsp;     * Primarily designed for resource constrained environments to minimize allocations. This
+&nbsp;     * functionality is disabled by default as usually it&#39;s better to create fresh builders with a
+&nbsp;     * clean state: in server side java it may be more efficient to allocate new builder than clean
+&nbsp;     * previously allocated one.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: this functionality is experimental and may be changed in further versions&lt;/em&gt;
+&nbsp;     * @see #clear()
+&nbsp;     * @return {@code true} if clean method would be generated.
+&nbsp;     */
+&nbsp;    boolean clearBuilder() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When this optimisation in enabled then the processor tries to defer allocation of
+&nbsp;     * collection in builder and modifiable objects. The resulting code might somewhat be slower at
+&nbsp;     * a microbenchmark scale due to additional &quot;if&quot; checks, but might save some allocations.
+&nbsp;     * Does not work when {@link #strictBuilder()} is enabled. Disabled by default.
+&nbsp;     * @return {@code true} if defer collection allocation.
+&nbsp;     */
+&nbsp;    boolean deferCollectionAllocation() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Deep analysis of immutable types enables additional convenience features.
+&nbsp;     * When enabled, each attribute is analyzed and if it is discovered to be an {@literal @}
+&nbsp;     * {@code Value.Immutable} object (either abstract value type or generated implementation type),
+&nbsp;     * then some special handling will be applied to it. As of now following functionality is
+&nbsp;     * applied:
+&nbsp;     * &lt;ul&gt;
+&nbsp;     * &lt;li&gt;Accessors in a generated immutable type will be implemented with a covariant return type
+&nbsp;     * of the immutable implementation of the abstract value type of the declared attribute. This
+&nbsp;     * has no effect on the collection/container attributes to not interfere with invariant generic
+&nbsp;     * types. Derived and Default attributes are also not supported as of now to avoid excessive
+&nbsp;     * complexity&lt;/li&gt;
+&nbsp;     * &lt;li&gt;Builder initializers will have overloaded variants with parameters of the attribute value
+&nbsp;     * object&#39;s constructor (if it has constructor as opposed to the ones which only have builder).
+&nbsp;     * Effectively this is a shortcut to initialize value object in a more concise way. This works
+&nbsp;     * for regular and collection attributes (but not for maps or arrays to avoid complex and
+&nbsp;     * confusing overload).&lt;/li&gt;
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * See the example below which illustrates these behaviors.
+&nbsp;     *
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * {@literal @}Value.Style(deepImmutablesDetection = true)
+&nbsp;     * public interface Canvas {
+&nbsp;     *   {@literal @}Value.Immutable
+&nbsp;     *   public interface Color {
+&nbsp;     *     {@literal @}Value.Parameter double red();
+&nbsp;     *     {@literal @}Value.Parameter double green();
+&nbsp;     *     {@literal @}Value.Parameter double blue();
+&nbsp;     *   }
+&nbsp;     *
+&nbsp;     *   {@literal @}Value.Immutable
+&nbsp;     *   public interface Point {
+&nbsp;     *     {@literal @}Value.Parameter int x();
+&nbsp;     *     {@literal @}Value.Parameter int y();
+&nbsp;     *   }
+&nbsp;     *
+&nbsp;     *   {@literal @}Value.Immutable
+&nbsp;     *   public interface Line {
+&nbsp;     *     Color color();
+&nbsp;     *     Point start();
+&nbsp;     *     Point end();
+&nbsp;     *   }
+&nbsp;     *
+&nbsp;     *   public static void main(String... args) {
+&nbsp;     *     ImmutableLine line = ImmutableLine.builder()
+&nbsp;     *         .start(1, 2) // overload, equivalent of .start(ImmutablePoint.of(1, 2))
+&nbsp;     *         .end(2, 3)
+&nbsp;     *         // overload, equivalent of .end(ImmutablePoint.of(2, 3))
+&nbsp;     *         .color(0.9, 0.7, 0.4)
+&nbsp;     *         // overload, equivalent of .color(ImmutableColor.of(0.9, 0.7. 0.4))
+&nbsp;     *         .build();
+&nbsp;     *
+&nbsp;     *     ImmutablePoint start = line.start(); // return type is ImmutablePoint rather than declared Point
+&nbsp;     *     ImmutablePoint end = line.end(); // return type is ImmutablePoint rather than declared Point
+&nbsp;     *     ImmutableColor color = line.color(); // return type is ImmutableColor rather than declared Color
+&nbsp;     *
+&nbsp;     *     ImmutableLine.builder()
+&nbsp;     *         .start(start)
+&nbsp;     *         .end(end)
+&nbsp;     *         .color(color)
+&nbsp;     *         .build();
+&nbsp;     *   }
+&nbsp;     * }
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Disabled by default as, speculatively, this might increase processing time. It will not work
+&nbsp;     * for yet-to-be-generated types as attribute types, which allows only shallow analysis.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: this functionality is experimental and may be changed in further versions. As of
+&nbsp;     * version 2.2
+&nbsp;     * we no longer add {@code *Of} suffix to the shortcut initializer attribute.&lt;/em&gt;
+&nbsp;     * @return {@code true} if deep detection is enabled.
+&nbsp;     */
+&nbsp;    boolean deepImmutablesDetection() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Makes abstract value type predominantly used in generated signatures rather than immutable
+&nbsp;     * implementation class. In case of {@link #visibility()} is more restrictive than
+&nbsp;     * {@link #builderVisibility()} (for example is {@code PRIVATE}), then this
+&nbsp;     * feature is turned on automatically.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: not all generators or generation modes might honor this attribute&lt;/em&gt;
+&nbsp;     * @return {@code true} if methods of generated builders and other classes should return
+&nbsp;     *         abstract type, rather than work with immutable implementation class.
+&nbsp;     */
+&nbsp;    boolean overshadowImplementation() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * By default builder is generated as inner builder class nested in immutable value class.
+&nbsp;     * Setting this to {@code true} will flip the picture — immutable implementation class will be
+&nbsp;     * nested inside builder, which will be top level class. In case if {@link #visibility()} is set
+&nbsp;     * to {@link ImplementationVisibility#PRIVATE} this feature is turned on automatically.
+&nbsp;     * @return {@code true} if builder should be generated as top level class and implementation
+&nbsp;     *         will became static inner class inside builder.
+&nbsp;     */
+&nbsp;    boolean implementationNestedInBuilder() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * As there are some ambiguities with how certain field prefixes work (&quot;get&quot;, &quot;is&quot;) we by
+&nbsp;     * default force whatever is inferred by Immutables. Disable forcing Jackson property names if
+&nbsp;     * you use naming strategies. Also make sure you recognize both &quot;get*&quot; and &quot;is*&quot; as attribute
+&nbsp;     * name patterns as Jackson infers default names using JavaBean convention.
+&nbsp;     * @return {@code true} if force jackson property names. default it {@code true}, set
+&nbsp;     *         {@code false} to disable
+&nbsp;     */
+&nbsp;    boolean forceJacksonPropertyNames() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * @return if put {@code JsonIgnore} on fields, defaults to {@code false}
+&nbsp;     */
+&nbsp;    boolean forceJacksonIgnoreFields() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If {@code forceEqualsInWithers} enabled, generated with-copy methods will have
+&nbsp;     * equality check forced. {@code ==} for integer primitives, {@code floatToIntBits ==} for floating point,
+&nbsp;     * and {@code .equals()} for the reference values.
+&nbsp;     * Some usage patterns might require strict equality check during copy to function properly,
+&nbsp;     * while for other usages it&#39;s just an optimisation.
+&nbsp;     * @return if equality check should be forced in withers, defaults to {@code false}
+&nbsp;     */
+&nbsp;    boolean forceEqualsInWithers() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Setting this to {@code false} would disable any special jackson integration capabilities.
+&nbsp;     * While out-of-the-box Jackson readiness is a good things in the most cases, for some cases
+&nbsp;     * it might get in the way of highly customized Jackson infrastructure. When disabled, there are
+&nbsp;     * no any special stuff generated such as {@code JsonProperty} annotations or internal
+&nbsp;     * {@code Json} delegate class together with {@code JsonCreator} method. This allows to place
+&nbsp;     * {@code JsonSerialize/JsonDeserialize} annotations on the value types without redundant
+&nbsp;     * support code being generated.
+&nbsp;     * @return {@code true} if generate special Jackson code when encountered
+&nbsp;     *         {@code JsonSerialize/JsonDeserialize}. Default is {@code true}.
+&nbsp;     */
+&nbsp;    boolean jacksonIntegration() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code weakInterning} is enabled, then for value types with
+&nbsp;     * {@literal @}{@code Value.Immutable(intern=true)} weak (see {@link WeakReference})
+&nbsp;     * interning will be used.
+&nbsp;     * @return {@code true} if enable weak interning for {@code intern=true} values,
+&nbsp;     *         defaults to {@code false}
+&nbsp;     */
+&nbsp;    boolean weakInterning() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * All initializers (the methods to set attribute values on a builder) usually have public
+&nbsp;     * visibility regardless of the visibility of the attribute accessors. Usually this doesn&#39;t
+&nbsp;     * matter, especially for value types defined as interfaces (where all accessors public). But
+&nbsp;     * sometimes there&#39;s a need to have abstract class with finer-grained access control to
+&nbsp;     * attributes, which also require initializers to follow the access level of accessors defining
+&nbsp;     * attributes. Set this flag to {@code false} if initializers (builder setters) should follow
+&nbsp;     * access level of attributes.
+&nbsp;     * &lt;em&gt;Note this flag is disregarded when {@link #stagedBuilder()} is enabled which generates
+&nbsp;     * stage interfaces which requires public access anyway.&lt;/em&gt;
+&nbsp;     * @return {@code true} if force all initializers to public. Default is true
+&nbsp;     */
+&nbsp;    boolean alwaysPublicInitializers() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify the mode in which visibility of generated value type is derived from abstract value
+&nbsp;     * type. It is a good idea to not specify such attributes inline with immutable values, but
+&nbsp;     * rather create style annotation (@see Style).
+&nbsp;     * @return implementation visibility
+&nbsp;     */
+&nbsp;    BuilderVisibility builderVisibility() default BuilderVisibility.PUBLIC;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Specify the mode in which visibility of generated value type is derived from abstract value
+&nbsp;     * type. Specifying this will override {@link #builderVisibility()} and the reason why this option as
+&nbsp;     * a string exists, is to avoid javac warnings mentioned in
+&nbsp;     * &lt;a href=&quot;https://github.com/immutables/immutables/issues/291&quot;&gt;#291&lt;/a&gt;.
+&nbsp;     * @return implementation visibility as string
+&nbsp;     */
+&nbsp;    String builderVisibilityString() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Runtime exception to throw when an immutable object is in an invalid state. I.e. when some
+&nbsp;     * mandatory attributes are missing and immutable object cannot be built. The runtime exception
+&nbsp;     * class must have a constructor that takes a single string, otherwise there will be compile
+&nbsp;     * error in the generated code.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * The default exception type is {@link IllegalStateException}. In case if
+&nbsp;     * specified exception type have public constructor taking array of strings (can be varargs),
+&nbsp;     * then missing parameter names will be passed to that constructor. Otherwise, string
+&nbsp;     * constructor is always expected to be present to take formatted error message. It is always
+&nbsp;     * advisable have string constructor even in the presence of attribute names array constructor
+&nbsp;     * as some additional generators might use string constructor for reporting other invalid state
+&nbsp;     * issues.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Technically we allow exception class to be checked (non-runtime), but not all processor
+&nbsp;     * features might be generated correctly (they may not expect). So use checked exception only if
+&nbsp;     * this work with your set of use-cases: there is no guarantee that it will be ever supported in
+&nbsp;     * all processor components/templates&lt;/em&gt;
+&nbsp;     * @return exception type
+&nbsp;     */
+&nbsp;    Class&lt;? extends RuntimeException&gt; throwForInvalidImmutableState() default IllegalStateException.class;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Runtime exception to throw when null reference is passed to non-nullable parameter or occured
+&nbsp;     * in array/container that must not contain nulls. It is expected that the exception will have
+&nbsp;     * public constructor receiving string as message/parameter name. The
+&nbsp;     * default is {@link NullPointerException} and the calls are usually delegated to
+&nbsp;     * {@link Objects#requireNonNull(Object)} or similar utility throwing
+&nbsp;     * {@code NullPointerException}.
+&nbsp;     * @return exception type
+&nbsp;     */
+&nbsp;    Class&lt;? extends RuntimeException&gt; throwForNullPointer() default NullPointerException.class;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Depluralize names for collection and map attributes used for generating derived method names,
+&nbsp;     * such as {@link #add()} and {@link #put()}. In order to enable depluralization use
+&nbsp;     * {@code depluralize = true}: this will trim trailing &quot;s&quot; if present to create singular form
+&nbsp;     * (&quot;*ies&quot; to &quot;*y&quot; is also supported).
+&nbsp;     * Exceptions are provided using {@link #depluralizeDictionary()} array of &quot;singular:plural&quot;
+&nbsp;     * pairs as alternative to mechanical &quot;*s&quot; depluralization.
+&nbsp;     *
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * {@literal @}Value.Style(
+&nbsp;     *    depluralize = true, // enable feature
+&nbsp;     *    depluralizeDictionary = {&quot;person:people&quot;, &quot;foot:feet&quot;}) // specifying dictionary of exceptions
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     *
+&nbsp;     * When given the dictionary defined as {@code &quot;person:people&quot;, &quot;foot:feet&quot;} then
+&nbsp;     * depluralization examples for collection {@code add*} method in builder would be:
+&nbsp;     * &lt;ul&gt;
+&nbsp;     * &lt;li&gt;boats -&gt; addBoat&lt;/li&gt;
+&nbsp;     * &lt;li&gt;people -&gt; addPerson&lt;/li&gt;
+&nbsp;     * &lt;li&gt;feet -&gt; addFoot&lt;/li&gt;
+&nbsp;     * &lt;li&gt;feetPeople -&gt; addFeetPerson&lt;/li&gt;
+&nbsp;     * &lt;li&gt;peopleRepublics -&gt; addPeopleRepublic&lt;/li&gt;
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * The default value is a {@code false}: feature is disabled, compatible with previous
+&nbsp;     * versions.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Instead
+&nbsp;     * @see Depluralize
+&nbsp;     * @return {@code true} if depluralization enabled.
+&nbsp;     */
+&nbsp;    boolean depluralize() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Dictionary of exceptions — array of &quot;singular:plural&quot; pairs as alternative to mechanical &quot;*s&quot;
+&nbsp;     * depluralization. Suppress trimming of trailing &quot;s&quot; for certain words by using exceptions of
+&nbsp;     * form {@code &quot;words:words&quot;} or simply {@code &quot;words&quot;}. Important to note is that words will be
+&nbsp;     * converted to lowercase and identifier in question consists of couple of words joined using
+&nbsp;     * camel case — only a last segment will be considered for depluralization when matching
+&nbsp;     * dictionary. Uninterpretable pairs will be ignored. By default no dictionary is supplied and
+&nbsp;     * depluralization performed only by mechanical &quot;*s&quot; trimming.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * This attribute is semi-deprecated in favor of using {@link Depluralize#dictionary()}
+&nbsp;     * annotation which may be placed on a package, type or as meta-annotation. And dictionary will
+&nbsp;     * be merged across all applicable definitions.
+&nbsp;     * @see #depluralize()
+&nbsp;     * @see Depluralize#dictionary()
+&nbsp;     * @return array of &quot;singular:plural&quot; pairs.
+&nbsp;     */
+&nbsp;    String[] depluralizeDictionary() default {};
+&nbsp;
+&nbsp;    /**
+&nbsp;     * You can provide classes which must contain copyOf method with relevant overloads which should
+&nbsp;     * not have ambiguous cases as it will be fully a subject to JLS rules of static imports and
+&nbsp;     * compile time overload resolution.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Tha major use case is custom validation and normalization of the attribute values by types.
+&nbsp;     * Validations specific to a value object or it&#39;s attributes could be performed using
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: This attribute-style is experimental and may be changed in near releases.
+&nbsp;     * The manner in which routines are applied
+&nbsp;     * &lt;/em&gt;
+&nbsp;     * &lt;/p&gt;
+&nbsp;     * @return classes, for which static imports like {@code import static ..Type.immutableCopyOf;}
+&nbsp;     *         will be generated along with corresponding invocations of {@code immutableCopyOf}
+&nbsp;     *         method when accepting parameters.
+&nbsp;     */
+&nbsp;    Class&lt;?&gt;[] immutableCopyOfRoutines() default {};
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Staged (aka telescopic) builders are a special flavor of builders which provides compile-time
+&nbsp;     * safety to a staged building. Providing proposals to insert mandatory attributes one by one,
+&nbsp;     * and then allowing adding any optional or collection attributes in any order before calling
+&nbsp;     * the build method. This option also implies {@link #strictBuilder()} is automatically enabled.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note: this functionality may not play well with other functionality, may be auto-disabled
+&nbsp;     * in certain configurations like implementations nested in builder.
+&nbsp;     * &lt;/em&gt;
+&nbsp;     * @return if telescopic builders are used, {@code false} by default
+&nbsp;     */
+&nbsp;    boolean stagedBuilder() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Setting {@code builtinContainerAttributes} to {@code false} would disable generation of
+&nbsp;     * built-in convenience features of automatically recognized container types such as
+&nbsp;     * {@code Optional}, {@link List}, {@link Map}. This will turn all attribute types into nothing
+&nbsp;     * special setters(initializers) and getters. However any registered encodings (type
+&nbsp;     * customizers) will be still processed. One of the purposes of this style control is to provide
+&nbsp;     * clean-slate when only registered encodings will impact type generation, but none of the
+&nbsp;     * built-in types would be applied. Note: that this style controls recognition of the
+&nbsp;     * attribute types, but not kind of attributes such as those specified by {@code Value.Default}
+&nbsp;     * or {@code Nullable} annotations.
+&nbsp;     * @return {@code true} if builtin container attributes should be supported. {@code true} is the
+&nbsp;     *         default
+&nbsp;     */
+&nbsp;    boolean builtinContainerAttributes() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If enabled, modifiable type will have void setters and will look more like JavaBean. This is
+&nbsp;     * modifiable companion types only, not for builders and other types of generated artifacts.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;Note, we are not supporting JavaBean specification in any way except that Immutables can
+&nbsp;     * be used/configured to be partially compatible with some of the conventions.&lt;/em&gt;
+&nbsp;     * &lt;/p&gt;
+&nbsp;     * @return {@code true} for void setters and minor tweaks to make modifiables more
+&nbsp;     *         bean-friendly. {@code false} is the default
+&nbsp;     */
+&nbsp;    boolean beanFriendlyModifiables() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If enabled mandatory attributes would be auto-propagated to be parameters of value object
+&nbsp;     * constructor.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * &lt;em&gt;This parameter conflicts with {@link #allParameters()} and is ignored when
+&nbsp;     * {@code allParameters} is enabled&lt;/em&gt;
+&nbsp;     * @return {@code true} to turn mandatory attributes into parameters. {@code false} is the
+&nbsp;     *         default
+&nbsp;     */
+&nbsp;    boolean allMandatoryParameters() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When {@code transientDerivedFields} is enabled (as it by default), the backing fields for
+&nbsp;     * derived attributes will be marked as {@code transient} (unless type is {@link Serializable}
+&nbsp;     * by using regular Java serialization (not for when structural serialization is on via
+&nbsp;     * {@literal @}{@code Serial.Structural}). When set {@code false}, the processor we will not add
+&nbsp;     * any {@code transient} annotations to derived fields. This is only for derived fields. Any
+&nbsp;     * fields for lazy attributes are
+&nbsp;     * always {@code transient} and ready to be reinitialized lazily after object is deserialized
+&nbsp;     * regardless of serialization/persistence technology.
+&nbsp;     * @return default is {@code true} for backward compatibility. Set to {@code false} to disable
+&nbsp;     */
+&nbsp;    boolean transientDerivedFields() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Disable final fields only if there are no other way, considered unsafe. This is only about instance fields of
+&nbsp;     * Immutable implementation class, will not apply to a lot of their places/generators.
+&nbsp;     * @return default is {@code true}, do not switch off.
+&nbsp;     */
+&nbsp;    boolean finalInstanceFields() default true;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * String to substitute value of the attribute in a generated {@code toString} implementation
+&nbsp;     * when {@link Redacted} annotation is applied to the attribute.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * By default it is an empty string, which also mean that the attribute will not appear in the
+&nbsp;     * {@code toString} output. If you set it to some value, then it will be printed.
+&nbsp;     * @return redacted value substitution string
+&nbsp;     */
+&nbsp;    String redactedMask() default &quot;&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Immutables recognizes nullable annotation by simple name. For most cases this is sufficient.
+&nbsp;     * But for some cases it&#39;s needed to customize this annotation simple name and
+&nbsp;     * {@code nullableAnnotation} can be used to set custom simple name for nullable annotation.
+&nbsp;     * While we recommend against this change, this may be occasionally be needed.
+&nbsp;     * &lt;em&gt;Except for simple name detection, {@code javax.annotation.Nullable} and
+&nbsp;     * {@code javax.annotation.CheckForNull} are always recognized as nullable annotations.
+&nbsp;     * &lt;/em&gt;
+&nbsp;     * @return nullable annotation simple name
+&nbsp;     */
+&nbsp;    String nullableAnnotation() default &quot;Nullable&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * When enabled: immutable attributes with discoverable builders receive the additional
+&nbsp;     * builder API:
+&nbsp;     * &lt;p&gt;
+&nbsp;     * For single children:
+&nbsp;     * &lt;ul&gt;
+&nbsp;     * &lt;li&gt;{@code BuilderT *Builder()}
+&nbsp;     * &lt;li&gt;{@code ParentT *Builder(BuilderT builder)}
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * &lt;p&gt;
+&nbsp;     * For a collection of children:
+&nbsp;     * &lt;li&gt;{@code BuilderT add*Builder()}
+&nbsp;     * &lt;li&gt;{@code ParentT addAll*Builder(Iterable&lt;BuilderT&gt; builderCollection)}
+&nbsp;     * &lt;li&gt;{@code ParentT addAll*Builder(BuilderT... builderArgs)}
+&nbsp;     * &lt;li&gt;{@code List&lt;BuilderT&gt; *Builders()}
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * &lt;p&gt;
+&nbsp;     * In strict mode, you may only set the builder via {@code *Builder(BuilderT builder)} once,
+&nbsp;     * but you may call {@code *Builder()} multiple times, in which the same builder is returned.
+&nbsp;     * If the nested immutable is also strict, then you will only be able to set properties on
+&nbsp;     * the child builder once.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * To discover builders on value attributes the value methods are scanned for method names
+&nbsp;     * matching a patterns specified in {@link #attributeBuilder()}.
+&nbsp;     * This style parameter is experimental and may change in future.
+&nbsp;     * @return true to enable the feature.
+&nbsp;     */
+&nbsp;    boolean attributeBuilderDetection() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Pattern for detecting builders.
+&nbsp;     * {@link #attributeBuilder()} applies to both
+&nbsp;     * static and instance methods. In the case a builder is only discoverable through a
+&nbsp;     * value instance method, the builder class must have a public no-arg static construction
+&nbsp;     * method. To use a no-arg public constructor, a special token &quot;new&quot; should be specified.
+&nbsp;     * example: new token required to find this builder.
+&nbsp;     *
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * class MyObject {
+&nbsp;     *   class Builder {
+&nbsp;     *     public Builder() {...}
+&nbsp;     *     public Builder(MyObject copy) {...}
+&nbsp;     *
+&nbsp;     *     MyObject build() {...}
+&nbsp;     *   }
+&nbsp;     * }
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     *
+&nbsp;     * &lt;em&gt;This is detection pattern, not formatting pattern. It defines how to recognize a nested
+&nbsp;     * builder.&lt;/em&gt;
+&nbsp;     * Only applies if {@link #attributeBuilderDetection()} is {@code true}.
+&nbsp;     * @return naming template
+&nbsp;     */
+&nbsp;    String[] attributeBuilder() default {&quot;Builder&quot;, &quot;*Builder&quot;, &quot;builder&quot;, &quot;from&quot;, &quot;build&quot;, &quot;*Build&quot;, &quot;new&quot;};
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for retrieving a nested builder.
+&nbsp;     * Only applies if {@link #attributeBuilderDetection()} is {@code true}.
+&nbsp;     * @return naming template.
+&nbsp;     */
+&nbsp;    String getBuilder() default &quot;*Builder&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for setting a nested builder.
+&nbsp;     * This may be called only once in strict mode.
+&nbsp;     * Only applies if {@link #attributeBuilderDetection()} is {@code true}.
+&nbsp;     * @return naming template.
+&nbsp;     */
+&nbsp;    String setBuilder() default &quot;*Builder&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for adding a new builder instance to a collection.
+&nbsp;     * Only applies if {@link #attributeBuilderDetection()} is {@code true}.
+&nbsp;     * @return naming template.
+&nbsp;     */
+&nbsp;    String addBuilder() default &quot;add*Builder&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for adding a collection of builders.
+&nbsp;     * Only applies if {@link #attributeBuilderDetection()} is {@code true}.
+&nbsp;     * @return naming template.
+&nbsp;     */
+&nbsp;    String addAllBuilder() default &quot;addAll*Builders&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Naming template for retrieving an immutable list of builders.
+&nbsp;     * Only applies if {@link #attributeBuilderDetection()} is {@code true}.
+&nbsp;     * @return naming template.
+&nbsp;     */
+&nbsp;    String getBuilders() default &quot;*Builders&quot;;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Immutables applies some annotations if found on classpath. These include:
+&nbsp;     * &lt;ul&gt;
+&nbsp;     * &lt;li&gt;{@literal @}{@code org.immutables.value.Generated}
+&nbsp;     * &lt;li&gt;{@literal @}{@code javax.annotation.Generated}
+&nbsp;     * &lt;li&gt;{@literal @}{@code java.annotation.processing.Generated}
+&nbsp;     * &lt;li&gt;{@literal @}{@code javax.annotation.concurrent.Immutable}
+&nbsp;     * &lt;li&gt;{@literal @}{@code javax.annotation.ParametersAreNonnullByDefault}
+&nbsp;     * &lt;li&gt;{@literal @}{@code javax.annotation.CheckReturnValue}
+&nbsp;     * &lt;li&gt;{@literal @}{@code edu.umd.cs.findbugs.annotations.SuppressFBWarnings}
+&nbsp;     * &lt;li&gt;{@literal @}{@code com.google.errorprone.annotations.Var}
+&nbsp;     * &lt;li&gt;{@literal @}{@code com.google.errorprone.annotations.Immutable}
+&nbsp;     * &lt;li&gt;... and others, etc
+&nbsp;     * &lt;/ul&gt;
+&nbsp;     * This annotation attribute provides a whitelist (if not empty by default) to those
+&nbsp;     * annotation discovered. This is motivated that a lot of build configurations gets very complex
+&nbsp;     * with different build tools and IDEs, making it hard to solely use classpath management as a
+&nbsp;     * way to configure auto-applied annotations.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * In order to simply disable all such annotation auto-discovery, you can put some dummy
+&nbsp;     * annotation like {@code java.lang.Override}, as in:
+&nbsp;     *
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * Style(allowedClasspathAnnotations = {java.lang.Override.class})
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     *
+&nbsp;     * The array will no longer be empty as by default so only specified entries will be applied.
+&nbsp;     * Please note that standard {@code java.lang} annotations like {@link java.lang.Override},
+&nbsp;     * {@link java.lang.Deprecated}, {@link java.lang.SuppressWarnings} will always be applied where
+&nbsp;     * supported, so this configuration
+&nbsp;     * have no effect on those. At the same time, {@code javax.annotation.*} or
+&nbsp;     * {@code java.annotation.processing.*} are configurable by this style attribute. Another
+&nbsp;     * exception is when some annotation is put on abstract value
+&nbsp;     * type or attribute and then propagated to corresponding/related elements of generated
+&nbsp;     * classes, these other mechanisms do not count as complementary annotation generation regulated
+&nbsp;     * by this property.
+&nbsp;     * &lt;p&gt;
+&nbsp;     * Another way to inhibit some classpath entries from discovery is using
+&nbsp;     * class-path fence using META-INF extension mechanism. That mechanism is a general classpath
+&nbsp;     * discovery blacklist and overrides any whitelist allowed here. Add unwanted fully qualified
+&nbsp;     * class name prefixes (for example, like full class names, or package names ending with a dot)
+&nbsp;     * as the lines to the {@code META-INF/extensions/org.immutables.inhibit-classpath} resource
+&nbsp;     * file available in classpath.
+&nbsp;     * @return a non-empty array of only allowed auto-discovered annotations. Empty by
+&nbsp;     *         default, which allows any auto-discovered annotation support for backward
+&nbsp;     *         compatibility.
+&nbsp;     */
+&nbsp;    Class&lt;? extends Annotation&gt;[] allowedClasspathAnnotations() default {};
+&nbsp;
+&nbsp;    /**
+&nbsp;     * For many cases of nullable annotation is just copied to generated code when recognized (by simple name, see
+&nbsp;     * {@link #nullableAnnotation()}). But for some cases we need to internally insert some nullable annotation when we
+&nbsp;     * don&#39;t know any &quot;original&quot; annotation. By default, we assume that would be {@code javax.annotation.Nullable} (if
+&nbsp;     * it present on the classpath during compilation). When you set {@link #fallbackNullableAnnotation()}
+&nbsp;     * to non-default value (default value is {@code java.lang.annotation.Inherited} which serves as a placeholder
+&nbsp;     * for an unspecified value)
+&nbsp;     * value, we would use that annotation in such cases.
+&nbsp;     * &lt;p&gt;&lt;em&gt;Note&lt;/em&gt; that this annotation would always be on the compilation classpath (as it is specified as
+&nbsp;     * class literal in a style annotation, but will not be otherwise validated as applicable and will be used verbatim
+&nbsp;     * in all places where we ought to insert nullable annotation without the link to any &quot;original&quot; nullable
+&nbsp;     * annotation in the hand-written code.
+&nbsp;     * @return fallback nullable annotation to use. Default values is unspecified encoded as {@code Inherited.class}
+&nbsp;     * so that {@code javax.annotation.Nullable} annotation will be used if found on classpath.
+&nbsp;     */
+&nbsp;    Class&lt;? extends Annotation&gt; fallbackNullableAnnotation() default Inherited.class;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Setting to trim strings longer than a defined length when calling the toString method.
+&nbsp;     * @return string limit, by default {@code 0} i.e. no limit
+&nbsp;     */
+&nbsp;    int limitStringLengthInToString() default 0;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If enabled, {@code jakarta.*} packages will take over any relevant {@code javax.*}.
+&nbsp;     * This includes primarily {@code jakarta.annotation.*} and {@code jakarta.validation.*}.
+&nbsp;     * &lt;p&gt;Note that classpath inhibitor or {@link #allowedClasspathAnnotations()} will still
+&nbsp;     * take effect, it&#39;s just so that&lt;/p&gt;
+&nbsp;     * @return {@code true} if enabled. The default is {@code false}.
+&nbsp;     */
+&nbsp;    boolean jakarta() default false;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * If implementation visibility is more restrictive than visibility of abstract value type, then
+&nbsp;     * implementation type will not be exposed as a return type of {@code build()} or {@code of()}
+&nbsp;     * construction methods. Builder visibility will follow.
+&nbsp;     */
+<b class="nc">&nbsp;    enum ImplementationVisibility {</b>
+&nbsp;      /**
+&nbsp;       * Generated implementation class forced to be public.
+&nbsp;       */
+<b class="nc">&nbsp;      PUBLIC,</b>
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Visibility is the same as abstract value type
+&nbsp;       */
+<b class="nc">&nbsp;      SAME,</b>
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Visibility is the same, but it is not returned from build and factory method, instead
+&nbsp;       * abstract value type returned.
+&nbsp;       * @deprecated use combination with {@link Style#overshadowImplementation()}
+&nbsp;       */
+<b class="nc">&nbsp;      @Deprecated</b>
+&nbsp;      SAME_NON_RETURNED,
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Implementation will have package visibility
+&nbsp;       */
+<b class="nc">&nbsp;      PACKAGE,</b>
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Allowed only when builder is enabled or nested inside enclosing type.
+&nbsp;       * Builder visibility will follow the umbrella class visibility.
+&nbsp;       */
+<b class="nc">&nbsp;      PRIVATE</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    enum BuilderVisibility {</b>
+&nbsp;      /**
+&nbsp;       * Generated builder visibility is forced to be public.
+&nbsp;       */
+<b class="nc">&nbsp;      PUBLIC,</b>
+&nbsp;      /**
+&nbsp;       * Generated builder visibility is the same as abstract value type
+&nbsp;       */
+<b class="nc">&nbsp;      SAME,</b>
+&nbsp;      /**
+&nbsp;       * Generated builder visibility is forced to be package-private.
+&nbsp;       */
+<b class="nc">&nbsp;      PACKAGE</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    enum ValidationMethod {</b>
+&nbsp;      /**
+&nbsp;       * Disables null and mandatory attribute checks. Any missing primitives will be initialized to
+&nbsp;       * their zero-based values: {@code false}, {@code 0}, {@code &#39;\0&#39;}. Object references will be
+&nbsp;       * nulls. Any optional, default and collection attributes will be initialized with their
+&nbsp;       * appropriate default values regardless of this validation setting.
+&nbsp;       */
+<b class="nc">&nbsp;      NONE,</b>
+&nbsp;      /**
+&nbsp;       * This validation method is similar to {@link #NONE} in that that there are no null checks.
+&nbsp;       * But all attributes which are not `@Default` or marked with `@Nullable` are still checked
+&nbsp;       * to be provided (even with {@code null} values in case of object references.
+&nbsp;       */
+<b class="nc">&nbsp;      MANDATORY_ONLY,</b>
+&nbsp;      /**
+&nbsp;       * Simple validation, verifying that non-null attributes have been provided. This is classic
+&nbsp;       * fail-fast, null-hostile behavior and works best in most cases.
+&nbsp;       */
+<b class="nc">&nbsp;      SIMPLE,</b>
+&nbsp;      /**
+&nbsp;       * Validation using Java Bean Validation API (JSR 303). It disables null checks, in favor or
+&nbsp;       * {@literal @}{@code javax.validation.constraints.NotNull} and creates static validator per
+&nbsp;       * objects. To better control the usage of JSR 303 Validator objects or enable fail-fast null
+&nbsp;       * checks, please use custom validation mixin approach, where you create base abstract class
+&nbsp;       * or interface with default methods to provide `@Value.Check` which would explicitly call
+&nbsp;       * validation of your choice. Please see discussion and examples provided in the following
+&nbsp;       * github issue:
+&nbsp;       * &lt;a href=&quot;https://github.com/immutables/immutables/issues/26&quot;&gt;immutables/immutables#26&lt;/a&gt;
+&nbsp;       */
+<b class="nc">&nbsp;      VALIDATION_API</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Enables depluralization and may provide depluralization dictionary.
+&nbsp;     * The annotation which may be placed on a package, type or as meta-annotation. And dictionary
+&nbsp;     * will be merged across all applicable definitions.
+&nbsp;     * @see Style#depluralize()
+&nbsp;     */
+&nbsp;    @Target({ElementType.TYPE, ElementType.PACKAGE, ElementType.ANNOTATION_TYPE})
+&nbsp;    @interface Depluralize {
+&nbsp;      /**
+&nbsp;       * Depluralization dictionary.
+&nbsp;       * @see Style#depluralizeDictionary()
+&nbsp;       * @return array of &quot;singular:plural&quot; pairs.
+&nbsp;       */
+&nbsp;      String[] dictionary() default {};
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

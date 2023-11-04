@@ -1,0 +1,1488 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableCompanion</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableCompanion (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableCompanion$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.common.collect.ImmutableSortedMap;
+&nbsp;import com.google.common.collect.ImmutableSortedSet;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import com.google.common.collect.Ordering;
+&nbsp;import com.google.common.collect.Sets;
+&nbsp;import com.google.common.primitives.Ints;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Companion}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableCompanion.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableCompanion implements Companion {
+&nbsp;  private final int integer;
+&nbsp;  private final String string;
+&nbsp;  private final @Nullable Boolean bools;
+&nbsp;  private final ImmutableList&lt;String&gt; str;
+&nbsp;  private final ImmutableSet&lt;Integer&gt; ints;
+&nbsp;  private final int[] arrayInts;
+&nbsp;  private final String[] arrayStrings;
+&nbsp;  private final ImmutableSortedSet&lt;Integer&gt; ords;
+&nbsp;  private final ImmutableSet&lt;RetentionPolicy&gt; pols;
+&nbsp;  private final ImmutableSortedSet&lt;Integer&gt; navs;
+&nbsp;  private final ImmutableMap&lt;Long, Integer&gt; just;
+&nbsp;  private final ImmutableSortedMap&lt;Integer, String&gt; ordsmap;
+&nbsp;  private final ImmutableMap&lt;RetentionPolicy, Integer&gt; polsmap;
+&nbsp;  private final ImmutableSortedMap&lt;String, Integer&gt; navsmap;
+&nbsp;
+&nbsp;  private ImmutableCompanion(
+&nbsp;      int integer,
+&nbsp;      String string,
+&nbsp;      @Nullable Boolean bools,
+&nbsp;      ImmutableList&lt;String&gt; str,
+&nbsp;      ImmutableSet&lt;Integer&gt; ints,
+&nbsp;      int[] arrayInts,
+&nbsp;      String[] arrayStrings,
+&nbsp;      ImmutableSortedSet&lt;Integer&gt; ords,
+&nbsp;      ImmutableSet&lt;RetentionPolicy&gt; pols,
+&nbsp;      ImmutableSortedSet&lt;Integer&gt; navs,
+&nbsp;      ImmutableMap&lt;Long, Integer&gt; just,
+&nbsp;      ImmutableSortedMap&lt;Integer, String&gt; ordsmap,
+&nbsp;      ImmutableMap&lt;RetentionPolicy, Integer&gt; polsmap,
+&nbsp;      ImmutableSortedMap&lt;String, Integer&gt; navsmap) {
+&nbsp;    this.integer = integer;
+&nbsp;    this.string = string;
+&nbsp;    this.bools = bools;
+&nbsp;    this.str = str;
+&nbsp;    this.ints = ints;
+&nbsp;    this.arrayInts = arrayInts;
+&nbsp;    this.arrayStrings = arrayStrings;
+&nbsp;    this.ords = ords;
+&nbsp;    this.pols = pols;
+&nbsp;    this.navs = navs;
+&nbsp;    this.just = just;
+&nbsp;    this.ordsmap = ordsmap;
+&nbsp;    this.polsmap = polsmap;
+&nbsp;    this.navsmap = navsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code integer} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int integer() {
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code string} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String string() {
+&nbsp;    return string;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code bools} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Boolean bools() {
+&nbsp;    return bools;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code str} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; str() {
+&nbsp;    return str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ints} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;Integer&gt; ints() {
+&nbsp;    return ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code arrayInts} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int[] arrayInts() {
+&nbsp;    return arrayInts.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code arrayStrings} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String[] arrayStrings() {
+&nbsp;    return arrayStrings.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ords} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;Integer&gt; ords() {
+&nbsp;    return ords;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code pols} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;RetentionPolicy&gt; pols() {
+&nbsp;    return pols;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code navs} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedSet&lt;Integer&gt; navs() {
+&nbsp;    return navs;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code just} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;Long, Integer&gt; just() {
+&nbsp;    return just;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code ordsmap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;Integer, String&gt; ordsmap() {
+&nbsp;    return ordsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code polsmap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;RetentionPolicy, Integer&gt; polsmap() {
+&nbsp;    return polsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code navsmap} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSortedMap&lt;String, Integer&gt; navsmap() {
+&nbsp;    return navsmap;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Companion#integer() integer} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for integer
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withInteger(int value) {
+&nbsp;    if (this.integer == value) return this;
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        value,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Companion#string() string} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for string
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withString(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;string&quot;);
+&nbsp;    if (this.string.equals(newValue)) return this;
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        newValue,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Companion#bools() bools} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for bools (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withBools(@Nullable Boolean value) {
+&nbsp;    if (Objects.equals(this.bools, value)) return this;
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        value,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#str() str}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withStr(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        newValue,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#str() str}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of str elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withStr(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.str == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        newValue,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#ints() ints}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withInts(int... elements) {
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(Ints.asList(elements));
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        newValue,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#ints() ints}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ints elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ints == elements) return this;
+&nbsp;    ImmutableSet&lt;Integer&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        newValue,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#arrayInts() arrayInts}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for arrayInts
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withArrayInts(int... elements) {
+&nbsp;    int[] newValue = elements.clone();
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        newValue,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#arrayStrings() arrayStrings}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for arrayStrings
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withArrayStrings(String... elements) {
+&nbsp;    String[] newValue = elements.clone();
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        newValue,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#ords() ords}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withOrds(int... elements) {
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        Ints.asList(elements));
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        newValue,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#ords() ords}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of ords elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.ords == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        newValue,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#pols() pols}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withPols(RetentionPolicy... elements) {
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(Arrays.asList(elements));
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        newValue,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#pols() pols}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of pols elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    if (this.pols == elements) return this;
+&nbsp;    ImmutableSet&lt;RetentionPolicy&gt; newValue = Sets.immutableEnumSet(elements);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        newValue,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#navs() navs}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withNavs(int... elements) {
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural().reverse(),
+&nbsp;        Ints.asList(elements));
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        newValue,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Companion#navs() navs}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of navs elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    if (this.navs == elements) return this;
+&nbsp;    ImmutableSortedSet&lt;Integer&gt; newValue = ImmutableSortedSet.copyOf(
+&nbsp;        Ordering.&lt;Integer&gt;natural().reverse(),
+&nbsp;        elements);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        newValue,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Companion#just() just} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the just map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withJust(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;    if (this.just == entries) return this;
+&nbsp;    ImmutableMap&lt;Long, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        newValue,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Companion#ordsmap() ordsmap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the ordsmap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withOrdsmap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.ordsmap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;Integer, String&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;Integer&gt;natural()
+&nbsp;    );
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        newValue,
+&nbsp;        this.polsmap,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Companion#polsmap() polsmap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the polsmap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withPolsmap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;    if (this.polsmap == entries) return this;
+&nbsp;    ImmutableMap&lt;RetentionPolicy, Integer&gt; newValue = Maps.immutableEnumMap(entries);
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        newValue,
+&nbsp;        this.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Companion#navsmap() navsmap} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the navsmap map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCompanion withNavsmap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.navsmap == entries) return this;
+&nbsp;    ImmutableSortedMap&lt;String, Integer&gt; newValue = ImmutableSortedMap.copyOf(entries,
+&nbsp;        Ordering.&lt;String&gt;natural().reverse()
+&nbsp;    );
+&nbsp;    return new ImmutableCompanion(
+&nbsp;        this.integer,
+&nbsp;        this.string,
+&nbsp;        this.bools,
+&nbsp;        this.str,
+&nbsp;        this.ints,
+&nbsp;        this.arrayInts,
+&nbsp;        this.arrayStrings,
+&nbsp;        this.ords,
+&nbsp;        this.pols,
+&nbsp;        this.navs,
+&nbsp;        this.just,
+&nbsp;        this.ordsmap,
+&nbsp;        this.polsmap,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableCompanion} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableCompanion
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableCompanion) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableCompanion another) {
+&nbsp;    return integer == another.integer
+&nbsp;        &amp;&amp; string.equals(another.string)
+&nbsp;        &amp;&amp; Objects.equals(bools, another.bools)
+&nbsp;        &amp;&amp; str.equals(another.str)
+&nbsp;        &amp;&amp; ints.equals(another.ints)
+&nbsp;        &amp;&amp; Arrays.equals(arrayInts, another.arrayInts)
+&nbsp;        &amp;&amp; Arrays.equals(arrayStrings, another.arrayStrings)
+&nbsp;        &amp;&amp; ords.equals(another.ords)
+&nbsp;        &amp;&amp; pols.equals(another.pols)
+&nbsp;        &amp;&amp; navs.equals(another.navs)
+&nbsp;        &amp;&amp; just.equals(another.just)
+&nbsp;        &amp;&amp; ordsmap.equals(another.ordsmap)
+&nbsp;        &amp;&amp; polsmap.equals(another.polsmap)
+&nbsp;        &amp;&amp; navsmap.equals(another.navsmap);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code string}, {@code bools}, {@code str}, {@code ints}, {@code arrayInts}, {@code arrayStrings}, {@code ords}, {@code pols}, {@code navs}, {@code just}, {@code ordsmap}, {@code polsmap}, {@code navsmap}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + integer;
+&nbsp;    h += (h &lt;&lt; 5) + string.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(bools);
+&nbsp;    h += (h &lt;&lt; 5) + str.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayInts);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayStrings);
+&nbsp;    h += (h &lt;&lt; 5) + ords.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + pols.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navs.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + just.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ordsmap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + polsmap.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navsmap.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Companion} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Companion&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;integer&quot;, integer)
+&nbsp;        .add(&quot;string&quot;, string)
+&nbsp;        .add(&quot;bools&quot;, bools)
+&nbsp;        .add(&quot;str&quot;, str)
+&nbsp;        .add(&quot;ints&quot;, ints)
+&nbsp;        .add(&quot;arrayInts&quot;, Arrays.toString(arrayInts))
+&nbsp;        .add(&quot;arrayStrings&quot;, Arrays.toString(arrayStrings))
+&nbsp;        .add(&quot;ords&quot;, ords)
+&nbsp;        .add(&quot;pols&quot;, pols)
+&nbsp;        .add(&quot;navs&quot;, navs)
+&nbsp;        .add(&quot;just&quot;, just)
+&nbsp;        .add(&quot;ordsmap&quot;, ordsmap)
+&nbsp;        .add(&quot;polsmap&quot;, polsmap)
+&nbsp;        .add(&quot;navsmap&quot;, navsmap)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Companion} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Companion instance
+&nbsp;   */
+&nbsp;  public static ImmutableCompanion copyOf(Companion instance) {
+&nbsp;    if (instance instanceof ImmutableCompanion) {
+&nbsp;      return (ImmutableCompanion) instance;
+&nbsp;    }
+&nbsp;    return ImmutableCompanion.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableCompanion ImmutableCompanion}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableCompanion.builder()
+&nbsp;   *    .integer(int) // required {@link Companion#integer() integer}
+&nbsp;   *    .string(String) // required {@link Companion#string() string}
+&nbsp;   *    .bools(Boolean | null) // nullable {@link Companion#bools() bools}
+&nbsp;   *    .addStr|addAllStr(String) // {@link Companion#str() str} elements
+&nbsp;   *    .addInts|addAllInts(int) // {@link Companion#ints() ints} elements
+&nbsp;   *    .arrayInts(int) // required {@link Companion#arrayInts() arrayInts}
+&nbsp;   *    .arrayStrings(String) // required {@link Companion#arrayStrings() arrayStrings}
+&nbsp;   *    .addOrds|addAllOrds(int) // {@link Companion#ords() ords} elements
+&nbsp;   *    .addPols|addAllPols(annotation.RetentionPolicy) // {@link Companion#pols() pols} elements
+&nbsp;   *    .addNavs|addAllNavs(int) // {@link Companion#navs() navs} elements
+&nbsp;   *    .putJust|putAllJust(long =&amp;gt; int) // {@link Companion#just() just} mappings
+&nbsp;   *    .putOrdsmap|putAllOrdsmap(int =&amp;gt; String) // {@link Companion#ordsmap() ordsmap} mappings
+&nbsp;   *    .putPolsmap|putAllPolsmap(annotation.RetentionPolicy =&amp;gt; int) // {@link Companion#polsmap() polsmap} mappings
+&nbsp;   *    .putNavsmap|putAllNavsmap(String =&amp;gt; int) // {@link Companion#navsmap() navsmap} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableCompanion builder
+&nbsp;   */
+&nbsp;  public static ImmutableCompanion.Builder builder() {
+&nbsp;    return new ImmutableCompanion.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableCompanion ImmutableCompanion}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Companion&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_INTEGER = 0x1L;
+&nbsp;    private static final long INIT_BIT_STRING = 0x2L;
+&nbsp;    private static final long INIT_BIT_ARRAY_INTS = 0x4L;
+&nbsp;    private static final long INIT_BIT_ARRAY_STRINGS = 0x8L;
+&nbsp;    private long initBits = 0xfL;
+&nbsp;
+&nbsp;    private int integer;
+&nbsp;    private @Nullable String string;
+&nbsp;    private @Nullable Boolean bools;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; str = ImmutableList.builder();
+&nbsp;    private ImmutableSet.Builder&lt;Integer&gt; ints = ImmutableSet.builder();
+&nbsp;    private @Nullable int[] arrayInts;
+&nbsp;    private @Nullable String[] arrayStrings;
+&nbsp;    private ImmutableSortedSet.Builder&lt;Integer&gt; ords = ImmutableSortedSet.naturalOrder();
+&nbsp;    private ImmutableSet.Builder&lt;RetentionPolicy&gt; pols = ImmutableSet.builder();
+&nbsp;    private ImmutableSortedSet.Builder&lt;Integer&gt; navs = ImmutableSortedSet.reverseOrder();
+&nbsp;    private ImmutableMap.Builder&lt;Long, Integer&gt; just = ImmutableMap.builder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;Integer, String&gt; ordsmap = ImmutableSortedMap.naturalOrder();
+&nbsp;    private ImmutableMap.Builder&lt;RetentionPolicy, Integer&gt; polsmap = ImmutableMap.builder();
+&nbsp;    private ImmutableSortedMap.Builder&lt;String, Integer&gt; navsmap = ImmutableSortedMap.reverseOrder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableCompanion} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ModifiableCompanion instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance.integerIsSet()) {
+&nbsp;        integer(instance.integer());
+&nbsp;      }
+&nbsp;      if (instance.stringIsSet()) {
+&nbsp;        string(instance.string());
+&nbsp;      }
+&nbsp;      @Nullable Boolean boolsValue = instance.bools();
+&nbsp;      if (boolsValue != null) {
+&nbsp;        bools(boolsValue);
+&nbsp;      }
+&nbsp;      addAllStr(instance.str());
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      if (instance.arrayIntsIsSet()) {
+&nbsp;        arrayInts(instance.arrayInts());
+&nbsp;      }
+&nbsp;      if (instance.arrayStringsIsSet()) {
+&nbsp;        arrayStrings(instance.arrayStrings());
+&nbsp;      }
+&nbsp;      addAllOrds(instance.ords());
+&nbsp;      addAllPols(instance.pols());
+&nbsp;      addAllNavs(instance.navs());
+&nbsp;      putAllJust(instance.just());
+&nbsp;      putAllOrdsmap(instance.ordsmap());
+&nbsp;      putAllPolsmap(instance.polsmap());
+&nbsp;      putAllNavsmap(instance.navsmap());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Companion} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Companion instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      if (instance instanceof ModifiableCompanion) {
+&nbsp;        return from((ModifiableCompanion) instance);
+&nbsp;      }
+&nbsp;      integer(instance.integer());
+&nbsp;      string(instance.string());
+&nbsp;      @Nullable Boolean boolsValue = instance.bools();
+&nbsp;      if (boolsValue != null) {
+&nbsp;        bools(boolsValue);
+&nbsp;      }
+&nbsp;      addAllStr(instance.str());
+&nbsp;      addAllInts(instance.ints());
+&nbsp;      arrayInts(instance.arrayInts());
+&nbsp;      arrayStrings(instance.arrayStrings());
+&nbsp;      addAllOrds(instance.ords());
+&nbsp;      addAllPols(instance.pols());
+&nbsp;      addAllNavs(instance.navs());
+&nbsp;      putAllJust(instance.just());
+&nbsp;      putAllOrdsmap(instance.ordsmap());
+&nbsp;      putAllPolsmap(instance.polsmap());
+&nbsp;      putAllNavsmap(instance.navsmap());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Companion#integer() integer} attribute.
+&nbsp;     * @param integer The value for integer 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder integer(int integer) {
+&nbsp;      this.integer = integer;
+&nbsp;      initBits &amp;= ~INIT_BIT_INTEGER;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Companion#string() string} attribute.
+&nbsp;     * @param string The value for string 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder string(String string) {
+&nbsp;      this.string = Objects.requireNonNull(string, &quot;string&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_STRING;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Companion#bools() bools} attribute.
+&nbsp;     * @param bools The value for bools (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bools(@Nullable Boolean bools) {
+&nbsp;      this.bools = bools;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion#str() str} list.
+&nbsp;     * @param element A str element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addStr(String element) {
+&nbsp;      this.str.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#str() str} list.
+&nbsp;     * @param elements An array of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addStr(String... elements) {
+&nbsp;      this.str.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion#str() str} list.
+&nbsp;     * @param elements An iterable of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder str(Iterable&lt;String&gt; elements) {
+&nbsp;      this.str = ImmutableList.builder();
+&nbsp;      return addAllStr(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#str() str} list.
+&nbsp;     * @param elements An iterable of str elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllStr(Iterable&lt;String&gt; elements) {
+&nbsp;      this.str.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion#ints() ints} set.
+&nbsp;     * @param element A ints element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int element) {
+&nbsp;      this.ints.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#ints() ints} set.
+&nbsp;     * @param elements An array of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addInts(int... elements) {
+&nbsp;      this.ints.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ints(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints = ImmutableSet.builder();
+&nbsp;      return addAllInts(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#ints() ints} set.
+&nbsp;     * @param elements An iterable of ints elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ints.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Companion#arrayInts() arrayInts} attribute.
+&nbsp;     * @param arrayInts The elements for arrayInts
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder arrayInts(int... arrayInts) {
+&nbsp;      this.arrayInts = arrayInts.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_ARRAY_INTS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Companion#arrayStrings() arrayStrings} attribute.
+&nbsp;     * @param arrayStrings The elements for arrayStrings
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder arrayStrings(String... arrayStrings) {
+&nbsp;      this.arrayStrings = arrayStrings.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_ARRAY_STRINGS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion#ords() ords} sortedSet.
+&nbsp;     * @param element A ords element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addOrds(int element) {
+&nbsp;      this.ords.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#ords() ords} sortedSet.
+&nbsp;     * @param elements An array of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addOrds(int... elements) {
+&nbsp;      this.ords.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion#ords() ords} sortedSet.
+&nbsp;     * @param elements An iterable of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ords(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ords = ImmutableSortedSet.naturalOrder();
+&nbsp;      return addAllOrds(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#ords() ords} sortedSet.
+&nbsp;     * @param elements An iterable of ords elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.ords.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion#pols() pols} set.
+&nbsp;     * @param element A pols element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPols(RetentionPolicy element) {
+&nbsp;      this.pols.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#pols() pols} set.
+&nbsp;     * @param elements An array of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addPols(RetentionPolicy... elements) {
+&nbsp;      this.pols.addAll(Arrays.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion#pols() pols} set.
+&nbsp;     * @param elements An iterable of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder pols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.pols = ImmutableSet.builder();
+&nbsp;      return addAllPols(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#pols() pols} set.
+&nbsp;     * @param elements An iterable of pols elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;      this.pols.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Companion#navs() navs} sortedSet.
+&nbsp;     * @param element A navs element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNavs(int element) {
+&nbsp;      this.navs.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#navs() navs} sortedSet.
+&nbsp;     * @param elements An array of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNavs(int... elements) {
+&nbsp;      this.navs.addAll(Ints.asList(elements));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Companion#navs() navs} sortedSet.
+&nbsp;     * @param elements An iterable of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder navs(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.navs = ImmutableSortedSet.reverseOrder();
+&nbsp;      return addAllNavs(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Companion#navs() navs} sortedSet.
+&nbsp;     * @param elements An iterable of navs elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;      this.navs.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#just() just} map.
+&nbsp;     * @param key The key in the just map
+&nbsp;     * @param value The associated value in the just map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putJust(long key, int value) {
+&nbsp;      this.just.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#just() just} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putJust(Map.Entry&lt;Long, ? extends Integer&gt; entry) {
+&nbsp;      this.just.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Companion#just() just} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the just map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder just(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;      this.just = ImmutableMap.builder();
+&nbsp;      return putAllJust(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Companion#just() just} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the just map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllJust(Map&lt;Long, ? extends Integer&gt; entries) {
+&nbsp;      this.just.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#ordsmap() ordsmap} map.
+&nbsp;     * @param key The key in the ordsmap map
+&nbsp;     * @param value The associated value in the ordsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putOrdsmap(int key, String value) {
+&nbsp;      this.ordsmap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#ordsmap() ordsmap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putOrdsmap(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      this.ordsmap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Companion#ordsmap() ordsmap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the ordsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder ordsmap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.ordsmap = ImmutableSortedMap.naturalOrder();
+&nbsp;      return putAllOrdsmap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Companion#ordsmap() ordsmap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the ordsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllOrdsmap(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      this.ordsmap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#polsmap() polsmap} map.
+&nbsp;     * @param key The key in the polsmap map
+&nbsp;     * @param value The associated value in the polsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPolsmap(RetentionPolicy key, int value) {
+&nbsp;      this.polsmap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#polsmap() polsmap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putPolsmap(Map.Entry&lt;RetentionPolicy, ? extends Integer&gt; entry) {
+&nbsp;      this.polsmap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Companion#polsmap() polsmap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the polsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder polsmap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;      this.polsmap = ImmutableMap.builder();
+&nbsp;      return putAllPolsmap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Companion#polsmap() polsmap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the polsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllPolsmap(Map&lt;RetentionPolicy, ? extends Integer&gt; entries) {
+&nbsp;      this.polsmap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#navsmap() navsmap} map.
+&nbsp;     * @param key The key in the navsmap map
+&nbsp;     * @param value The associated value in the navsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putNavsmap(String key, int value) {
+&nbsp;      this.navsmap.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Companion#navsmap() navsmap} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putNavsmap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.navsmap.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Companion#navsmap() navsmap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the navsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder navsmap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.navsmap = ImmutableSortedMap.reverseOrder();
+&nbsp;      return putAllNavsmap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Companion#navsmap() navsmap} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the navsmap map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllNavsmap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.navsmap.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableCompanion ImmutableCompanion}.
+&nbsp;     * @return An immutable instance of Companion
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableCompanion build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableCompanion(
+&nbsp;          integer,
+&nbsp;          string,
+&nbsp;          bools,
+&nbsp;          str.build(),
+&nbsp;          ints.build(),
+&nbsp;          arrayInts,
+&nbsp;          arrayStrings,
+&nbsp;          ords.build(),
+&nbsp;          Sets.immutableEnumSet(pols.build()),
+&nbsp;          navs.build(),
+&nbsp;          just.build(),
+&nbsp;          ordsmap.build(),
+&nbsp;          Maps.immutableEnumMap(polsmap.build()),
+&nbsp;          navsmap.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_INTEGER) != 0) attributes.add(&quot;integer&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_STRING) != 0) attributes.add(&quot;string&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ARRAY_INTS) != 0) attributes.add(&quot;arrayInts&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ARRAY_STRINGS) != 0) attributes.add(&quot;arrayStrings&quot;);
+&nbsp;      return &quot;Cannot build Companion, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,396 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableDefaultDerivedInit</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableDefaultDerivedInit (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableDefaultDerivedInit$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableDefaultDerivedInit$InitShim</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link DefaultDerivedInit}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableDefaultDerivedInit.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableDefaultDerivedInit.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;DefaultDerivedInit&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableDefaultDerivedInit extends DefaultDerivedInit {
+&nbsp;  private transient final String index;
+&nbsp;  private final String uuid;
+&nbsp;  private final String title;
+&nbsp;
+&nbsp;  private ImmutableDefaultDerivedInit(String uuid, String title) {
+&nbsp;    initShim.uuid(Objects.requireNonNull(uuid, &quot;uuid&quot;));
+&nbsp;    this.title = Objects.requireNonNull(title, &quot;title&quot;);
+&nbsp;    this.index = initShim.index();
+&nbsp;    this.uuid = initShim.uuid();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableDefaultDerivedInit(ImmutableDefaultDerivedInit.Builder builder) {
+&nbsp;    this.title = builder.title;
+&nbsp;    if (builder.uuid != null) {
+&nbsp;      initShim.uuid(builder.uuid);
+&nbsp;    }
+&nbsp;    this.index = initShim.index();
+&nbsp;    this.uuid = initShim.uuid();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableDefaultDerivedInit(ImmutableDefaultDerivedInit original, String uuid, String title) {
+&nbsp;    initShim.uuid(uuid);
+&nbsp;    this.title = title;
+&nbsp;    this.index = initShim.index();
+&nbsp;    this.uuid = initShim.uuid();
+&nbsp;    this.initShim = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final byte STAGE_INITIALIZING = -1;
+&nbsp;  private static final byte STAGE_UNINITIALIZED = 0;
+&nbsp;  private static final byte STAGE_INITIALIZED = 1;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile InitShim initShim = new InitShim();
+&nbsp;
+&nbsp;  @Generated(from = &quot;DefaultDerivedInit&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  private final class InitShim {
+&nbsp;    private byte indexBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String index;
+&nbsp;
+&nbsp;    String index() {
+&nbsp;      if (indexBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (indexBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        indexBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.index = Objects.requireNonNull(ImmutableDefaultDerivedInit.super.index(), &quot;index&quot;);
+&nbsp;        indexBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.index;
+&nbsp;    }
+&nbsp;
+&nbsp;    private byte uuidBuildStage = STAGE_UNINITIALIZED;
+&nbsp;    private String uuid;
+&nbsp;
+&nbsp;    String uuid() {
+&nbsp;      if (uuidBuildStage == STAGE_INITIALIZING) throw new IllegalStateException(formatInitCycleMessage());
+&nbsp;      if (uuidBuildStage == STAGE_UNINITIALIZED) {
+&nbsp;        uuidBuildStage = STAGE_INITIALIZING;
+&nbsp;        this.uuid = Objects.requireNonNull(ImmutableDefaultDerivedInit.super.uuid(), &quot;uuid&quot;);
+&nbsp;        uuidBuildStage = STAGE_INITIALIZED;
+&nbsp;      }
+&nbsp;      return this.uuid;
+&nbsp;    }
+&nbsp;
+&nbsp;    void uuid(String uuid) {
+&nbsp;      this.uuid = uuid;
+&nbsp;      uuidBuildStage = STAGE_INITIALIZED;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatInitCycleMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (indexBuildStage == STAGE_INITIALIZING) attributes.add(&quot;index&quot;);
+&nbsp;      if (uuidBuildStage == STAGE_INITIALIZING) attributes.add(&quot;uuid&quot;);
+&nbsp;      return &quot;Cannot build DefaultDerivedInit, attribute initializers form cycle &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code index} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String index() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.index()
+&nbsp;        : this.index;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code uuid} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String uuid() {
+&nbsp;    InitShim shim = this.initShim;
+&nbsp;    return shim != null
+&nbsp;        ? shim.uuid()
+&nbsp;        : this.uuid;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code title} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String title() {
+&nbsp;    return title;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link DefaultDerivedInit#uuid() uuid} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for uuid
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultDerivedInit withUuid(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;uuid&quot;);
+&nbsp;    if (this.uuid.equals(newValue)) return this;
+&nbsp;    return new ImmutableDefaultDerivedInit(this, newValue, this.title);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link DefaultDerivedInit#title() title} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for title
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableDefaultDerivedInit withTitle(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;title&quot;);
+&nbsp;    if (this.title.equals(newValue)) return this;
+&nbsp;    return new ImmutableDefaultDerivedInit(this, this.uuid, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableDefaultDerivedInit} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableDefaultDerivedInit
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableDefaultDerivedInit) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableDefaultDerivedInit another) {
+&nbsp;    return index.equals(another.index)
+&nbsp;        &amp;&amp; uuid.equals(another.uuid)
+&nbsp;        &amp;&amp; title.equals(another.title);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code index}, {@code uuid}, {@code title}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + index.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + uuid.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + title.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code DefaultDerivedInit} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;DefaultDerivedInit&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;index&quot;, index)
+&nbsp;        .add(&quot;uuid&quot;, uuid)
+&nbsp;        .add(&quot;title&quot;, title)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code DefaultDerivedInit} instance.
+&nbsp;   * @param uuid The value for the {@code uuid} attribute
+&nbsp;   * @param title The value for the {@code title} attribute
+&nbsp;   * @return An immutable DefaultDerivedInit instance
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultDerivedInit of(String uuid, String title) {
+&nbsp;    return new ImmutableDefaultDerivedInit(uuid, title);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link DefaultDerivedInit} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable DefaultDerivedInit instance
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultDerivedInit copyOf(DefaultDerivedInit instance) {
+&nbsp;    if (instance instanceof ImmutableDefaultDerivedInit) {
+&nbsp;      return (ImmutableDefaultDerivedInit) instance;
+&nbsp;    }
+&nbsp;    return ImmutableDefaultDerivedInit.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableDefaultDerivedInit ImmutableDefaultDerivedInit}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableDefaultDerivedInit.builder()
+&nbsp;   *    .uuid(String) // optional {@link DefaultDerivedInit#uuid() uuid}
+&nbsp;   *    .title(String) // required {@link DefaultDerivedInit#title() title}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableDefaultDerivedInit builder
+&nbsp;   */
+&nbsp;  public static ImmutableDefaultDerivedInit.Builder builder() {
+&nbsp;    return new ImmutableDefaultDerivedInit.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableDefaultDerivedInit ImmutableDefaultDerivedInit}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;DefaultDerivedInit&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_TITLE = 0x1L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;
+&nbsp;    private @Nullable String uuid;
+&nbsp;    private @Nullable String title;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code DefaultDerivedInit} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(DefaultDerivedInit instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      uuid(instance.uuid());
+&nbsp;      title(instance.title());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link DefaultDerivedInit#uuid() uuid} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link DefaultDerivedInit#uuid() uuid}.&lt;/em&gt;
+&nbsp;     * @param uuid The value for uuid 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder uuid(String uuid) {
+&nbsp;      this.uuid = Objects.requireNonNull(uuid, &quot;uuid&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link DefaultDerivedInit#title() title} attribute.
+&nbsp;     * @param title The value for title 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder title(String title) {
+&nbsp;      this.title = Objects.requireNonNull(title, &quot;title&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_TITLE;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableDefaultDerivedInit ImmutableDefaultDerivedInit}.
+&nbsp;     * @return An immutable instance of DefaultDerivedInit
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableDefaultDerivedInit build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableDefaultDerivedInit(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_TITLE) != 0) attributes.add(&quot;title&quot;);
+&nbsp;      return &quot;Cannot build DefaultDerivedInit, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

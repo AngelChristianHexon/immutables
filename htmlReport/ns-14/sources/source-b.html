@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ReactorFetcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.reactor</a>
+</div>
+
+<h1>Coverage Summary for Class: ReactorFetcher (org.immutables.criteria.reactor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ReactorFetcher$DistinctLimitOffset</td>
+  </tr>
+  <tr>
+    <td class="name">ReactorFetcher$LimitOffset</td>
+  </tr>
+  <tr>
+    <td class="name">ReactorFetcher$Offset</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.reactor;
+&nbsp;
+&nbsp;import org.immutables.criteria.backend.NonUniqueResultException;
+&nbsp;import org.immutables.criteria.repository.Fetcher;
+&nbsp;import reactor.core.publisher.Flux;
+&nbsp;import reactor.core.publisher.Mono;
+&nbsp;
+&nbsp;public interface ReactorFetcher&lt;T&gt; extends Fetcher&lt;T&gt; {
+&nbsp;
+&nbsp;  Flux&lt;T&gt; fetch();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that &lt;i&gt;exactly one&lt;/i&gt; element is matched by current query and return it.
+&nbsp;   * @return Mono with matched element or {@link NonUniqueResultException} (if result size is not one)
+&nbsp;   */
+&nbsp;  Mono&lt;T&gt; one();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that &lt;i&gt;at most one&lt;/i&gt; element is matched by current query and return it (if available).
+&nbsp;   * @return Mono as result or {@link NonUniqueResultException} (if result size is greater than one)
+&nbsp;   */
+&nbsp;  Mono&lt;T&gt; oneOrNone();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that current query matches any elements.
+&nbsp;   * @return Mono with {@code true} if there are any matches / {@code false} otherwise
+&nbsp;   */
+&nbsp;  Mono&lt;Boolean&gt; exists();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Count number of elements to be returned. Similar to {@code COUNT(*)} in SQL.
+&nbsp;   * @return Mono with number of elements (which can be 0)
+&nbsp;   */
+&nbsp;  Mono&lt;Long&gt; count();
+&nbsp;
+&nbsp;  interface DistinctLimitOffset&lt;T&gt; extends LimitOffset&lt;T&gt; {
+&nbsp;    LimitOffset&lt;T&gt; distinct();
+&nbsp;  }
+&nbsp;
+&nbsp;  interface LimitOffset&lt;T&gt; extends Offset&lt;T&gt; {
+&nbsp;    Offset&lt;T&gt; limit(long limit);
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Offset&lt;T&gt; extends ReactorFetcher&lt;T&gt; {
+&nbsp;    ReactorFetcher&lt;T&gt; offset(long offset);
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

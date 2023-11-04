@@ -1,0 +1,308 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableFallbackNullable</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.annotation</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableFallbackNullable (org.immutables.fixture.annotation)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableFallbackNullable$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.annotation;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link FallbackNullable}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableFallbackNullable.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;FallbackNullable&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableFallbackNullable implements FallbackNullable {
+&nbsp;  private final @Nil String jdkOptional;
+&nbsp;  private final @Nil String nullable;
+&nbsp;
+&nbsp;  private ImmutableFallbackNullable(
+&nbsp;      @Nil String jdkOptional,
+&nbsp;      @Nil String nullable) {
+&nbsp;    this.jdkOptional = jdkOptional;
+&nbsp;    this.nullable = nullable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code jdkOptional} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;String&gt; jdkOptional() {
+&nbsp;    return Optional.ofNullable(jdkOptional);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nullable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nil String nullable() {
+&nbsp;    return nullable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link FallbackNullable#jdkOptional() jdkOptional} attribute.
+&nbsp;   * @param value The value for jdkOptional, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFallbackNullable withJdkOptional(@Nil String value) {
+&nbsp;    @Nil String newValue = value;
+&nbsp;    if (Objects.equals(this.jdkOptional, newValue)) return this;
+&nbsp;    return new ImmutableFallbackNullable(newValue, this.nullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link FallbackNullable#jdkOptional() jdkOptional} attribute.
+&nbsp;   * An equality check is used on inner nullable value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for jdkOptional
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFallbackNullable withJdkOptional(Optional&lt;String&gt; optional) {
+&nbsp;    @Nil String value = optional.orElse(null);
+&nbsp;    if (Objects.equals(this.jdkOptional, value)) return this;
+&nbsp;    return new ImmutableFallbackNullable(value, this.nullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link FallbackNullable#nullable() nullable} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for nullable (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFallbackNullable withNullable(@Nil String value) {
+&nbsp;    if (Objects.equals(this.nullable, value)) return this;
+&nbsp;    return new ImmutableFallbackNullable(this.jdkOptional, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableFallbackNullable} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nil Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableFallbackNullable
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableFallbackNullable) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableFallbackNullable another) {
+&nbsp;    return Objects.equals(jdkOptional, another.jdkOptional)
+&nbsp;        &amp;&amp; Objects.equals(nullable, another.nullable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code jdkOptional}, {@code nullable}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(jdkOptional);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(nullable);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code FallbackNullable} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;FallbackNullable&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;jdkOptional&quot;, jdkOptional)
+&nbsp;        .add(&quot;nullable&quot;, nullable)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link FallbackNullable} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable FallbackNullable instance
+&nbsp;   */
+&nbsp;  public static ImmutableFallbackNullable copyOf(FallbackNullable instance) {
+&nbsp;    if (instance instanceof ImmutableFallbackNullable) {
+&nbsp;      return (ImmutableFallbackNullable) instance;
+&nbsp;    }
+&nbsp;    return ImmutableFallbackNullable.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableFallbackNullable ImmutableFallbackNullable}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableFallbackNullable.builder()
+&nbsp;   *    .jdkOptional(String) // optional {@link FallbackNullable#jdkOptional() jdkOptional}
+&nbsp;   *    .nullable(String | null) // nullable {@link FallbackNullable#nullable() nullable}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableFallbackNullable builder
+&nbsp;   */
+&nbsp;  public static ImmutableFallbackNullable.Builder builder() {
+&nbsp;    return new ImmutableFallbackNullable.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableFallbackNullable ImmutableFallbackNullable}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;FallbackNullable&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private @Nil String jdkOptional;
+&nbsp;    private @Nil String nullable;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code FallbackNullable} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(FallbackNullable instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      Optional&lt;String&gt; jdkOptionalOptional = instance.jdkOptional();
+&nbsp;      if (jdkOptionalOptional.isPresent()) {
+&nbsp;        jdkOptional(jdkOptionalOptional);
+&nbsp;      }
+&nbsp;      @Nil String nullableValue = instance.nullable();
+&nbsp;      if (nullableValue != null) {
+&nbsp;        nullable(nullableValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link FallbackNullable#jdkOptional() jdkOptional} to jdkOptional.
+&nbsp;     * @param jdkOptional The value for jdkOptional, {@code null} is accepted as {@code java.util.Optional.empty()}
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder jdkOptional(@Nil String jdkOptional) {
+&nbsp;      this.jdkOptional = jdkOptional;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link FallbackNullable#jdkOptional() jdkOptional} to jdkOptional.
+&nbsp;     * @param jdkOptional The value for jdkOptional
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder jdkOptional(Optional&lt;String&gt; jdkOptional) {
+&nbsp;      this.jdkOptional = jdkOptional.orElse(null);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link FallbackNullable#nullable() nullable} attribute.
+&nbsp;     * @param nullable The value for nullable (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder nullable(@Nil String nullable) {
+&nbsp;      this.nullable = nullable;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableFallbackNullable ImmutableFallbackNullable}.
+&nbsp;     * @return An immutable instance of FallbackNullable
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableFallbackNullable build() {
+&nbsp;      return new ImmutableFallbackNullable(jdkOptional, nullable);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

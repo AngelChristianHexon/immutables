@@ -1,0 +1,292 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ElasticsearchQueryVisitor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.elasticsearch</a>
+</div>
+
+<h1>Coverage Summary for Class: ElasticsearchQueryVisitor (org.immutables.criteria.elasticsearch)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ElasticsearchQueryVisitor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/58)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/69)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.elasticsearch;
+&nbsp;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.criteria.expression.AbstractExpressionVisitor;
+&nbsp;import org.immutables.criteria.expression.Call;
+&nbsp;import org.immutables.criteria.expression.ComparableOperators;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Operator;
+&nbsp;import org.immutables.criteria.expression.Operators;
+&nbsp;import org.immutables.criteria.expression.OptionalOperators;
+&nbsp;import org.immutables.criteria.expression.Path;
+&nbsp;import org.immutables.criteria.expression.StringOperators;
+&nbsp;import org.immutables.criteria.expression.Visitors;
+&nbsp;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.function.Predicate;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;
+&nbsp;/**
+&nbsp; * Evaluating expression into &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html&quot;&gt;Elastic Query DSL&lt;/a&gt;
+&nbsp; */
+&nbsp;class ElasticsearchQueryVisitor extends AbstractExpressionVisitor&lt;QueryBuilders.QueryBuilder&gt; {
+&nbsp;
+&nbsp;  private final PathNaming pathNaming;
+&nbsp;  private final Predicate&lt;Path&gt; idPredicate;
+&nbsp;
+&nbsp;  ElasticsearchQueryVisitor(PathNaming pathNaming, Predicate&lt;Path&gt; idPredicate) {
+<b class="nc">&nbsp;    super(e -&gt; { throw new UnsupportedOperationException(); });</b>
+<b class="nc">&nbsp;    this.pathNaming = Objects.requireNonNull(pathNaming, &quot;pathNaming&quot;);</b>
+<b class="nc">&nbsp;    this.idPredicate = Objects.requireNonNull(idPredicate, &quot;idPredicate&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public QueryBuilders.QueryBuilder visit(Call call) {
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    final List&lt;Expression&gt; args = call.arguments();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (op == OptionalOperators.IS_PRESENT || op == OptionalOperators.IS_ABSENT) {</b>
+<b class="nc">&nbsp;      final String field = pathNaming.name(Visitors.toPath(args.get(0)));</b>
+&nbsp;
+<b class="nc">&nbsp;      QueryBuilders.QueryBuilder builder = QueryBuilders.existsQuery(field);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (op == OptionalOperators.IS_ABSENT) {</b>
+<b class="nc">&nbsp;        builder = QueryBuilders.boolQuery().mustNot(builder);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.AND || op == Operators.OR) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(!args.isEmpty(), &quot;Size should be &gt;=1 for %s but was %s&quot;, op, args.size());</b>
+&nbsp;
+<b class="nc">&nbsp;      final QueryBuilders.BoolQueryBuilder builder = args.stream()</b>
+<b class="nc">&nbsp;              .map(a -&gt; a.accept(this))</b>
+<b class="nc">&nbsp;              .reduce(QueryBuilders.boolQuery(), (a, b) -&gt; op == Operators.AND ? a.must(b) : a.should(b), (a, b) -&gt; b);</b>
+&nbsp;
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.NOT) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(args.size() == 1, &quot;Size should be 1 for %s but was %s&quot;, op, args.size());</b>
+<b class="nc">&nbsp;      final QueryBuilders.QueryBuilder builder = args.get(0).accept(this);</b>
+<b class="nc">&nbsp;      return QueryBuilders.boolQuery().mustNot(builder);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op.arity() == Operator.Arity.BINARY) {</b>
+<b class="nc">&nbsp;      return binaryCall(call);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(&quot;Don&#39;t know how to handle &quot; + call);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private QueryBuilders.QueryBuilder binaryCall(Call call) {
+<b class="nc">&nbsp;    final List&lt;Expression&gt; arguments = call.arguments();</b>
+<b class="nc">&nbsp;    Preconditions.checkArgument(arguments.size() == 2, &quot;Size should be 2 for %s but was %s&quot;,</b>
+<b class="nc">&nbsp;            call.operator(), arguments.size());</b>
+<b class="nc">&nbsp;    final Operator op = call.operator();</b>
+<b class="nc">&nbsp;    final Path path = Visitors.toPath(arguments.get(0));</b>
+<b class="nc">&nbsp;    final String field = pathNaming.name(path);</b>
+<b class="nc">&nbsp;    final Object value = Visitors.toConstant(arguments.get(1)).value();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.EQUAL || op == Operators.NOT_EQUAL) {</b>
+&nbsp;      QueryBuilders.QueryBuilder builder;
+<b class="nc">&nbsp;      if (idPredicate.test(path)) {</b>
+&nbsp;        // use more efficient ids query for keys
+<b class="nc">&nbsp;        builder = QueryBuilders.idsQuery(Collections.singleton(value));</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        builder = QueryBuilders.termQuery(field, value);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (op == Operators.NOT_EQUAL) {</b>
+<b class="nc">&nbsp;        QueryBuilders.BoolQueryBuilder bool = QueryBuilders.boolQuery().mustNot(builder);</b>
+<b class="nc">&nbsp;        if (&quot;&quot;.equals(value)) {</b>
+&nbsp;          // string is not empty (should also exists)
+<b class="nc">&nbsp;          bool = bool.should(QueryBuilders.existsQuery(field));</b>
+&nbsp;        }
+<b class="nc">&nbsp;        builder = bool;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == Operators.IN || op == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;      final Collection&lt;Object&gt; values = ImmutableSet.copyOf(Visitors.toConstant(arguments.get(1)).values());</b>
+&nbsp;
+&nbsp;      QueryBuilders.QueryBuilder builder;
+<b class="nc">&nbsp;      if (idPredicate.test(path)) {</b>
+&nbsp;        // more efficient query by ID
+<b class="nc">&nbsp;        builder = QueryBuilders.idsQuery(values);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        builder = QueryBuilders.termsQuery(field, values);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (op == Operators.NOT_IN) {</b>
+<b class="nc">&nbsp;        builder = QueryBuilders.boolQuery().mustNot(builder);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (ComparableOperators.isComparable(op)) {</b>
+<b class="nc">&nbsp;      final QueryBuilders.RangeQueryBuilder builder = QueryBuilders.rangeQuery(field);</b>
+&nbsp;
+<b class="nc">&nbsp;      if (op == ComparableOperators.GREATER_THAN) {</b>
+<b class="nc">&nbsp;        builder.gt(value);</b>
+<b class="nc">&nbsp;      } else if (op == ComparableOperators.GREATER_THAN_OR_EQUAL) {</b>
+<b class="nc">&nbsp;        builder.gte(value);</b>
+<b class="nc">&nbsp;      } else if (op == ComparableOperators.LESS_THAN) {</b>
+<b class="nc">&nbsp;        builder.lt(value);</b>
+<b class="nc">&nbsp;      } else if (op == ComparableOperators.LESS_THAN_OR_EQUAL) {</b>
+<b class="nc">&nbsp;        builder.lte(value);</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        throw new UnsupportedOperationException(&quot;Unknown comparison &quot; + call);</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return builder;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == StringOperators.STARTS_WITH) {</b>
+<b class="nc">&nbsp;      return QueryBuilders.prefixQuery(field, value.toString());</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (op == StringOperators.MATCHES) {</b>
+<b class="nc">&nbsp;      Preconditions.checkArgument(value instanceof Pattern, &quot;%s is not regex pattern&quot;, value);</b>
+&nbsp;      // In elastic / lucene, patterns match the entire string.
+<b class="nc">&nbsp;      return QueryBuilders.regexpQuery(field, ((Pattern) value).pattern());</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (op == StringOperators.ENDS_WITH || op == StringOperators.CONTAINS) {</b>
+<b class="nc">&nbsp;      return QueryBuilders.wildcardQuery(field, &quot;*&quot; + value.toString() + (op == StringOperators.CONTAINS ? &quot;*&quot; : &quot;&quot;));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    throw new UnsupportedOperationException(String.format(&quot;Call %s not supported&quot;, call));</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

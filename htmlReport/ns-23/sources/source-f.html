@@ -1,0 +1,1362 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSamePackageVanillaAttributeBuilderParent</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.builder.attribute_builders</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSamePackageVanillaAttributeBuilderParent (org.immutables.fixture.builder.attribute_builders)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSamePackageVanillaAttributeBuilderParent$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.builder.attribute_builders;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.fixture.builder.functional.AttributeBuilderValueI;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SamePackageVanillaAttributeBuilderParent}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new SamePackageVanillaAttributeBuilderParent.Builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SamePackageVanillaAttributeBuilderParent&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSamePackageVanillaAttributeBuilderParent
+&nbsp;    extends SamePackageVanillaAttributeBuilderParent {
+&nbsp;  private final ImmutableFirstPartyImmutable firstPartyImmutable;
+&nbsp;  private final ImmutableFirstPartyImmutableWithDifferentStyle firstPartyImmutableWithDifferentStyle;
+&nbsp;  private final ImmutableList&lt;FirstPartyImmutable&gt; firstPartyImmutableList;
+&nbsp;  private final ThirdPartyImmutable thirdPartyImmutable;
+&nbsp;  private final ImmutableList&lt;ThirdPartyImmutable&gt; thirdPartyImmutableList;
+&nbsp;  private final ThirdPartyImmutableWithPrimitive thirdPartyImmutableWithPrimitive;
+&nbsp;  private final @Nullable FirstPartyImmutable optionalFirstPartyImmutable;
+&nbsp;  private final @Nullable ImmutableFirstPartyImmutable nullableFirstPartyImmutable;
+&nbsp;
+&nbsp;  private ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;      ImmutableFirstPartyImmutable firstPartyImmutable,
+&nbsp;      ImmutableFirstPartyImmutableWithDifferentStyle firstPartyImmutableWithDifferentStyle,
+&nbsp;      ImmutableList&lt;FirstPartyImmutable&gt; firstPartyImmutableList,
+&nbsp;      ThirdPartyImmutable thirdPartyImmutable,
+&nbsp;      ImmutableList&lt;ThirdPartyImmutable&gt; thirdPartyImmutableList,
+&nbsp;      ThirdPartyImmutableWithPrimitive thirdPartyImmutableWithPrimitive,
+&nbsp;      @Nullable FirstPartyImmutable optionalFirstPartyImmutable,
+&nbsp;      @Nullable ImmutableFirstPartyImmutable nullableFirstPartyImmutable) {
+&nbsp;    this.firstPartyImmutable = firstPartyImmutable;
+&nbsp;    this.firstPartyImmutableWithDifferentStyle = firstPartyImmutableWithDifferentStyle;
+&nbsp;    this.firstPartyImmutableList = firstPartyImmutableList;
+&nbsp;    this.thirdPartyImmutable = thirdPartyImmutable;
+&nbsp;    this.thirdPartyImmutableList = thirdPartyImmutableList;
+&nbsp;    this.thirdPartyImmutableWithPrimitive = thirdPartyImmutableWithPrimitive;
+&nbsp;    this.optionalFirstPartyImmutable = optionalFirstPartyImmutable;
+&nbsp;    this.nullableFirstPartyImmutable = nullableFirstPartyImmutable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code firstPartyImmutable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableFirstPartyImmutable firstPartyImmutable() {
+&nbsp;    return firstPartyImmutable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code firstPartyImmutableWithDifferentStyle} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableFirstPartyImmutableWithDifferentStyle firstPartyImmutableWithDifferentStyle() {
+&nbsp;    return firstPartyImmutableWithDifferentStyle;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code firstPartyImmutableList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;FirstPartyImmutable&gt; firstPartyImmutableList() {
+&nbsp;    return firstPartyImmutableList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code thirdPartyImmutable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ThirdPartyImmutable thirdPartyImmutable() {
+&nbsp;    return thirdPartyImmutable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code thirdPartyImmutableList} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;ThirdPartyImmutable&gt; thirdPartyImmutableList() {
+&nbsp;    return thirdPartyImmutableList;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code thirdPartyImmutableWithPrimitive} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ThirdPartyImmutableWithPrimitive thirdPartyImmutableWithPrimitive() {
+&nbsp;    return thirdPartyImmutableWithPrimitive;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code optionalFirstPartyImmutable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;FirstPartyImmutable&gt; optionalFirstPartyImmutable() {
+&nbsp;    return Optional.ofNullable(optionalFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nullableFirstPartyImmutable} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableFirstPartyImmutable nullableFirstPartyImmutable() {
+&nbsp;    return nullableFirstPartyImmutable;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutable() firstPartyImmutable} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for firstPartyImmutable
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withFirstPartyImmutable(FirstPartyImmutable value) {
+&nbsp;    if (this.firstPartyImmutable == value) return this;
+&nbsp;    ImmutableFirstPartyImmutable newValue = ImmutableFirstPartyImmutable.builder().from(value).build();
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        newValue,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableWithDifferentStyle() firstPartyImmutableWithDifferentStyle} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for firstPartyImmutableWithDifferentStyle
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withFirstPartyImmutableWithDifferentStyle(FirstPartyImmutableWithDifferentStyle value) {
+&nbsp;    if (this.firstPartyImmutableWithDifferentStyle == value) return this;
+&nbsp;    ImmutableFirstPartyImmutableWithDifferentStyle newValue = ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder().makeDaCopy(value).doIIT();
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        newValue,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withFirstPartyImmutableList(FirstPartyImmutable... elements) {
+&nbsp;    ImmutableList&lt;FirstPartyImmutable&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        newValue,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of firstPartyImmutableList elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withFirstPartyImmutableList(Iterable&lt;? extends FirstPartyImmutable&gt; elements) {
+&nbsp;    if (this.firstPartyImmutableList == elements) return this;
+&nbsp;    ImmutableList&lt;FirstPartyImmutable&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        newValue,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutable() thirdPartyImmutable} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for thirdPartyImmutable
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withThirdPartyImmutable(ThirdPartyImmutable value) {
+&nbsp;    if (this.thirdPartyImmutable == value) return this;
+&nbsp;    ThirdPartyImmutable newValue = Objects.requireNonNull(value, &quot;thirdPartyImmutable&quot;);
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        newValue,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withThirdPartyImmutableList(ThirdPartyImmutable... elements) {
+&nbsp;    ImmutableList&lt;ThirdPartyImmutable&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        newValue,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of thirdPartyImmutableList elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withThirdPartyImmutableList(Iterable&lt;? extends ThirdPartyImmutable&gt; elements) {
+&nbsp;    if (this.thirdPartyImmutableList == elements) return this;
+&nbsp;    ImmutableList&lt;ThirdPartyImmutable&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        newValue,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableWithPrimitive() thirdPartyImmutableWithPrimitive} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for thirdPartyImmutableWithPrimitive
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withThirdPartyImmutableWithPrimitive(ThirdPartyImmutableWithPrimitive value) {
+&nbsp;    if (this.thirdPartyImmutableWithPrimitive == value) return this;
+&nbsp;    ThirdPartyImmutableWithPrimitive newValue = Objects.requireNonNull(value, &quot;thirdPartyImmutableWithPrimitive&quot;);
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        newValue,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable} attribute.
+&nbsp;   * @param value The value for optionalFirstPartyImmutable
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withOptionalFirstPartyImmutable(FirstPartyImmutable value) {
+&nbsp;    FirstPartyImmutable newValue = Objects.requireNonNull(value, &quot;optionalFirstPartyImmutable&quot;);
+&nbsp;    if (this.optionalFirstPartyImmutable == newValue) return this;
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        newValue,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable} attribute.
+&nbsp;   * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for optionalFirstPartyImmutable
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withOptionalFirstPartyImmutable(Optional&lt;? extends FirstPartyImmutable&gt; optional) {
+&nbsp;    @Nullable FirstPartyImmutable value = optional.orElse(null);
+&nbsp;    if (this.optionalFirstPartyImmutable == value) return this;
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        value,
+&nbsp;        this.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SamePackageVanillaAttributeBuilderParent#nullableFirstPartyImmutable() nullableFirstPartyImmutable} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for nullableFirstPartyImmutable (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSamePackageVanillaAttributeBuilderParent withNullableFirstPartyImmutable(@Nullable FirstPartyImmutable value) {
+&nbsp;    if (this.nullableFirstPartyImmutable == value) return this;
+&nbsp;    @Nullable ImmutableFirstPartyImmutable newValue = ImmutableFirstPartyImmutable.builder().from(value).build();
+&nbsp;    return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;        this.firstPartyImmutable,
+&nbsp;        this.firstPartyImmutableWithDifferentStyle,
+&nbsp;        this.firstPartyImmutableList,
+&nbsp;        this.thirdPartyImmutable,
+&nbsp;        this.thirdPartyImmutableList,
+&nbsp;        this.thirdPartyImmutableWithPrimitive,
+&nbsp;        this.optionalFirstPartyImmutable,
+&nbsp;        newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSamePackageVanillaAttributeBuilderParent} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSamePackageVanillaAttributeBuilderParent
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSamePackageVanillaAttributeBuilderParent) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSamePackageVanillaAttributeBuilderParent another) {
+&nbsp;    return firstPartyImmutable.equals(another.firstPartyImmutable)
+&nbsp;        &amp;&amp; firstPartyImmutableWithDifferentStyle.equals(another.firstPartyImmutableWithDifferentStyle)
+&nbsp;        &amp;&amp; firstPartyImmutableList.equals(another.firstPartyImmutableList)
+&nbsp;        &amp;&amp; thirdPartyImmutable.equals(another.thirdPartyImmutable)
+&nbsp;        &amp;&amp; thirdPartyImmutableList.equals(another.thirdPartyImmutableList)
+&nbsp;        &amp;&amp; thirdPartyImmutableWithPrimitive.equals(another.thirdPartyImmutableWithPrimitive)
+&nbsp;        &amp;&amp; Objects.equals(optionalFirstPartyImmutable, another.optionalFirstPartyImmutable)
+&nbsp;        &amp;&amp; Objects.equals(nullableFirstPartyImmutable, another.nullableFirstPartyImmutable);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code firstPartyImmutable}, {@code firstPartyImmutableWithDifferentStyle}, {@code firstPartyImmutableList}, {@code thirdPartyImmutable}, {@code thirdPartyImmutableList}, {@code thirdPartyImmutableWithPrimitive}, {@code optionalFirstPartyImmutable}, {@code nullableFirstPartyImmutable}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + firstPartyImmutable.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + firstPartyImmutableWithDifferentStyle.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + firstPartyImmutableList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + thirdPartyImmutable.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + thirdPartyImmutableList.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + thirdPartyImmutableWithPrimitive.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(optionalFirstPartyImmutable);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(nullableFirstPartyImmutable);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SamePackageVanillaAttributeBuilderParent} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SamePackageVanillaAttributeBuilderParent&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;firstPartyImmutable&quot;, firstPartyImmutable)
+&nbsp;        .add(&quot;firstPartyImmutableWithDifferentStyle&quot;, firstPartyImmutableWithDifferentStyle)
+&nbsp;        .add(&quot;firstPartyImmutableList&quot;, firstPartyImmutableList)
+&nbsp;        .add(&quot;thirdPartyImmutable&quot;, thirdPartyImmutable)
+&nbsp;        .add(&quot;thirdPartyImmutableList&quot;, thirdPartyImmutableList)
+&nbsp;        .add(&quot;thirdPartyImmutableWithPrimitive&quot;, thirdPartyImmutableWithPrimitive)
+&nbsp;        .add(&quot;optionalFirstPartyImmutable&quot;, optionalFirstPartyImmutable)
+&nbsp;        .add(&quot;nullableFirstPartyImmutable&quot;, nullableFirstPartyImmutable)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SamePackageVanillaAttributeBuilderParent} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SamePackageVanillaAttributeBuilderParent instance
+&nbsp;   */
+&nbsp;  public static ImmutableSamePackageVanillaAttributeBuilderParent copyOf(SamePackageVanillaAttributeBuilderParent instance) {
+&nbsp;    if (instance instanceof ImmutableSamePackageVanillaAttributeBuilderParent) {
+&nbsp;      return (ImmutableSamePackageVanillaAttributeBuilderParent) instance;
+&nbsp;    }
+&nbsp;    return new SamePackageVanillaAttributeBuilderParent.Builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSamePackageVanillaAttributeBuilderParent ImmutableSamePackageVanillaAttributeBuilderParent}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SamePackageVanillaAttributeBuilderParent&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private static final long INIT_BIT_FIRST_PARTY_IMMUTABLE = 0x1L;
+&nbsp;    private static final long INIT_BIT_FIRST_PARTY_IMMUTABLE_WITH_DIFFERENT_STYLE = 0x2L;
+&nbsp;    private static final long INIT_BIT_THIRD_PARTY_IMMUTABLE = 0x4L;
+&nbsp;    private static final long INIT_BIT_THIRD_PARTY_IMMUTABLE_WITH_PRIMITIVE = 0x8L;
+&nbsp;    private long initBits = 0xfL;
+&nbsp;
+&nbsp;    private @Nullable ImmutableFirstPartyImmutable.Builder firstPartyImmutable;
+&nbsp;    private @Nullable ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon firstPartyImmutableWithDifferentStyle;
+&nbsp;    private ImmutableList.Builder&lt;ImmutableFirstPartyImmutable.Builder&gt; firstPartyImmutableList = ImmutableList.builder();
+&nbsp;    private @Nullable ThirdPartyImmutable.Builder thirdPartyImmutable;
+&nbsp;    private ImmutableList.Builder&lt;ThirdPartyImmutable.Builder&gt; thirdPartyImmutableList = ImmutableList.builder();
+&nbsp;    private @Nullable ThirdPartyImmutableWithPrimitive.Builder thirdPartyImmutableWithPrimitive;
+&nbsp;    private @Nullable ImmutableFirstPartyImmutable.Builder optionalFirstPartyImmutable;
+&nbsp;    private @Nullable ImmutableFirstPartyImmutable.Builder nullableFirstPartyImmutable;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableSamePackageVanillaAttributeBuilderParent ImmutableSamePackageVanillaAttributeBuilderParent} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new SamePackageVanillaAttributeBuilderParent.Builder()
+&nbsp;     *    .firstPartyImmutable(org.immutables.fixture.builder.attribute_builders.FirstPartyImmutable) // required {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutable() firstPartyImmutable}
+&nbsp;     *    .firstPartyImmutableWithDifferentStyle(org.immutables.fixture.builder.attribute_builders.FirstPartyImmutableWithDifferentStyle) // required {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableWithDifferentStyle() firstPartyImmutableWithDifferentStyle}
+&nbsp;     *    .addFirstPartyImmutable|addAllFirstPartyImmutableList(org.immutables.fixture.builder.attribute_builders.FirstPartyImmutable) // {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} elements
+&nbsp;     *    .thirdPartyImmutable(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutable) // required {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutable() thirdPartyImmutable}
+&nbsp;     *    .addThirdPartyImmutable|addAllThirdPartyImmutableList(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutable) // {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} elements
+&nbsp;     *    .thirdPartyImmutableWithPrimitive(org.immutables.fixture.builder.attribute_builders.ThirdPartyImmutableWithPrimitive) // required {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableWithPrimitive() thirdPartyImmutableWithPrimitive}
+&nbsp;     *    .optionalFirstPartyImmutable(org.immutables.fixture.builder.attribute_builders.FirstPartyImmutable) // optional {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable}
+&nbsp;     *    .nullableFirstPartyImmutable(org.immutables.fixture.builder.attribute_builders.FirstPartyImmutable | null) // nullable {@link SamePackageVanillaAttributeBuilderParent#nullableFirstPartyImmutable() nullableFirstPartyImmutable}
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof SamePackageVanillaAttributeBuilderParent.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new SamePackageVanillaAttributeBuilderParent.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.builder.functional.AttributeBuilderValueI} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder from(AttributeBuilderValueI instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code org.immutables.fixture.builder.attribute_builders.SamePackageVanillaAttributeBuilderParent} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder from(SamePackageVanillaAttributeBuilderParent instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      from((short) 0, (Object) instance);
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    private void from(short _unused, Object object) {
+&nbsp;      if (object instanceof AttributeBuilderValueI) {
+&nbsp;        AttributeBuilderValueI instance = (AttributeBuilderValueI) object;
+&nbsp;        firstPartyImmutableWithDifferentStyle(instance.firstPartyImmutableWithDifferentStyle());
+&nbsp;        thirdPartyImmutableWithPrimitive(instance.thirdPartyImmutableWithPrimitive());
+&nbsp;        firstPartyImmutable(instance.firstPartyImmutable());
+&nbsp;        @Nullable FirstPartyImmutable nullableFirstPartyImmutableValue = instance.nullableFirstPartyImmutable();
+&nbsp;        if (nullableFirstPartyImmutableValue != null) {
+&nbsp;          nullableFirstPartyImmutable(nullableFirstPartyImmutableValue);
+&nbsp;        }
+&nbsp;        addAllThirdPartyImmutableList(instance.thirdPartyImmutableList());
+&nbsp;        addAllFirstPartyImmutableList(instance.firstPartyImmutableList());
+&nbsp;        thirdPartyImmutable(instance.thirdPartyImmutable());
+&nbsp;        Optional&lt;FirstPartyImmutable&gt; optionalFirstPartyImmutableOptional = instance.optionalFirstPartyImmutable();
+&nbsp;        if (optionalFirstPartyImmutableOptional.isPresent()) {
+&nbsp;          optionalFirstPartyImmutable(optionalFirstPartyImmutableOptional);
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutable() firstPartyImmutable} attribute.
+&nbsp;     * @param firstPartyImmutable The value for firstPartyImmutable 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder firstPartyImmutable(FirstPartyImmutable firstPartyImmutable) {
+&nbsp;      this.firstPartyImmutable = ImmutableFirstPartyImmutable.builder().from(convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(firstPartyImmutable));
+&nbsp;      initBits &amp;= ~INIT_BIT_FIRST_PARTY_IMMUTABLE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutable() firstPartyImmutable}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final ImmutableFirstPartyImmutable.Builder firstPartyImmutableBuilder() {
+&nbsp;      if (this.firstPartyImmutable == null) {
+&nbsp;        this.firstPartyImmutable = ImmutableFirstPartyImmutable.builder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_FIRST_PARTY_IMMUTABLE;
+&nbsp;
+&nbsp;      return this.firstPartyImmutable;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutable() firstPartyImmutable} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder firstPartyImmutableBuilder(ImmutableFirstPartyImmutable.Builder firstPartyImmutable) {
+&nbsp;      this.firstPartyImmutable = firstPartyImmutable;
+&nbsp;      initBits &amp;= ~INIT_BIT_FIRST_PARTY_IMMUTABLE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableWithDifferentStyle() firstPartyImmutableWithDifferentStyle} attribute.
+&nbsp;     * @param firstPartyImmutableWithDifferentStyle The value for firstPartyImmutableWithDifferentStyle 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder firstPartyImmutableWithDifferentStyle(FirstPartyImmutableWithDifferentStyle firstPartyImmutableWithDifferentStyle) {
+&nbsp;      this.firstPartyImmutableWithDifferentStyle = ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder().makeDaCopy(convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(firstPartyImmutableWithDifferentStyle));
+&nbsp;      initBits &amp;= ~INIT_BIT_FIRST_PARTY_IMMUTABLE_WITH_DIFFERENT_STYLE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableWithDifferentStyle() firstPartyImmutableWithDifferentStyle}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon firstPartyImmutableWithDifferentStyleBuilder() {
+&nbsp;      if (this.firstPartyImmutableWithDifferentStyle == null) {
+&nbsp;        this.firstPartyImmutableWithDifferentStyle = ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_FIRST_PARTY_IMMUTABLE_WITH_DIFFERENT_STYLE;
+&nbsp;
+&nbsp;      return this.firstPartyImmutableWithDifferentStyle;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableWithDifferentStyle() firstPartyImmutableWithDifferentStyle} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder firstPartyImmutableWithDifferentStyleBuilder(ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon firstPartyImmutableWithDifferentStyle) {
+&nbsp;      this.firstPartyImmutableWithDifferentStyle = firstPartyImmutableWithDifferentStyle;
+&nbsp;      initBits &amp;= ~INIT_BIT_FIRST_PARTY_IMMUTABLE_WITH_DIFFERENT_STYLE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @param element A firstPartyImmutableList element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addFirstPartyImmutable(FirstPartyImmutable element) {
+&nbsp;      element = convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(element);
+&nbsp;      this.firstPartyImmutableList.add(ImmutableFirstPartyImmutable.builder().from(element));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @param elements An array of firstPartyImmutableList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addFirstPartyImmutableList(FirstPartyImmutable... elements) {
+&nbsp;      for (FirstPartyImmutable element : elements) {
+&nbsp;        element = convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(element);
+&nbsp;        this.firstPartyImmutableList.add(ImmutableFirstPartyImmutable.builder().from(Objects.requireNonNull(element, &quot;firstPartyImmutableList element&quot;)));
+&nbsp;      }
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds a new builder to the {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list and returns
+&nbsp;     * the builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ImmutableFirstPartyImmutable.Builder addFirstPartyImmutableBuilder() {
+&nbsp;      ImmutableFirstPartyImmutable.Builder builder = ImmutableFirstPartyImmutable.builder();
+&nbsp;      this.firstPartyImmutableList.add(builder);
+&nbsp;      return builder;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @param elements An array of firstPartyImmutableList builder elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addAllFirstPartyImmutableBuilders(ImmutableFirstPartyImmutable.Builder... elements) {
+&nbsp;      for (ImmutableFirstPartyImmutable.Builder element : elements) {
+&nbsp;        this.firstPartyImmutableList.add(Objects.requireNonNull(element, &quot;firstPartyImmutableList element&quot;));
+&nbsp;      }
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the builder elements to {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @return {@code this} unmodifiable list of modifiable builders.
+&nbsp;     */
+&nbsp;    public final List&lt;ImmutableFirstPartyImmutable.Builder&gt; firstPartyImmutableBuilders() {
+&nbsp;      return this.firstPartyImmutableList.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @param elements An iterable of firstPartyImmutableList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder firstPartyImmutableList(Iterable&lt;? extends FirstPartyImmutable&gt; elements) {
+&nbsp;      this.firstPartyImmutableList = ImmutableList.builder();
+&nbsp;      return addAllFirstPartyImmutableList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @param elements An iterable of firstPartyImmutableList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addAllFirstPartyImmutableList(Iterable&lt;? extends FirstPartyImmutable&gt; elements) {
+&nbsp;      for (FirstPartyImmutable element : elements) {
+&nbsp;        element = convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(element);
+&nbsp;        this.firstPartyImmutableList.add(ImmutableFirstPartyImmutable.builder().from(Objects.requireNonNull(element, &quot;firstPartyImmutableList element&quot;)));
+&nbsp;      }
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#firstPartyImmutableList() firstPartyImmutableList} list.
+&nbsp;     * @param elements An iterable of firstPartyImmutableList builder elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addAllFirstPartyImmutableBuilders(Iterable&lt;ImmutableFirstPartyImmutable.Builder&gt; elements) {
+&nbsp;      for (ImmutableFirstPartyImmutable.Builder element : elements) {
+&nbsp;        this.firstPartyImmutableList.add(Objects.requireNonNull(element, &quot;firstPartyImmutableList element&quot;));
+&nbsp;      }
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutable() thirdPartyImmutable} attribute.
+&nbsp;     * @param thirdPartyImmutable The value for thirdPartyImmutable 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder thirdPartyImmutable(ThirdPartyImmutable thirdPartyImmutable) {
+&nbsp;      this.thirdPartyImmutable = ThirdPartyImmutable.generateNewBuilder(Objects.requireNonNull(thirdPartyImmutable, &quot;thirdPartyImmutable&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_THIRD_PARTY_IMMUTABLE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutable() thirdPartyImmutable}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final ThirdPartyImmutable.Builder thirdPartyImmutableBuilder() {
+&nbsp;      if (this.thirdPartyImmutable == null) {
+&nbsp;        this.thirdPartyImmutable = ThirdPartyImmutable.generateNewBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_THIRD_PARTY_IMMUTABLE;
+&nbsp;
+&nbsp;      return this.thirdPartyImmutable;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutable() thirdPartyImmutable} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder thirdPartyImmutableBuilder(ThirdPartyImmutable.Builder thirdPartyImmutable) {
+&nbsp;      this.thirdPartyImmutable = thirdPartyImmutable;
+&nbsp;      initBits &amp;= ~INIT_BIT_THIRD_PARTY_IMMUTABLE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @param element A thirdPartyImmutableList element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addThirdPartyImmutable(ThirdPartyImmutable element) {
+&nbsp;      this.thirdPartyImmutableList.add(ThirdPartyImmutable.generateNewBuilder(element));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @param elements An array of thirdPartyImmutableList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addThirdPartyImmutableList(ThirdPartyImmutable... elements) {
+&nbsp;      this.thirdPartyImmutableList.addAll(convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(elements));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds a new builder to the {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list and returns
+&nbsp;     * the builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final ThirdPartyImmutable.Builder addThirdPartyImmutableBuilder() {
+&nbsp;      ThirdPartyImmutable.Builder builder = ThirdPartyImmutable.generateNewBuilder();
+&nbsp;      this.thirdPartyImmutableList.add(builder);
+&nbsp;      return builder;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @param elements An array of thirdPartyImmutableList builder elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addAllThirdPartyImmutableBuilders(ThirdPartyImmutable.Builder... elements) {
+&nbsp;      this.thirdPartyImmutableList.add(elements);
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Gets the builder elements to {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @return {@code this} unmodifiable list of modifiable builders.
+&nbsp;     */
+&nbsp;    public final List&lt;ThirdPartyImmutable.Builder&gt; thirdPartyImmutableBuilders() {
+&nbsp;      return this.thirdPartyImmutableList.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @param elements An iterable of thirdPartyImmutableList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder thirdPartyImmutableList(Iterable&lt;? extends ThirdPartyImmutable&gt; elements) {
+&nbsp;      this.thirdPartyImmutableList = ImmutableList.builder();
+&nbsp;      return addAllThirdPartyImmutableList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @param elements An iterable of thirdPartyImmutableList elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addAllThirdPartyImmutableList(Iterable&lt;? extends ThirdPartyImmutable&gt; elements) {
+&nbsp;      this.thirdPartyImmutableList.addAll(convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(elements));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableList() thirdPartyImmutableList} list.
+&nbsp;     * @param elements An iterable of thirdPartyImmutableList builder elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder addAllThirdPartyImmutableBuilders(Iterable&lt;ThirdPartyImmutable.Builder&gt; elements) {
+&nbsp;      this.thirdPartyImmutableList.addAll(elements);
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableWithPrimitive() thirdPartyImmutableWithPrimitive} attribute.
+&nbsp;     * @param thirdPartyImmutableWithPrimitive The value for thirdPartyImmutableWithPrimitive 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder thirdPartyImmutableWithPrimitive(ThirdPartyImmutableWithPrimitive thirdPartyImmutableWithPrimitive) {
+&nbsp;      this.thirdPartyImmutableWithPrimitive = ThirdPartyImmutableWithPrimitive.generateNewBuilder(Objects.requireNonNull(thirdPartyImmutableWithPrimitive, &quot;thirdPartyImmutableWithPrimitive&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_THIRD_PARTY_IMMUTABLE_WITH_PRIMITIVE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableWithPrimitive() thirdPartyImmutableWithPrimitive}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final ThirdPartyImmutableWithPrimitive.Builder thirdPartyImmutableWithPrimitiveBuilder() {
+&nbsp;      if (this.thirdPartyImmutableWithPrimitive == null) {
+&nbsp;        this.thirdPartyImmutableWithPrimitive = ThirdPartyImmutableWithPrimitive.generateNewBuilder();
+&nbsp;      }
+&nbsp;      initBits &amp;= ~INIT_BIT_THIRD_PARTY_IMMUTABLE_WITH_PRIMITIVE;
+&nbsp;
+&nbsp;      return this.thirdPartyImmutableWithPrimitive;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link SamePackageVanillaAttributeBuilderParent#thirdPartyImmutableWithPrimitive() thirdPartyImmutableWithPrimitive} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder thirdPartyImmutableWithPrimitiveBuilder(ThirdPartyImmutableWithPrimitive.Builder thirdPartyImmutableWithPrimitive) {
+&nbsp;      this.thirdPartyImmutableWithPrimitive = thirdPartyImmutableWithPrimitive;
+&nbsp;      initBits &amp;= ~INIT_BIT_THIRD_PARTY_IMMUTABLE_WITH_PRIMITIVE;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable} to optionalFirstPartyImmutable.
+&nbsp;     * @param optionalFirstPartyImmutable The value for optionalFirstPartyImmutable
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder optionalFirstPartyImmutable(FirstPartyImmutable optionalFirstPartyImmutable) {
+&nbsp;      this.optionalFirstPartyImmutable = ImmutableFirstPartyImmutable.builder().from(Objects.requireNonNull(optionalFirstPartyImmutable, &quot;optionalFirstPartyImmutable&quot;));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Returns a builder for {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable}.
+&nbsp;       *
+&nbsp;       * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;       * If called more than once, returns the same builder instance.
+&nbsp;       */
+&nbsp;      public final ImmutableFirstPartyImmutable.Builder optionalFirstPartyImmutableBuilder() {
+&nbsp;        if (this.optionalFirstPartyImmutable == null) {
+&nbsp;          this.optionalFirstPartyImmutable = ImmutableFirstPartyImmutable.builder();
+&nbsp;        }
+&nbsp;
+&nbsp;        return this.optionalFirstPartyImmutable;
+&nbsp;      }
+&nbsp;
+&nbsp;      /**
+&nbsp;       * Sets {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable} to the provided builder.
+&nbsp;       */
+&nbsp;      @CanIgnoreReturnValue 
+&nbsp;      public final SamePackageVanillaAttributeBuilderParent.Builder optionalFirstPartyImmutableBuilder(ImmutableFirstPartyImmutable.Builder optionalFirstPartyImmutable) {
+&nbsp;        this.optionalFirstPartyImmutable = optionalFirstPartyImmutable;
+&nbsp;        return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;      }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SamePackageVanillaAttributeBuilderParent#optionalFirstPartyImmutable() optionalFirstPartyImmutable} to optionalFirstPartyImmutable.
+&nbsp;     * @param optionalFirstPartyImmutable The value for optionalFirstPartyImmutable
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder optionalFirstPartyImmutable(Optional&lt;? extends FirstPartyImmutable&gt; optionalFirstPartyImmutable) {
+&nbsp;      this.optionalFirstPartyImmutable = convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(optionalFirstPartyImmutable.orElse(null));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SamePackageVanillaAttributeBuilderParent#nullableFirstPartyImmutable() nullableFirstPartyImmutable} attribute.
+&nbsp;     * @param nullableFirstPartyImmutable The value for nullableFirstPartyImmutable (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder nullableFirstPartyImmutable(@Nullable FirstPartyImmutable nullableFirstPartyImmutable) {
+&nbsp;      this.nullableFirstPartyImmutable = ImmutableFirstPartyImmutable.builder().from(nullableFirstPartyImmutable == null ? null : convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(nullableFirstPartyImmutable));
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns a builder for {@link SamePackageVanillaAttributeBuilderParent#nullableFirstPartyImmutable() nullableFirstPartyImmutable}.
+&nbsp;     *
+&nbsp;     * Once called, the attribute builder field is set to a new instance of the builder.
+&nbsp;     * If called more than once, returns the same builder instance.
+&nbsp;     */
+&nbsp;    public final ImmutableFirstPartyImmutable.Builder nullableFirstPartyImmutableBuilder() {
+&nbsp;      if (this.nullableFirstPartyImmutable == null) {
+&nbsp;        this.nullableFirstPartyImmutable = ImmutableFirstPartyImmutable.builder();
+&nbsp;      }
+&nbsp;
+&nbsp;      return this.nullableFirstPartyImmutable;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets {@link SamePackageVanillaAttributeBuilderParent#nullableFirstPartyImmutable() nullableFirstPartyImmutable} to the provided builder.
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final SamePackageVanillaAttributeBuilderParent.Builder nullableFirstPartyImmutableBuilder(@Nullable ImmutableFirstPartyImmutable.Builder nullableFirstPartyImmutable) {
+&nbsp;      this.nullableFirstPartyImmutable = nullableFirstPartyImmutable;
+&nbsp;      return (SamePackageVanillaAttributeBuilderParent.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSamePackageVanillaAttributeBuilderParent ImmutableSamePackageVanillaAttributeBuilderParent}.
+&nbsp;     * @return An immutable instance of SamePackageVanillaAttributeBuilderParent
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSamePackageVanillaAttributeBuilderParent build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableSamePackageVanillaAttributeBuilderParent(
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(firstPartyImmutable),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(firstPartyImmutableWithDifferentStyle),
+&nbsp;          ImmutableList.copyOf(convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(firstPartyImmutableList.build())),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(thirdPartyImmutable),
+&nbsp;          ImmutableList.copyOf(convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(thirdPartyImmutableList.build())),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(thirdPartyImmutableWithPrimitive),
+&nbsp;          convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(optionalFirstPartyImmutable),
+&nbsp;          nullableFirstPartyImmutable == null ? null : convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(nullableFirstPartyImmutable));
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_FIRST_PARTY_IMMUTABLE) != 0) attributes.add(&quot;firstPartyImmutable&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_FIRST_PARTY_IMMUTABLE_WITH_DIFFERENT_STYLE) != 0) attributes.add(&quot;firstPartyImmutableWithDifferentStyle&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_THIRD_PARTY_IMMUTABLE) != 0) attributes.add(&quot;thirdPartyImmutable&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_THIRD_PARTY_IMMUTABLE_WITH_PRIMITIVE) != 0) attributes.add(&quot;thirdPartyImmutableWithPrimitive&quot;);
+&nbsp;      return &quot;Cannot build SamePackageVanillaAttributeBuilderParent, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ImmutableFirstPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(@Nullable  ImmutableFirstPartyImmutable.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static FirstPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(@Nullable  FirstPartyImmutable value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ImmutableFirstPartyImmutable.builder().from(value).build();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ImmutableFirstPartyImmutable.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(@Nullable  FirstPartyImmutable value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ImmutableFirstPartyImmutable.builder().from(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ImmutableFirstPartyImmutableWithDifferentStyle convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(@Nullable  ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doIIT();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static FirstPartyImmutableWithDifferentStyle convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(@Nullable  FirstPartyImmutableWithDifferentStyle value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder().makeDaCopy(value).doIIT();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(@Nullable  FirstPartyImmutableWithDifferentStyle value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder().makeDaCopy(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ThirdPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(@Nullable  ThirdPartyImmutable.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ThirdPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(@Nullable  ThirdPartyImmutable value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ThirdPartyImmutable.generateNewBuilder(value).doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ThirdPartyImmutable.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(@Nullable  ThirdPartyImmutable value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ThirdPartyImmutable.generateNewBuilder(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ThirdPartyImmutableWithPrimitive convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(@Nullable  ThirdPartyImmutableWithPrimitive.Builder builder) {
+&nbsp;      if (builder == null) return null;
+&nbsp;      return builder.doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ThirdPartyImmutableWithPrimitive convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(@Nullable  ThirdPartyImmutableWithPrimitive value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ThirdPartyImmutableWithPrimitive.generateNewBuilder(value).doTheBuild();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Nullable 
+&nbsp;    private static ThirdPartyImmutableWithPrimitive.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(@Nullable  ThirdPartyImmutableWithPrimitive value) {
+&nbsp;      if (value == null) return null;
+&nbsp;      return ThirdPartyImmutableWithPrimitive.generateNewBuilder(value);
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;FirstPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(Iterable&lt;? extends ImmutableFirstPartyImmutable.Builder&gt; builderList) {
+&nbsp;      ImmutableList.Builder&lt;FirstPartyImmutable&gt; list;
+&nbsp;      if (builderList instanceof Collection&lt;?&gt;) {
+&nbsp;        int size = ((Collection&lt;?&gt;) builderList).size();
+&nbsp;        if (size == 0) return Collections.emptyList();
+&nbsp;        list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;      } else {
+&nbsp;        list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      for (ImmutableFirstPartyImmutable.Builder element : builderList) {
+&nbsp;        list.add(element.build());
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;FirstPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(ImmutableFirstPartyImmutable.Builder... builderArray) {
+&nbsp;      ImmutableList.Builder&lt;FirstPartyImmutable&gt; list;
+&nbsp;      if (builderArray.length == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(builderArray.length);
+&nbsp;      for (ImmutableFirstPartyImmutable.Builder element : builderArray) {
+&nbsp;        list.add(element.build());
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;ImmutableFirstPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(Iterable&lt;? extends ImmutableFirstPartyImmutable&gt; valueList) {
+&nbsp;      ImmutableList.Builder&lt;ImmutableFirstPartyImmutable.Builder&gt; list;
+&nbsp;      if (valueList instanceof Collection&lt;?&gt;) {
+&nbsp;        int size = ((Collection&lt;?&gt;) valueList).size();
+&nbsp;        if (size == 0) return Collections.emptyList();
+&nbsp;        list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;      } else {
+&nbsp;        list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      for (ImmutableFirstPartyImmutable element : valueList) {
+&nbsp;        list.add(ImmutableFirstPartyImmutable.builder().from(element));
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;ImmutableFirstPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(ImmutableFirstPartyImmutable... valueArray) {
+&nbsp;      ImmutableList.Builder&lt;ImmutableFirstPartyImmutable.Builder&gt; list;
+&nbsp;      if (valueArray.length == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(valueArray.length);
+&nbsp;      for (ImmutableFirstPartyImmutable element : valueArray) {
+&nbsp;        list.add(ImmutableFirstPartyImmutable.builder().from(element));
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;    private static List&lt;ThirdPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(Iterable&lt;? extends ThirdPartyImmutable.Builder&gt; builderList) {
+&nbsp;      ImmutableList.Builder&lt;ThirdPartyImmutable&gt; list;
+&nbsp;      if (builderList instanceof Collection&lt;?&gt;) {
+&nbsp;        int size = ((Collection&lt;?&gt;) builderList).size();
+&nbsp;        if (size == 0) return Collections.emptyList();
+&nbsp;        list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;      } else {
+&nbsp;        list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      for (ThirdPartyImmutable.Builder element : builderList) {
+&nbsp;        list.add(element.doTheBuild());
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;ThirdPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(ThirdPartyImmutable.Builder... builderArray) {
+&nbsp;      ImmutableList.Builder&lt;ThirdPartyImmutable&gt; list;
+&nbsp;      if (builderArray.length == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(builderArray.length);
+&nbsp;      for (ThirdPartyImmutable.Builder element : builderArray) {
+&nbsp;        list.add(element.doTheBuild());
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;ThirdPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(Iterable&lt;? extends ThirdPartyImmutable&gt; valueList) {
+&nbsp;      ImmutableList.Builder&lt;ThirdPartyImmutable.Builder&gt; list;
+&nbsp;      if (valueList instanceof Collection&lt;?&gt;) {
+&nbsp;        int size = ((Collection&lt;?&gt;) valueList).size();
+&nbsp;        if (size == 0) return Collections.emptyList();
+&nbsp;        list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;      } else {
+&nbsp;        list = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      for (ThirdPartyImmutable element : valueList) {
+&nbsp;        list.add(ThirdPartyImmutable.generateNewBuilder(element));
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static List&lt;ThirdPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(ThirdPartyImmutable... valueArray) {
+&nbsp;      ImmutableList.Builder&lt;ThirdPartyImmutable.Builder&gt; list;
+&nbsp;      if (valueArray.length == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(valueArray.length);
+&nbsp;      for (ThirdPartyImmutable element : valueArray) {
+&nbsp;        list.add(ThirdPartyImmutable.generateNewBuilder(element));
+&nbsp;      }
+&nbsp;      return list.build();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ImmutableFirstPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(@Nullable  ImmutableFirstPartyImmutable.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static FirstPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(@Nullable  FirstPartyImmutable value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ImmutableFirstPartyImmutable.builder().from(value).build();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ImmutableFirstPartyImmutable.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(@Nullable  FirstPartyImmutable value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ImmutableFirstPartyImmutable.builder().from(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ImmutableFirstPartyImmutableWithDifferentStyle convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(@Nullable  ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doIIT();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static FirstPartyImmutableWithDifferentStyle convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(@Nullable  FirstPartyImmutableWithDifferentStyle value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder().makeDaCopy(value).doIIT();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ImmutableFirstPartyImmutableWithDifferentStyle.Abonabon convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutableWithDifferentStyle(@Nullable  FirstPartyImmutableWithDifferentStyle value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ImmutableFirstPartyImmutableWithDifferentStyle.getTheBuilder().makeDaCopy(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ThirdPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(@Nullable  ThirdPartyImmutable.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ThirdPartyImmutable convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(@Nullable  ThirdPartyImmutable value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ThirdPartyImmutable.generateNewBuilder(value).doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ThirdPartyImmutable.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(@Nullable  ThirdPartyImmutable value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ThirdPartyImmutable.generateNewBuilder(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ThirdPartyImmutableWithPrimitive convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(@Nullable  ThirdPartyImmutableWithPrimitive.Builder builder) {
+&nbsp;    if (builder == null) return null;
+&nbsp;    return builder.doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ThirdPartyImmutableWithPrimitive convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(@Nullable  ThirdPartyImmutableWithPrimitive value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ThirdPartyImmutableWithPrimitive.generateNewBuilder(value).doTheBuild();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable 
+&nbsp;  private static ThirdPartyImmutableWithPrimitive.Builder convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutableWithPrimitive(@Nullable  ThirdPartyImmutableWithPrimitive value) {
+&nbsp;    if (value == null) return null;
+&nbsp;    return ThirdPartyImmutableWithPrimitive.generateNewBuilder(value);
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;FirstPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(Iterable&lt;? extends ImmutableFirstPartyImmutable.Builder&gt; builderList) {
+&nbsp;    ImmutableList.Builder&lt;FirstPartyImmutable&gt; list;
+&nbsp;    if (builderList instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) builderList).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;    } else {
+&nbsp;      list = ImmutableList.builder();
+&nbsp;    }
+&nbsp;    for (ImmutableFirstPartyImmutable.Builder element : builderList) {
+&nbsp;      list.add(element.build());
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;FirstPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(ImmutableFirstPartyImmutable.Builder... builderArray) {
+&nbsp;    ImmutableList.Builder&lt;FirstPartyImmutable&gt; list;
+&nbsp;    if (builderArray.length == 0) return Collections.emptyList();
+&nbsp;    list = ImmutableList.builderWithExpectedSize(builderArray.length);
+&nbsp;    for (ImmutableFirstPartyImmutable.Builder element : builderArray) {
+&nbsp;      list.add(element.build());
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;ImmutableFirstPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(Iterable&lt;? extends ImmutableFirstPartyImmutable&gt; valueList) {
+&nbsp;    ImmutableList.Builder&lt;ImmutableFirstPartyImmutable.Builder&gt; list;
+&nbsp;    if (valueList instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) valueList).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;    } else {
+&nbsp;      list = ImmutableList.builder();
+&nbsp;    }
+&nbsp;    for (ImmutableFirstPartyImmutable element : valueList) {
+&nbsp;      list.add(ImmutableFirstPartyImmutable.builder().from(element));
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;ImmutableFirstPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ImmutableFirstPartyImmutable(ImmutableFirstPartyImmutable... valueArray) {
+&nbsp;    ImmutableList.Builder&lt;ImmutableFirstPartyImmutable.Builder&gt; list;
+&nbsp;    if (valueArray.length == 0) return Collections.emptyList();
+&nbsp;    list = ImmutableList.builderWithExpectedSize(valueArray.length);
+&nbsp;    for (ImmutableFirstPartyImmutable element : valueArray) {
+&nbsp;      list.add(ImmutableFirstPartyImmutable.builder().from(element));
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;  private static List&lt;ThirdPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(Iterable&lt;? extends ThirdPartyImmutable.Builder&gt; builderList) {
+&nbsp;    ImmutableList.Builder&lt;ThirdPartyImmutable&gt; list;
+&nbsp;    if (builderList instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) builderList).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;    } else {
+&nbsp;      list = ImmutableList.builder();
+&nbsp;    }
+&nbsp;    for (ThirdPartyImmutable.Builder element : builderList) {
+&nbsp;      list.add(element.doTheBuild());
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;ThirdPartyImmutable&gt; convertToValueTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(ThirdPartyImmutable.Builder... builderArray) {
+&nbsp;    ImmutableList.Builder&lt;ThirdPartyImmutable&gt; list;
+&nbsp;    if (builderArray.length == 0) return Collections.emptyList();
+&nbsp;    list = ImmutableList.builderWithExpectedSize(builderArray.length);
+&nbsp;    for (ThirdPartyImmutable.Builder element : builderArray) {
+&nbsp;      list.add(element.doTheBuild());
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;ThirdPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(Iterable&lt;? extends ThirdPartyImmutable&gt; valueList) {
+&nbsp;    ImmutableList.Builder&lt;ThirdPartyImmutable.Builder&gt; list;
+&nbsp;    if (valueList instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) valueList).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = ImmutableList.builderWithExpectedSize(size);
+&nbsp;    } else {
+&nbsp;      list = ImmutableList.builder();
+&nbsp;    }
+&nbsp;    for (ThirdPartyImmutable element : valueList) {
+&nbsp;      list.add(ThirdPartyImmutable.generateNewBuilder(element));
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  private static List&lt;ThirdPartyImmutable.Builder&gt; convertToBuilderTypeorg_immutables_fixture_builder_attribute_builders_ThirdPartyImmutable(ThirdPartyImmutable... valueArray) {
+&nbsp;    ImmutableList.Builder&lt;ThirdPartyImmutable.Builder&gt; list;
+&nbsp;    if (valueArray.length == 0) return Collections.emptyList();
+&nbsp;    list = ImmutableList.builderWithExpectedSize(valueArray.length);
+&nbsp;    for (ThirdPartyImmutable element : valueArray) {
+&nbsp;      list.add(ThirdPartyImmutable.generateNewBuilder(element));
+&nbsp;    }
+&nbsp;    return list.build();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

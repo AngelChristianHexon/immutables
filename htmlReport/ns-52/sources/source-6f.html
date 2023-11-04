@@ -1,0 +1,302 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableAttributeBuilderReflection</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableAttributeBuilderReflection (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ImmutableAttributeBuilderReflection</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link AttributeBuilderReflection}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableAttributeBuilderReflection.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;AttributeBuilderReflection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableAttributeBuilderReflection
+&nbsp;    extends AttributeBuilderReflection {
+&nbsp;  private final ValueAttribute valueAttribute;
+&nbsp;
+&nbsp;  private ImmutableAttributeBuilderReflection(ValueAttribute valueAttribute) {
+&nbsp;    this.valueAttribute = Objects.requireNonNull(valueAttribute, &quot;valueAttribute&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableAttributeBuilderReflection(
+&nbsp;      ImmutableAttributeBuilderReflection original,
+&nbsp;      ValueAttribute valueAttribute) {
+&nbsp;    this.valueAttribute = valueAttribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code valueAttribute} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ValueAttribute valueAttribute() {
+&nbsp;    return valueAttribute;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link AttributeBuilderReflection#valueAttribute() valueAttribute} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for valueAttribute
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableAttributeBuilderReflection withValueAttribute(ValueAttribute value) {
+&nbsp;    if (this.valueAttribute == value) return this;
+&nbsp;    ValueAttribute newValue = Objects.requireNonNull(value, &quot;valueAttribute&quot;);
+&nbsp;    return new ImmutableAttributeBuilderReflection(this, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableAttributeBuilderReflection} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableAttributeBuilderReflection
+&nbsp;        &amp;&amp; equalTo((ImmutableAttributeBuilderReflection) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableAttributeBuilderReflection another) {
+&nbsp;    return valueAttribute.equals(another.valueAttribute);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code valueAttribute}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + valueAttribute.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code AttributeBuilderReflection} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;AttributeBuilderReflection&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;valueAttribute&quot;, valueAttribute)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long STRATEGIES_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient List&lt;AttributeBuilderReflection.Strategy&gt; strategies;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link AttributeBuilderReflection#getStrategies() strategies} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code strategies} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected List&lt;AttributeBuilderReflection.Strategy&gt; getStrategies() {
+&nbsp;    if ((lazyInitBitmap &amp; STRATEGIES_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; STRATEGIES_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.strategies = Objects.requireNonNull(super.getStrategies(), &quot;strategies&quot;);
+&nbsp;          lazyInitBitmap |= STRATEGIES_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return strategies;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long IS_ATTRIBUTE_BUILDER_LAZY_INIT_BIT = 0x2L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient boolean isAttributeBuilder;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link AttributeBuilderReflection#isAttributeBuilder() isAttributeBuilder} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code isAttributeBuilder} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean isAttributeBuilder() {
+&nbsp;    if ((lazyInitBitmap &amp; IS_ATTRIBUTE_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; IS_ATTRIBUTE_BUILDER_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.isAttributeBuilder = super.isAttributeBuilder();
+&nbsp;          lazyInitBitmap |= IS_ATTRIBUTE_BUILDER_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return isAttributeBuilder;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long ATTRIBUTE_BUILDER_DESCRIPTOR_LAZY_INIT_BIT = 0x4L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient AttributeBuilderDescriptor attributeBuilderDescriptor;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link AttributeBuilderReflection#getAttributeBuilderDescriptor() attributeBuilderDescriptor} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code attributeBuilderDescriptor} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  AttributeBuilderDescriptor getAttributeBuilderDescriptor() {
+&nbsp;    if ((lazyInitBitmap &amp; ATTRIBUTE_BUILDER_DESCRIPTOR_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; ATTRIBUTE_BUILDER_DESCRIPTOR_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.attributeBuilderDescriptor = Objects.requireNonNull(super.getAttributeBuilderDescriptor(), &quot;attributeBuilderDescriptor&quot;);
+&nbsp;          lazyInitBitmap |= ATTRIBUTE_BUILDER_DESCRIPTOR_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return attributeBuilderDescriptor;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final long REFLECTION_STRATEGY_LAZY_INIT_BIT = 0x8L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient AttributeBuilderReflection.Strategy reflectionStrategy;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link AttributeBuilderReflection#getReflectionStrategy() reflectionStrategy} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code reflectionStrategy} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  protected AttributeBuilderReflection.Strategy getReflectionStrategy() {
+&nbsp;    if ((lazyInitBitmap &amp; REFLECTION_STRATEGY_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; REFLECTION_STRATEGY_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.reflectionStrategy = Objects.requireNonNull(super.getReflectionStrategy(), &quot;reflectionStrategy&quot;);
+&nbsp;          lazyInitBitmap |= REFLECTION_STRATEGY_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return reflectionStrategy;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code AttributeBuilderReflection} instance.
+&nbsp;   * @param valueAttribute The value for the {@code valueAttribute} attribute
+&nbsp;   * @return An immutable AttributeBuilderReflection instance
+&nbsp;   */
+&nbsp;  public static ImmutableAttributeBuilderReflection of(ValueAttribute valueAttribute) {
+&nbsp;    return new ImmutableAttributeBuilderReflection(valueAttribute);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link AttributeBuilderReflection} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable AttributeBuilderReflection instance
+&nbsp;   */
+&nbsp;  public static ImmutableAttributeBuilderReflection copyOf(AttributeBuilderReflection instance) {
+&nbsp;    if (instance instanceof ImmutableAttributeBuilderReflection) {
+&nbsp;      return (ImmutableAttributeBuilderReflection) instance;
+&nbsp;    }
+&nbsp;    return ImmutableAttributeBuilderReflection.of(instance.valueAttribute());
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

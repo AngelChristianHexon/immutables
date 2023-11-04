@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableKeywordNames</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jackson</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableKeywordNames (org.immutables.fixture.jackson)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableKeywordNames$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableKeywordNames$Json</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jackson;
+&nbsp;
+&nbsp;import com.fasterxml.jackson.annotation.JsonAutoDetect;
+&nbsp;import com.fasterxml.jackson.annotation.JsonCreator;
+&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+&nbsp;import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Longs;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link KeywordNames}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableKeywordNames.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;KeywordNames&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableKeywordNames implements KeywordNames {
+&nbsp;  private final long getLong;
+&nbsp;  private final boolean isDefault;
+&nbsp;
+&nbsp;  private ImmutableKeywordNames(long getLong, boolean isDefault) {
+&nbsp;    this.getLong = getLong;
+&nbsp;    this.isDefault = isDefault;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code getLong} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty
+&nbsp;  @Override
+&nbsp;  public long getLong() {
+&nbsp;    return getLong;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code isDefault} attribute
+&nbsp;   */
+&nbsp;  @JsonProperty
+&nbsp;  @Override
+&nbsp;  public boolean isDefault() {
+&nbsp;    return isDefault;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link KeywordNames#getLong() long} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for getLong
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableKeywordNames withLong(long value) {
+&nbsp;    if (this.getLong == value) return this;
+&nbsp;    return new ImmutableKeywordNames(value, this.isDefault);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link KeywordNames#isDefault() default} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for isDefault
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableKeywordNames withDefault(boolean value) {
+&nbsp;    if (this.isDefault == value) return this;
+&nbsp;    return new ImmutableKeywordNames(this.getLong, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableKeywordNames} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableKeywordNames
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableKeywordNames) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableKeywordNames another) {
+&nbsp;    return getLong == another.getLong
+&nbsp;        &amp;&amp; isDefault == another.isDefault;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code getLong}, {@code isDefault}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Longs.hashCode(getLong);
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(isDefault);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code KeywordNames} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;KeywordNames&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;long&quot;, getLong)
+&nbsp;        .add(&quot;default&quot;, isDefault)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Utility type used to correctly read immutable object from JSON representation.
+&nbsp;   * @deprecated Do not use this type directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;KeywordNames&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @Deprecated
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  @JsonDeserialize
+&nbsp;  @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.NONE)
+&nbsp;  static final class Json implements KeywordNames {
+&nbsp;    long getLong;
+&nbsp;    boolean getLongIsSet;
+&nbsp;    boolean isDefault;
+&nbsp;    boolean isDefaultIsSet;
+&nbsp;    @JsonProperty
+&nbsp;    public void setLong(long getLong) {
+&nbsp;      this.getLong = getLong;
+&nbsp;      this.getLongIsSet = true;
+&nbsp;    }
+&nbsp;    @JsonProperty
+&nbsp;    public void setDefault(boolean isDefault) {
+&nbsp;      this.isDefault = isDefault;
+&nbsp;      this.isDefaultIsSet = true;
+&nbsp;    }
+&nbsp;    @Override
+&nbsp;    public long getLong() { throw new UnsupportedOperationException(); }
+&nbsp;    @Override
+&nbsp;    public boolean isDefault() { throw new UnsupportedOperationException(); }
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @param json A JSON-bindable data structure
+&nbsp;   * @return An immutable value type
+&nbsp;   * @deprecated Do not use this method directly, it exists only for the &lt;em&gt;Jackson&lt;/em&gt;-binding infrastructure
+&nbsp;   */
+&nbsp;  @Deprecated
+&nbsp;  @JsonCreator(mode = JsonCreator.Mode.DELEGATING)
+&nbsp;  static ImmutableKeywordNames fromJson(Json json) {
+&nbsp;    ImmutableKeywordNames.Builder builder = ImmutableKeywordNames.builder();
+&nbsp;    if (json.getLongIsSet) {
+&nbsp;      builder.setLong(json.getLong);
+&nbsp;    }
+&nbsp;    if (json.isDefaultIsSet) {
+&nbsp;      builder.setDefault(json.isDefault);
+&nbsp;    }
+&nbsp;    return builder.build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link KeywordNames} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable KeywordNames instance
+&nbsp;   */
+&nbsp;  public static ImmutableKeywordNames copyOf(KeywordNames instance) {
+&nbsp;    if (instance instanceof ImmutableKeywordNames) {
+&nbsp;      return (ImmutableKeywordNames) instance;
+&nbsp;    }
+&nbsp;    return ImmutableKeywordNames.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableKeywordNames ImmutableKeywordNames}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableKeywordNames.builder()
+&nbsp;   *    .setLong(long) // required {@link KeywordNames#getLong() long}
+&nbsp;   *    .setDefault(boolean) // required {@link KeywordNames#isDefault() default}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableKeywordNames builder
+&nbsp;   */
+&nbsp;  public static ImmutableKeywordNames.Builder builder() {
+&nbsp;    return new ImmutableKeywordNames.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableKeywordNames ImmutableKeywordNames}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;KeywordNames&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_GET_LONG = 0x1L;
+&nbsp;    private static final long INIT_BIT_IS_DEFAULT = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private long getLong;
+&nbsp;    private boolean isDefault;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code KeywordNames} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(KeywordNames instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      setLong(instance.getLong());
+&nbsp;      setDefault(instance.isDefault());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link KeywordNames#getLong() long} attribute.
+&nbsp;     * @param getLong The value for getLong 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty
+&nbsp;    public final Builder setLong(long getLong) {
+&nbsp;      this.getLong = getLong;
+&nbsp;      initBits &amp;= ~INIT_BIT_GET_LONG;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link KeywordNames#isDefault() default} attribute.
+&nbsp;     * @param isDefault The value for isDefault 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    @JsonProperty
+&nbsp;    public final Builder setDefault(boolean isDefault) {
+&nbsp;      this.isDefault = isDefault;
+&nbsp;      initBits &amp;= ~INIT_BIT_IS_DEFAULT;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableKeywordNames ImmutableKeywordNames}.
+&nbsp;     * @return An immutable instance of KeywordNames
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableKeywordNames build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableKeywordNames(getLong, isDefault);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_GET_LONG) != 0) attributes.add(&quot;long&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_IS_DEFAULT) != 0) attributes.add(&quot;default&quot;);
+&nbsp;      return &quot;Cannot build KeywordNames, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

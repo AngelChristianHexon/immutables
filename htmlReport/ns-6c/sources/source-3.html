@@ -1,0 +1,228 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersPacks</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">borg.immutables.fixture.packoutput.impl</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersPacks (borg.immutables.fixture.packoutput.impl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersPacks$PacksTypeAdapter</td>
+  </tr>
+  <tr>
+    <td class="name">GsonAdaptersPacks$PerkTypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package borg.immutables.fixture.packoutput.impl;
+&nbsp;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import java.io.IOException;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;import org.immutables.fixture.packoutput.Packs;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code Packs}.
+&nbsp; * @see ImmutablePacks.Perk
+&nbsp; * @see ImmutablePacks
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;borg.immutables.fixture.packoutput.impl&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersPacks implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (PerkTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new PerkTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    if (PacksTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new PacksTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersPacks(Perk, Packs)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;org.immutables.fixture.packoutput.Packs.Perk&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class PerkTypeAdapter extends TypeAdapter&lt;Packs.Perk&gt; {
+&nbsp;
+&nbsp;    PerkTypeAdapter(Gson gson) {}
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return Packs.Perk.class == type.getRawType()
+&nbsp;          || ImmutablePacks.Perk.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, Packs.Perk value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writePerk(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Packs.Perk read(JsonReader in) throws IOException {
+&nbsp;      return readPerk(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writePerk(JsonWriter out, Packs.Perk instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private static Packs.Perk readPerk(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutablePacks.Perk.Builder builder = ImmutablePacks.Perk.builder();
+&nbsp;      in.skipValue();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;org.immutables.fixture.packoutput.Packs&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class PacksTypeAdapter extends TypeAdapter&lt;Packs&gt; {
+&nbsp;    public final Packs.Perk perkTypeSample = null;
+&nbsp;    private final TypeAdapter&lt;Packs.Perk&gt; perkTypeAdapter;
+&nbsp;
+&nbsp;    PacksTypeAdapter(Gson gson) {
+&nbsp;      this.perkTypeAdapter = gson.getAdapter( Packs.Perk.class);
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return Packs.class == type.getRawType()
+&nbsp;          || ImmutablePacks.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, Packs value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writePacks(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Packs read(JsonReader in) throws IOException {
+&nbsp;      return readPacks(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writePacks(JsonWriter out, Packs instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      out.name(&quot;perk&quot;);
+&nbsp;      perkTypeAdapter.write(out, instance.perk());
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  Packs readPacks(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutablePacks.Builder builder = ImmutablePacks.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutablePacks.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;p&#39;:
+&nbsp;        if (&quot;perk&quot;.equals(attributeName)) {
+&nbsp;          readInPerk(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInPerk(JsonReader in, ImmutablePacks.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      Packs.Perk value = perkTypeAdapter.read(in);
+&nbsp;      builder.perk(value);
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

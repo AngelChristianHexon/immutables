@@ -1,0 +1,276 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImportsTypeStringResolver</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImportsTypeStringResolver (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ImportsTypeStringResolver</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/52)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/69)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.Ascii;
+&nbsp;import com.google.common.base.Function;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import org.immutables.generator.SourceExtraction;
+&nbsp;import org.immutables.value.processor.meta.Proto.DeclaringType;
+&nbsp;
+&nbsp;class ImportsTypeStringResolver implements Function&lt;String, String&gt; {
+&nbsp;  boolean unresolved;
+&nbsp;  private final @Nullable DeclaringType usingType;
+&nbsp;  private final @Nullable DeclaringType originType;
+&nbsp;  private @Nullable ImmutableList&lt;TypeElement&gt; extendedClasses;
+&nbsp;  private @Nullable ImmutableSet&lt;TypeElement&gt; implementedInterfaces;
+<b class="nc">&nbsp;  private ImmutableSet&lt;String&gt; unresolvedYetArguments = ImmutableSet.of();</b>
+&nbsp;  private Round round;
+&nbsp;
+<b class="nc">&nbsp;  ImportsTypeStringResolver(@Nullable DeclaringType usingType, @Nullable DeclaringType originType) {</b>
+<b class="nc">&nbsp;    this.usingType = usingType == null ? null : usingType.associatedTopLevel();</b>
+<b class="nc">&nbsp;    this.originType = originType == null ? null : originType.associatedTopLevel();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  void hierarchyTraversalForUnresolvedTypes(
+&nbsp;      Round round,
+&nbsp;      ImmutableList&lt;TypeElement&gt; extendedClasses,
+&nbsp;      ImmutableSet&lt;TypeElement&gt; implementedInterfaces,
+&nbsp;      ImmutableSet&lt;String&gt; unresolvedYetArguments) {
+<b class="nc">&nbsp;    this.round = round;</b>
+<b class="nc">&nbsp;    this.extendedClasses = extendedClasses;</b>
+<b class="nc">&nbsp;    this.implementedInterfaces = implementedInterfaces;</b>
+<b class="nc">&nbsp;    this.unresolvedYetArguments = unresolvedYetArguments;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String apply(String input) {
+<b class="nc">&nbsp;    unresolved = false;</b>
+<b class="nc">&nbsp;    boolean assumedUnqualified = Ascii.isUpperCase(input.charAt(0));</b>
+<b class="nc">&nbsp;    if (assumedUnqualified) {</b>
+<b class="nc">&nbsp;      input = qualifyImportedIfPossible(input, false);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return input;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  String resolveTopForAttribute(String input) {
+<b class="nc">&nbsp;    unresolved = false;</b>
+<b class="nc">&nbsp;    boolean assumedUnqualified = Ascii.isUpperCase(input.charAt(0));</b>
+<b class="nc">&nbsp;    if (assumedUnqualified) {</b>
+<b class="nc">&nbsp;      input = qualifyImportedIfPossible(input, !unresolvedYetArguments.contains(input));</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return input;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  private String getFromSourceImports(String resolvable, boolean notTypeArgument) {
+<b class="nc">&nbsp;    SourceExtraction.Imports[] importsSet = takeImportSets();</b>
+&nbsp;
+<b class="nc">&nbsp;    for (SourceExtraction.Imports imports : importsSet) {</b>
+<b class="nc">&nbsp;      @Nullable String resolved = imports.classes.get(resolvable);</b>
+<b class="nc">&nbsp;      if (resolved != null) {</b>
+<b class="nc">&nbsp;        return resolved;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    if (extendedClasses != null)</b>
+<b class="nc">&nbsp;      for (TypeElement type : extendedClasses) {</b>
+<b class="nc">&nbsp;        DeclaringType top = round.declaringTypeFrom(type).associatedTopLevel();</b>
+<b class="nc">&nbsp;        @Nullable String resolved = top.sourceImports().classes.get(resolvable);</b>
+<b class="nc">&nbsp;        if (resolved != null) {</b>
+<b class="nc">&nbsp;          return resolved;</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;    if (implementedInterfaces != null) {</b>
+<b class="nc">&nbsp;      for (TypeElement type : implementedInterfaces) {</b>
+<b class="nc">&nbsp;        DeclaringType top = round.declaringTypeFrom(type).associatedTopLevel();</b>
+<b class="nc">&nbsp;        @Nullable String resolved = top.sourceImports().classes.get(resolvable);</b>
+<b class="nc">&nbsp;        if (resolved != null) {</b>
+<b class="nc">&nbsp;          return resolved;</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    // where types are present and are different
+<b class="nc">&nbsp;    if (notTypeArgument &amp;&amp; originType != null) {</b>
+<b class="nc">&nbsp;      if (!hasStarImports(importsSet)) {</b>
+&nbsp;        // Strongly assuming it comes from originating type&#39;s package
+<b class="nc">&nbsp;        return originType.packageOf().name() + &quot;.&quot; + resolvable;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private SourceExtraction.Imports[] takeImportSets() {
+<b class="nc">&nbsp;    if (usingType == null &amp;&amp; originType == null) {</b>
+<b class="nc">&nbsp;      return new SourceExtraction.Imports[] {};</b>
+&nbsp;    }
+<b class="nc">&nbsp;    if (usingType == null) {</b>
+<b class="nc">&nbsp;      return new SourceExtraction.Imports[] {</b>
+<b class="nc">&nbsp;          originType.sourceImports()</b>
+&nbsp;      };
+&nbsp;    }
+<b class="nc">&nbsp;    if (originType == null || usingType == originType) {</b>
+<b class="nc">&nbsp;      return new SourceExtraction.Imports[] {</b>
+<b class="nc">&nbsp;          usingType.sourceImports()</b>
+&nbsp;      };
+&nbsp;    }
+<b class="nc">&nbsp;    return new SourceExtraction.Imports[] {</b>
+<b class="nc">&nbsp;        originType.sourceImports(),</b>
+<b class="nc">&nbsp;        usingType.sourceImports()</b>
+&nbsp;    };
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean hasStarImports(SourceExtraction.Imports... importsSet) {
+<b class="nc">&nbsp;    for (SourceExtraction.Imports imports : importsSet) {</b>
+<b class="nc">&nbsp;      for (String statement : imports.all) {</b>
+<b class="nc">&nbsp;        if (statement.endsWith(&quot;.*&quot;)) {</b>
+<b class="nc">&nbsp;          return true;</b>
+&nbsp;        }
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private String qualifyImportedIfPossible(String typeName, boolean notTypeArgument) {
+<b class="nc">&nbsp;    int nestedTypeDotIndex = typeName.indexOf(&#39;.&#39;);</b>
+&nbsp;
+<b class="nc">&nbsp;    String resolvable = nestedTypeDotIndex &gt; 0</b>
+<b class="nc">&nbsp;        ? typeName.substring(0, nestedTypeDotIndex)</b>
+<b class="nc">&nbsp;        : typeName;</b>
+&nbsp;
+<b class="nc">&nbsp;    @Nullable String resolvedImported = getFromSourceImports(resolvable, notTypeArgument);</b>
+<b class="nc">&nbsp;    if (resolvedImported != null) {</b>
+<b class="nc">&nbsp;      return nestedTypeDotIndex &gt; 0</b>
+<b class="nc">&nbsp;          ? resolvedImported + typeName.substring(nestedTypeDotIndex)</b>
+<b class="nc">&nbsp;          : resolvedImported;</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    unresolved = true;</b>
+<b class="nc">&nbsp;    return typeName;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

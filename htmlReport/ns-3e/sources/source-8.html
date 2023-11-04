@@ -1,0 +1,502 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableCopied</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.with</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableCopied (org.immutables.fixture.with)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableCopied$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.with;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Copied}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code new Copied.Builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Copied&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableCopied extends Copied {
+&nbsp;  private final int attr;
+&nbsp;  private final @Nullable Void voids;
+&nbsp;  private final String[] arr;
+&nbsp;  private final ImmutableMap&lt;String, Integer&gt; map;
+&nbsp;  private final ImmutableList&lt;Boolean&gt; list;
+&nbsp;
+&nbsp;  private ImmutableCopied(
+&nbsp;      int attr,
+&nbsp;      @Nullable Void voids,
+&nbsp;      String[] arr,
+&nbsp;      ImmutableMap&lt;String, Integer&gt; map,
+&nbsp;      ImmutableList&lt;Boolean&gt; list) {
+&nbsp;    this.attr = attr;
+&nbsp;    this.voids = voids;
+&nbsp;    this.arr = arr;
+&nbsp;    this.map = map;
+&nbsp;    this.list = list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code attr} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int attr() {
+&nbsp;    return attr;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code voids} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable Void voids() {
+&nbsp;    return voids;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return A cloned {@code arr} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String[] arr() {
+&nbsp;    return arr.clone();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableMap&lt;String, Integer&gt; map() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;Boolean&gt; list() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Copied#attr() attr} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for attr
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCopied withAttr(int value) {
+&nbsp;    if (this.attr == value) return this;
+&nbsp;    return new ImmutableCopied(value, this.voids, this.arr, this.map, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Copied#voids() voids} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for voids (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCopied withVoids(@Nullable Void value) {
+&nbsp;    if (this.voids == value) return this;
+&nbsp;    return new ImmutableCopied(this.attr, value, this.arr, this.map, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Copied#arr() arr}.
+&nbsp;   * The array is cloned before being saved as attribute values.
+&nbsp;   * @param elements The non-null elements for arr
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCopied withArr(String... elements) {
+&nbsp;    String[] newValue = elements.clone();
+&nbsp;    return new ImmutableCopied(this.attr, this.voids, newValue, this.map, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Copied#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCopied withMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    ImmutableMap&lt;String, Integer&gt; newValue = ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableCopied(this.attr, this.voids, this.arr, newValue, this.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Copied#list() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCopied withList(boolean... elements) {
+&nbsp;    ImmutableList&lt;Boolean&gt; newValue = ImmutableList.copyOf(Booleans.asList(elements));
+&nbsp;    return new ImmutableCopied(this.attr, this.voids, this.arr, this.map, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Copied#list() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableCopied withList(Iterable&lt;Boolean&gt; elements) {
+&nbsp;    if (this.list == elements) return this;
+&nbsp;    ImmutableList&lt;Boolean&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableCopied(this.attr, this.voids, this.arr, this.map, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableCopied} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableCopied
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableCopied) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableCopied another) {
+&nbsp;    return attr == another.attr
+&nbsp;        &amp;&amp; Objects.equals(voids, another.voids)
+&nbsp;        &amp;&amp; Arrays.equals(arr, another.arr)
+&nbsp;        &amp;&amp; map.equals(another.map)
+&nbsp;        &amp;&amp; list.equals(another.list);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code attr}, {@code voids}, {@code arr}, {@code map}, {@code list}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + attr;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(voids);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arr);
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + list.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Copied} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Copied&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;attr&quot;, attr)
+&nbsp;        .add(&quot;voids&quot;, voids)
+&nbsp;        .add(&quot;arr&quot;, Arrays.toString(arr))
+&nbsp;        .add(&quot;map&quot;, map)
+&nbsp;        .add(&quot;list&quot;, list)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Copied} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Copied instance
+&nbsp;   */
+&nbsp;  public static ImmutableCopied copyOf(Copied instance) {
+&nbsp;    if (instance instanceof ImmutableCopied) {
+&nbsp;      return (ImmutableCopied) instance;
+&nbsp;    }
+&nbsp;    return new Copied.Builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableCopied ImmutableCopied}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Copied&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static class Builder {
+&nbsp;    private static final long INIT_BIT_ATTR = 0x1L;
+&nbsp;    private static final long INIT_BIT_ARR = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private int attr;
+&nbsp;    private @Nullable Void voids;
+&nbsp;    private @Nullable String[] arr;
+&nbsp;    private ImmutableMap.Builder&lt;String, Integer&gt; map = ImmutableMap.builder();
+&nbsp;    private ImmutableList.Builder&lt;Boolean&gt; list = ImmutableList.builder();
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Creates a builder for {@link ImmutableCopied ImmutableCopied} instances.
+&nbsp;     * &lt;pre&gt;
+&nbsp;     * new Copied.Builder()
+&nbsp;     *    .attr(int) // required {@link Copied#attr() attr}
+&nbsp;     *    .voids(Void | null) // nullable {@link Copied#voids() voids}
+&nbsp;     *    .arr(String) // required {@link Copied#arr() arr}
+&nbsp;     *    .putMap|putAllMap(String =&amp;gt; int) // {@link Copied#map() map} mappings
+&nbsp;     *    .addList|addAllList(boolean) // {@link Copied#list() list} elements
+&nbsp;     *    .build();
+&nbsp;     * &lt;/pre&gt;
+&nbsp;     */
+&nbsp;    public Builder() {
+&nbsp;      if (!(this instanceof Copied.Builder)) {
+&nbsp;        throw new UnsupportedOperationException(&quot;Use: new Copied.Builder()&quot;);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Copied} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder from(Copied instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      attr(instance.attr());
+&nbsp;      @Nullable Void voidsValue = instance.voids();
+&nbsp;      if (voidsValue != null) {
+&nbsp;        voids(voidsValue);
+&nbsp;      }
+&nbsp;      arr(instance.arr());
+&nbsp;      putAllMap(instance.map());
+&nbsp;      addAllList(instance.list());
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Copied#attr() attr} attribute.
+&nbsp;     * @param attr The value for attr 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder attr(int attr) {
+&nbsp;      this.attr = attr;
+&nbsp;      initBits &amp;= ~INIT_BIT_ATTR;
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Copied#voids() voids} attribute.
+&nbsp;     * @param voids The value for voids (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder voids(@Nullable Void voids) {
+&nbsp;      this.voids = voids;
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Copied#arr() arr} attribute.
+&nbsp;     * @param arr The elements for arr
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder arr(String... arr) {
+&nbsp;      this.arr = arr.clone();
+&nbsp;      initBits &amp;= ~INIT_BIT_ARR;
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Copied#map() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder putMap(String key, int value) {
+&nbsp;      this.map.put(key, value);
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Copied#map() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder putMap(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      this.map.put(entry);
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Copied#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder map(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.map = ImmutableMap.builder();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Copied#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder putAllMap(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.map.putAll(entries);
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Copied#list() list} list.
+&nbsp;     * @param element A list element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder addList(boolean element) {
+&nbsp;      this.list.add(element);
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Copied#list() list} list.
+&nbsp;     * @param elements An array of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder addList(boolean... elements) {
+&nbsp;      this.list.addAll(Booleans.asList(elements));
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Copied#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder list(Iterable&lt;Boolean&gt; elements) {
+&nbsp;      this.list = ImmutableList.builder();
+&nbsp;      return addAllList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Copied#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Copied.Builder addAllList(Iterable&lt;Boolean&gt; elements) {
+&nbsp;      this.list.addAll(elements);
+&nbsp;      return (Copied.Builder) this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableCopied ImmutableCopied}.
+&nbsp;     * @return An immutable instance of Copied
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableCopied build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableCopied(attr, voids, arr, map.build(), list.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ATTR) != 0) attributes.add(&quot;attr&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ARR) != 0) attributes.add(&quot;arr&quot;);
+&nbsp;      return &quot;Cannot build Copied, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

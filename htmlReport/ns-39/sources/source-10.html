@@ -1,0 +1,410 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableLightOnAnnotations</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableLightOnAnnotations (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ImmutableLightOnAnnotations</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/33)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ImmutableLightOnAnnotations$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/20)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/63)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link LightOnAnnotations}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableLightOnAnnotations.builder()}.
+&nbsp; */
+&nbsp;public final class ImmutableLightOnAnnotations&lt;X&gt;
+&nbsp;    implements LightOnAnnotations&lt;X&gt; {
+&nbsp;  private final int a;
+&nbsp;  private final X x;
+&nbsp;
+<b class="nc">&nbsp;  private ImmutableLightOnAnnotations(int a, X x) {</b>
+<b class="nc">&nbsp;    this.a = a;</b>
+<b class="nc">&nbsp;    this.x = x;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int a() {
+<b class="nc">&nbsp;    return a;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code x} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;X&gt; x() {
+<b class="nc">&nbsp;    return Optional.ofNullable(x);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link LightOnAnnotations#a() a} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableLightOnAnnotations&lt;X&gt; withA(int value) {
+<b class="nc">&nbsp;    if (this.a == value) return this;</b>
+<b class="nc">&nbsp;    return new ImmutableLightOnAnnotations&lt;&gt;(value, this.x);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link LightOnAnnotations#x() x} attribute.
+&nbsp;   * @param value The value for x
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableLightOnAnnotations&lt;X&gt; withX(X value) {
+<b class="nc">&nbsp;    X newValue = Objects.requireNonNull(value, &quot;x&quot;);</b>
+<b class="nc">&nbsp;    if (this.x == newValue) return this;</b>
+<b class="nc">&nbsp;    return new ImmutableLightOnAnnotations&lt;&gt;(this.a, newValue);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link LightOnAnnotations#x() x} attribute.
+&nbsp;   * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for x
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableLightOnAnnotations&lt;X&gt; withX(Optional&lt;? extends X&gt; optional) {
+<b class="nc">&nbsp;    X value = optional.orElse(null);</b>
+<b class="nc">&nbsp;    if (this.x == value) return this;</b>
+<b class="nc">&nbsp;    return new ImmutableLightOnAnnotations&lt;&gt;(this.a, value);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableLightOnAnnotations} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(Object another) {
+<b class="nc">&nbsp;    if (this == another) return true;</b>
+<b class="nc">&nbsp;    return another instanceof ImmutableLightOnAnnotations&lt;?&gt;</b>
+<b class="nc">&nbsp;        &amp;&amp; equalTo(0, (ImmutableLightOnAnnotations&lt;?&gt;) another);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableLightOnAnnotations&lt;?&gt; another) {
+<b class="nc">&nbsp;    return a == another.a</b>
+<b class="nc">&nbsp;        &amp;&amp; Objects.equals(x, another.x);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code x}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    int h = 5381;</b>
+<b class="nc">&nbsp;    h += (h &lt;&lt; 5) + a;</b>
+<b class="nc">&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(x);</b>
+<b class="nc">&nbsp;    return h;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code LightOnAnnotations} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return MoreObjects.toStringHelper(&quot;LightOnAnnotations&quot;)</b>
+<b class="nc">&nbsp;        .omitNullValues()</b>
+<b class="nc">&nbsp;        .add(&quot;a&quot;, a)</b>
+<b class="nc">&nbsp;        .add(&quot;x&quot;, x)</b>
+<b class="nc">&nbsp;        .toString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link LightOnAnnotations} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param &lt;X&gt; generic parameter X
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable LightOnAnnotations instance
+&nbsp;   */
+&nbsp;  public static &lt;X&gt; ImmutableLightOnAnnotations&lt;X&gt; copyOf(LightOnAnnotations&lt;X&gt; instance) {
+<b class="nc">&nbsp;    if (instance instanceof ImmutableLightOnAnnotations&lt;?&gt;) {</b>
+<b class="nc">&nbsp;      return (ImmutableLightOnAnnotations&lt;X&gt;) instance;</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return ImmutableLightOnAnnotations.&lt;X&gt;builder()</b>
+<b class="nc">&nbsp;        .from(instance)</b>
+<b class="nc">&nbsp;        .build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableLightOnAnnotations ImmutableLightOnAnnotations}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableLightOnAnnotations.&amp;amp;lt;X&amp;amp;gt;builder()
+&nbsp;   *    .a(int) // required {@link LightOnAnnotations#a() a}
+&nbsp;   *    .x(X) // optional {@link LightOnAnnotations#x() x}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @param &lt;X&gt; generic parameter X
+&nbsp;   * @return A new ImmutableLightOnAnnotations builder
+&nbsp;   */
+&nbsp;  public static &lt;X&gt; ImmutableLightOnAnnotations.Builder&lt;X&gt; builder() {
+<b class="nc">&nbsp;    return new ImmutableLightOnAnnotations.Builder&lt;&gt;();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableLightOnAnnotations ImmutableLightOnAnnotations}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  public static final class Builder&lt;X&gt; {
+&nbsp;    private static final long INIT_BIT_A = 0x1L;
+<b class="nc">&nbsp;    private long initBits = 0x1L;</b>
+&nbsp;
+&nbsp;    private int a;
+&nbsp;    private X x;
+&nbsp;
+<b class="nc">&nbsp;    private Builder() {</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ModifiableLightOnAnnotations} instance.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder&lt;X&gt; from(ModifiableLightOnAnnotations&lt;X&gt; instance) {
+<b class="nc">&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+<b class="nc">&nbsp;      if (instance.aIsSet()) {</b>
+<b class="nc">&nbsp;        a(instance.a());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      Optional&lt;X&gt; xOptional = instance.x();</b>
+<b class="nc">&nbsp;      if (xOptional.isPresent()) {</b>
+<b class="nc">&nbsp;        x(xOptional);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code LightOnAnnotations} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder&lt;X&gt; from(LightOnAnnotations&lt;X&gt; instance) {
+<b class="nc">&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);</b>
+<b class="nc">&nbsp;      if (instance instanceof ModifiableLightOnAnnotations&lt;?&gt;) {</b>
+<b class="nc">&nbsp;        return from((ModifiableLightOnAnnotations&lt;X&gt;) instance);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      a(instance.a());</b>
+<b class="nc">&nbsp;      Optional&lt;X&gt; xOptional = instance.x();</b>
+<b class="nc">&nbsp;      if (xOptional.isPresent()) {</b>
+<b class="nc">&nbsp;        x(xOptional);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link LightOnAnnotations#a() a} attribute.
+&nbsp;     * @param a The value for a 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder&lt;X&gt; a(int a) {
+<b class="nc">&nbsp;      this.a = a;</b>
+<b class="nc">&nbsp;      initBits &amp;= ~INIT_BIT_A;</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link LightOnAnnotations#x() x} to x.
+&nbsp;     * @param x The value for x
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    public final Builder&lt;X&gt; x(X x) {
+<b class="nc">&nbsp;      this.x = Objects.requireNonNull(x, &quot;x&quot;);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link LightOnAnnotations#x() x} to x.
+&nbsp;     * @param x The value for x
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    public final Builder&lt;X&gt; x(Optional&lt;? extends X&gt; x) {
+<b class="nc">&nbsp;      this.x = x.orElse(null);</b>
+<b class="nc">&nbsp;      return this;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableLightOnAnnotations ImmutableLightOnAnnotations}.
+&nbsp;     * @return An immutable instance of LightOnAnnotations
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableLightOnAnnotations&lt;X&gt; build() {
+<b class="nc">&nbsp;      if (initBits != 0) {</b>
+<b class="nc">&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return new ImmutableLightOnAnnotations&lt;&gt;(a, x);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+<b class="nc">&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      if ((initBits &amp; INIT_BIT_A) != 0) attributes.add(&quot;a&quot;);</b>
+<b class="nc">&nbsp;      return &quot;Cannot build LightOnAnnotations, some of required attributes are not set &quot; + attributes;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

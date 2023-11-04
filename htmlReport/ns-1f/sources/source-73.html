@@ -1,0 +1,260 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > GsonAdaptersSillyEntity</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: GsonAdaptersSillyEntity (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">GsonAdaptersSillyEntity$SillyEntityTypeAdapter</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.primitives.UnsignedInteger;
+&nbsp;import com.google.gson.*;
+&nbsp;import com.google.gson.reflect.*;
+&nbsp;import com.google.gson.stream.*;
+&nbsp;import java.io.IOException;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.processing.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A {@code TypeAdapterFactory} that handles all of the immutable types generated under {@code SillyEntity}.
+&nbsp; * @see ImmutableSillyEntity
+&nbsp; */
+&nbsp;@SuppressWarnings({&quot;all&quot;, &quot;MethodCanBeStatic&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@org.immutables.value.Generated(from = &quot;org.immutables.fixture&quot;, generator = &quot;Gsons&quot;)
+&nbsp;public final class GsonAdaptersSillyEntity implements TypeAdapterFactory {
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; TypeAdapter&lt;T&gt; create(Gson gson, TypeToken&lt;T&gt; type) {
+&nbsp;    if (SillyEntityTypeAdapter.adapts(type)) {
+&nbsp;      return (TypeAdapter&lt;T&gt;) new SillyEntityTypeAdapter(gson);
+&nbsp;    }
+&nbsp;    return null;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;GsonAdaptersSillyEntity(SillyEntity)&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  @org.immutables.value.Generated(from = &quot;SillyEntity&quot;, generator = &quot;Gsons&quot;)
+&nbsp;  @SuppressWarnings({&quot;unchecked&quot;, &quot;rawtypes&quot;}) // safe unchecked, types are verified in runtime
+&nbsp;  private static class SillyEntityTypeAdapter extends TypeAdapter&lt;SillyEntity&gt; {
+&nbsp;    public final Integer payloadSecondaryTypeSample = null;
+&nbsp;    public final Integer intsTypeSample = null;
+&nbsp;    public final UnsignedInteger derTypeSample = null;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; payloadSecondaryTypeAdapter;
+&nbsp;    private final TypeAdapter&lt;Integer&gt; intsTypeAdapter;
+&nbsp;    private final TypeAdapter&lt;UnsignedInteger&gt; derTypeAdapter;
+&nbsp;
+&nbsp;    SillyEntityTypeAdapter(Gson gson) {
+&nbsp;      this.payloadSecondaryTypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;      this.intsTypeAdapter = gson.getAdapter( Integer.class);
+&nbsp;      this.derTypeAdapter = gson.getAdapter( UnsignedInteger.class);
+&nbsp;    } 
+&nbsp;
+&nbsp;    static boolean adapts(TypeToken&lt;?&gt; type) {
+&nbsp;      return SillyEntity.class == type.getRawType()
+&nbsp;          || ImmutableSillyEntity.class == type.getRawType();
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void write(JsonWriter out, SillyEntity value) throws IOException {
+&nbsp;      if (value == null) {
+&nbsp;        out.nullValue();
+&nbsp;      } else {
+&nbsp;        writeSillyEntity(out, value);
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public SillyEntity read(JsonReader in) throws IOException {
+&nbsp;      return readSillyEntity(in);
+&nbsp;    }
+&nbsp;
+&nbsp;    private void writeSillyEntity(JsonWriter out, SillyEntity instance)
+&nbsp;        throws IOException {
+&nbsp;      out.beginObject();
+&nbsp;      out.name(&quot;_id&quot;);
+&nbsp;      out.value(instance.id());
+&nbsp;      out.name(&quot;v&quot;);
+&nbsp;      out.value(instance.val());
+&nbsp;      Map&lt;String, Integer&gt; payloadMapping = instance.payload();
+&nbsp;      out.name(&quot;p&quot;);
+&nbsp;      out.beginObject();
+&nbsp;      for (Map.Entry&lt;String, Integer&gt; e : payloadMapping.entrySet()) {
+&nbsp;        String key = e.getKey();
+&nbsp;        out.name(key);
+&nbsp;        int value = e.getValue();
+&nbsp;        payloadSecondaryTypeAdapter.write(out, value);
+&nbsp;      }
+&nbsp;      out.endObject();
+&nbsp;      List&lt;Integer&gt; intsElements = instance.ints();
+&nbsp;      out.name(&quot;i&quot;);
+&nbsp;      out.beginArray();
+&nbsp;      for (Integer e : intsElements) {
+&nbsp;        intsTypeAdapter.write(out, e);
+&nbsp;      }
+&nbsp;      out.endArray();
+&nbsp;      out.name(&quot;der&quot;);
+&nbsp;      derTypeAdapter.write(out, instance.der());
+&nbsp;      out.endObject();
+&nbsp;    }
+&nbsp;
+&nbsp;    private  SillyEntity readSillyEntity(JsonReader in)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;        return null;
+&nbsp;      }
+&nbsp;      ImmutableSillyEntity.Builder builder = ImmutableSillyEntity.builder();
+&nbsp;      in.beginObject();
+&nbsp;      while (in.hasNext()) {
+&nbsp;        eachAttribute(in, builder);
+&nbsp;      }
+&nbsp;      in.endObject();
+&nbsp;      return builder.build();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void eachAttribute(JsonReader in, ImmutableSillyEntity.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      String attributeName = in.nextName();
+&nbsp;      switch (attributeName.charAt(0)) {
+&nbsp;      case &#39;_&#39;:
+&nbsp;        if (&quot;_id&quot;.equals(attributeName)) {
+&nbsp;          readInId(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;v&#39;:
+&nbsp;        if (&quot;v&quot;.equals(attributeName)) {
+&nbsp;          readInVal(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;p&#39;:
+&nbsp;        if (&quot;p&quot;.equals(attributeName)) {
+&nbsp;          readInPayload(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      case &#39;i&#39;:
+&nbsp;        if (&quot;i&quot;.equals(attributeName)) {
+&nbsp;          readInInts(in, builder);
+&nbsp;          return;
+&nbsp;        }
+&nbsp;        break;
+&nbsp;      default:
+&nbsp;      }
+&nbsp;      in.skipValue();
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInId(JsonReader in, ImmutableSillyEntity.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.id(in.nextInt());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInVal(JsonReader in, ImmutableSillyEntity.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      builder.val(in.nextString());
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInPayload(JsonReader in, ImmutableSillyEntity.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        in.beginObject();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          String rawKey = in.nextName();
+&nbsp;          String key = rawKey;
+&nbsp;          Integer value = payloadSecondaryTypeAdapter.read(in);
+&nbsp;          builder.putPayload(key, value);
+&nbsp;        }
+&nbsp;        in.endObject();
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private void readInInts(JsonReader in, ImmutableSillyEntity.Builder builder)
+&nbsp;        throws IOException {
+&nbsp;      if (in.peek() == JsonToken.BEGIN_ARRAY) {
+&nbsp;        in.beginArray();
+&nbsp;        while(in.hasNext()) {
+&nbsp;          builder.addInts(in.nextInt());
+&nbsp;        }
+&nbsp;        in.endArray();
+&nbsp;      } else if (in.peek() == JsonToken.NULL) {
+&nbsp;        in.nextNull();
+&nbsp;      } else {
+&nbsp;        builder.addInts(in.nextInt());
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

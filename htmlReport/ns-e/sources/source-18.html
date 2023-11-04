@@ -1,0 +1,359 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableOqlGenerator</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.geode</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableOqlGenerator (org.immutables.criteria.geode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableOqlGenerator$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableOqlGenerator$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.criteria.geode;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.criteria.backend.PathNaming;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link OqlGenerator}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableOqlGenerator.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;OqlGenerator&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutableOqlGenerator extends OqlGenerator {
+&nbsp;  private final PathNaming pathNaming;
+&nbsp;  private final String regionName;
+&nbsp;  private final boolean useBindVariables;
+&nbsp;
+&nbsp;  private ImmutableOqlGenerator(ImmutableOqlGenerator.Builder builder) {
+&nbsp;    this.pathNaming = builder.pathNaming;
+&nbsp;    this.regionName = builder.regionName;
+&nbsp;    this.useBindVariables = builder.useBindVariablesIsSet()
+&nbsp;        ? builder.useBindVariables
+&nbsp;        : super.useBindVariables();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableOqlGenerator(
+&nbsp;      PathNaming pathNaming,
+&nbsp;      String regionName,
+&nbsp;      boolean useBindVariables) {
+&nbsp;    this.pathNaming = pathNaming;
+&nbsp;    this.regionName = regionName;
+&nbsp;    this.useBindVariables = useBindVariables;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code pathNaming} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  PathNaming pathNaming() {
+&nbsp;    return pathNaming;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code regionName} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  String regionName() {
+&nbsp;    return regionName;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code useBindVariables} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  boolean useBindVariables() {
+&nbsp;    return useBindVariables;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OqlGenerator#pathNaming() pathNaming} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for pathNaming
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOqlGenerator withPathNaming(PathNaming value) {
+&nbsp;    if (this.pathNaming == value) return this;
+&nbsp;    PathNaming newValue = Objects.requireNonNull(value, &quot;pathNaming&quot;);
+&nbsp;    return new ImmutableOqlGenerator(newValue, this.regionName, this.useBindVariables);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OqlGenerator#regionName() regionName} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for regionName
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOqlGenerator withRegionName(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;regionName&quot;);
+&nbsp;    if (this.regionName.equals(newValue)) return this;
+&nbsp;    return new ImmutableOqlGenerator(this.pathNaming, newValue, this.useBindVariables);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link OqlGenerator#useBindVariables() useBindVariables} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for useBindVariables
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableOqlGenerator withUseBindVariables(boolean value) {
+&nbsp;    if (this.useBindVariables == value) return this;
+&nbsp;    return new ImmutableOqlGenerator(this.pathNaming, this.regionName, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableOqlGenerator} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableOqlGenerator
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableOqlGenerator) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableOqlGenerator another) {
+&nbsp;    return pathNaming.equals(another.pathNaming)
+&nbsp;        &amp;&amp; regionName.equals(another.regionName)
+&nbsp;        &amp;&amp; useBindVariables == another.useBindVariables;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code pathNaming}, {@code regionName}, {@code useBindVariables}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + pathNaming.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + regionName.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(useBindVariables);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code OqlGenerator} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;OqlGenerator&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;pathNaming&quot;, pathNaming)
+&nbsp;        .add(&quot;regionName&quot;, regionName)
+&nbsp;        .add(&quot;useBindVariables&quot;, useBindVariables)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link OqlGenerator} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable OqlGenerator instance
+&nbsp;   */
+&nbsp;  public static ImmutableOqlGenerator copyOf(OqlGenerator instance) {
+&nbsp;    if (instance instanceof ImmutableOqlGenerator) {
+&nbsp;      return (ImmutableOqlGenerator) instance;
+&nbsp;    }
+&nbsp;    return ImmutableOqlGenerator.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableOqlGenerator ImmutableOqlGenerator}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableOqlGenerator.builder()
+&nbsp;   *    .pathNaming(org.immutables.criteria.backend.PathNaming) // required {@link OqlGenerator#pathNaming() pathNaming}
+&nbsp;   *    .regionName(String) // required {@link OqlGenerator#regionName() regionName}
+&nbsp;   *    .useBindVariables(boolean) // optional {@link OqlGenerator#useBindVariables() useBindVariables}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableOqlGenerator builder
+&nbsp;   */
+&nbsp;  public static ImmutableOqlGenerator.Builder builder() {
+&nbsp;    return new ImmutableOqlGenerator.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableOqlGenerator ImmutableOqlGenerator}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;OqlGenerator&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_PATH_NAMING = 0x1L;
+&nbsp;    private static final long INIT_BIT_REGION_NAME = 0x2L;
+&nbsp;    private static final long OPT_BIT_USE_BIND_VARIABLES = 0x1L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable PathNaming pathNaming;
+&nbsp;    private @Nullable String regionName;
+&nbsp;    private boolean useBindVariables;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code OqlGenerator} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(OqlGenerator instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      pathNaming(instance.pathNaming());
+&nbsp;      regionName(instance.regionName());
+&nbsp;      useBindVariables(instance.useBindVariables());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OqlGenerator#pathNaming() pathNaming} attribute.
+&nbsp;     * @param pathNaming The value for pathNaming 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder pathNaming(PathNaming pathNaming) {
+&nbsp;      this.pathNaming = Objects.requireNonNull(pathNaming, &quot;pathNaming&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PATH_NAMING;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OqlGenerator#regionName() regionName} attribute.
+&nbsp;     * @param regionName The value for regionName 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder regionName(String regionName) {
+&nbsp;      this.regionName = Objects.requireNonNull(regionName, &quot;regionName&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_REGION_NAME;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link OqlGenerator#useBindVariables() useBindVariables} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link OqlGenerator#useBindVariables() useBindVariables}.&lt;/em&gt;
+&nbsp;     * @param useBindVariables The value for useBindVariables 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder useBindVariables(boolean useBindVariables) {
+&nbsp;      this.useBindVariables = useBindVariables;
+&nbsp;      optBits |= OPT_BIT_USE_BIND_VARIABLES;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableOqlGenerator ImmutableOqlGenerator}.
+&nbsp;     * @return An immutable instance of OqlGenerator
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableOqlGenerator build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableOqlGenerator(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean useBindVariablesIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_USE_BIND_VARIABLES) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_PATH_NAMING) != 0) attributes.add(&quot;pathNaming&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_REGION_NAME) != 0) attributes.add(&quot;regionName&quot;);
+&nbsp;      return &quot;Cannot build OqlGenerator, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,656 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutablePrivateNoargConstructorNominal</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutablePrivateNoargConstructorNominal (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutablePrivateNoargConstructorNominal$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Bytes;
+&nbsp;import com.google.common.primitives.Chars;
+&nbsp;import com.google.common.primitives.Doubles;
+&nbsp;import com.google.common.primitives.Floats;
+&nbsp;import com.google.common.primitives.Longs;
+&nbsp;import com.google.common.primitives.Shorts;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link PrivateNoargConstructorNominal}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutablePrivateNoargConstructorNominal.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;PrivateNoargConstructorNominal&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;final class ImmutablePrivateNoargConstructorNominal
+&nbsp;    implements PrivateNoargConstructorNominal {
+&nbsp;  private final boolean is;
+&nbsp;  private final byte b;
+&nbsp;  private final short s;
+&nbsp;  private final int i;
+&nbsp;  private final long l;
+&nbsp;  private final char c;
+&nbsp;  private final float f;
+&nbsp;  private final double d;
+&nbsp;  private final Object o;
+&nbsp;  private final String z;
+&nbsp;
+&nbsp;  private ImmutablePrivateNoargConstructorNominal() {
+&nbsp;    this.is = false;
+&nbsp;    this.b = 0;
+&nbsp;    this.s = 0;
+&nbsp;    this.i = 0;
+&nbsp;    this.l = 0;
+&nbsp;    this.c = 0;
+&nbsp;    this.f = 0;
+&nbsp;    this.d = 0;
+&nbsp;    this.o = null;
+&nbsp;    this.z = null;
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutablePrivateNoargConstructorNominal(
+&nbsp;      boolean is,
+&nbsp;      byte b,
+&nbsp;      short s,
+&nbsp;      int i,
+&nbsp;      long l,
+&nbsp;      char c,
+&nbsp;      float f,
+&nbsp;      double d,
+&nbsp;      Object o,
+&nbsp;      String z) {
+&nbsp;    this.is = is;
+&nbsp;    this.b = b;
+&nbsp;    this.s = s;
+&nbsp;    this.i = i;
+&nbsp;    this.l = l;
+&nbsp;    this.c = c;
+&nbsp;    this.f = f;
+&nbsp;    this.d = d;
+&nbsp;    this.o = o;
+&nbsp;    this.z = z;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code is} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean is() {
+&nbsp;    return is;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public byte b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code s} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public short s() {
+&nbsp;    return s;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int i() {
+&nbsp;    return i;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public long l() {
+&nbsp;    return l;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public char c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code f} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public float f() {
+&nbsp;    return f;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code d} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public double d() {
+&nbsp;    return d;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code o} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Object o() {
+&nbsp;    return o;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code z} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String z() {
+&nbsp;    return z;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#is() is} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for is
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withIs(boolean value) {
+&nbsp;    if (this.is == value) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(value, this.b, this.s, this.i, this.l, this.c, this.f, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#b() b} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withB(byte value) {
+&nbsp;    if (this.b == value) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, value, this.s, this.i, this.l, this.c, this.f, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#s() s} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for s
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withS(short value) {
+&nbsp;    if (this.s == value) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, value, this.i, this.l, this.c, this.f, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#i() i} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for i
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withI(int value) {
+&nbsp;    if (this.i == value) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, value, this.l, this.c, this.f, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#l() l} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for l
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withL(long value) {
+&nbsp;    if (this.l == value) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, this.i, value, this.c, this.f, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#c() c} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withC(char value) {
+&nbsp;    if (this.c == value) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, this.i, this.l, value, this.f, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#f() f} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for f
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withF(float value) {
+&nbsp;    if (Float.floatToIntBits(this.f) == Float.floatToIntBits(value)) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, this.i, this.l, this.c, value, this.d, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#d() d} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for d
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withD(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.d) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, this.i, this.l, this.c, this.f, value, this.o, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#o() o} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for o
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withO(Object value) {
+&nbsp;    if (this.o == value) return this;
+&nbsp;    Object newValue = Objects.requireNonNull(value, &quot;o&quot;);
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, this.i, this.l, this.c, this.f, this.d, newValue, this.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link PrivateNoargConstructorNominal#z() z} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for z
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutablePrivateNoargConstructorNominal withZ(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;z&quot;);
+&nbsp;    if (Objects.equals(this.z, newValue)) return this;
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal(this.is, this.b, this.s, this.i, this.l, this.c, this.f, this.d, this.o, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutablePrivateNoargConstructorNominal} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutablePrivateNoargConstructorNominal
+&nbsp;        &amp;&amp; equalTo(0, (ImmutablePrivateNoargConstructorNominal) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutablePrivateNoargConstructorNominal another) {
+&nbsp;    return is == another.is
+&nbsp;        &amp;&amp; b == another.b
+&nbsp;        &amp;&amp; s == another.s
+&nbsp;        &amp;&amp; i == another.i
+&nbsp;        &amp;&amp; l == another.l
+&nbsp;        &amp;&amp; c == another.c
+&nbsp;        &amp;&amp; Float.floatToIntBits(f) == Float.floatToIntBits(another.f)
+&nbsp;        &amp;&amp; Double.doubleToLongBits(d) == Double.doubleToLongBits(another.d)
+&nbsp;        &amp;&amp; o.equals(another.o)
+&nbsp;        &amp;&amp; z.equals(another.z);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code is}, {@code b}, {@code s}, {@code i}, {@code l}, {@code c}, {@code f}, {@code d}, {@code o}, {@code z}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(is);
+&nbsp;    h += (h &lt;&lt; 5) + Bytes.hashCode(b);
+&nbsp;    h += (h &lt;&lt; 5) + Shorts.hashCode(s);
+&nbsp;    h += (h &lt;&lt; 5) + i;
+&nbsp;    h += (h &lt;&lt; 5) + Longs.hashCode(l);
+&nbsp;    h += (h &lt;&lt; 5) + Chars.hashCode(c);
+&nbsp;    h += (h &lt;&lt; 5) + Floats.hashCode(f);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(d);
+&nbsp;    h += (h &lt;&lt; 5) + o.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + z.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code PrivateNoargConstructorNominal} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;PrivateNoargConstructorNominal&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;is&quot;, is)
+&nbsp;        .add(&quot;b&quot;, b)
+&nbsp;        .add(&quot;s&quot;, s)
+&nbsp;        .add(&quot;i&quot;, i)
+&nbsp;        .add(&quot;l&quot;, l)
+&nbsp;        .add(&quot;c&quot;, c)
+&nbsp;        .add(&quot;f&quot;, f)
+&nbsp;        .add(&quot;d&quot;, d)
+&nbsp;        .add(&quot;o&quot;, o)
+&nbsp;        .add(&quot;z&quot;, z)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link PrivateNoargConstructorNominal} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable PrivateNoargConstructorNominal instance
+&nbsp;   */
+&nbsp;  public static ImmutablePrivateNoargConstructorNominal copyOf(PrivateNoargConstructorNominal instance) {
+&nbsp;    if (instance instanceof ImmutablePrivateNoargConstructorNominal) {
+&nbsp;      return (ImmutablePrivateNoargConstructorNominal) instance;
+&nbsp;    }
+&nbsp;    return ImmutablePrivateNoargConstructorNominal.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutablePrivateNoargConstructorNominal ImmutablePrivateNoargConstructorNominal}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutablePrivateNoargConstructorNominal.builder()
+&nbsp;   *    .is(boolean) // required {@link PrivateNoargConstructorNominal#is() is}
+&nbsp;   *    .b(byte) // required {@link PrivateNoargConstructorNominal#b() b}
+&nbsp;   *    .s(short) // required {@link PrivateNoargConstructorNominal#s() s}
+&nbsp;   *    .i(int) // required {@link PrivateNoargConstructorNominal#i() i}
+&nbsp;   *    .l(long) // required {@link PrivateNoargConstructorNominal#l() l}
+&nbsp;   *    .c(char) // required {@link PrivateNoargConstructorNominal#c() c}
+&nbsp;   *    .f(float) // required {@link PrivateNoargConstructorNominal#f() f}
+&nbsp;   *    .d(double) // required {@link PrivateNoargConstructorNominal#d() d}
+&nbsp;   *    .o(Object) // required {@link PrivateNoargConstructorNominal#o() o}
+&nbsp;   *    .z(String) // required {@link PrivateNoargConstructorNominal#z() z}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutablePrivateNoargConstructorNominal builder
+&nbsp;   */
+&nbsp;  public static ImmutablePrivateNoargConstructorNominal.Builder builder() {
+&nbsp;    return new ImmutablePrivateNoargConstructorNominal.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutablePrivateNoargConstructorNominal ImmutablePrivateNoargConstructorNominal}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;PrivateNoargConstructorNominal&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_IS = 0x1L;
+&nbsp;    private static final long INIT_BIT_B = 0x2L;
+&nbsp;    private static final long INIT_BIT_S = 0x4L;
+&nbsp;    private static final long INIT_BIT_I = 0x8L;
+&nbsp;    private static final long INIT_BIT_L = 0x10L;
+&nbsp;    private static final long INIT_BIT_C = 0x20L;
+&nbsp;    private static final long INIT_BIT_F = 0x40L;
+&nbsp;    private static final long INIT_BIT_D = 0x80L;
+&nbsp;    private static final long INIT_BIT_O = 0x100L;
+&nbsp;    private static final long INIT_BIT_Z = 0x200L;
+&nbsp;    private long initBits = 0x3ffL;
+&nbsp;
+&nbsp;    private boolean is;
+&nbsp;    private byte b;
+&nbsp;    private short s;
+&nbsp;    private int i;
+&nbsp;    private long l;
+&nbsp;    private char c;
+&nbsp;    private float f;
+&nbsp;    private double d;
+&nbsp;    private @Nullable Object o;
+&nbsp;    private @Nullable String z;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code PrivateNoargConstructorNominal} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(PrivateNoargConstructorNominal instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      is(instance.is());
+&nbsp;      b(instance.b());
+&nbsp;      s(instance.s());
+&nbsp;      i(instance.i());
+&nbsp;      l(instance.l());
+&nbsp;      c(instance.c());
+&nbsp;      f(instance.f());
+&nbsp;      d(instance.d());
+&nbsp;      o(instance.o());
+&nbsp;      z(instance.z());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#is() is} attribute.
+&nbsp;     * @param is The value for is 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder is(boolean is) {
+&nbsp;      this.is = is;
+&nbsp;      initBits &amp;= ~INIT_BIT_IS;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#b() b} attribute.
+&nbsp;     * @param b The value for b 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(byte b) {
+&nbsp;      this.b = b;
+&nbsp;      initBits &amp;= ~INIT_BIT_B;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#s() s} attribute.
+&nbsp;     * @param s The value for s 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder s(short s) {
+&nbsp;      this.s = s;
+&nbsp;      initBits &amp;= ~INIT_BIT_S;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#i() i} attribute.
+&nbsp;     * @param i The value for i 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i(int i) {
+&nbsp;      this.i = i;
+&nbsp;      initBits &amp;= ~INIT_BIT_I;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#l() l} attribute.
+&nbsp;     * @param l The value for l 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l(long l) {
+&nbsp;      this.l = l;
+&nbsp;      initBits &amp;= ~INIT_BIT_L;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#c() c} attribute.
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(char c) {
+&nbsp;      this.c = c;
+&nbsp;      initBits &amp;= ~INIT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#f() f} attribute.
+&nbsp;     * @param f The value for f 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder f(float f) {
+&nbsp;      this.f = f;
+&nbsp;      initBits &amp;= ~INIT_BIT_F;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#d() d} attribute.
+&nbsp;     * @param d The value for d 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder d(double d) {
+&nbsp;      this.d = d;
+&nbsp;      initBits &amp;= ~INIT_BIT_D;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#o() o} attribute.
+&nbsp;     * @param o The value for o 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder o(Object o) {
+&nbsp;      this.o = Objects.requireNonNull(o, &quot;o&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_O;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link PrivateNoargConstructorNominal#z() z} attribute.
+&nbsp;     * @param z The value for z 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder z(String z) {
+&nbsp;      this.z = Objects.requireNonNull(z, &quot;z&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_Z;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutablePrivateNoargConstructorNominal ImmutablePrivateNoargConstructorNominal}.
+&nbsp;     * @return An immutable instance of PrivateNoargConstructorNominal
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutablePrivateNoargConstructorNominal build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutablePrivateNoargConstructorNominal(is, b, s, i, l, c, f, d, o, z);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_IS) != 0) attributes.add(&quot;is&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_B) != 0) attributes.add(&quot;b&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_S) != 0) attributes.add(&quot;s&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_I) != 0) attributes.add(&quot;i&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_L) != 0) attributes.add(&quot;l&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_C) != 0) attributes.add(&quot;c&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_F) != 0) attributes.add(&quot;f&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_D) != 0) attributes.add(&quot;d&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_O) != 0) attributes.add(&quot;o&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_Z) != 0) attributes.add(&quot;z&quot;);
+&nbsp;      return &quot;Cannot build PrivateNoargConstructorNominal, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

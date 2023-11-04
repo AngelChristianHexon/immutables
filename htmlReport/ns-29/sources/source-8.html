@@ -1,0 +1,259 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > OptionalMap</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.encoding.defs</a>
+</div>
+
+<h1>Coverage Summary for Class: OptionalMap (org.immutables.fixture.encoding.defs)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">OptionalMap</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">OptionalMap$Builder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/9)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/19)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.fixture.encoding.defs;
+&nbsp;
+&nbsp;import java.util.Optional;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import java.util.Map;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import org.immutables.encode.Encoding;
+&nbsp;
+&nbsp;@Encoding
+<b class="nc">&nbsp;class OptionalMap&lt;K, V&gt; {</b>
+&nbsp;
+&nbsp;  // implemented as nullable map field
+<b class="nc">&nbsp;  @Encoding.Impl</b>
+&nbsp;  private final ImmutableMap&lt;K, V&gt; map = null;
+&nbsp;
+&nbsp;  // Expose (and detect) the field as Optional of Map
+&nbsp;  @Encoding.Expose
+&nbsp;  public Optional&lt;Map&lt;K, V&gt;&gt; get() {
+<b class="nc">&nbsp;    return Optional.&lt;Map&lt;K, V&gt;&gt;ofNullable(map);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  // alternatively it can be exposed as Optional of ImmutableMap
+&nbsp;  @Encoding.Expose
+&nbsp;  public Optional&lt;ImmutableMap&lt;K, V&gt;&gt; getImmutable() {
+<b class="nc">&nbsp;    return Optional.ofNullable(map);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  // as field is nullable, so null-safe hashcode required
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+<b class="nc">&nbsp;    return java.util.Objects.hashCode(map);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public String toString() {
+<b class="nc">&nbsp;    return get().toString();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  boolean equals(OptionalMap&lt;K, V&gt; obj) {
+<b class="nc">&nbsp;    return java.util.Objects.equals(this.map, obj.map);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Encoding.Of
+&nbsp;  static @Nullable &lt;K, V&gt; ImmutableMap&lt;K, V&gt; init(Optional&lt;? extends Map&lt;K, V&gt;&gt; map) {
+<b class="nc">&nbsp;    return map.isPresent()</b>
+<b class="nc">&nbsp;        ? ImmutableMap.copyOf(map.get())</b>
+<b class="nc">&nbsp;        : null;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Encoding.Builder
+<b class="nc">&nbsp;  static class Builder&lt;K, V&gt; {</b>
+<b class="nc">&nbsp;    private @Nullable ImmutableMap.Builder&lt;K, V&gt; builder = null;</b>
+&nbsp;
+&nbsp;    @Encoding.Naming(&quot;put*&quot;)
+&nbsp;    @Encoding.Init
+&nbsp;    void put(K row, V value) {
+<b class="nc">&nbsp;      nonnullBuilder().put(row, value);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Encoding.Naming(&quot;putAll*&quot;)
+&nbsp;    @Encoding.Init
+&nbsp;    void putAll(Map&lt;? extends K, ? extends V&gt; entries) {
+<b class="nc">&nbsp;      nonnullBuilder().putAll(entries);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Encoding.Naming(&quot;set*&quot;)
+&nbsp;    @Encoding.Init
+&nbsp;    @Encoding.Copy
+&nbsp;    void set(Optional&lt;? extends Map&lt;K, V&gt;&gt; entries) {
+<b class="nc">&nbsp;      this.builder = null;</b>
+<b class="nc">&nbsp;      if (entries.isPresent()) {</b>
+<b class="nc">&nbsp;        nonnullBuilder().putAll(entries.get());</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private ImmutableMap.Builder&lt;K, V&gt; nonnullBuilder() {
+<b class="nc">&nbsp;      return builder == null ? builder = ImmutableMap.&lt;K, V&gt;builder() : builder;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Encoding.Build
+&nbsp;    @Nullable
+&nbsp;    ImmutableMap&lt;K, V&gt; build() {
+<b class="nc">&nbsp;      return builder != null ? builder.build() : null;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,965 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableSillyStructureWithId</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableSillyStructureWithId (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableSillyStructureWithId$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.primitives.Booleans;
+&nbsp;import com.google.common.primitives.Doubles;
+&nbsp;import com.google.common.primitives.Longs;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import io.atlassian.fugue.Option;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.fixture.subpack.SillySubstructure;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link SillyStructureWithId}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableSillyStructureWithId.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableSillyStructureWithId implements SillyStructureWithId {
+&nbsp;  private final String id;
+&nbsp;  private final String attr1;
+&nbsp;  private final boolean flag2;
+&nbsp;  private final Optional&lt;Integer&gt; opt3;
+&nbsp;  private final Option&lt;Integer&gt; opt5;
+&nbsp;  private final long very4;
+&nbsp;  private final double wet5;
+&nbsp;  private final ImmutableList&lt;SillySubstructure&gt; subs6;
+&nbsp;  private final SillySubstructure nest7;
+&nbsp;  private final Optional&lt;SillyTuplie&gt; tup3;
+&nbsp;  private final int int9;
+&nbsp;
+&nbsp;  private ImmutableSillyStructureWithId(
+&nbsp;      String id,
+&nbsp;      String attr1,
+&nbsp;      boolean flag2,
+&nbsp;      Optional&lt;Integer&gt; opt3,
+&nbsp;      Option&lt;Integer&gt; opt5,
+&nbsp;      long very4,
+&nbsp;      double wet5,
+&nbsp;      ImmutableList&lt;SillySubstructure&gt; subs6,
+&nbsp;      SillySubstructure nest7,
+&nbsp;      Optional&lt;SillyTuplie&gt; tup3,
+&nbsp;      int int9) {
+&nbsp;    this.id = id;
+&nbsp;    this.attr1 = attr1;
+&nbsp;    this.flag2 = flag2;
+&nbsp;    this.opt3 = opt3;
+&nbsp;    this.opt5 = opt5;
+&nbsp;    this.very4 = very4;
+&nbsp;    this.wet5 = wet5;
+&nbsp;    this.subs6 = subs6;
+&nbsp;    this.nest7 = nest7;
+&nbsp;    this.tup3 = tup3;
+&nbsp;    this.int9 = int9;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String id() {
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code attr1} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String attr1() {
+&nbsp;    return attr1;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code flag2} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean flag2() {
+&nbsp;    return flag2;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code opt3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;Integer&gt; opt3() {
+&nbsp;    return opt3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code opt5} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Option&lt;Integer&gt; opt5() {
+&nbsp;    return opt5;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code very4} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public long very4() {
+&nbsp;    return very4;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code wet5} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public double wet5() {
+&nbsp;    return wet5;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code subs6} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;SillySubstructure&gt; subs6() {
+&nbsp;    return subs6;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nest7} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public SillySubstructure nest7() {
+&nbsp;    return nest7;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code tup3} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;SillyTuplie&gt; tup3() {
+&nbsp;    return tup3;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code int9} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int int9() {
+&nbsp;    return int9;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#id() id} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for id
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withId(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;id&quot;);
+&nbsp;    if (this.id.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        newValue,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#attr1() attr1} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for attr1
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withAttr1(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;attr1&quot;);
+&nbsp;    if (this.attr1.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        newValue,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#flag2() flag2} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for flag2
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withFlag2(boolean value) {
+&nbsp;    if (this.flag2 == value) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        value,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SillyStructureWithId#opt3() opt3} attribute.
+&nbsp;   * @param value The value for opt3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withOpt3(int value) {
+&nbsp;    Optional&lt;Integer&gt; newValue = Optional.of(value);
+&nbsp;    if (this.opt3.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        newValue,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SillyStructureWithId#opt3() opt3} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for opt3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withOpt3(Optional&lt;Integer&gt; optional) {
+&nbsp;    Optional&lt;Integer&gt; value = optional;
+&nbsp;    if (this.opt3.equals(value)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        value,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SillyStructureWithId#opt5() opt5} attribute.
+&nbsp;   * @param value The value for opt5
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withOpt5(int value) {
+&nbsp;    Option&lt;Integer&gt; newValue = Option.some(value);
+&nbsp;    if (this.opt5.equals(newValue)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        newValue,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SillyStructureWithId#opt5() opt5} attribute.
+&nbsp;   * An equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for opt5
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withOpt5(Option&lt;Integer&gt; optional) {
+&nbsp;    Option&lt;Integer&gt; value = optional;
+&nbsp;    if (this.opt5.equals(value)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        value,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#very4() very4} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for very4
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withVery4(long value) {
+&nbsp;    if (this.very4 == value) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        value,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#wet5() wet5} attribute.
+&nbsp;   * A value strict bits equality used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for wet5
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withWet5(double value) {
+&nbsp;    if (Double.doubleToLongBits(this.wet5) == Double.doubleToLongBits(value)) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        value,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyStructureWithId#subs6() subs6}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withSubs6(SillySubstructure... elements) {
+&nbsp;    ImmutableList&lt;SillySubstructure&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        newValue,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link SillyStructureWithId#subs6() subs6}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of subs6 elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withSubs6(Iterable&lt;? extends SillySubstructure&gt; elements) {
+&nbsp;    if (this.subs6 == elements) return this;
+&nbsp;    ImmutableList&lt;SillySubstructure&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        newValue,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#nest7() nest7} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for nest7
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withNest7(SillySubstructure value) {
+&nbsp;    if (this.nest7 == value) return this;
+&nbsp;    SillySubstructure newValue = Objects.requireNonNull(value, &quot;nest7&quot;);
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        newValue,
+&nbsp;        this.tup3,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link SillyStructureWithId#tup3() tup3} attribute.
+&nbsp;   * @param value The value for tup3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withTup3(SillyTuplie value) {
+&nbsp;    Optional&lt;SillyTuplie&gt; newValue = Optional.of(value);
+&nbsp;    if (this.tup3.isPresent() &amp;&amp; this.tup3.get() == value) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        newValue,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link SillyStructureWithId#tup3() tup3} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for tup3
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableSillyStructureWithId withTup3(Optional&lt;? extends SillyTuplie&gt; optional) {
+&nbsp;    Optional&lt;SillyTuplie&gt; value = (Optional&lt;SillyTuplie&gt;) optional;
+&nbsp;    if (!this.tup3.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.tup3.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.tup3.get() == value.get()) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        value,
+&nbsp;        this.int9);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link SillyStructureWithId#int9() int9} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for int9
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableSillyStructureWithId withInt9(int value) {
+&nbsp;    if (this.int9 == value) return this;
+&nbsp;    return new ImmutableSillyStructureWithId(
+&nbsp;        this.id,
+&nbsp;        this.attr1,
+&nbsp;        this.flag2,
+&nbsp;        this.opt3,
+&nbsp;        this.opt5,
+&nbsp;        this.very4,
+&nbsp;        this.wet5,
+&nbsp;        this.subs6,
+&nbsp;        this.nest7,
+&nbsp;        this.tup3,
+&nbsp;        value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableSillyStructureWithId} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableSillyStructureWithId
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableSillyStructureWithId) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableSillyStructureWithId another) {
+&nbsp;    return id.equals(another.id)
+&nbsp;        &amp;&amp; attr1.equals(another.attr1)
+&nbsp;        &amp;&amp; flag2 == another.flag2
+&nbsp;        &amp;&amp; opt3.equals(another.opt3)
+&nbsp;        &amp;&amp; opt5.equals(another.opt5)
+&nbsp;        &amp;&amp; very4 == another.very4
+&nbsp;        &amp;&amp; Double.doubleToLongBits(wet5) == Double.doubleToLongBits(another.wet5)
+&nbsp;        &amp;&amp; subs6.equals(another.subs6)
+&nbsp;        &amp;&amp; nest7.equals(another.nest7)
+&nbsp;        &amp;&amp; tup3.equals(another.tup3)
+&nbsp;        &amp;&amp; int9 == another.int9;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code id}, {@code attr1}, {@code flag2}, {@code opt3}, {@code opt5}, {@code very4}, {@code wet5}, {@code subs6}, {@code nest7}, {@code tup3}, {@code int9}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + id.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + attr1.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Booleans.hashCode(flag2);
+&nbsp;    h += (h &lt;&lt; 5) + opt3.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + opt5.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Longs.hashCode(very4);
+&nbsp;    h += (h &lt;&lt; 5) + Doubles.hashCode(wet5);
+&nbsp;    h += (h &lt;&lt; 5) + subs6.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + nest7.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + tup3.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + int9;
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code SillyStructureWithId} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;SillyStructureWithId&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;id&quot;, id)
+&nbsp;        .add(&quot;attr1&quot;, attr1)
+&nbsp;        .add(&quot;flag2&quot;, flag2)
+&nbsp;        .add(&quot;opt3&quot;, opt3.orNull())
+&nbsp;        .add(&quot;opt5&quot;, opt5.isDefined() ? opt5.get() : null)
+&nbsp;        .add(&quot;very4&quot;, very4)
+&nbsp;        .add(&quot;wet5&quot;, wet5)
+&nbsp;        .add(&quot;subs6&quot;, subs6)
+&nbsp;        .add(&quot;nest7&quot;, nest7)
+&nbsp;        .add(&quot;tup3&quot;, tup3.orNull())
+&nbsp;        .add(&quot;int9&quot;, int9)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link SillyStructureWithId} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable SillyStructureWithId instance
+&nbsp;   */
+&nbsp;  public static ImmutableSillyStructureWithId copyOf(SillyStructureWithId instance) {
+&nbsp;    if (instance instanceof ImmutableSillyStructureWithId) {
+&nbsp;      return (ImmutableSillyStructureWithId) instance;
+&nbsp;    }
+&nbsp;    return ImmutableSillyStructureWithId.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableSillyStructureWithId ImmutableSillyStructureWithId}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableSillyStructureWithId.builder()
+&nbsp;   *    .id(String) // required {@link SillyStructureWithId#id() id}
+&nbsp;   *    .attr1(String) // required {@link SillyStructureWithId#attr1() attr1}
+&nbsp;   *    .flag2(boolean) // required {@link SillyStructureWithId#flag2() flag2}
+&nbsp;   *    .opt3(Integer) // optional {@link SillyStructureWithId#opt3() opt3}
+&nbsp;   *    .opt5(Integer) // optional {@link SillyStructureWithId#opt5() opt5}
+&nbsp;   *    .very4(long) // required {@link SillyStructureWithId#very4() very4}
+&nbsp;   *    .wet5(double) // required {@link SillyStructureWithId#wet5() wet5}
+&nbsp;   *    .addSubs6|addAllSubs6(org.immutables.fixture.subpack.SillySubstructure) // {@link SillyStructureWithId#subs6() subs6} elements
+&nbsp;   *    .nest7(org.immutables.fixture.subpack.SillySubstructure) // required {@link SillyStructureWithId#nest7() nest7}
+&nbsp;   *    .tup3(org.immutables.fixture.SillyTuplie) // optional {@link SillyStructureWithId#tup3() tup3}
+&nbsp;   *    .int9(int) // required {@link SillyStructureWithId#int9() int9}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableSillyStructureWithId builder
+&nbsp;   */
+&nbsp;  public static ImmutableSillyStructureWithId.Builder builder() {
+&nbsp;    return new ImmutableSillyStructureWithId.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableSillyStructureWithId ImmutableSillyStructureWithId}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;SillyStructureWithId&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ID = 0x1L;
+&nbsp;    private static final long INIT_BIT_ATTR1 = 0x2L;
+&nbsp;    private static final long INIT_BIT_FLAG2 = 0x4L;
+&nbsp;    private static final long INIT_BIT_VERY4 = 0x8L;
+&nbsp;    private static final long INIT_BIT_WET5 = 0x10L;
+&nbsp;    private static final long INIT_BIT_NEST7 = 0x20L;
+&nbsp;    private static final long INIT_BIT_INT9 = 0x40L;
+&nbsp;    private long initBits = 0x7fL;
+&nbsp;
+&nbsp;    private @Nullable String id;
+&nbsp;    private @Nullable String attr1;
+&nbsp;    private boolean flag2;
+&nbsp;    private Optional&lt;Integer&gt; opt3 = Optional.absent();
+&nbsp;    private Option&lt;Integer&gt; opt5 = Option.none();
+&nbsp;    private long very4;
+&nbsp;    private double wet5;
+&nbsp;    private ImmutableList.Builder&lt;SillySubstructure&gt; subs6 = ImmutableList.builder();
+&nbsp;    private @Nullable SillySubstructure nest7;
+&nbsp;    private Optional&lt;SillyTuplie&gt; tup3 = Optional.absent();
+&nbsp;    private int int9;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code SillyStructureWithId} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(SillyStructureWithId instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      id(instance.id());
+&nbsp;      attr1(instance.attr1());
+&nbsp;      flag2(instance.flag2());
+&nbsp;      Optional&lt;Integer&gt; opt3Optional = instance.opt3();
+&nbsp;      if (opt3Optional.isPresent()) {
+&nbsp;        opt3(opt3Optional);
+&nbsp;      }
+&nbsp;      Option&lt;Integer&gt; opt5Optional = instance.opt5();
+&nbsp;      if (opt5Optional.isDefined()) {
+&nbsp;        opt5(opt5Optional);
+&nbsp;      }
+&nbsp;      very4(instance.very4());
+&nbsp;      wet5(instance.wet5());
+&nbsp;      addAllSubs6(instance.subs6());
+&nbsp;      nest7(instance.nest7());
+&nbsp;      Optional&lt;SillyTuplie&gt; tup3Optional = instance.tup3();
+&nbsp;      if (tup3Optional.isPresent()) {
+&nbsp;        tup3(tup3Optional);
+&nbsp;      }
+&nbsp;      int9(instance.int9());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#id() id} attribute.
+&nbsp;     * @param id The value for id 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder id(String id) {
+&nbsp;      this.id = Objects.requireNonNull(id, &quot;id&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ID;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#attr1() attr1} attribute.
+&nbsp;     * @param attr1 The value for attr1 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder attr1(String attr1) {
+&nbsp;      this.attr1 = Objects.requireNonNull(attr1, &quot;attr1&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ATTR1;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#flag2() flag2} attribute.
+&nbsp;     * @param flag2 The value for flag2 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder flag2(boolean flag2) {
+&nbsp;      this.flag2 = flag2;
+&nbsp;      initBits &amp;= ~INIT_BIT_FLAG2;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SillyStructureWithId#opt3() opt3} to opt3.
+&nbsp;     * @param opt3 The value for opt3
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt3(int opt3) {
+&nbsp;      this.opt3 = Optional.of(opt3);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SillyStructureWithId#opt3() opt3} to opt3.
+&nbsp;     * @param opt3 The value for opt3
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt3(Optional&lt;Integer&gt; opt3) {
+&nbsp;      this.opt3 = opt3;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SillyStructureWithId#opt5() opt5} to opt5.
+&nbsp;     * @param opt5 The value for opt5
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt5(int opt5) {
+&nbsp;      this.opt5 = Option.some(opt5);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SillyStructureWithId#opt5() opt5} to opt5.
+&nbsp;     * @param opt5 The value for opt5
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder opt5(Option&lt;Integer&gt; opt5) {
+&nbsp;      this.opt5 = opt5;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#very4() very4} attribute.
+&nbsp;     * @param very4 The value for very4 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder very4(long very4) {
+&nbsp;      this.very4 = very4;
+&nbsp;      initBits &amp;= ~INIT_BIT_VERY4;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#wet5() wet5} attribute.
+&nbsp;     * @param wet5 The value for wet5 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder wet5(double wet5) {
+&nbsp;      this.wet5 = wet5;
+&nbsp;      initBits &amp;= ~INIT_BIT_WET5;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link SillyStructureWithId#subs6() subs6} list.
+&nbsp;     * @param element A subs6 element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSubs6(SillySubstructure element) {
+&nbsp;      this.subs6.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillyStructureWithId#subs6() subs6} list.
+&nbsp;     * @param elements An array of subs6 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSubs6(SillySubstructure... elements) {
+&nbsp;      this.subs6.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link SillyStructureWithId#subs6() subs6} list.
+&nbsp;     * @param elements An iterable of subs6 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder subs6(Iterable&lt;? extends SillySubstructure&gt; elements) {
+&nbsp;      this.subs6 = ImmutableList.builder();
+&nbsp;      return addAllSubs6(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link SillyStructureWithId#subs6() subs6} list.
+&nbsp;     * @param elements An iterable of subs6 elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSubs6(Iterable&lt;? extends SillySubstructure&gt; elements) {
+&nbsp;      this.subs6.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#nest7() nest7} attribute.
+&nbsp;     * @param nest7 The value for nest7 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder nest7(SillySubstructure nest7) {
+&nbsp;      this.nest7 = Objects.requireNonNull(nest7, &quot;nest7&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_NEST7;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SillyStructureWithId#tup3() tup3} to tup3.
+&nbsp;     * @param tup3 The value for tup3
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tup3(SillyTuplie tup3) {
+&nbsp;      this.tup3 = Optional.of(tup3);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link SillyStructureWithId#tup3() tup3} to tup3.
+&nbsp;     * @param tup3 The value for tup3
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder tup3(Optional&lt;? extends SillyTuplie&gt; tup3) {
+&nbsp;      this.tup3 = (Optional&lt;SillyTuplie&gt;) tup3;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link SillyStructureWithId#int9() int9} attribute.
+&nbsp;     * @param int9 The value for int9 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder int9(int int9) {
+&nbsp;      this.int9 = int9;
+&nbsp;      initBits &amp;= ~INIT_BIT_INT9;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableSillyStructureWithId ImmutableSillyStructureWithId}.
+&nbsp;     * @return An immutable instance of SillyStructureWithId
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableSillyStructureWithId build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableSillyStructureWithId(id, attr1, flag2, opt3, opt5, very4, wet5, subs6.build(), nest7, tup3, int9);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ID) != 0) attributes.add(&quot;id&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_ATTR1) != 0) attributes.add(&quot;attr1&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_FLAG2) != 0) attributes.add(&quot;flag2&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_VERY4) != 0) attributes.add(&quot;very4&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_WET5) != 0) attributes.add(&quot;wet5&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_NEST7) != 0) attributes.add(&quot;nest7&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_INT9) != 0) attributes.add(&quot;int9&quot;);
+&nbsp;      return &quot;Cannot build SillyStructureWithId, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > WriteResult</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.backend</a>
+</div>
+
+<h1>Coverage Summary for Class: WriteResult (org.immutables.criteria.backend)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">WriteResult</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.backend;
+&nbsp;
+&nbsp;import org.immutables.value.Value;
+&nbsp;
+&nbsp;import java.util.OptionalLong;
+&nbsp;
+&nbsp;/**
+&nbsp; * Result of a &lt;i&gt;successful&lt;/i&gt; write operation. It is up to back-end to provide
+&nbsp; * some, all or none of exposed statistics.
+&nbsp; */
+&nbsp;@Value.Immutable
+&nbsp;public interface WriteResult {
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Backend doesn&#39;t return statistics about a write operation. All counters return {@link OptionalLong#empty()}.
+&nbsp;   */
+&nbsp;  static ImmutableWriteResult unknown() {
+<b class="nc">&nbsp;    return WriteResults.UNKNOWN;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Write operation was a no-op. No changes happened on the backend. All counters return {@code 0} (zero).
+&nbsp;   */
+&nbsp;  static ImmutableWriteResult empty() {
+<b class="nc">&nbsp;    return WriteResults.EMPTY;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Number of records after insert operation
+&nbsp;   *
+&nbsp;   * @return number of inserted records. empty optional if unknown
+&nbsp;   */
+&nbsp;  OptionalLong insertedCount();
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Number of records deleted after a write operation
+&nbsp;   *
+&nbsp;   * @return number of deleted records. empty optional if unknown or operation not supported.
+&nbsp;   */
+&nbsp;  OptionalLong deletedCount();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Number of records updated after a write operation
+&nbsp;   *
+&nbsp;   * @return number of deleted records. empty optional if unknown or operation not supported.
+&nbsp;   */
+&nbsp;  OptionalLong updatedCount();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Total number of changes occurred after a write operation. Sum of existing counts
+&nbsp;   * if they&#39;re all defined, otherwise return {@link OptionalLong#empty()}.
+&nbsp;   */
+&nbsp;  default OptionalLong totalCount() {
+<b class="nc">&nbsp;    if (insertedCount().isPresent() &amp;&amp; deletedCount().isPresent() &amp;&amp; updatedCount().isPresent()) {</b>
+<b class="nc">&nbsp;      long value = insertedCount().getAsLong() + deletedCount().getAsLong() + updatedCount().getAsLong();</b>
+<b class="nc">&nbsp;      return OptionalLong.of(value);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return OptionalLong.empty();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

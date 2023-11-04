@@ -1,0 +1,500 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableRound</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.meta</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableRound (org.immutables.value.processor.meta)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableRound$1</td>
+  </tr>
+  <tr>
+    <td class="name">ImmutableRound$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor.meta;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableSet;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.annotation.processing.RoundEnvironment;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Round}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableRound.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Round&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableRound extends Round {
+&nbsp;  private final ProcessingEnvironment processing;
+&nbsp;  private final RoundEnvironment round;
+&nbsp;  private final ImmutableSet&lt;TypeElement&gt; annotations;
+&nbsp;  private final ImmutableSet&lt;String&gt; customImmutableAnnotations;
+&nbsp;  private transient final ValueTypeComposer composer;
+&nbsp;
+&nbsp;  private ImmutableRound(
+&nbsp;      ProcessingEnvironment processing,
+&nbsp;      RoundEnvironment round,
+&nbsp;      ImmutableSet&lt;TypeElement&gt; annotations,
+&nbsp;      ImmutableSet&lt;String&gt; customImmutableAnnotations) {
+&nbsp;    this.processing = processing;
+&nbsp;    this.round = round;
+&nbsp;    this.annotations = annotations;
+&nbsp;    this.customImmutableAnnotations = customImmutableAnnotations;
+&nbsp;    this.composer = Objects.requireNonNull(super.composer(), &quot;composer&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code processing} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ProcessingEnvironment processing() {
+&nbsp;    return processing;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code round} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public RoundEnvironment round() {
+&nbsp;    return round;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code annotations} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;TypeElement&gt; annotations() {
+&nbsp;    return annotations;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code customImmutableAnnotations} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableSet&lt;String&gt; customImmutableAnnotations() {
+&nbsp;    return customImmutableAnnotations;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The computed-at-construction value of the {@code composer} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  ValueTypeComposer composer() {
+&nbsp;    return composer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Round#processing() processing} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for processing
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRound withProcessing(ProcessingEnvironment value) {
+&nbsp;    if (this.processing == value) return this;
+&nbsp;    ProcessingEnvironment newValue = Objects.requireNonNull(value, &quot;processing&quot;);
+&nbsp;    return new ImmutableRound(newValue, this.round, this.annotations, this.customImmutableAnnotations);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Round#round() round} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for round
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRound withRound(RoundEnvironment value) {
+&nbsp;    if (this.round == value) return this;
+&nbsp;    RoundEnvironment newValue = Objects.requireNonNull(value, &quot;round&quot;);
+&nbsp;    return new ImmutableRound(this.processing, newValue, this.annotations, this.customImmutableAnnotations);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Round#annotations() annotations}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRound withAnnotations(TypeElement... elements) {
+&nbsp;    ImmutableSet&lt;TypeElement&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableRound(this.processing, this.round, newValue, this.customImmutableAnnotations);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Round#annotations() annotations}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of annotations elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRound withAnnotations(Iterable&lt;? extends TypeElement&gt; elements) {
+&nbsp;    if (this.annotations == elements) return this;
+&nbsp;    ImmutableSet&lt;TypeElement&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableRound(this.processing, this.round, newValue, this.customImmutableAnnotations);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Round#customImmutableAnnotations() customImmutableAnnotations}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRound withCustomImmutableAnnotations(String... elements) {
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableRound(this.processing, this.round, this.annotations, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Round#customImmutableAnnotations() customImmutableAnnotations}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of customImmutableAnnotations elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableRound withCustomImmutableAnnotations(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.customImmutableAnnotations == elements) return this;
+&nbsp;    ImmutableSet&lt;String&gt; newValue = ImmutableSet.copyOf(elements);
+&nbsp;    return new ImmutableRound(this.processing, this.round, this.annotations, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableRound} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableRound
+&nbsp;        &amp;&amp; equalTo((ImmutableRound) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ImmutableRound another) {
+&nbsp;    return processing.equals(another.processing)
+&nbsp;        &amp;&amp; round.equals(another.round)
+&nbsp;        &amp;&amp; annotations.equals(another.annotations)
+&nbsp;        &amp;&amp; customImmutableAnnotations.equals(another.customImmutableAnnotations)
+&nbsp;        &amp;&amp; composer.equals(another.composer);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code processing}, {@code round}, {@code annotations}, {@code customImmutableAnnotations}, {@code composer}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + processing.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + round.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + annotations.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + customImmutableAnnotations.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + composer.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Round} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Round&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;processing&quot;, processing)
+&nbsp;        .add(&quot;round&quot;, round)
+&nbsp;        .add(&quot;annotations&quot;, annotations)
+&nbsp;        .add(&quot;customImmutableAnnotations&quot;, customImmutableAnnotations)
+&nbsp;        .add(&quot;composer&quot;, composer)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient volatile long lazyInitBitmap;
+&nbsp;
+&nbsp;  private static final long ENVIRONMENT_LAZY_INIT_BIT = 0x1L;
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;Immutable&quot;)
+&nbsp;  private transient Proto.Environment environment;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * {@inheritDoc}
+&nbsp;   * &lt;p&gt;
+&nbsp;   * Returns a lazily initialized value of the {@link Round#environment() environment} attribute.
+&nbsp;   * Initialized once and only once and stored for subsequent access with proper synchronization.
+&nbsp;   * In case of any exception or error thrown by the lazy value initializer,
+&nbsp;   * the result will not be memoised (i.e. remembered) and on next call computation
+&nbsp;   * will be attempted again.
+&nbsp;   * @return A lazily initialized value of the {@code environment} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Proto.Environment environment() {
+&nbsp;    if ((lazyInitBitmap &amp; ENVIRONMENT_LAZY_INIT_BIT) == 0) {
+&nbsp;      synchronized (this) {
+&nbsp;        if ((lazyInitBitmap &amp; ENVIRONMENT_LAZY_INIT_BIT) == 0) {
+&nbsp;          this.environment = Objects.requireNonNull(super.environment(), &quot;environment&quot;);
+&nbsp;          lazyInitBitmap |= ENVIRONMENT_LAZY_INIT_BIT;
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+&nbsp;    return environment;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Round} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Round instance
+&nbsp;   */
+&nbsp;  public static ImmutableRound copyOf(Round instance) {
+&nbsp;    if (instance instanceof ImmutableRound) {
+&nbsp;      return (ImmutableRound) instance;
+&nbsp;    }
+&nbsp;    return ImmutableRound.builder()
+&nbsp;        .processing(instance.processing())
+&nbsp;        .round(instance.round())
+&nbsp;        .addAllAnnotations(instance.annotations())
+&nbsp;        .addAllCustomImmutableAnnotations(instance.customImmutableAnnotations())
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableRound ImmutableRound}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableRound.builder()
+&nbsp;   *    .processing(javax.annotation.processing.ProcessingEnvironment) // required {@link Round#processing() processing}
+&nbsp;   *    .round(javax.annotation.processing.RoundEnvironment) // required {@link Round#round() round}
+&nbsp;   *    .addAnnotations|addAllAnnotations(javax.lang.model.element.TypeElement) // {@link Round#annotations() annotations} elements
+&nbsp;   *    .addCustomImmutableAnnotations|addAllCustomImmutableAnnotations(String) // {@link Round#customImmutableAnnotations() customImmutableAnnotations} elements
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableRound builder
+&nbsp;   */
+&nbsp;  public static ImmutableRound.Builder builder() {
+&nbsp;    return new ImmutableRound.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableRound ImmutableRound}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Round&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_PROCESSING = 0x1L;
+&nbsp;    private static final long INIT_BIT_ROUND = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable ProcessingEnvironment processing;
+&nbsp;    private @Nullable RoundEnvironment round;
+&nbsp;    private final ImmutableSet.Builder&lt;TypeElement&gt; annotations = ImmutableSet.builder();
+&nbsp;    private final ImmutableSet.Builder&lt;String&gt; customImmutableAnnotations = ImmutableSet.builder();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Round#processing() processing} attribute.
+&nbsp;     * @param processing The value for processing 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder processing(ProcessingEnvironment processing) {
+&nbsp;      checkNotIsSet(processingIsSet(), &quot;processing&quot;);
+&nbsp;      this.processing = Objects.requireNonNull(processing, &quot;processing&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_PROCESSING;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Round#round() round} attribute.
+&nbsp;     * @param round The value for round 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder round(RoundEnvironment round) {
+&nbsp;      checkNotIsSet(roundIsSet(), &quot;round&quot;);
+&nbsp;      this.round = Objects.requireNonNull(round, &quot;round&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ROUND;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Round#annotations() annotations} set.
+&nbsp;     * @param element A annotations element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAnnotations(TypeElement element) {
+&nbsp;      this.annotations.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Round#annotations() annotations} set.
+&nbsp;     * @param elements An array of annotations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAnnotations(TypeElement... elements) {
+&nbsp;      this.annotations.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Round#annotations() annotations} set.
+&nbsp;     * @param elements An iterable of annotations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllAnnotations(Iterable&lt;? extends TypeElement&gt; elements) {
+&nbsp;      this.annotations.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Round#customImmutableAnnotations() customImmutableAnnotations} set.
+&nbsp;     * @param element A customImmutableAnnotations element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addCustomImmutableAnnotations(String element) {
+&nbsp;      this.customImmutableAnnotations.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Round#customImmutableAnnotations() customImmutableAnnotations} set.
+&nbsp;     * @param elements An array of customImmutableAnnotations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addCustomImmutableAnnotations(String... elements) {
+&nbsp;      this.customImmutableAnnotations.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Round#customImmutableAnnotations() customImmutableAnnotations} set.
+&nbsp;     * @param elements An iterable of customImmutableAnnotations elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllCustomImmutableAnnotations(Iterable&lt;String&gt; elements) {
+&nbsp;      this.customImmutableAnnotations.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableRound ImmutableRound}.
+&nbsp;     * @return An immutable instance of Round
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableRound build() {
+&nbsp;      checkRequiredAttributes();
+&nbsp;      return new ImmutableRound(processing, round, annotations.build(), customImmutableAnnotations.build());
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean processingIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_PROCESSING) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean roundIsSet() {
+&nbsp;      return (initBits &amp; INIT_BIT_ROUND) == 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private static void checkNotIsSet(boolean isSet, String name) {
+&nbsp;      if (isSet) throw new IllegalStateException(&quot;Builder of Round is strict, attribute is already set: &quot;.concat(name));
+&nbsp;    }
+&nbsp;
+&nbsp;    private void checkRequiredAttributes() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if (!processingIsSet()) attributes.add(&quot;processing&quot;);
+&nbsp;      if (!roundIsSet()) attributes.add(&quot;round&quot;);
+&nbsp;      return &quot;Cannot build Round, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

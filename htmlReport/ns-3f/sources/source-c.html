@@ -1,0 +1,153 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ForwardingProcessingEnvironment</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator</a>
+</div>
+
+<h1>Coverage Summary for Class: ForwardingProcessingEnvironment (org.immutables.generator)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ForwardingProcessingEnvironment</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/8)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.generator;
+&nbsp;
+&nbsp;import java.util.Locale;
+&nbsp;import java.util.Map;
+&nbsp;import javax.annotation.processing.Filer;
+&nbsp;import javax.annotation.processing.Messager;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.lang.model.SourceVersion;
+&nbsp;import javax.lang.model.util.Elements;
+&nbsp;import javax.lang.model.util.Types;
+&nbsp;
+<b class="nc">&nbsp;public abstract class ForwardingProcessingEnvironment implements ProcessingEnvironment {</b>
+&nbsp;  protected abstract ProcessingEnvironment delegate();
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, String&gt; getOptions() {
+<b class="nc">&nbsp;    return delegate().getOptions();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Messager getMessager() {
+<b class="nc">&nbsp;    return delegate().getMessager();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Filer getFiler() {
+<b class="nc">&nbsp;    return delegate().getFiler();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Elements getElementUtils() {
+<b class="nc">&nbsp;    return delegate().getElementUtils();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Types getTypeUtils() {
+<b class="nc">&nbsp;    return delegate().getTypeUtils();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public SourceVersion getSourceVersion() {
+<b class="nc">&nbsp;    return delegate().getSourceVersion();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Locale getLocale() {
+<b class="nc">&nbsp;    return delegate().getLocale();</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

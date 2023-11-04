@@ -1,0 +1,321 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ProxyProcessor</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: ProxyProcessor (org.immutables.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProxyProcessor</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ProxyProcessor$ProxyClassLoader</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/47)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.processor;
+&nbsp;
+&nbsp;import java.net.URL;
+&nbsp;import java.net.URLClassLoader;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.processing.Completion;
+&nbsp;import javax.annotation.processing.ProcessingEnvironment;
+&nbsp;import javax.annotation.processing.Processor;
+&nbsp;import javax.annotation.processing.RoundEnvironment;
+&nbsp;import javax.lang.model.SourceVersion;
+&nbsp;import javax.lang.model.element.AnnotationMirror;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ExecutableElement;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import org.immutables.metainf.Metainf;
+&nbsp;
+&nbsp;/**
+&nbsp; * Proxy processor to overcome eclipse class loading problems which renders our workarounds
+&nbsp; * for Eclipse bugs and quirks useless. When the condition is not detected we try to use direct
+&nbsp; * delegation to {@code org.immutables.value.processor.Processor}.
+&nbsp; */
+&nbsp;@Metainf.Service
+<b class="nc">&nbsp;public final class ProxyProcessor implements Processor {</b>
+&nbsp;  private static final String DELEGATE_CLASS = &quot;org.immutables.value.processor.Processor&quot;;
+&nbsp;  private static final String ECLIPSE_PACKAGE_PREFIX = &quot;org.eclipse.&quot;;
+&nbsp;  private static final String OSGI_SYSTEM_PROPERTY = &quot;osgi.arch&quot;;
+&nbsp;
+&nbsp;  // initialization not quite atomic but that&#39;s ok
+&nbsp;  private static volatile ClassLoader cachedProxyClassLoader;
+&nbsp;
+<b class="nc">&nbsp;  private final Processor delegate = requiresClassLoaderDelegate()</b>
+<b class="nc">&nbsp;      ? createClassLoaderDelegate()</b>
+<b class="nc">&nbsp;      : createDefaultDelegate();</b>
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getSupportedOptions() {
+<b class="nc">&nbsp;    return delegate.getSupportedOptions();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; getSupportedAnnotationTypes() {
+<b class="nc">&nbsp;    return delegate.getSupportedAnnotationTypes();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public SourceVersion getSupportedSourceVersion() {
+<b class="nc">&nbsp;    return delegate.getSupportedSourceVersion();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public void init(ProcessingEnvironment processing) {
+<b class="nc">&nbsp;    delegate.init(processing);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public boolean process(Set&lt;? extends TypeElement&gt; annotations, RoundEnvironment round) {
+<b class="nc">&nbsp;    return delegate.process(annotations, round);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Override
+&nbsp;  public Iterable&lt;? extends Completion&gt; getCompletions(
+&nbsp;      Element element,
+&nbsp;      AnnotationMirror annotation,
+&nbsp;      ExecutableElement member,
+&nbsp;      String userText) {
+<b class="nc">&nbsp;    return delegate.getCompletions(element, annotation, member, userText);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static Processor createDefaultDelegate() {
+<b class="nc">&nbsp;    return new org.immutables.value.processor.Processor();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * We find the delegating classloader by traversing the call stack and looking for the first
+&nbsp;   * class that has a classloader from the Eclipse namespace. This is bound to be the bundle classloader
+&nbsp;   * of a JDT bundle which can load the required Eclipse compiler types.
+&nbsp;   * 
+&nbsp;   * NOTE: We cannot simply use the thread context class loader. This works in the Eclipse IDE
+&nbsp;   * (where it is set to ContextFinder), but not in the JDT Language Server.
+&nbsp;   */
+&nbsp;  private static Processor createClassLoaderDelegate() {
+&nbsp;    try {
+<b class="nc">&nbsp;      if (cachedProxyClassLoader == null) {</b>
+<b class="nc">&nbsp;        CallStack callStack = new CallStack();</b>
+<b class="nc">&nbsp;        ClassLoader loader = Thread.currentThread().getContextClassLoader();</b>
+<b class="nc">&nbsp;        for (Class&lt;?&gt; klass : callStack.getCallingClasses()) {</b>
+<b class="nc">&nbsp;          if (klass.getClassLoader() != null &amp;&amp; klass.getClassLoader().getClass().getName().startsWith(ECLIPSE_PACKAGE_PREFIX)) {</b>
+<b class="nc">&nbsp;            loader = klass.getClassLoader();</b>
+<b class="nc">&nbsp;            break;</b>
+&nbsp;          }
+&nbsp;        }
+<b class="nc">&nbsp;        cachedProxyClassLoader = new ProxyClassLoader(</b>
+<b class="nc">&nbsp;            ((URLClassLoader) ProxyProcessor.class.getClassLoader()).getURLs(),</b>
+&nbsp;            loader);
+&nbsp;      }
+<b class="nc">&nbsp;      return (Processor) cachedProxyClassLoader.loadClass(DELEGATE_CLASS).newInstance();</b>
+<b class="nc">&nbsp;    } catch (RuntimeException | Error ex) {</b>
+<b class="nc">&nbsp;      throw ex;</b>
+<b class="nc">&nbsp;    } catch (Exception ex) {</b>
+<b class="nc">&nbsp;      throw new RuntimeException(ex);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static boolean requiresClassLoaderDelegate() {
+<b class="nc">&nbsp;    if (System.getProperty(OSGI_SYSTEM_PROPERTY) != null) {</b>
+<b class="nc">&nbsp;      CallStack callStack = new CallStack();</b>
+<b class="nc">&nbsp;      for (Class&lt;?&gt; klass : callStack.getCallingClasses()) {</b>
+<b class="nc">&nbsp;        ClassLoader classLoader = klass.getClassLoader();</b>
+<b class="nc">&nbsp;        if (classLoader != null &amp;&amp; klass.getClassLoader().getClass().getName().startsWith(ECLIPSE_PACKAGE_PREFIX)) {</b>
+<b class="nc">&nbsp;          return true;</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;    }
+<b class="nc">&nbsp;    return false;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private static class ProxyClassLoader extends URLClassLoader {
+&nbsp;    private final ClassLoader contextLoader;
+&nbsp;
+&nbsp;    ProxyClassLoader(URL[] urls, ClassLoader contextLoader) {
+<b class="nc">&nbsp;      super(urls, contextLoader);</b>
+<b class="nc">&nbsp;      this.contextLoader = contextLoader;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;?&gt; loadClass(String name, boolean resolve) throws ClassNotFoundException {
+<b class="nc">&nbsp;      synchronized (getClassLoadingLock(name)) {</b>
+&nbsp;        Class&lt;?&gt; c;
+<b class="nc">&nbsp;        if (name.startsWith(ECLIPSE_PACKAGE_PREFIX)) {</b>
+<b class="nc">&nbsp;          c = contextLoader.loadClass(name);</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          c = findLoadedClass(name);</b>
+<b class="nc">&nbsp;          if (c == null) {</b>
+&nbsp;            try {
+<b class="nc">&nbsp;              c = findClass(name);</b>
+<b class="nc">&nbsp;            } catch (ClassNotFoundException ex) {</b>
+<b class="nc">&nbsp;              return super.loadClass(name, resolve);</b>
+<b class="nc">&nbsp;            }</b>
+&nbsp;          }
+&nbsp;        }
+<b class="nc">&nbsp;        if (resolve) {</b>
+<b class="nc">&nbsp;          resolveClass(c);</b>
+&nbsp;        }
+<b class="nc">&nbsp;        return c;</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

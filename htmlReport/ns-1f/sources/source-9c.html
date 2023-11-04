@@ -1,0 +1,537 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableErgonomicFailureData</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableErgonomicFailureData (org.immutables.fixture)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableErgonomicFailureData$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link ErgonomicFailureData}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableErgonomicFailureData.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableErgonomicFailureData.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;ErgonomicFailureData&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableErgonomicFailureData extends ErgonomicFailureData {
+&nbsp;  private final String id;
+&nbsp;  private final ImmutableList&lt;String&gt; listData;
+&nbsp;  private final @Nullable ImmutableList&lt;String&gt; nullableData;
+&nbsp;  private final Collection&lt;String&gt; collectionData;
+&nbsp;
+&nbsp;  private ImmutableErgonomicFailureData(String id) {
+&nbsp;    this.id = Objects.requireNonNull(id, &quot;id&quot;);
+&nbsp;    this.listData = ImmutableList.copyOf(super.listData());
+&nbsp;    this.nullableData = super.nullableData() == null ? null : ImmutableList.copyOf(super.nullableData());
+&nbsp;    this.collectionData = Objects.requireNonNull(super.collectionData(), &quot;collectionData&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableErgonomicFailureData(ImmutableErgonomicFailureData.Builder builder) {
+&nbsp;    this.id = builder.id;
+&nbsp;    this.listData = builder.listDataIsSet()
+&nbsp;        ? builder.listData.build()
+&nbsp;        : ImmutableList.copyOf(super.listData());
+&nbsp;    this.nullableData = builder.nullableDataIsSet()
+&nbsp;        ? builder.nullableData == null ? null : builder.nullableData.build()
+&nbsp;        : super.nullableData() == null ? null : ImmutableList.copyOf(super.nullableData());
+&nbsp;    this.collectionData = builder.collectionData != null
+&nbsp;        ? builder.collectionData
+&nbsp;        : Objects.requireNonNull(super.collectionData(), &quot;collectionData&quot;);
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableErgonomicFailureData(
+&nbsp;      String id,
+&nbsp;      ImmutableList&lt;String&gt; listData,
+&nbsp;      @Nullable ImmutableList&lt;String&gt; nullableData,
+&nbsp;      Collection&lt;String&gt; collectionData) {
+&nbsp;    this.id = id;
+&nbsp;    this.listData = listData;
+&nbsp;    this.nullableData = nullableData;
+&nbsp;    this.collectionData = collectionData;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code id} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String id() {
+&nbsp;    return id;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code listData} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public ImmutableList&lt;String&gt; listData() {
+&nbsp;    return listData;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code nullableData} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;String&gt; nullableData() {
+&nbsp;    return nullableData;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code collectionData} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Collection&lt;String&gt; collectionData() {
+&nbsp;    return collectionData;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ErgonomicFailureData#id() id} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for id
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableErgonomicFailureData withId(String value) {
+&nbsp;    String newValue = Objects.requireNonNull(value, &quot;id&quot;);
+&nbsp;    if (this.id.equals(newValue)) return this;
+&nbsp;    return new ImmutableErgonomicFailureData(newValue, this.listData, this.nullableData, this.collectionData);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ErgonomicFailureData#listData() listData}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableErgonomicFailureData withListData(String... elements) {
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableErgonomicFailureData(this.id, newValue, this.nullableData, this.collectionData);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ErgonomicFailureData#listData() listData}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of listData elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableErgonomicFailureData withListData(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.listData == elements) return this;
+&nbsp;    ImmutableList&lt;String&gt; newValue = ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableErgonomicFailureData(this.id, newValue, this.nullableData, this.collectionData);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ErgonomicFailureData#nullableData() nullableData}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableErgonomicFailureData withNullableData(@Nullable String... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableErgonomicFailureData(this.id, this.listData, null, this.collectionData);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableErgonomicFailureData(this.id, this.listData, newValue, this.collectionData);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link ErgonomicFailureData#nullableData() nullableData}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of nullableData elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableErgonomicFailureData withNullableData(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.nullableData == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableErgonomicFailureData(this.id, this.listData, newValue, this.collectionData);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link ErgonomicFailureData#collectionData() collectionData} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for collectionData
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableErgonomicFailureData withCollectionData(Collection&lt;String&gt; value) {
+&nbsp;    if (this.collectionData == value) return this;
+&nbsp;    Collection&lt;String&gt; newValue = Objects.requireNonNull(value, &quot;collectionData&quot;);
+&nbsp;    return new ImmutableErgonomicFailureData(this.id, this.listData, this.nullableData, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableErgonomicFailureData} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableErgonomicFailureData
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableErgonomicFailureData) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableErgonomicFailureData another) {
+&nbsp;    return id.equals(another.id)
+&nbsp;        &amp;&amp; listData.equals(another.listData)
+&nbsp;        &amp;&amp; Objects.equals(nullableData, another.nullableData)
+&nbsp;        &amp;&amp; collectionData.equals(another.collectionData);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code id}, {@code listData}, {@code nullableData}, {@code collectionData}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + id.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + listData.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(nullableData);
+&nbsp;    h += (h &lt;&lt; 5) + collectionData.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code ErgonomicFailureData} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ErgonomicFailureData&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;id&quot;, id)
+&nbsp;        .add(&quot;listData&quot;, listData)
+&nbsp;        .add(&quot;nullableData&quot;, nullableData)
+&nbsp;        .add(&quot;collectionData&quot;, collectionData)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code ErgonomicFailureData} instance.
+&nbsp;   * @param id The value for the {@code id} attribute
+&nbsp;   * @return An immutable ErgonomicFailureData instance
+&nbsp;   */
+&nbsp;  public static ImmutableErgonomicFailureData of(String id) {
+&nbsp;    return new ImmutableErgonomicFailureData(id);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link ErgonomicFailureData} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable ErgonomicFailureData instance
+&nbsp;   */
+&nbsp;  public static ImmutableErgonomicFailureData copyOf(ErgonomicFailureData instance) {
+&nbsp;    if (instance instanceof ImmutableErgonomicFailureData) {
+&nbsp;      return (ImmutableErgonomicFailureData) instance;
+&nbsp;    }
+&nbsp;    return ImmutableErgonomicFailureData.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableErgonomicFailureData ImmutableErgonomicFailureData}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableErgonomicFailureData.builder()
+&nbsp;   *    .id(String) // required {@link ErgonomicFailureData#id() id}
+&nbsp;   *    .addListData|addAllListData(String) // {@link ErgonomicFailureData#listData() listData} elements
+&nbsp;   *    .nullableData(List&amp;amp;lt;String&amp;amp;gt; | null) // nullable {@link ErgonomicFailureData#nullableData() nullableData}
+&nbsp;   *    .collectionData(Collection&amp;amp;lt;String&amp;amp;gt;) // optional {@link ErgonomicFailureData#collectionData() collectionData}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableErgonomicFailureData builder
+&nbsp;   */
+&nbsp;  public static ImmutableErgonomicFailureData.Builder builder() {
+&nbsp;    return new ImmutableErgonomicFailureData.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableErgonomicFailureData ImmutableErgonomicFailureData}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;ErgonomicFailureData&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_ID = 0x1L;
+&nbsp;    private static final long OPT_BIT_LIST_DATA = 0x1L;
+&nbsp;    private static final long OPT_BIT_NULLABLE_DATA = 0x2L;
+&nbsp;    private long initBits = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable String id;
+&nbsp;    private ImmutableList.Builder&lt;String&gt; listData = ImmutableList.builder();
+&nbsp;    private ImmutableList.Builder&lt;String&gt; nullableData = null;
+&nbsp;    private @Nullable Collection&lt;String&gt; collectionData;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code ErgonomicFailureData} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(ErgonomicFailureData instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      id(instance.id());
+&nbsp;      addAllListData(instance.listData());
+&nbsp;      @Nullable List&lt;String&gt; nullableDataValue = instance.nullableData();
+&nbsp;      if (nullableDataValue != null) {
+&nbsp;        addAllNullableData(nullableDataValue);
+&nbsp;      }
+&nbsp;      collectionData(instance.collectionData());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ErgonomicFailureData#id() id} attribute.
+&nbsp;     * @param id The value for id 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder id(String id) {
+&nbsp;      this.id = Objects.requireNonNull(id, &quot;id&quot;);
+&nbsp;      initBits &amp;= ~INIT_BIT_ID;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ErgonomicFailureData#listData() listData} list.
+&nbsp;     * @param element A listData element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addListData(String element) {
+&nbsp;      this.listData.add(element);
+&nbsp;      optBits |= OPT_BIT_LIST_DATA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ErgonomicFailureData#listData() listData} list.
+&nbsp;     * @param elements An array of listData elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addListData(String... elements) {
+&nbsp;      this.listData.add(elements);
+&nbsp;      optBits |= OPT_BIT_LIST_DATA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ErgonomicFailureData#listData() listData} list.
+&nbsp;     * @param elements An iterable of listData elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder listData(Iterable&lt;String&gt; elements) {
+&nbsp;      this.listData = ImmutableList.builder();
+&nbsp;      return addAllListData(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ErgonomicFailureData#listData() listData} list.
+&nbsp;     * @param elements An iterable of listData elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllListData(Iterable&lt;String&gt; elements) {
+&nbsp;      this.listData.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_LIST_DATA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link ErgonomicFailureData#nullableData() nullableData} list.
+&nbsp;     * @param element A nullableData element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNullableData(String element) {
+&nbsp;      if (this.nullableData == null) {
+&nbsp;        this.nullableData = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.nullableData.add(element);
+&nbsp;      optBits |= OPT_BIT_NULLABLE_DATA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ErgonomicFailureData#nullableData() nullableData} list.
+&nbsp;     * @param elements An array of nullableData elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addNullableData(String... elements) {
+&nbsp;      if (this.nullableData == null) {
+&nbsp;        this.nullableData = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.nullableData.add(elements);
+&nbsp;      optBits |= OPT_BIT_NULLABLE_DATA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link ErgonomicFailureData#nullableData() nullableData} list.
+&nbsp;     * @param elements An iterable of nullableData elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder nullableData(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.nullableData = null;
+&nbsp;        optBits |= OPT_BIT_NULLABLE_DATA;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.nullableData = ImmutableList.builder();
+&nbsp;      return addAllNullableData(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link ErgonomicFailureData#nullableData() nullableData} list.
+&nbsp;     * @param elements An iterable of nullableData elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllNullableData(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;nullableData element&quot;);
+&nbsp;      if (this.nullableData == null) {
+&nbsp;        this.nullableData = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.nullableData.addAll(elements);
+&nbsp;      optBits |= OPT_BIT_NULLABLE_DATA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link ErgonomicFailureData#collectionData() collectionData} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link ErgonomicFailureData#collectionData() collectionData}.&lt;/em&gt;
+&nbsp;     * @param collectionData The value for collectionData 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder collectionData(Collection&lt;String&gt; collectionData) {
+&nbsp;      this.collectionData = Objects.requireNonNull(collectionData, &quot;collectionData&quot;);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableErgonomicFailureData ImmutableErgonomicFailureData}.
+&nbsp;     * @return An immutable instance of ErgonomicFailureData
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableErgonomicFailureData build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableErgonomicFailureData(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean listDataIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_LIST_DATA) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean nullableDataIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_NULLABLE_DATA) != 0;
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_ID) != 0) attributes.add(&quot;id&quot;);
+&nbsp;      return &quot;Cannot build ErgonomicFailureData, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

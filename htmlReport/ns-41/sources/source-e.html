@@ -1,0 +1,693 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TypeResolver</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.generator.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: TypeResolver (org.immutables.generator.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TypeResolver</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TypeResolver$1</td>
+  </tr>
+  <tr>
+    <td class="name">TypeResolver$ForIterationAccessTransformer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TypeResolver$InferencePurpose</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TypeResolver$Scope</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/72)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TypeResolver$Transformer</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/21)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/70)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TypeResolver$TypingException</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/44)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/44)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/164)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2014 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.generator.processor;
+&nbsp;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.common.base.Preconditions;
+&nbsp;import com.google.common.collect.FluentIterable;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.Iterables;
+&nbsp;import com.google.common.collect.Maps;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.type.DeclaredType;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.ApplyExpression;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.AssignGenerator;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.BoundAccessExpression;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.ForIterationAccessExpression;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.ForStatement;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Identifier;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.IterationGenerator;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.LetStatement;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Parameter;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.ResolvedType;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.SimpleAccessExpression;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Template;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.TransformGenerator;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.TypeDeclaration;
+&nbsp;import org.immutables.generator.processor.ImmutableTrees.Unit;
+&nbsp;import org.immutables.generator.processor.Trees.AccessExpression;
+&nbsp;import org.immutables.generator.processor.Trees.Expression;
+&nbsp;import org.immutables.generator.processor.Trees.TemplatePart;
+&nbsp;import org.immutables.generator.processor.Trees.TypeDeclaration.Kind;
+&nbsp;import org.immutables.generator.processor.Trees.TypeIdentifier;
+&nbsp;import org.immutables.generator.processor.Trees.TypeReference;
+&nbsp;import static com.google.common.base.Preconditions.checkArgument;
+&nbsp;
+<b class="nc">&nbsp;public final class TypeResolver {</b>
+&nbsp;  static final String ITERATION_ACCESS_VARIABLE = &quot;for&quot;;
+&nbsp;
+&nbsp;  private final SwissArmyKnife knife;
+&nbsp;
+<b class="nc">&nbsp;  public TypeResolver(SwissArmyKnife knife) {</b>
+<b class="nc">&nbsp;    this.knife = knife;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  public static class TypingException extends RuntimeException {
+&nbsp;    TypingException(String message) {
+<b class="nc">&nbsp;      super(message);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public Unit resolve(Unit unit) {
+<b class="nc">&nbsp;    return new Transformer(new Scope())</b>
+<b class="nc">&nbsp;        .toUnit(new ForIterationAccessTransformer()</b>
+<b class="nc">&nbsp;            .toUnit(unit));</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private enum InferencePurpose {</b>
+&nbsp;    /** T from T. */
+<b class="nc">&nbsp;    ASSIGN,</b>
+&nbsp;    /** T from T[]. */
+<b class="nc">&nbsp;    ITERATE,</b>
+&nbsp;    /** T[] from T. */
+<b class="nc">&nbsp;    COLLECT;</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private class Scope {</b>
+<b class="nc">&nbsp;    final Map&lt;String, TypeMirror&gt; locals = Maps.newLinkedHashMap();</b>
+&nbsp;
+&nbsp;    Scope nest() {
+<b class="nc">&nbsp;      Scope nested = new Scope();</b>
+<b class="nc">&nbsp;      nested.locals.putAll(locals);</b>
+<b class="nc">&nbsp;      return nested;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Trees.TypeReference declare(Trees.TypeDeclaration type, Trees.Identifier name) {
+<b class="nc">&nbsp;      if (isDeclared(name)) {</b>
+<b class="nc">&nbsp;        throw new TypingException(String.format(&quot;Redeclaration of local %s&quot;, name));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return declare(resolve(type), name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Declare template or invokable. There&#39;s no {{@code isDeclared} check because we potentially
+&nbsp;     * might allow to define several templates with the same name but different types of arguments,
+&nbsp;     * to be resolved at runtime. (akin to multimethods). Might need to check if the same
+&nbsp;     * combination of parameters was already used.
+&nbsp;     * @param name identifier
+&nbsp;     * @return resolved type
+&nbsp;     */
+&nbsp;    Trees.TypeReference declareInvokable(Trees.Identifier name) {
+<b class="nc">&nbsp;      return declare(knife.accessors.invokableType, name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Trees.TypeReference declareForIterationAccess(Trees.Identifier name) {
+<b class="nc">&nbsp;      return declare(knife.accessors.iterationType, name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    boolean isDeclared(Trees.Identifier name) {
+<b class="nc">&nbsp;      return locals.containsKey(name.value());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Trees.TypeReference declare(TypeMirror type, Trees.Identifier name) {
+<b class="nc">&nbsp;      locals.put(name.value(), type);</b>
+<b class="nc">&nbsp;      return ResolvedType.of(type);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    TypeMirror resolve(Trees.TypeDeclaration type) {
+<b class="nc">&nbsp;      TypeMirror resolved = knife.imports.get(type.type().value());</b>
+<b class="nc">&nbsp;      if (resolved == null) {</b>
+<b class="nc">&nbsp;        throw new TypingException(String.format(&quot;Could not resolve %s simple type&quot;, type));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      if (type.kind() == Trees.TypeDeclaration.Kind.ITERABLE) {</b>
+<b class="nc">&nbsp;        resolved = makeIterableTypeOf(resolved);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return resolved;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    DeclaredType makeIterableTypeOf(TypeMirror resolved) {
+<b class="nc">&nbsp;      return knife.types.getDeclaredType(knife.accessors.iterableElement, resolved);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    BoundAccessExpression resolveAccess(Trees.AccessExpression expression) {
+<b class="nc">&nbsp;      if (expression instanceof BoundAccessExpression) {</b>
+<b class="nc">&nbsp;        return (BoundAccessExpression) expression;</b>
+&nbsp;      }
+&nbsp;
+&nbsp;      try {
+&nbsp;
+&nbsp;        BoundAccessExpression.Builder builder =
+<b class="nc">&nbsp;            BoundAccessExpression.builder()</b>
+<b class="nc">&nbsp;                .addAllPath(expression.path());</b>
+&nbsp;
+<b class="nc">&nbsp;        Accessors.BoundAccess accessor = null;</b>
+<b class="nc">&nbsp;        for (Trees.Identifier identifier : expression.path()) {</b>
+<b class="nc">&nbsp;          accessor = bindAccess(accessor, identifier.value());</b>
+<b class="nc">&nbsp;          builder.addAccessor(accessor);</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;
+<b class="nc">&nbsp;        return builder.build();</b>
+&nbsp;
+<b class="nc">&nbsp;      } catch (Exception ex) {</b>
+<b class="nc">&nbsp;        RuntimeException exception = new RuntimeException(&quot;Path &quot; + expression.path() + &quot;: &quot; + ex.getMessage());</b>
+<b class="nc">&nbsp;        exception.setStackTrace(ex.getStackTrace());</b>
+<b class="nc">&nbsp;        throw exception;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    Accessors.BoundAccess bindAccess(@Nullable Accessors.BoundAccess previous, String name) {
+<b class="nc">&nbsp;      return previous != null</b>
+<b class="nc">&nbsp;          ? knife.binder.bind(previous.type, name)</b>
+<b class="nc">&nbsp;          : knife.binder.bindLocalOrThis(knife.type.asType(), name, locals);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Trees.ValueDeclaration inferType(
+&nbsp;        Trees.ValueDeclaration declaration,
+&nbsp;        Trees.Expression expression,
+&nbsp;        InferencePurpose inferenceKind) {
+&nbsp;
+<b class="nc">&nbsp;      if (expression instanceof BoundAccessExpression) {</b>
+<b class="nc">&nbsp;        BoundAccessExpression scopeBoundAccess = (BoundAccessExpression) expression;</b>
+<b class="nc">&nbsp;        Accessors.BoundAccess lastAccess = Iterables.getLast(asBoundAccess(scopeBoundAccess.accessor()));</b>
+&nbsp;
+<b class="nc">&nbsp;        if (inferenceKind == InferencePurpose.ITERATE) {</b>
+<b class="nc">&nbsp;          if (!lastAccess.isContainer()) {</b>
+<b class="nc">&nbsp;            throw new TypingException(String.format(&quot;Not iterable type &#39;%s&#39;%n\tin expression &#39;%s&#39;&quot;,</b>
+&nbsp;                lastAccess.type,
+<b class="nc">&nbsp;                scopeBoundAccess.path()));</b>
+&nbsp;          }
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (declaration.type().isPresent()) {</b>
+<b class="nc">&nbsp;          return declaration.withType(resolveDeclared(declaration.type().get(), declaration.name()))</b>
+<b class="nc">&nbsp;              .withContainedType(ResolvedType.of(resolveType(declaration.type().get(), false)));</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        if (inferenceKind == InferencePurpose.ITERATE) {</b>
+<b class="nc">&nbsp;          TypeMirror resolved = lastAccess.containedType;</b>
+<b class="nc">&nbsp;          return declaration.withType(declare(resolved, declaration.name()))</b>
+<b class="nc">&nbsp;              .withContainedType(ResolvedType.of(resolved));</b>
+<b class="nc">&nbsp;        } else if (inferenceKind == InferencePurpose.COLLECT) {</b>
+<b class="nc">&nbsp;          TypeMirror resolved = knife.accessors.wrapIterable(lastAccess.type);</b>
+<b class="nc">&nbsp;          return declaration.withType(declare(resolved, declaration.name()))</b>
+<b class="nc">&nbsp;              .withContainedType(ResolvedType.of(lastAccess.type));</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;          return declaration.withType(declare(lastAccess.type, declaration.name()))</b>
+<b class="nc">&nbsp;              .withContainedType(ResolvedType.of(lastAccess.type));</b>
+&nbsp;        }
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (declaration.type().isPresent()) {</b>
+<b class="nc">&nbsp;        return declaration.withType(resolveDeclared(declaration.type().get(), declaration.name()))</b>
+<b class="nc">&nbsp;            .withContainedType(ResolvedType.of(resolveType(declaration.type().get(), false)));</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      throw new TypingException(String.format(&quot;Value should be typed %s%n\texpression &#39;%s&#39;&quot;,</b>
+<b class="nc">&nbsp;          declaration.name(),</b>
+&nbsp;          expression));
+&nbsp;    }
+&nbsp;
+&nbsp;    private TypeReference resolveDeclared(TypeReference typeReference, Trees.Identifier name) {
+<b class="nc">&nbsp;      return declare(resolveType(typeReference, true), name);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private TypeMirror resolveType(TypeReference typeReference, boolean wrapIterable) {
+<b class="nc">&nbsp;      Preconditions.checkState(typeReference instanceof TypeDeclaration);</b>
+<b class="nc">&nbsp;      TypeDeclaration typeDeclaration = (TypeDeclaration) typeReference;</b>
+<b class="nc">&nbsp;      TypeIdentifier type = typeDeclaration.type();</b>
+<b class="nc">&nbsp;      @Nullable TypeMirror resolved = knife.imports.get(type.value());</b>
+<b class="nc">&nbsp;      if (resolved == null) {</b>
+<b class="nc">&nbsp;        throw new TypingException(String.format(&quot;Could not resolve declared type &#39;%s&#39;&quot;,</b>
+&nbsp;            typeDeclaration));
+&nbsp;      }
+<b class="nc">&nbsp;      if (wrapIterable &amp;&amp; typeDeclaration.kind() == Kind.ITERABLE) {</b>
+<b class="nc">&nbsp;        resolved = knife.accessors.wrapIterable(resolved);</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return resolved;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static final class ForIterationAccessTransformer extends TreesTransformer {</b>
+&nbsp;    @Override
+&nbsp;    protected Expression asExpression(ForIterationAccessExpression expression) {
+<b class="nc">&nbsp;      return SimpleAccessExpression.builder()</b>
+<b class="nc">&nbsp;          .addPath(Identifier.of(ITERATION_ACCESS_VARIABLE))</b>
+<b class="nc">&nbsp;          .addAllPath(expression.access().path())</b>
+<b class="nc">&nbsp;          .build();</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static final class Transformer extends TreesTransformer {
+&nbsp;    private final Scope scope;
+&nbsp;
+<b class="nc">&nbsp;    public Transformer(Scope scope) {</b>
+<b class="nc">&nbsp;      this.scope = scope;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Unit toUnit(Unit unit) {
+<b class="nc">&nbsp;      for (Template template : Iterables.filter(unit.parts(), Template.class)) {</b>
+<b class="nc">&nbsp;        scope.declareInvokable(template.declaration().name());</b>
+<b class="nc">&nbsp;      }</b>
+<b class="nc">&nbsp;      return super.toUnit(unit);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public AssignGenerator toAssignGenerator(AssignGenerator value) {
+<b class="nc">&nbsp;      AssignGenerator generator = super.toAssignGenerator(value);</b>
+<b class="nc">&nbsp;      return generator.withDeclaration(</b>
+<b class="nc">&nbsp;          scope.inferType(</b>
+<b class="nc">&nbsp;              generator.declaration(),</b>
+<b class="nc">&nbsp;              generator.from(),</b>
+&nbsp;              InferencePurpose.ASSIGN));
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected TemplatePart asTemplatePart(LetStatement statement) {
+<b class="nc">&nbsp;      scope.declareInvokable(statement.declaration().name());</b>
+<b class="nc">&nbsp;      return super.asTemplatePart(statement);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public IterationGenerator toIterationGenerator(IterationGenerator value) {
+<b class="nc">&nbsp;      IterationGenerator generator = super.toIterationGenerator(value);</b>
+&nbsp;
+<b class="nc">&nbsp;      return generator</b>
+<b class="nc">&nbsp;          .withDeclaration(scope.inferType(</b>
+<b class="nc">&nbsp;              generator.declaration(),</b>
+<b class="nc">&nbsp;              generator.from(),</b>
+&nbsp;              InferencePurpose.ITERATE))
+<b class="nc">&nbsp;          .withCondition(asIterationGeneratorConditionAfterDeclaration(generator, generator.condition()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public TransformGenerator toTransformGenerator(TransformGenerator value) {
+<b class="nc">&nbsp;      TransformGenerator generator = super.toTransformGenerator(value);</b>
+&nbsp;
+&nbsp;      // first we resolve/inference type for intermetiate iteration var,
+&nbsp;      // then we resolve condition and transform expressions
+<b class="nc">&nbsp;      generator = generator</b>
+<b class="nc">&nbsp;          .withVarDeclaration(scope.inferType(</b>
+<b class="nc">&nbsp;              generator.varDeclaration(),</b>
+<b class="nc">&nbsp;              generator.from(),</b>
+&nbsp;              InferencePurpose.ITERATE))
+<b class="nc">&nbsp;          .withCondition(asTransformGeneratorConditionAfterDeclaration(generator, generator.condition()))</b>
+<b class="nc">&nbsp;          .withTransform(asTransformGeneratorTransformAfterDeclaration(generator, generator.transform()));</b>
+&nbsp;
+&nbsp;      // Only after transform expression is resolved, we could infer type for whole declaration
+<b class="nc">&nbsp;      return generator</b>
+<b class="nc">&nbsp;          .withDeclaration(scope.inferType(</b>
+<b class="nc">&nbsp;              generator.declaration(),</b>
+<b class="nc">&nbsp;              generator.transform(),</b>
+&nbsp;              InferencePurpose.COLLECT));
+&nbsp;    }
+&nbsp;
+&nbsp;    private Optional&lt;Expression&gt; asIterationGeneratorConditionAfterDeclaration(
+&nbsp;        IterationGenerator generator,
+&nbsp;        Optional&lt;Expression&gt; condition) {
+<b class="nc">&nbsp;      if (condition.isPresent()) {</b>
+&nbsp;        // Calling actual transformation
+<b class="nc">&nbsp;        return Optional.of(super.asIterationGeneratorCondition(generator, condition.get()));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return Optional.absent();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Optional&lt;Expression&gt; asTransformGeneratorConditionAfterDeclaration(
+&nbsp;        TransformGenerator generator,
+&nbsp;        Optional&lt;Expression&gt; condition) {
+<b class="nc">&nbsp;      if (condition.isPresent()) {</b>
+&nbsp;        // Calling actual transformation
+<b class="nc">&nbsp;        return Optional.of(super.asTransformGeneratorCondition(generator, condition.get()));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return Optional.absent();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Expression asTransformGeneratorTransformAfterDeclaration(
+&nbsp;        TransformGenerator generator,
+&nbsp;        Expression condition) {
+<b class="nc">&nbsp;      return super.asTransformGeneratorTransform(generator, condition);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** We prevent transformation here to manually do it after variable declaration is done. */
+&nbsp;    @Override
+&nbsp;    protected Expression asIterationGeneratorCondition(
+&nbsp;        IterationGenerator value,
+&nbsp;        Expression element) {
+<b class="nc">&nbsp;      return simplifyExpression(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** We prevent transformation here to manually do it after variable declaration is done. */
+&nbsp;    @Override
+&nbsp;    protected Expression asTransformGeneratorCondition(
+&nbsp;        TransformGenerator value,
+&nbsp;        Expression element) {
+<b class="nc">&nbsp;      return simplifyExpression(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** We prevent transformation here to manually do it after variable declaration is done. */
+&nbsp;    @Override
+&nbsp;    protected Expression asTransformGeneratorTransform(
+&nbsp;        TransformGenerator value,
+&nbsp;        Expression element) {
+<b class="nc">&nbsp;      return simplifyExpression(element);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Parameter toParameter(Parameter parameter) {
+<b class="nc">&nbsp;      return parameter.withType(</b>
+<b class="nc">&nbsp;          scope.declare(</b>
+<b class="nc">&nbsp;              (Trees.TypeDeclaration) parameter.type(),</b>
+<b class="nc">&nbsp;              parameter.name()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Overriden to specify order in which we process declaration first, and then parts. */
+&nbsp;    @Override
+&nbsp;    public Template toTemplate(Template template) {
+&nbsp;      try {
+<b class="nc">&nbsp;        Scope nestedScope = scope.nest();</b>
+<b class="nc">&nbsp;        Transformer nested = new Transformer(nestedScope);</b>
+<b class="nc">&nbsp;        return template</b>
+<b class="nc">&nbsp;            .withDeclaration(nested.asTemplateDeclaration(template, template.declaration()))</b>
+<b class="nc">&nbsp;            .withParts(nested.asTemplatePartsElements(template, template.parts()));</b>
+<b class="nc">&nbsp;      } catch (RuntimeException ex) {</b>
+<b class="nc">&nbsp;        throw new RuntimeException(&quot;In template &quot; + template.declaration().name() + &quot;: &quot; + ex.getMessage(), ex);</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Overriden to specify order in which we process declaration first, and then parts. */
+&nbsp;    @Override
+&nbsp;    public LetStatement toLetStatement(LetStatement statement) {
+<b class="nc">&nbsp;      Transformer nested = new Transformer(scope.nest());</b>
+<b class="nc">&nbsp;      return statement</b>
+<b class="nc">&nbsp;          .withDeclaration(nested.asLetStatementDeclaration(statement, statement.declaration()))</b>
+<b class="nc">&nbsp;          .withParts(nested.asLetStatementPartsElements(statement, statement.parts()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /** Overriden to specify order in which we process declaration first, and then parts. */
+&nbsp;    @Override
+&nbsp;    public ForStatement toForStatement(ForStatement statement) {
+<b class="nc">&nbsp;      Scope nestedScope = scope.nest();</b>
+<b class="nc">&nbsp;      nestedScope.declareForIterationAccess(Identifier.of(ITERATION_ACCESS_VARIABLE));</b>
+<b class="nc">&nbsp;      Transformer nested = new Transformer(nestedScope);</b>
+<b class="nc">&nbsp;      return statement</b>
+<b class="nc">&nbsp;          .withDeclaration(nested.asForStatementDeclarationElements(statement, statement.declaration()))</b>
+<b class="nc">&nbsp;          .withParts(nested.asForStatementPartsElements(statement, statement.parts()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Iterable&lt;TemplatePart&gt; asForStatementPartsElements(
+&nbsp;        ForStatement value,
+&nbsp;        List&lt;TemplatePart&gt; collection) {
+<b class="nc">&nbsp;      return super.asForStatementPartsElements(value, collection);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Resolve accesors and types on {@link SimpleAccessExpression}, turning it into
+&nbsp;     * {@link BoundAccessExpression}
+&nbsp;     */
+&nbsp;    @Override
+&nbsp;    protected AccessExpression asAccessExpression(SimpleAccessExpression value) {
+<b class="nc">&nbsp;      return scope.resolveAccess(value);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Expression asExpression(ApplyExpression value) {
+<b class="nc">&nbsp;      return simplifyExpression(super.asExpression(value));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    protected Expression asExpression(SimpleAccessExpression value) {
+<b class="nc">&nbsp;      return scope.resolveAccess(value);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private Expression simplifyExpression(Trees.Expression expression) {
+<b class="nc">&nbsp;      if (expression instanceof ApplyExpression) {</b>
+<b class="nc">&nbsp;        ImmutableList&lt;Trees.Expression&gt; params = ((ApplyExpression) expression).params();</b>
+<b class="nc">&nbsp;        if (params.size() == 1) {</b>
+<b class="nc">&nbsp;          return params.get(0);</b>
+&nbsp;        }
+&nbsp;      }
+<b class="nc">&nbsp;      return expression;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  public static ImmutableList&lt;Accessors.BoundAccess&gt; asBoundAccess(Iterable&lt;?&gt; iterable) {
+<b class="nc">&nbsp;    for (Object object : iterable) {</b>
+<b class="nc">&nbsp;      checkArgument(object instanceof Accessors.BoundAccess);</b>
+<b class="nc">&nbsp;    }</b>
+<b class="nc">&nbsp;    return FluentIterable.from(iterable)</b>
+<b class="nc">&nbsp;        .filter(Accessors.BoundAccess.class)</b>
+<b class="nc">&nbsp;        .toList();</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,848 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableJdkComp</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableJdkComp (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableJdkComp</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.lang.annotation.RetentionPolicy;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.EnumSet;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.NavigableSet;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.SortedSet;
+&nbsp;import java.util.TreeSet;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Companion.JdkComp JdkComp} type.
+&nbsp; * &lt;p&gt;Use the {@link #create()} static factory methods to create new instances.
+&nbsp; * Use the {@link #toImmutable()} method to convert to canonical immutable instances.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableJdkComp is not thread-safe&lt;/em&gt;
+&nbsp; * @see ImmutableJdkComp
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion.JdkComp&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Companion.JdkComp&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public final class ModifiableJdkComp implements Companion.JdkComp {
+&nbsp;  private static final long INIT_BIT_INTEGER = 0x1L;
+&nbsp;  private static final long INIT_BIT_STRING = 0x2L;
+&nbsp;  private static final long INIT_BIT_ARRAY_INTS = 0x4L;
+&nbsp;  private static final long INIT_BIT_ARRAY_STRINGS = 0x8L;
+&nbsp;  private long initBits = 0xfL;
+&nbsp;
+&nbsp;  private int integer;
+&nbsp;  private String string;
+&nbsp;  private @Nullable Boolean bools;
+&nbsp;  private final ArrayList&lt;String&gt; str = new ArrayList&lt;String&gt;();
+&nbsp;  private final LinkedHashSet&lt;Integer&gt; ints = new LinkedHashSet&lt;Integer&gt;();
+&nbsp;  private int[] arrayInts;
+&nbsp;  private String[] arrayStrings;
+&nbsp;  private final TreeSet&lt;Integer&gt; ords = new TreeSet&lt;Integer&gt;();
+&nbsp;  private final EnumSet&lt;RetentionPolicy&gt; pols = EnumSet.noneOf(RetentionPolicy.class);
+&nbsp;  private final TreeSet&lt;Integer&gt; navs = new TreeSet&lt;Integer&gt;(Collections.&lt;Integer&gt;reverseOrder());
+&nbsp;
+&nbsp;  private ModifiableJdkComp() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code JdkComp}.
+&nbsp;   * @return A new modifiable instance
+&nbsp;   */
+&nbsp;  public static ModifiableJdkComp create() {
+&nbsp;    return new ModifiableJdkComp();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code integer} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int integer() {
+&nbsp;    if (!integerIsSet()) checkRequiredAttributes();
+&nbsp;    return integer;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code string} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String string() {
+&nbsp;    if (!stringIsSet()) checkRequiredAttributes();
+&nbsp;    return string;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code bools} attribute, may be {@code null}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final @Nullable Boolean bools() {
+&nbsp;    return bools;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable list {@code str}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final List&lt;String&gt; str() {
+&nbsp;    return str;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable set {@code ints}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Set&lt;Integer&gt; ints() {
+&nbsp;    return ints;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned modifiable {@code arrayInts} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int[] arrayInts() {
+&nbsp;    if (!arrayIntsIsSet()) checkRequiredAttributes();
+&nbsp;    return arrayInts;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return assigned modifiable {@code arrayStrings} array
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String[] arrayStrings() {
+&nbsp;    if (!arrayStringsIsSet()) checkRequiredAttributes();
+&nbsp;    return arrayStrings;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable sortedSet {@code ords}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final SortedSet&lt;Integer&gt; ords() {
+&nbsp;    return ords;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable set {@code pols}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final Set&lt;RetentionPolicy&gt; pols() {
+&nbsp;    return pols;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return modifiable sortedSet {@code navs}
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final NavigableSet&lt;Integer&gt; navs() {
+&nbsp;    return navs;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp clear() {
+&nbsp;    initBits = 0xfL;
+&nbsp;    integer = 0;
+&nbsp;    string = null;
+&nbsp;    bools = null;
+&nbsp;    str.clear();
+&nbsp;    ints.clear();
+&nbsp;    arrayInts = null;
+&nbsp;    arrayStrings = null;
+&nbsp;    ords.clear();
+&nbsp;    pols.clear();
+&nbsp;    navs.clear();
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.JdkComp} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableJdkComp from(Companion.JdkComp instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableJdkComp) {
+&nbsp;      from((ModifiableJdkComp) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setInteger(instance.integer());
+&nbsp;    setString(instance.string());
+&nbsp;    @Nullable Boolean boolsValue = instance.bools();
+&nbsp;    if (boolsValue != null) {
+&nbsp;      setBools(boolsValue);
+&nbsp;    }
+&nbsp;    addAllStr(instance.str());
+&nbsp;    addAllInts(instance.ints());
+&nbsp;    setArrayInts(instance.arrayInts());
+&nbsp;    setArrayStrings(instance.arrayStrings());
+&nbsp;    addAllOrds(instance.ords());
+&nbsp;    addAllPols(instance.pols());
+&nbsp;    addAllNavs(instance.navs());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.JdkComp} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * Collection elements and entries will be added, not replaced.
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableJdkComp from(ModifiableJdkComp instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.integerIsSet()) {
+&nbsp;      setInteger(instance.integer());
+&nbsp;    }
+&nbsp;    if (instance.stringIsSet()) {
+&nbsp;      setString(instance.string());
+&nbsp;    }
+&nbsp;    @Nullable Boolean boolsValue = instance.bools();
+&nbsp;    if (boolsValue != null) {
+&nbsp;      setBools(boolsValue);
+&nbsp;    }
+&nbsp;    addAllStr(instance.str());
+&nbsp;    addAllInts(instance.ints());
+&nbsp;    if (instance.arrayIntsIsSet()) {
+&nbsp;      setArrayInts(instance.arrayInts());
+&nbsp;    }
+&nbsp;    if (instance.arrayStringsIsSet()) {
+&nbsp;      setArrayStrings(instance.arrayStrings());
+&nbsp;    }
+&nbsp;    addAllOrds(instance.ords());
+&nbsp;    addAllPols(instance.pols());
+&nbsp;    addAllNavs(instance.navs());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion.JdkComp#integer() integer} attribute.
+&nbsp;   * @param integer The value for integer
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setInteger(int integer) {
+&nbsp;    this.integer = integer;
+&nbsp;    initBits &amp;= ~INIT_BIT_INTEGER;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion.JdkComp#string() string} attribute.
+&nbsp;   * @param string The value for string
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setString(String string) {
+&nbsp;    this.string = Objects.requireNonNull(string, &quot;string&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_STRING;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion.JdkComp#bools() bools} attribute.
+&nbsp;   * @param bools The value for bools, can be {@code null}
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setBools(@Nullable Boolean bools) {
+&nbsp;    this.bools = bools;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.JdkComp#str() str} list.
+&nbsp;   * @param element The str element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addStr(String element) {
+&nbsp;    Objects.requireNonNull(element, &quot;str element&quot;);
+&nbsp;    this.str.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#str() str} list.
+&nbsp;   * @param elements An array of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp addStr(String... elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addStr(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.JdkComp#str() str} list.
+&nbsp;   * @param elements An iterable of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setStr(Iterable&lt;String&gt; elements) {
+&nbsp;    this.str.clear();
+&nbsp;    addAllStr(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#str() str} list.
+&nbsp;   * @param elements An iterable of str elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addAllStr(Iterable&lt;String&gt; elements) {
+&nbsp;    for (String e : elements) {
+&nbsp;      addStr(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.JdkComp#ints() ints} set.
+&nbsp;   * @param element The ints element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addInts(int element) {
+&nbsp;    this.ints.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#ints() ints} set.
+&nbsp;   * @param elements An array of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp addInts(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addInts(Objects.requireNonNull(e, &quot;ints element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.JdkComp#ints() ints} set.
+&nbsp;   * @param elements An iterable of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    this.ints.clear();
+&nbsp;    addAllInts(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#ints() ints} set.
+&nbsp;   * @param elements An iterable of ints elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addAllInts(Iterable&lt;Integer&gt; elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addInts(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion.JdkComp#arrayInts() arrayInts} attribute.
+&nbsp;   * @param elements The elements for arrayInts
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp setArrayInts(int... elements) {
+&nbsp;    this.arrayInts = elements.clone();
+&nbsp;    initBits &amp;= ~INIT_BIT_ARRAY_INTS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@link Companion.JdkComp#arrayStrings() arrayStrings} attribute.
+&nbsp;   * @param elements The elements for arrayStrings
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp setArrayStrings(String... elements) {
+&nbsp;    this.arrayStrings = elements.clone();
+&nbsp;    initBits &amp;= ~INIT_BIT_ARRAY_STRINGS;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.JdkComp#ords() ords} sortedSet.
+&nbsp;   * @param element The ords element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addOrds(int element) {
+&nbsp;    this.ords.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#ords() ords} sortedSet.
+&nbsp;   * @param elements An array of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp addOrds(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addOrds(Objects.requireNonNull(e, &quot;ords element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.JdkComp#ords() ords} sortedSet.
+&nbsp;   * @param elements An iterable of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    this.ords.clear();
+&nbsp;    addAllOrds(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#ords() ords} sortedSet.
+&nbsp;   * @param elements An iterable of ords elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addAllOrds(Iterable&lt;Integer&gt; elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addOrds(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.JdkComp#pols() pols} set.
+&nbsp;   * @param element The pols element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addPols(RetentionPolicy element) {
+&nbsp;    Objects.requireNonNull(element, &quot;pols element&quot;);
+&nbsp;    this.pols.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#pols() pols} set.
+&nbsp;   * @param elements An array of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp addPols(RetentionPolicy... elements) {
+&nbsp;    for (RetentionPolicy e : elements) {
+&nbsp;      addPols(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.JdkComp#pols() pols} set.
+&nbsp;   * @param elements An iterable of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    this.pols.clear();
+&nbsp;    addAllPols(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#pols() pols} set.
+&nbsp;   * @param elements An iterable of pols elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addAllPols(Iterable&lt;RetentionPolicy&gt; elements) {
+&nbsp;    for (RetentionPolicy e : elements) {
+&nbsp;      addPols(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds one element to {@link Companion.JdkComp#navs() navs} sortedSet.
+&nbsp;   * @param element The navs element
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addNavs(int element) {
+&nbsp;    this.navs.add(element);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#navs() navs} sortedSet.
+&nbsp;   * @param elements An array of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp addNavs(int... elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addNavs(Objects.requireNonNull(e, &quot;navs element&quot;));
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Sets or replaces all elements for {@link Companion.JdkComp#navs() navs} sortedSet.
+&nbsp;   * @param elements An iterable of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp setNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    this.navs.clear();
+&nbsp;    addAllNavs(elements);
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Adds elements to {@link Companion.JdkComp#navs() navs} sortedSet.
+&nbsp;   * @param elements An iterable of navs elements
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableJdkComp addAllNavs(Iterable&lt;Integer&gt; elements) {
+&nbsp;    for (int e : elements) {
+&nbsp;      addNavs(e);
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion.JdkComp#integer() integer} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean integerIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_INTEGER) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion.JdkComp#string() string} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean stringIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_STRING) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion.JdkComp#arrayInts() arrayInts} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean arrayIntsIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_ARRAY_INTS) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@link Companion.JdkComp#arrayStrings() arrayStrings} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean arrayStringsIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_ARRAY_STRINGS) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp unsetInteger() {
+&nbsp;    initBits |= INIT_BIT_INTEGER;
+&nbsp;    integer = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp unsetString() {
+&nbsp;    initBits |= INIT_BIT_STRING;
+&nbsp;    string = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp unsetArrayInts() {
+&nbsp;    initBits |= INIT_BIT_ARRAY_INTS;
+&nbsp;    arrayInts = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableJdkComp unsetArrayStrings() {
+&nbsp;    initBits |= INIT_BIT_ARRAY_STRINGS;
+&nbsp;    arrayStrings = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!integerIsSet()) attributes.add(&quot;integer&quot;);
+&nbsp;    if (!stringIsSet()) attributes.add(&quot;string&quot;);
+&nbsp;    if (!arrayIntsIsSet()) attributes.add(&quot;arrayInts&quot;);
+&nbsp;    if (!arrayStringsIsSet()) attributes.add(&quot;arrayStrings&quot;);
+&nbsp;    return &quot;JdkComp is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Converts to {@link ImmutableJdkComp ImmutableJdkComp}.
+&nbsp;   * @return An immutable instance of JdkComp
+&nbsp;   */
+&nbsp;  public final ImmutableJdkComp toImmutable() {
+&nbsp;    checkRequiredAttributes();
+&nbsp;    return ImmutableJdkComp.copyOf(this);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableJdkComp} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableJdkComp)) return false;
+&nbsp;    ModifiableJdkComp other = (ModifiableJdkComp) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableJdkComp another) {
+&nbsp;    return integer == another.integer
+&nbsp;        &amp;&amp; string.equals(another.string)
+&nbsp;        &amp;&amp; Objects.equals(bools, another.bools)
+&nbsp;        &amp;&amp; str.equals(another.str)
+&nbsp;        &amp;&amp; ints.equals(another.ints)
+&nbsp;        &amp;&amp; Arrays.equals(arrayInts, another.arrayInts)
+&nbsp;        &amp;&amp; Arrays.equals(arrayStrings, another.arrayStrings)
+&nbsp;        &amp;&amp; ords.equals(another.ords)
+&nbsp;        &amp;&amp; pols.equals(another.pols)
+&nbsp;        &amp;&amp; navs.equals(another.navs);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code integer}, {@code string}, {@code bools}, {@code str}, {@code ints}, {@code arrayInts}, {@code arrayStrings}, {@code ords}, {@code pols}, {@code navs}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + integer;
+&nbsp;    h += (h &lt;&lt; 5) + string.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(bools);
+&nbsp;    h += (h &lt;&lt; 5) + str.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + ints.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayInts);
+&nbsp;    h += (h &lt;&lt; 5) + Arrays.hashCode(arrayStrings);
+&nbsp;    h += (h &lt;&lt; 5) + ords.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + pols.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + navs.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code JdkComp}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;ModifiableJdkComp{&quot;
+&nbsp;        + &quot;integer=&quot;  + (integerIsSet() ? integer() : &quot;?&quot;)
+&nbsp;        + &quot;, string=&quot;  + (stringIsSet() ? string() : &quot;?&quot;)
+&nbsp;        + &quot;, bools=&quot; + bools()
+&nbsp;        + &quot;, str=&quot; + str()
+&nbsp;        + &quot;, ints=&quot; + ints()
+&nbsp;        + &quot;, arrayInts=&quot; + (arrayIntsIsSet() ? Arrays.toString(arrayInts()) : &quot;?&quot;)
+&nbsp;        + &quot;, arrayStrings=&quot; + (arrayStringsIsSet() ? Arrays.toString(arrayStrings()) : &quot;?&quot;)
+&nbsp;        + &quot;, ords=&quot; + ords()
+&nbsp;        + &quot;, pols=&quot; + pols()
+&nbsp;        + &quot;, navs=&quot; + navs()
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /** Unmodifiable set constructed from list to avoid rehashing. */
+&nbsp;  private static &lt;T&gt; Set&lt;T&gt; createUnmodifiableSet(List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default:
+&nbsp;      Set&lt;T&gt; set = new LinkedHashSet&lt;&gt;(list.size() * 4 / 3 + 1);
+&nbsp;      set.addAll(list);
+&nbsp;      return Collections.unmodifiableSet(set);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  private static &lt;T extends Enum&lt;T&gt;&gt; Set&lt;T&gt; createUnmodifiableEnumSet(Iterable&lt;T&gt; iterable) {
+&nbsp;    if (iterable instanceof EnumSet&lt;?&gt;) {
+&nbsp;      return Collections.unmodifiableSet(EnumSet.copyOf((EnumSet&lt;T&gt;) iterable));
+&nbsp;    }
+&nbsp;    List&lt;T&gt; list = createSafeList(iterable, true, false);
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default: return Collections.unmodifiableSet(EnumSet.copyOf(list));
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T extends Comparable&lt;T&gt;&gt; NavigableSet&lt;T&gt; createUnmodifiableSortedSet(boolean reverse, List&lt;T&gt; list) {
+&nbsp;    TreeSet&lt;T&gt; set = reverse
+&nbsp;        ? new TreeSet&lt;T&gt;(Collections.&lt;T&gt;reverseOrder())
+&nbsp;        : new TreeSet&lt;T&gt;();
+&nbsp;    set.addAll(list);
+&nbsp;    return Collections.unmodifiableNavigableSet(set);
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

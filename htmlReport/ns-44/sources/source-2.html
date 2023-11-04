@@ -1,0 +1,245 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Metaservices</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.metainf.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Metaservices (org.immutables.metainf.processor)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Metaservices</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/46)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2015-2018 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.metainf.processor;
+&nbsp;
+&nbsp;import com.google.common.collect.FluentIterable;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableListMultimap;
+&nbsp;import com.google.common.collect.ListMultimap;
+&nbsp;import com.google.common.collect.Lists;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.lang.model.element.Element;
+&nbsp;import javax.lang.model.element.ElementKind;
+&nbsp;import javax.lang.model.element.Modifier;
+&nbsp;import javax.lang.model.element.PackageElement;
+&nbsp;import javax.lang.model.element.TypeElement;
+&nbsp;import javax.lang.model.type.TypeKind;
+&nbsp;import javax.lang.model.type.TypeMirror;
+&nbsp;import javax.tools.Diagnostic;
+&nbsp;import org.immutables.generator.AbstractTemplate;
+&nbsp;import org.immutables.generator.AnnotationMirrors;
+&nbsp;import org.immutables.generator.Generator;
+&nbsp;import org.immutables.generator.TypeHierarchyCollector;
+&nbsp;import org.immutables.metainf.Metainf;
+&nbsp;
+&nbsp;@Generator.Template
+<b class="nc">&nbsp;class Metaservices extends AbstractTemplate {</b>
+&nbsp;
+&nbsp;  ListMultimap&lt;String, String&gt; allMetaservices() {
+<b class="nc">&nbsp;    ImmutableListMultimap.Builder&lt;String, String&gt; builder = ImmutableListMultimap.builder();</b>
+&nbsp;
+<b class="nc">&nbsp;    for (Element element : round().getElementsAnnotatedWith(Metainf.Service.class)) {</b>
+<b class="nc">&nbsp;      @Nullable TypeElement typeElement = validated(element);</b>
+<b class="nc">&nbsp;      if (typeElement == null) {</b>
+<b class="nc">&nbsp;        continue;</b>
+&nbsp;      }
+<b class="nc">&nbsp;      Set&lt;String&gt; interfaceNames = extractServiceInterfaceNames(typeElement);</b>
+<b class="nc">&nbsp;      String binaryName = processing().getElementUtils().getBinaryName(typeElement).toString();</b>
+<b class="nc">&nbsp;      builder.putAll(binaryName, interfaceNames);</b>
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    return builder.build();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Set&lt;String&gt; extractServiceInterfaceNames(TypeElement typeElement) {
+<b class="nc">&nbsp;    ImmutableList&lt;TypeMirror&gt; typesMirrors =</b>
+<b class="nc">&nbsp;        AnnotationMirrors.getTypesFromMirrors(</b>
+<b class="nc">&nbsp;            Metainf.Service.class.getCanonicalName(), &quot;value&quot;, typeElement.getAnnotationMirrors());</b>
+&nbsp;
+<b class="nc">&nbsp;    if (typesMirrors.isEmpty()) {</b>
+<b class="nc">&nbsp;      return useIntrospectedInterfacesForServices(typeElement);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return useProvidedTypesForServices(typeElement, typesMirrors);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Set&lt;String&gt; useIntrospectedInterfacesForServices(TypeElement typeElement) {
+<b class="nc">&nbsp;    TypeHierarchyCollector typeHierarchyCollector = new TypeHierarchyCollector();</b>
+<b class="nc">&nbsp;    typeHierarchyCollector.collectFrom(typeElement.asType());</b>
+<b class="nc">&nbsp;    return typeHierarchyCollector.implementedInterfaceNames();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private Set&lt;String&gt; useProvidedTypesForServices(TypeElement typeElement, ImmutableList&lt;TypeMirror&gt; typesMirrors) {
+<b class="nc">&nbsp;    List&lt;String&gt; wrongTypes = Lists.newArrayList();</b>
+<b class="nc">&nbsp;    List&lt;String&gt; types = Lists.newArrayList();</b>
+<b class="nc">&nbsp;    for (TypeMirror typeMirror : typesMirrors) {</b>
+<b class="nc">&nbsp;      if (typeMirror.getKind() != TypeKind.DECLARED</b>
+<b class="nc">&nbsp;          || !processing().getTypeUtils().isAssignable(typeElement.asType(), typeMirror)) {</b>
+<b class="nc">&nbsp;        wrongTypes.add(typeMirror.toString());</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        types.add(typeMirror.toString());</b>
+&nbsp;      }
+<b class="nc">&nbsp;    }</b>
+&nbsp;
+<b class="nc">&nbsp;    if (!wrongTypes.isEmpty()) {</b>
+<b class="nc">&nbsp;      processing().getMessager().printMessage(</b>
+&nbsp;          Diagnostic.Kind.ERROR,
+&nbsp;          &quot;@Metainf.Service(value = {...}) contains types that are not implemented by &quot;
+<b class="nc">&nbsp;              + typeElement.getSimpleName()</b>
+&nbsp;              + &quot;: &quot; + wrongTypes,
+&nbsp;          typeElement,
+<b class="nc">&nbsp;          AnnotationMirrors.findAnnotation(typeElement.getAnnotationMirrors(), Metainf.Service.class));</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    return FluentIterable.from(types).toSet();</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @Nullable
+&nbsp;  private TypeElement validated(Element element) {
+<b class="nc">&nbsp;    Element enclosingElement = element.getEnclosingElement();</b>
+&nbsp;
+<b class="nc">&nbsp;    if (element.getKind() == ElementKind.CLASS</b>
+<b class="nc">&nbsp;        &amp;&amp; element.getModifiers().contains(Modifier.PUBLIC)</b>
+&nbsp;        &amp;&amp; enclosingElement != null) {
+&nbsp;
+<b class="nc">&nbsp;      if (enclosingElement.getKind() == ElementKind.PACKAGE</b>
+<b class="nc">&nbsp;          &amp;&amp; !element.getModifiers().contains(Modifier.ABSTRACT)</b>
+<b class="nc">&nbsp;          &amp;&amp; !((PackageElement) enclosingElement).isUnnamed()) {</b>
+<b class="nc">&nbsp;        return (TypeElement) element;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (enclosingElement.getKind() == ElementKind.CLASS</b>
+<b class="nc">&nbsp;         &amp;&amp; element.getModifiers().contains(Modifier.STATIC)) {</b>
+<b class="nc">&nbsp;          return (TypeElement) element;</b>
+&nbsp;      }
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    processing().getMessager()</b>
+<b class="nc">&nbsp;        .printMessage(Diagnostic.Kind.ERROR,</b>
+&nbsp;            &quot;Element annotated with @Metainf.Service annotation should be public top-level non-abstract or static class in a package&quot;,
+&nbsp;            element);
+&nbsp;
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

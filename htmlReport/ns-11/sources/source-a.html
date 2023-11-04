@@ -1,0 +1,384 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > TupleCodecProvider</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.mongo</a>
+</div>
+
+<h1>Coverage Summary for Class: TupleCodecProvider (org.immutables.criteria.mongo)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TupleCodecProvider</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">TupleCodecProvider$1</td>
+  </tr>
+  <tr>
+    <td class="name">TupleCodecProvider$BsonValueReader</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TupleCodecProvider$FieldDecoder</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/12)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">TupleCodecProvider$TupleCodec</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/50)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.mongo;
+&nbsp;
+&nbsp;import com.google.common.reflect.TypeToken;
+&nbsp;import org.bson.BsonDocument;
+&nbsp;import org.bson.BsonDocumentReader;
+&nbsp;import org.bson.BsonNull;
+&nbsp;import org.bson.BsonReader;
+&nbsp;import org.bson.BsonValue;
+&nbsp;import org.bson.BsonWriter;
+&nbsp;import org.bson.codecs.Codec;
+&nbsp;import org.bson.codecs.Decoder;
+&nbsp;import org.bson.codecs.DecoderContext;
+&nbsp;import org.bson.codecs.EncoderContext;
+&nbsp;import org.bson.codecs.configuration.CodecProvider;
+&nbsp;import org.bson.codecs.configuration.CodecRegistry;
+&nbsp;import org.immutables.criteria.backend.ExpressionNaming;
+&nbsp;import org.immutables.criteria.backend.ProjectedTuple;
+&nbsp;import org.immutables.criteria.expression.Expression;
+&nbsp;import org.immutables.criteria.expression.Query;
+&nbsp;import org.immutables.criteria.mongo.codecs.SimpleRegistry;
+&nbsp;
+&nbsp;import java.lang.reflect.Type;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;
+&nbsp;/**
+&nbsp; * Provider for {@link ProjectedTuple}. Used when there are projections.
+&nbsp; */
+&nbsp;class TupleCodecProvider implements CodecProvider {
+&nbsp;
+&nbsp;  private final Query query;
+&nbsp;  private final ExpressionNaming naming;
+&nbsp;
+<b class="nc">&nbsp;  TupleCodecProvider(Query query, ExpressionNaming naming) {</b>
+<b class="nc">&nbsp;    this.query = Objects.requireNonNull(query, &quot;query&quot;);</b>
+<b class="nc">&nbsp;    this.naming = Objects.requireNonNull(naming, &quot;naming&quot;);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;)
+&nbsp;  @Override
+&nbsp;  public &lt;T&gt; Codec&lt;T&gt; get(Class&lt;T&gt; clazz, CodecRegistry registry) {
+<b class="nc">&nbsp;    if (clazz == ProjectedTuple.class) {</b>
+<b class="nc">&nbsp;      return (Codec&lt;T&gt;) new TupleCodec(registry, query, naming);</b>
+&nbsp;    }
+<b class="nc">&nbsp;    return null;</b>
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class FieldDecoder {</b>
+&nbsp;    private final String mongoField;
+&nbsp;    private final Decoder&lt;?&gt; decoder;
+&nbsp;    private final boolean isNullable;
+&nbsp;
+<b class="nc">&nbsp;    private FieldDecoder(Expression expression, String name, CodecRegistry registry) {</b>
+<b class="nc">&nbsp;      this.mongoField = name;</b>
+<b class="nc">&nbsp;      Type type = expression.returnType();</b>
+<b class="nc">&nbsp;      this.isNullable = !Mongos.isOptional(type);</b>
+<b class="nc">&nbsp;      this.decoder = SimpleRegistry.of(registry).get(TypeToken.of(type));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    Object decode(BsonValue bson) {
+&nbsp;      final Object value;
+<b class="nc">&nbsp;      if (isNullable &amp;&amp; bson.isNull()) {</b>
+&nbsp;        // return NULL if field is nullable and BSON is null
+<b class="nc">&nbsp;        value = null;</b>
+<b class="nc">&nbsp;      } else if (!bson.isDocument()) {</b>
+<b class="nc">&nbsp;        value = decoder.decode(new BsonValueReader(bson), DecoderContext.builder().build());</b>
+&nbsp;      } else {
+<b class="nc">&nbsp;        value = decoder.decode(new BsonDocumentReader(bson.asDocument()), DecoderContext.builder().build());</b>
+&nbsp;      }
+<b class="nc">&nbsp;      return value;</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+<b class="nc">&nbsp;  private static class TupleCodec implements Codec&lt;ProjectedTuple&gt; {</b>
+&nbsp;    private final Query query;
+&nbsp;    private final List&lt;FieldDecoder&gt; decoders;
+&nbsp;    private final CodecRegistry registry;
+&nbsp;
+<b class="nc">&nbsp;    private TupleCodec(CodecRegistry registry, Query query, ExpressionNaming naming) {</b>
+<b class="nc">&nbsp;      this.query = query;</b>
+<b class="nc">&nbsp;      if (query.projections().isEmpty()) {</b>
+<b class="nc">&nbsp;        throw new IllegalArgumentException(String.format(&quot;No projections defined in query %s&quot;, query));</b>
+&nbsp;      }
+<b class="nc">&nbsp;      this.registry = Objects.requireNonNull(registry, &quot;registry&quot;);</b>
+<b class="nc">&nbsp;      this.decoders = query.projections().stream().map(p -&gt; new FieldDecoder(p, naming.name(p), registry)).collect(Collectors.toList());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ProjectedTuple decode(BsonReader reader, DecoderContext context) {
+<b class="nc">&nbsp;      BsonDocument doc = registry.get(BsonDocument.class).decode(reader, context);</b>
+<b class="nc">&nbsp;      final List&lt;Object&gt; values = new ArrayList&lt;&gt;();</b>
+<b class="nc">&nbsp;      for (FieldDecoder field: decoders) {</b>
+<b class="nc">&nbsp;        BsonValue bson = resolveOrNull(doc, Arrays.asList(field.mongoField.split(&quot;\\.&quot;)));</b>
+<b class="nc">&nbsp;        values.add(field.decode(bson));</b>
+<b class="nc">&nbsp;      }</b>
+&nbsp;
+<b class="nc">&nbsp;      return ProjectedTuple.of(query.projections(), values);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    private static BsonValue resolveOrNull(BsonValue value, List&lt;String&gt; paths) {
+<b class="nc">&nbsp;      if (paths.isEmpty()) {</b>
+<b class="nc">&nbsp;        return value;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      if (!value.isDocument()) {</b>
+<b class="nc">&nbsp;        return BsonNull.VALUE;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      BsonDocument document = value.asDocument();</b>
+<b class="nc">&nbsp;      final String first = paths.get(0);</b>
+<b class="nc">&nbsp;      if (!document.containsKey(first)) {</b>
+<b class="nc">&nbsp;        return BsonNull.VALUE;</b>
+&nbsp;      }
+&nbsp;
+<b class="nc">&nbsp;      return resolveOrNull(document.get(first), paths.subList(1, paths.size()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public void encode(BsonWriter writer, ProjectedTuple value, EncoderContext encoderContext) {
+<b class="nc">&nbsp;      throw new UnsupportedOperationException(String.format(&quot;%s can&#39;t encode %s (only decode)&quot;, getClass().getSimpleName(), getEncoderClass().getName()));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public Class&lt;ProjectedTuple&gt; getEncoderClass() {
+<b class="nc">&nbsp;      return ProjectedTuple.class;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Simulates {@link BsonReader} but for a simple (scalar) {@link BsonValue} not {@link BsonDocument}
+&nbsp;   */
+<b class="nc">&nbsp;  private static class BsonValueReader extends BsonDocumentReader {</b>
+&nbsp;
+&nbsp;    private BsonValueReader(BsonValue value) {
+<b class="nc">&nbsp;      super(fromValue(value));</b>
+<b class="nc">&nbsp;      readStartDocument();</b>
+<b class="nc">&nbsp;      String name = readName(); // value</b>
+<b class="nc">&nbsp;      if (!name.equals(&quot;value&quot;)) {</b>
+<b class="nc">&nbsp;        throw new IllegalStateException(String.format(&quot;Expected &#39;value&#39; got %s&quot;, name));</b>
+&nbsp;      }
+&nbsp;      // now marker should be at BsonValue
+&nbsp;    }
+&nbsp;
+&nbsp;    private static BsonDocument fromValue(BsonValue value) {
+<b class="nc">&nbsp;      return value.isDocument() ? value.asDocument() : new BsonDocument(&quot;value&quot;, value);</b>
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

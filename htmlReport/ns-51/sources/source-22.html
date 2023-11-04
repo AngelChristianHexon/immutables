@@ -1,0 +1,198 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Mirrors</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor.encode</a>
+</div>
+
+<h1>Coverage Summary for Class: Mirrors (org.immutables.value.processor.encode)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">Mirrors$Build</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Builder</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Copy</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$EncElement</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$EncMetadata</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Encoding</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Expose</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Impl</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Init</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$IsInit</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Naming</td>
+  </tr>
+  <tr>
+    <td class="name">Mirrors$Of</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp;   Copyright 2016 Immutables Authors and Contributors
+&nbsp;
+&nbsp;   Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp;   you may not use this file except in compliance with the License.
+&nbsp;   You may obtain a copy of the License at
+&nbsp;
+&nbsp;       http://www.apache.org/licenses/LICENSE-2.0
+&nbsp;
+&nbsp;   Unless required by applicable law or agreed to in writing, software
+&nbsp;   distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp;   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp;   See the License for the specific language governing permissions and
+&nbsp;   limitations under the License.
+&nbsp; */
+&nbsp;package org.immutables.value.processor.encode;
+&nbsp;
+&nbsp;import org.immutables.mirror.Mirror;
+&nbsp;
+&nbsp;interface Mirrors {
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding&quot;)
+&nbsp;  @interface Encoding {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Naming&quot;)
+&nbsp;  @interface Naming {
+&nbsp;    String value();
+&nbsp;
+&nbsp;    boolean depluralize() default false;
+&nbsp;
+&nbsp;    StandardNaming standard() default StandardNaming.NONE;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Of&quot;)
+&nbsp;  @interface Of {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Expose&quot;)
+&nbsp;  @interface Expose {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Impl&quot;)
+&nbsp;  @interface Impl {
+&nbsp;    boolean virtual() default false;
+&nbsp;  }
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Copy&quot;)
+&nbsp;  @interface Copy {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Init&quot;)
+&nbsp;  @interface Init {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.IsInit&quot;)
+&nbsp;  @interface IsInit {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Builder&quot;)
+&nbsp;  @interface Builder {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.Encoding.Build&quot;)
+&nbsp;  @interface Build {}
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.EncodingMetadata&quot;)
+&nbsp;  public @interface EncMetadata {
+&nbsp;    String name();
+&nbsp;
+&nbsp;    String[] imports();
+&nbsp;
+&nbsp;    String[] typeParams();
+&nbsp;
+&nbsp;    EncElement[] elements();
+&nbsp;  }
+&nbsp;
+&nbsp;  @Mirror.Annotation(&quot;org.immutables.encode.EncodingMetadata.Element&quot;)
+&nbsp;  public @interface EncElement {
+&nbsp;    String name();
+&nbsp;
+&nbsp;    String type();
+&nbsp;
+&nbsp;    String naming();
+&nbsp;
+&nbsp;    String stdNaming();
+&nbsp;
+&nbsp;    String[] tags();
+&nbsp;
+&nbsp;    String[] typeParams();
+&nbsp;
+&nbsp;    String[] params();
+&nbsp;
+&nbsp;    String[] thrown();
+&nbsp;
+&nbsp;    String[] annotations() default {};
+&nbsp;
+&nbsp;    String[] doc() default {};
+&nbsp;
+&nbsp;    String code();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

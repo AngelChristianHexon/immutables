@@ -1,0 +1,798 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableNoValidation</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.style</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableNoValidation (org.immutables.fixture.style)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableNoValidation$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.style;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.Collections;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.LinkedHashSet;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link NoValidation}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableNoValidation.builder()}.
+&nbsp; * Use the static factory method to create immutable instances:
+&nbsp; * {@code ImmutableNoValidation.of()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;NoValidation&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableNoValidation implements NoValidation {
+&nbsp;  private final String a;
+&nbsp;  private final Integer b;
+&nbsp;  private final boolean z;
+&nbsp;  private final int i;
+&nbsp;  private final List&lt;String&gt; list;
+&nbsp;  private final Set&lt;String&gt; set;
+&nbsp;  private final Map&lt;String, Object&gt; map;
+&nbsp;  private final String c;
+&nbsp;
+&nbsp;  private ImmutableNoValidation(String a, Integer b, boolean z, int i) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;    this.z = z;
+&nbsp;    this.i = i;
+&nbsp;    this.list = Collections.emptyList();
+&nbsp;    this.set = Collections.emptySet();
+&nbsp;    this.map = Collections.emptyMap();
+&nbsp;    this.c = NoValidation.super.c();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNoValidation(ImmutableNoValidation.Builder builder) {
+&nbsp;    this.a = builder.a;
+&nbsp;    this.b = builder.b;
+&nbsp;    this.z = builder.z;
+&nbsp;    this.i = builder.i;
+&nbsp;    this.list = createUnmodifiableList(true, builder.list);
+&nbsp;    this.set = createUnmodifiableSet(builder.set);
+&nbsp;    this.map = createUnmodifiableMap(false, false, builder.map);
+&nbsp;    this.c = builder.cIsSet()
+&nbsp;        ? builder.c
+&nbsp;        : NoValidation.super.c();
+&nbsp;  }
+&nbsp;
+&nbsp;  private ImmutableNoValidation(
+&nbsp;      String a,
+&nbsp;      Integer b,
+&nbsp;      boolean z,
+&nbsp;      int i,
+&nbsp;      List&lt;String&gt; list,
+&nbsp;      Set&lt;String&gt; set,
+&nbsp;      Map&lt;String, Object&gt; map,
+&nbsp;      String c) {
+&nbsp;    this.a = a;
+&nbsp;    this.b = b;
+&nbsp;    this.z = z;
+&nbsp;    this.i = i;
+&nbsp;    this.list = list;
+&nbsp;    this.set = set;
+&nbsp;    this.map = map;
+&nbsp;    this.c = c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code a} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String a() {
+&nbsp;    return a;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code b} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Integer b() {
+&nbsp;    return b;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code z} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean z() {
+&nbsp;    return z;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code i} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int i() {
+&nbsp;    return i;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code list} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; list() {
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code set} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; set() {
+&nbsp;    return set;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code map} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, Object&gt; map() {
+&nbsp;    return map;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code c} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String c() {
+&nbsp;    return c;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoValidation#a() a} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for a (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withA(String value) {
+&nbsp;    if (Objects.equals(this.a, value)) return this;
+&nbsp;    return new ImmutableNoValidation(value, this.b, this.z, this.i, this.list, this.set, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoValidation#b() b} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for b (can be {@code null})
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withB(Integer value) {
+&nbsp;    if (Objects.equals(this.b, value)) return this;
+&nbsp;    return new ImmutableNoValidation(this.a, value, this.z, this.i, this.list, this.set, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoValidation#z() z} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for z
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withZ(boolean value) {
+&nbsp;    if (this.z == value) return this;
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, value, this.i, this.list, this.set, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoValidation#i() i} attribute.
+&nbsp;   * A value equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for i
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withI(int value) {
+&nbsp;    if (this.i == value) return this;
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, value, this.list, this.set, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoValidation#list() list}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withList(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(Arrays.asList(elements), false, false));
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, this.i, newValue, this.set, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoValidation#list() list}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of list elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withList(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.list == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = createUnmodifiableList(false, createSafeList(elements, false, false));
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, this.i, newValue, this.set, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoValidation#set() set}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withSet(String... elements) {
+&nbsp;    Set&lt;String&gt; newValue = createUnmodifiableSet(createSafeList(Arrays.asList(elements), false, false));
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, this.i, this.list, newValue, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link NoValidation#set() set}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of set elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withSet(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.set == elements) return this;
+&nbsp;    Set&lt;String&gt; newValue = createUnmodifiableSet(createSafeList(elements, false, false));
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, this.i, this.list, newValue, this.map, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link NoValidation#map() map} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the map map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withMap(Map&lt;String, ? extends Object&gt; entries) {
+&nbsp;    if (this.map == entries) return this;
+&nbsp;    Map&lt;String, Object&gt; newValue = createUnmodifiableMap(false, false, entries);
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, this.i, this.list, this.set, newValue, this.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link NoValidation#c() c} attribute.
+&nbsp;   * An equals check used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for c
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableNoValidation withC(String value) {
+&nbsp;    String newValue = value;
+&nbsp;    if (this.c.equals(newValue)) return this;
+&nbsp;    return new ImmutableNoValidation(this.a, this.b, this.z, this.i, this.list, this.set, this.map, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableNoValidation} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableNoValidation
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableNoValidation) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableNoValidation another) {
+&nbsp;    return Objects.equals(a, another.a)
+&nbsp;        &amp;&amp; Objects.equals(b, another.b)
+&nbsp;        &amp;&amp; z == another.z
+&nbsp;        &amp;&amp; i == another.i
+&nbsp;        &amp;&amp; list.equals(another.list)
+&nbsp;        &amp;&amp; set.equals(another.set)
+&nbsp;        &amp;&amp; map.equals(another.map)
+&nbsp;        &amp;&amp; c.equals(another.c);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code a}, {@code b}, {@code z}, {@code i}, {@code list}, {@code set}, {@code map}, {@code c}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(a);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(b);
+&nbsp;    h += (h &lt;&lt; 5) + Boolean.hashCode(z);
+&nbsp;    h += (h &lt;&lt; 5) + i;
+&nbsp;    h += (h &lt;&lt; 5) + list.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + set.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + map.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + c.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code NoValidation} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;NoValidation{&quot;
+&nbsp;        + &quot;a=&quot; + a
+&nbsp;        + &quot;, b=&quot; + b
+&nbsp;        + &quot;, z=&quot; + z
+&nbsp;        + &quot;, i=&quot; + i
+&nbsp;        + &quot;, list=&quot; + list
+&nbsp;        + &quot;, set=&quot; + set
+&nbsp;        + &quot;, map=&quot; + map
+&nbsp;        + &quot;, c=&quot; + c
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a new immutable {@code NoValidation} instance.
+&nbsp;   * @param a The value for the {@code a} attribute
+&nbsp;   * @param b The value for the {@code b} attribute
+&nbsp;   * @param z The value for the {@code z} attribute
+&nbsp;   * @param i The value for the {@code i} attribute
+&nbsp;   * @return An immutable NoValidation instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoValidation of(String a, Integer b, boolean z, int i) {
+&nbsp;    return new ImmutableNoValidation(a, b, z, i);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link NoValidation} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable NoValidation instance
+&nbsp;   */
+&nbsp;  public static ImmutableNoValidation copyOf(NoValidation instance) {
+&nbsp;    if (instance instanceof ImmutableNoValidation) {
+&nbsp;      return (ImmutableNoValidation) instance;
+&nbsp;    }
+&nbsp;    return ImmutableNoValidation.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableNoValidation ImmutableNoValidation}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableNoValidation.builder()
+&nbsp;   *    .a(String | null) // nullable {@link NoValidation#a() a}
+&nbsp;   *    .b(Integer | null) // nullable {@link NoValidation#b() b}
+&nbsp;   *    .z(boolean) // optional {@link NoValidation#z() z}
+&nbsp;   *    .i(int) // optional {@link NoValidation#i() i}
+&nbsp;   *    .addList|addAllList(String) // {@link NoValidation#list() list} elements
+&nbsp;   *    .addSet|addAllSet(String) // {@link NoValidation#set() set} elements
+&nbsp;   *    .putMap|putAllMap(String =&amp;gt; Object) // {@link NoValidation#map() map} mappings
+&nbsp;   *    .c(String) // optional {@link NoValidation#c() c}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableNoValidation builder
+&nbsp;   */
+&nbsp;  public static ImmutableNoValidation.Builder builder() {
+&nbsp;    return new ImmutableNoValidation.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableNoValidation ImmutableNoValidation}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;NoValidation&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long OPT_BIT_C = 0x1L;
+&nbsp;    private long optBits;
+&nbsp;
+&nbsp;    private @Nullable String a;
+&nbsp;    private @Nullable Integer b;
+&nbsp;    private boolean z;
+&nbsp;    private int i;
+&nbsp;    private List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+&nbsp;    private List&lt;String&gt; set = new ArrayList&lt;String&gt;();
+&nbsp;    private Map&lt;String, Object&gt; map = new LinkedHashMap&lt;String, Object&gt;();
+&nbsp;    private @Nullable String c;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code NoValidation} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(NoValidation instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      String aValue = instance.a();
+&nbsp;      if (aValue != null) {
+&nbsp;        a(aValue);
+&nbsp;      }
+&nbsp;      Integer bValue = instance.b();
+&nbsp;      if (bValue != null) {
+&nbsp;        b(bValue);
+&nbsp;      }
+&nbsp;      z(instance.z());
+&nbsp;      i(instance.i());
+&nbsp;      addAllList(instance.list());
+&nbsp;      addAllSet(instance.set());
+&nbsp;      putAllMap(instance.map());
+&nbsp;      c(instance.c());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoValidation#a() a} attribute.
+&nbsp;     * @param a The value for a (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder a(String a) {
+&nbsp;      this.a = a;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoValidation#b() b} attribute.
+&nbsp;     * @param b The value for b (can be {@code null})
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder b(Integer b) {
+&nbsp;      this.b = b;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoValidation#z() z} attribute.
+&nbsp;     * @param z The value for z 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder z(boolean z) {
+&nbsp;      this.z = z;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoValidation#i() i} attribute.
+&nbsp;     * @param i The value for i 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder i(int i) {
+&nbsp;      this.i = i;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NoValidation#list() list} list.
+&nbsp;     * @param element A list element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(@Nullable String element) {
+&nbsp;      this.list.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoValidation#list() list} list.
+&nbsp;     * @param elements An array of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addList(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.list.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NoValidation#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder list(Iterable&lt;String&gt; elements) {
+&nbsp;      this.list.clear();
+&nbsp;      return addAllList(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoValidation#list() list} list.
+&nbsp;     * @param elements An iterable of list elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllList(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.list.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link NoValidation#set() set} set.
+&nbsp;     * @param element A set element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(@Nullable String element) {
+&nbsp;      this.set.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoValidation#set() set} set.
+&nbsp;     * @param elements An array of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addSet(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.set.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link NoValidation#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder set(Iterable&lt;String&gt; elements) {
+&nbsp;      this.set.clear();
+&nbsp;      return addAllSet(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link NoValidation#set() set} set.
+&nbsp;     * @param elements An iterable of set elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllSet(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.set.add(element);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoValidation#map() map} map.
+&nbsp;     * @param key The key in the map map
+&nbsp;     * @param value The associated value in the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(@Nullable String key, @Nullable Object value) {
+&nbsp;      this.map.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link NoValidation#map() map} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putMap(Map.Entry&lt;String, ? extends Object&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      Object v = entry.getValue();
+&nbsp;      this.map.put(k, v);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link NoValidation#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder map(Map&lt;String, ? extends Object&gt; entries) {
+&nbsp;      this.map.clear();
+&nbsp;      return putAllMap(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link NoValidation#map() map} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the map map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllMap(Map&lt;String, ? extends Object&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends Object&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        Object v = e.getValue();
+&nbsp;        this.map.put(k, v);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link NoValidation#c() c} attribute.
+&nbsp;     * &lt;p&gt;&lt;em&gt;If not set, this attribute will have a default value as returned by the initializer of {@link NoValidation#c() c}.&lt;/em&gt;
+&nbsp;     * @param c The value for c 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder c(String c) {
+&nbsp;      this.c = c;
+&nbsp;      optBits |= OPT_BIT_C;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableNoValidation ImmutableNoValidation}.
+&nbsp;     * @return An immutable instance of NoValidation
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableNoValidation build() {
+&nbsp;      return new ImmutableNoValidation(this);
+&nbsp;    }
+&nbsp;
+&nbsp;    private boolean cIsSet() {
+&nbsp;      return (optBits &amp; OPT_BIT_C) != 0;
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createSafeList(Iterable&lt;? extends T&gt; iterable, boolean checkNulls, boolean skipNulls) {
+&nbsp;    ArrayList&lt;T&gt; list;
+&nbsp;    if (iterable instanceof Collection&lt;?&gt;) {
+&nbsp;      int size = ((Collection&lt;?&gt;) iterable).size();
+&nbsp;      if (size == 0) return Collections.emptyList();
+&nbsp;      list = new ArrayList&lt;&gt;(size);
+&nbsp;    } else {
+&nbsp;      list = new ArrayList&lt;&gt;();
+&nbsp;    }
+&nbsp;    for (T element : iterable) {
+&nbsp;      if (skipNulls &amp;&amp; element == null) continue;
+&nbsp;      if (checkNulls) Objects.requireNonNull(element, &quot;element&quot;);
+&nbsp;      list.add(element);
+&nbsp;    }
+&nbsp;    return list;
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;T&gt; List&lt;T&gt; createUnmodifiableList(boolean clone, List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptyList();
+&nbsp;    case 1: return Collections.singletonList(list.get(0));
+&nbsp;    default:
+&nbsp;      if (clone) {
+&nbsp;        return Collections.unmodifiableList(new ArrayList&lt;&gt;(list));
+&nbsp;      } else {
+&nbsp;        if (list instanceof ArrayList&lt;?&gt;) {
+&nbsp;          ((ArrayList&lt;?&gt;) list).trimToSize();
+&nbsp;        }
+&nbsp;        return Collections.unmodifiableList(list);
+&nbsp;      }
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  /** Unmodifiable set constructed from list to avoid rehashing. */
+&nbsp;  private static &lt;T&gt; Set&lt;T&gt; createUnmodifiableSet(List&lt;T&gt; list) {
+&nbsp;    switch(list.size()) {
+&nbsp;    case 0: return Collections.emptySet();
+&nbsp;    case 1: return Collections.singleton(list.get(0));
+&nbsp;    default:
+&nbsp;      Set&lt;T&gt; set = new LinkedHashSet&lt;&gt;(list.size() * 4 / 3 + 1);
+&nbsp;      set.addAll(list);
+&nbsp;      return Collections.unmodifiableSet(set);
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private static &lt;K, V&gt; Map&lt;K, V&gt; createUnmodifiableMap(boolean checkNulls, boolean skipNulls, Map&lt;? extends K, ? extends V&gt; map) {
+&nbsp;    switch (map.size()) {
+&nbsp;    case 0: return Collections.emptyMap();
+&nbsp;    case 1: {
+&nbsp;      Map.Entry&lt;? extends K, ? extends V&gt; e = map.entrySet().iterator().next();
+&nbsp;      K k = e.getKey();
+&nbsp;      V v = e.getValue();
+&nbsp;      if (checkNulls) {
+&nbsp;        Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;        Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;      }
+&nbsp;      if (skipNulls &amp;&amp; (k == null || v == null)) {
+&nbsp;        return Collections.emptyMap();
+&nbsp;      }
+&nbsp;      return Collections.singletonMap(k, v);
+&nbsp;    }
+&nbsp;    default: {
+&nbsp;      Map&lt;K, V&gt; linkedMap = new LinkedHashMap&lt;&gt;(map.size() * 4 / 3 + 1);
+&nbsp;      if (skipNulls || checkNulls) {
+&nbsp;        for (java.util.Map.Entry&lt;? extends K, ? extends V&gt; e : map.entrySet()) {
+&nbsp;          K k = e.getKey();
+&nbsp;          V v = e.getValue();
+&nbsp;          if (skipNulls) {
+&nbsp;            if (k == null || v == null) continue;
+&nbsp;          } else if (checkNulls) {
+&nbsp;            java.util.Objects.requireNonNull(k, &quot;key&quot;);
+&nbsp;            java.util.Objects.requireNonNull(v, v == null ? &quot;value for key: &quot; + k : null);
+&nbsp;          }
+&nbsp;          linkedMap.put(k, v);
+&nbsp;        }
+&nbsp;      } else {
+&nbsp;        linkedMap.putAll(map);
+&nbsp;      }
+&nbsp;      return java.util.Collections.unmodifiableMap(linkedMap);
+&nbsp;    }
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

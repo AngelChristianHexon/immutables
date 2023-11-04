@@ -1,0 +1,142 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > RxJavaFetcher</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.criteria.repository.rxjava2</a>
+</div>
+
+<h1>Coverage Summary for Class: RxJavaFetcher (org.immutables.criteria.repository.rxjava2)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">RxJavaFetcher$DistinctLimitOffset</td>
+  </tr>
+  <tr>
+    <td class="name">RxJavaFetcher$LimitOffset</td>
+  </tr>
+  <tr>
+    <td class="name">RxJavaFetcher$Offset</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; * Copyright 2019 Immutables Authors and Contributors
+&nbsp; *
+&nbsp; * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; * you may not use this file except in compliance with the License.
+&nbsp; * You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *  http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; * Unless required by applicable law or agreed to in writing, software
+&nbsp; * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; * See the License for the specific language governing permissions and
+&nbsp; * limitations under the License.
+&nbsp; */
+&nbsp;
+&nbsp;package org.immutables.criteria.repository.rxjava2;
+&nbsp;
+&nbsp;import io.reactivex.Flowable;
+&nbsp;import io.reactivex.Maybe;
+&nbsp;import io.reactivex.Single;
+&nbsp;import org.immutables.criteria.backend.NonUniqueResultException;
+&nbsp;import org.immutables.criteria.repository.Fetcher;
+&nbsp;
+&nbsp;public interface RxJavaFetcher&lt;T&gt; extends Fetcher&lt;T&gt; {
+&nbsp;
+&nbsp;  Flowable&lt;T&gt; fetch();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that &lt;i&gt;exactly one&lt;/i&gt; element is matched by current query and return it.
+&nbsp;   * @return Single with matched element or {@link NonUniqueResultException} if result size is not one
+&nbsp;   */
+&nbsp;  Single&lt;T&gt; one();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that &lt;i&gt;at most one&lt;/i&gt; element is matched by current query and return it (if available).
+&nbsp;   * @return Maybe as result or {@link NonUniqueResultException}
+&nbsp;   */
+&nbsp;  Maybe&lt;T&gt; oneOrNone();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Check that current query matches any elements.
+&nbsp;   * @return Single with {@code true} if there are any matches / {@code false} otherwise
+&nbsp;   */
+&nbsp;  Single&lt;Boolean&gt; exists();
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Count number of elements to be returned. Similar to {@code COUNT(*)} in SQL.
+&nbsp;   * @return Single with number of elements
+&nbsp;   */
+&nbsp;  Single&lt;Long&gt; count();
+&nbsp;
+&nbsp;  interface DistinctLimitOffset&lt;T&gt; extends LimitOffset&lt;T&gt; {
+&nbsp;    LimitOffset&lt;T&gt; distinct();
+&nbsp;  }
+&nbsp;
+&nbsp;  interface LimitOffset&lt;T&gt; extends Offset&lt;T&gt; {
+&nbsp;    Offset&lt;T&gt; limit(long limit);
+&nbsp;  }
+&nbsp;
+&nbsp;  interface Offset&lt;T&gt; extends RxJavaFetcher&lt;T&gt; {
+&nbsp;    RxJavaFetcher&lt;T&gt; offset(long offset);
+&nbsp;  }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

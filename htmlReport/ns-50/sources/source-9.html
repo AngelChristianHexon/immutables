@@ -1,0 +1,443 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Generator_CriteriaRepository</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.value.processor</a>
+</div>
+
+<h1>Coverage Summary for Class: Generator_CriteriaRepository (org.immutables.value.processor)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Generator_CriteriaRepository</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/159)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Generator_CriteriaRepository$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_CriteriaRepository$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_CriteriaRepository$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/11)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">Generator_CriteriaRepository$FragmentDispatch</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/28)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/187)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.value.processor;
+&nbsp;
+&nbsp;import static org.immutables.generator.Intrinsics.*;
+&nbsp;
+&nbsp;@java.lang.SuppressWarnings(&quot;all&quot;)
+<b class="nc">&nbsp;public class Generator_CriteriaRepository extends org.immutables.value.processor.CriteriaRepository {</b>
+<b class="nc">&nbsp;public org.immutables.generator.Templates.Invokable generate() { return generate; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generate = new FragmentDispatch(0, 0);</b>
+&nbsp;void _t0__generate(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.ValueType type : $in(values.values())) {</b>
+<b class="nc">&nbsp;  if ($if(type.isGenerateCriteriaRepository())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(type.kind().isValue(), or, type.kind().isJavaBean()))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      $(__, output.java, type.$$package(), $(type.name(), &quot;Repository&quot;), type.element, new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;      @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        $(__, type.sourceHeader());</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        $(__, generateRepository, type);</b>
+<b class="nc">&nbsp;        __.ln();</b>
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }});
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+&nbsp;      
+&nbsp;    } else {
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      $(__, output.error, new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;      @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;        __.dl();__.ln();</b>
+<b class="nc">&nbsp;        __.out(&quot;Use @Criteria.Repository to annotate @Value.Immutable abstract value types with no type variables&quot;).ln();</b>
+<b class="nc">&nbsp;        __.dl();</b>
+&nbsp;      }});
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;
+<b class="nc">&nbsp;org.immutables.generator.Templates.Invokable generateRepository() { return generateRepository; }</b>
+<b class="nc">&nbsp;private final org.immutables.generator.Templates.Invokable generateRepository = new FragmentDispatch(1, 1);</b>
+&nbsp;void _t1__generateRepository(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;  __.dl();final org.immutables.value.processor.meta.ValueType type = $cast(__.param(0));</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if(type.$$package())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;package &quot;);</b>
+<b class="nc">&nbsp;    $(__, type.$$package());</b>
+<b class="nc">&nbsp;    __.out(&quot;;&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final java.lang.String starImport : $in(type.getRequiredSourceStarImports())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;import &quot;);</b>
+<b class="nc">&nbsp;    $(__, starImport);</b>
+<b class="nc">&nbsp;    __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.criteria.backend.Backend;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import org.immutables.criteria.repository.Repository;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;import java.util.Objects;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;/**&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * A {@code &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository} provides access for storing and retrieving objects&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; * from a generic data-source based on {@link &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Criteria}.&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot; */&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(type, allowsClasspathAnnotation, &quot;[jaxarta].annotation.concurrent.ThreadSafe&quot;))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;@&quot;);</b>
+<b class="nc">&nbsp;    $(__, jaxarta());</b>
+<b class="nc">&nbsp;    __.out(&quot;.annotation.concurrent.ThreadSafe&quot;).ln();</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument().access());</b>
+<b class="nc">&nbsp;  __.out(&quot;class &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository implements Repository&lt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;  __.out(&quot;&gt;&quot;);</b>
+<b class="nc">&nbsp;  $(__, output.trim, new org.immutables.generator.Templates.Fragment(0) {</b>
+&nbsp;  @Override public void run(org.immutables.generator.Templates.Invokation __) {
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.RepositoryModel.Facet facet : $in(type.getCriteriaRepository().facets())) {</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot;, &quot;);</b>
+<b class="nc">&nbsp;      $(__, facet.interfaceType());</b>
+<b class="nc">&nbsp;      __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;      _it1.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.out(&quot; {&quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+&nbsp;  }});
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  private final Backend backend;&quot;).ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.RepositoryModel.Facet facet : $in(type.getCriteriaRepository().facets())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  private final &quot;);</b>
+<b class="nc">&nbsp;    $(__, facet.fieldType());</b>
+<b class="nc">&nbsp;    __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;    $(__, facet.name());</b>
+<b class="nc">&nbsp;    __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;  &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;  $(__, type.name());</b>
+<b class="nc">&nbsp;  __.out(&quot;Repository(Backend backend) {&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    this.backend = Objects.requireNonNull(backend, \&quot;backend\&quot;);&quot;).ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;  __.dl();</b>
+<b class="nc">&nbsp;  if ($if($(not, type.getCriteriaRepository().facets().isEmpty()))) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    final Backend.Session session = backend.open(&quot;);</b>
+<b class="nc">&nbsp;    $(__, type.typeDocument());</b>
+<b class="nc">&nbsp;    __.out(&quot;.class);&quot;).ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+&nbsp;    
+&nbsp;  }
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.RepositoryModel.Facet facet : $in(type.getCriteriaRepository().facets())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;    __.dl();</b>
+<b class="nc">&nbsp;    if ($if($(not, facet.constructor().isEmpty()))) {</b>
+<b class="nc">&nbsp;      __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;      $(__, facet.constructor().code);</b>
+<b class="nc">&nbsp;      __.out(&quot;;&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;    &quot;);</b>
+&nbsp;      
+&nbsp;    }
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.out(&quot;    &quot;);</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;  {final org.immutables.generator.Templates.Iteration _it1 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;  for (final org.immutables.value.processor.meta.RepositoryModel.Facet facet : $in(type.getCriteriaRepository().facets())) {</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;    {final org.immutables.generator.Templates.Iteration _it2 = new org.immutables.generator.Templates.Iteration();</b>
+<b class="nc">&nbsp;    for (final org.immutables.value.processor.meta.RepositoryModel.DelegateMethod method : $in(facet.methods())) {</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  @Override&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  public &quot;);</b>
+<b class="nc">&nbsp;      $(__, method.returnType());</b>
+<b class="nc">&nbsp;      __.out(&quot; &quot;);</b>
+<b class="nc">&nbsp;      $(__, method.name());</b>
+<b class="nc">&nbsp;      __.out(&quot;(&quot;);</b>
+<b class="nc">&nbsp;      $(__, method.parameters());</b>
+<b class="nc">&nbsp;      __.out(&quot;) {&quot;).ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;     &quot;);</b>
+<b class="nc">&nbsp;      $(__, method.body());</b>
+<b class="nc">&nbsp;      __.ln();</b>
+<b class="nc">&nbsp;      __.out(&quot;  }&quot;).ln();</b>
+<b class="nc">&nbsp;      __.dl();_it2.index++;</b>
+<b class="nc">&nbsp;      _it2.first = false;</b>
+<b class="nc">&nbsp;    }}</b>
+<b class="nc">&nbsp;    __.dl();__.ln();</b>
+<b class="nc">&nbsp;    __.dl();_it1.index++;</b>
+<b class="nc">&nbsp;    _it1.first = false;</b>
+<b class="nc">&nbsp;  }}</b>
+<b class="nc">&nbsp;  __.dl();__.ln();</b>
+<b class="nc">&nbsp;  __.out(&quot;}&quot;).ln();</b>
+<b class="nc">&nbsp;  __.dl();</b>
+&nbsp;};
+&nbsp;private class FragmentDispatch extends org.immutables.generator.Templates.Fragment{
+&nbsp;private final int index;
+<b class="nc">&nbsp;FragmentDispatch(int arity, int index){</b>
+<b class="nc">&nbsp;super(arity);</b>
+<b class="nc">&nbsp;this.index = index;</b>
+&nbsp;}
+&nbsp;@Override public void run(org.immutables.generator.Templates.Invokation invokation){
+<b class="nc">&nbsp;  switch (index){</b>
+<b class="nc">&nbsp;  case 0: _t0__generate(invokation); break;</b>
+<b class="nc">&nbsp;  case 1: _t1__generateRepository(invokation); break;</b>
+&nbsp;  default: break;
+&nbsp;}}}
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

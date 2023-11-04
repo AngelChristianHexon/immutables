@@ -1,0 +1,401 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableFromNullCollection</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.nullable</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableFromNullCollection (org.immutables.fixture.nullable)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableFromNullCollection$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.nullable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.collect.ImmutableList;
+&nbsp;import com.google.common.collect.ImmutableMap;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link FromNullCollection}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableFromNullCollection.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;FromNullCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableFromNullCollection implements FromNullCollection {
+&nbsp;  private final @Nullable ImmutableList&lt;String&gt; items;
+&nbsp;  private final @Nullable ImmutableMap&lt;Integer, String&gt; freq;
+&nbsp;
+&nbsp;  private ImmutableFromNullCollection(
+&nbsp;      @Nullable ImmutableList&lt;String&gt; items,
+&nbsp;      @Nullable ImmutableMap&lt;Integer, String&gt; freq) {
+&nbsp;    this.items = items;
+&nbsp;    this.freq = freq;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code items} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableList&lt;String&gt; getItems() {
+&nbsp;    return items;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code freq} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public @Nullable ImmutableMap&lt;Integer, String&gt; getFreq() {
+&nbsp;    return freq;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link FromNullCollection#getItems() items}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFromNullCollection withItems(@Nullable String... elements) {
+&nbsp;    if (elements == null) {
+&nbsp;      return new ImmutableFromNullCollection(null, this.freq);
+&nbsp;    }
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableFromNullCollection(newValue, this.freq);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link FromNullCollection#getItems() items}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of items elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFromNullCollection withItems(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.items == elements) return this;
+&nbsp;    @Nullable ImmutableList&lt;String&gt; newValue = elements == null ? null : ImmutableList.copyOf(elements);
+&nbsp;    return new ImmutableFromNullCollection(newValue, this.freq);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link FromNullCollection#getFreq() freq} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the freq map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableFromNullCollection withFreq(@Nullable Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;    if (this.freq == entries) return this;
+&nbsp;    @Nullable ImmutableMap&lt;Integer, String&gt; newValue = entries == null ? null : ImmutableMap.copyOf(entries);
+&nbsp;    return new ImmutableFromNullCollection(this.items, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableFromNullCollection} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableFromNullCollection
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableFromNullCollection) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableFromNullCollection another) {
+&nbsp;    return Objects.equals(items, another.items)
+&nbsp;        &amp;&amp; Objects.equals(freq, another.freq);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code items}, {@code freq}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(items);
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(freq);
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code FromNullCollection} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;FromNullCollection&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;items&quot;, items)
+&nbsp;        .add(&quot;freq&quot;, freq)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link FromNullCollection} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable FromNullCollection instance
+&nbsp;   */
+&nbsp;  public static ImmutableFromNullCollection copyOf(FromNullCollection instance) {
+&nbsp;    if (instance instanceof ImmutableFromNullCollection) {
+&nbsp;      return (ImmutableFromNullCollection) instance;
+&nbsp;    }
+&nbsp;    return ImmutableFromNullCollection.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableFromNullCollection ImmutableFromNullCollection}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableFromNullCollection.builder()
+&nbsp;   *    .items(List&amp;amp;lt;String&amp;amp;gt; | null) // nullable {@link FromNullCollection#getItems() items}
+&nbsp;   *    .freq(Map&amp;amp;lt;Integer, String&amp;amp;gt; | null) // nullable {@link FromNullCollection#getFreq() freq}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableFromNullCollection builder
+&nbsp;   */
+&nbsp;  public static ImmutableFromNullCollection.Builder builder() {
+&nbsp;    return new ImmutableFromNullCollection.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableFromNullCollection ImmutableFromNullCollection}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;FromNullCollection&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private ImmutableList.Builder&lt;String&gt; items = null;
+&nbsp;    private ImmutableMap.Builder&lt;Integer, String&gt; freq = null;
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code FromNullCollection} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(FromNullCollection instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      @Nullable List&lt;String&gt; itemsValue = instance.getItems();
+&nbsp;      if (itemsValue != null) {
+&nbsp;        addAllItems(itemsValue);
+&nbsp;      }
+&nbsp;      @Nullable Map&lt;Integer, String&gt; freqValue = instance.getFreq();
+&nbsp;      if (freqValue != null) {
+&nbsp;        putAllFreq(freqValue);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link FromNullCollection#getItems() items} list.
+&nbsp;     * @param element A items element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addItems(String element) {
+&nbsp;      if (this.items == null) {
+&nbsp;        this.items = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.items.add(element);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link FromNullCollection#getItems() items} list.
+&nbsp;     * @param elements An array of items elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addItems(String... elements) {
+&nbsp;      if (this.items == null) {
+&nbsp;        this.items = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.items.add(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link FromNullCollection#getItems() items} list.
+&nbsp;     * @param elements An iterable of items elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder items(@Nullable Iterable&lt;String&gt; elements) {
+&nbsp;      if (elements == null) {
+&nbsp;        this.items = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.items = ImmutableList.builder();
+&nbsp;      return addAllItems(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link FromNullCollection#getItems() items} list.
+&nbsp;     * @param elements An iterable of items elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllItems(Iterable&lt;String&gt; elements) {
+&nbsp;      Objects.requireNonNull(elements, &quot;items element&quot;);
+&nbsp;      if (this.items == null) {
+&nbsp;        this.items = ImmutableList.builder();
+&nbsp;      }
+&nbsp;      this.items.addAll(elements);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link FromNullCollection#getFreq() freq} map.
+&nbsp;     * @param key The key in the freq map
+&nbsp;     * @param value The associated value in the freq map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putFreq(int key, String value) {
+&nbsp;      if (this.freq == null) {
+&nbsp;        this.freq = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.freq.put(key, value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link FromNullCollection#getFreq() freq} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putFreq(Map.Entry&lt;Integer, ? extends String&gt; entry) {
+&nbsp;      if (this.freq == null) {
+&nbsp;        this.freq = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.freq.put(entry);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link FromNullCollection#getFreq() freq} map. Nulls are not permitted as keys or values, but parameter itself can be null
+&nbsp;     * @param entries The entries that will be added to the freq map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder freq(@Nullable Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      if (entries == null) {
+&nbsp;        this.freq = null;
+&nbsp;        return this;
+&nbsp;      }
+&nbsp;      this.freq = ImmutableMap.builder();
+&nbsp;      return putAllFreq(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link FromNullCollection#getFreq() freq} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the freq map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllFreq(Map&lt;Integer, ? extends String&gt; entries) {
+&nbsp;      if (this.freq == null) {
+&nbsp;        this.freq = ImmutableMap.builder();
+&nbsp;      }
+&nbsp;      this.freq.putAll(entries);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableFromNullCollection ImmutableFromNullCollection}.
+&nbsp;     * @return An immutable instance of FromNullCollection
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableFromNullCollection build() {
+&nbsp;      return new ImmutableFromNullCollection(items == null ? null : items.build(), freq == null ? null : freq.build());
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

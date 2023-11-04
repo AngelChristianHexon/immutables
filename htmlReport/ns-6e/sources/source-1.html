@@ -1,0 +1,477 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableJdk9Collections</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.jdk</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableJdk9Collections (org.immutables.fixture.jdk)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableJdk9Collections$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.jdk;
+&nbsp;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Collection;
+&nbsp;import java.util.LinkedHashMap;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Map;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.Set;
+&nbsp;import java.util.stream.Collectors;
+&nbsp;import java.util.stream.StreamSupport;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Jdk9Collections}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableJdk9Collections.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Jdk9Collections&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableJdk9Collections implements Jdk9Collections {
+&nbsp;  private final Set&lt;String&gt; s;
+&nbsp;  private final List&lt;String&gt; l;
+&nbsp;  private final Map&lt;String, Integer&gt; m;
+&nbsp;
+&nbsp;  private ImmutableJdk9Collections(
+&nbsp;      Set&lt;String&gt; s,
+&nbsp;      List&lt;String&gt; l,
+&nbsp;      Map&lt;String, Integer&gt; m) {
+&nbsp;    this.s = s;
+&nbsp;    this.l = l;
+&nbsp;    this.m = m;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code s} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Set&lt;String&gt; s() {
+&nbsp;    return s;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code l} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public List&lt;String&gt; l() {
+&nbsp;    return l;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code m} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Map&lt;String, Integer&gt; m() {
+&nbsp;    return m;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Jdk9Collections#s() s}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdk9Collections withS(String... elements) {
+&nbsp;    Set&lt;String&gt; newValue = Set.of(elements);
+&nbsp;    return new ImmutableJdk9Collections(newValue, this.l, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Jdk9Collections#s() s}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of s elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdk9Collections withS(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.s == elements) return this;
+&nbsp;    Set&lt;String&gt; newValue = elements instanceof Collection&lt;?&gt;
+&nbsp;        ? Set.copyOf((Collection&lt;String&gt;) elements)
+&nbsp;        : StreamSupport.stream(elements.spliterator(), false)
+&nbsp;            .collect(Collectors.toUnmodifiableSet());
+&nbsp;    return new ImmutableJdk9Collections(newValue, this.l, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Jdk9Collections#l() l}.
+&nbsp;   * @param elements The elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdk9Collections withL(String... elements) {
+&nbsp;    List&lt;String&gt; newValue = List.of(elements);
+&nbsp;    return new ImmutableJdk9Collections(this.s, newValue, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object with elements that replace the content of {@link Jdk9Collections#l() l}.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param elements An iterable of l elements to set
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdk9Collections withL(Iterable&lt;String&gt; elements) {
+&nbsp;    if (this.l == elements) return this;
+&nbsp;    List&lt;String&gt; newValue = elements instanceof Collection&lt;?&gt;
+&nbsp;        ? List.copyOf((Collection&lt;String&gt;) elements)
+&nbsp;        : StreamSupport.stream(elements.spliterator(), false)
+&nbsp;            .collect(Collectors.toUnmodifiableList());
+&nbsp;    return new ImmutableJdk9Collections(this.s, newValue, this.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by replacing the {@link Jdk9Collections#m() m} map with the specified map.
+&nbsp;   * Nulls are not permitted as keys or values.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param entries The entries to be added to the m map
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableJdk9Collections withM(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;    if (this.m == entries) return this;
+&nbsp;    Map&lt;String, Integer&gt; newValue = Map.copyOf(entries);
+&nbsp;    return new ImmutableJdk9Collections(this.s, this.l, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableJdk9Collections} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableJdk9Collections
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableJdk9Collections) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableJdk9Collections another) {
+&nbsp;    return s.equals(another.s)
+&nbsp;        &amp;&amp; l.equals(another.l)
+&nbsp;        &amp;&amp; m.equals(another.m);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code s}, {@code l}, {@code m}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + s.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + l.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + m.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Jdk9Collections} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return &quot;Jdk9Collections{&quot;
+&nbsp;        + &quot;s=&quot; + s
+&nbsp;        + &quot;, l=&quot; + l
+&nbsp;        + &quot;, m=&quot; + m
+&nbsp;        + &quot;}&quot;;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Jdk9Collections} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Jdk9Collections instance
+&nbsp;   */
+&nbsp;  public static ImmutableJdk9Collections copyOf(Jdk9Collections instance) {
+&nbsp;    if (instance instanceof ImmutableJdk9Collections) {
+&nbsp;      return (ImmutableJdk9Collections) instance;
+&nbsp;    }
+&nbsp;    return ImmutableJdk9Collections.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableJdk9Collections ImmutableJdk9Collections}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableJdk9Collections.builder()
+&nbsp;   *    .addS|addAllS(String) // {@link Jdk9Collections#s() s} elements
+&nbsp;   *    .addL|addAllL(String) // {@link Jdk9Collections#l() l} elements
+&nbsp;   *    .putM|putAllM(String =&amp;gt; int) // {@link Jdk9Collections#m() m} mappings
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableJdk9Collections builder
+&nbsp;   */
+&nbsp;  public static ImmutableJdk9Collections.Builder builder() {
+&nbsp;    return new ImmutableJdk9Collections.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableJdk9Collections ImmutableJdk9Collections}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Jdk9Collections&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private List&lt;String&gt; s = new ArrayList&lt;String&gt;();
+&nbsp;    private List&lt;String&gt; l = new ArrayList&lt;String&gt;();
+&nbsp;    private Map&lt;String, Integer&gt; m = new LinkedHashMap&lt;String, Integer&gt;();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Jdk9Collections} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * Collection elements and entries will be added, not replaced.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Jdk9Collections instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      addAllS(instance.s());
+&nbsp;      addAllL(instance.l());
+&nbsp;      putAllM(instance.m());
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Jdk9Collections#s() s} set.
+&nbsp;     * @param element A s element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addS(String element) {
+&nbsp;      this.s.add(Objects.requireNonNull(element, &quot;s element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Jdk9Collections#s() s} set.
+&nbsp;     * @param elements An array of s elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addS(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.s.add(Objects.requireNonNull(element, &quot;s element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Jdk9Collections#s() s} set.
+&nbsp;     * @param elements An iterable of s elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder s(Iterable&lt;String&gt; elements) {
+&nbsp;      this.s.clear();
+&nbsp;      return addAllS(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Jdk9Collections#s() s} set.
+&nbsp;     * @param elements An iterable of s elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllS(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.s.add(Objects.requireNonNull(element, &quot;s element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds one element to {@link Jdk9Collections#l() l} list.
+&nbsp;     * @param element A l element
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(String element) {
+&nbsp;      this.l.add(Objects.requireNonNull(element, &quot;l element&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Jdk9Collections#l() l} list.
+&nbsp;     * @param elements An array of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addL(String... elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.l.add(Objects.requireNonNull(element, &quot;l element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all elements for {@link Jdk9Collections#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder l(Iterable&lt;String&gt; elements) {
+&nbsp;      this.l.clear();
+&nbsp;      return addAllL(elements);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Adds elements to {@link Jdk9Collections#l() l} list.
+&nbsp;     * @param elements An iterable of l elements
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder addAllL(Iterable&lt;String&gt; elements) {
+&nbsp;      for (String element : elements) {
+&nbsp;        this.l.add(Objects.requireNonNull(element, &quot;l element&quot;));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Jdk9Collections#m() m} map.
+&nbsp;     * @param key The key in the m map
+&nbsp;     * @param value The associated value in the m map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putM(String key, int value) {
+&nbsp;      this.m.put(
+&nbsp;          Objects.requireNonNull(key, &quot;m key&quot;),
+&nbsp;          value);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put one entry to the {@link Jdk9Collections#m() m} map. Nulls are not permitted
+&nbsp;     * @param entry The key and value entry
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putM(Map.Entry&lt;String, ? extends Integer&gt; entry) {
+&nbsp;      String k = entry.getKey();
+&nbsp;      Integer v = entry.getValue();
+&nbsp;      this.m.put(
+&nbsp;          Objects.requireNonNull(k, &quot;m key&quot;),
+&nbsp;          Objects.requireNonNull(v, v == null ? &quot;m value for key: &quot; + k : null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets or replaces all mappings from the specified map as entries for the {@link Jdk9Collections#m() m} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the m map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder m(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      this.m.clear();
+&nbsp;      return putAllM(entries);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Put all mappings from the specified map as entries to {@link Jdk9Collections#m() m} map. Nulls are not permitted
+&nbsp;     * @param entries The entries that will be added to the m map
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder putAllM(Map&lt;String, ? extends Integer&gt; entries) {
+&nbsp;      for (Map.Entry&lt;String, ? extends Integer&gt; e : entries.entrySet()) {
+&nbsp;        String k = e.getKey();
+&nbsp;        Integer v = e.getValue();
+&nbsp;        this.m.put(
+&nbsp;            Objects.requireNonNull(k, &quot;m key&quot;),
+&nbsp;            Objects.requireNonNull(v, v == null ? &quot;m value for key: &quot; + k : null));
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableJdk9Collections ImmutableJdk9Collections}.
+&nbsp;     * @return An immutable instance of Jdk9Collections
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableJdk9Collections build() {
+&nbsp;      return new ImmutableJdk9Collections(Set.copyOf(s), List.copyOf(l), Map.copyOf(m));
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

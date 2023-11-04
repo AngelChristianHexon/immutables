@@ -1,0 +1,311 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ModifiableSmall</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.modifiable</a>
+</div>
+
+<h1>Coverage Summary for Class: ModifiableSmall (org.immutables.fixture.modifiable)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">ModifiableSmall</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.modifiable;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;
+&nbsp;/**
+&nbsp; * A modifiable implementation of the {@link Companion.Small Small} type.
+&nbsp; * &lt;p&gt;Use the constructor to create new modifiable instances. You may even extend this class to
+&nbsp; * add some convenience methods, however most of the methods in this class are final
+&nbsp; * to preserve safety and predictable invariants.
+&nbsp; * &lt;p&gt;&lt;em&gt;ModifiableSmall is not thread-safe&lt;/em&gt;
+&nbsp; */
+&nbsp;@Generated(from = &quot;Companion.Small&quot;, generator = &quot;Modifiables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated({&quot;Modifiables.generator&quot;, &quot;Companion.Small&quot;})
+&nbsp;@NotThreadSafe
+&nbsp;public class ModifiableSmall implements Companion.Small {
+&nbsp;  private static final long INIT_BIT_FIRST = 0x1L;
+&nbsp;  private static final long INIT_BIT_SECOND = 0x2L;
+&nbsp;  private long initBits = 0x3L;
+&nbsp;
+&nbsp;  private int first;
+&nbsp;  private String second;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Small}.
+&nbsp;   * @param first The value for the {@code first} attribute 
+&nbsp;   * @param second The value for the {@code second} attribute 
+&nbsp;   */
+&nbsp;  public ModifiableSmall(int first, String second) {
+&nbsp;    setFirst(first);
+&nbsp;    setSecond(second);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Construct a modifiable instance of {@code Small}.
+&nbsp;   */
+&nbsp;  public ModifiableSmall() {}
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code first} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final int first() {
+&nbsp;    if (!firstIsSet()) checkRequiredAttributes();
+&nbsp;    return first;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return value of {@code second} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public final String second() {
+&nbsp;    if (!secondIsSet()) checkRequiredAttributes();
+&nbsp;    return second;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Clears the object by setting all attributes to their initial values.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSmall clear() {
+&nbsp;    initBits = 0x3L;
+&nbsp;    first = 0;
+&nbsp;    second = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.Small} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableSmall from(Companion.Small instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance instanceof ModifiableSmall) {
+&nbsp;      from((ModifiableSmall) instance);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;    setFirst(instance.first());
+&nbsp;    setSecond(instance.second());
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Fill this modifiable instance with attribute values from the provided {@link Companion.Small} instance.
+&nbsp;   * Regular attribute values will be overridden, i.e. replaced with ones of an instance.
+&nbsp;   * Any of the instance&#39;s absent optional values will not be copied (will not override current values).
+&nbsp;   * @param instance The instance from which to copy values
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  public ModifiableSmall from(ModifiableSmall instance) {
+&nbsp;    Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;    if (instance.firstIsSet()) {
+&nbsp;      setFirst(instance.first());
+&nbsp;    }
+&nbsp;    if (instance.secondIsSet()) {
+&nbsp;      setSecond(instance.second());
+&nbsp;    }
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code first} attribute.
+&nbsp;   * @param first The value for first
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSmall setFirst(int first) {
+&nbsp;    this.first = first;
+&nbsp;    initBits &amp;= ~INIT_BIT_FIRST;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Assigns a value to the {@code second} attribute.
+&nbsp;   * @param second The value for second
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public ModifiableSmall setSecond(String second) {
+&nbsp;    this.second = Objects.requireNonNull(second, &quot;second&quot;);
+&nbsp;    initBits &amp;= ~INIT_BIT_SECOND;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code first} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean firstIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_FIRST) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if the required attribute {@code second} is set.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean secondIsSet() {
+&nbsp;    return (initBits &amp; INIT_BIT_SECOND) == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableSmall unsetFirst() {
+&nbsp;    initBits |= INIT_BIT_FIRST;
+&nbsp;    first = 0;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Reset an attribute to its initial value.
+&nbsp;   * @return {@code this} for use in a chained invocation
+&nbsp;   */
+&nbsp;  @CanIgnoreReturnValue
+&nbsp;  public final ModifiableSmall unsetSecond() {
+&nbsp;    initBits |= INIT_BIT_SECOND;
+&nbsp;    second = null;
+&nbsp;    return this;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Returns {@code true} if all required attributes are set, indicating that the object is initialized.
+&nbsp;   * @return {@code true} if set
+&nbsp;   */
+&nbsp;  public final boolean isInitialized() {
+&nbsp;    return initBits == 0;
+&nbsp;  }
+&nbsp;
+&nbsp;  private void checkRequiredAttributes() {
+&nbsp;    if (!isInitialized()) {
+&nbsp;      throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;    }
+&nbsp;  }
+&nbsp;
+&nbsp;  private String formatRequiredAttributesMessage() {
+&nbsp;    List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;    if (!firstIsSet()) attributes.add(&quot;first&quot;);
+&nbsp;    if (!secondIsSet()) attributes.add(&quot;second&quot;);
+&nbsp;    return &quot;Small is not initialized, some of the required attributes are not set &quot; + attributes;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ModifiableSmall} that have equal attribute values.
+&nbsp;   * An uninitialized instance is equal only to itself.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    if (!(another instanceof ModifiableSmall)) return false;
+&nbsp;    ModifiableSmall other = (ModifiableSmall) another;
+&nbsp;    if (!isInitialized() || !other.isInitialized()) {
+&nbsp;      return false;
+&nbsp;    }
+&nbsp;    return equalTo(other);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(ModifiableSmall another) {
+&nbsp;    return first == another.first
+&nbsp;        &amp;&amp; second.equals(another.second);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code first}, {@code second}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + first;
+&nbsp;    h += (h &lt;&lt; 5) + second.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Generates a string representation of this {@code Small}.
+&nbsp;   * If uninitialized, some attribute values may appear as question marks.
+&nbsp;   * @return A string representation
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;ModifiableSmall&quot;)
+&nbsp;        .add(&quot;first&quot;, firstIsSet() ? first() : &quot;?&quot;)
+&nbsp;        .add(&quot;second&quot;, secondIsSet() ? second() : &quot;?&quot;)
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>

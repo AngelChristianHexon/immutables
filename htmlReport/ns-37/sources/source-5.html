@@ -1,0 +1,436 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > ImmutableBb</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.immutables.fixture.routine</a>
+</div>
+
+<h1>Coverage Summary for Class: ImmutableBb (org.immutables.fixture.routine)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">ImmutableBb$Builder</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.immutables.fixture.routine;
+&nbsp;
+&nbsp;import com.google.common.base.MoreObjects;
+&nbsp;import com.google.common.base.Optional;
+&nbsp;import com.google.errorprone.annotations.CanIgnoreReturnValue;
+&nbsp;import com.google.errorprone.annotations.Var;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Objects;
+&nbsp;import javax.annotation.CheckReturnValue;
+&nbsp;import javax.annotation.Nullable;
+&nbsp;import javax.annotation.ParametersAreNonnullByDefault;
+&nbsp;import javax.annotation.concurrent.Immutable;
+&nbsp;import javax.annotation.concurrent.NotThreadSafe;
+&nbsp;import org.immutables.value.Generated;
+&nbsp;import static org.immutables.fixture.routine.Defaults.immutableCopyOf;
+&nbsp;import static org.immutables.fixture.routine.Routines.immutableCopyOf;
+&nbsp;
+&nbsp;/**
+&nbsp; * Immutable implementation of {@link Bb}.
+&nbsp; * &lt;p&gt;
+&nbsp; * Use the builder to create immutable instances:
+&nbsp; * {@code ImmutableBb.builder()}.
+&nbsp; */
+&nbsp;@Generated(from = &quot;Bb&quot;, generator = &quot;Immutables&quot;)
+&nbsp;@SuppressWarnings({&quot;all&quot;})
+&nbsp;@ParametersAreNonnullByDefault
+&nbsp;@javax.annotation.processing.Generated(&quot;org.immutables.processor.ProxyProcessor&quot;)
+&nbsp;@Immutable
+&nbsp;@CheckReturnValue
+&nbsp;public final class ImmutableBb implements Bb {
+&nbsp;  private final Aa aa;
+&nbsp;  private final Bb bb;
+&nbsp;  private final @Nullable Bb zz;
+&nbsp;  private final Optional&lt;List&lt;String&gt;&gt; uu;
+&nbsp;
+&nbsp;  private ImmutableBb(
+&nbsp;      Aa aa,
+&nbsp;      Bb bb,
+&nbsp;      @Nullable Bb zz,
+&nbsp;      Optional&lt;List&lt;String&gt;&gt; uu) {
+&nbsp;    this.aa = aa;
+&nbsp;    this.bb = bb;
+&nbsp;    this.zz = zz;
+&nbsp;    this.uu = uu;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code aa} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Aa aa() {
+&nbsp;    return aa;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code bb} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Bb bb() {
+&nbsp;    return bb;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code zz} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public java.util.Optional&lt;Bb&gt; zz() {
+&nbsp;    return java.util.Optional.ofNullable(zz);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * @return The value of the {@code uu} attribute
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public Optional&lt;List&lt;String&gt;&gt; uu() {
+&nbsp;    return uu;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bb#aa() aa} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for aa
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBb withAa(Aa value) {
+&nbsp;    if (this.aa == value) return this;
+&nbsp;    Aa newValue = immutableCopyOf(Objects.requireNonNull(value, &quot;aa&quot;));
+&nbsp;    return new ImmutableBb(newValue, this.bb, this.zz, this.uu);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a value for the {@link Bb#bb() bb} attribute.
+&nbsp;   * A shallow reference equality check is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param value A new value for bb
+&nbsp;   * @return A modified copy of the {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBb withBb(Bb value) {
+&nbsp;    if (this.bb == value) return this;
+&nbsp;    Bb newValue = immutableCopyOf(Objects.requireNonNull(value, &quot;bb&quot;));
+&nbsp;    return new ImmutableBb(this.aa, newValue, this.zz, this.uu);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Bb#zz() zz} attribute.
+&nbsp;   * @param value The value for zz
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBb withZz(Bb value) {
+&nbsp;    Bb newValue = immutableCopyOf(Objects.requireNonNull(value, &quot;zz&quot;));
+&nbsp;    if (this.zz == newValue) return this;
+&nbsp;    return new ImmutableBb(this.aa, this.bb, newValue, this.uu);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Bb#zz() zz} attribute.
+&nbsp;   * A shallow reference equality check is used on unboxed optional value to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for zz
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableBb withZz(java.util.Optional&lt;? extends Bb&gt; optional) {
+&nbsp;    @Nullable Bb value = immutableCopyOf(optional.orElse(null));
+&nbsp;    if (this.zz == value) return this;
+&nbsp;    return new ImmutableBb(this.aa, this.bb, value, this.uu);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting a &lt;i&gt;present&lt;/i&gt; value for the optional {@link Bb#uu() uu} attribute.
+&nbsp;   * @param value The value for uu
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  public final ImmutableBb withUu(List&lt;String&gt; value) {
+&nbsp;    Optional&lt;List&lt;String&gt;&gt; newValue = Optional.of(immutableCopyOf(value));
+&nbsp;    if (this.uu.isPresent() &amp;&amp; this.uu.get() == value) return this;
+&nbsp;    return new ImmutableBb(this.aa, this.bb, this.zz, newValue);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Copy the current immutable object by setting an optional value for the {@link Bb#uu() uu} attribute.
+&nbsp;   * A shallow reference equality check on the optional value is used to prevent copying of the same value by returning {@code this}.
+&nbsp;   * @param optional A value for uu
+&nbsp;   * @return A modified copy of {@code this} object
+&nbsp;   */
+&nbsp;  @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;  public final ImmutableBb withUu(Optional&lt;? extends List&lt;String&gt;&gt; optional) {
+&nbsp;    Optional&lt;List&lt;String&gt;&gt; value = (Optional&lt;List&lt;String&gt;&gt;) immutableCopyOf(optional);
+&nbsp;    if (!this.uu.isPresent() &amp;&amp; !value.isPresent()) return this;
+&nbsp;    if (this.uu.isPresent() &amp;&amp; value.isPresent() &amp;&amp; this.uu.get() == value.get()) return this;
+&nbsp;    return new ImmutableBb(this.aa, this.bb, this.zz, value);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * This instance is equal to all instances of {@code ImmutableBb} that have equal attribute values.
+&nbsp;   * @return {@code true} if {@code this} is equal to {@code another} instance
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public boolean equals(@Nullable Object another) {
+&nbsp;    if (this == another) return true;
+&nbsp;    return another instanceof ImmutableBb
+&nbsp;        &amp;&amp; equalTo(0, (ImmutableBb) another);
+&nbsp;  }
+&nbsp;
+&nbsp;  private boolean equalTo(int synthetic, ImmutableBb another) {
+&nbsp;    return aa.equals(another.aa)
+&nbsp;        &amp;&amp; bb.equals(another.bb)
+&nbsp;        &amp;&amp; Objects.equals(zz, another.zz)
+&nbsp;        &amp;&amp; uu.equals(another.uu);
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Computes a hash code from attributes: {@code aa}, {@code bb}, {@code zz}, {@code uu}.
+&nbsp;   * @return hashCode value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public int hashCode() {
+&nbsp;    @Var int h = 5381;
+&nbsp;    h += (h &lt;&lt; 5) + aa.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + bb.hashCode();
+&nbsp;    h += (h &lt;&lt; 5) + Objects.hashCode(zz);
+&nbsp;    h += (h &lt;&lt; 5) + uu.hashCode();
+&nbsp;    return h;
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Prints the immutable value {@code Bb} with attribute values.
+&nbsp;   * @return A string representation of the value
+&nbsp;   */
+&nbsp;  @Override
+&nbsp;  public String toString() {
+&nbsp;    return MoreObjects.toStringHelper(&quot;Bb&quot;)
+&nbsp;        .omitNullValues()
+&nbsp;        .add(&quot;aa&quot;, aa)
+&nbsp;        .add(&quot;bb&quot;, bb)
+&nbsp;        .add(&quot;zz&quot;, zz)
+&nbsp;        .add(&quot;uu&quot;, uu.orNull())
+&nbsp;        .toString();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates an immutable copy of a {@link Bb} value.
+&nbsp;   * Uses accessors to get values to initialize the new immutable instance.
+&nbsp;   * If an instance is already immutable, it is returned as is.
+&nbsp;   * @param instance The instance to copy
+&nbsp;   * @return A copied immutable Bb instance
+&nbsp;   */
+&nbsp;  public static ImmutableBb copyOf(Bb instance) {
+&nbsp;    if (instance instanceof ImmutableBb) {
+&nbsp;      return (ImmutableBb) instance;
+&nbsp;    }
+&nbsp;    return ImmutableBb.builder()
+&nbsp;        .from(instance)
+&nbsp;        .build();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Creates a builder for {@link ImmutableBb ImmutableBb}.
+&nbsp;   * &lt;pre&gt;
+&nbsp;   * ImmutableBb.builder()
+&nbsp;   *    .aa(org.immutables.fixture.routine.Aa) // required {@link Bb#aa() aa}
+&nbsp;   *    .bb(org.immutables.fixture.routine.Bb) // required {@link Bb#bb() bb}
+&nbsp;   *    .zz(org.immutables.fixture.routine.Bb) // optional {@link Bb#zz() zz}
+&nbsp;   *    .uu(List&amp;amp;lt;String&amp;amp;gt;) // optional {@link Bb#uu() uu}
+&nbsp;   *    .build();
+&nbsp;   * &lt;/pre&gt;
+&nbsp;   * @return A new ImmutableBb builder
+&nbsp;   */
+&nbsp;  public static ImmutableBb.Builder builder() {
+&nbsp;    return new ImmutableBb.Builder();
+&nbsp;  }
+&nbsp;
+&nbsp;  /**
+&nbsp;   * Builds instances of type {@link ImmutableBb ImmutableBb}.
+&nbsp;   * Initialize attributes and then invoke the {@link #build()} method to create an
+&nbsp;   * immutable instance.
+&nbsp;   * &lt;p&gt;&lt;em&gt;{@code Builder} is not thread-safe and generally should not be stored in a field or collection,
+&nbsp;   * but instead used immediately to create instances.&lt;/em&gt;
+&nbsp;   */
+&nbsp;  @Generated(from = &quot;Bb&quot;, generator = &quot;Immutables&quot;)
+&nbsp;  @NotThreadSafe
+&nbsp;  public static final class Builder {
+&nbsp;    private static final long INIT_BIT_AA = 0x1L;
+&nbsp;    private static final long INIT_BIT_BB = 0x2L;
+&nbsp;    private long initBits = 0x3L;
+&nbsp;
+&nbsp;    private @Nullable Aa aa;
+&nbsp;    private @Nullable Bb bb;
+&nbsp;    private @Nullable Bb zz;
+&nbsp;    private Optional&lt;List&lt;String&gt;&gt; uu = Optional.absent();
+&nbsp;
+&nbsp;    private Builder() {
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Fill a builder with attribute values from the provided {@code Bb} instance.
+&nbsp;     * Regular attribute values will be replaced with those from the given instance.
+&nbsp;     * Absent optional values will not replace present values.
+&nbsp;     * @param instance The instance from which to copy values
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder from(Bb instance) {
+&nbsp;      Objects.requireNonNull(instance, &quot;instance&quot;);
+&nbsp;      aa(instance.aa());
+&nbsp;      bb(instance.bb());
+&nbsp;      java.util.Optional&lt;Bb&gt; zzOptional = instance.zz();
+&nbsp;      if (zzOptional.isPresent()) {
+&nbsp;        zz(zzOptional);
+&nbsp;      }
+&nbsp;      Optional&lt;List&lt;String&gt;&gt; uuOptional = instance.uu();
+&nbsp;      if (uuOptional.isPresent()) {
+&nbsp;        uu(uuOptional);
+&nbsp;      }
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bb#aa() aa} attribute.
+&nbsp;     * @param aa The value for aa 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder aa(Aa aa) {
+&nbsp;      this.aa = immutableCopyOf(Objects.requireNonNull(aa, &quot;aa&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_AA;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the value for the {@link Bb#bb() bb} attribute.
+&nbsp;     * @param bb The value for bb 
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder bb(Bb bb) {
+&nbsp;      this.bb = immutableCopyOf(Objects.requireNonNull(bb, &quot;bb&quot;));
+&nbsp;      initBits &amp;= ~INIT_BIT_BB;
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Bb#zz() zz} to zz.
+&nbsp;     * @param zz The value for zz
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder zz(Bb zz) {
+&nbsp;      this.zz = immutableCopyOf(Objects.requireNonNull(zz, &quot;zz&quot;));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Bb#zz() zz} to zz.
+&nbsp;     * @param zz The value for zz
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder zz(java.util.Optional&lt;? extends Bb&gt; zz) {
+&nbsp;      this.zz = immutableCopyOf(zz.orElse(null));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Bb#uu() uu} to uu.
+&nbsp;     * @param uu The value for uu
+&nbsp;     * @return {@code this} builder for chained invocation
+&nbsp;     */
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder uu(List&lt;String&gt; uu) {
+&nbsp;      this.uu = Optional.of(immutableCopyOf(uu));
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Initializes the optional value {@link Bb#uu() uu} to uu.
+&nbsp;     * @param uu The value for uu
+&nbsp;     * @return {@code this} builder for use in a chained invocation
+&nbsp;     */
+&nbsp;    @SuppressWarnings(&quot;unchecked&quot;) // safe covariant cast
+&nbsp;    @CanIgnoreReturnValue 
+&nbsp;    public final Builder uu(Optional&lt;? extends List&lt;String&gt;&gt; uu) {
+&nbsp;      this.uu = (Optional&lt;List&lt;String&gt;&gt;) immutableCopyOf(uu);
+&nbsp;      return this;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Builds a new {@link ImmutableBb ImmutableBb}.
+&nbsp;     * @return An immutable instance of Bb
+&nbsp;     * @throws java.lang.IllegalStateException if any required attributes are missing
+&nbsp;     */
+&nbsp;    public ImmutableBb build() {
+&nbsp;      if (initBits != 0) {
+&nbsp;        throw new IllegalStateException(formatRequiredAttributesMessage());
+&nbsp;      }
+&nbsp;      return new ImmutableBb(aa, bb, zz, uu);
+&nbsp;    }
+&nbsp;
+&nbsp;    private String formatRequiredAttributesMessage() {
+&nbsp;      List&lt;String&gt; attributes = new ArrayList&lt;&gt;();
+&nbsp;      if ((initBits &amp; INIT_BIT_AA) != 0) attributes.add(&quot;aa&quot;);
+&nbsp;      if ((initBits &amp; INIT_BIT_BB) != 0) attributes.add(&quot;bb&quot;);
+&nbsp;      return &quot;Cannot build Bb, some of required attributes are not set &quot; + attributes;
+&nbsp;    }
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-11-04 15:34</div>
+</div>
+</body>
+</html>
